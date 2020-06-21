@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon node app.js",
-    "start:prod": "node server.js",
+    "start": "if-env NODE_ENV=production && npm run start:prod || concurrently \"nodemon node app.js\" \"npm run client\"",
+    "start:prod": "node app.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && ng serve --open"
   },
