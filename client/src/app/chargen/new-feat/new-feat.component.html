@@ -1,0 +1,19 @@
+<h1>New Feat</h1>
+<div class="ui compact menu" style='margin-right: 12px;'>
+  <div class="ui simple dropdown item" style='min-width: 200px;' >
+    {{selCat}}
+    <i class="dropdown icon" style='position: absolute; right:12px'></i>
+    <div class="menu">
+      <div class="item" *ngFor='let c of categories' (click)='categoryselected($event)'>{{c}}</div>
+    </div>
+  </div>
+</div>
+<div class="ui compact menu">
+    <div class="ui simple dropdown item" >
+      Choose a Feat
+      <i class="dropdown icon"></i>
+      <div class="menu">
+        <div *ngFor='let f of filteredFeats' class="item" [attr.data-value]='f.id' (click)='optionSelected($event)'>{{f.name}}</div>
+      </div>
+    </div>
+</div>

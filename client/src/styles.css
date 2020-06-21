@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+@import "semantic-ui-css/semantic.css";
+
+.row{
+  margin-bottom:32px;
+}
+.is-danger{color:red}
+.help{font-size:12px}
+.pointer{cursor:pointer;}
+.icon{
+  cursor:pointer;
+}

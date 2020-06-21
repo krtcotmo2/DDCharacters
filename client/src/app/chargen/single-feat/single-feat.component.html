@@ -1,0 +1,19 @@
+<div class="ui grid gridHeader">
+  <div class="three wide column">Feat</div>
+  <div class="thirteen wide column ">Description</div>
+</div>
+<div class="ui grid gridRow" *ngFor='let f of charFeats'>
+  <div class="three wide column">{{f.Feat.name}} <i class="info circle icon pointer" (click)='showPreReq($event)' title='Prerequisites'></i></div>
+  <div class="twelve wide column">
+    <p>{{f.Feat.shortdescription}}</p>
+    <p>{{f.Feat.benefit}}</p>
+  </div>
+  <div class='statMod column one wide'><i class="trash alternate outline icon" title="Delete" (click)='deleteFeat(f.id)'></i></div>
+
+  <div class="sixteen wide column preReq">
+    <div style="margin:12px">
+      <p><i class="arrow circle up icon"></i><strong>Prerequisite:</strong> {{f.Feat.prerequisites || 'None'}}</p>
+      <p style="margin-left: 22px;"><strong>Feat Prerequisite:</strong> {{f.Feat.prerequisitie_feats || 'None'}}</p>
+    </div>
+  </div>
+</div>

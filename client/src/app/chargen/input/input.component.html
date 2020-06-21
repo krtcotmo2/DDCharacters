@@ -1,0 +1,16 @@
+<label class='label' [ngClass]="{'is-danger':isErrored()}">{{label}}:</label>
+<div class='control col-md-4 m-b-3 p-0'>
+  <input [formControl]="control"
+  class='input form-control'
+  [ngClass]="{'is-danger':isErrored()}"
+  [placeholder]="placeHolder"
+  [readonly]="isReadOnly ? true : null" />
+</div>
+<ng-container *ngIf="isErrored()">
+  <div class='help is-danger' *ngIf="control.errors.required">Value is required</div>
+  <div class='help is-danger' *ngIf="control.errors.minlength">Min 5 letters</div>
+  <div class='help is-danger' *ngIf="control.errors.maxlength">Max five letters</div>
+  <div class='help is-danger' *ngIf="control.errors.pattern && val==='num'">Invalid card number format - EX xxxx-xxxx-xxxx-xxxx</div>
+  <div class='help is-danger' *ngIf="control.errors.pattern && val==='exp'">Invalid expiration date - use MM/YY format</div>
+  <div class='help is-danger' *ngIf="control.errors.pattern && val==='sec' && checkNum(control.value)">Invalid security code</div>
+</ng-container>

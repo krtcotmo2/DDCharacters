@@ -1,0 +1,18 @@
+.statMod{
+  position: relative;
+  top: -60px;
+  left: 28px;
+}
+.column.breakdown{
+  overflow: hidden;
+  max-height:0px;
+  font-weight: normal;
+  background-color: #ccc;
+  padding:0px !important;
+  transition: 0.5s;
+}
+
+.column.breakdown.expanded{
+  max-height:600px;
+  transition: 0.5s;
+}

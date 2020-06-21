@@ -1,0 +1,20 @@
+<h1>Skills<button (click)='addNewSkill()' class='mini ui primary button labeled icon' style='vertical-align: text-bottom; margin-left:12px'>
+  <i class="plus square outline icon"></i>
+  Add Skill
+</button></h1>
+<div class="ui grid gridHeader">
+  <div class="two wide column">Name</div>
+  <div class="two wide column centered aligned ">Score</div>
+  <div class="twelve wide column">Description</div>
+</div>
+<div *ngFor='let sk of grpSkils' class="ui grid gridRow" >
+  <span class='stat two wide column'>{{sk.skillName}}</span>
+  <span class='statVal column two wide'>{{sk.score}}<i class="info circle icon pointer" (click)='showBreakDown($event)' title='Breakdown'></i></span>
+  <span class='statVal column eleven wide'>{{sk.skillDesc}}</span>
+  <span class='statMod column one wide'><i class="edit icon pointer" title="Edit" (click)='editSkill(sk.id)'></i></span>
+  <div class="sixteen wide column breakdown ui grid" style="margin-left: 0px;">
+    <div *ngFor='let st of sk.breakdown'>
+      <div  style='margin:12px 6px;' >{{st.score}} - {{st.desc}}</div>
+    </div>
+  </div>
+</div>

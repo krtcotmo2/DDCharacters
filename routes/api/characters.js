@@ -1,0 +1,71 @@
+const router = require("express").Router();
+const bodyParser = require('body-parser').json();
+const characterController = require("../../controllers/characterCotroller");
+
+//route for /api/characters/all
+router.route("/all").get(characterController.getCharacters);
+
+//route for /api/characters/feats/#
+router.route('/feats/:id').get(characterController.getAllFeatsForChar);
+
+
+//route for /api/characters/skills/#
+router.route('/skills/:id').get(characterController.getAllSkillsForChar);
+
+
+//updateSkill
+router.post('/updateSkill', bodyParser, characterController.createUpdateSkill);
+
+
+//deleteSKill
+router.delete('/deleteSkill/:id', bodyParser, characterController.deleteSkill);
+
+
+//route for /api/characters/saves/#
+router.route('/saves/:id').get(characterController.getAllSavesForChar);
+
+
+//updateSave
+//router.route('/updateSave').post(characterController.updateSkill);
+router.post('/updateSave', bodyParser, characterController.createUpdateSave);
+
+//deleteSave
+router.delete('/deleteSave/:id', bodyParser, characterController.deleteSave);
+
+//updateStat
+router.post('/updateStat', bodyParser, characterController.createUpdateStat);
+
+//deleteStat
+router.delete('/deleteStat/:id', bodyParser, characterController.deleteStat);
+
+//route for /api/characters/equip/#
+router.route('/equip/:id').get(characterController.getAllEquipForChar);
+
+//route for /api/characters/equip/add
+router.post('/equip/add', bodyParser, characterController.createEquip );
+
+//deleteEquip
+router.delete('/deleteequip/:id', bodyParser, characterController.deleteEquip);
+
+//route for /api/characters/#
+router.route('/:id').get(characterController.getBaseForChar);
+
+//route for /api/characters/toHits/#
+router.route('/toHits/:id').get(characterController.getAllToHitsForChar);
+
+//updateToHit
+router.post('/updateToHit', bodyParser, characterController.createUpdateToHits);
+
+//deleteToHit
+router.delete('/deleteToHit/:id', bodyParser, characterController.deleteToHit);
+
+//route for /api/characters/ac/#
+router.route('/ac/:id').get(characterController.getAllACForChar);
+
+//updateAC
+router.post('/ac', bodyParser, characterController.createUpdateAC);
+
+//deleteAC
+router.delete('/deleteAC/:id', bodyParser, characterController.deleteAC);
+
+module.exports = router;

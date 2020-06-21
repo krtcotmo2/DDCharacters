@@ -1,0 +1,24 @@
+<h1>To Hits<button  (click)='editToHit(0)' class='mini ui primary button labeled icon' style='vertical-align: text-bottom; margin-left:12px'>
+  <i class="plus square outline icon"></i>
+  Add New To Hit
+</button><span class='ui input' style='font-size:1rem; margin-left:24px; width:33%' ><input type='text' name='filter' [value]='filterText' placeholder="Filter - type in value" (input)='filterList($event)' /></span></h1>
+<div class="ui grid gridHeader">
+  <div class="six wide column">Attack</div>
+  <div class="one wide column">Score</div>
+  <div class="three wide column">Damage</div>
+  <div class="two wide column">Crit Range</div>
+  <div class="three wide column">Crit Damage</div>
+</div>
+<div *ngFor='let th of grpHits' class="ui grid gridRow" >
+  <span class='stat six wide column'>{{th.toHitDesc}}<i class="info circle icon pointer" (click)='showBreakDown($event)' title='Breakdown'></i><i class="edit icon pointer" title="Edit Weapon Data" (click)='editToHit(th.id)'></i></span>
+  <span class='statVal column one wide'>{{th.score}}</span>
+  <span class='statVal column three wide'>{{th.damage}}</span>
+  <span class='statMod column two wide'>{{th.critRange}}</span>
+  <span class='statVal column three wide'>{{th.critDamage}}</span>
+  <span class='statMod column one wide'><i class="edit icon pointer" title="Edit to Hit Modifiers" (click)='editToHitMod(th.id)'></i></span>
+  <div class="sixteen wide column breakdown ui grid" style="margin-left: 0px;">
+    <div *ngFor='let th of th.breakdown'>
+      <div  style='margin:12px 6px;' >{{th.score}} - {{th.desc}}</div>
+    </div>
+  </div>
+</div>

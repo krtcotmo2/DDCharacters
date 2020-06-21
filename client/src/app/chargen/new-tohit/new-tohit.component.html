@@ -1,0 +1,23 @@
+<h1>To Hits</h1>
+<form #modForm='ngForm' (ngSubmit)='onSubmit($event)'>
+  <div #formRoot>
+    <div class="ui grid gridHeader">
+      <div class="seven wide column">Description*</div>
+      <div class="three wide column">Damage</div>
+      <div class="three wide column">Crit Range</div>
+      <div class="three wide column">Crit Damage</div>
+    </div>
+    <div class="ui grid gridRow">
+      <div class="seven wide column ui input"><input type='text' [(ngModel)]='attribute["ToHit"]["toHitDesc"]' name='desc' class='scoreInput'></div>
+      <div class="three wide column ui input"><input type='text' [(ngModel)]='attribute["ToHit"]["damage"]' name='damage' class='scoreInput'></div>
+      <div class="three wide column ui input"><input type='text' [(ngModel)]='attribute["ToHit"]["critRange"]' name='critRange' class='scoreInput'></div>
+      <div class="three wide column ui input"> <input type='text' [(ngModel)]='attribute["ToHit"]["critDamage"]' name='critDamage' class='scoreInput'></div>
+      <div class="sixteen wide column footnote">*input can not begin with special charaters such as +, &, %, etc.</div>
+    </div>
+    <div class="container" style='text-align: center; margin-top:24px'>
+      <button class='ui primary button' type="submit">Save</button>
+      <button class='ui yellow button' type="button" style="margin-left:24px" (click)='onCancel()' >Cancel</button>
+    </div>
+  </div>
+</form>
+

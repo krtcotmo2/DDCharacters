@@ -1,0 +1,82 @@
+<form [formGroup]='charForm' (ngSubmit)='onSubmit()'>
+  <div class="container">
+    <app-input [control]="charForm.get('charName')" placeHolder='Lord Benedryl' label='Character Name' [isReadOnly]='isReadOnly'></app-input>
+    <ng-container *ngIf='isNew'>
+      <div class="col-md-4 m-b-3 p-0">
+        <label class='label'>Race:</label>
+        <select [formControl]="charForm.get('charRace')"  class="browser-default custom-select">
+          <option class='p-3' value=''>Select a Race</option>
+          <option class='p-3' *ngFor='let r of races' value='r.rceID'>{{r.raceDesc}}</option>
+        </select>
+        <ng-container *ngIf="charForm.get('charRace').errors && charForm.get('charRace').dirty && charForm.get('charRace').touched">
+          <div class='help is-danger' *ngIf="charForm.get('charRace').errors.required">Value is required</div>
+        </ng-container>
+      </div>
+      <div class="col-md-4 m-b-3 p-0">
+        <label class='label'>Class:</label>
+        <select [formControl]="charForm.get('classes')"  class="browser-default custom-select">
+          <option class='p-3' value=''>Select a Class</option>
+          <option class='p-3' *ngFor='let c of classes' value='r.rceID'>{{c.className}}</option>
+        </select>
+        <ng-container *ngIf="charForm.get('classes').errors && charForm.get('classes').dirty && charForm.get('classes').touched">
+          <div class='help is-danger' *ngIf="charForm.get('classes').errors.required">Value is required</div>
+        </ng-container>
+      </div>
+    </ng-container>
+    <ng-container *ngIf='!isNew'>
+      <div class="ui two column grid">
+        <div class="column">
+          <div class="ui">
+            <div class="m-b-3 p-0">
+              <app-input [control]="charForm.get('charRace')" label='Race' [isReadOnly]='isReadOnly'></app-input>
+              <ng-container *ngIf="charForm.get('charRace').errors && charForm.get('charRace').dirty && charForm.get('charRace').touched">
+                <div class='help is-danger' *ngIf="charForm.get('charRace').errors.required">Value is required</div>
+              </ng-container>
+            </div>
+            <label class='label'>Class(es):</label>
+            <ng-container *ngFor='let c of charBasic.results.CharLevels'>
+              <p><strong>{{c['CharClass']['className']}}:</strong> {{c.classLevel}}</p>
+            </ng-container>
+            <div class="m-b-3 p-0">
+              <app-input [control]="charForm.get('charAlign')" label='Alignment' [isReadOnly]='isReadOnly'></app-input>
+              <ng-container *ngIf="charForm.get('charAlign').errors && charForm.get('classes').dirty && charForm.get('charAlign').touched">
+                <div class='help is-danger' *ngIf="charForm.get('charAlign').errors.required">Value is required</div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui">
+            <div class="m-b-3 p-0">
+              <app-input [control]="charForm.get('charHP')" label='HP' [isReadOnly]='isReadOnly'></app-input>
+              <ng-container *ngIf="charForm.get('charHP').errors && charForm.get('charHP').dirty && charForm.get('charHP').touched">
+                <div class='help is-danger' *ngIf="charForm.get('charHP').errors.required">Value is required</div>
+              </ng-container>
+            </div>
+          </div>
+          <div class="ui">
+            <div class="m-b-3 p-0">
+              <app-input [control]="charForm.get('charAC')" label='AC' [isReadOnly]='isReadOnly'></app-input>
+              <span class='statMod'><i class="info circle icon pointer" title="Breakdown" (click)='showBreakDown($event)'></i></span>
+              <span class='statMod'><i class="edit icon pointer" title="Edit" (click)='editAC(charID)'></i></span>
+              <ng-container *ngIf="charForm.get('charAC').errors && charForm.get('charAC').dirty && charForm.get('charAC').touched">
+                <div class='help is-danger' *ngIf="charForm.get('charAC').errors.required">Value is required</div>
+              </ng-container>
+              <div class="sixteen wide column breakdown ui" style="margin-left: 0px;">
+                <div *ngFor='let st of acs["results"]'>
+                  <div  style='margin:12px' >{{st.score}}:  {{st.modDesc === '' ? 'Base' : st.modDesc}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </ng-container>
+  </div>
+  <div class="container" style='text-align: center; margin-top:24px'>
+    <button class='ui primary button' type="submit"  >Submit</button>
+    <button class='ui yellow button' type="button" style="margin-left:24px" >Reset</button>
+  </div>
+</form>
+

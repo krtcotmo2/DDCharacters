@@ -1,0 +1,284 @@
+import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
+import { CharDataService } from '../../services/char-data.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import _ from 'lodash';
+import {Stats, Saves} from '../../helpers/enum';
+
+@Component({
+  selector: 'app-char-mod',
+  templateUrl: './char-mod.component.html',
+  styleUrls: ['./char-mod.component.css']
+})
+export class CharModComponent implements OnInit {
+  modForm;
+  charID: number;
+  partID = _.last(this.router.url.split('/'));
+  attribute = []
+  numChanged = 0;
+  numFinished = 0;
+  modType = this.getTypeOfMod();
+  modName: string;
+  mainTitle: string;
+  scoreParts = [];
+  theStats;
+  theFeats;
+  theSkills;
+  theSaves;
+  theToHits;
+  theACs;
+
+  constructor(private charDataSvc: CharDataService,
+              private router: Router,
+              private http: HttpClient ) { }
+
+  ngOnInit(): void {
+    this.charDataSvc.getCharID.subscribe( (val) => this.charID = val);
+    if (this.charID === 0){
+      this.router.navigate(['/charGen']);
+    }
+    switch (this.modType){
+      case 'skill':
+        this.charDataSvc.getAllSkills.subscribe( (val) => this.theSkills = val);
+        this.attribute = this.theSkills.results.filter(arg => arg.skillID.toString() === this.partID);
+        break;
+      case 'stat':
+        this.charDataSvc.getAllStats.subscribe( (val) => this.theStats = val);
+        this.attribute = this.theStats.results.filter(arg => arg.statID.toString() === this.partID);
+        break;
+      case 'feat':
+        this.charDataSvc.getAllFeats.subscribe( (val) => this.theFeats = val);
+        break;
+      case 'tohit':
+        this.charDataSvc.getAllToHits.subscribe( (val) => this.theToHits = val);
+        this.attribute = this.theToHits.results.filter(arg => arg.toHitID.toString() === this.partID);
+        break;
+      case 'save':
+        this.charDataSvc.getAllSaves.subscribe( (val) => this.theSaves = val);
+        this.attribute = this.theSaves.results.filter(arg => arg.saveID.toString() === this.partID);
+        break;
+      case 'ac':
+        this.charDataSvc.getAllACs.subscribe( (val) => {
+          this.theACs = val;
+          this.attribute = this.theACs.results.filter(arg => arg.charID=== this.charID);
+          console.log(val)
+        });
+        break;
+      default:
+        this.router.navigate(['/charGen']);
+      }
+    if (this.modType === 'skill'){
+        this.attribute.sort(
+          function (a,b) {
+            if (a.isClassSkill && b.isRanks){
+              return 1
+            } else if (b.isClassSkill && a.isRanks){
+              return -1;
+            } else if (a.isClassSkill ){
+              return -1;
+
+            } else {
+              return 1;
+            }
+          })
+      }
+
+    this.modName = this.getModName(this.attribute[0]);
+    this.mainTitle = this.modType === 'skill' ? 'Ranks' : 'Base';
+  }
+  addMod = (evt) => {
+    this.attribute.push({id: 0, score: '', modDesc: '', isMod: true, isRanks: false, isBase: false})
+    evt.target.classList.add('disabled')
+  }
+  onSubmit = (evt) => {
+    evt.preventDefault();
+    console.log(this.theStats, this.attribute)
+    this.numChanged = 0;
+    this.numFinished = 0;
+    for (let a of this.attribute){
+      // tslint:disable:no-string-literal
+      // tslint:disable:max-line-length
+      const score = document.getElementsByName('score' + a.id);
+      const desc = document.getElementsByName('desc' + a.id);
+      const statChanged = a.score.toString() !== score[0]['value'];
+      const baseChecked = document.getElementsByName('stat' + a.id);
+      const descChnaged = (a.modDesc !== null && a.modDesc !== desc[0]['value'].trim()) || (a.modDesc === null && desc[0]['value'].trim() !== '');
+      if (statChanged || descChnaged){
+        this.numChanged++;
+        console.log('item ' + a.id + ' has changed', a, score[0]['value'], desc[0]['value']);
+        let attrObj = {
+          id: a.id,
+          score: parseInt(score[0]['value'], 10),
+          modDesc: desc[0]['value'].trim(),
+          statID: parseInt(this.partID, 10),
+          charID:  this.charID,
+          isBase: baseChecked[0]['checked'],
+          isMod: baseChecked[1]['checked'],
+          isClassSkill: baseChecked[2] === undefined ? false :  baseChecked[2]['checked'],
+        }
+        this.charDataSvc.updateAttribute(this.modType, attrObj).subscribe( val => {
+          let list = '';
+          console.log('val', val);
+          switch(this.modType){
+            case 'skill':
+              list = 'theSkills';
+              break;
+            case 'stat':
+              list = 'theStats';
+              break;
+            case 'save':
+              list = 'theSaves';
+              break;
+            case 'ac':
+              list = 'theACs';
+              break;
+            case 'tohit':
+              list = 'theToHits';
+              break;
+            default:
+              break;
+          }
+          if (a.id === 0){
+            this[list].results.push(a);
+          }
+          this[list].results = this[list].results.map(li => {
+            if (li.id === 0 || li.id === val.results.id){
+              li = {...val.results};
+              this.numFinished++;
+            }
+            return li;
+          })
+
+          try{
+            switch(this.modType){
+              case 'skill':
+                this.charDataSvc.setAllSkills(this.theSkills);
+                break;
+              case 'stat':
+                this.charDataSvc.setStats(this.theStats);
+                break;
+              case 'save':
+                this.charDataSvc.setSaves(this.theSaves);
+                break;
+              case 'ac':
+                this.charDataSvc.setAllACs(this.theACs);
+                break;
+              case 'tohit':
+                this.charDataSvc.setAllToHits(this.theToHits);
+                break;
+              default:
+                break;
+            }
+          } catch (err){
+            console.log(err);
+            throw new Error("did not save")
+          } finally {
+            if (this.numChanged === this.numFinished){
+              if(this.modType === 'ac'){
+                this.router.navigate(['/charGen']);
+                return;
+              }
+              this.router.navigate(['/charGen/' + this.modType + 's']);
+            }
+          }
+
+        });
+      }
+    }
+
+  }
+  onCancel = () => {
+    switch(this.modType){
+      case 'skill':
+        this.router.navigate(['/charGen/skills']);
+        break;
+      case 'stat':
+        this.router.navigate(['/charGen/stats']);
+        break;
+      case 'feat':
+        this.router.navigate(['/charGen/stats']);
+        break;
+      case 'tohit':
+        this.router.navigate(['/charGen/tohits']);
+        break;
+      case 'save':
+          this.router.navigate(['/charGen/saves']);
+          break;
+      case 'ac':
+        this.router.navigate(['/charGen']);
+        break;
+      default:
+        this.router.navigate(['/charGen']);
+    }
+  }
+  deleteAttribute = (arg) =>{
+    this.charDataSvc.deleteAttribute(this.modType, parseInt(arg, 10)).subscribe( val => {
+      try{
+        switch (this.modType){
+          case 'skill':
+            this.theSkills = this.theSkills.results.filter(li => li.id !== parseInt(arg, 10));
+            this.charDataSvc.setAllSkills(this.theSkills);
+            break;
+          case 'stat':
+            this.theStats = this.theStats.results.filter(li => li.id !== parseInt(arg, 10));
+            this.charDataSvc.setStats(this.theStats);
+            break;
+          case 'save':
+            this.theSaves = this.theSaves.results.filter(li => li.id !== parseInt(arg, 10));
+            this.charDataSvc.setSaves(this.theSaves);
+            break;
+          case 'ac':
+            this.theACs.results = this.theACs.results.filter(li => li.id !== parseInt(arg, 10));
+            this.charDataSvc.setAllACs(this.theACs);
+            break;
+          case 'tohit':
+            this.theToHits = this.theToHits.results.filter(li => li.id !== parseInt(arg, 10));
+            this.charDataSvc.setAllToHits(this.theToHits);
+            break;
+          default:
+            break;
+        }
+      } catch (err){
+      } finally {
+        if(this.modType === 'ac'){
+          this.router.navigate(['/charGen']);
+          return;
+        }
+        this.router.navigate(['/charGen/' + this.modType + 's']);
+      }
+
+    });
+  }
+  setInputName = (prefix: string, id: string) => {
+    return prefix + id;
+  }
+  getTypeOfMod(){
+    if (this.router.url.includes('stat')){
+      return 'stat';
+    } else if (this.router.url.includes('skill')){
+      return 'skill';
+    } else if (this.router.url.includes('feat')){
+      return 'feat';
+    } else if (this.router.url.includes('save')){
+      return 'save';
+    } else if (this.router.url.includes('ac')){
+      return 'ac';
+    } else if (this.router.url.includes('tohit')){
+        return 'tohit';
+    }
+  }
+  getModName(obj){
+    if (this.modType.toLowerCase() === 'save'){
+      return Saves[parseInt(this.partID, 10)];
+    } else if (this.modType.toLowerCase() === 'skill') {
+      return obj.Skill.skillName;
+    } else if (this.modType.toLowerCase() === 'stat'){
+      return Stats[parseInt(this.partID, 10)];
+    } else if (this.modType.toLowerCase() === 'ac'){
+      return 'AC';
+   }
+  }
+  getBaseBinding(ranks, base){
+    return ranks !== undefined ? ranks : base;
+  }
+}

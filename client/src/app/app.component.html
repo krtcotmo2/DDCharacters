@@ -1,0 +1,9 @@
+<div class="content" role="main">
+  <div class="ui secondary pointing menu">
+    <a routerLink='' class="item" routerLinkActive='active' [routerLinkActiveOptions]="{exact:true}">Home</a>
+    <a routerLink='charLoad' class="item" routerLinkActive='active' [routerLinkActiveOptions]="{exact:true}">Load Character</a>
+    <a (click)='setNew()' routerLink='charGen' routerLinkActive='active' class="item" >Character</a>
+  </div>
+<div class="ui segment container">
+  <router-outlet></router-outlet>
+</div>

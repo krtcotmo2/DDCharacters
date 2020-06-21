@@ -1,0 +1,27 @@
+<h1>Equipment
+  <button class='mini ui primary button labeled icon' style='vertical-align: text-bottom; margin-left:12px' *ngIf='!gatherNewInfo' (click)='toggleForm()'>
+    <i class="plus square outline icon"></i>
+    Add Equipment
+  </button>
+  <form style='display:inline-block; font-size:14px' #equipForm='ngForm' (ngSubmit)='onSubmit($event)' *ngIf='gatherNewInfo'>
+    <input type='text' class='equipInput' placeholder="Item"  [(ngModel)]='equip' name="equip">
+    <input type='number' class='weightInput' placeholder="Weight"   [(ngModel)]='wt' name="wt" step='0.1'>
+    <input type='text' class='locInput' placeholder="Location"  [(ngModel)]='loc' name="loc">
+    <button class='mini ui primary button'>Submit</button>
+  </form>
+</h1>
+<table class="ui selectable celled table striped">
+  <thead>
+    <tr><th>Item</th>
+    <th>Weight</th>
+    <th colspan="2">Location</th>
+  </tr></thead>
+  <tbody>
+    <tr *ngFor='let e of allEquip.results'>
+      <td data-label="Name">{{e.equip}}</td>
+      <td data-label="Class">{{e.weight}}</td>
+      <td data-label="Level">{{e.location}}</td>
+      <td data-label="Level" width='30'><i class="trash alternate outline icon" (click)='deleteEquip($event, e.id)'></i></td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,83 @@
+<h1>Stats</h1>
+<p *ngIf='isNew'>
+  <button (click)='rollAll()' class='ui primary button labeled icon'>
+    <i class="icon"><fa-icon [icon]="faDice" style="position: absolute; top:10px; left: 10px;"></fa-icon></i>
+    Roll All
+  </button>
+  <button (click)='reset()' class='ui yellow button labeled icon'>
+    <i class="window close icon white" style='color:white'></i>
+    Reset
+  </button>
+</p>
+<div class="ui grid gridHeader">
+  <div class="one wide column">Stat</div>
+  <div class="two wide column right aligned ">Score</div>
+  <div class="thirteen wide column">Description</div>
+</div>
+<div class="ui grid gridRow" >
+  <span class='stat column one wide'>{{statType[1]}}</span>
+  <span class='statVal column two wide'>{{processStats(1) === 0 ? '': processStats(1)}}<i class="info circle icon pointer" (click)='showBreakDown($event)' title='Breakdown'></i></span>
+  <span class='statMod column twelve wide'>{{processModified(processStats(1))}} Melee Attack and Damage and Str based skill checks</span>
+  <span class='statMod column one wide'><i class="edit icon pointer" title="Edit" (click)='ediStat(1)'></i></span>
+  <div class="sixteen wide column breakdown ui grid" style="margin-left: 0px;">
+    <div *ngFor='let st of stats'>
+      <div  style='margin:12px 6px;' *ngIf='st.statID===1' [innerHtml]="processBreakDown(st)"></div>
+    </div>
+  </div>
+</div>
+<div class="ui grid gridRow" >
+  <span class='stat column one wide'>{{statType[2]}}</span>
+  <span class='statVal column two wide'>{{processStats(2) === 0 ? '': processStats(2)}}<i class="info circle icon pointer" (click)='showBreakDown($event)' title='Breakdown'></i></span>
+  <span class='statMod column twelve wide'>{{processModified(processStats(2))}} Ranged Attack and AC Bonus and Reflex Save and Dex based skill checks</span>
+  <span class='statMod column one wide'><i class="edit icon pointer" title="Edit" (click)='ediStat(2)'></i></span>
+  <div class="sixteen wide column breakdown ui grid" style="margin-left: 0px;">
+    <div *ngFor='let st of stats'>
+      <div  style='margin:12px 6px;' *ngIf='st.statID===2' [innerHtml]="processBreakDown(st)"></div>
+    </div>
+  </div>
+</div>
+<div class="ui grid gridRow" >
+  <span class='stat column one wide'>{{statType[3]}}</span>
+  <span class='statVal column two wide'>{{processStats(3) === 0 ? '': processStats(3)}}<i class="info circle icon pointer" (click)='showBreakDown($event)' title='Breakdown'></i></span>
+  <span class='statMod column twelve wide'>{{processModified(processStats(3))}} HP and Fort Save and Con based skill checks</span>
+  <span class='statMod column one wide'><i class="edit icon pointer" title="Edit" (click)='ediStat(3)'></i></span>
+  <div class="sixteen wide column breakdown ui grid" style="margin-left: 0px;">
+    <div *ngFor='let st of stats'>
+      <div  style='margin:12px 6px;' *ngIf='st.statID===3' [innerHtml]="processBreakDown(st)"></div>
+    </div>
+  </div>
+</div>
+<div class="ui grid gridRow" >
+  <span class='stat column'>{{statType[4]}}</span>
+  <span class='statVal column two wide'>{{processStats(4) === 0 ? '': processStats(4)}}<i class="info circle icon pointer" (click)='showBreakDown($event)' title='Breakdown'></i></span>
+  <span class='statMod column twelve wide'>{{processModified(processStats(4))}} Skill points and Int based skill checks</span>
+  <span class='statMod column one wide'><i class="edit icon pointer" title="Edit" (click)='ediStat(4)'></i></span>
+  <div class="sixteen wide column breakdown ui grid" style="margin-left: 0px;">
+    <div *ngFor='let st of stats'>
+      <div  style='margin:12px 6px;' *ngIf='st.statID===4' [innerHtml]="processBreakDown(st)"></div>
+    </div>
+  </div>
+</div>
+<div class="ui grid gridRow" >
+  <span class='stat column'>{{statType[5]}}</span>
+  <span class='statVal column two wide'>{{processStats(5) === 0 ? '': processStats(5)}}<i class="info circle icon pointer" (click)='showBreakDown($event)' title='Breakdown'></i></span>
+  <span class='statMod column twelve wide'>{{processModified(processStats(5))}} Will Save and Wis based skill checks</span>
+  <span class='statMod column one wide'><i class="edit icon pointer" title="Edit" (click)='ediStat(5)'></i></span>
+  <div class="sixteen wide column breakdown ui grid" style="margin-left: 0px;">
+    <div *ngFor='let st of stats'>
+      <div  style='margin:12px 6px;' *ngIf='st.statID===5' [innerHtml]="processBreakDown(st)"></div>
+    </div>
+  </div>
+</div>
+<div class="ui grid gridRow" >
+  <span class='stat column'>{{statType[6]}}</span>
+  <span class='statVal column two wide'>{{processStats(6) === 0 ? '': processStats(6)}}<i class="info circle icon pointer" (click)='showBreakDown($event)' title='Breakdown'></i></span>
+  <span class='statMod column twelve wide'>{{processModified(processStats(6))}} Chr based skill checks</span>
+  <span class='statMod column one wide'><i class="edit icon pointer" title="Edit" (click)='ediStat(6)'></i></span>
+  <div class="sixteen wide column breakdown ui grid" style="margin-left: 0px;">
+    <div *ngFor='let st of stats'>
+      <div  style='margin:12px 6px;' *ngIf='st.statID===6' [innerHtml]="processBreakDown(st)"></div>
+    </div>
+  </div>
+</div>
+
