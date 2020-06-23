@@ -89,7 +89,6 @@ export class CharTohitComponent implements OnInit {
       } else {
         r.classList.add('hidden');
       }
-      console.log(aTag)
     }
 
   }

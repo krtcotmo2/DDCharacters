@@ -18,7 +18,7 @@ export class CharFeatsComponent implements OnInit {
     val1: new FormControl('1')
   });
   allFeats = [];
-
+  filterText = '';
 
   constructor(private charSvc: CharService,
     private charDataSvc: CharDataService,
@@ -47,6 +47,19 @@ export class CharFeatsComponent implements OnInit {
   }
   addNewFeat = () => {
     this.router.navigate(['/charGen/mods/newfeat']);
+  }
+  filterList = (evt) => {
+    this.filterText = evt.target.value;
+    const allRows: any = document.getElementsByClassName('ui grid gridRow');
+    for(let r of allRows){
+      const aTag: any = r.getElementsByTagName('div')[0].innerText;
+      const bTag: any = r.getElementsByTagName('div')[1].innerText;
+      if (aTag.toLowerCase().includes(this.filterText.toLowerCase()) || bTag.toLowerCase().includes(this.filterText.toLowerCase())) {
+        r.classList.remove('hidden');
+      } else {
+        r.classList.add('hidden');
+      }
+    }
   }
 
 }

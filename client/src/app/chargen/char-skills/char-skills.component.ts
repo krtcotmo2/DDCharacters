@@ -15,6 +15,7 @@ export class CharSkillsComponent implements OnInit {
   curChar: string;
   allSkills=  [];
   grpSkils = [];
+  filterText = '';
 
   constructor(private charDataSvc: CharDataService,
     private router: Router) { }
@@ -82,5 +83,17 @@ export class CharSkillsComponent implements OnInit {
   }
   addNewSkill = () => {
     this.router.navigate(['/charGen/mods/newskill']);
+  }
+  filterList = (evt) => {
+    this.filterText = evt.target.value;
+    const allRows: any = document.getElementsByClassName('ui grid gridRow');
+    for(let r of allRows){
+      const aTag: any = r.getElementsByTagName('span')[0].innerText;
+      if (aTag.toLowerCase().includes(this.filterText.toLowerCase())) {
+        r.classList.remove('hidden');
+      } else {
+        r.classList.add('hidden');
+      }
+    }
   }
 }
