@@ -84,3 +84,6 @@ button + button{
   margin-top:0px
 }
 
+.hidden{
+  display:none;
+}

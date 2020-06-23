@@ -6,3 +6,6 @@ form input{
   position: relative;
     bottom: 3px;
 }
+.hidden{
+  display:none;
+}
