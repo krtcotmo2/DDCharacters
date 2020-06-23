@@ -15,7 +15,7 @@ export class CharSkillsComponent implements OnInit {
   curChar: string;
   allSkills=  [];
   grpSkils = [];
-  filterText:string;
+  filterText = '';
 
   constructor(private charDataSvc: CharDataService,
     private router: Router) { }
