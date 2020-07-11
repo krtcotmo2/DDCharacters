@@ -93,6 +93,7 @@ export class CharBaseComponent implements OnInit {
     this.charDataSvc.getIsNew.subscribe( (val) => this.isNew = val);
     this.charDataSvc.getIsReadOnly.subscribe( (val) => this.isReadOnly = val);
     this.charDataSvc.getCharID.subscribe( (val) => this.charID = val);
+    console.log('this.isNew', this.isNew)
     if(this.isNew){
       this.raceSvc.getRaces().subscribe( results => {
         this.races = results.results;
@@ -141,6 +142,7 @@ export class CharBaseComponent implements OnInit {
         this.charForm.patchValue( {charAC: this.charAC});
       });
     }
+
   }
 
   onSubmit = () => {
