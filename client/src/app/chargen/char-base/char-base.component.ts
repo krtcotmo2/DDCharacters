@@ -93,7 +93,6 @@ export class CharBaseComponent implements OnInit {
     this.charDataSvc.getIsNew.subscribe( (val) => this.isNew = val);
     this.charDataSvc.getIsReadOnly.subscribe( (val) => this.isReadOnly = val);
     this.charDataSvc.getCharID.subscribe( (val) => this.charID = val);
-    console.log('this.isNew', this.isNew)
     if(this.isNew){
       this.raceSvc.getRaces().subscribe( results => {
         this.races = results.results;
@@ -149,6 +148,10 @@ export class CharBaseComponent implements OnInit {
     console.log(this.charBasic)
   }
 
+  editHP = charID => {
+    console.log('/charGen/mods/hp/' + charID)
+    this.router.navigate(['/charGen/mods/hp/' + charID]);
+  }
   editAC = charID =>{
     this.router.navigate(['/charGen/mods/ac/' + charID]);
   }
