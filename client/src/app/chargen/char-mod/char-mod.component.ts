@@ -27,6 +27,7 @@ export class CharModComponent implements OnInit {
   theSaves;
   theToHits;
   theACs;
+  theCharBasics;
 
   constructor(private charDataSvc: CharDataService,
               private router: Router,
@@ -60,10 +61,15 @@ export class CharModComponent implements OnInit {
       case 'ac':
         this.charDataSvc.getAllACs.subscribe( (val) => {
           this.theACs = val;
-          this.attribute = this.theACs.results.filter(arg => arg.charID=== this.charID);
+          this.attribute = this.theACs.results.filter(arg => arg.charID === this.charID);
           console.log(val)
         });
         break;
+      case 'hp':
+          this.charDataSvc.getCharBasics.subscribe( (val) => this.theCharBasics = val);
+          console.log(this.theCharBasics)
+          this.attribute = [{score:this.theCharBasics.results.charHP}]
+          break;
       default:
         this.router.navigate(['/charGen']);
       }
@@ -207,6 +213,9 @@ export class CharModComponent implements OnInit {
       case 'ac':
         this.router.navigate(['/charGen']);
         break;
+      case 'hp':
+        this.router.navigate(['/charGen']);
+        break;
       default:
         this.router.navigate(['/charGen']);
     }
@@ -263,6 +272,8 @@ export class CharModComponent implements OnInit {
       return 'save';
     } else if (this.router.url.includes('ac')){
       return 'ac';
+    } else if (this.router.url.includes('hp')){
+      return 'hp';
     } else if (this.router.url.includes('tohit')){
         return 'tohit';
     }
@@ -276,7 +287,11 @@ export class CharModComponent implements OnInit {
       return Stats[parseInt(this.partID, 10)];
     } else if (this.modType.toLowerCase() === 'ac'){
       return 'AC';
-   }
+    } else if (this.modType.toLowerCase() === 'hp'){
+      return 'HP';
+    } else {
+     return '';
+    }
   }
   getBaseBinding(ranks, base){
     return ranks !== undefined ? ranks : base;
