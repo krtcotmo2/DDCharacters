@@ -109,6 +109,7 @@ export class CharModComponent implements OnInit {
       const statChanged = a.score.toString() !== score[0]['value'];
       const baseChecked = document.getElementsByName('stat' + a.id);
       const descChnaged = (a.modDesc !== null && a.modDesc !== desc[0]['value'].trim()) || (a.modDesc === null && desc[0]['value'].trim() !== '');
+      console.log('score', score);
       if (statChanged || descChnaged){
         this.numChanged++;
         console.log('item ' + a.id + ' has changed', a, score[0]['value'], desc[0]['value']);
@@ -141,6 +142,8 @@ export class CharModComponent implements OnInit {
             case 'tohit':
               list = 'theToHits';
               break;
+            case 'hp':
+              list = 'theCharBasics';
             default:
               break;
           }
@@ -171,6 +174,9 @@ export class CharModComponent implements OnInit {
                 break;
               case 'tohit':
                 this.charDataSvc.setAllToHits(this.theToHits);
+                break;
+              case 'hp':
+                this.charDataSvc.updateHP(this.charID, this.theCharBasics.charHP);
                 break;
               default:
                 break;
