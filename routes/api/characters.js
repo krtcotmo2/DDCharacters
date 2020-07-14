@@ -8,22 +8,17 @@ router.route("/all").get(characterController.getCharacters);
 //route for /api/characters/feats/#
 router.route('/feats/:id').get(characterController.getAllFeatsForChar);
 
-
 //route for /api/characters/skills/#
 router.route('/skills/:id').get(characterController.getAllSkillsForChar);
-
 
 //updateSkill
 router.post('/updateSkill', bodyParser, characterController.createUpdateSkill);
 
-
 //deleteSKill
 router.delete('/deleteSkill/:id', bodyParser, characterController.deleteSkill);
 
-
 //route for /api/characters/saves/#
 router.route('/saves/:id').get(characterController.getAllSavesForChar);
-
 
 //updateSave
 //router.route('/updateSave').post(characterController.updateSkill);
@@ -52,6 +47,9 @@ router.route('/:id').get(characterController.getBaseForChar);
 
 //route for /api/characters/toHits/#
 router.route('/toHits/:id').get(characterController.getAllToHitsForChar);
+
+//updateHitPoints
+router.post('/updateHP', bodyParser, characterController.updateHP);
 
 //updateToHit
 router.post('/updateToHit', bodyParser, characterController.createUpdateToHits);

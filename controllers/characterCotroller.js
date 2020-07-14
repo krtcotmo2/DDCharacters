@@ -548,4 +548,17 @@ module.exports = {
     });
     res.json({'results': retVal});
   },
+
+  //HP
+  updateHP: async function(req, res){
+    const retVal =  await db.Character.findOne({
+      where:{charID:req.body.charID},
+    })
+    .then(async oneItem => {
+      oneItem.charHP = req.body.charHP;
+      return  true;
+    }).catch(err => {error: err})
+    res.json({'results': retVal});
+
+  },
 };
