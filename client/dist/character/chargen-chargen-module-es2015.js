@@ -28693,7 +28693,11 @@ class CharModComponent {
             case 'hp':
                 this.charDataSvc.getCharBasics.subscribe((val) => this.theCharBasics = val);
                 console.log(this.theCharBasics);
+<<<<<<< HEAD
                 this.attribute = [{ id: this.theCharBasics.charID, score: this.theCharBasics.results.charHP }];
+=======
+                this.attribute = [{ score: this.theCharBasics.results.charHP }];
+>>>>>>> master
                 break;
             default:
                 this.router.navigate(['/charGen']);
