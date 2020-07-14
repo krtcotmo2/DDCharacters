@@ -28490,87 +28490,101 @@ class CharModComponent {
                 const desc = document.getElementsByName('desc' + a.id);
                 const statChanged = a.score.toString() !== score[0]['value'];
                 const baseChecked = document.getElementsByName('stat' + a.id);
-                const descChnaged = (a.modDesc !== null && a.modDesc !== desc[0]['value'].trim()) || (a.modDesc === null && desc[0]['value'].trim() !== '');
+                const descChnaged = (a.modDesc === undefined && desc.length === 0) || (a.modDesc !== null && a.modDesc !== desc[0]['value'].trim()) || (a.modDesc === null && desc[0]['value'].trim() !== '');
+                console.log('score', score);
                 if (statChanged || descChnaged) {
                     this.numChanged++;
-                    console.log('item ' + a.id + ' has changed', a, score[0]['value'], desc[0]['value']);
+                    console.log('item ' + a.id + ' has changed', a, score[0]['value'], desc.length > 0 ? desc[0]['value'] : '');
                     let attrObj = {
                         id: a.id,
                         score: parseInt(score[0]['value'], 10),
-                        modDesc: desc[0]['value'].trim(),
+                        modDesc: desc.length > 0 ? desc[0]['value'].trim() : "",
                         statID: parseInt(this.partID, 10),
                         charID: this.charID,
-                        isBase: baseChecked[0]['checked'],
-                        isMod: baseChecked[1]['checked'],
+                        isBase: baseChecked.length > 0 ? baseChecked[0]['checked'] : false,
+                        isMod: baseChecked.length > 1 ? baseChecked[1]['checked'] : false,
                         isClassSkill: baseChecked[2] === undefined ? false : baseChecked[2]['checked'],
                     };
-                    this.charDataSvc.updateAttribute(this.modType, attrObj).subscribe(val => {
-                        let list = '';
-                        console.log('val', val);
-                        switch (this.modType) {
-                            case 'skill':
-                                list = 'theSkills';
-                                break;
-                            case 'stat':
-                                list = 'theStats';
-                                break;
-                            case 'save':
-                                list = 'theSaves';
-                                break;
-                            case 'ac':
-                                list = 'theACs';
-                                break;
-                            case 'tohit':
-                                list = 'theToHits';
-                                break;
-                            default:
-                                break;
-                        }
-                        if (a.id === 0) {
-                            this[list].results.push(a);
-                        }
-                        this[list].results = this[list].results.map(li => {
-                            if (li.id === 0 || li.id === val.results.id) {
-                                li = Object.assign({}, val.results);
-                                this.numFinished++;
+                    if (this.modType === 'hp') {
+                        this.charDataSvc.updateHP(this.charID, attrObj.score).subscribe(val => {
+                            if (val.results) {
+                                this.theCharBasics.results = Object.assign(Object.assign({}, this.theCharBasics.results), { charHP: attrObj.score });
+                                this.charDataSvc.setCharBasics(this.theCharBasics);
+                                this.router.navigate(['/charGen']);
                             }
-                            return li;
                         });
-                        try {
+                    }
+                    else {
+                        this.charDataSvc.updateAttribute(this.modType, attrObj).subscribe(val => {
+                            let list = '';
+                            console.log('val', val);
                             switch (this.modType) {
                                 case 'skill':
-                                    this.charDataSvc.setAllSkills(this.theSkills);
+                                    list = 'theSkills';
                                     break;
                                 case 'stat':
-                                    this.charDataSvc.setStats(this.theStats);
+                                    list = 'theStats';
                                     break;
                                 case 'save':
-                                    this.charDataSvc.setSaves(this.theSaves);
+                                    list = 'theSaves';
                                     break;
                                 case 'ac':
-                                    this.charDataSvc.setAllACs(this.theACs);
+                                    list = 'theACs';
                                     break;
                                 case 'tohit':
-                                    this.charDataSvc.setAllToHits(this.theToHits);
+                                    list = 'theToHits';
                                     break;
+                                case 'hp':
+                                    list = 'theCharBasics';
                                 default:
                                     break;
                             }
-                        }
-                        catch (err) {
-                            console.log(err);
-                            throw new Error("did not save");
-                        }
-                        finally {
-                            if (this.numChanged === this.numFinished) {
-                                if (this.modType === 'ac') {
-                                    this.router.navigate(['/charGen']);
-                                    return;
-                                }
-                                this.router.navigate(['/charGen/' + this.modType + 's']);
+                            if (a.id === 0) {
+                                this[list].results.push(a);
                             }
-                        }
-                    });
+                            this[list].results = this[list].results.map(li => {
+                                if (li.id === 0 || li.id === val.results.id) {
+                                    li = Object.assign({}, val.results);
+                                    this.numFinished++;
+                                }
+                                return li;
+                            });
+                            try {
+                                switch (this.modType) {
+                                    case 'skill':
+                                        this.charDataSvc.setAllSkills(this.theSkills);
+                                        break;
+                                    case 'stat':
+                                        this.charDataSvc.setStats(this.theStats);
+                                        break;
+                                    case 'save':
+                                        this.charDataSvc.setSaves(this.theSaves);
+                                        break;
+                                    case 'ac':
+                                        this.charDataSvc.setAllACs(this.theACs);
+                                        break;
+                                    case 'tohit':
+                                        this.charDataSvc.setAllToHits(this.theToHits);
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            }
+                            catch (err) {
+                                console.log(err);
+                                throw new Error("did not save");
+                            }
+                            finally {
+                                if (this.numChanged === this.numFinished) {
+                                    if (this.modType === 'ac') {
+                                        this.router.navigate(['/charGen']);
+                                        //return;
+                                    }
+                                    this.router.navigate(['/charGen/' + this.modType + 's']);
+                                }
+                            }
+                        });
+                    }
                 }
             }
         };
@@ -28679,7 +28693,11 @@ class CharModComponent {
             case 'hp':
                 this.charDataSvc.getCharBasics.subscribe((val) => this.theCharBasics = val);
                 console.log(this.theCharBasics);
+<<<<<<< HEAD
+                this.attribute = [{ id: this.theCharBasics.charID, score: this.theCharBasics.results.charHP }];
+=======
                 this.attribute = [{ score: this.theCharBasics.results.charHP }];
+>>>>>>> master
                 break;
             default:
                 this.router.navigate(['/charGen']);

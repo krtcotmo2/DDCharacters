@@ -34811,6 +34811,7 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
+<<<<<<< HEAD
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -34819,6 +34820,16 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](28, "strong");
 
+=======
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](27, "p");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](28, "strong");
+
+>>>>>>> master
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](29, "AC:");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -35908,6 +35919,7 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r77);
 
           var ctx_r76 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+<<<<<<< HEAD
 
           return ctx_r76.addMod($event);
         });
@@ -35934,6 +35946,34 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
 
     function CharModComponent_div_11_Template(rf, ctx) {
       if (rf & 1) {
+=======
+
+          return ctx_r76.addMod($event);
+        });
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "i", 14);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, " Add Modifier\n");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+    }
+
+    function CharModComponent_div_10_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "div", 15);
+      }
+
+      if (rf & 2) {
+        var ctx_r71 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("innerHTML", ctx_r71.mainTitle, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeHtml"]);
+      }
+    }
+
+    function CharModComponent_div_11_Template(rf, ctx) {
+      if (rf & 1) {
+>>>>>>> master
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 5);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Modifier");
@@ -35997,9 +36037,19 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "input", 26);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](3, "label");
+<<<<<<< HEAD
+=======
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+>>>>>>> master
 
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var st_r78 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+
+<<<<<<< HEAD
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
       }
 
@@ -36022,12 +36072,31 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "input", 27);
 
+=======
+        var ctx_r80 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("name", ctx_r80.setInputName("stat", st_r78.id.toString()))("checked", st_r78.isMod);
+      }
+    }
+
+    function CharModComponent_div_14_div_5_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 23);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 24);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "input", 27);
+
+>>>>>>> master
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](3, "label");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
       }
+<<<<<<< HEAD
 
       if (rf & 2) {
         var st_r78 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
@@ -36044,6 +36113,24 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 28);
 
+=======
+
+      if (rf & 2) {
+        var st_r78 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+
+        var ctx_r81 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("name", ctx_r81.setInputName("stat", st_r78.id.toString()))("checked", st_r78.isClassSkill);
+      }
+    }
+
+    function CharModComponent_div_14_div_6_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 28);
+
+>>>>>>> master
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "input", 29);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -36059,11 +36146,19 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("value", st_r78.modDesc)("name", ctx_r82.setInputName("desc", st_r78.id));
       }
     }
+<<<<<<< HEAD
 
     function CharModComponent_div_14_div_7_Template(rf, ctx) {
       if (rf & 1) {
         var _r90 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
+=======
+
+    function CharModComponent_div_14_div_7_Template(rf, ctx) {
+      if (rf & 1) {
+        var _r90 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+
+>>>>>>> master
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 30);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "i", 31);
@@ -36187,109 +36282,126 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
               var desc = document.getElementsByName('desc' + a.id);
               var statChanged = a.score.toString() !== score[0]['value'];
               var baseChecked = document.getElementsByName('stat' + a.id);
-              var descChnaged = a.modDesc !== null && a.modDesc !== desc[0]['value'].trim() || a.modDesc === null && desc[0]['value'].trim() !== '';
+              var descChnaged = a.modDesc === undefined && desc.length === 0 || a.modDesc !== null && a.modDesc !== desc[0]['value'].trim() || a.modDesc === null && desc[0]['value'].trim() !== '';
+              console.log('score', score);
 
               if (statChanged || descChnaged) {
                 _this9.numChanged++;
-                console.log('item ' + a.id + ' has changed', a, score[0]['value'], desc[0]['value']);
+                console.log('item ' + a.id + ' has changed', a, score[0]['value'], desc.length > 0 ? desc[0]['value'] : '');
                 var attrObj = {
                   id: a.id,
                   score: parseInt(score[0]['value'], 10),
-                  modDesc: desc[0]['value'].trim(),
+                  modDesc: desc.length > 0 ? desc[0]['value'].trim() : "",
                   statID: parseInt(_this9.partID, 10),
                   charID: _this9.charID,
-                  isBase: baseChecked[0]['checked'],
-                  isMod: baseChecked[1]['checked'],
+                  isBase: baseChecked.length > 0 ? baseChecked[0]['checked'] : false,
+                  isMod: baseChecked.length > 1 ? baseChecked[1]['checked'] : false,
                   isClassSkill: baseChecked[2] === undefined ? false : baseChecked[2]['checked']
                 };
 
-                _this9.charDataSvc.updateAttribute(_this9.modType, attrObj).subscribe(function (val) {
-                  var list = '';
-                  console.log('val', val);
+                if (_this9.modType === 'hp') {
+                  _this9.charDataSvc.updateHP(_this9.charID, attrObj.score).subscribe(function (val) {
+                    if (val.results) {
+                      _this9.theCharBasics.results = Object.assign(Object.assign({}, _this9.theCharBasics.results), {
+                        charHP: attrObj.score
+                      });
 
-                  switch (_this9.modType) {
-                    case 'skill':
-                      list = 'theSkills';
-                      break;
+                      _this9.charDataSvc.setCharBasics(_this9.theCharBasics);
 
-                    case 'stat':
-                      list = 'theStats';
-                      break;
-
-                    case 'save':
-                      list = 'theSaves';
-                      break;
-
-                    case 'ac':
-                      list = 'theACs';
-                      break;
-
-                    case 'tohit':
-                      list = 'theToHits';
-                      break;
-
-                    default:
-                      break;
-                  }
-
-                  if (a.id === 0) {
-                    _this9[list].results.push(a);
-                  }
-
-                  _this9[list].results = _this9[list].results.map(function (li) {
-                    if (li.id === 0 || li.id === val.results.id) {
-                      li = Object.assign({}, val.results);
-                      _this9.numFinished++;
+                      _this9.router.navigate(['/charGen']);
                     }
-
-                    return li;
                   });
+                } else {
+                  _this9.charDataSvc.updateAttribute(_this9.modType, attrObj).subscribe(function (val) {
+                    var list = '';
+                    console.log('val', val);
 
-                  try {
                     switch (_this9.modType) {
                       case 'skill':
-                        _this9.charDataSvc.setAllSkills(_this9.theSkills);
-
+                        list = 'theSkills';
                         break;
 
                       case 'stat':
-                        _this9.charDataSvc.setStats(_this9.theStats);
-
+                        list = 'theStats';
                         break;
 
                       case 'save':
-                        _this9.charDataSvc.setSaves(_this9.theSaves);
-
+                        list = 'theSaves';
                         break;
 
                       case 'ac':
-                        _this9.charDataSvc.setAllACs(_this9.theACs);
-
+                        list = 'theACs';
                         break;
 
                       case 'tohit':
-                        _this9.charDataSvc.setAllToHits(_this9.theToHits);
-
+                        list = 'theToHits';
                         break;
+
+                      case 'hp':
+                        list = 'theCharBasics';
 
                       default:
                         break;
                     }
-                  } catch (err) {
-                    console.log(err);
-                    throw new Error("did not save");
-                  } finally {
-                    if (_this9.numChanged === _this9.numFinished) {
-                      if (_this9.modType === 'ac') {
-                        _this9.router.navigate(['/charGen']);
 
-                        return;
+                    if (a.id === 0) {
+                      _this9[list].results.push(a);
+                    }
+
+                    _this9[list].results = _this9[list].results.map(function (li) {
+                      if (li.id === 0 || li.id === val.results.id) {
+                        li = Object.assign({}, val.results);
+                        _this9.numFinished++;
                       }
 
-                      _this9.router.navigate(['/charGen/' + _this9.modType + 's']);
+                      return li;
+                    });
+
+                    try {
+                      switch (_this9.modType) {
+                        case 'skill':
+                          _this9.charDataSvc.setAllSkills(_this9.theSkills);
+
+                          break;
+
+                        case 'stat':
+                          _this9.charDataSvc.setStats(_this9.theStats);
+
+                          break;
+
+                        case 'save':
+                          _this9.charDataSvc.setSaves(_this9.theSaves);
+
+                          break;
+
+                        case 'ac':
+                          _this9.charDataSvc.setAllACs(_this9.theACs);
+
+                          break;
+
+                        case 'tohit':
+                          _this9.charDataSvc.setAllToHits(_this9.theToHits);
+
+                          break;
+
+                        default:
+                          break;
+                      }
+                    } catch (err) {
+                      console.log(err);
+                      throw new Error("did not save");
+                    } finally {
+                      if (_this9.numChanged === _this9.numFinished) {
+                        if (_this9.modType === 'ac') {
+                          _this9.router.navigate(['/charGen']); //return;
+
+                        }
+
+                        _this9.router.navigate(['/charGen/' + _this9.modType + 's']);
+                      }
                     }
-                  }
-                });
+                  });
+                }
               }
             };
 
@@ -36487,6 +36599,10 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
               });
               console.log(this.theCharBasics);
               this.attribute = [{
+<<<<<<< HEAD
+                id: this.theCharBasics.charID,
+=======
+>>>>>>> master
                 score: this.theCharBasics.results.charHP
               }];
               break;

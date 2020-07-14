@@ -556,6 +556,7 @@ module.exports = {
     })
     .then(async oneItem => {
       oneItem.charHP = req.body.charHP;
+      await oneItem.save();
       return  true;
     }).catch(err => {error: err})
     res.json({'results': retVal});

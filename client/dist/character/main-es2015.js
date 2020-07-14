@@ -660,6 +660,19 @@ class CharDataService {
             });
             return val;
         };
+        this.updateHP = (charID, charHP) => {
+            const body = {
+                charID: charID,
+                charHP: charHP
+            };
+            //const val =  this.http.get<Equipment>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/ac/' + id, {
+            const val = this.http.post('/api/characters/updateHP/', body, {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                    'Access-Control-Allow-Origin': '*'
+                }),
+            });
+            return val;
+        };
         this.loadClasses = (id) => {
         };
     }
