@@ -1,4 +1,4 @@
-<h1>Modify {{modName}} <button (click)='addMod($event)' *ngIf='modType !== "hp"' class='mini ui primary button labeled icon' style='vertical-align: text-bottom; margin-left:12px'>
+<h1>Modify {{modName}} <button (click)='addMod($event)' *ngIf='modType !== "hp" && modType !== "init"' class='mini ui primary button labeled icon' style='vertical-align: text-bottom; margin-left:12px'>
   <i class="plus square outline icon"></i>
   Add Modifier
 </button></h1>
@@ -15,13 +15,13 @@
       <div class="column two wide ui input" >
         <input type='number' [value]='st.score' [name]='setInputName("score", st.id)' class='scoreInput'>
       </div>
-      <div *ngIf='modType !== "hp"' class="column two wide">
+      <div *ngIf='modType !== "hp" && modType !== "init"' class="column two wide">
         <div class="ui radio checkbox">
             <input type="radio" [name]='setInputName("stat", st.id.toString())' [checked]='getBaseBinding(st.isRanks, st.isBase)' value='isBase' >
             <label></label>
         </div>
       </div>
-      <div *ngIf='modType !== "hp"' class="column two wide">
+      <div *ngIf='modType !== "hp" && modType !== "init"' class="column two wide">
         <div class="ui radio checkbox">
           <input type="radio" [name]='setInputName("stat", st.id.toString())' [checked]='st.isMod' value='isMod'>
           <label></label>
@@ -33,10 +33,10 @@
           <label></label>
         </div>
       </div>
-      <div *ngIf='modType !== "hp"' class="column seven wide ui input">
+      <div *ngIf='modType !== "hp" && modType !== "init"' class="column seven wide ui input">
         <input type='text' [value]='st.modDesc' [name]='setInputName("desc", st.id)' class='descInput'>
       </div>
-      <div *ngIf='modType !== "hp"' class="column one wide ui"><i class="trash alternate outline icon"  title="Delete" (click)='deleteAttribute(st.id)'></i></div>
+      <div *ngIf='modType !== "hp" && modType !== "init"' class="column one wide ui"><i class="trash alternate outline icon"  title="Delete" (click)='deleteAttribute(st.id)'></i></div>
     </div>
 </div>
 <div class="container" style='text-align: center; margin-top:24px'>

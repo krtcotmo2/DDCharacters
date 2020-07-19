@@ -39,9 +39,9 @@
           </div>
         </div>
         <div class="column">
-          <p><strong>HP:</strong> {{charBasic.results.charHP}}
+          <p><strong>HP:</strong><br/> {{charBasic.results.charHP}}
             <span class='statMod'><i class="edit icon pointer" title="Edit" (click)='editHP(charID)'></i></span></p>
-          <p><strong>AC:</strong>
+          <p><strong>AC:</strong><br/>
             {{this.charAC}}
             <span class='statMod'><i class="info circle icon pointer" title="Breakdown" (click)='showBreakDown($event)'></i></span>
             <span class='statMod'><i class="edit icon pointer" title="Edit" (click)='editAC(charID)'></i></span>
@@ -51,6 +51,14 @@
               <div  style='margin:12px' >{{st.score}}:  {{st.modDesc === '' ? 'Base' : st.modDesc}}</div>
             </div>
           </div>
+          <p><strong>Initiative:<br/></strong>
+            {{this.init}}
+            <span class='statMod'><i class="edit icon pointer" title="Edit" (click)='editInit(charID)'></i></span>
+          </p>
+          <p><strong>Languages:<br/></strong>
+            {{this.charAC}}
+            <span class='statMod'><i class="edit icon pointer" title="Edit" (click)='editAC(charID)'></i></span>
+          </p>
         </div>
       </div>
 

@@ -51,6 +51,9 @@ router.route('/toHits/:id').get(characterController.getAllToHitsForChar);
 //updateHitPoints
 router.post('/updateHP', bodyParser, characterController.updateHP);
 
+//updateInit
+router.post('/updateInit', bodyParser, characterController.updateInit);
+
 //updateToHit
 router.post('/updateToHit', bodyParser, characterController.createUpdateToHits);
 

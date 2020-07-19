@@ -10,6 +10,7 @@ interface CharBasics {
     charID: number;
     charName: string;
     charHP: number;
+    init:number,
     Alignment: {
       alignID: number;
       alignName: string;
@@ -464,6 +465,19 @@ export class CharDataService {
       }
      //const val =  this.http.get<Equipment>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/ac/' + id, {
       const val =  this.http.post<any>('/api/characters/updateHP/', body, {
+          headers: new HttpHeaders({
+          'Access-Control-Allow-Origin': '*'
+        }),
+      });
+      return val;
+    }
+
+    updateInit = (charID: number, init: number) => {
+      const body = {
+        charID: charID,
+        init: init
+      }
+     const val =  this.http.post<any>('/api/characters/updateInit/', body, {
           headers: new HttpHeaders({
           'Access-Control-Allow-Origin': '*'
         }),
