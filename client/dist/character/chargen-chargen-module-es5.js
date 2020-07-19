@@ -36670,7 +36670,7 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
           } else if (this.modType.toLowerCase() === 'hp') {
             return 'HP';
           } else if (this.modType.toLowerCase() === 'init') {
-            return 'Initiative';
+            return 'Iniiative';
           } else {
             return '';
           }
@@ -36773,11 +36773,11 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.modType !== "hp");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.modType !== "hp" && ctx.modType !== "init");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.modType !== "hp");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.modType !== "hp" && ctx.modType !== "init");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
@@ -36785,7 +36785,7 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.modType !== "hp");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.modType !== "hp" && ctx.modType !== "init");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
