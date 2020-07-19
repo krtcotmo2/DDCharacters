@@ -28576,11 +28576,9 @@ class CharModComponent {
                             }
                             finally {
                                 if (this.numChanged === this.numFinished) {
-                                    if (this.modType === 'ac') {
-                                        this.router.navigate(['/charGen']);
-                                        //return;
-                                    }
-                                    this.router.navigate(['/charGen/' + this.modType + 's']);
+                                    let retRoute = this.modType.trim() === 'ac' ? '' : this.modType + 's';
+                                    console.log("retRoute", retRoute);
+                                    this.router.navigate(['/charGen/' + retRoute]);
                                 }
                             }
                         });
