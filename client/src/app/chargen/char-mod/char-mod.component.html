@@ -6,10 +6,10 @@
   <div #formRoot>
     <div class="ui grid gridHeader">
       <div class="two wide column">{{modType === 'hp' ? 'Total' : 'Score'}}</div>
-      <div *ngIf='modType !== "hp"' class="two wide column" [innerHTML]='mainTitle'></div>
-      <div *ngIf='modType !== "hp"' class="two wide column">Modifier</div>
+      <div *ngIf='modType !== "hp" && modType !== "init"' class="two wide column" [innerHTML]='mainTitle'></div>
+      <div *ngIf='modType !== "hp" && modType !== "init"' class="two wide column">Modifier</div>
       <div *ngIf='modType === "skill"' class="two wide column" >Class Skill</div>
-      <div *ngIf='modType !== "hp"' class="eight wide column">Description</div>
+      <div *ngIf='modType !== "hp" && modType !== "init"' class="eight wide column">Description</div>
     </div>
     <div class='ui grid gridRow' *ngFor='let st of attribute'>
       <div class="column two wide ui input" >
