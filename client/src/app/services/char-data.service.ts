@@ -473,6 +473,7 @@ export class CharDataService {
     }
 
     updateInit = (charID: number, init: number) => {
+      console.log("init",init)
       const body = {
         charID: charID,
         init: init

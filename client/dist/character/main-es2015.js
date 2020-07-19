@@ -680,6 +680,7 @@ class CharDataService {
             return val;
         };
         this.updateInit = (charID, init) => {
+            console.log("init", init);
             const body = {
                 charID: charID,
                 init: init
