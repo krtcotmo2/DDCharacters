@@ -563,7 +563,7 @@ module.exports = {
 
   },
 
-  //INIIATIVE
+  //INITIATIVE
   updateInit: async function(req, res){
     const retVal =  await db.Character.findOne({
       where:{charID:req.body.charID},

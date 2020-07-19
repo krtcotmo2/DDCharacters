@@ -36670,7 +36670,7 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
           } else if (this.modType.toLowerCase() === 'hp') {
             return 'HP';
           } else if (this.modType.toLowerCase() === 'init') {
-            return 'Iniiative';
+            return 'Initiative';
           } else {
             return '';
           }

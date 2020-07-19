@@ -28813,7 +28813,7 @@ class CharModComponent {
             return 'HP';
         }
         else if (this.modType.toLowerCase() === 'init') {
-            return 'Iniiative';
+            return 'Initiative';
         }
         else {
             return '';
