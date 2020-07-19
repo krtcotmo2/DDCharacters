@@ -1192,6 +1192,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.updateInit = function (charID, init) {
+          console.log("init", init);
           var body = {
             charID: charID,
             init: init

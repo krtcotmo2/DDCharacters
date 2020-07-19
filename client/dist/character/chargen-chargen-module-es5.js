@@ -36250,7 +36250,7 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
 
         this.onSubmit = function (evt) {
           evt.preventDefault();
-          console.log(_this9.theStats, _this9.attribute);
+          console.log(_this9.theStats, _this9.attribute, _this9.modType);
           _this9.numChanged = 0;
           _this9.numFinished = 0;
 
@@ -36299,7 +36299,7 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
                   _this9.charDataSvc.updateInit(_this9.charID, attrObj.score).subscribe(function (val) {
                     if (val.results) {
                       _this9.theCharBasics.results = Object.assign(Object.assign({}, _this9.theCharBasics.results), {
-                        charHP: attrObj.score
+                        init: attrObj.score
                       });
 
                       _this9.charDataSvc.setCharBasics(_this9.theCharBasics);

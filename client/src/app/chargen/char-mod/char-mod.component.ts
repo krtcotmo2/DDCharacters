@@ -102,7 +102,7 @@ export class CharModComponent implements OnInit {
   }
   onSubmit = (evt) => {
     evt.preventDefault();
-    console.log(this.theStats, this.attribute)
+    console.log(this.theStats, this.attribute, this.modType)
     this.numChanged = 0;
     this.numFinished = 0;
     for (let a of this.attribute){
@@ -139,7 +139,7 @@ export class CharModComponent implements OnInit {
         } else if(this.modType === 'init'){
           this.charDataSvc.updateInit(this.charID, attrObj.score).subscribe(val => {
             if(val.results){
-              this.theCharBasics.results = {...this.theCharBasics.results, charHP: attrObj.score};
+              this.theCharBasics.results = {...this.theCharBasics.results, init: attrObj.score};
               this.charDataSvc.setCharBasics(this.theCharBasics);
               this.router.navigate(['/charGen']);
             }
