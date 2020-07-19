@@ -17,7 +17,7 @@ const ToHits = require('../models/toHits');
 module.exports = {
   //CHARACTERS
   getCharacters: function(req, res){
-    db.Character.findAll({attributes: ['charID', 'charName', 'charHP'],
+    db.Character.findAll({attributes: ['charID', 'charName', 'charHP', 'init'],
         include: [
           {
             model: Race,
@@ -54,7 +54,7 @@ module.exports = {
   },
   getBaseForChar: function(req, res){
     db.Character.findOne(
-      {attributes: ['charID', 'charName', 'charHP'],
+      {attributes: ['charID', 'charName', 'charHP', 'init'],
       where:{charID:req.params.id},
       include: [
         {
@@ -556,6 +556,20 @@ module.exports = {
     })
     .then(async oneItem => {
       oneItem.charHP = req.body.charHP;
+      await oneItem.save();
+      return  true;
+    }).catch(err => {error: err})
+    res.json({'results': retVal});
+
+  },
+
+  //INIIATIVE
+  updateInit: async function(req, res){
+    const retVal =  await db.Character.findOne({
+      where:{charID:req.body.charID},
+    })
+    .then(async oneItem => {
+      oneItem.init = req.body.init;
       await oneItem.save();
       return  true;
     }).catch(err => {error: err})

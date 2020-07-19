@@ -12,6 +12,7 @@ interface CharBasics {
     charID: number;
     charName: string;
     charHP: number;
+    init: number;
     Alignment: {
       alignID: number;
       alignName: string;
@@ -62,6 +63,7 @@ export class CharBaseComponent implements OnInit {
   charAlign: string;
   charHP: string;
   charAC: string;
+  init: string;
 
   charForm = new FormGroup({
     charName: new FormControl('', [
@@ -81,6 +83,9 @@ export class CharBaseComponent implements OnInit {
       Validators.required,
     ]),
     charAC: new FormControl('', [
+      Validators.required,
+    ]),
+    init: new FormControl('', [
       Validators.required,
     ]),
   });
@@ -112,6 +117,7 @@ export class CharBaseComponent implements OnInit {
         this.charAlign = this.charBasic.results.Alignment.alignName;
         this.charName = this.charBasic.results.charName;
         this.charHP = this.charBasic.results.charHP.toString();
+        this.init = this.charBasic.results.init.toString();
         this.charForm.patchValue( {charName: this.charName,
           charRace: this.charRace,
           charAlign: this.charAlign,
@@ -130,6 +136,7 @@ export class CharBaseComponent implements OnInit {
       this.charRace = this.charBasic.results.Race.raceDesc;
       this.charAlign = this.charBasic.results.Alignment.alignName;
       this.charHP = this.charBasic.results.charHP.toString();
+      this.init = this.charBasic.results.init.toString();
       this.charForm.patchValue( {charName: this.charName,
         charRace: this.charRace,
         charAlign: this.charAlign,
@@ -154,6 +161,9 @@ export class CharBaseComponent implements OnInit {
   }
   editAC = charID =>{
     this.router.navigate(['/charGen/mods/ac/' + charID]);
+  }
+  editInit = charID => {
+    this.router.navigate(['/charGen/mods/init/' + charID]);
   }
   showBreakDown(evt){
     const gridRowsElements = document.getElementsByClassName('sixteen');

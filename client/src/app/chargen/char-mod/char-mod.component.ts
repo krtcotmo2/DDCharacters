@@ -70,6 +70,11 @@ export class CharModComponent implements OnInit {
           console.log(this.theCharBasics)
           this.attribute = [{id:this.theCharBasics.charID ,score:this.theCharBasics.results.charHP}]
           break;
+      case 'init':
+        this.charDataSvc.getCharBasics.subscribe( (val) => this.theCharBasics = val);
+        console.log(this.theCharBasics)
+        this.attribute = [{id:this.theCharBasics.charID ,score:this.theCharBasics.results.init}]
+        break;
       default:
         this.router.navigate(['/charGen']);
       }
@@ -82,7 +87,6 @@ export class CharModComponent implements OnInit {
               return -1;
             } else if (a.isClassSkill ){
               return -1;
-
             } else {
               return 1;
             }
@@ -126,6 +130,14 @@ export class CharModComponent implements OnInit {
 
         if (this.modType === 'hp'){
           this.charDataSvc.updateHP(this.charID, attrObj.score).subscribe(val => {
+            if(val.results){
+              this.theCharBasics.results = {...this.theCharBasics.results, charHP: attrObj.score};
+              this.charDataSvc.setCharBasics(this.theCharBasics);
+              this.router.navigate(['/charGen']);
+            }
+          });
+        } else if(this.modType === 'init'){
+          this.charDataSvc.updateInit(this.charID, attrObj.score).subscribe(val => {
             if(val.results){
               this.theCharBasics.results = {...this.theCharBasics.results, charHP: attrObj.score};
               this.charDataSvc.setCharBasics(this.theCharBasics);
@@ -229,6 +241,9 @@ export class CharModComponent implements OnInit {
       case 'hp':
         this.router.navigate(['/charGen']);
         break;
+      case 'init':
+          this.router.navigate(['/charGen']);
+          break;
       default:
         this.router.navigate(['/charGen']);
     }
@@ -287,8 +302,10 @@ export class CharModComponent implements OnInit {
       return 'ac';
     } else if (this.router.url.includes('hp')){
       return 'hp';
+    } else if (this.router.url.includes('init')){
+      return 'init';
     } else if (this.router.url.includes('tohit')){
-        return 'tohit';
+      return 'tohit';
     }
   }
   getModName(obj){
@@ -302,6 +319,8 @@ export class CharModComponent implements OnInit {
       return 'AC';
     } else if (this.modType.toLowerCase() === 'hp'){
       return 'HP';
+    } else if (this.modType.toLowerCase() === 'init'){
+        return 'Iniiative';
     } else {
      return '';
     }
