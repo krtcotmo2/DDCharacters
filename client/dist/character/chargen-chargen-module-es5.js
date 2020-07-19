@@ -36297,12 +36297,10 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
                       throw new Error("did not save");
                     } finally {
                       if (_this9.numChanged === _this9.numFinished) {
-                        if (_this9.modType === 'ac') {
-                          _this9.router.navigate(['/charGen']); //return;
+                        var retRoute = _this9.modType.trim() === 'ac' ? '' : _this9.modType + 's';
+                        console.log("retRoute", retRoute);
 
-                        }
-
-                        _this9.router.navigate(['/charGen/' + _this9.modType + 's']);
+                        _this9.router.navigate(['/charGen/' + retRoute]);
                       }
                     }
                   });
