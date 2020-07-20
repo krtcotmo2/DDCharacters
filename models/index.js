@@ -30,6 +30,8 @@ const CharToHits = require('./charToHits');
 const CharEquip = require('./charEquip');
 const Alignments = require('./alignments');
 const CharACs = require('./charAC');
+const CharNotes = require('./notes');
+const NoteItems = require('./noteItem');
 
 const models = {
   Race: Race.init(sequelize, Sequelize),
@@ -48,7 +50,9 @@ const models = {
   ToHits: ToHits.init(sequelize, Sequelize),
   CharToHits: CharToHits.init(sequelize, Sequelize),
   Alignments: Alignments.init(sequelize, Sequelize),
-  CharACs: CharACs.init(sequelize, Sequelize)
+  CharACs: CharACs.init(sequelize, Sequelize),
+  CharNotes: CharNotes.init(sequelize, Sequelize),
+  NoteItems: NoteItems.init(sequelize, Sequelize),
 };
 models.Character.hasOne(Race, {foreignKey: 'raceID', sourceKey: 'raceID'})
 models.Character.hasOne(User, {foreignKey: 'userID', sourceKey: 'userID'})
