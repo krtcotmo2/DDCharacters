@@ -36820,6 +36820,85 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
   },
 
   /***/
+  "./src/app/chargen/char-notes/char-notes.component.ts":
+  /*!************************************************************!*\
+    !*** ./src/app/chargen/char-notes/char-notes.component.ts ***!
+    \************************************************************/
+
+  /*! exports provided: CharNotesComponent */
+
+  /***/
+  function srcAppChargenCharNotesCharNotesComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "CharNotesComponent", function () {
+      return CharNotesComponent;
+    });
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+    var CharNotesComponent =
+    /*#__PURE__*/
+    function () {
+      function CharNotesComponent() {
+        _classCallCheck2(this, CharNotesComponent);
+      }
+
+      _createClass2(CharNotesComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {}
+      }]);
+
+      return CharNotesComponent;
+    }();
+
+    CharNotesComponent.ɵfac = function CharNotesComponent_Factory(t) {
+      return new (t || CharNotesComponent)();
+    };
+
+    CharNotesComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
+      type: CharNotesComponent,
+      selectors: [["app-char-notes"]],
+      decls: 2,
+      vars: 0,
+      template: function CharNotesComponent_Template(rf, ctx) {
+        if (rf & 1) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "p");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "char-notes works!");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        }
+      },
+      styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NoYXJnZW4vY2hhci1ub3Rlcy9jaGFyLW5vdGVzLmNvbXBvbmVudC5jc3MifQ== */"]
+    });
+    /*@__PURE__*/
+
+    (function () {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](CharNotesComponent, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
+        args: [{
+          selector: 'app-char-notes',
+          templateUrl: './char-notes.component.html',
+          styleUrls: ['./char-notes.component.css']
+        }]
+      }], function () {
+        return [];
+      }, null);
+    })();
+    /***/
+
+  },
+
+  /***/
   "./src/app/chargen/char-saves/char-saves.component.ts":
   /*!************************************************************!*\
     !*** ./src/app/chargen/char-saves/char-saves.component.ts ***!
@@ -38465,6 +38544,12 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
     var _new_feat_new_feat_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
     /*! ./new-feat/new-feat.component */
     "./src/app/chargen/new-feat/new-feat.component.ts");
+    /* harmony import */
+
+
+    var _char_notes_char_notes_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+    /*! ./char-notes/char-notes.component */
+    "./src/app/chargen/char-notes/char-notes.component.ts");
 
     var routes = [{
       path: '',
@@ -38493,6 +38578,9 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
       }, {
         path: 'spells',
         component: _char_spells_char_spells_component__WEBPACK_IMPORTED_MODULE_8__["CharSpellsComponent"]
+      }, {
+        path: 'notes',
+        component: _char_notes_char_notes_component__WEBPACK_IMPORTED_MODULE_15__["CharNotesComponent"]
       }, {
         path: 'mods',
         component: _new_tohit_new_tohit_component__WEBPACK_IMPORTED_MODULE_12__["NewTohitComponent"],
@@ -38714,6 +38802,12 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
     var _new_feat_new_feat_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
     /*! ./new-feat/new-feat.component */
     "./src/app/chargen/new-feat/new-feat.component.ts");
+    /* harmony import */
+
+
+    var _char_notes_char_notes_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(
+    /*! ./char-notes/char-notes.component */
+    "./src/app/chargen/char-notes/char-notes.component.ts");
 
     var ChargenModule = function ChargenModule() {
       _classCallCheck2(this, ChargenModule);
@@ -38731,7 +38825,7 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
 
     (function () {
       (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](ChargenModule, {
-        declarations: [_generate_generate_component__WEBPACK_IMPORTED_MODULE_4__["GenerateComponent"], _char_skills_char_skills_component__WEBPACK_IMPORTED_MODULE_6__["CharSkillsComponent"], _char_base_char_base_component__WEBPACK_IMPORTED_MODULE_7__["CharBaseComponent"], _char_feats_char_feats_component__WEBPACK_IMPORTED_MODULE_8__["CharFeatsComponent"], _char_equip_char_equip_component__WEBPACK_IMPORTED_MODULE_9__["CharEquipComponent"], _char_spells_char_spells_component__WEBPACK_IMPORTED_MODULE_10__["CharSpellsComponent"], _input_input_component__WEBPACK_IMPORTED_MODULE_11__["InputComponent"], _prettyprint_pipe__WEBPACK_IMPORTED_MODULE_12__["PrettyprintPipe"], _single_feat_single_feat_component__WEBPACK_IMPORTED_MODULE_14__["SingleFeatComponent"], _char_mod_char_mod_component__WEBPACK_IMPORTED_MODULE_15__["CharModComponent"], _char_saves_char_saves_component__WEBPACK_IMPORTED_MODULE_16__["CharSavesComponent"], _char_tohit_char_tohit_component__WEBPACK_IMPORTED_MODULE_17__["CharTohitComponent"], _new_tohit_new_tohit_component__WEBPACK_IMPORTED_MODULE_18__["NewTohitComponent"], _new_skill_new_skill_component__WEBPACK_IMPORTED_MODULE_19__["NewSkillComponent"], _new_feat_new_feat_component__WEBPACK_IMPORTED_MODULE_20__["NewFeatComponent"]],
+        declarations: [_generate_generate_component__WEBPACK_IMPORTED_MODULE_4__["GenerateComponent"], _char_skills_char_skills_component__WEBPACK_IMPORTED_MODULE_6__["CharSkillsComponent"], _char_base_char_base_component__WEBPACK_IMPORTED_MODULE_7__["CharBaseComponent"], _char_feats_char_feats_component__WEBPACK_IMPORTED_MODULE_8__["CharFeatsComponent"], _char_equip_char_equip_component__WEBPACK_IMPORTED_MODULE_9__["CharEquipComponent"], _char_spells_char_spells_component__WEBPACK_IMPORTED_MODULE_10__["CharSpellsComponent"], _input_input_component__WEBPACK_IMPORTED_MODULE_11__["InputComponent"], _prettyprint_pipe__WEBPACK_IMPORTED_MODULE_12__["PrettyprintPipe"], _single_feat_single_feat_component__WEBPACK_IMPORTED_MODULE_14__["SingleFeatComponent"], _char_mod_char_mod_component__WEBPACK_IMPORTED_MODULE_15__["CharModComponent"], _char_saves_char_saves_component__WEBPACK_IMPORTED_MODULE_16__["CharSavesComponent"], _char_tohit_char_tohit_component__WEBPACK_IMPORTED_MODULE_17__["CharTohitComponent"], _new_tohit_new_tohit_component__WEBPACK_IMPORTED_MODULE_18__["NewTohitComponent"], _new_skill_new_skill_component__WEBPACK_IMPORTED_MODULE_19__["NewSkillComponent"], _new_feat_new_feat_component__WEBPACK_IMPORTED_MODULE_20__["NewFeatComponent"], _char_notes_char_notes_component__WEBPACK_IMPORTED_MODULE_21__["CharNotesComponent"]],
         imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _chargen_routing_module__WEBPACK_IMPORTED_MODULE_3__["ChargenRoutingModule"], _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_5__["FontAwesomeModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_13__["NgbModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"]]
       });
     })();
@@ -38742,7 +38836,7 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ChargenModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
         args: [{
-          declarations: [_generate_generate_component__WEBPACK_IMPORTED_MODULE_4__["GenerateComponent"], _char_skills_char_skills_component__WEBPACK_IMPORTED_MODULE_6__["CharSkillsComponent"], _char_base_char_base_component__WEBPACK_IMPORTED_MODULE_7__["CharBaseComponent"], _char_feats_char_feats_component__WEBPACK_IMPORTED_MODULE_8__["CharFeatsComponent"], _char_equip_char_equip_component__WEBPACK_IMPORTED_MODULE_9__["CharEquipComponent"], _char_spells_char_spells_component__WEBPACK_IMPORTED_MODULE_10__["CharSpellsComponent"], _input_input_component__WEBPACK_IMPORTED_MODULE_11__["InputComponent"], _prettyprint_pipe__WEBPACK_IMPORTED_MODULE_12__["PrettyprintPipe"], _single_feat_single_feat_component__WEBPACK_IMPORTED_MODULE_14__["SingleFeatComponent"], _char_mod_char_mod_component__WEBPACK_IMPORTED_MODULE_15__["CharModComponent"], _char_saves_char_saves_component__WEBPACK_IMPORTED_MODULE_16__["CharSavesComponent"], _char_tohit_char_tohit_component__WEBPACK_IMPORTED_MODULE_17__["CharTohitComponent"], _new_tohit_new_tohit_component__WEBPACK_IMPORTED_MODULE_18__["NewTohitComponent"], _new_skill_new_skill_component__WEBPACK_IMPORTED_MODULE_19__["NewSkillComponent"], _new_feat_new_feat_component__WEBPACK_IMPORTED_MODULE_20__["NewFeatComponent"]],
+          declarations: [_generate_generate_component__WEBPACK_IMPORTED_MODULE_4__["GenerateComponent"], _char_skills_char_skills_component__WEBPACK_IMPORTED_MODULE_6__["CharSkillsComponent"], _char_base_char_base_component__WEBPACK_IMPORTED_MODULE_7__["CharBaseComponent"], _char_feats_char_feats_component__WEBPACK_IMPORTED_MODULE_8__["CharFeatsComponent"], _char_equip_char_equip_component__WEBPACK_IMPORTED_MODULE_9__["CharEquipComponent"], _char_spells_char_spells_component__WEBPACK_IMPORTED_MODULE_10__["CharSpellsComponent"], _input_input_component__WEBPACK_IMPORTED_MODULE_11__["InputComponent"], _prettyprint_pipe__WEBPACK_IMPORTED_MODULE_12__["PrettyprintPipe"], _single_feat_single_feat_component__WEBPACK_IMPORTED_MODULE_14__["SingleFeatComponent"], _char_mod_char_mod_component__WEBPACK_IMPORTED_MODULE_15__["CharModComponent"], _char_saves_char_saves_component__WEBPACK_IMPORTED_MODULE_16__["CharSavesComponent"], _char_tohit_char_tohit_component__WEBPACK_IMPORTED_MODULE_17__["CharTohitComponent"], _new_tohit_new_tohit_component__WEBPACK_IMPORTED_MODULE_18__["NewTohitComponent"], _new_skill_new_skill_component__WEBPACK_IMPORTED_MODULE_19__["NewSkillComponent"], _new_feat_new_feat_component__WEBPACK_IMPORTED_MODULE_20__["NewFeatComponent"], _char_notes_char_notes_component__WEBPACK_IMPORTED_MODULE_21__["CharNotesComponent"]],
           imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _chargen_routing_module__WEBPACK_IMPORTED_MODULE_3__["ChargenRoutingModule"], _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_5__["FontAwesomeModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_13__["NgbModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"]]
         }]
       }], null, null);

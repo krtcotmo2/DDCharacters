@@ -28883,6 +28883,43 @@ CharModComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineC
 
 /***/ }),
 
+/***/ "./src/app/chargen/char-notes/char-notes.component.ts":
+/*!************************************************************!*\
+  !*** ./src/app/chargen/char-notes/char-notes.component.ts ***!
+  \************************************************************/
+/*! exports provided: CharNotesComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CharNotesComponent", function() { return CharNotesComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+
+class CharNotesComponent {
+    constructor() {
+    }
+    ngOnInit() {
+    }
+}
+CharNotesComponent.ɵfac = function CharNotesComponent_Factory(t) { return new (t || CharNotesComponent)(); };
+CharNotesComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: CharNotesComponent, selectors: [["app-char-notes"]], decls: 2, vars: 0, template: function CharNotesComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "char-notes works!");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    } }, styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NoYXJnZW4vY2hhci1ub3Rlcy9jaGFyLW5vdGVzLmNvbXBvbmVudC5jc3MifQ== */"] });
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](CharNotesComponent, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
+        args: [{
+                selector: 'app-char-notes',
+                templateUrl: './char-notes.component.html',
+                styleUrls: ['./char-notes.component.css']
+            }]
+    }], function () { return []; }, null); })();
+
+
+/***/ }),
+
 /***/ "./src/app/chargen/char-saves/char-saves.component.ts":
 /*!************************************************************!*\
   !*** ./src/app/chargen/char-saves/char-saves.component.ts ***!
@@ -29591,6 +29628,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _new_tohit_new_tohit_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./new-tohit/new-tohit.component */ "./src/app/chargen/new-tohit/new-tohit.component.ts");
 /* harmony import */ var _new_skill_new_skill_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./new-skill/new-skill.component */ "./src/app/chargen/new-skill/new-skill.component.ts");
 /* harmony import */ var _new_feat_new_feat_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./new-feat/new-feat.component */ "./src/app/chargen/new-feat/new-feat.component.ts");
+/* harmony import */ var _char_notes_char_notes_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./char-notes/char-notes.component */ "./src/app/chargen/char-notes/char-notes.component.ts");
+
 
 
 
@@ -29619,6 +29658,7 @@ const routes = [
             { path: 'feats', component: _char_feats_char_feats_component__WEBPACK_IMPORTED_MODULE_6__["CharFeatsComponent"] },
             { path: 'equip', component: _char_equip_char_equip_component__WEBPACK_IMPORTED_MODULE_7__["CharEquipComponent"] },
             { path: 'spells', component: _char_spells_char_spells_component__WEBPACK_IMPORTED_MODULE_8__["CharSpellsComponent"] },
+            { path: 'notes', component: _char_notes_char_notes_component__WEBPACK_IMPORTED_MODULE_15__["CharNotesComponent"] },
             { path: 'mods', component: _new_tohit_new_tohit_component__WEBPACK_IMPORTED_MODULE_12__["NewTohitComponent"],
                 children: [
                     { path: 'newtohit', component: _new_tohit_new_tohit_component__WEBPACK_IMPORTED_MODULE_12__["NewTohitComponent"],
@@ -29705,6 +29745,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _new_tohit_new_tohit_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./new-tohit/new-tohit.component */ "./src/app/chargen/new-tohit/new-tohit.component.ts");
 /* harmony import */ var _new_skill_new_skill_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./new-skill/new-skill.component */ "./src/app/chargen/new-skill/new-skill.component.ts");
 /* harmony import */ var _new_feat_new_feat_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./new-feat/new-feat.component */ "./src/app/chargen/new-feat/new-feat.component.ts");
+/* harmony import */ var _char_notes_char_notes_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./char-notes/char-notes.component */ "./src/app/chargen/char-notes/char-notes.component.ts");
+
 
 
 
@@ -29753,7 +29795,8 @@ ChargenModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInje
         _char_tohit_char_tohit_component__WEBPACK_IMPORTED_MODULE_17__["CharTohitComponent"],
         _new_tohit_new_tohit_component__WEBPACK_IMPORTED_MODULE_18__["NewTohitComponent"],
         _new_skill_new_skill_component__WEBPACK_IMPORTED_MODULE_19__["NewSkillComponent"],
-        _new_feat_new_feat_component__WEBPACK_IMPORTED_MODULE_20__["NewFeatComponent"]], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+        _new_feat_new_feat_component__WEBPACK_IMPORTED_MODULE_20__["NewFeatComponent"],
+        _char_notes_char_notes_component__WEBPACK_IMPORTED_MODULE_21__["CharNotesComponent"]], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
         _chargen_routing_module__WEBPACK_IMPORTED_MODULE_3__["ChargenRoutingModule"],
         _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_5__["FontAwesomeModule"],
         _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
@@ -29776,7 +29819,8 @@ ChargenModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInje
                     _char_tohit_char_tohit_component__WEBPACK_IMPORTED_MODULE_17__["CharTohitComponent"],
                     _new_tohit_new_tohit_component__WEBPACK_IMPORTED_MODULE_18__["NewTohitComponent"],
                     _new_skill_new_skill_component__WEBPACK_IMPORTED_MODULE_19__["NewSkillComponent"],
-                    _new_feat_new_feat_component__WEBPACK_IMPORTED_MODULE_20__["NewFeatComponent"]],
+                    _new_feat_new_feat_component__WEBPACK_IMPORTED_MODULE_20__["NewFeatComponent"],
+                    _char_notes_char_notes_component__WEBPACK_IMPORTED_MODULE_21__["CharNotesComponent"]],
                 imports: [
                     _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
                     _chargen_routing_module__WEBPACK_IMPORTED_MODULE_3__["ChargenRoutingModule"],
