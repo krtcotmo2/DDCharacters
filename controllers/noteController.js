@@ -4,7 +4,6 @@ const NoteItems = require('../models/noteItem');
 
 module.exports = {
   getCharNotes: async function(req, res){
-    console.log("param", req.params.id)
     db.CharNotes.findAll({
       where:{charID:req.params.id},
       order:['noteOrder']
@@ -19,18 +18,28 @@ module.exports = {
       }
     );
   },
+
   getNoteItems: async function(req, res){
-    db.NoteItems.findAll({
+    const noteTitle = await db.CharNotes.findOne({
       where:{noteID:req.params.id},
+      order:['noteOrder']
+    }).then(vals => {
+      return vals.noteTitle;
+    })   
+
+    db.NoteItems.findAll({
+      where:{noteID: req.params.id},
       order:['itemOrder']
     })
       .then(results => {
-        res.status(200).json({ charID: req.params.id.trim(), results:results });
+        res.status(200).json( {title: noteTitle, results:results} );
       })
-      .catch(err =>
+      .catch(err =>{
         res.status(500).json({ error:err})
+      }
     );
   },
+
   insertNoteHeader: async function (req, res){
     const note = req.body.note;
     const charID = req.body.charID;
@@ -47,7 +56,7 @@ module.exports = {
     
     const newNote = await db.CharNotes.create({
         noteTitle: note, 
-        noteOrder: lastOrder === null ? 1 : lastOrder.noteOrder + 1, 
+        noteOrder: lastOrder ? 1 : lastOrder.noteOrder + 1, 
         charID: charID})
       .then(arg => {
         let newCharNote = arg.dataValues;
@@ -59,5 +68,36 @@ module.exports = {
       res.json(newNote);
     },
   
-
+  
+  
+  insertNoteItem: async function (req, res){
+    const itemDetails = req.body.itemDetails;
+    const noteID = req.body.noteID;
+    console.log("req.body",req.body)
+    const lastOrder = await db.NoteItems.findOne({
+      where:{noteID: noteID},
+      order:[
+        ['itemOrder', 'DESC']
+      ]
+    }).then(nextNum => {
+      let nexNumVal = !nextNum ? null : nextNum.dataValues 
+      console.log("nexNumVal",nexNumVal)
+      return nexNumVal;
+    }).catch(err => {
+      console.log("err",err)
+    });    
+    
+    const newNote = await db.NoteItems.create({
+        itemDetails: itemDetails, 
+        itemOrder: lastOrder === null ? 1 : lastOrder.itemOrder + 1, 
+        noteID: noteID})
+      .then(arg => {
+        let newNoteItem = arg.dataValues;
+        return newNoteItem
+      })
+      .catch(err => {
+        return err
+      });
+      res.json(newNote);
+    },
 }

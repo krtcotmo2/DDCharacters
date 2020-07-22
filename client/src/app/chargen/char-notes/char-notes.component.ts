@@ -26,7 +26,6 @@ export class CharNotesComponent implements OnInit {
     this.charDataSvc.getAllNotes.subscribe( (val) => this.notesSet = val === null ? {} : val);
     this.charDataSvc.getAllNotes.subscribe( (val) => this.allNotes = val === null ? [] : val.results);
     this.charDataSvc.getAllNotes.subscribe( (val) => this.curChar = val === null ? '0' : val.charID);
-    console.log(this.charID, this.curChar , this.allNotes)
     if (this.charID && this.charID.toString() !== this.curChar) {
       this.charDataSvc.loadNotes(this.charID).subscribe( val => {
         this.allNotes = val.results;
@@ -46,13 +45,14 @@ export class CharNotesComponent implements OnInit {
       charID: this.charID,
       note: this.note
     }
+
     this.charDataSvc.addNoteHeader(body).subscribe(vals => {
       this.notesSet['results'] = [...this.notesSet['results'], vals];
       this.charDataSvc.setAllNotes(this.notesSet);
       this.note ='';
       this.newNote = false;
-    })
-  };
+    });
+  }
 
   filterList = (evt) => {
     this.filterText = evt.target.value;

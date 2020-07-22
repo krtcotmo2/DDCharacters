@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ɵɵresolveBody } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import {pluck} from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -529,6 +529,25 @@ export class CharDataService {
         return val;
       }
 
+      loadNotesItems = (noteID: string) => {
+        console.log("noteID", noteID)
+        const val =  this.http.get<any>('/api/notes/getNoteItems/' + noteID, {
+          headers: new HttpHeaders({
+          'Access-Control-Allow-Origin': '*'
+        }),
+      });
+      return val;
+      }
+
+      addNoteItem = (body: {}) => {
+        //const val =  this.http.post<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/equip/add', body, {
+        const val =  this.http.post<any>('/api/notes/insertNoteItem', body, {
+            headers: new HttpHeaders({
+            'Access-Control-Allow-Origin': '*'
+          }),
+        });
+        return val;
+      }
     // CLASSES
       loadClasses = (id: string) => {
       }

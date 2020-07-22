@@ -92,7 +92,5 @@ form input{
   padding:3px 6px;
   border:1px solid #ccc;
   border-radius: 3px;
-  position: relative;
-  bottom: 3px;
   font-size:1.4rem;
 }

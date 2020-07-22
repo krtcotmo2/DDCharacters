@@ -10,4 +10,7 @@ router.route("/getNoteItems/:id").get(noteController.getNoteItems);
 //route for api/notes/getNoteItems
 router.route("/insertNoteHeader/").post(noteController.insertNoteHeader);
 
+//route for api/notes/getNoteItems
+router.route("/insertNoteItem").post(noteController.insertNoteItem);
+
 module.exports = router;
