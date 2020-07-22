@@ -1,1 +1,20 @@
-<p>char-notes works!</p>
+<h1>Notes <button class='mini ui primary button labeled icon' style='vertical-align: text-bottom; margin-left:12px' (click)='addNewNote($event)' *ngIf='!newNote'>
+  <i class="plus square outline icon"></i>
+  Add Note Category
+</button>
+<form style='display:flex; align-items: stretch; margin:12px 0;' #notesForm='ngForm' (ngSubmit)='onSubmit($event)' *ngIf='newNote'>
+  <input type='text' class='equipInput' placeholder="Item"  [(ngModel)]='note' name="note">
+  <button class='mini ui primary button'>Submit</button>
+</form>
+<span class='ui input' style='font-size:1rem; width:100%' ><input type='text' name='filter' [value]='filterText' placeholder="Filter - type in value" (input)='filterList($event)' /></span></h1>
+<div class="ui grid gridHeader">
+  <div class="two wide column">Name</div>
+</div>
+<div *ngFor='let nt of allNotes' class="ui grid gridRow" >
+  <span class='stat sixteen wide column'><a [routerLink]="['/charGen/notes/' + nt.noteID.toString()]">
+    {{nt.noteTitle}}
+  </a></span>
+</div>
+
+
+

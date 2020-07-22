@@ -381,6 +381,7 @@ class CharDataService {
         this.allToHits = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]({ results: [] });
         this.allEquipment = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]({ results: [] });
         this.allAC = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]({ results: [] });
+        this.allNotes = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]({ results: [] });
         // GETTERS
         this.getIsNew = this.isNew.asObservable();
         this.getIsReadOnly = this.readOnly.asObservable();
@@ -392,6 +393,7 @@ class CharDataService {
         this.getAllStats = this.allStats.asObservable();
         this.getAllSaves = this.allSaves.asObservable();
         this.getAllSkills = this.allSkills.asObservable();
+        this.getAllNotes = this.allNotes.asObservable();
         this.getAllToHits = this.allToHits.asObservable();
         this.getAllEquip = this.allEquipment.asObservable();
         this.getAllACs = this.allAC.asObservable();
@@ -400,6 +402,7 @@ class CharDataService {
         this.setStats = (arg) => { this.allStats.next(arg); };
         this.setSaves = (arg) => { this.allSaves.next(arg); };
         this.setAllSkills = (arg) => { this.allSkills.next(arg); };
+        this.setAllNotes = (arg) => { this.allNotes.next(arg); };
         this.setAllToHits = (arg) => { this.allToHits.next(arg); };
         this.setAllEquipment = (arg) => { this.allEquipment.next(arg); };
         this.setAllACs = (arg) => { this.allAC.next(arg); };
@@ -414,9 +417,11 @@ class CharDataService {
             this.allStats.next(null);
             this.allSaves.next(null);
             this.allToHits.next(null);
+            this.allNotes.next(null);
         };
         // remote loaders
         // tslint:disable:max-line-length
+        // CHARACTER
         this.loadCharBase = (id) => {
             //const val = this.http.get<CharBasics>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/' + id, {
             const val = this.http.get('/api/characters/' + id, {
@@ -426,6 +431,7 @@ class CharDataService {
             });
             return val;
         };
+        // STATS
         this.loadStats = (arg) => {
             //const val = this.http.get<Stats>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/stats/ ' + arg, {
             const val = this.http.get('/api/stats/ ' + arg, {
@@ -435,6 +441,7 @@ class CharDataService {
             });
             return val;
         };
+        // FEATS
         this.loadFeats = (id) => {
             //const val =  this.http.get<CharFeat>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/feats/' + id, {
             const val = this.http.get('/api/characters/feats/' + id, {
@@ -478,6 +485,7 @@ class CharDataService {
             });
             return val;
         };
+        // SKILLS
         this.loadSkills = (id) => {
             //const val =  this.http.get<CharSkills>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/skills/' + id, {
             const val = this.http.get('/api/characters/skills/' + id, {
@@ -509,39 +517,6 @@ class CharDataService {
                 headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
                     'Access-Control-Allow-Origin': '*'
                 }),
-            });
-            return val;
-        };
-        this.loadSaves = (id) => {
-            //const val =  this.http.get<Saves>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/saves/' + id, {
-            const val = this.http.get('/api/characters/saves/' + id, {
-                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
-                    'Access-Control-Allow-Origin': '*'
-                }),
-            });
-            return val;
-        };
-        this.loadToHits = (id) => {
-            //const val =  this.http.get<CharToHits>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/toHits/' + id, {
-            const val = this.http.get('/api/characters/toHits/' + id, {
-                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
-                    'Access-Control-Allow-Origin': '*'
-                }),
-            });
-            return val;
-        };
-        this.newToHit = (cID, obj) => {
-            const body = {
-                id: obj.toHitID,
-                toHitDesc: obj.toHitDesc,
-                damage: obj.damage,
-                critRange: obj.critRange,
-                critDamage: obj.critDamage,
-                charID: cID,
-            };
-            //const val = this.http.post<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/newToHit/', body, {
-            const val = this.http.post('/api/newToHit/', body, {
-                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({ 'Access-Control-Allow-Origin': '*' }),
             });
             return val;
         };
@@ -629,6 +604,42 @@ class CharDataService {
             }
             return val;
         };
+        // SAVES
+        this.loadSaves = (id) => {
+            //const val =  this.http.get<Saves>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/saves/' + id, {
+            const val = this.http.get('/api/characters/saves/' + id, {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                    'Access-Control-Allow-Origin': '*'
+                }),
+            });
+            return val;
+        };
+        // TO HITS
+        this.loadToHits = (id) => {
+            //const val =  this.http.get<CharToHits>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/toHits/' + id, {
+            const val = this.http.get('/api/characters/toHits/' + id, {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                    'Access-Control-Allow-Origin': '*'
+                }),
+            });
+            return val;
+        };
+        this.newToHit = (cID, obj) => {
+            const body = {
+                id: obj.toHitID,
+                toHitDesc: obj.toHitDesc,
+                damage: obj.damage,
+                critRange: obj.critRange,
+                critDamage: obj.critDamage,
+                charID: cID,
+            };
+            //const val = this.http.post<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/newToHit/', body, {
+            const val = this.http.post('/api/newToHit/', body, {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({ 'Access-Control-Allow-Origin': '*' }),
+            });
+            return val;
+        };
+        // EQUIPMENT
         this.loadEquipment = (id) => {
             //const val =  this.http.get<Equipment>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/equip/' + id, {
             const val = this.http.get('/api/characters/equip/' + id, {
@@ -656,6 +667,7 @@ class CharDataService {
             });
             return val;
         };
+        // AC
         this.loadAC = (id) => {
             console.log("id", id);
             //const val =  this.http.get<Equipment>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/ac/' + id, {
@@ -666,6 +678,7 @@ class CharDataService {
             });
             return val;
         };
+        // HP
         this.updateHP = (charID, charHP) => {
             const body = {
                 charID: charID,
@@ -679,8 +692,8 @@ class CharDataService {
             });
             return val;
         };
+        // INITIATIVE
         this.updateInit = (charID, init) => {
-            console.log("init", init);
             const body = {
                 charID: charID,
                 init: init
@@ -692,6 +705,27 @@ class CharDataService {
             });
             return val;
         };
+        // NOTES
+        this.loadNotes = (charID) => {
+            console.log('loading:', charID);
+            const val = this.http.get('/api/notes/getCharNotes/' + charID.toString(), {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                    'Access-Control-Allow-Origin': '*'
+                }),
+            });
+            console.log('val', val);
+            return val;
+        };
+        this.addNoteHeader = (body) => {
+            //const val =  this.http.post<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/equip/add', body, {
+            const val = this.http.post('/api/notes/insertNoteHeader', body, {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                    'Access-Control-Allow-Origin': '*'
+                }),
+            });
+            return val;
+        };
+        // CLASSES
         this.loadClasses = (id) => {
         };
     }

@@ -14,6 +14,7 @@ import { NewTohitComponent} from './new-tohit/new-tohit.component';
 import { NewSkillComponent } from './new-skill/new-skill.component';
 import { NewFeatComponent } from './new-feat/new-feat.component';
 import { CharNotesComponent } from './char-notes/char-notes.component';
+import { SingleNoteComponent } from './single-note/single-note.component';
 
 const routes: Routes = [
   {path: '', component: ChargenHomeComponent,
@@ -26,7 +27,13 @@ const routes: Routes = [
       {path: 'feats', component: CharFeatsComponent },
       {path: 'equip', component: CharEquipComponent },
       {path: 'spells', component: CharSpellsComponent },
-      {path: 'notes', component: CharNotesComponent },
+      {path: 'notes', component: CharNotesComponent,
+      }
+      ,{path: 'notes', component: SingleNoteComponent,
+          children: [
+            {path: '**', component: SingleNoteComponent}
+          ]
+      },
       {path: 'mods', component: NewTohitComponent,
         children: [
         {path: 'newtohit', component: NewTohitComponent,

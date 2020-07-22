@@ -796,6 +796,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         });
         this.allAC = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]({
           results: []
+        });
+        this.allNotes = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]({
+          results: []
         }); // GETTERS
 
         this.getIsNew = this.isNew.asObservable();
@@ -808,6 +811,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.getAllStats = this.allStats.asObservable();
         this.getAllSaves = this.allSaves.asObservable();
         this.getAllSkills = this.allSkills.asObservable();
+        this.getAllNotes = this.allNotes.asObservable();
         this.getAllToHits = this.allToHits.asObservable();
         this.getAllEquip = this.allEquipment.asObservable();
         this.getAllACs = this.allAC.asObservable();
@@ -830,6 +834,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.setAllSkills = function (arg) {
           _this3.allSkills.next(arg);
+        };
+
+        this.setAllNotes = function (arg) {
+          _this3.allNotes.next(arg);
         };
 
         this.setAllToHits = function (arg) {
@@ -863,8 +871,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           _this3.allSaves.next(null);
 
           _this3.allToHits.next(null);
+
+          _this3.allNotes.next(null);
         }; // remote loaders
         // tslint:disable:max-line-length
+        // CHARACTER
 
 
         this.loadCharBase = function (id) {
@@ -876,7 +887,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
 
           return val;
-        };
+        }; // STATS
+
 
         this.loadStats = function (arg) {
           //const val = this.http.get<Stats>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/stats/ ' + arg, {
@@ -887,7 +899,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
 
           return val;
-        };
+        }; // FEATS
+
 
         this.loadFeats = function (id) {
           //const val =  this.http.get<CharFeat>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/feats/' + id, {
@@ -938,7 +951,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
 
           return val;
-        };
+        }; // SKILLS
+
 
         this.loadSkills = function (id) {
           //const val =  this.http.get<CharSkills>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/skills/' + id, {
@@ -972,47 +986,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }; //const val =  this.http.post<CharSkills>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/skills/addSKill', body, {
 
           var val = _this3.http.post('/api/skills/addSKill', body, {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
-              'Access-Control-Allow-Origin': '*'
-            })
-          });
-
-          return val;
-        };
-
-        this.loadSaves = function (id) {
-          //const val =  this.http.get<Saves>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/saves/' + id, {
-          var val = _this3.http.get('/api/characters/saves/' + id, {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
-              'Access-Control-Allow-Origin': '*'
-            })
-          });
-
-          return val;
-        };
-
-        this.loadToHits = function (id) {
-          //const val =  this.http.get<CharToHits>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/toHits/' + id, {
-          var val = _this3.http.get('/api/characters/toHits/' + id, {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
-              'Access-Control-Allow-Origin': '*'
-            })
-          });
-
-          return val;
-        };
-
-        this.newToHit = function (cID, obj) {
-          var body = {
-            id: obj.toHitID,
-            toHitDesc: obj.toHitDesc,
-            damage: obj.damage,
-            critRange: obj.critRange,
-            critDamage: obj.critDamage,
-            charID: cID
-          }; //const val = this.http.post<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/newToHit/', body, {
-
-          var val = _this3.http.post('/api/newToHit/', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -1129,7 +1102,51 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
 
           return val;
+        }; // SAVES
+
+
+        this.loadSaves = function (id) {
+          //const val =  this.http.get<Saves>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/saves/' + id, {
+          var val = _this3.http.get('/api/characters/saves/' + id, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+              'Access-Control-Allow-Origin': '*'
+            })
+          });
+
+          return val;
+        }; // TO HITS
+
+
+        this.loadToHits = function (id) {
+          //const val =  this.http.get<CharToHits>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/toHits/' + id, {
+          var val = _this3.http.get('/api/characters/toHits/' + id, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+              'Access-Control-Allow-Origin': '*'
+            })
+          });
+
+          return val;
         };
+
+        this.newToHit = function (cID, obj) {
+          var body = {
+            id: obj.toHitID,
+            toHitDesc: obj.toHitDesc,
+            damage: obj.damage,
+            critRange: obj.critRange,
+            critDamage: obj.critDamage,
+            charID: cID
+          }; //const val = this.http.post<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/newToHit/', body, {
+
+          var val = _this3.http.post('/api/newToHit/', body, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+              'Access-Control-Allow-Origin': '*'
+            })
+          });
+
+          return val;
+        }; // EQUIPMENT
+
 
         this.loadEquipment = function (id) {
           //const val =  this.http.get<Equipment>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/equip/' + id, {
@@ -1162,7 +1179,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
 
           return val;
-        };
+        }; // AC
+
 
         this.loadAC = function (id) {
           console.log("id", id); //const val =  this.http.get<Equipment>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/ac/' + id, {
@@ -1174,7 +1192,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
 
           return val;
-        };
+        }; // HP
+
 
         this.updateHP = function (charID, charHP) {
           var body = {
@@ -1189,10 +1208,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
 
           return val;
-        };
+        }; // INITIATIVE
+
 
         this.updateInit = function (charID, init) {
-          console.log("init", init);
           var body = {
             charID: charID,
             init: init
@@ -1205,7 +1224,33 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
 
           return val;
+        }; // NOTES
+
+
+        this.loadNotes = function (charID) {
+          console.log('loading:', charID);
+
+          var val = _this3.http.get('/api/notes/getCharNotes/' + charID.toString(), {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+              'Access-Control-Allow-Origin': '*'
+            })
+          });
+
+          console.log('val', val);
+          return val;
         };
+
+        this.addNoteHeader = function (body) {
+          //const val =  this.http.post<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/equip/add', body, {
+          var val = _this3.http.post('/api/notes/insertNoteHeader', body, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+              'Access-Control-Allow-Origin': '*'
+            })
+          });
+
+          return val;
+        }; // CLASSES
+
 
         this.loadClasses = function (id) {};
       } // SETTERS

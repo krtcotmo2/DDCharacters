@@ -35655,7 +35655,7 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
         }
       },
       directives: [_angular_common__WEBPACK_IMPORTED_MODULE_3__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgForOf"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["NgForm"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["NgModel"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["NumberValueAccessor"]],
-      styles: ["form[_ngcontent-%COMP%]   input[_ngcontent-%COMP%]{\r\n  margin-right:12px;\r\n  padding:3px 6px;\r\n  border:1px solid #ccc;\r\n  border-radius: 3px;\r\n  position: relative;\r\n    bottom: 3px;\r\n}\r\n.hidden[_ngcontent-%COMP%]{\r\n  display:none;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY2hhcmdlbi9jaGFyLWVxdWlwL2NoYXItZXF1aXAuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGlCQUFpQjtFQUNqQixlQUFlO0VBQ2YscUJBQXFCO0VBQ3JCLGtCQUFrQjtFQUNsQixrQkFBa0I7SUFDaEIsV0FBVztBQUNmO0FBQ0E7RUFDRSxZQUFZO0FBQ2QiLCJmaWxlIjoic3JjL2FwcC9jaGFyZ2VuL2NoYXItZXF1aXAvY2hhci1lcXVpcC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiZm9ybSBpbnB1dHtcclxuICBtYXJnaW4tcmlnaHQ6MTJweDtcclxuICBwYWRkaW5nOjNweCA2cHg7XHJcbiAgYm9yZGVyOjFweCBzb2xpZCAjY2NjO1xyXG4gIGJvcmRlci1yYWRpdXM6IDNweDtcclxuICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgICBib3R0b206IDNweDtcclxufVxyXG4uaGlkZGVue1xyXG4gIGRpc3BsYXk6bm9uZTtcclxufVxyXG4iXX0= */"]
+      styles: ["form[_ngcontent-%COMP%]   input[_ngcontent-%COMP%]{\r\n  margin-right:12px;\r\n  padding:3px 6px;\r\n  border:1px solid #ccc;\r\n  border-radius: 3px;\r\n}\r\n.hidden[_ngcontent-%COMP%]{\r\n  display:none;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY2hhcmdlbi9jaGFyLWVxdWlwL2NoYXItZXF1aXAuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGlCQUFpQjtFQUNqQixlQUFlO0VBQ2YscUJBQXFCO0VBQ3JCLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsWUFBWTtBQUNkIiwiZmlsZSI6InNyYy9hcHAvY2hhcmdlbi9jaGFyLWVxdWlwL2NoYXItZXF1aXAuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbImZvcm0gaW5wdXR7XHJcbiAgbWFyZ2luLXJpZ2h0OjEycHg7XHJcbiAgcGFkZGluZzozcHggNnB4O1xyXG4gIGJvcmRlcjoxcHggc29saWQgI2NjYztcclxuICBib3JkZXItcmFkaXVzOiAzcHg7XHJcbn1cclxuLmhpZGRlbntcclxuICBkaXNwbGF5Om5vbmU7XHJcbn1cclxuIl19 */"]
     });
     /*@__PURE__*/
 
@@ -36844,41 +36844,293 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _services_char_data_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! ../../services/char-data.service */
+    "./src/app/services/char-data.service.ts");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/common */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+    /* harmony import */
+
+
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+
+    function CharNotesComponent_button_2_Template(rf, ctx) {
+      if (rf & 1) {
+        var _r131 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 7);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function CharNotesComponent_button_2_Template_button_click_0_listener($event) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r131);
+
+          var ctx_r130 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+          return ctx_r130.addNewNote($event);
+        });
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "i", 8);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, " Add Note Category\n");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+    }
+
+    function CharNotesComponent_form_3_Template(rf, ctx) {
+      if (rf & 1) {
+        var _r134 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "form", 9, 10);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngSubmit", function CharNotesComponent_form_3_Template_form_ngSubmit_0_listener($event) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r134);
+
+          var ctx_r133 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+          return ctx_r133.onSubmit($event);
+        });
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "input", 11);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function CharNotesComponent_form_3_Template_input_ngModelChange_2_listener($event) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r134);
+
+          var ctx_r135 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+          return ctx_r135.note = $event;
+        });
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "button", 12);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "Submit");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var ctx_r128 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx_r128.note);
+      }
+    }
+
+    var _c0 = function _c0(a0) {
+      return [a0];
+    };
+
+    function CharNotesComponent_div_9_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 13);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "span", 14);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "a", 15);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var nt_r136 = ctx.$implicit;
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](2, _c0, "/charGen/notes/" + nt_r136.noteID.toString()));
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", nt_r136.noteTitle, " ");
+      }
+    }
 
     var CharNotesComponent =
     /*#__PURE__*/
     function () {
-      function CharNotesComponent() {
+      function CharNotesComponent(charDataSvc, router) {
+        var _this11 = this;
+
         _classCallCheck2(this, CharNotesComponent);
+
+        this.charDataSvc = charDataSvc;
+        this.router = router;
+        this.allNotes = [];
+        this.filterText = '';
+        this.notesSet = {};
+
+        this.addNewNote = function (evt) {
+          _this11.newNote = true;
+        };
+
+        this.onSubmit = function (evt) {
+          evt.preventDefault();
+          var body = {
+            charID: _this11.charID,
+            note: _this11.note
+          };
+
+          _this11.charDataSvc.addNoteHeader(body).subscribe(function (vals) {
+            _this11.notesSet['results'] = [].concat(_toConsumableArray2(_this11.notesSet['results']), [vals]);
+
+            _this11.charDataSvc.setAllNotes(_this11.notesSet);
+
+            _this11.note = '';
+            _this11.newNote = false;
+          });
+        };
+
+        this.filterList = function (evt) {
+          _this11.filterText = evt.target.value;
+          var allRows = document.getElementsByClassName('ui grid gridRow');
+
+          var _iterator4 = _createForOfIteratorHelper(allRows),
+              _step4;
+
+          try {
+            for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+              var r = _step4.value;
+              var aTag = r.getElementsByTagName('span')[0].innerText;
+
+              if (aTag.toLowerCase().includes(_this11.filterText.toLowerCase())) {
+                r.classList.remove('hidden');
+              } else {
+                r.classList.add('hidden');
+              }
+            }
+          } catch (err) {
+            _iterator4.e(err);
+          } finally {
+            _iterator4.f();
+          }
+        };
       }
 
       _createClass2(CharNotesComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {}
+        value: function ngOnInit() {
+          var _this12 = this;
+
+          this.charDataSvc.getCharID.subscribe(function (val) {
+            return _this12.charID = val;
+          });
+          this.charDataSvc.getAllNotes.subscribe(function (val) {
+            return _this12.notesSet = val === null ? {} : val;
+          });
+          this.charDataSvc.getAllNotes.subscribe(function (val) {
+            return _this12.allNotes = val === null ? [] : val.results;
+          });
+          this.charDataSvc.getAllNotes.subscribe(function (val) {
+            return _this12.curChar = val === null ? '0' : val.charID;
+          });
+          console.log(this.charID, this.curChar, this.allNotes);
+
+          if (this.charID && this.charID.toString() !== this.curChar) {
+            this.charDataSvc.loadNotes(this.charID).subscribe(function (val) {
+              _this12.allNotes = val.results;
+
+              _this12.charDataSvc.setAllNotes(val);
+
+              console.log(_this12.charID, _this12.curChar, _this12.allNotes);
+            });
+          }
+        }
       }]);
 
       return CharNotesComponent;
     }();
 
     CharNotesComponent.ɵfac = function CharNotesComponent_Factory(t) {
-      return new (t || CharNotesComponent)();
+      return new (t || CharNotesComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_char_data_service__WEBPACK_IMPORTED_MODULE_1__["CharDataService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]));
     };
 
     CharNotesComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: CharNotesComponent,
       selectors: [["app-char-notes"]],
-      decls: 2,
-      vars: 0,
+      decls: 10,
+      vars: 4,
+      consts: [["class", "mini ui primary button labeled icon", "style", "vertical-align: text-bottom; margin-left:12px", 3, "click", 4, "ngIf"], ["style", "display:flex; align-items: stretch; margin:12px 0;", 3, "ngSubmit", 4, "ngIf"], [1, "ui", "input", 2, "font-size", "1rem", "width", "100%"], ["type", "text", "name", "filter", "placeholder", "Filter - type in value", 3, "value", "input"], [1, "ui", "grid", "gridHeader"], [1, "two", "wide", "column"], ["class", "ui grid gridRow", 4, "ngFor", "ngForOf"], [1, "mini", "ui", "primary", "button", "labeled", "icon", 2, "vertical-align", "text-bottom", "margin-left", "12px", 3, "click"], [1, "plus", "square", "outline", "icon"], [2, "display", "flex", "align-items", "stretch", "margin", "12px 0", 3, "ngSubmit"], ["notesForm", "ngForm"], ["type", "text", "placeholder", "Item", "name", "note", 1, "equipInput", 3, "ngModel", "ngModelChange"], [1, "mini", "ui", "primary", "button"], [1, "ui", "grid", "gridRow"], [1, "stat", "sixteen", "wide", "column"], [3, "routerLink"]],
       template: function CharNotesComponent_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "p");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h1");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "char-notes works!");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Notes ");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, CharNotesComponent_button_2_Template, 3, 0, "button", 0);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, CharNotesComponent_form_3_Template, 5, 1, "form", 1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "span", 2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "input", 3);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("input", function CharNotesComponent_Template_input_input_5_listener($event) {
+            return ctx.filterList($event);
+          });
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "div", 4);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "div", 5);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8, "Name");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](9, CharNotesComponent_div_9_Template, 4, 4, "div", 6);
+        }
+
+        if (rf & 2) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.newNote);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.newNote);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("value", ctx.filterText);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.allNotes);
         }
       },
-      styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NoYXJnZW4vY2hhci1ub3Rlcy9jaGFyLW5vdGVzLmNvbXBvbmVudC5jc3MifQ== */"]
+      directives: [_angular_common__WEBPACK_IMPORTED_MODULE_3__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgForOf"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["NgForm"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["NgModel"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterLinkWithHref"]],
+      styles: ["p[_ngcontent-%COMP%]{display: flex; justify-content: flex-start; flex-direction: row;}\r\ndiv[_ngcontent-%COMP%]{\r\n  font-size: 1rem;\r\n}\r\nspan.statVal[_ngcontent-%COMP%]   i[_ngcontent-%COMP%]{margin-left:5px}\r\nbutton[_ngcontent-%COMP%]    + button[_ngcontent-%COMP%]{\r\n  margin-left:12px;\r\n}\r\n.ui.labeled.icon.button[_ngcontent-%COMP%]    > .icon[_ngcontent-%COMP%]{\r\n  background-color: rgba(0, 0, 0, 0.20);\r\n}\r\n.gridRow[_ngcontent-%COMP%]   span[_ngcontent-%COMP%]{\r\n  \r\n}\r\n.column.breakdown[_ngcontent-%COMP%]{\r\n  overflow: hidden;\r\n  max-height:0px;\r\n  font-weight: normal;\r\n  background-color: #ccc;\r\n  padding:0px !important;\r\n  transition: 0.5s;\r\n}\r\n.column.breakdown.expanded[_ngcontent-%COMP%]{\r\n  max-height:600px;\r\n  transition: 0.5s;\r\n}\r\n[data-position=\"right center\"][data-tooltip][_ngcontent-%COMP%]:after{\r\n  max-width:500px;\r\n  width:500px;\r\n  white-space: pre-wrap;\r\n}\r\n.ui.grid[_ngcontent-%COMP%]    + .grid[_ngcontent-%COMP%] {\r\n  margin-top: 0px;\r\n}\r\n.gridHeader[_ngcontent-%COMP%], .gridRow[_ngcontent-%COMP%]{\r\n  border-radius: 6px 6px 0em 0em;\r\n  cursor: auto;\r\n  background: #F9FAFB;\r\n  text-align: inherit;\r\n  color: rgba(0, 0, 0, 0.87);\r\n  padding: 0.0.25 0.78571429em;\r\n  vertical-align: inherit;\r\n  font-style: none;\r\n  font-size: 1rem;\r\n  font-weight: bold;\r\n  text-transform: none;\r\n  border: 1px solid rgba(34, 36, 38, 0.1);\r\n  border-bottom: 0px;\r\n  margin:0 2px;\r\n}\r\n.gridHeader[_ngcontent-%COMP%]   .three[_ngcontent-%COMP%]:first-child, .gridRow[_ngcontent-%COMP%]   .three[_ngcontent-%COMP%]:first-child{\r\n  border-right: 1px solid rgba(34, 36, 38, 0.1);\r\n}\r\n.gridRow[_ngcontent-%COMP%]{\r\n  background: #fff;\r\n  color:#000;\r\n  border-radius: 0em;\r\n}\r\n.gridRow[_ngcontent-%COMP%]   .eleven[_ngcontent-%COMP%]{\r\n  font-weight: normal;\r\n}\r\n.gridRow[_ngcontent-%COMP%]:last-child, .gridHeader[_ngcontent-%COMP%]:last-child{\r\n  border-bottom: 1px solid rgba(34, 36, 38, 0.1);\r\n}\r\n.column.preReq[_ngcontent-%COMP%]{\r\n  overflow: hidden;\r\n  max-height:0px;\r\n  font-weight: normal;\r\n  background-color: #ccc;\r\n  padding:0px !important;\r\n  transition: 0.5s;\r\n}\r\n.column.preReq.expanded[_ngcontent-%COMP%]{\r\n  max-height:300px;\r\n  transition: 0.5s;\r\n}\r\n.ui.grid[_ngcontent-%COMP%]{\r\n  margin-top:0px\r\n}\r\n.hidden[_ngcontent-%COMP%]{\r\n  display:none;\r\n}\r\nform[_ngcontent-%COMP%]   input[_ngcontent-%COMP%]{\r\n  margin-right:12px;\r\n  padding:3px 6px;\r\n  border:1px solid #ccc;\r\n  border-radius: 3px;\r\n  position: relative;\r\n  bottom: 3px;\r\n  font-size:1.4rem;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY2hhcmdlbi9jaGFyLW5vdGVzL2NoYXItbm90ZXMuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxFQUFFLGFBQWEsRUFBRSwyQkFBMkIsRUFBRSxtQkFBbUIsQ0FBQztBQUNsRTtFQUNFLGVBQWU7QUFDakI7QUFFQSxlQUFlLGVBQWU7QUFFOUI7RUFDRSxnQkFBZ0I7QUFDbEI7QUFFQTtFQUNFLHFDQUFxQztBQUN2QztBQUNBO0VBQ0Usd0JBQXdCO0FBQzFCO0FBQ0E7RUFDRSxnQkFBZ0I7RUFDaEIsY0FBYztFQUNkLG1CQUFtQjtFQUNuQixzQkFBc0I7RUFDdEIsc0JBQXNCO0VBQ3RCLGdCQUFnQjtBQUNsQjtBQUVBO0VBQ0UsZ0JBQWdCO0VBQ2hCLGdCQUFnQjtBQUNsQjtBQUdBO0VBQ0UsZUFBZTtFQUNmLFdBQVc7RUFDWCxxQkFBcUI7QUFDdkI7QUFDQTtFQUNFLGVBQWU7QUFDakI7QUFDQTtFQUNFLDhCQUE4QjtFQUM5QixZQUFZO0VBQ1osbUJBQW1CO0VBQ25CLG1CQUFtQjtFQUNuQiwwQkFBMEI7RUFDMUIsNEJBQTRCO0VBQzVCLHVCQUF1QjtFQUN2QixnQkFBZ0I7RUFDaEIsZUFBZTtFQUNmLGlCQUFpQjtFQUNqQixvQkFBb0I7RUFDcEIsdUNBQXVDO0VBQ3ZDLGtCQUFrQjtFQUNsQixZQUFZO0FBQ2Q7QUFDQTtFQUNFLDZDQUE2QztBQUMvQztBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLFVBQVU7RUFDVixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLG1CQUFtQjtBQUNyQjtBQUNBO0VBQ0UsOENBQThDO0FBQ2hEO0FBQ0E7RUFDRSxnQkFBZ0I7RUFDaEIsY0FBYztFQUNkLG1CQUFtQjtFQUNuQixzQkFBc0I7RUFDdEIsc0JBQXNCO0VBQ3RCLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0U7QUFDRjtBQUVBO0VBQ0UsWUFBWTtBQUNkO0FBQ0E7RUFDRSxpQkFBaUI7RUFDakIsZUFBZTtFQUNmLHFCQUFxQjtFQUNyQixrQkFBa0I7RUFDbEIsa0JBQWtCO0VBQ2xCLFdBQVc7RUFDWCxnQkFBZ0I7QUFDbEIiLCJmaWxlIjoic3JjL2FwcC9jaGFyZ2VuL2NoYXItbm90ZXMvY2hhci1ub3Rlcy5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsicHtkaXNwbGF5OiBmbGV4OyBqdXN0aWZ5LWNvbnRlbnQ6IGZsZXgtc3RhcnQ7IGZsZXgtZGlyZWN0aW9uOiByb3c7fVxyXG5kaXZ7XHJcbiAgZm9udC1zaXplOiAxcmVtO1xyXG59XHJcblxyXG5zcGFuLnN0YXRWYWwgaXttYXJnaW4tbGVmdDo1cHh9XHJcblxyXG5idXR0b24gKyBidXR0b257XHJcbiAgbWFyZ2luLWxlZnQ6MTJweDtcclxufVxyXG5cclxuLnVpLmxhYmVsZWQuaWNvbi5idXR0b24gPiAuaWNvbntcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDAsIDAsIDAsIDAuMjApO1xyXG59XHJcbi5ncmlkUm93IHNwYW57XHJcbiAgLyogbWFyZ2luLWJvdHRvbToxMnB4OyAqL1xyXG59XHJcbi5jb2x1bW4uYnJlYWtkb3due1xyXG4gIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgbWF4LWhlaWdodDowcHg7XHJcbiAgZm9udC13ZWlnaHQ6IG5vcm1hbDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjY2NjO1xyXG4gIHBhZGRpbmc6MHB4ICFpbXBvcnRhbnQ7XHJcbiAgdHJhbnNpdGlvbjogMC41cztcclxufVxyXG5cclxuLmNvbHVtbi5icmVha2Rvd24uZXhwYW5kZWR7XHJcbiAgbWF4LWhlaWdodDo2MDBweDtcclxuICB0cmFuc2l0aW9uOiAwLjVzO1xyXG59XHJcblxyXG5cclxuW2RhdGEtcG9zaXRpb249XCJyaWdodCBjZW50ZXJcIl1bZGF0YS10b29sdGlwXTphZnRlcntcclxuICBtYXgtd2lkdGg6NTAwcHg7XHJcbiAgd2lkdGg6NTAwcHg7XHJcbiAgd2hpdGUtc3BhY2U6IHByZS13cmFwO1xyXG59XHJcbi51aS5ncmlkICsgLmdyaWQge1xyXG4gIG1hcmdpbi10b3A6IDBweDtcclxufVxyXG4uZ3JpZEhlYWRlciwgLmdyaWRSb3d7XHJcbiAgYm9yZGVyLXJhZGl1czogNnB4IDZweCAwZW0gMGVtO1xyXG4gIGN1cnNvcjogYXV0bztcclxuICBiYWNrZ3JvdW5kOiAjRjlGQUZCO1xyXG4gIHRleHQtYWxpZ246IGluaGVyaXQ7XHJcbiAgY29sb3I6IHJnYmEoMCwgMCwgMCwgMC44Nyk7XHJcbiAgcGFkZGluZzogMC4wLjI1IDAuNzg1NzE0MjllbTtcclxuICB2ZXJ0aWNhbC1hbGlnbjogaW5oZXJpdDtcclxuICBmb250LXN0eWxlOiBub25lO1xyXG4gIGZvbnQtc2l6ZTogMXJlbTtcclxuICBmb250LXdlaWdodDogYm9sZDtcclxuICB0ZXh0LXRyYW5zZm9ybTogbm9uZTtcclxuICBib3JkZXI6IDFweCBzb2xpZCByZ2JhKDM0LCAzNiwgMzgsIDAuMSk7XHJcbiAgYm9yZGVyLWJvdHRvbTogMHB4O1xyXG4gIG1hcmdpbjowIDJweDtcclxufVxyXG4uZ3JpZEhlYWRlciAudGhyZWU6Zmlyc3QtY2hpbGQsIC5ncmlkUm93IC50aHJlZTpmaXJzdC1jaGlsZHtcclxuICBib3JkZXItcmlnaHQ6IDFweCBzb2xpZCByZ2JhKDM0LCAzNiwgMzgsIDAuMSk7XHJcbn1cclxuLmdyaWRSb3d7XHJcbiAgYmFja2dyb3VuZDogI2ZmZjtcclxuICBjb2xvcjojMDAwO1xyXG4gIGJvcmRlci1yYWRpdXM6IDBlbTtcclxufVxyXG4uZ3JpZFJvdyAuZWxldmVue1xyXG4gIGZvbnQtd2VpZ2h0OiBub3JtYWw7XHJcbn1cclxuLmdyaWRSb3c6bGFzdC1jaGlsZCwgLmdyaWRIZWFkZXI6bGFzdC1jaGlsZHtcclxuICBib3JkZXItYm90dG9tOiAxcHggc29saWQgcmdiYSgzNCwgMzYsIDM4LCAwLjEpO1xyXG59XHJcbi5jb2x1bW4ucHJlUmVxe1xyXG4gIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgbWF4LWhlaWdodDowcHg7XHJcbiAgZm9udC13ZWlnaHQ6IG5vcm1hbDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjY2NjO1xyXG4gIHBhZGRpbmc6MHB4ICFpbXBvcnRhbnQ7XHJcbiAgdHJhbnNpdGlvbjogMC41cztcclxufVxyXG4uY29sdW1uLnByZVJlcS5leHBhbmRlZHtcclxuICBtYXgtaGVpZ2h0OjMwMHB4O1xyXG4gIHRyYW5zaXRpb246IDAuNXM7XHJcbn1cclxuLnVpLmdyaWR7XHJcbiAgbWFyZ2luLXRvcDowcHhcclxufVxyXG5cclxuLmhpZGRlbntcclxuICBkaXNwbGF5Om5vbmU7XHJcbn1cclxuZm9ybSBpbnB1dHtcclxuICBtYXJnaW4tcmlnaHQ6MTJweDtcclxuICBwYWRkaW5nOjNweCA2cHg7XHJcbiAgYm9yZGVyOjFweCBzb2xpZCAjY2NjO1xyXG4gIGJvcmRlci1yYWRpdXM6IDNweDtcclxuICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgYm90dG9tOiAzcHg7XHJcbiAgZm9udC1zaXplOjEuNHJlbTtcclxufVxyXG4iXX0= */"]
     });
     /*@__PURE__*/
 
@@ -36891,7 +37143,11 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
           styleUrls: ['./char-notes.component.css']
         }]
       }], function () {
-        return [];
+        return [{
+          type: _services_char_data_service__WEBPACK_IMPORTED_MODULE_1__["CharDataService"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+        }];
       }, null);
     })();
     /***/
@@ -37048,7 +37304,7 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
     /*#__PURE__*/
     function () {
       function CharSavesComponent(charDataSvc, router, sanitizer) {
-        var _this11 = this;
+        var _this13 = this;
 
         _classCallCheck2(this, CharSavesComponent);
 
@@ -37065,12 +37321,12 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
             return i.saveID;
           })));
 
-          var _iterator4 = _createForOfIteratorHelper(ids),
-              _step4;
+          var _iterator5 = _createForOfIteratorHelper(ids),
+              _step5;
 
           try {
             var _loop3 = function _loop3() {
-              var sid = _step4.value;
+              var sid = _step5.value;
               var temp = ar.filter(function (i) {
                 return i.saveID === sid;
               });
@@ -37086,14 +37342,14 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
                 desc: 'Base'
               });
 
-              var _iterator5 = _createForOfIteratorHelper(temp.filter(function (d) {
+              var _iterator6 = _createForOfIteratorHelper(temp.filter(function (d) {
                 return d.isBase === false;
               })),
-                  _step5;
+                  _step6;
 
               try {
-                for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
-                  var aSk = _step5.value;
+                for (_iterator6.s(); !(_step6 = _iterator6.n()).done;) {
+                  var aSk = _step6.value;
                   var reason = aSk.modDesc;
                   breakdown.push({
                     score: aSk.score,
@@ -37101,9 +37357,9 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
                   });
                 }
               } catch (err) {
-                _iterator5.e(err);
+                _iterator6.e(err);
               } finally {
-                _iterator5.f();
+                _iterator6.f();
               }
 
               var obj = {
@@ -37115,13 +37371,13 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
               retVal.push(obj);
             };
 
-            for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+            for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
               _loop3();
             }
           } catch (err) {
-            _iterator4.e(err);
+            _iterator5.e(err);
           } finally {
-            _iterator4.f();
+            _iterator5.f();
           }
 
           retVal.sort(function (a, b) {
@@ -37131,35 +37387,35 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
         };
 
         this.editSave = function (arg) {
-          _this11.router.navigate(['/charGen/mods/save/' + arg]);
+          _this13.router.navigate(['/charGen/mods/save/' + arg]);
         };
       }
 
       _createClass2(CharSavesComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this12 = this;
+          var _this14 = this;
 
           this.charDataSvc.getIsNew.subscribe(function (val) {
-            return _this12.isNew = val;
+            return _this14.isNew = val;
           });
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this12.charID = val === null ? 0 : val;
+            return _this14.charID = val === null ? 0 : val;
           });
           this.charDataSvc.getAllSaves.subscribe(function (val) {
-            _this12.curChar = val === null ? '0' : val.charID;
+            _this14.curChar = val === null ? '0' : val.charID;
           });
           this.charDataSvc.getAllSaves.subscribe(function (val) {
-            return _this12.allSaves = val === null ? null : val.results;
+            return _this14.allSaves = val === null ? null : val.results;
           });
 
           if (!this.isNew && this.charID && this.charID.toString() !== this.curChar) {
             this.charDataSvc.loadSaves(this.charID.toString()).subscribe(function (val) {
-              _this12.allSaves = val.results;
+              _this14.allSaves = val.results;
 
-              _this12.charDataSvc.setSaves(val);
+              _this14.charDataSvc.setSaves(val);
 
-              _this12.grpSaves = _this12.createSaveGrps(_this12.allSaves);
+              _this14.grpSaves = _this14.createSaveGrps(_this14.allSaves);
             });
           } else {
             this.grpSaves = this.createSaveGrps(this.allSaves);
@@ -37181,20 +37437,20 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
         value: function processBreakDown(stat) {
           var retStr = '';
 
-          var _iterator6 = _createForOfIteratorHelper(stat),
-              _step6;
+          var _iterator7 = _createForOfIteratorHelper(stat),
+              _step7;
 
           try {
-            for (_iterator6.s(); !(_step6 = _iterator6.n()).done;) {
-              var item = _step6.value;
+            for (_iterator7.s(); !(_step7 = _iterator7.n()).done;) {
+              var item = _step7.value;
               var desc = item.desc;
               var score = item.score;
               retStr += '<div><span style="width:36px; display:inline-block; text-align:right">' + score + '</span> - ' + desc + '</div>';
             }
           } catch (err) {
-            _iterator6.e(err);
+            _iterator7.e(err);
           } finally {
-            _iterator6.f();
+            _iterator7.f();
           }
 
           return this.sanitizer.bypassSecurityTrustHtml(retStr);
@@ -37583,7 +37839,7 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
     /*#__PURE__*/
     function () {
       function CharSkillsComponent(charDataSvc, router) {
-        var _this13 = this;
+        var _this15 = this;
 
         _classCallCheck2(this, CharSkillsComponent);
 
@@ -37600,12 +37856,12 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
             return i.skillID;
           })));
 
-          var _iterator7 = _createForOfIteratorHelper(ids),
-              _step7;
+          var _iterator8 = _createForOfIteratorHelper(ids),
+              _step8;
 
           try {
             var _loop4 = function _loop4() {
-              var sid = _step7.value;
+              var sid = _step8.value;
               var temp = ar.filter(function (i) {
                 return i.skillID === sid;
               });
@@ -37632,14 +37888,14 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
                 });
               }
 
-              var _iterator8 = _createForOfIteratorHelper(temp.filter(function (d) {
+              var _iterator9 = _createForOfIteratorHelper(temp.filter(function (d) {
                 return d.isRanks === false && d.isClassSkill === false;
               })),
-                  _step8;
+                  _step9;
 
               try {
-                for (_iterator8.s(); !(_step8 = _iterator8.n()).done;) {
-                  var aSk = _step8.value;
+                for (_iterator9.s(); !(_step9 = _iterator9.n()).done;) {
+                  var aSk = _step9.value;
                   var reason = aSk.isClassSkill ? 'Class Skill' : aSk.modDesc;
                   breakdown.push({
                     score: aSk.score,
@@ -37647,9 +37903,9 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
                   });
                 }
               } catch (err) {
-                _iterator8.e(err);
+                _iterator9.e(err);
               } finally {
-                _iterator8.f();
+                _iterator9.f();
               }
 
               var obj = {
@@ -37662,13 +37918,13 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
               retVal.push(obj);
             };
 
-            for (_iterator7.s(); !(_step7 = _iterator7.n()).done;) {
+            for (_iterator8.s(); !(_step8 = _iterator8.n()).done;) {
               _loop4();
             }
           } catch (err) {
-            _iterator7.e(err);
+            _iterator8.e(err);
           } finally {
-            _iterator7.f();
+            _iterator8.f();
           }
 
           retVal.sort(function (a, b) {
@@ -37678,35 +37934,35 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
         };
 
         this.editSkill = function (arg) {
-          _this13.router.navigate(['/charGen/mods/skill/' + arg]);
+          _this15.router.navigate(['/charGen/mods/skill/' + arg]);
         };
 
         this.addNewSkill = function () {
-          _this13.router.navigate(['/charGen/mods/newskill']);
+          _this15.router.navigate(['/charGen/mods/newskill']);
         };
 
         this.filterList = function (evt) {
-          _this13.filterText = evt.target.value;
+          _this15.filterText = evt.target.value;
           var allRows = document.getElementsByClassName('ui grid gridRow');
 
-          var _iterator9 = _createForOfIteratorHelper(allRows),
-              _step9;
+          var _iterator10 = _createForOfIteratorHelper(allRows),
+              _step10;
 
           try {
-            for (_iterator9.s(); !(_step9 = _iterator9.n()).done;) {
-              var r = _step9.value;
+            for (_iterator10.s(); !(_step10 = _iterator10.n()).done;) {
+              var r = _step10.value;
               var aTag = r.getElementsByTagName('span')[0].innerText;
 
-              if (aTag.toLowerCase().includes(_this13.filterText.toLowerCase())) {
+              if (aTag.toLowerCase().includes(_this15.filterText.toLowerCase())) {
                 r.classList.remove('hidden');
               } else {
                 r.classList.add('hidden');
               }
             }
           } catch (err) {
-            _iterator9.e(err);
+            _iterator10.e(err);
           } finally {
-            _iterator9.f();
+            _iterator10.f();
           }
         };
       }
@@ -37714,29 +37970,29 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
       _createClass2(CharSkillsComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this14 = this;
+          var _this16 = this;
 
           this.charDataSvc.getIsNew.subscribe(function (val) {
-            return _this14.isNew = val;
+            return _this16.isNew = val;
           });
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this14.charID = val;
+            return _this16.charID = val;
           });
           this.charDataSvc.getAllSkills.subscribe(function (val) {
-            return _this14.allSkills = val === null ? [] : val.results;
+            return _this16.allSkills = val === null ? [] : val.results;
           });
           this.charDataSvc.getAllSkills.subscribe(function (val) {
-            return _this14.curChar = val === null ? "0" : val.charID;
+            return _this16.curChar = val === null ? "0" : val.charID;
           });
 
           if (!this.isNew && this.charID && this.charID.toString() !== this.curChar) {
             this.charDataSvc.loadSkills(this.charID.toString()).subscribe(function (val) {
-              _this14.allSkills = val.results;
+              _this16.allSkills = val.results;
 
-              _this14.charDataSvc.setAllSkills(val);
+              _this16.charDataSvc.setAllSkills(val);
 
-              if (_this14.allSkills.length > 0) {
-                _this14.grpSkils = _this14.createSkillGrps(_this14.allSkills);
+              if (_this16.allSkills.length > 0) {
+                _this16.grpSkils = _this16.createSkillGrps(_this16.allSkills);
               }
             });
           } else {
@@ -38143,7 +38399,7 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
     /*#__PURE__*/
     function () {
       function CharTohitComponent(charDataSvc, router) {
-        var _this15 = this;
+        var _this17 = this;
 
         _classCallCheck2(this, CharTohitComponent);
 
@@ -38162,12 +38418,12 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
             return i.toHitID;
           })));
 
-          var _iterator10 = _createForOfIteratorHelper(ids),
-              _step10;
+          var _iterator11 = _createForOfIteratorHelper(ids),
+              _step11;
 
           try {
             var _loop5 = function _loop5() {
-              var sid = _step10.value;
+              var sid = _step11.value;
               var temp = ar.filter(function (i) {
                 return i.toHitID === sid;
               });
@@ -38186,14 +38442,14 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
                 });
               }
 
-              var _iterator11 = _createForOfIteratorHelper(temp.filter(function (d) {
+              var _iterator12 = _createForOfIteratorHelper(temp.filter(function (d) {
                 return d.isBase === false;
               })),
-                  _step11;
+                  _step12;
 
               try {
-                for (_iterator11.s(); !(_step11 = _iterator11.n()).done;) {
-                  var aSk = _step11.value;
+                for (_iterator12.s(); !(_step12 = _iterator12.n()).done;) {
+                  var aSk = _step12.value;
                   var reason = aSk.modDesc;
                   breakdown.push({
                     score: aSk.score,
@@ -38201,9 +38457,9 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
                   });
                 }
               } catch (err) {
-                _iterator11.e(err);
+                _iterator12.e(err);
               } finally {
-                _iterator11.f();
+                _iterator12.f();
               }
 
               var obj = {
@@ -38218,40 +38474,40 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
               retVal.push(obj);
             };
 
-            for (_iterator10.s(); !(_step10 = _iterator10.n()).done;) {
+            for (_iterator11.s(); !(_step11 = _iterator11.n()).done;) {
               _loop5();
             }
           } catch (err) {
-            _iterator10.e(err);
+            _iterator11.e(err);
           } finally {
-            _iterator10.f();
+            _iterator11.f();
           }
 
           return retVal;
         };
 
         this.filterList = function (evt) {
-          _this15.filterText = evt.target.value;
+          _this17.filterText = evt.target.value;
           var allRows = document.getElementsByClassName('ui grid gridRow');
 
-          var _iterator12 = _createForOfIteratorHelper(allRows),
-              _step12;
+          var _iterator13 = _createForOfIteratorHelper(allRows),
+              _step13;
 
           try {
-            for (_iterator12.s(); !(_step12 = _iterator12.n()).done;) {
-              var r = _step12.value;
+            for (_iterator13.s(); !(_step13 = _iterator13.n()).done;) {
+              var r = _step13.value;
               var aTag = r.getElementsByTagName('span')[0].innerText;
 
-              if (aTag.toLowerCase().includes(_this15.filterText.toLowerCase())) {
+              if (aTag.toLowerCase().includes(_this17.filterText.toLowerCase())) {
                 r.classList.remove('hidden');
               } else {
                 r.classList.add('hidden');
               }
             }
           } catch (err) {
-            _iterator12.e(err);
+            _iterator13.e(err);
           } finally {
-            _iterator12.f();
+            _iterator13.f();
           }
         };
       }
@@ -38259,32 +38515,32 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
       _createClass2(CharTohitComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this16 = this;
+          var _this18 = this;
 
           this.charDataSvc.getIsNew.subscribe(function (val) {
-            return _this16.isNew = val;
+            return _this18.isNew = val;
           });
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this16.charID = val;
+            return _this18.charID = val;
           });
           this.charDataSvc.getAllToHits.subscribe(function (val) {
-            return _this16.allHits = val === null ? [] : val.results;
+            return _this18.allHits = val === null ? [] : val.results;
           });
           this.charDataSvc.getAllToHits.subscribe(function (val) {
-            return _this16.curChar = val === null ? "0" : val.charID;
+            return _this18.curChar = val === null ? "0" : val.charID;
           });
 
           if (!this.isNew && this.charID && this.charID.toString() !== this.curChar) {
             this.charDataSvc.loadToHits(this.charID.toString()).subscribe(function (val) {
-              _this16.allHits = val.results;
+              _this18.allHits = val.results;
 
-              _this16.charDataSvc.setAllToHits(val);
+              _this18.charDataSvc.setAllToHits(val);
 
-              if (_this16.allHits.length > 0) {
-                _this16.grpHits = _this16.createToHitGrps(_this16.allHits);
+              if (_this18.allHits.length > 0) {
+                _this18.grpHits = _this18.createToHitGrps(_this18.allHits);
               }
 
-              console.log('this.allHits1', _this16.allHits);
+              console.log('this.allHits1', _this18.allHits);
             });
           }
 
@@ -38550,6 +38806,12 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
     var _char_notes_char_notes_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
     /*! ./char-notes/char-notes.component */
     "./src/app/chargen/char-notes/char-notes.component.ts");
+    /* harmony import */
+
+
+    var _single_note_single_note_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+    /*! ./single-note/single-note.component */
+    "./src/app/chargen/single-note/single-note.component.ts");
 
     var routes = [{
       path: '',
@@ -38581,6 +38843,13 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
       }, {
         path: 'notes',
         component: _char_notes_char_notes_component__WEBPACK_IMPORTED_MODULE_15__["CharNotesComponent"]
+      }, {
+        path: 'notes',
+        component: _single_note_single_note_component__WEBPACK_IMPORTED_MODULE_16__["SingleNoteComponent"],
+        children: [{
+          path: '**',
+          component: _single_note_single_note_component__WEBPACK_IMPORTED_MODULE_16__["SingleNoteComponent"]
+        }]
       }, {
         path: 'mods',
         component: _new_tohit_new_tohit_component__WEBPACK_IMPORTED_MODULE_12__["NewTohitComponent"],
@@ -38808,6 +39077,12 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
     var _char_notes_char_notes_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(
     /*! ./char-notes/char-notes.component */
     "./src/app/chargen/char-notes/char-notes.component.ts");
+    /* harmony import */
+
+
+    var _single_note_single_note_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(
+    /*! ./single-note/single-note.component */
+    "./src/app/chargen/single-note/single-note.component.ts");
 
     var ChargenModule = function ChargenModule() {
       _classCallCheck2(this, ChargenModule);
@@ -38825,7 +39100,7 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
 
     (function () {
       (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](ChargenModule, {
-        declarations: [_generate_generate_component__WEBPACK_IMPORTED_MODULE_4__["GenerateComponent"], _char_skills_char_skills_component__WEBPACK_IMPORTED_MODULE_6__["CharSkillsComponent"], _char_base_char_base_component__WEBPACK_IMPORTED_MODULE_7__["CharBaseComponent"], _char_feats_char_feats_component__WEBPACK_IMPORTED_MODULE_8__["CharFeatsComponent"], _char_equip_char_equip_component__WEBPACK_IMPORTED_MODULE_9__["CharEquipComponent"], _char_spells_char_spells_component__WEBPACK_IMPORTED_MODULE_10__["CharSpellsComponent"], _input_input_component__WEBPACK_IMPORTED_MODULE_11__["InputComponent"], _prettyprint_pipe__WEBPACK_IMPORTED_MODULE_12__["PrettyprintPipe"], _single_feat_single_feat_component__WEBPACK_IMPORTED_MODULE_14__["SingleFeatComponent"], _char_mod_char_mod_component__WEBPACK_IMPORTED_MODULE_15__["CharModComponent"], _char_saves_char_saves_component__WEBPACK_IMPORTED_MODULE_16__["CharSavesComponent"], _char_tohit_char_tohit_component__WEBPACK_IMPORTED_MODULE_17__["CharTohitComponent"], _new_tohit_new_tohit_component__WEBPACK_IMPORTED_MODULE_18__["NewTohitComponent"], _new_skill_new_skill_component__WEBPACK_IMPORTED_MODULE_19__["NewSkillComponent"], _new_feat_new_feat_component__WEBPACK_IMPORTED_MODULE_20__["NewFeatComponent"], _char_notes_char_notes_component__WEBPACK_IMPORTED_MODULE_21__["CharNotesComponent"]],
+        declarations: [_generate_generate_component__WEBPACK_IMPORTED_MODULE_4__["GenerateComponent"], _char_skills_char_skills_component__WEBPACK_IMPORTED_MODULE_6__["CharSkillsComponent"], _char_base_char_base_component__WEBPACK_IMPORTED_MODULE_7__["CharBaseComponent"], _char_feats_char_feats_component__WEBPACK_IMPORTED_MODULE_8__["CharFeatsComponent"], _char_equip_char_equip_component__WEBPACK_IMPORTED_MODULE_9__["CharEquipComponent"], _char_spells_char_spells_component__WEBPACK_IMPORTED_MODULE_10__["CharSpellsComponent"], _input_input_component__WEBPACK_IMPORTED_MODULE_11__["InputComponent"], _prettyprint_pipe__WEBPACK_IMPORTED_MODULE_12__["PrettyprintPipe"], _single_feat_single_feat_component__WEBPACK_IMPORTED_MODULE_14__["SingleFeatComponent"], _char_mod_char_mod_component__WEBPACK_IMPORTED_MODULE_15__["CharModComponent"], _char_saves_char_saves_component__WEBPACK_IMPORTED_MODULE_16__["CharSavesComponent"], _char_tohit_char_tohit_component__WEBPACK_IMPORTED_MODULE_17__["CharTohitComponent"], _new_tohit_new_tohit_component__WEBPACK_IMPORTED_MODULE_18__["NewTohitComponent"], _new_skill_new_skill_component__WEBPACK_IMPORTED_MODULE_19__["NewSkillComponent"], _new_feat_new_feat_component__WEBPACK_IMPORTED_MODULE_20__["NewFeatComponent"], _char_notes_char_notes_component__WEBPACK_IMPORTED_MODULE_21__["CharNotesComponent"], _single_note_single_note_component__WEBPACK_IMPORTED_MODULE_22__["SingleNoteComponent"]],
         imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _chargen_routing_module__WEBPACK_IMPORTED_MODULE_3__["ChargenRoutingModule"], _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_5__["FontAwesomeModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_13__["NgbModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"]]
       });
     })();
@@ -38836,7 +39111,7 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ChargenModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
         args: [{
-          declarations: [_generate_generate_component__WEBPACK_IMPORTED_MODULE_4__["GenerateComponent"], _char_skills_char_skills_component__WEBPACK_IMPORTED_MODULE_6__["CharSkillsComponent"], _char_base_char_base_component__WEBPACK_IMPORTED_MODULE_7__["CharBaseComponent"], _char_feats_char_feats_component__WEBPACK_IMPORTED_MODULE_8__["CharFeatsComponent"], _char_equip_char_equip_component__WEBPACK_IMPORTED_MODULE_9__["CharEquipComponent"], _char_spells_char_spells_component__WEBPACK_IMPORTED_MODULE_10__["CharSpellsComponent"], _input_input_component__WEBPACK_IMPORTED_MODULE_11__["InputComponent"], _prettyprint_pipe__WEBPACK_IMPORTED_MODULE_12__["PrettyprintPipe"], _single_feat_single_feat_component__WEBPACK_IMPORTED_MODULE_14__["SingleFeatComponent"], _char_mod_char_mod_component__WEBPACK_IMPORTED_MODULE_15__["CharModComponent"], _char_saves_char_saves_component__WEBPACK_IMPORTED_MODULE_16__["CharSavesComponent"], _char_tohit_char_tohit_component__WEBPACK_IMPORTED_MODULE_17__["CharTohitComponent"], _new_tohit_new_tohit_component__WEBPACK_IMPORTED_MODULE_18__["NewTohitComponent"], _new_skill_new_skill_component__WEBPACK_IMPORTED_MODULE_19__["NewSkillComponent"], _new_feat_new_feat_component__WEBPACK_IMPORTED_MODULE_20__["NewFeatComponent"], _char_notes_char_notes_component__WEBPACK_IMPORTED_MODULE_21__["CharNotesComponent"]],
+          declarations: [_generate_generate_component__WEBPACK_IMPORTED_MODULE_4__["GenerateComponent"], _char_skills_char_skills_component__WEBPACK_IMPORTED_MODULE_6__["CharSkillsComponent"], _char_base_char_base_component__WEBPACK_IMPORTED_MODULE_7__["CharBaseComponent"], _char_feats_char_feats_component__WEBPACK_IMPORTED_MODULE_8__["CharFeatsComponent"], _char_equip_char_equip_component__WEBPACK_IMPORTED_MODULE_9__["CharEquipComponent"], _char_spells_char_spells_component__WEBPACK_IMPORTED_MODULE_10__["CharSpellsComponent"], _input_input_component__WEBPACK_IMPORTED_MODULE_11__["InputComponent"], _prettyprint_pipe__WEBPACK_IMPORTED_MODULE_12__["PrettyprintPipe"], _single_feat_single_feat_component__WEBPACK_IMPORTED_MODULE_14__["SingleFeatComponent"], _char_mod_char_mod_component__WEBPACK_IMPORTED_MODULE_15__["CharModComponent"], _char_saves_char_saves_component__WEBPACK_IMPORTED_MODULE_16__["CharSavesComponent"], _char_tohit_char_tohit_component__WEBPACK_IMPORTED_MODULE_17__["CharTohitComponent"], _new_tohit_new_tohit_component__WEBPACK_IMPORTED_MODULE_18__["NewTohitComponent"], _new_skill_new_skill_component__WEBPACK_IMPORTED_MODULE_19__["NewSkillComponent"], _new_feat_new_feat_component__WEBPACK_IMPORTED_MODULE_20__["NewFeatComponent"], _char_notes_char_notes_component__WEBPACK_IMPORTED_MODULE_21__["CharNotesComponent"], _single_note_single_note_component__WEBPACK_IMPORTED_MODULE_22__["SingleNoteComponent"]],
           imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _chargen_routing_module__WEBPACK_IMPORTED_MODULE_3__["ChargenRoutingModule"], _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_5__["FontAwesomeModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_13__["NgbModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"]]
         }]
       }], null, null);
@@ -39169,7 +39444,7 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
     /*#__PURE__*/
     function () {
       function GenerateComponent(dr, charDataSvc, sanitizer, router) {
-        var _this17 = this;
+        var _this19 = this;
 
         _classCallCheck2(this, GenerateComponent);
 
@@ -39182,65 +39457,65 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
         this.stats = [];
 
         this.rollAll = function () {
-          _this17.getStat(5, 'str');
+          _this19.getStat(5, 'str');
 
-          _this17.getStat(4, 'dex');
+          _this19.getStat(4, 'dex');
 
-          _this17.getStat(5, 'con');
+          _this19.getStat(5, 'con');
 
-          _this17.getStat(4, 'int');
+          _this19.getStat(4, 'int');
 
-          _this17.getStat(4, 'wis');
+          _this19.getStat(4, 'wis');
 
-          _this17.getStat(4, 'chr');
+          _this19.getStat(4, 'chr');
 
-          console.log(_this17.stats);
+          console.log(_this19.stats);
         };
 
         this.getStat = function (arg, stat) {
-          var roll1 = _this17.dr.sumRoll(6, arg, 3);
+          var roll1 = _this19.dr.sumRoll(6, arg, 3);
 
-          var roll2 = _this17.dr.sumRoll(6, arg, 3);
+          var roll2 = _this19.dr.sumRoll(6, arg, 3);
 
-          _this17.stats[stat] = Math.max(roll1, roll2);
+          _this19.stats[stat] = Math.max(roll1, roll2);
         };
 
         this.reset = function () {
-          _this17.stats = [];
+          _this19.stats = [];
         };
 
         this.ediStat = function (arg) {
-          _this17.router.navigate(['/charGen/mods/stat/' + arg]);
+          _this19.router.navigate(['/charGen/mods/stat/' + arg]);
         };
       }
 
       _createClass2(GenerateComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this18 = this;
+          var _this20 = this;
 
           this.charDataSvc.getIsNew.subscribe(function (val) {
-            return _this18.isNew = val;
+            return _this20.isNew = val;
           });
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this18.charID = val;
+            return _this20.charID = val;
           });
           this.charDataSvc.getAllStats.subscribe(function (val) {
-            return _this18.stats = val === null ? [] : val.results;
+            return _this20.stats = val === null ? [] : val.results;
           });
           this.charDataSvc.getAllStats.subscribe(function (val) {
-            return _this18.curChar = val === null ? "0" : val.charID;
+            return _this20.curChar = val === null ? "0" : val.charID;
           });
 
           if (!this.isNew && this.charID && this.charID.toString() !== this.curChar) {
             this.stats = [];
             this.charDataSvc.loadStats(this.charID).subscribe(function (sts) {
-              _this18.stats = sts.results;
+              _this20.stats = sts.results;
               console.log(sts);
 
-              _this18.charDataSvc.setStats(sts);
+              _this20.charDataSvc.setStats(sts);
 
-              _this18.charDataSvc.setCurCharID(_this18.charID);
+              _this20.charDataSvc.setCurCharID(_this20.charID);
 
               console.log('loaded stats from db');
             });
@@ -39899,31 +40174,31 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
       }
 
       if (rf & 2) {
-        var ctx_r127 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+        var ctx_r137 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r127.control.errors.required);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r137.control.errors.required);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r127.control.errors.minlength);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r137.control.errors.minlength);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r127.control.errors.maxlength);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r137.control.errors.maxlength);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r127.control.errors.pattern && ctx_r127.val === "num");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r137.control.errors.pattern && ctx_r137.val === "num");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r127.control.errors.pattern && ctx_r127.val === "exp");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r137.control.errors.pattern && ctx_r137.val === "exp");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r127.control.errors.pattern && ctx_r127.val === "sec" && ctx_r127.checkNum(ctx_r127.control.value));
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r137.control.errors.pattern && ctx_r137.val === "sec" && ctx_r137.checkNum(ctx_r137.control.value));
       }
     }
 
@@ -39937,17 +40212,17 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
     /*#__PURE__*/
     function () {
       function InputComponent() {
-        var _this19 = this;
+        var _this21 = this;
 
         _classCallCheck2(this, InputComponent);
 
         this.placeHolder = '';
 
         this.isErrored = function () {
-          var _this19$control = _this19.control,
-              dirty = _this19$control.dirty,
-              touched = _this19$control.touched,
-              errors = _this19$control.errors;
+          var _this21$control = _this21.control,
+              dirty = _this21$control.dirty,
+              touched = _this21$control.touched,
+              errors = _this21$control.errors;
           return errors && touched && dirty;
         };
 
@@ -40170,19 +40445,19 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
       _createClass2(NewFeatComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this20 = this;
+          var _this22 = this;
 
           this.charDataSvc.getIsNew.subscribe(function (val) {
-            return _this20.isNew = val;
+            return _this22.isNew = val;
           });
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this20.charID = val;
+            return _this22.charID = val;
           });
           this.charDataSvc.getAllFeats.subscribe(function (val) {
-            return _this20.curChar = val.charID;
+            return _this22.curChar = val.charID;
           });
           this.charDataSvc.getAllFeats.subscribe(function (val) {
-            return _this20.curFeats = val;
+            return _this22.curFeats = val;
           });
 
           var ids = _toConsumableArray2(new Set(this.curFeats.results.map(function (i) {
@@ -40194,20 +40469,20 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
       }, {
         key: "getAllFeats",
         value: function getAllFeats(arr) {
-          var _this21 = this;
+          var _this23 = this;
 
           this.charDataSvc.loadOtherFeats(arr).subscribe(function (arg) {
-            _this21.categories = _toConsumableArray2(new Set(arg.results.map(function (i) {
+            _this23.categories = _toConsumableArray2(new Set(arg.results.map(function (i) {
               return i['type'];
             })));
-            console.log(_this21.categories);
-            _this21.allFeats = arg.results;
+            console.log(_this23.categories);
+            _this23.allFeats = arg.results;
           });
         }
       }, {
         key: "optionSelected",
         value: function optionSelected(event) {
-          var _this22 = this;
+          var _this24 = this;
 
           var selected = event.target.getAttribute("data-value");
           var aFeat = this.allFeats.find(function (arg) {
@@ -40221,25 +40496,25 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
             id: 0
           };
           this.charDataSvc.saveNewFeat(this.charID, aFeat).subscribe(function (val) {
-            console.log("val", val, _this22.curFeats);
+            console.log("val", val, _this24.curFeats);
 
-            _this22.curFeats.results.push(val);
+            _this24.curFeats.results.push(val);
 
-            console.log(_this22.curFeats);
+            console.log(_this24.curFeats);
 
-            _this22.charDataSvc.setAllFeats(_this22.curFeats);
+            _this24.charDataSvc.setAllFeats(_this24.curFeats);
 
-            _this22.router.navigate(['/charGen/feats']);
+            _this24.router.navigate(['/charGen/feats']);
           });
         }
       }, {
         key: "categoryselected",
         value: function categoryselected(event) {
-          var _this23 = this;
+          var _this25 = this;
 
           this.selCat = event.target.innerText;
           this.filteredFeats = this.allFeats.filter(function (item) {
-            return item['type'] === _this23.selCat;
+            return item['type'] === _this25.selCat;
           });
         }
       }]);
@@ -40429,19 +40704,19 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
       _createClass2(NewSkillComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this24 = this;
+          var _this26 = this;
 
           this.charDataSvc.getIsNew.subscribe(function (val) {
-            return _this24.isNew = val;
+            return _this26.isNew = val;
           });
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this24.charID = val;
+            return _this26.charID = val;
           });
           this.charDataSvc.getAllSkills.subscribe(function (val) {
-            return _this24.curChar = val.charID;
+            return _this26.curChar = val.charID;
           });
           this.charDataSvc.getAllSkills.subscribe(function (val) {
-            return _this24.curSkills = val;
+            return _this26.curSkills = val;
           });
 
           var ids = _toConsumableArray2(new Set(this.curSkills.results.map(function (i) {
@@ -40453,17 +40728,17 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
       }, {
         key: "getAllSkills",
         value: function getAllSkills(arr) {
-          var _this25 = this;
+          var _this27 = this;
 
           this.charDataSvc.loadOtherSkills(arr).subscribe(function (arg) {
             console.log(arg);
-            _this25.allSkills = arg.results;
+            _this27.allSkills = arg.results;
           });
         }
       }, {
         key: "optionSelected",
         value: function optionSelected(event) {
-          var _this26 = this;
+          var _this28 = this;
 
           var selected = event.target.getAttribute("data-value");
           var aSkill = this.allSkills.find(function (arg) {
@@ -40481,11 +40756,11 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
             id: 0
           };
           this.charDataSvc.saveNewSkill(this.charID, aSkill).subscribe(function (val) {
-            _this26.curSkills.results.push(val);
+            _this28.curSkills.results.push(val);
 
-            _this26.charDataSvc.setAllSkills(_this26.curSkills);
+            _this28.charDataSvc.setAllSkills(_this28.curSkills);
 
-            _this26.router.navigate(['/charGen/skills']);
+            _this28.router.navigate(['/charGen/skills']);
           });
         }
       }]);
@@ -40621,7 +40896,7 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
     /*#__PURE__*/
     function () {
       function NewTohitComponent(charDataSvc, router) {
-        var _this27 = this;
+        var _this29 = this;
 
         _classCallCheck2(this, NewTohitComponent);
 
@@ -40636,72 +40911,72 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
 
         this.onSubmit = function (evt) {
           evt.preventDefault();
-          var obj = Object.assign(Object.assign({}, _this27.attribute['ToHit']), {
-            toHitID: parseInt(_this27.partID, 10)
+          var obj = Object.assign(Object.assign({}, _this29.attribute['ToHit']), {
+            toHitID: parseInt(_this29.partID, 10)
           });
           console.log(obj);
 
-          _this27.charDataSvc.newToHit(_this27.charID, obj).subscribe(function (val) {
+          _this29.charDataSvc.newToHit(_this29.charID, obj).subscribe(function (val) {
             if (val.results) {
-              _this27.allHits.results = _this27.allHits.results.filter(function (arg) {
+              _this29.allHits.results = _this29.allHits.results.filter(function (arg) {
                 return arg.id !== val.results.id;
               });
 
-              var allRelatedAttacks = _this27.allHits.results.filter(function (arg) {
+              var allRelatedAttacks = _this29.allHits.results.filter(function (arg) {
                 return arg.toHitID === val.results.toHitID;
               });
 
               var newTohit = val.results.ToHit;
 
-              var _iterator13 = _createForOfIteratorHelper(allRelatedAttacks),
-                  _step13;
+              var _iterator14 = _createForOfIteratorHelper(allRelatedAttacks),
+                  _step14;
 
               try {
-                for (_iterator13.s(); !(_step13 = _iterator13.n()).done;) {
-                  var hit = _step13.value;
+                for (_iterator14.s(); !(_step14 = _iterator14.n()).done;) {
+                  var hit = _step14.value;
                   hit.ToHit = Object.assign({}, newTohit);
                 }
               } catch (err) {
-                _iterator13.e(err);
+                _iterator14.e(err);
               } finally {
-                _iterator13.f();
+                _iterator14.f();
               }
 
-              _this27.allHits.results.push(val.results);
+              _this29.allHits.results.push(val.results);
 
-              _this27.allHits.results.sort(function (a, b) {
+              _this29.allHits.results.sort(function (a, b) {
                 return a.toHitID - b.toHitID;
               });
 
-              _this27.charDataSvc.setAllToHits(_this27.allHits);
+              _this29.charDataSvc.setAllToHits(_this29.allHits);
 
-              _this27.router.navigate(['/charGen/tohits']);
+              _this29.router.navigate(['/charGen/tohits']);
             }
           });
         };
 
         this.onCancel = function () {
-          _this27.router.navigate(['/charGen/tohits']);
+          _this29.router.navigate(['/charGen/tohits']);
         };
       }
 
       _createClass2(NewTohitComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this28 = this;
+          var _this30 = this;
 
           this.charDataSvc.getIsNew.subscribe(function (val) {
-            return _this28.isNew = val;
+            return _this30.isNew = val;
           });
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this28.charID = val;
+            return _this30.charID = val;
           });
           this.charDataSvc.getAllToHits.subscribe(function (val) {
-            return _this28.curChar = val.charID;
+            return _this30.curChar = val.charID;
           }); //this.charDataSvc.getAllToHits.subscribe( (val) => this.allHits = val.results);
 
           this.charDataSvc.getAllToHits.subscribe(function (val) {
-            return _this28.allHits = val;
+            return _this30.allHits = val;
           });
 
           if (this.partID === '0') {
@@ -40721,7 +40996,7 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
             };
           } else {
             this.attribute = this.allHits.results.find(function (arg) {
-              return arg.toHitID.toString() === _this28.partID;
+              return arg.toHitID.toString() === _this30.partID;
             });
           }
 
@@ -41027,7 +41302,7 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
 
     function SingleFeatComponent_div_5_Template(rf, ctx) {
       if (rf & 1) {
-        var _r137 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r147 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 4);
 
@@ -41038,11 +41313,11 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "i", 5);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function SingleFeatComponent_div_5_Template_i_click_3_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r137);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r147);
 
-          var ctx_r136 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r146 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r136.showPreReq($event);
+          return ctx_r146.showPreReq($event);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -41070,13 +41345,13 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "i", 8);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function SingleFeatComponent_div_5_Template_i_click_10_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r137);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r147);
 
-          var f_r135 = ctx.$implicit;
+          var f_r145 = ctx.$implicit;
 
-          var ctx_r138 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r148 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r138.deleteFeat(f_r135.id);
+          return ctx_r148.deleteFeat(f_r145.id);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -41121,27 +41396,27 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
       }
 
       if (rf & 2) {
-        var f_r135 = ctx.$implicit;
+        var f_r145 = ctx.$implicit;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("", f_r135.Feat.name, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("", f_r145.Feat.name, " ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](f_r135.Feat.shortdescription);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](f_r145.Feat.shortdescription);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](f_r135.Feat.benefit);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](f_r145.Feat.benefit);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](9);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", f_r135.Feat.prerequisites || "None", "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", f_r145.Feat.prerequisites || "None", "");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", f_r135.Feat.prerequisitie_feats || "None", "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", f_r145.Feat.prerequisitie_feats || "None", "");
       }
     }
 
@@ -41149,7 +41424,7 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
     /*#__PURE__*/
     function () {
       function SingleFeatComponent(router, charDataSvc) {
-        var _this29 = this;
+        var _this31 = this;
 
         _classCallCheck2(this, SingleFeatComponent);
 
@@ -41167,21 +41442,21 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
         };
 
         this.deleteFeat = function (arg) {
-          console.log(_this29.charFeats);
+          console.log(_this31.charFeats);
 
-          _this29.charDataSvc.deleteFeat(arg).subscribe(function (val) {
-            var newArray = _this29.charFeats.filter(function (ft) {
+          _this31.charDataSvc.deleteFeat(arg).subscribe(function (val) {
+            var newArray = _this31.charFeats.filter(function (ft) {
               return ft['id'] !== arg;
             });
 
-            console.log("newArray", newArray, _this29.charFeats);
+            console.log("newArray", newArray, _this31.charFeats);
 
-            _this29.charDataSvc.setAllFeats({
-              charID: _this29.charID,
+            _this31.charDataSvc.setAllFeats({
+              charID: _this31.charID,
               results: newArray
             });
 
-            _this29.router.navigate(['/charGen/feats']);
+            _this31.router.navigate(['/charGen/feats']);
           });
         };
       }
@@ -41189,10 +41464,10 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
       _createClass2(SingleFeatComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this30 = this;
+          var _this32 = this;
 
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this30.charID = val;
+            return _this32.charID = val;
           });
         }
       }]);
@@ -41264,6 +41539,85 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
           type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
         }]
       });
+    })();
+    /***/
+
+  },
+
+  /***/
+  "./src/app/chargen/single-note/single-note.component.ts":
+  /*!**************************************************************!*\
+    !*** ./src/app/chargen/single-note/single-note.component.ts ***!
+    \**************************************************************/
+
+  /*! exports provided: SingleNoteComponent */
+
+  /***/
+  function srcAppChargenSingleNoteSingleNoteComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "SingleNoteComponent", function () {
+      return SingleNoteComponent;
+    });
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+    var SingleNoteComponent =
+    /*#__PURE__*/
+    function () {
+      function SingleNoteComponent() {
+        _classCallCheck2(this, SingleNoteComponent);
+      }
+
+      _createClass2(SingleNoteComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {}
+      }]);
+
+      return SingleNoteComponent;
+    }();
+
+    SingleNoteComponent.ɵfac = function SingleNoteComponent_Factory(t) {
+      return new (t || SingleNoteComponent)();
+    };
+
+    SingleNoteComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
+      type: SingleNoteComponent,
+      selectors: [["app-single-note"]],
+      decls: 2,
+      vars: 0,
+      template: function SingleNoteComponent_Template(rf, ctx) {
+        if (rf & 1) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "p");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "single-note works!");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        }
+      },
+      styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NoYXJnZW4vc2luZ2xlLW5vdGUvc2luZ2xlLW5vdGUuY29tcG9uZW50LmNzcyJ9 */"]
+    });
+    /*@__PURE__*/
+
+    (function () {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](SingleNoteComponent, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
+        args: [{
+          selector: 'app-single-note',
+          templateUrl: './single-note.component.html',
+          styleUrls: ['./single-note.component.css']
+        }]
+      }], function () {
+        return [];
+      }, null);
     })();
     /***/
 
@@ -41460,14 +41814,14 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
     "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
 
     var ClassesService = function ClassesService(http) {
-      var _this31 = this;
+      var _this33 = this;
 
       _classCallCheck2(this, ClassesService);
 
       this.http = http;
 
       this.getClasses = function () {
-        return _this31.http.get('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/classes/all', {
+        return _this33.http.get('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/classes/all', {
           headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
             'Access-Control-Allow-Origin': '*'
           })
@@ -41535,14 +41889,14 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
     "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
 
     var RaceService = function RaceService(http) {
-      var _this32 = this;
+      var _this34 = this;
 
       _classCallCheck2(this, RaceService);
 
       this.http = http;
 
       this.getRaces = function () {
-        return _this32.http.get('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/races/all', {
+        return _this34.http.get('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/races/all', {
           headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
             'Access-Control-Allow-Origin': '*'
           })
