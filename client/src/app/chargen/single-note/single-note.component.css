@@ -12,8 +12,14 @@ button + button{
 .ui.labeled.icon.button > .icon{
   background-color: rgba(0, 0, 0, 0.20);
 }
+.gridHeader:hover{
+  background: #eee;
+}
 .gridRow span{
   /* margin-bottom:12px; */
+}
+.gridRow:hover{
+  background: #fff;
 }
 .column.breakdown{
   overflow: hidden;
@@ -93,4 +99,7 @@ form input{
   border:1px solid #ccc;
   border-radius: 3px;
   font-size:1.4rem;
+}
+a:link{
+  color:black;
 }

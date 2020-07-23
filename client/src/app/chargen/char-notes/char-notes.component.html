@@ -8,12 +8,15 @@
 </form>
 <span class='ui input' style='font-size:1rem; width:100%' ><input type='text' name='filter' [value]='filterText' placeholder="Filter - type in value" (input)='filterList($event)' /></span></h1>
 <div class="ui grid gridHeader">
-  <div class="two wide column">Name</div>
+  <div class="two wide column"></div>
 </div>
 <div *ngFor='let nt of allNotes' class="ui grid gridRow" >
-  <span class='stat sixteen wide column'><a [routerLink]="['/charGen/notes/' + nt.noteID.toString()]">
-    {{nt.noteTitle}}
-  </a></span>
+  <span class='stat sixteen wide column' >
+      <a [routerLink]="['/charGen/notes/' + nt.noteID.toString()]" style='display:flex; justify-content: space-between; justify-items: stretch;'>
+      <span>{{nt.noteTitle}}</span>
+      <i class="angle right icon"></i>
+    </a>
+  </span>
 </div>
 
 

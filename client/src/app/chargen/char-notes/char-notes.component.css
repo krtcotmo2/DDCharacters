@@ -62,6 +62,9 @@ button + button{
   color:#000;
   border-radius: 0em;
 }
+.gridRow:hover{
+  background: #eee;
+}
 .gridRow .eleven{
   font-weight: normal;
 }
@@ -93,4 +96,7 @@ form input{
   border:1px solid #ccc;
   border-radius: 3px;
   font-size:1.4rem;
+}
+a:link{
+  color:black;
 }
