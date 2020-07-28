@@ -48,7 +48,10 @@ module.exports = {
       where:{charID:charID},
       order:[['noteOrder', 'DESC']]
     }).then(nextNum => {
-      let nexNumVal = nextNum.dataValues 
+      let nexNumVal = 1;
+      if(nextNum.dataValues){
+        nexNumVal++;
+      } 
       return nexNumVal;
     }).catch(err => {
       console.log("err",err)
