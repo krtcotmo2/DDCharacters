@@ -50,7 +50,6 @@ module.exports = {
     }).then(nextNum => {
       let nexNumVal = 1;
       if(nextNum){
-        console.log(nextNum.dataValues.noteOrder)
         nexNumVal = nextNum.dataValues;
       } 
       return nexNumVal;
@@ -60,7 +59,7 @@ module.exports = {
     
     const newNote = await db.CharNotes.create({
         noteTitle: note,         
-        noteOrder: lastOrder >= 1 ? 1 : lastOrder.noteOrder + 1, 
+        noteOrder: lastOrder < 2 ? 1 : lastOrder.noteOrder + 1, 
         charID: charID})
       .then(arg => {
         let newCharNote = arg.dataValues;
