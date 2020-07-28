@@ -49,8 +49,9 @@ module.exports = {
       order:[['noteOrder', 'DESC']]
     }).then(nextNum => {
       let nexNumVal = 1;
-      if(nextNum.dataValues){
-        nexNumVal++;
+      if(nextNum){
+        console.log(nextNum.dataValues.noteOrder)
+        nexNumVal = nextNum.dataValues;
       } 
       return nexNumVal;
     }).catch(err => {
@@ -58,8 +59,8 @@ module.exports = {
     });    
     
     const newNote = await db.CharNotes.create({
-        noteTitle: note, 
-        noteOrder: lastOrder ? 1 : lastOrder.noteOrder + 1, 
+        noteTitle: note,         
+        noteOrder: lastOrder >= 1 ? 1 : lastOrder.noteOrder + 1, 
         charID: charID})
       .then(arg => {
         let newCharNote = arg.dataValues;
