@@ -2,8 +2,8 @@
   <i class="plus square outline icon"></i>
   Add Note
 </button>
-<form style='display:flex; align-items: stretch; margin:12px 0;' #notesForm='ngForm' (ngSubmit)='onSubmit($event)' *ngIf='newNote'>
-  <input type='text' class='equipInput' placeholder="Item"  [(ngModel)]='note' name="note">
+<form style='display:flex; align-items: flex-start; margin:12px 0;' #notesForm='ngForm' (ngSubmit)='onSubmit($event)' *ngIf='newNote'>
+  <textarea rows="4" class='equipInput' placeholder="Item" [(ngModel)]='note' name="note"></textarea>
   <button class='mini ui primary button'>Submit</button>
 </form>
 <span class='ui input' style='font-size:1rem; width:100%' ><input type='text' name='filter' [value]='filterText' placeholder="Filter - type in value" (input)='filterList($event)' /></span></h1>
@@ -19,6 +19,3 @@
     {{nt.itemDetails}}
   </span>
 </div>
-
-
-
