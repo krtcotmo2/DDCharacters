@@ -21,6 +21,8 @@ import { CharTohitComponent } from './char-tohit/char-tohit.component';
 import { NewTohitComponent } from './new-tohit/new-tohit.component';
 import { NewSkillComponent } from './new-skill/new-skill.component';
 import { NewFeatComponent } from './new-feat/new-feat.component';
+import { CharNotesComponent } from './char-notes/char-notes.component';
+import { SingleNoteComponent } from './single-note/single-note.component';
 
 @NgModule({
   declarations: [GenerateComponent,
@@ -37,7 +39,9 @@ import { NewFeatComponent } from './new-feat/new-feat.component';
     CharTohitComponent,
     NewTohitComponent,
     NewSkillComponent,
-    NewFeatComponent],
+    NewFeatComponent,
+    CharNotesComponent,
+    SingleNoteComponent],
   imports: [
     CommonModule,
     ChargenRoutingModule,
