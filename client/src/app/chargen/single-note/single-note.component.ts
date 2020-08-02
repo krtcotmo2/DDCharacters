@@ -61,10 +61,10 @@ export class SingleNoteComponent implements OnInit {
   }
 
   editNote = (evt:Event, id:string) => {
-    console.log(evt)
+    console.log(evt.target)
   }
   deleteNote = (evt:Event, id:string) => {
-    console.log(evt)
+    console.log(evt.target)
   }
 
 }

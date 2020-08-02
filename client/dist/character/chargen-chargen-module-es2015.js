@@ -31213,10 +31213,10 @@ class SingleNoteComponent {
             }
         };
         this.editNote = (evt, id) => {
-            console.log(evt);
+            console.log(evt.target);
         };
         this.deleteNote = (evt, id) => {
-            console.log(evt);
+            console.log(evt.target);
         };
     }
     ngOnInit() {
@@ -31444,4 +31444,3 @@ RaceService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjec
 /***/ })
 
 }]);
-//# sourceMappingURL=chargen-chargen-module-es2015.js.map

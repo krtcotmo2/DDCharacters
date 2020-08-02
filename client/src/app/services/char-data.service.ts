@@ -530,19 +530,54 @@ export class CharDataService {
       }
 
       loadNotesItems = (noteID: string) => {
-        console.log("noteID", noteID)
         const val =  this.http.get<any>('/api/notes/getNoteItems/' + noteID, {
           headers: new HttpHeaders({
-          'Access-Control-Allow-Origin': '*'
-        }),
-      });
-      return val;
+            'Access-Control-Allow-Origin': '*'
+          }),
+        });
+        return val;
       }
 
       addNoteItem = (body: {}) => {
         //const val =  this.http.post<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/equip/add', body, {
         const val =  this.http.post<any>('/api/notes/insertNoteItem', body, {
             headers: new HttpHeaders({
+            'Access-Control-Allow-Origin': '*'
+          }),
+        });
+        return val;
+      }
+
+      updateNoteHeader = (body: {}) => {
+        const val =  this.http.post<any>('/api/notes/updateNote', body, {
+          headers: new HttpHeaders({
+            'Access-Control-Allow-Origin': '*'
+          }),
+        });
+        return val;
+      }
+
+      updateNoteItem = (body: {}) => {
+        const val =  this.http.post<any>('/api/notes/updateNoteItem', body, {
+          headers: new HttpHeaders({
+            'Access-Control-Allow-Origin': '*'
+          }),
+        });
+        return val;
+      }
+
+      deleteNoteHeader = (noteID: string) => {
+        const val =  this.http.post<any>('/api/notes/deleteNote/' + noteID, {
+          headers: new HttpHeaders({
+            'Access-Control-Allow-Origin': '*'
+          }),
+        });
+        return val;
+      }
+
+      deleteNoteItem = (id: string) => {
+        const val =  this.http.post<any>('/api/notes/deleteNoteItem/' + id, {
+          headers: new HttpHeaders({
             'Access-Control-Allow-Origin': '*'
           }),
         });

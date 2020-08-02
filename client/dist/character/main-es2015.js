@@ -726,7 +726,6 @@ class CharDataService {
             return val;
         };
         this.loadNotesItems = (noteID) => {
-            console.log("noteID", noteID);
             const val = this.http.get('/api/notes/getNoteItems/' + noteID, {
                 headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
                     'Access-Control-Allow-Origin': '*'
@@ -737,6 +736,38 @@ class CharDataService {
         this.addNoteItem = (body) => {
             //const val =  this.http.post<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/equip/add', body, {
             const val = this.http.post('/api/notes/insertNoteItem', body, {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                    'Access-Control-Allow-Origin': '*'
+                }),
+            });
+            return val;
+        };
+        this.updateNoteHeader = (body) => {
+            const val = this.http.post('/api/notes/updateNote', body, {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                    'Access-Control-Allow-Origin': '*'
+                }),
+            });
+            return val;
+        };
+        this.updateNoteItem = (body) => {
+            const val = this.http.post('/api/notes/updateNoteItem', body, {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                    'Access-Control-Allow-Origin': '*'
+                }),
+            });
+            return val;
+        };
+        this.deleteNoteHeader = (noteID) => {
+            const val = this.http.post('/api/notes/deleteNote/' + noteID, {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                    'Access-Control-Allow-Origin': '*'
+                }),
+            });
+            return val;
+        };
+        this.deleteNoteItem = (id) => {
+            const val = this.http.post('/api/notes/deleteNoteItem/' + id, {
                 headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
                     'Access-Control-Allow-Origin': '*'
                 }),
