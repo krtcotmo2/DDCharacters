@@ -36941,6 +36941,8 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
 
     function CharNotesComponent_div_8_Template(rf, ctx) {
       if (rf & 1) {
+        var _r138 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 13);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "span", 14);
@@ -36954,6 +36956,42 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](5, "i", 16);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "div", 17);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "i", 18);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function CharNotesComponent_div_8_Template_i_click_7_listener($event) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r138);
+
+          var nt_r136 = ctx.$implicit;
+
+          var ctx_r137 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+          return ctx_r137.editNote($event, nt_r136.noteID.toString());
+        });
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "div", 17);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "i", 19);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function CharNotesComponent_div_8_Template_i_click_9_listener($event) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r138);
+
+          var nt_r136 = ctx.$implicit;
+
+          var ctx_r139 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+          return ctx_r139.deleteNote($event, nt_r136.noteID.toString());
+        });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -37008,6 +37046,14 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
             _this11.note = '';
             _this11.newNote = false;
           });
+        };
+
+        this.editNote = function (evt, id) {
+          console.log(evt);
+        };
+
+        this.deleteNote = function (evt, id) {
+          console.log(evt);
         };
 
         this.filterList = function (evt) {
@@ -37078,7 +37124,7 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
       selectors: [["app-char-notes"]],
       decls: 9,
       vars: 4,
-      consts: [["class", "mini ui primary button labeled icon", "style", "vertical-align: text-bottom; margin-left:12px", 3, "click", 4, "ngIf"], ["style", "display:flex; align-items: stretch; margin:12px 0;", 3, "ngSubmit", 4, "ngIf"], [1, "ui", "input", 2, "font-size", "1rem", "width", "100%"], ["type", "text", "name", "filter", "placeholder", "Filter - type in value", 3, "value", "input"], [1, "ui", "grid", "gridHeader"], [1, "two", "wide", "column"], ["class", "ui grid gridRow", 4, "ngFor", "ngForOf"], [1, "mini", "ui", "primary", "button", "labeled", "icon", 2, "vertical-align", "text-bottom", "margin-left", "12px", 3, "click"], [1, "plus", "square", "outline", "icon"], [2, "display", "flex", "align-items", "stretch", "margin", "12px 0", 3, "ngSubmit"], ["notesForm", "ngForm"], ["type", "text", "placeholder", "Item", "name", "note", 1, "equipInput", 3, "ngModel", "ngModelChange"], [1, "mini", "ui", "primary", "button"], [1, "ui", "grid", "gridRow"], [1, "stat", "sixteen", "wide", "column"], [2, "display", "flex", "justify-content", "space-between", "justify-items", "stretch", 3, "routerLink"], [1, "angle", "right", "icon"]],
+      consts: [["class", "mini ui primary button labeled icon", "style", "vertical-align: text-bottom; margin-left:12px", 3, "click", 4, "ngIf"], ["style", "display:flex; align-items: stretch; margin:12px 0;", 3, "ngSubmit", 4, "ngIf"], [1, "ui", "input", 2, "font-size", "1rem", "width", "100%"], ["type", "text", "name", "filter", "placeholder", "Filter - type in value", 3, "value", "input"], [1, "ui", "grid", "gridHeader"], [1, "two", "wide", "column"], ["class", "ui grid gridRow", 4, "ngFor", "ngForOf"], [1, "mini", "ui", "primary", "button", "labeled", "icon", 2, "vertical-align", "text-bottom", "margin-left", "12px", 3, "click"], [1, "plus", "square", "outline", "icon"], [2, "display", "flex", "align-items", "stretch", "margin", "12px 0", 3, "ngSubmit"], ["notesForm", "ngForm"], ["type", "text", "placeholder", "Item", "name", "note", 1, "equipInput", 3, "ngModel", "ngModelChange"], [1, "mini", "ui", "primary", "button"], [1, "ui", "grid", "gridRow"], [1, "stat", "fourteen", "wide", "column"], [2, "display", "flex", "justify-content", "space-between", "justify-items", "stretch", 3, "routerLink"], [1, "angle", "right", "icon"], [1, "column", "one", "wide", "ui"], ["title", "Delete", 1, "edit", "icon", "pointer", 3, "click"], ["title", "Delete", 1, "trash", "alternate", "outline", "icon", "pointer", 3, "click"]],
       template: function CharNotesComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h1");
@@ -37109,7 +37155,7 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](8, CharNotesComponent_div_8_Template, 6, 4, "div", 6);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](8, CharNotesComponent_div_8_Template, 10, 4, "div", 6);
         }
 
         if (rf & 2) {
@@ -40175,31 +40221,31 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
       }
 
       if (rf & 2) {
-        var ctx_r147 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+        var ctx_r153 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r147.control.errors.required);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r153.control.errors.required);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r147.control.errors.minlength);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r153.control.errors.minlength);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r147.control.errors.maxlength);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r153.control.errors.maxlength);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r147.control.errors.pattern && ctx_r147.val === "num");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r153.control.errors.pattern && ctx_r153.val === "num");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r147.control.errors.pattern && ctx_r147.val === "exp");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r153.control.errors.pattern && ctx_r153.val === "exp");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r147.control.errors.pattern && ctx_r147.val === "sec" && ctx_r147.checkNum(ctx_r147.control.value));
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r153.control.errors.pattern && ctx_r153.val === "sec" && ctx_r153.checkNum(ctx_r153.control.value));
       }
     }
 
@@ -41303,7 +41349,7 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
 
     function SingleFeatComponent_div_5_Template(rf, ctx) {
       if (rf & 1) {
-        var _r157 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r163 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 4);
 
@@ -41314,11 +41360,11 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "i", 5);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function SingleFeatComponent_div_5_Template_i_click_3_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r157);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r163);
 
-          var ctx_r156 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r162 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r156.showPreReq($event);
+          return ctx_r162.showPreReq($event);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -41346,13 +41392,13 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "i", 8);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function SingleFeatComponent_div_5_Template_i_click_10_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r157);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r163);
 
-          var f_r155 = ctx.$implicit;
+          var f_r161 = ctx.$implicit;
 
-          var ctx_r158 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r164 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r158.deleteFeat(f_r155.id);
+          return ctx_r164.deleteFeat(f_r161.id);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -41397,27 +41443,27 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
       }
 
       if (rf & 2) {
-        var f_r155 = ctx.$implicit;
+        var f_r161 = ctx.$implicit;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("", f_r155.Feat.name, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("", f_r161.Feat.name, " ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](f_r155.Feat.shortdescription);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](f_r161.Feat.shortdescription);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](f_r155.Feat.benefit);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](f_r161.Feat.benefit);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](9);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", f_r155.Feat.prerequisites || "None", "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", f_r161.Feat.prerequisites || "None", "");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", f_r155.Feat.prerequisitie_feats || "None", "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", f_r161.Feat.prerequisitie_feats || "None", "");
       }
     }
 
@@ -41597,16 +41643,16 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
 
     function SingleNoteComponent_button_2_Template(rf, ctx) {
       if (rf & 1) {
-        var _r141 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r144 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 9);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function SingleNoteComponent_button_2_Template_button_click_0_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r141);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r144);
 
-          var ctx_r140 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r143 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r140.addNewNote($event);
+          return ctx_r143.addNewNote($event);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "i", 10);
@@ -41619,26 +41665,26 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
 
     function SingleNoteComponent_form_3_Template(rf, ctx) {
       if (rf & 1) {
-        var _r144 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r147 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "form", 11, 12);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngSubmit", function SingleNoteComponent_form_3_Template_form_ngSubmit_0_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r144);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r147);
 
-          var ctx_r143 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r146 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r143.onSubmit($event);
+          return ctx_r146.onSubmit($event);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "textarea", 13);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function SingleNoteComponent_form_3_Template_textarea_ngModelChange_2_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r144);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r147);
 
-          var ctx_r145 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r148 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r145.note = $event;
+          return ctx_r148.note = $event;
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -41653,16 +41699,18 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
       }
 
       if (rf & 2) {
-        var ctx_r138 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+        var ctx_r141 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx_r138.note);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx_r141.note);
       }
     }
 
     function SingleNoteComponent_div_11_Template(rf, ctx) {
       if (rf & 1) {
+        var _r151 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 15);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "span", 16);
@@ -41671,15 +41719,51 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 17);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "i", 18);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function SingleNoteComponent_div_11_Template_i_click_4_listener($event) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r151);
+
+          var nt_r149 = ctx.$implicit;
+
+          var ctx_r150 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+          return ctx_r150.editNote($event, nt_r149.id.toString());
+        });
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "div", 17);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "i", 19);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function SingleNoteComponent_div_11_Template_i_click_6_listener($event) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r151);
+
+          var nt_r149 = ctx.$implicit;
+
+          var ctx_r152 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+          return ctx_r152.deleteNote($event, nt_r149.id.toString());
+        });
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
       }
 
       if (rf & 2) {
-        var nt_r146 = ctx.$implicit;
+        var nt_r149 = ctx.$implicit;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", nt_r146.itemDetails, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", nt_r149.itemDetails, " ");
       }
     }
 
@@ -41743,6 +41827,14 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
             _iterator15.f();
           }
         };
+
+        this.editNote = function (evt, id) {
+          console.log(evt);
+        };
+
+        this.deleteNote = function (evt, id) {
+          console.log(evt);
+        };
       }
 
       _createClass2(SingleNoteComponent, [{
@@ -41773,7 +41865,7 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
       selectors: [["app-single-note"]],
       decls: 12,
       vars: 7,
-      consts: [["class", "mini ui primary button labeled icon", "style", "vertical-align: text-bottom; margin-left:12px", 3, "click", 4, "ngIf"], ["style", "display:flex; align-items: flex-start; margin:12px 0;", 3, "ngSubmit", 4, "ngIf"], [1, "ui", "input", 2, "font-size", "1rem", "width", "100%"], ["type", "text", "name", "filter", "placeholder", "Filter - type in value", 3, "value", "input"], [1, "ui", "grid", "gridHeader"], [1, "two", "wide", "column"], [3, "routerLink"], [1, "angle", "left", "icon"], ["class", "ui grid gridRow", 4, "ngFor", "ngForOf"], [1, "mini", "ui", "primary", "button", "labeled", "icon", 2, "vertical-align", "text-bottom", "margin-left", "12px", 3, "click"], [1, "plus", "square", "outline", "icon"], [2, "display", "flex", "align-items", "flex-start", "margin", "12px 0", 3, "ngSubmit"], ["notesForm", "ngForm"], ["rows", "4", "placeholder", "Item", "name", "note", 1, "equipInput", 3, "ngModel", "ngModelChange"], [1, "mini", "ui", "primary", "button"], [1, "ui", "grid", "gridRow"], [1, "stat", "sixteen", "wide", "column"]],
+      consts: [["class", "mini ui primary button labeled icon", "style", "vertical-align: text-bottom; margin-left:12px", 3, "click", 4, "ngIf"], ["style", "display:flex; align-items: flex-start; margin:12px 0;", 3, "ngSubmit", 4, "ngIf"], [1, "ui", "input", 2, "font-size", "1rem", "width", "100%"], ["type", "text", "name", "filter", "placeholder", "Filter - type in value", 3, "value", "input"], [1, "ui", "grid", "gridHeader"], [1, "two", "wide", "column"], [3, "routerLink"], [1, "angle", "left", "icon"], ["class", "ui grid gridRow", 4, "ngFor", "ngForOf"], [1, "mini", "ui", "primary", "button", "labeled", "icon", 2, "vertical-align", "text-bottom", "margin-left", "12px", 3, "click"], [1, "plus", "square", "outline", "icon"], [2, "display", "flex", "align-items", "flex-start", "margin", "12px 0", 3, "ngSubmit"], ["notesForm", "ngForm"], ["rows", "4", "placeholder", "Item", "name", "note", 1, "equipInput", 3, "ngModel", "ngModelChange"], [1, "mini", "ui", "primary", "button"], [1, "ui", "grid", "gridRow"], [1, "stat", "fourteen", "wide", "column"], [1, "column", "one", "wide", "ui"], ["title", "Delete", 1, "edit", "icon", "pointer", 3, "click"], ["title", "Delete", 1, "trash", "alternate", "outline", "icon", "pointer", 3, "click"]],
       template: function SingleNoteComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h1");
@@ -41814,7 +41906,7 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](11, SingleNoteComponent_div_11_Template, 3, 1, "div", 8);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](11, SingleNoteComponent_div_11_Template, 7, 1, "div", 8);
         }
 
         if (rf & 2) {

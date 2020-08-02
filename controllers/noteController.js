@@ -69,10 +69,41 @@ module.exports = {
         return err
       });
       res.json(newNote);
-    },
+  },
   
-  
-  
+  updatNote: async function (req, res){
+    const note = req.body.note;
+    const noteID = req.body.noteID;
+    
+    const theNote = await db.CharNotes.update({noteTitle:note},{
+        where:{noteID:noteID}
+      }).then(nextNum => {
+        let newVal =  db.CharNotes.findOne({
+          where:{'noteID':noteID}
+        }).then(charNote => {
+          console.log("charNote", charNote);
+          return charNote;
+        })
+        return newVal;
+      }).catch(err => {
+        console.log("err",err)
+      });    
+      console.log(theNote)
+        
+      res.json(theNote);
+  },
+
+  deleteNote: async function(req, res){
+    console.log(req);
+    const retVal =  await db.CharNotes.destroy({
+      where:{noteID:req.params.id}
+    }).then(arg => {
+      console.log("arg", arg)
+    return arg
+    });
+    res.json({'results': retVal});
+  },
+
   insertNoteItem: async function (req, res){
     const itemDetails = req.body.itemDetails;
     const noteID = req.body.noteID;
@@ -102,5 +133,37 @@ module.exports = {
         return err
       });
       res.json(newNote);
-    },
+  },
+
+  updateNoteItem: async function (req, res){
+    const note = req.body.note;
+    const id = req.body.id;
+    console.log(id, note)
+    const theNote = await db.NoteItems.update({itemDetails:note},{
+        where:{id:id}
+      }).then(nextNum => {
+        let newVal =  db.NoteItems.findOne({
+          where:{'id':id}
+        }).then(charNote => {
+          return charNote;
+        })
+        return newVal;
+      }).catch(err => {
+        console.log("err",err)
+      });    
+      console.log(theNote)
+        
+      res.json(theNote);
+  },
+  
+  deleteNoteItem: async function(req, res){
+    console.log(req);
+    const retVal =  await db.NoteItems.destroy({
+      where:{id:req.params.id}
+    }).then(arg => {
+      console.log("arg", arg)
+    return arg
+    });
+    res.json({'results': retVal});
+  },
 }

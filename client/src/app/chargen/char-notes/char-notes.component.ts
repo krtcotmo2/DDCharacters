@@ -54,6 +54,13 @@ export class CharNotesComponent implements OnInit {
     });
   }
 
+  editNote = (evt:Event, id:string) => {
+    console.log(evt)
+  }
+  deleteNote = (evt:Event, id:string) => {
+    console.log(evt)
+  }
+
   filterList = (evt) => {
     this.filterText = evt.target.value;
     const allRows: any = document.getElementsByClassName('ui grid gridRow');

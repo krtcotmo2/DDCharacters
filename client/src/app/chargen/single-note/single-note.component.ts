@@ -60,4 +60,11 @@ export class SingleNoteComponent implements OnInit {
     }
   }
 
+  editNote = (evt:Event, id:string) => {
+    console.log(evt)
+  }
+  deleteNote = (evt:Event, id:string) => {
+    console.log(evt)
+  }
+
 }
