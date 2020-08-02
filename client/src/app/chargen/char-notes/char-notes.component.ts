@@ -54,11 +54,9 @@ export class CharNotesComponent implements OnInit {
     });
   }
 
-  editNote = (evt:Event, id:string) => {
-    console.log(evt)
-  }
-  deleteNote = (evt:Event, id:string) => {
-    console.log(evt)
+  editNote = (id:string) => {
+    const oneNote = this.notesSet['results'].find(a => a.noteID.toString() === id);
+    this.router.navigate(['/charGen/notes/editNote/' + id], {state: {data: {type:'header', theNote:oneNote.noteTitle} }});
   }
 
   filterList = (evt) => {

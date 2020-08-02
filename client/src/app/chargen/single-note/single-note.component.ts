@@ -60,11 +60,12 @@ export class SingleNoteComponent implements OnInit {
     }
   }
 
-  editNote = (evt:Event, id:string) => {
-    console.log(evt.target)
+  editNote = (id:string) => {
+    console.log("ind", id);
+    console.log(this.allNotes)
+    const oneNote = this.allNotes.find(a => a.id.toString() === id);
+    this.router.navigate(['/charGen/notes/editNote/' + id], {state: {data: {type:'ind', theNote:oneNote.itemDetails}}});
   }
-  deleteNote = (evt:Event, id:string) => {
-    console.log(evt.target)
-  }
+
 
 }

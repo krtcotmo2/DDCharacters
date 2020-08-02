@@ -707,7 +707,6 @@ class CharDataService {
         };
         // NOTES
         this.loadNotes = (charID) => {
-            console.log('loading:', charID);
             const val = this.http.get('/api/notes/getCharNotes/' + charID.toString(), {
                 headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
                     'Access-Control-Allow-Origin': '*'

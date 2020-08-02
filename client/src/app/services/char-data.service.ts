@@ -509,7 +509,6 @@ export class CharDataService {
 
     // NOTES
       loadNotes = (charID: number) =>{
-        console.log('loading:', charID)
         const val =  this.http.get<any>('/api/notes/getCharNotes/' + charID.toString(), {
             headers: new HttpHeaders({
             'Access-Control-Allow-Origin': '*'

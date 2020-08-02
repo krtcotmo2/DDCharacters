@@ -1228,8 +1228,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
         this.loadNotes = function (charID) {
-          console.log('loading:', charID);
-
           var val = _this3.http.get('/api/notes/getCharNotes/' + charID.toString(), {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'

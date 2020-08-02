@@ -11,14 +11,13 @@
   <div class="two wide column"></div>
 </div>
 <div *ngFor='let nt of allNotes' class="ui grid gridRow" >
-  <span class='stat fourteen wide column' >
+  <span class='stat fifteen wide column' >
       <a [routerLink]="['/charGen/notes/' + nt.noteID.toString()]" style='display:flex; justify-content: space-between; justify-items: stretch;'>
       <span>{{nt.noteTitle}}</span>
       <i class="angle right icon"></i>
     </a>
   </span>
-  <div class="column one wide ui"><i class="edit icon pointer"  title="Delete" (click)='editNote($event, nt.noteID.toString())'></i></div>
-  <div class="column one wide ui"><i class="trash alternate outline icon pointer"  title="Delete" (click)='deleteNote($event, nt.noteID.toString())'></i></div>
+  <div class="column one wide ui"><i class="edit icon pointer"  title="Edit" (click)='editNote(nt.noteID.toString())'></i></div>
 </div>
 
 

@@ -15,6 +15,7 @@ import { NewSkillComponent } from './new-skill/new-skill.component';
 import { NewFeatComponent } from './new-feat/new-feat.component';
 import { CharNotesComponent } from './char-notes/char-notes.component';
 import { SingleNoteComponent } from './single-note/single-note.component';
+import { EditNotesComponent } from './edit-notes/edit-notes.component';
 
 const routes: Routes = [
   {path: '', component: ChargenHomeComponent,
@@ -28,8 +29,17 @@ const routes: Routes = [
       {path: 'equip', component: CharEquipComponent },
       {path: 'spells', component: CharSpellsComponent },
       {path: 'notes', component: CharNotesComponent,
-      }
-      ,{path: 'notes', component: SingleNoteComponent,
+      },
+      {path: 'notes', component: EditNotesComponent,
+        children: [
+        {path: 'editNote', component: EditNotesComponent,
+          children: [
+            {path: '**', component: EditNotesComponent}
+          ]
+        }
+      ]
+      },
+      {path: 'notes', component: SingleNoteComponent,
           children: [
             {path: '**', component: SingleNoteComponent}
           ]

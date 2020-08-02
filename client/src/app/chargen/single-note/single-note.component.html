@@ -15,9 +15,8 @@
   </div>
 </div>
 <div *ngFor='let nt of allNotes' class="ui grid gridRow" >
-  <span class='stat fourteen wide column'>
+  <span class='stat fifteen wide column'>
     {{nt.itemDetails}}
   </span>
-  <div class="column one wide ui"><i class="edit icon pointer"  title="Delete" (click)='editNote($event, nt.id.toString())'></i></div>
-  <div class="column one wide ui"><i class="trash alternate outline icon pointer"  title="Delete" (click)='deleteNote($event, nt.id.toString())'></i></div>
+  <div class="column one wide ui"><i class="edit icon pointer"  title="Edit" (click)='editNote(nt.id.toString())'></i></div>
 </div>

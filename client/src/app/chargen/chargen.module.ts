@@ -23,6 +23,7 @@ import { NewSkillComponent } from './new-skill/new-skill.component';
 import { NewFeatComponent } from './new-feat/new-feat.component';
 import { CharNotesComponent } from './char-notes/char-notes.component';
 import { SingleNoteComponent } from './single-note/single-note.component';
+import { EditNotesComponent } from './edit-notes/edit-notes.component';
 
 @NgModule({
   declarations: [GenerateComponent,
@@ -41,7 +42,8 @@ import { SingleNoteComponent } from './single-note/single-note.component';
     NewSkillComponent,
     NewFeatComponent,
     CharNotesComponent,
-    SingleNoteComponent],
+    SingleNoteComponent,
+    EditNotesComponent],
   imports: [
     CommonModule,
     ChargenRoutingModule,
