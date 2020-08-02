@@ -26,7 +26,18 @@ export class EditNotesComponent implements OnInit {
   }
 
   deleteNote = (id:string) => {
-
+    if(this.theType === 'ind') {
+      this.charDataSvc.deleteNoteItem(this.theID).subscribe( retVal => {})
+    }else{
+      this.charDataSvc.deleteNoteHeader(this.theID).subscribe( retItem => {
+        this.charDataSvc.getAllNotes.subscribe((val) => this.notesSet = val === null ? {} : val);
+        let filteredArr = this.notesSet['results'].filter(a => a.noteID.toString() !== this.theID );
+        this.notesSet['results'] = filteredArr
+        console.log(this.notesSet)
+        this.charDataSvc.setAllNotes(this.notesSet);
+      });
+    }
+    this.router.navigate(['/charGen/notes']);
   }
 
   onSubmit = (evt:Event) => {

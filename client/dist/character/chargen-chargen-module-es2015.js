@@ -30049,6 +30049,19 @@ class EditNotesComponent {
         this.router = router;
         this.theID = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.last(this.router.url.split('/'));
         this.deleteNote = (id) => {
+            if (this.theType === 'ind') {
+                this.charDataSvc.deleteNoteItem(this.theID).subscribe(retVal => { });
+            }
+            else {
+                this.charDataSvc.deleteNoteHeader(this.theID).subscribe(retItem => {
+                    this.charDataSvc.getAllNotes.subscribe((val) => this.notesSet = val === null ? {} : val);
+                    let filteredArr = this.notesSet['results'].filter(a => a.noteID.toString() !== this.theID);
+                    this.notesSet['results'] = filteredArr;
+                    console.log(this.notesSet);
+                    this.charDataSvc.setAllNotes(this.notesSet);
+                });
+            }
+            this.router.navigate(['/charGen/notes']);
         };
         this.onSubmit = (evt) => {
             evt.preventDefault();

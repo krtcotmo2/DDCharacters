@@ -39334,7 +39334,28 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
         this.router = router;
         this.theID = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.last(this.router.url.split('/'));
 
-        this.deleteNote = function (id) {};
+        this.deleteNote = function (id) {
+          if (_this19.theType === 'ind') {
+            _this19.charDataSvc.deleteNoteItem(_this19.theID).subscribe(function (retVal) {});
+          } else {
+            _this19.charDataSvc.deleteNoteHeader(_this19.theID).subscribe(function (retItem) {
+              _this19.charDataSvc.getAllNotes.subscribe(function (val) {
+                return _this19.notesSet = val === null ? {} : val;
+              });
+
+              var filteredArr = _this19.notesSet['results'].filter(function (a) {
+                return a.noteID.toString() !== _this19.theID;
+              });
+
+              _this19.notesSet['results'] = filteredArr;
+              console.log(_this19.notesSet);
+
+              _this19.charDataSvc.setAllNotes(_this19.notesSet);
+            });
+          }
+
+          _this19.router.navigate(['/charGen/notes']);
+        };
 
         this.onSubmit = function (evt) {
           evt.preventDefault();
