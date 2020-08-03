@@ -1,1 +1,39 @@
-<p>char-spells works!</p>
+<h1>Spells <button class='mini ui primary button labeled icon' style='vertical-align: text-bottom; margin-left:12px' (click)='addNewSpell($event)'>
+  <i class="plus square outline icon"></i>
+  Add Spell
+</button>
+<form style='display:flex; align-items: stretch; margin:12px 0;' #notesForm='ngForm' (ngSubmit)='onSubmit($event)'>
+  <input type='text' class='equipInput' placeholder="Spell Name"  [(ngModel)]='spellName' name="spellName">
+  <input type='number' class='equipInput' placeholder="Spell Level"  [(ngModel)]='spellLevel' name="spellLevel">
+  <button class='mini ui primary button'>Submit</button>
+</form>
+<span class='ui input' style='font-size:1rem; width:100%' ><input type='text' name='filter' [value]='filterText' placeholder="Filter - type in value" (input)='filterList($event)' /></span></h1>
+<div class="ui grid gridHeader">
+  <div class="one wide column">Cast</div>
+  <div class="fifteen wide column">Spell Name</div>
+</div>
+
+<div *ngFor='let lvl of levelBreakDown'>
+  <div class="sixteen wide column" style='padding:12px'>
+    <i class="arrow circle down icon pointer" (click)="toggelDisplay($event, lvl)"></i><h3 style='display:inline'>Level {{lvl}}</h3>
+  </div>
+  <div id={{setIDName(lvl)}} class='levelHolder'>
+    <div *ngFor='let nt of filteredSpells(lvl)' class="ui grid gridRow" >
+      <div class="column one wide ui">
+        <div class="ui checkbox">
+          <input type="checkbox" name={{nt.id}}>
+          <label></label>
+        </div>
+      </div>
+      <span class='stat fourteen wide column' >
+          <span style='display:flex; justify-content: space-between; justify-items: stretch;'>{{nt.spellName}}</span>
+      </span>
+      <div class="column one wide ui"><i class="edit icon pointer"  title="Edit" (click)='editNote(nt.id.toString())'></i></div>
+    </div>
+  </div>
+</div>
+
+
+
+
+

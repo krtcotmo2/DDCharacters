@@ -799,6 +799,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         });
         this.allNotes = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]({
           results: []
+        });
+        this.allSpells = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]({
+          results: []
         }); // GETTERS
 
         this.getIsNew = this.isNew.asObservable();
@@ -815,6 +818,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.getAllToHits = this.allToHits.asObservable();
         this.getAllEquip = this.allEquipment.asObservable();
         this.getAllACs = this.allAC.asObservable();
+        this.getAllSpells = this.allSpells.asObservable();
 
         this.setCharBasics = function (arg) {
           _this3.charBasics.next(arg);
@@ -850,6 +854,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.setAllACs = function (arg) {
           _this3.allAC.next(arg);
+        };
+
+        this.setAllSpells = function (arg) {
+          _this3.allSpells.next(arg);
         }; // global reset
 
 
@@ -873,6 +881,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           _this3.allToHits.next(null);
 
           _this3.allNotes.next(null);
+
+          _this3.allSpells.next(null);
         }; // remote loaders
         // tslint:disable:max-line-length
         // CHARACTER

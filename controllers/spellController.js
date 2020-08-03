@@ -6,7 +6,8 @@ module.exports = {
     const selChar = parseInt(req.query.id);
     console.log(selChar)
     db.CharSpells.findAll({
-      where: {charID: selChar}
+      where: {charID: selChar},
+      order:['spellLevel', 'spellName']
     })
     .then(results => {
       res.status(200).json({results})

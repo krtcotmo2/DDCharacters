@@ -382,6 +382,7 @@ class CharDataService {
         this.allEquipment = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]({ results: [] });
         this.allAC = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]({ results: [] });
         this.allNotes = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]({ results: [] });
+        this.allSpells = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]({ results: [] });
         // GETTERS
         this.getIsNew = this.isNew.asObservable();
         this.getIsReadOnly = this.readOnly.asObservable();
@@ -397,6 +398,7 @@ class CharDataService {
         this.getAllToHits = this.allToHits.asObservable();
         this.getAllEquip = this.allEquipment.asObservable();
         this.getAllACs = this.allAC.asObservable();
+        this.getAllSpells = this.allSpells.asObservable();
         this.setCharBasics = (arg) => { this.charBasics.next(arg); };
         this.setAllFeats = (arg) => { this.allFeats.next(arg); };
         this.setStats = (arg) => { this.allStats.next(arg); };
@@ -406,6 +408,7 @@ class CharDataService {
         this.setAllToHits = (arg) => { this.allToHits.next(arg); };
         this.setAllEquipment = (arg) => { this.allEquipment.next(arg); };
         this.setAllACs = (arg) => { this.allAC.next(arg); };
+        this.setAllSpells = (arg) => { this.allSpells.next(arg); };
         // global reset
         this.reset = () => {
             this.readOnly.next(true);
@@ -418,6 +421,7 @@ class CharDataService {
             this.allSaves.next(null);
             this.allToHits.next(null);
             this.allNotes.next(null);
+            this.allSpells.next(null);
         };
         // remote loaders
         // tslint:disable:max-line-length
