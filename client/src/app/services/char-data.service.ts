@@ -55,6 +55,18 @@ interface Saves {
   }[];
 }
 
+interface Spells {
+  charID: string;
+  results: {
+    id: number,
+    spellID: number,
+    charID: number,
+    spellLevel: number,
+    spellName: string,
+    isCast: boolean
+    }[];
+}
+
 interface CharToHits {
   charID: string;
   results: {
@@ -152,6 +164,7 @@ export class CharDataService {
   private allEquipment = new BehaviorSubject<Equipment>( {results: []} as Equipment );
   private allAC = new BehaviorSubject<AC>( {results: []} as AC );
   private allNotes = new BehaviorSubject<Notes>( {results: []} as Notes);
+  private allSpells = new BehaviorSubject<Spells>( {results: []} as Spells);
 
   // GETTERS
   getIsNew = this.isNew.asObservable();
@@ -168,6 +181,7 @@ export class CharDataService {
   getAllToHits = this.allToHits.asObservable();
   getAllEquip = this.allEquipment.asObservable();
   getAllACs = this.allAC.asObservable();
+  getAllSpells = this.allSpells.asObservable();
 
   // SETTERS
   changeIsNew(arg: boolean) { this.isNew.next(arg); }
@@ -184,6 +198,7 @@ export class CharDataService {
   setAllToHits = (arg) => { this.allToHits.next(arg) };
   setAllEquipment = (arg) => { this.allEquipment.next(arg) };
   setAllACs = (arg) => { this.allAC.next(arg) };
+  setAllSpells = (arg) => { this.allSpells.next(arg) };
 
   // global reset
     reset = () => {
@@ -197,6 +212,7 @@ export class CharDataService {
       this.allSaves.next(null);
       this.allToHits.next(null);
       this.allNotes.next(null);
+      this.allSpells.next(null);
     }
 
   // remote loaders

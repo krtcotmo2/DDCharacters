@@ -32,6 +32,7 @@ const Alignments = require('./alignments');
 const CharACs = require('./charAC');
 const CharNotes = require('./notes');
 const NoteItems = require('./noteItem');
+const CharSpells = require('./charSpells');
 
 const models = {
   Race: Race.init(sequelize, Sequelize),
@@ -53,6 +54,7 @@ const models = {
   CharACs: CharACs.init(sequelize, Sequelize),
   CharNotes: CharNotes.init(sequelize, Sequelize),
   NoteItems: NoteItems.init(sequelize, Sequelize),
+  CharSpells: CharSpells.init(sequelize, Sequelize)
 };
 models.Character.hasOne(Race, {foreignKey: 'raceID', sourceKey: 'raceID'})
 models.Character.hasOne(User, {foreignKey: 'userID', sourceKey: 'userID'})
@@ -64,6 +66,7 @@ models.Character.hasMany(CharSkill, {foreignKey: 'charID', sourceKey: 'charID'})
 models.Character.hasMany(CharSave, {foreignKey: 'charID', sourceKey: 'charID'})
 models.Character.hasMany(CharEquip, {foreignKey: 'charID', sourceKey: 'charID'})
 models.Character.hasMany(CharToHits, {foreignKey: 'charID', sourceKey: 'charID'})
+models.Character.hasMany(CharSpells, {foreignKey: 'charID', sourceKey: 'charID'})
 models.CharLevels.hasOne(CharClass, {foreignKey: 'classID', sourceKey: 'classID'})
 models.CharFeat.hasOne(Feat, {foreignKey: 'id', sourceKey: 'featID'})
 models.CharSkill.hasOne(Skill, {foreignKey: 'skillID', sourceKey: 'skillID'})
