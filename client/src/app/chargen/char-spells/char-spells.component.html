@@ -1,11 +1,12 @@
-<h1>Spells <button class='mini ui primary button labeled icon' style='vertical-align: text-bottom; margin-left:12px' (click)='addNewSpell($event)'>
+<h1>Spells <button class='mini ui primary button labeled icon' [(disabled)]='showingForm' style='vertical-align: text-bottom; margin-left:12px' (click)='addNewSpell($event)'>
   <i class="plus square outline icon"></i>
   Add Spell
 </button>
-<form style='display:flex; align-items: stretch; margin:12px 0;' #notesForm='ngForm' (ngSubmit)='onSubmit($event)'>
+<form *ngIf='showingForm' style='display:flex; align-items: stretch; margin:12px 0;' #notesForm='ngForm' (ngSubmit)='onSubmit($event)'>
   <input type='text' class='equipInput' placeholder="Spell Name"  [(ngModel)]='spellName' name="spellName">
   <input type='number' class='equipInput' placeholder="Spell Level"  [(ngModel)]='spellLevel' name="spellLevel">
   <button class='mini ui primary button'>Submit</button>
+  <button class='mini ui yellow button' (click)='cancelAdd($event)'>Cancel</button>
 </form>
 <span class='ui input' style='font-size:1rem; width:100%' ><input type='text' name='filter' [value]='filterText' placeholder="Filter - type in value" (input)='filterList($event)' /></span></h1>
 <div class="ui grid gridHeader">

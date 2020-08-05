@@ -532,7 +532,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "a", 9);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](20, "Spells (Coming Soon)");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](20, "Spells");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -1117,7 +1117,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.loadSaves = function (id) {
           //const val =  this.http.get<Saves>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/saves/' + id, {
-          var val = _this3.http.get('/api/characters/saves/' + id, {
+          var val = _this3.http.get('/api/spells/getAllSpells/' + id, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -1321,7 +1321,44 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }; // CLASSES
 
 
-        this.loadClasses = function (id) {};
+        this.loadClasses = function (id) {}; //SPELLS
+
+
+        this.loadSpells = function (charID) {
+          //const val =  this.http.get<any>('/api/spells/getAllSpells/' + charID.toString(), {
+          var val = _this3.http.get('/api/spells/getAllSpells/' + charID.toString(), {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+              'Access-Control-Allow-Origin': '*'
+            })
+          });
+
+          console.log('val', val);
+          return val;
+        };
+
+        this.insertSpell = function (body) {
+          var val = _this3.http.post('http://localhost:4200/api/spells/addASpell', body, {
+            //        const val =  this.http.post<any>('/api/spells/addASpell', body, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+              'Access-Control-Allow-Origin': '*'
+            })
+          });
+
+          console.log(val);
+          return val;
+        };
+
+        this.toggleSpell = function (body) {
+          var val = _this3.http.post('http://localhost:4200/api/spells/toggleSpell', body, {
+            //        const val =  this.http.post<any>('/api/spells/addASpell', body, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+              'Access-Control-Allow-Origin': '*'
+            })
+          });
+
+          console.log(val);
+          return val;
+        };
       } // SETTERS
 
 

@@ -417,7 +417,7 @@ export class CharDataService {
     // SAVES
       loadSaves = (id: string) => {
         //const val =  this.http.get<Saves>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/saves/' + id, {
-        const val =  this.http.get<Saves>('/api/characters/saves/' + id, {
+        const val =  this.http.get<Saves>('/api/spells/getAllSpells/' + id, {
             headers: new HttpHeaders({
             'Access-Control-Allow-Origin': '*'
           }),
@@ -601,5 +601,38 @@ export class CharDataService {
     // CLASSES
       loadClasses = (id: string) => {
       }
+    //SPELLS
+      loadSpells = (charID: number) =>{
+        //const val =  this.http.get<any>('/api/spells/getAllSpells/' + charID.toString(), {
+        const val =  this.http.get<any>('/api/spells/getAllSpells/' + charID.toString(), {
+            headers: new HttpHeaders({
+            'Access-Control-Allow-Origin': '*'
+          }),
+        });
+        console.log('val', val)
+        return val;
+      }
 
-}
+      insertSpell = (body: {}) => {
+        const val =  this.http.post<any>('http://localhost:4200/api/spells/addASpell', body, {
+//        const val =  this.http.post<any>('/api/spells/addASpell', body, {
+          headers: new HttpHeaders({
+            'Access-Control-Allow-Origin': '*'
+          }),
+        });
+        console.log(val)
+        return val;
+      }
+
+      toggleSpell = (body: {}) => {
+        const val =  this.http.post<any>('http://localhost:4200/api/spells/toggleSpell', body, {
+//        const val =  this.http.post<any>('/api/spells/addASpell', body, {
+          headers: new HttpHeaders({
+            'Access-Control-Allow-Origin': '*'
+          }),
+        });
+        console.log(val)
+        return val;
+      }
+
+    }
