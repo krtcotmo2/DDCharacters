@@ -30,7 +30,7 @@ export class CharSpellsComponent implements OnInit {
       charID: 5,
       spellLevel: 1,
       spellName: "Thunderstomp",
-      isCast: false,
+      isCast: true,
     },
     {
       id: 4,
@@ -145,5 +145,12 @@ export class CharSpellsComponent implements OnInit {
   }
   setIDName = (lvl) => {
     return "lvl"+lvl.toString();
+  }
+
+  reportCheck = (evt:Event, id:string) => {
+    let aSpell = this.allSpells.find(x => x.id === parseInt(id));
+    const chk = <HTMLInputElement>evt.target;
+    aSpell.isCast = chk.checked;
+    console.log(aSpell.isCast)
   }
 }

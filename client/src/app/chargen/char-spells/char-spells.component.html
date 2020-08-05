@@ -21,7 +21,7 @@
     <div *ngFor='let nt of filteredSpells(lvl)' class="ui grid gridRow" >
       <div class="column one wide ui">
         <div class="ui checkbox">
-          <input type="checkbox" name={{nt.id}}>
+          <input type="checkbox" name={{nt.id}} (change)="reportCheck($event, nt.id)" [(checked)]="nt.isCast">
           <label></label>
         </div>
       </div>
