@@ -29593,6 +29593,17 @@ class CharSpellsComponent {
         this.filterText = '';
         this.showingForm = false;
         this.filterList = (evt) => {
+            this.filterText = evt.target.value;
+            const allRows = document.getElementsByClassName('ui grid gridRow');
+            for (let r of allRows) {
+                const aTag = r.getElementsByTagName('span')[0].innerText;
+                if (aTag.toLowerCase().includes(this.filterText.toLowerCase())) {
+                    r.classList.remove('hidden');
+                }
+                else {
+                    r.classList.add('hidden');
+                }
+            }
         };
         this.addNewSpell = (evt) => {
             this.showingForm = true;

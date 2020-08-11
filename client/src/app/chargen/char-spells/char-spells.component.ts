@@ -31,8 +31,17 @@ export class CharSpellsComponent implements OnInit {
     });
   }
 
-  filterList = (evt: Event) => {
-
+  filterList = (evt) => {
+    this.filterText = evt.target.value;
+    const allRows: any = document.getElementsByClassName('ui grid gridRow');
+    for(let r of allRows){
+      const aTag: any = r.getElementsByTagName('span')[0].innerText;
+      if (aTag.toLowerCase().includes(this.filterText.toLowerCase())) {
+        r.classList.remove('hidden');
+      } else {
+        r.classList.add('hidden');
+      }
+    }
   }
 
   addNewSpell = (evt: Event) => {

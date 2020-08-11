@@ -38447,7 +38447,30 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
         this.filterText = '';
         this.showingForm = false;
 
-        this.filterList = function (evt) {};
+        this.filterList = function (evt) {
+          _this17.filterText = evt.target.value;
+          var allRows = document.getElementsByClassName('ui grid gridRow');
+
+          var _iterator11 = _createForOfIteratorHelper(allRows),
+              _step11;
+
+          try {
+            for (_iterator11.s(); !(_step11 = _iterator11.n()).done;) {
+              var r = _step11.value;
+              var aTag = r.getElementsByTagName('span')[0].innerText;
+
+              if (aTag.toLowerCase().includes(_this17.filterText.toLowerCase())) {
+                r.classList.remove('hidden');
+              } else {
+                r.classList.add('hidden');
+              }
+            }
+          } catch (err) {
+            _iterator11.e(err);
+          } finally {
+            _iterator11.f();
+          }
+        };
 
         this.addNewSpell = function (evt) {
           _this17.showingForm = true;
@@ -38893,12 +38916,12 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
             return i.toHitID;
           })));
 
-          var _iterator11 = _createForOfIteratorHelper(ids),
-              _step11;
+          var _iterator12 = _createForOfIteratorHelper(ids),
+              _step12;
 
           try {
             var _loop5 = function _loop5() {
-              var sid = _step11.value;
+              var sid = _step12.value;
               var temp = ar.filter(function (i) {
                 return i.toHitID === sid;
               });
@@ -38917,14 +38940,14 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
                 });
               }
 
-              var _iterator12 = _createForOfIteratorHelper(temp.filter(function (d) {
+              var _iterator13 = _createForOfIteratorHelper(temp.filter(function (d) {
                 return d.isBase === false;
               })),
-                  _step12;
+                  _step13;
 
               try {
-                for (_iterator12.s(); !(_step12 = _iterator12.n()).done;) {
-                  var aSk = _step12.value;
+                for (_iterator13.s(); !(_step13 = _iterator13.n()).done;) {
+                  var aSk = _step13.value;
                   var reason = aSk.modDesc;
                   breakdown.push({
                     score: aSk.score,
@@ -38932,9 +38955,9 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
                   });
                 }
               } catch (err) {
-                _iterator12.e(err);
+                _iterator13.e(err);
               } finally {
-                _iterator12.f();
+                _iterator13.f();
               }
 
               var obj = {
@@ -38949,13 +38972,13 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
               retVal.push(obj);
             };
 
-            for (_iterator11.s(); !(_step11 = _iterator11.n()).done;) {
+            for (_iterator12.s(); !(_step12 = _iterator12.n()).done;) {
               _loop5();
             }
           } catch (err) {
-            _iterator11.e(err);
+            _iterator12.e(err);
           } finally {
-            _iterator11.f();
+            _iterator12.f();
           }
 
           return retVal;
@@ -38965,12 +38988,12 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
           _this19.filterText = evt.target.value;
           var allRows = document.getElementsByClassName('ui grid gridRow');
 
-          var _iterator13 = _createForOfIteratorHelper(allRows),
-              _step13;
+          var _iterator14 = _createForOfIteratorHelper(allRows),
+              _step14;
 
           try {
-            for (_iterator13.s(); !(_step13 = _iterator13.n()).done;) {
-              var r = _step13.value;
+            for (_iterator14.s(); !(_step14 = _iterator14.n()).done;) {
+              var r = _step14.value;
               var aTag = r.getElementsByTagName('span')[0].innerText;
 
               if (aTag.toLowerCase().includes(_this19.filterText.toLowerCase())) {
@@ -38980,9 +39003,9 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
               }
             }
           } catch (err) {
-            _iterator13.e(err);
+            _iterator14.e(err);
           } finally {
-            _iterator13.f();
+            _iterator14.f();
           }
         };
       }
@@ -42023,18 +42046,18 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
 
               var newTohit = val.results.ToHit;
 
-              var _iterator14 = _createForOfIteratorHelper(allRelatedAttacks),
-                  _step14;
+              var _iterator15 = _createForOfIteratorHelper(allRelatedAttacks),
+                  _step15;
 
               try {
-                for (_iterator14.s(); !(_step14 = _iterator14.n()).done;) {
-                  var hit = _step14.value;
+                for (_iterator15.s(); !(_step15 = _iterator15.n()).done;) {
+                  var hit = _step15.value;
                   hit.ToHit = Object.assign({}, newTohit);
                 }
               } catch (err) {
-                _iterator14.e(err);
+                _iterator15.e(err);
               } finally {
-                _iterator14.f();
+                _iterator15.f();
               }
 
               _this33.allHits.results.push(val.results);
@@ -42837,12 +42860,12 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
           _this37.filterText = evt.target.value;
           var allRows = document.getElementsByClassName('ui grid gridRow');
 
-          var _iterator15 = _createForOfIteratorHelper(allRows),
-              _step15;
+          var _iterator16 = _createForOfIteratorHelper(allRows),
+              _step16;
 
           try {
-            for (_iterator15.s(); !(_step15 = _iterator15.n()).done;) {
-              var r = _step15.value;
+            for (_iterator16.s(); !(_step16 = _iterator16.n()).done;) {
+              var r = _step16.value;
               var aTag = r.getElementsByTagName('span')[0].innerText;
 
               if (aTag.toLowerCase().includes(_this37.filterText.toLowerCase())) {
@@ -42852,9 +42875,9 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
               }
             }
           } catch (err) {
-            _iterator15.e(err);
+            _iterator16.e(err);
           } finally {
-            _iterator15.f();
+            _iterator16.f();
           }
         };
 
