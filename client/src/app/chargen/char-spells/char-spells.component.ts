@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 import { CharDataService } from '../../services/char-data.service';
+import _ from 'lodash';
+
 
 @Component({
   selector: 'app-char-spells',
@@ -8,102 +11,6 @@ import { CharDataService } from '../../services/char-data.service';
 })
 export class CharSpellsComponent implements OnInit {
   allSpells = [
-    // {
-    //   id: 6,
-    //   spellID: null,
-    //   charID: 5,
-    //   spellLevel: 1,
-    //   spellName: "Cure Light Wounds",
-    //   isCast: false,
-    // },
-    // {
-    //   id: 2,
-    //   spellID: null,
-    //   charID: 5,
-    //   spellLevel: 1,
-    //   spellName: "FaireFire",
-    //   isCast: false,
-    // },
-    // {
-    //   id: 1,
-    //   spellID: null,
-    //   charID: 5,
-    //   spellLevel: 1,
-    //   spellName: "Thunderstomp",
-    //   isCast: true,
-    // },
-    // {
-    //   id: 4,
-    //   spellID: null,
-    //   charID: 5,
-    //   spellLevel: 2,
-    //   spellName: "Hold Person",
-    //   isCast: false,
-    // },
-    // {
-    //   id: 3,
-    //   spellID: null,
-    //   charID: 5,
-    //   spellLevel: 2,
-    //   spellName: "Silence",
-    //   isCast: false,
-    // },
-    // {
-    //   id: 5,
-    //   spellID: null,
-    //   charID: 5,
-    //   spellLevel: 3,
-    //   spellName: "Dispell Magic",
-    //   isCast: false,
-    // },
-    // {
-    //   id: 5,
-    //   spellID: null,
-    //   charID: 5,
-    //   spellLevel: 4,
-    //   spellName: "Dispell Magic",
-    //   isCast: false,
-    // },
-    // {
-    //   id: 5,
-    //   spellID: null,
-    //   charID: 5,
-    //   spellLevel: 5,
-    //   spellName: "Dispell Magic",
-    //   isCast: false,
-    // },
-    // {
-    //   id: 5,
-    //   spellID: null,
-    //   charID: 5,
-    //   spellLevel: 4,
-    //   spellName: "Dispell Magic",
-    //   isCast: false,
-    // },
-    // {
-    //   id: 5,
-    //   spellID: null,
-    //   charID: 5,
-    //   spellLevel: 5,
-    //   spellName: "Dispell Magic",
-    //   isCast: false,
-    // },
-    // {
-    //   id: 5,
-    //   spellID: null,
-    //   charID: 5,
-    //   spellLevel: 4,
-    //   spellName: "Dispell Magic",
-    //   isCast: false,
-    // },
-    // {
-    //   id: 5,
-    //   spellID: null,
-    //   charID: 5,
-    //   spellLevel: 5,
-    //   spellName: "Dispell Magic",
-    //   isCast: false,
-    // }
   ]
   levelBreakDown = [];
   spellName: string;
@@ -112,7 +19,8 @@ export class CharSpellsComponent implements OnInit {
   showingForm = false;
   charID: number;
 
-  constructor(private charDataSvc: CharDataService,) { }
+  constructor(private charDataSvc: CharDataService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.charDataSvc.getCharID.subscribe( (val) => this.charID = val === null ? 0 : val);
@@ -145,6 +53,9 @@ export class CharSpellsComponent implements OnInit {
     this.charDataSvc.insertSpell(body).subscribe(val => {
       console.log(val)
       this.allSpells = [...this.allSpells, val];
+      let nameSorter = spell => spell.spellName.toLowerCase();
+      this.allSpells = _.orderBy(this.allSpells, ['spellLevel', nameSorter], ['asc','asc']);
+      console.log(this.allSpells)
       this.levelBreakDown = Array.from(Array(this.allSpells.slice(-1).pop().spellLevel), (_, i) => i + 1);
       this.spellLevel= null;
       this.spellName='';
@@ -153,6 +64,9 @@ export class CharSpellsComponent implements OnInit {
   }
 
   editNote = (id: string) => {
+    console.log(id,this.spellLevel, this.spellName)
+    let chosenSpell = this.allSpells.find(s => s.id.toString() === id);
+    this.router.navigate(['/charGen/spells/' + id], {state: {data: {spellLevel: chosenSpell.spellLevel, spellName: chosenSpell.spellName}}});
 
   }
 

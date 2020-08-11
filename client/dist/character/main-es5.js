@@ -1117,7 +1117,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.loadSaves = function (id) {
           //const val =  this.http.get<Saves>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/saves/' + id, {
-          var val = _this3.http.get('/api/spells/getAllSpells/' + id, {
+          var val = _this3.http.get('/api/characters/saves/' + id, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -1325,7 +1325,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
         this.loadSpells = function (charID) {
-          //const val =  this.http.get<any>('/api/spells/getAllSpells/' + charID.toString(), {
           var val = _this3.http.get('/api/spells/getAllSpells/' + charID.toString(), {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
@@ -1337,8 +1336,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.insertSpell = function (body) {
-          var val = _this3.http.post('http://localhost:4200/api/spells/addASpell', body, {
-            //        const val =  this.http.post<any>('/api/spells/addASpell', body, {
+          var val = _this3.http.post('/api/spells/addASpell', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -1349,8 +1347,29 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.toggleSpell = function (body) {
-          var val = _this3.http.post('http://localhost:4200/api/spells/toggleSpell', body, {
-            //        const val =  this.http.post<any>('/api/spells/addASpell', body, {
+          var val = _this3.http.post('/api/spells/toggleSpell', body, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+              'Access-Control-Allow-Origin': '*'
+            })
+          });
+
+          console.log(val);
+          return val;
+        };
+
+        this.updateSpell = function (body) {
+          var val = _this3.http.post('/api/spells/updateASpell', body, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+              'Access-Control-Allow-Origin': '*'
+            })
+          });
+
+          console.log(val);
+          return val;
+        };
+
+        this.deleteSpell = function (id) {
+          var val = _this3.http["delete"]('/api/spells/deleteASpell/' + id, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })

@@ -19,8 +19,6 @@ module.exports = {
   },
 
   toggleSpell: function (req, res){
-    console.log(req.body.id);
-    console.log(req.body.currentStatus)
     const curStatus = req.body.currentStatus;
     const id = req.body.id;
 
@@ -51,5 +49,31 @@ module.exports = {
     });
     res.json(newSpell);
     
-  }
+  },
+
+  deleteASpell: async function(req, res){
+    const {id} = req.params.id;
+    console.log("id", id)
+    const deletedSpell = await db.CharSpells.destroy({
+      where:{id: req.params.id}
+    }).then(arg => {
+      console.log('the retval', arg)
+      return arg
+    }).catch(err => {      
+      console.log("err", err)
+    });
+    res.json({'results': deletedSpell});
+  },
+
+  updateASpell: async function(req, res){
+    const {id, spellName, spellLevel} = req.body;
+    const updatedSpell = await db.CharSpells.update({spellLevel:spellLevel, spellName: spellName},{
+      where:{id:id}
+    }).then(arg => {
+      console.log("arg", arg)
+      return arg
+    }).catch(err => console.log(err));
+    res.json({'results': updatedSpell});
+  },
+
 }

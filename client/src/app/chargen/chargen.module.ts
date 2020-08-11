@@ -24,6 +24,7 @@ import { NewFeatComponent } from './new-feat/new-feat.component';
 import { CharNotesComponent } from './char-notes/char-notes.component';
 import { SingleNoteComponent } from './single-note/single-note.component';
 import { EditNotesComponent } from './edit-notes/edit-notes.component';
+import { EditSpellComponent } from './edit-spell/edit-spell.component';
 
 @NgModule({
   declarations: [GenerateComponent,
@@ -43,7 +44,8 @@ import { EditNotesComponent } from './edit-notes/edit-notes.component';
     NewFeatComponent,
     CharNotesComponent,
     SingleNoteComponent,
-    EditNotesComponent],
+    EditNotesComponent,
+    EditSpellComponent],
   imports: [
     CommonModule,
     ChargenRoutingModule,

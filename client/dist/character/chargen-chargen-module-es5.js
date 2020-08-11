@@ -37455,6 +37455,8 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
           } else {
             this.grpSaves = this.createSaveGrps(this.allSaves);
           }
+
+          console.log("this.allSaves", this.allSaves);
         }
       }, {
         key: "showBreakDown",
@@ -38183,19 +38185,37 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
     /* harmony import */
 
 
-    var _services_char_data_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! lodash */
+    "./node_modules/lodash/lodash.js");
+    /* harmony import */
+
+
+    var lodash__WEBPACK_IMPORTED_MODULE_1___default =
+    /*#__PURE__*/
+    __webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+    /* harmony import */
+
+
+    var _services_char_data_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! ../../services/char-data.service */
     "./src/app/services/char-data.service.ts");
     /* harmony import */
 
 
-    var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! @angular/common */
     "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
     /* harmony import */
 
 
-    var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! @angular/forms */
     "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 
@@ -38415,109 +38435,14 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
     var CharSpellsComponent =
     /*#__PURE__*/
     function () {
-      function CharSpellsComponent(charDataSvc) {
+      function CharSpellsComponent(charDataSvc, router) {
         var _this17 = this;
 
         _classCallCheck2(this, CharSpellsComponent);
 
         this.charDataSvc = charDataSvc;
-        this.allSpells = [// {
-          //   id: 6,
-          //   spellID: null,
-          //   charID: 5,
-          //   spellLevel: 1,
-          //   spellName: "Cure Light Wounds",
-          //   isCast: false,
-          // },
-          // {
-          //   id: 2,
-          //   spellID: null,
-          //   charID: 5,
-          //   spellLevel: 1,
-          //   spellName: "FaireFire",
-          //   isCast: false,
-          // },
-          // {
-          //   id: 1,
-          //   spellID: null,
-          //   charID: 5,
-          //   spellLevel: 1,
-          //   spellName: "Thunderstomp",
-          //   isCast: true,
-          // },
-          // {
-          //   id: 4,
-          //   spellID: null,
-          //   charID: 5,
-          //   spellLevel: 2,
-          //   spellName: "Hold Person",
-          //   isCast: false,
-          // },
-          // {
-          //   id: 3,
-          //   spellID: null,
-          //   charID: 5,
-          //   spellLevel: 2,
-          //   spellName: "Silence",
-          //   isCast: false,
-          // },
-          // {
-          //   id: 5,
-          //   spellID: null,
-          //   charID: 5,
-          //   spellLevel: 3,
-          //   spellName: "Dispell Magic",
-          //   isCast: false,
-          // },
-          // {
-          //   id: 5,
-          //   spellID: null,
-          //   charID: 5,
-          //   spellLevel: 4,
-          //   spellName: "Dispell Magic",
-          //   isCast: false,
-          // },
-          // {
-          //   id: 5,
-          //   spellID: null,
-          //   charID: 5,
-          //   spellLevel: 5,
-          //   spellName: "Dispell Magic",
-          //   isCast: false,
-          // },
-          // {
-          //   id: 5,
-          //   spellID: null,
-          //   charID: 5,
-          //   spellLevel: 4,
-          //   spellName: "Dispell Magic",
-          //   isCast: false,
-          // },
-          // {
-          //   id: 5,
-          //   spellID: null,
-          //   charID: 5,
-          //   spellLevel: 5,
-          //   spellName: "Dispell Magic",
-          //   isCast: false,
-          // },
-          // {
-          //   id: 5,
-          //   spellID: null,
-          //   charID: 5,
-          //   spellLevel: 4,
-          //   spellName: "Dispell Magic",
-          //   isCast: false,
-          // },
-          // {
-          //   id: 5,
-          //   spellID: null,
-          //   charID: 5,
-          //   spellLevel: 5,
-          //   spellName: "Dispell Magic",
-          //   isCast: false,
-          // }
-        ];
+        this.router = router;
+        this.allSpells = [];
         this.levelBreakDown = [];
         this.filterText = '';
         this.showingForm = false;
@@ -38544,6 +38469,13 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
           _this17.charDataSvc.insertSpell(body).subscribe(function (val) {
             console.log(val);
             _this17.allSpells = [].concat(_toConsumableArray2(_this17.allSpells), [val]);
+
+            var nameSorter = function nameSorter(spell) {
+              return spell.spellName.toLowerCase();
+            };
+
+            _this17.allSpells = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.orderBy(_this17.allSpells, ['spellLevel', nameSorter], ['asc', 'asc']);
+            console.log(_this17.allSpells);
             _this17.levelBreakDown = Array.from(Array(_this17.allSpells.slice(-1).pop().spellLevel), function (_, i) {
               return i + 1;
             });
@@ -38553,7 +38485,22 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
           });
         };
 
-        this.editNote = function (id) {};
+        this.editNote = function (id) {
+          console.log(id, _this17.spellLevel, _this17.spellName);
+
+          var chosenSpell = _this17.allSpells.find(function (s) {
+            return s.id.toString() === id;
+          });
+
+          _this17.router.navigate(['/charGen/spells/' + id], {
+            state: {
+              data: {
+                spellLevel: chosenSpell.spellLevel,
+                spellName: chosenSpell.spellName
+              }
+            }
+          });
+        };
 
         this.filteredSpells = function (l) {
           console.log("l", l);
@@ -38620,7 +38567,7 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
     }();
 
     CharSpellsComponent.ɵfac = function CharSpellsComponent_Factory(t) {
-      return new (t || CharSpellsComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_char_data_service__WEBPACK_IMPORTED_MODULE_1__["CharDataService"]));
+      return new (t || CharSpellsComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_char_data_service__WEBPACK_IMPORTED_MODULE_2__["CharDataService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]));
     };
 
     CharSpellsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
@@ -38702,7 +38649,7 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.levelBreakDown);
         }
       },
-      directives: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["NgForOf"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgForm"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgModel"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NumberValueAccessor"]],
+      directives: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgForOf"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["NgForm"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["NgModel"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["NumberValueAccessor"]],
       styles: ["p[_ngcontent-%COMP%]{display: flex; justify-content: flex-start; flex-direction: row;}\r\ndiv[_ngcontent-%COMP%]{\r\n  font-size: 1rem;\r\n}\r\nspan.statVal[_ngcontent-%COMP%]   i[_ngcontent-%COMP%]{margin-left:5px}\r\nbutton[_ngcontent-%COMP%]    + button[_ngcontent-%COMP%]{\r\n  margin-left:12px;\r\n}\r\n.ui.labeled.icon.button[_ngcontent-%COMP%]    > .icon[_ngcontent-%COMP%]{\r\n  background-color: rgba(0, 0, 0, 0.20);\r\n}\r\n.gridRow[_ngcontent-%COMP%]   span[_ngcontent-%COMP%]{\r\n  \r\n}\r\n.column.breakdown[_ngcontent-%COMP%]{\r\n  overflow: hidden;\r\n  max-height:0px;\r\n  font-weight: normal;\r\n  background-color: #ccc;\r\n  padding:0px !important;\r\n  transition: 0.5s;\r\n}\r\n.column.breakdown.expanded[_ngcontent-%COMP%]{\r\n  max-height:600px;\r\n  transition: 0.5s;\r\n}\r\n[data-position=\"right center\"][data-tooltip][_ngcontent-%COMP%]:after{\r\n  max-width:500px;\r\n  width:500px;\r\n  white-space: pre-wrap;\r\n}\r\n.ui.grid[_ngcontent-%COMP%]    + .grid[_ngcontent-%COMP%] {\r\n  margin-top: 0px;\r\n}\r\n.gridHeader[_ngcontent-%COMP%], .gridRow[_ngcontent-%COMP%]{\r\n  border-radius: 6px 6px 0em 0em;\r\n  cursor: auto;\r\n  background: #F9FAFB;\r\n  text-align: inherit;\r\n  color: rgba(0, 0, 0, 0.87);\r\n  padding: 0.0.25 0.78571429em;\r\n  vertical-align: inherit;\r\n  font-style: none;\r\n  font-size: 1rem;\r\n  font-weight: bold;\r\n  text-transform: none;\r\n  border: 1px solid rgba(34, 36, 38, 0.1);\r\n  border-bottom: 0px;\r\n  margin:0 2px;\r\n}\r\n.gridHeader[_ngcontent-%COMP%]   .three[_ngcontent-%COMP%]:first-child, .gridRow[_ngcontent-%COMP%]   .three[_ngcontent-%COMP%]:first-child{\r\n  border-right: 1px solid rgba(34, 36, 38, 0.1);\r\n}\r\n.gridRow[_ngcontent-%COMP%]{\r\n  background: #fff;\r\n  color:#000;\r\n  border-radius: 0em;\r\n}\r\n.gridRow[_ngcontent-%COMP%]:hover{\r\n  background: #eee;\r\n}\r\n.gridRow[_ngcontent-%COMP%]   .eleven[_ngcontent-%COMP%]{\r\n  font-weight: normal;\r\n}\r\n.gridRow[_ngcontent-%COMP%]:last-child, .gridHeader[_ngcontent-%COMP%]:last-child{\r\n  border-bottom: 1px solid rgba(34, 36, 38, 0.1);\r\n}\r\n.column.preReq[_ngcontent-%COMP%]{\r\n  overflow: hidden;\r\n  max-height:0px;\r\n  font-weight: normal;\r\n  background-color: #ccc;\r\n  padding:0px !important;\r\n  transition: 0.5s;\r\n}\r\n.column.preReq.expanded[_ngcontent-%COMP%]{\r\n  max-height:300px;\r\n  transition: 0.5s;\r\n}\r\n.ui.grid[_ngcontent-%COMP%]{\r\n  margin-top:0px\r\n}\r\n.hidden[_ngcontent-%COMP%]{\r\n  display:none;\r\n}\r\nform[_ngcontent-%COMP%]   input[_ngcontent-%COMP%]{\r\n  margin-right:12px;\r\n  padding:3px 6px;\r\n  border:1px solid #ccc;\r\n  border-radius: 3px;\r\n  font-size:1.4rem;\r\n}\r\n.levelHolder[_ngcontent-%COMP%]{\r\n  position: relative;\r\n  max-height:1000px ;\r\n  transition: all 2s;\r\n}\r\n.collapsed[_ngcontent-%COMP%]{\r\n  max-height:0px !important;\r\n  overflow: hidden;\r\n  transition: all 1s;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY2hhcmdlbi9jaGFyLXNwZWxscy9jaGFyLXNwZWxscy5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLEVBQUUsYUFBYSxFQUFFLDJCQUEyQixFQUFFLG1CQUFtQixDQUFDO0FBQ2xFO0VBQ0UsZUFBZTtBQUNqQjtBQUVBLGVBQWUsZUFBZTtBQUU5QjtFQUNFLGdCQUFnQjtBQUNsQjtBQUVBO0VBQ0UscUNBQXFDO0FBQ3ZDO0FBQ0E7RUFDRSx3QkFBd0I7QUFDMUI7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixjQUFjO0VBQ2QsbUJBQW1CO0VBQ25CLHNCQUFzQjtFQUN0QixzQkFBc0I7RUFDdEIsZ0JBQWdCO0FBQ2xCO0FBRUE7RUFDRSxnQkFBZ0I7RUFDaEIsZ0JBQWdCO0FBQ2xCO0FBR0E7RUFDRSxlQUFlO0VBQ2YsV0FBVztFQUNYLHFCQUFxQjtBQUN2QjtBQUNBO0VBQ0UsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsOEJBQThCO0VBQzlCLFlBQVk7RUFDWixtQkFBbUI7RUFDbkIsbUJBQW1CO0VBQ25CLDBCQUEwQjtFQUMxQiw0QkFBNEI7RUFDNUIsdUJBQXVCO0VBQ3ZCLGdCQUFnQjtFQUNoQixlQUFlO0VBQ2YsaUJBQWlCO0VBQ2pCLG9CQUFvQjtFQUNwQix1Q0FBdUM7RUFDdkMsa0JBQWtCO0VBQ2xCLFlBQVk7QUFDZDtBQUNBO0VBQ0UsNkNBQTZDO0FBQy9DO0FBQ0E7RUFDRSxnQkFBZ0I7RUFDaEIsVUFBVTtFQUNWLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxtQkFBbUI7QUFDckI7QUFDQTtFQUNFLDhDQUE4QztBQUNoRDtBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLGNBQWM7RUFDZCxtQkFBbUI7RUFDbkIsc0JBQXNCO0VBQ3RCLHNCQUFzQjtFQUN0QixnQkFBZ0I7QUFDbEI7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixnQkFBZ0I7QUFDbEI7QUFDQTtFQUNFO0FBQ0Y7QUFFQTtFQUNFLFlBQVk7QUFDZDtBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLGVBQWU7RUFDZixxQkFBcUI7RUFDckIsa0JBQWtCO0VBQ2xCLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLGtCQUFrQjtFQUNsQixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLHlCQUF5QjtFQUN6QixnQkFBZ0I7RUFDaEIsa0JBQWtCO0FBQ3BCIiwiZmlsZSI6InNyYy9hcHAvY2hhcmdlbi9jaGFyLXNwZWxscy9jaGFyLXNwZWxscy5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsicHtkaXNwbGF5OiBmbGV4OyBqdXN0aWZ5LWNvbnRlbnQ6IGZsZXgtc3RhcnQ7IGZsZXgtZGlyZWN0aW9uOiByb3c7fVxyXG5kaXZ7XHJcbiAgZm9udC1zaXplOiAxcmVtO1xyXG59XHJcblxyXG5zcGFuLnN0YXRWYWwgaXttYXJnaW4tbGVmdDo1cHh9XHJcblxyXG5idXR0b24gKyBidXR0b257XHJcbiAgbWFyZ2luLWxlZnQ6MTJweDtcclxufVxyXG5cclxuLnVpLmxhYmVsZWQuaWNvbi5idXR0b24gPiAuaWNvbntcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDAsIDAsIDAsIDAuMjApO1xyXG59XHJcbi5ncmlkUm93IHNwYW57XHJcbiAgLyogbWFyZ2luLWJvdHRvbToxMnB4OyAqL1xyXG59XHJcbi5jb2x1bW4uYnJlYWtkb3due1xyXG4gIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgbWF4LWhlaWdodDowcHg7XHJcbiAgZm9udC13ZWlnaHQ6IG5vcm1hbDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjY2NjO1xyXG4gIHBhZGRpbmc6MHB4ICFpbXBvcnRhbnQ7XHJcbiAgdHJhbnNpdGlvbjogMC41cztcclxufVxyXG5cclxuLmNvbHVtbi5icmVha2Rvd24uZXhwYW5kZWR7XHJcbiAgbWF4LWhlaWdodDo2MDBweDtcclxuICB0cmFuc2l0aW9uOiAwLjVzO1xyXG59XHJcblxyXG5cclxuW2RhdGEtcG9zaXRpb249XCJyaWdodCBjZW50ZXJcIl1bZGF0YS10b29sdGlwXTphZnRlcntcclxuICBtYXgtd2lkdGg6NTAwcHg7XHJcbiAgd2lkdGg6NTAwcHg7XHJcbiAgd2hpdGUtc3BhY2U6IHByZS13cmFwO1xyXG59XHJcbi51aS5ncmlkICsgLmdyaWQge1xyXG4gIG1hcmdpbi10b3A6IDBweDtcclxufVxyXG4uZ3JpZEhlYWRlciwgLmdyaWRSb3d7XHJcbiAgYm9yZGVyLXJhZGl1czogNnB4IDZweCAwZW0gMGVtO1xyXG4gIGN1cnNvcjogYXV0bztcclxuICBiYWNrZ3JvdW5kOiAjRjlGQUZCO1xyXG4gIHRleHQtYWxpZ246IGluaGVyaXQ7XHJcbiAgY29sb3I6IHJnYmEoMCwgMCwgMCwgMC44Nyk7XHJcbiAgcGFkZGluZzogMC4wLjI1IDAuNzg1NzE0MjllbTtcclxuICB2ZXJ0aWNhbC1hbGlnbjogaW5oZXJpdDtcclxuICBmb250LXN0eWxlOiBub25lO1xyXG4gIGZvbnQtc2l6ZTogMXJlbTtcclxuICBmb250LXdlaWdodDogYm9sZDtcclxuICB0ZXh0LXRyYW5zZm9ybTogbm9uZTtcclxuICBib3JkZXI6IDFweCBzb2xpZCByZ2JhKDM0LCAzNiwgMzgsIDAuMSk7XHJcbiAgYm9yZGVyLWJvdHRvbTogMHB4O1xyXG4gIG1hcmdpbjowIDJweDtcclxufVxyXG4uZ3JpZEhlYWRlciAudGhyZWU6Zmlyc3QtY2hpbGQsIC5ncmlkUm93IC50aHJlZTpmaXJzdC1jaGlsZHtcclxuICBib3JkZXItcmlnaHQ6IDFweCBzb2xpZCByZ2JhKDM0LCAzNiwgMzgsIDAuMSk7XHJcbn1cclxuLmdyaWRSb3d7XHJcbiAgYmFja2dyb3VuZDogI2ZmZjtcclxuICBjb2xvcjojMDAwO1xyXG4gIGJvcmRlci1yYWRpdXM6IDBlbTtcclxufVxyXG4uZ3JpZFJvdzpob3ZlcntcclxuICBiYWNrZ3JvdW5kOiAjZWVlO1xyXG59XHJcbi5ncmlkUm93IC5lbGV2ZW57XHJcbiAgZm9udC13ZWlnaHQ6IG5vcm1hbDtcclxufVxyXG4uZ3JpZFJvdzpsYXN0LWNoaWxkLCAuZ3JpZEhlYWRlcjpsYXN0LWNoaWxke1xyXG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCByZ2JhKDM0LCAzNiwgMzgsIDAuMSk7XHJcbn1cclxuLmNvbHVtbi5wcmVSZXF7XHJcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuICBtYXgtaGVpZ2h0OjBweDtcclxuICBmb250LXdlaWdodDogbm9ybWFsO1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICNjY2M7XHJcbiAgcGFkZGluZzowcHggIWltcG9ydGFudDtcclxuICB0cmFuc2l0aW9uOiAwLjVzO1xyXG59XHJcbi5jb2x1bW4ucHJlUmVxLmV4cGFuZGVke1xyXG4gIG1heC1oZWlnaHQ6MzAwcHg7XHJcbiAgdHJhbnNpdGlvbjogMC41cztcclxufVxyXG4udWkuZ3JpZHtcclxuICBtYXJnaW4tdG9wOjBweFxyXG59XHJcblxyXG4uaGlkZGVue1xyXG4gIGRpc3BsYXk6bm9uZTtcclxufVxyXG5mb3JtIGlucHV0e1xyXG4gIG1hcmdpbi1yaWdodDoxMnB4O1xyXG4gIHBhZGRpbmc6M3B4IDZweDtcclxuICBib3JkZXI6MXB4IHNvbGlkICNjY2M7XHJcbiAgYm9yZGVyLXJhZGl1czogM3B4O1xyXG4gIGZvbnQtc2l6ZToxLjRyZW07XHJcbn1cclxuLmxldmVsSG9sZGVye1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICBtYXgtaGVpZ2h0OjEwMDBweCA7XHJcbiAgdHJhbnNpdGlvbjogYWxsIDJzO1xyXG59XHJcbi5jb2xsYXBzZWR7XHJcbiAgbWF4LWhlaWdodDowcHggIWltcG9ydGFudDtcclxuICBvdmVyZmxvdzogaGlkZGVuO1xyXG4gIHRyYW5zaXRpb246IGFsbCAxcztcclxufVxyXG5cclxuIl19 */"]
     });
     /*@__PURE__*/
@@ -38717,7 +38664,9 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
         }]
       }], function () {
         return [{
-          type: _services_char_data_service__WEBPACK_IMPORTED_MODULE_1__["CharDataService"]
+          type: _services_char_data_service__WEBPACK_IMPORTED_MODULE_2__["CharDataService"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
         }];
       }, null);
     })();
@@ -39344,6 +39293,12 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
     var _edit_notes_edit_notes_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
     /*! ./edit-notes/edit-notes.component */
     "./src/app/chargen/edit-notes/edit-notes.component.ts");
+    /* harmony import */
+
+
+    var _edit_spell_edit_spell_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
+    /*! ./edit-spell/edit-spell.component */
+    "./src/app/chargen/edit-spell/edit-spell.component.ts");
 
     var routes = [{
       path: '',
@@ -39372,6 +39327,13 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
       }, {
         path: 'spells',
         component: _char_spells_char_spells_component__WEBPACK_IMPORTED_MODULE_8__["CharSpellsComponent"]
+      }, {
+        path: 'spells',
+        component: _edit_spell_edit_spell_component__WEBPACK_IMPORTED_MODULE_18__["EditSpellComponent"],
+        children: [{
+          path: '**',
+          component: _edit_spell_edit_spell_component__WEBPACK_IMPORTED_MODULE_18__["EditSpellComponent"]
+        }]
       }, {
         path: 'notes',
         component: _char_notes_char_notes_component__WEBPACK_IMPORTED_MODULE_15__["CharNotesComponent"]
@@ -39632,6 +39594,12 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
     var _edit_notes_edit_notes_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(
     /*! ./edit-notes/edit-notes.component */
     "./src/app/chargen/edit-notes/edit-notes.component.ts");
+    /* harmony import */
+
+
+    var _edit_spell_edit_spell_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(
+    /*! ./edit-spell/edit-spell.component */
+    "./src/app/chargen/edit-spell/edit-spell.component.ts");
 
     var ChargenModule = function ChargenModule() {
       _classCallCheck2(this, ChargenModule);
@@ -39649,7 +39617,7 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
 
     (function () {
       (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](ChargenModule, {
-        declarations: [_generate_generate_component__WEBPACK_IMPORTED_MODULE_4__["GenerateComponent"], _char_skills_char_skills_component__WEBPACK_IMPORTED_MODULE_6__["CharSkillsComponent"], _char_base_char_base_component__WEBPACK_IMPORTED_MODULE_7__["CharBaseComponent"], _char_feats_char_feats_component__WEBPACK_IMPORTED_MODULE_8__["CharFeatsComponent"], _char_equip_char_equip_component__WEBPACK_IMPORTED_MODULE_9__["CharEquipComponent"], _char_spells_char_spells_component__WEBPACK_IMPORTED_MODULE_10__["CharSpellsComponent"], _input_input_component__WEBPACK_IMPORTED_MODULE_11__["InputComponent"], _prettyprint_pipe__WEBPACK_IMPORTED_MODULE_12__["PrettyprintPipe"], _single_feat_single_feat_component__WEBPACK_IMPORTED_MODULE_14__["SingleFeatComponent"], _char_mod_char_mod_component__WEBPACK_IMPORTED_MODULE_15__["CharModComponent"], _char_saves_char_saves_component__WEBPACK_IMPORTED_MODULE_16__["CharSavesComponent"], _char_tohit_char_tohit_component__WEBPACK_IMPORTED_MODULE_17__["CharTohitComponent"], _new_tohit_new_tohit_component__WEBPACK_IMPORTED_MODULE_18__["NewTohitComponent"], _new_skill_new_skill_component__WEBPACK_IMPORTED_MODULE_19__["NewSkillComponent"], _new_feat_new_feat_component__WEBPACK_IMPORTED_MODULE_20__["NewFeatComponent"], _char_notes_char_notes_component__WEBPACK_IMPORTED_MODULE_21__["CharNotesComponent"], _single_note_single_note_component__WEBPACK_IMPORTED_MODULE_22__["SingleNoteComponent"], _edit_notes_edit_notes_component__WEBPACK_IMPORTED_MODULE_23__["EditNotesComponent"]],
+        declarations: [_generate_generate_component__WEBPACK_IMPORTED_MODULE_4__["GenerateComponent"], _char_skills_char_skills_component__WEBPACK_IMPORTED_MODULE_6__["CharSkillsComponent"], _char_base_char_base_component__WEBPACK_IMPORTED_MODULE_7__["CharBaseComponent"], _char_feats_char_feats_component__WEBPACK_IMPORTED_MODULE_8__["CharFeatsComponent"], _char_equip_char_equip_component__WEBPACK_IMPORTED_MODULE_9__["CharEquipComponent"], _char_spells_char_spells_component__WEBPACK_IMPORTED_MODULE_10__["CharSpellsComponent"], _input_input_component__WEBPACK_IMPORTED_MODULE_11__["InputComponent"], _prettyprint_pipe__WEBPACK_IMPORTED_MODULE_12__["PrettyprintPipe"], _single_feat_single_feat_component__WEBPACK_IMPORTED_MODULE_14__["SingleFeatComponent"], _char_mod_char_mod_component__WEBPACK_IMPORTED_MODULE_15__["CharModComponent"], _char_saves_char_saves_component__WEBPACK_IMPORTED_MODULE_16__["CharSavesComponent"], _char_tohit_char_tohit_component__WEBPACK_IMPORTED_MODULE_17__["CharTohitComponent"], _new_tohit_new_tohit_component__WEBPACK_IMPORTED_MODULE_18__["NewTohitComponent"], _new_skill_new_skill_component__WEBPACK_IMPORTED_MODULE_19__["NewSkillComponent"], _new_feat_new_feat_component__WEBPACK_IMPORTED_MODULE_20__["NewFeatComponent"], _char_notes_char_notes_component__WEBPACK_IMPORTED_MODULE_21__["CharNotesComponent"], _single_note_single_note_component__WEBPACK_IMPORTED_MODULE_22__["SingleNoteComponent"], _edit_notes_edit_notes_component__WEBPACK_IMPORTED_MODULE_23__["EditNotesComponent"], _edit_spell_edit_spell_component__WEBPACK_IMPORTED_MODULE_24__["EditSpellComponent"]],
         imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _chargen_routing_module__WEBPACK_IMPORTED_MODULE_3__["ChargenRoutingModule"], _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_5__["FontAwesomeModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_13__["NgbModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"]]
       });
     })();
@@ -39660,7 +39628,7 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ChargenModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
         args: [{
-          declarations: [_generate_generate_component__WEBPACK_IMPORTED_MODULE_4__["GenerateComponent"], _char_skills_char_skills_component__WEBPACK_IMPORTED_MODULE_6__["CharSkillsComponent"], _char_base_char_base_component__WEBPACK_IMPORTED_MODULE_7__["CharBaseComponent"], _char_feats_char_feats_component__WEBPACK_IMPORTED_MODULE_8__["CharFeatsComponent"], _char_equip_char_equip_component__WEBPACK_IMPORTED_MODULE_9__["CharEquipComponent"], _char_spells_char_spells_component__WEBPACK_IMPORTED_MODULE_10__["CharSpellsComponent"], _input_input_component__WEBPACK_IMPORTED_MODULE_11__["InputComponent"], _prettyprint_pipe__WEBPACK_IMPORTED_MODULE_12__["PrettyprintPipe"], _single_feat_single_feat_component__WEBPACK_IMPORTED_MODULE_14__["SingleFeatComponent"], _char_mod_char_mod_component__WEBPACK_IMPORTED_MODULE_15__["CharModComponent"], _char_saves_char_saves_component__WEBPACK_IMPORTED_MODULE_16__["CharSavesComponent"], _char_tohit_char_tohit_component__WEBPACK_IMPORTED_MODULE_17__["CharTohitComponent"], _new_tohit_new_tohit_component__WEBPACK_IMPORTED_MODULE_18__["NewTohitComponent"], _new_skill_new_skill_component__WEBPACK_IMPORTED_MODULE_19__["NewSkillComponent"], _new_feat_new_feat_component__WEBPACK_IMPORTED_MODULE_20__["NewFeatComponent"], _char_notes_char_notes_component__WEBPACK_IMPORTED_MODULE_21__["CharNotesComponent"], _single_note_single_note_component__WEBPACK_IMPORTED_MODULE_22__["SingleNoteComponent"], _edit_notes_edit_notes_component__WEBPACK_IMPORTED_MODULE_23__["EditNotesComponent"]],
+          declarations: [_generate_generate_component__WEBPACK_IMPORTED_MODULE_4__["GenerateComponent"], _char_skills_char_skills_component__WEBPACK_IMPORTED_MODULE_6__["CharSkillsComponent"], _char_base_char_base_component__WEBPACK_IMPORTED_MODULE_7__["CharBaseComponent"], _char_feats_char_feats_component__WEBPACK_IMPORTED_MODULE_8__["CharFeatsComponent"], _char_equip_char_equip_component__WEBPACK_IMPORTED_MODULE_9__["CharEquipComponent"], _char_spells_char_spells_component__WEBPACK_IMPORTED_MODULE_10__["CharSpellsComponent"], _input_input_component__WEBPACK_IMPORTED_MODULE_11__["InputComponent"], _prettyprint_pipe__WEBPACK_IMPORTED_MODULE_12__["PrettyprintPipe"], _single_feat_single_feat_component__WEBPACK_IMPORTED_MODULE_14__["SingleFeatComponent"], _char_mod_char_mod_component__WEBPACK_IMPORTED_MODULE_15__["CharModComponent"], _char_saves_char_saves_component__WEBPACK_IMPORTED_MODULE_16__["CharSavesComponent"], _char_tohit_char_tohit_component__WEBPACK_IMPORTED_MODULE_17__["CharTohitComponent"], _new_tohit_new_tohit_component__WEBPACK_IMPORTED_MODULE_18__["NewTohitComponent"], _new_skill_new_skill_component__WEBPACK_IMPORTED_MODULE_19__["NewSkillComponent"], _new_feat_new_feat_component__WEBPACK_IMPORTED_MODULE_20__["NewFeatComponent"], _char_notes_char_notes_component__WEBPACK_IMPORTED_MODULE_21__["CharNotesComponent"], _single_note_single_note_component__WEBPACK_IMPORTED_MODULE_22__["SingleNoteComponent"], _edit_notes_edit_notes_component__WEBPACK_IMPORTED_MODULE_23__["EditNotesComponent"], _edit_spell_edit_spell_component__WEBPACK_IMPORTED_MODULE_24__["EditSpellComponent"]],
           imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _chargen_routing_module__WEBPACK_IMPORTED_MODULE_3__["ChargenRoutingModule"], _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_5__["FontAwesomeModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_13__["NgbModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"]]
         }]
       }], null, null);
@@ -40002,6 +39970,252 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
   },
 
   /***/
+  "./src/app/chargen/edit-spell/edit-spell.component.ts":
+  /*!************************************************************!*\
+    !*** ./src/app/chargen/edit-spell/edit-spell.component.ts ***!
+    \************************************************************/
+
+  /*! exports provided: EditSpellComponent */
+
+  /***/
+  function srcAppChargenEditSpellEditSpellComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "EditSpellComponent", function () {
+      return EditSpellComponent;
+    });
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! lodash */
+    "./node_modules/lodash/lodash.js");
+    /* harmony import */
+
+
+    var lodash__WEBPACK_IMPORTED_MODULE_1___default =
+    /*#__PURE__*/
+    __webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+    /* harmony import */
+
+
+    var _services_char_data_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../../services/char-data.service */
+    "./src/app/services/char-data.service.ts");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+
+    var EditSpellComponent =
+    /*#__PURE__*/
+    function () {
+      function EditSpellComponent(charDataSvc, router) {
+        var _this22 = this;
+
+        _classCallCheck2(this, EditSpellComponent);
+
+        this.charDataSvc = charDataSvc;
+        this.router = router;
+        this.theID = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.last(this.router.url.split('/'));
+
+        this.deleteNote = function (id) {
+          _this22.charDataSvc.deleteSpell(id).subscribe(function (val) {
+            var a = val;
+
+            _this22.router.navigate(['/charGen/spells']);
+          });
+        };
+
+        this.onSubmit = function (evt) {
+          var body = {
+            id: _this22.theID,
+            spellLevel: _this22.spellLevel,
+            spellName: _this22.theSpell
+          };
+
+          _this22.charDataSvc.updateSpell(body).subscribe(function (val) {
+            _this22.router.navigate(['/charGen/spells']);
+          });
+        };
+
+        this.onCancel = function () {
+          _this22.router.navigate(['/charGen/spells']);
+        };
+      }
+
+      _createClass2(EditSpellComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          this.spellLevel = history.state.data.spellLevel;
+          this.theSpell = history.state.data.spellName;
+        }
+      }]);
+
+      return EditSpellComponent;
+    }();
+
+    EditSpellComponent.ɵfac = function EditSpellComponent_Factory(t) {
+      return new (t || EditSpellComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_char_data_service__WEBPACK_IMPORTED_MODULE_2__["CharDataService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]));
+    };
+
+    EditSpellComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
+      type: EditSpellComponent,
+      selectors: [["app-edit-spell"]],
+      decls: 23,
+      vars: 2,
+      consts: [[1, "ui", "grid", "gridHeader"], [1, "two", "wide", "column"], [1, "thirteen", "wide", "column"], [3, "ngSubmit"], ["modForm", "ngForm"], ["formRoot", ""], [1, "ui", "grid", "gridRow"], [1, "column", "two", "wide", "ui", "input"], ["type", "number", "name", "spellLevel", 1, "spellInput", 3, "ngModel", "ngModelChange"], [1, "column", "thirteen", "wide", "ui", "input"], ["type", "text", "name", "noteTitle", 1, "spellInput", 3, "ngModel", "ngModelChange"], [1, "column", "one", "wide", "ui"], ["title", "Delete", 1, "trash", "alternate", "outline", "icon", 3, "click"], [1, "container", 2, "text-align", "center", "margin-top", "24px"], ["type", "submit", 1, "ui", "primary", "button"], ["type", "button", 1, "ui", "yellow", "button", 2, "margin-left", "24px", 3, "click"]],
+      template: function EditSpellComponent_Template(rf, ctx) {
+        if (rf & 1) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h1");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Modify Spell");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 0);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "Spell Level");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "div", 2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6, "Spell Name");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "form", 3, 4);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngSubmit", function EditSpellComponent_Template_form_ngSubmit_7_listener($event) {
+            return ctx.onSubmit($event);
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "div", null, 5);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "div", 6);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "div", 7);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "input", 8);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function EditSpellComponent_Template_input_ngModelChange_13_listener($event) {
+            return ctx.spellLevel = $event;
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "div", 9);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "input", 10);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function EditSpellComponent_Template_input_ngModelChange_15_listener($event) {
+            return ctx.theSpell = $event;
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "div", 11);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "i", 12);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function EditSpellComponent_Template_i_click_17_listener() {
+            return ctx.deleteNote(ctx.theID);
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "div", 13);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "button", 14);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](20, "Save");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](21, "button", 15);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function EditSpellComponent_Template_button_click_21_listener() {
+            return ctx.onCancel();
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](22, "Cancel");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        }
+
+        if (rf & 2) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](13);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.spellLevel);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.theSpell);
+        }
+      },
+      directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["NgForm"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["NumberValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["NgModel"]],
+      styles: [".spellInput[_ngcontent-%COMP%]{\r\n  width:100%;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY2hhcmdlbi9lZGl0LXNwZWxsL2VkaXQtc3BlbGwuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFVBQVU7QUFDWiIsImZpbGUiOiJzcmMvYXBwL2NoYXJnZW4vZWRpdC1zcGVsbC9lZGl0LXNwZWxsLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuc3BlbGxJbnB1dHtcclxuICB3aWR0aDoxMDAlO1xyXG59XHJcbiJdfQ== */"]
+    });
+    /*@__PURE__*/
+
+    (function () {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](EditSpellComponent, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
+        args: [{
+          selector: 'app-edit-spell',
+          templateUrl: './edit-spell.component.html',
+          styleUrls: ['./edit-spell.component.css']
+        }]
+      }], function () {
+        return [{
+          type: _services_char_data_service__WEBPACK_IMPORTED_MODULE_2__["CharDataService"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
+        }];
+      }, null);
+    })();
+    /***/
+
+  },
+
+  /***/
   "./src/app/chargen/generate/generate.component.ts":
   /*!********************************************************!*\
     !*** ./src/app/chargen/generate/generate.component.ts ***!
@@ -40325,7 +40539,7 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
     /*#__PURE__*/
     function () {
       function GenerateComponent(dr, charDataSvc, sanitizer, router) {
-        var _this22 = this;
+        var _this23 = this;
 
         _classCallCheck2(this, GenerateComponent);
 
@@ -40338,65 +40552,65 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
         this.stats = [];
 
         this.rollAll = function () {
-          _this22.getStat(5, 'str');
+          _this23.getStat(5, 'str');
 
-          _this22.getStat(4, 'dex');
+          _this23.getStat(4, 'dex');
 
-          _this22.getStat(5, 'con');
+          _this23.getStat(5, 'con');
 
-          _this22.getStat(4, 'int');
+          _this23.getStat(4, 'int');
 
-          _this22.getStat(4, 'wis');
+          _this23.getStat(4, 'wis');
 
-          _this22.getStat(4, 'chr');
+          _this23.getStat(4, 'chr');
 
-          console.log(_this22.stats);
+          console.log(_this23.stats);
         };
 
         this.getStat = function (arg, stat) {
-          var roll1 = _this22.dr.sumRoll(6, arg, 3);
+          var roll1 = _this23.dr.sumRoll(6, arg, 3);
 
-          var roll2 = _this22.dr.sumRoll(6, arg, 3);
+          var roll2 = _this23.dr.sumRoll(6, arg, 3);
 
-          _this22.stats[stat] = Math.max(roll1, roll2);
+          _this23.stats[stat] = Math.max(roll1, roll2);
         };
 
         this.reset = function () {
-          _this22.stats = [];
+          _this23.stats = [];
         };
 
         this.ediStat = function (arg) {
-          _this22.router.navigate(['/charGen/mods/stat/' + arg]);
+          _this23.router.navigate(['/charGen/mods/stat/' + arg]);
         };
       }
 
       _createClass2(GenerateComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this23 = this;
+          var _this24 = this;
 
           this.charDataSvc.getIsNew.subscribe(function (val) {
-            return _this23.isNew = val;
+            return _this24.isNew = val;
           });
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this23.charID = val;
+            return _this24.charID = val;
           });
           this.charDataSvc.getAllStats.subscribe(function (val) {
-            return _this23.stats = val === null ? [] : val.results;
+            return _this24.stats = val === null ? [] : val.results;
           });
           this.charDataSvc.getAllStats.subscribe(function (val) {
-            return _this23.curChar = val === null ? "0" : val.charID;
+            return _this24.curChar = val === null ? "0" : val.charID;
           });
 
           if (!this.isNew && this.charID && this.charID.toString() !== this.curChar) {
             this.stats = [];
             this.charDataSvc.loadStats(this.charID).subscribe(function (sts) {
-              _this23.stats = sts.results;
+              _this24.stats = sts.results;
               console.log(sts);
 
-              _this23.charDataSvc.setStats(sts);
+              _this24.charDataSvc.setStats(sts);
 
-              _this23.charDataSvc.setCurCharID(_this23.charID);
+              _this24.charDataSvc.setCurCharID(_this24.charID);
 
               console.log('loaded stats from db');
             });
@@ -41055,31 +41269,31 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
       }
 
       if (rf & 2) {
-        var ctx_r179 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+        var ctx_r181 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r179.control.errors.required);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r181.control.errors.required);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r179.control.errors.minlength);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r181.control.errors.minlength);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r179.control.errors.maxlength);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r181.control.errors.maxlength);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r179.control.errors.pattern && ctx_r179.val === "num");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r181.control.errors.pattern && ctx_r181.val === "num");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r179.control.errors.pattern && ctx_r179.val === "exp");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r181.control.errors.pattern && ctx_r181.val === "exp");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r179.control.errors.pattern && ctx_r179.val === "sec" && ctx_r179.checkNum(ctx_r179.control.value));
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r181.control.errors.pattern && ctx_r181.val === "sec" && ctx_r181.checkNum(ctx_r181.control.value));
       }
     }
 
@@ -41093,17 +41307,17 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
     /*#__PURE__*/
     function () {
       function InputComponent() {
-        var _this24 = this;
+        var _this25 = this;
 
         _classCallCheck2(this, InputComponent);
 
         this.placeHolder = '';
 
         this.isErrored = function () {
-          var _this24$control = _this24.control,
-              dirty = _this24$control.dirty,
-              touched = _this24$control.touched,
-              errors = _this24$control.errors;
+          var _this25$control = _this25.control,
+              dirty = _this25$control.dirty,
+              touched = _this25$control.touched,
+              errors = _this25$control.errors;
           return errors && touched && dirty;
         };
 
@@ -41326,19 +41540,19 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
       _createClass2(NewFeatComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this25 = this;
+          var _this26 = this;
 
           this.charDataSvc.getIsNew.subscribe(function (val) {
-            return _this25.isNew = val;
+            return _this26.isNew = val;
           });
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this25.charID = val;
+            return _this26.charID = val;
           });
           this.charDataSvc.getAllFeats.subscribe(function (val) {
-            return _this25.curChar = val.charID;
+            return _this26.curChar = val.charID;
           });
           this.charDataSvc.getAllFeats.subscribe(function (val) {
-            return _this25.curFeats = val;
+            return _this26.curFeats = val;
           });
 
           var ids = _toConsumableArray2(new Set(this.curFeats.results.map(function (i) {
@@ -41350,20 +41564,20 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
       }, {
         key: "getAllFeats",
         value: function getAllFeats(arr) {
-          var _this26 = this;
+          var _this27 = this;
 
           this.charDataSvc.loadOtherFeats(arr).subscribe(function (arg) {
-            _this26.categories = _toConsumableArray2(new Set(arg.results.map(function (i) {
+            _this27.categories = _toConsumableArray2(new Set(arg.results.map(function (i) {
               return i['type'];
             })));
-            console.log(_this26.categories);
-            _this26.allFeats = arg.results;
+            console.log(_this27.categories);
+            _this27.allFeats = arg.results;
           });
         }
       }, {
         key: "optionSelected",
         value: function optionSelected(event) {
-          var _this27 = this;
+          var _this28 = this;
 
           var selected = event.target.getAttribute("data-value");
           var aFeat = this.allFeats.find(function (arg) {
@@ -41377,25 +41591,25 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
             id: 0
           };
           this.charDataSvc.saveNewFeat(this.charID, aFeat).subscribe(function (val) {
-            console.log("val", val, _this27.curFeats);
+            console.log("val", val, _this28.curFeats);
 
-            _this27.curFeats.results.push(val);
+            _this28.curFeats.results.push(val);
 
-            console.log(_this27.curFeats);
+            console.log(_this28.curFeats);
 
-            _this27.charDataSvc.setAllFeats(_this27.curFeats);
+            _this28.charDataSvc.setAllFeats(_this28.curFeats);
 
-            _this27.router.navigate(['/charGen/feats']);
+            _this28.router.navigate(['/charGen/feats']);
           });
         }
       }, {
         key: "categoryselected",
         value: function categoryselected(event) {
-          var _this28 = this;
+          var _this29 = this;
 
           this.selCat = event.target.innerText;
           this.filteredFeats = this.allFeats.filter(function (item) {
-            return item['type'] === _this28.selCat;
+            return item['type'] === _this29.selCat;
           });
         }
       }]);
@@ -41585,19 +41799,19 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
       _createClass2(NewSkillComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this29 = this;
+          var _this30 = this;
 
           this.charDataSvc.getIsNew.subscribe(function (val) {
-            return _this29.isNew = val;
+            return _this30.isNew = val;
           });
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this29.charID = val;
+            return _this30.charID = val;
           });
           this.charDataSvc.getAllSkills.subscribe(function (val) {
-            return _this29.curChar = val.charID;
+            return _this30.curChar = val.charID;
           });
           this.charDataSvc.getAllSkills.subscribe(function (val) {
-            return _this29.curSkills = val;
+            return _this30.curSkills = val;
           });
 
           var ids = _toConsumableArray2(new Set(this.curSkills.results.map(function (i) {
@@ -41609,17 +41823,17 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
       }, {
         key: "getAllSkills",
         value: function getAllSkills(arr) {
-          var _this30 = this;
+          var _this31 = this;
 
           this.charDataSvc.loadOtherSkills(arr).subscribe(function (arg) {
             console.log(arg);
-            _this30.allSkills = arg.results;
+            _this31.allSkills = arg.results;
           });
         }
       }, {
         key: "optionSelected",
         value: function optionSelected(event) {
-          var _this31 = this;
+          var _this32 = this;
 
           var selected = event.target.getAttribute("data-value");
           var aSkill = this.allSkills.find(function (arg) {
@@ -41637,11 +41851,11 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
             id: 0
           };
           this.charDataSvc.saveNewSkill(this.charID, aSkill).subscribe(function (val) {
-            _this31.curSkills.results.push(val);
+            _this32.curSkills.results.push(val);
 
-            _this31.charDataSvc.setAllSkills(_this31.curSkills);
+            _this32.charDataSvc.setAllSkills(_this32.curSkills);
 
-            _this31.router.navigate(['/charGen/skills']);
+            _this32.router.navigate(['/charGen/skills']);
           });
         }
       }]);
@@ -41777,7 +41991,7 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
     /*#__PURE__*/
     function () {
       function NewTohitComponent(charDataSvc, router) {
-        var _this32 = this;
+        var _this33 = this;
 
         _classCallCheck2(this, NewTohitComponent);
 
@@ -41792,18 +42006,18 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
 
         this.onSubmit = function (evt) {
           evt.preventDefault();
-          var obj = Object.assign(Object.assign({}, _this32.attribute['ToHit']), {
-            toHitID: parseInt(_this32.partID, 10)
+          var obj = Object.assign(Object.assign({}, _this33.attribute['ToHit']), {
+            toHitID: parseInt(_this33.partID, 10)
           });
           console.log(obj);
 
-          _this32.charDataSvc.newToHit(_this32.charID, obj).subscribe(function (val) {
+          _this33.charDataSvc.newToHit(_this33.charID, obj).subscribe(function (val) {
             if (val.results) {
-              _this32.allHits.results = _this32.allHits.results.filter(function (arg) {
+              _this33.allHits.results = _this33.allHits.results.filter(function (arg) {
                 return arg.id !== val.results.id;
               });
 
-              var allRelatedAttacks = _this32.allHits.results.filter(function (arg) {
+              var allRelatedAttacks = _this33.allHits.results.filter(function (arg) {
                 return arg.toHitID === val.results.toHitID;
               });
 
@@ -41823,41 +42037,41 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
                 _iterator14.f();
               }
 
-              _this32.allHits.results.push(val.results);
+              _this33.allHits.results.push(val.results);
 
-              _this32.allHits.results.sort(function (a, b) {
+              _this33.allHits.results.sort(function (a, b) {
                 return a.toHitID - b.toHitID;
               });
 
-              _this32.charDataSvc.setAllToHits(_this32.allHits);
+              _this33.charDataSvc.setAllToHits(_this33.allHits);
 
-              _this32.router.navigate(['/charGen/tohits']);
+              _this33.router.navigate(['/charGen/tohits']);
             }
           });
         };
 
         this.onCancel = function () {
-          _this32.router.navigate(['/charGen/tohits']);
+          _this33.router.navigate(['/charGen/tohits']);
         };
       }
 
       _createClass2(NewTohitComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this33 = this;
+          var _this34 = this;
 
           this.charDataSvc.getIsNew.subscribe(function (val) {
-            return _this33.isNew = val;
+            return _this34.isNew = val;
           });
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this33.charID = val;
+            return _this34.charID = val;
           });
           this.charDataSvc.getAllToHits.subscribe(function (val) {
-            return _this33.curChar = val.charID;
+            return _this34.curChar = val.charID;
           }); //this.charDataSvc.getAllToHits.subscribe( (val) => this.allHits = val.results);
 
           this.charDataSvc.getAllToHits.subscribe(function (val) {
-            return _this33.allHits = val;
+            return _this34.allHits = val;
           });
 
           if (this.partID === '0') {
@@ -41877,7 +42091,7 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
             };
           } else {
             this.attribute = this.allHits.results.find(function (arg) {
-              return arg.toHitID.toString() === _this33.partID;
+              return arg.toHitID.toString() === _this34.partID;
             });
           }
 
@@ -42183,7 +42397,7 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
 
     function SingleFeatComponent_div_5_Template(rf, ctx) {
       if (rf & 1) {
-        var _r189 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r191 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 4);
 
@@ -42194,11 +42408,11 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "i", 5);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function SingleFeatComponent_div_5_Template_i_click_3_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r189);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r191);
 
-          var ctx_r188 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r190 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r188.showPreReq($event);
+          return ctx_r190.showPreReq($event);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -42226,13 +42440,13 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "i", 8);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function SingleFeatComponent_div_5_Template_i_click_10_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r189);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r191);
 
-          var f_r187 = ctx.$implicit;
+          var f_r189 = ctx.$implicit;
 
-          var ctx_r190 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r192 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r190.deleteFeat(f_r187.id);
+          return ctx_r192.deleteFeat(f_r189.id);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -42277,27 +42491,27 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
       }
 
       if (rf & 2) {
-        var f_r187 = ctx.$implicit;
+        var f_r189 = ctx.$implicit;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("", f_r187.Feat.name, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("", f_r189.Feat.name, " ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](f_r187.Feat.shortdescription);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](f_r189.Feat.shortdescription);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](f_r187.Feat.benefit);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](f_r189.Feat.benefit);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](9);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", f_r187.Feat.prerequisites || "None", "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", f_r189.Feat.prerequisites || "None", "");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", f_r187.Feat.prerequisitie_feats || "None", "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", f_r189.Feat.prerequisitie_feats || "None", "");
       }
     }
 
@@ -42305,7 +42519,7 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
     /*#__PURE__*/
     function () {
       function SingleFeatComponent(router, charDataSvc) {
-        var _this34 = this;
+        var _this35 = this;
 
         _classCallCheck2(this, SingleFeatComponent);
 
@@ -42323,21 +42537,21 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
         };
 
         this.deleteFeat = function (arg) {
-          console.log(_this34.charFeats);
+          console.log(_this35.charFeats);
 
-          _this34.charDataSvc.deleteFeat(arg).subscribe(function (val) {
-            var newArray = _this34.charFeats.filter(function (ft) {
+          _this35.charDataSvc.deleteFeat(arg).subscribe(function (val) {
+            var newArray = _this35.charFeats.filter(function (ft) {
               return ft['id'] !== arg;
             });
 
-            console.log("newArray", newArray, _this34.charFeats);
+            console.log("newArray", newArray, _this35.charFeats);
 
-            _this34.charDataSvc.setAllFeats({
-              charID: _this34.charID,
+            _this35.charDataSvc.setAllFeats({
+              charID: _this35.charID,
               results: newArray
             });
 
-            _this34.router.navigate(['/charGen/feats']);
+            _this35.router.navigate(['/charGen/feats']);
           });
         };
       }
@@ -42345,10 +42559,10 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
       _createClass2(SingleFeatComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this35 = this;
+          var _this36 = this;
 
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this35.charID = val;
+            return _this36.charID = val;
           });
         }
       }]);
@@ -42591,7 +42805,7 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
     /*#__PURE__*/
     function () {
       function SingleNoteComponent(charDataSvc, router) {
-        var _this36 = this;
+        var _this37 = this;
 
         _classCallCheck2(this, SingleNoteComponent);
 
@@ -42602,25 +42816,25 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
         this.noteTitle = '';
 
         this.addNewNote = function (evt) {
-          _this36.newNote = true;
+          _this37.newNote = true;
         };
 
         this.onSubmit = function (evt) {
           evt.preventDefault();
           var body = {
-            noteID: _this36.noteID,
-            itemDetails: _this36.note
+            noteID: _this37.noteID,
+            itemDetails: _this37.note
           };
 
-          _this36.charDataSvc.addNoteItem(body).subscribe(function (vals) {
-            _this36.allNotes = [].concat(_toConsumableArray2(_this36.allNotes), [vals]);
-            _this36.note = '';
-            _this36.newNote = false;
+          _this37.charDataSvc.addNoteItem(body).subscribe(function (vals) {
+            _this37.allNotes = [].concat(_toConsumableArray2(_this37.allNotes), [vals]);
+            _this37.note = '';
+            _this37.newNote = false;
           });
         };
 
         this.filterList = function (evt) {
-          _this36.filterText = evt.target.value;
+          _this37.filterText = evt.target.value;
           var allRows = document.getElementsByClassName('ui grid gridRow');
 
           var _iterator15 = _createForOfIteratorHelper(allRows),
@@ -42631,7 +42845,7 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
               var r = _step15.value;
               var aTag = r.getElementsByTagName('span')[0].innerText;
 
-              if (aTag.toLowerCase().includes(_this36.filterText.toLowerCase())) {
+              if (aTag.toLowerCase().includes(_this37.filterText.toLowerCase())) {
                 r.classList.remove('hidden');
               } else {
                 r.classList.add('hidden');
@@ -42646,13 +42860,13 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
 
         this.editNote = function (id) {
           console.log("ind", id);
-          console.log(_this36.allNotes);
+          console.log(_this37.allNotes);
 
-          var oneNote = _this36.allNotes.find(function (a) {
+          var oneNote = _this37.allNotes.find(function (a) {
             return a.id.toString() === id;
           });
 
-          _this36.router.navigate(['/charGen/notes/editNote/' + id], {
+          _this37.router.navigate(['/charGen/notes/editNote/' + id], {
             state: {
               data: {
                 type: 'ind',
@@ -42666,15 +42880,15 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
       _createClass2(SingleNoteComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this37 = this;
+          var _this38 = this;
 
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this37.charID = val;
+            return _this38.charID = val;
           });
           this.noteID = this.router.url.split("/").pop();
           this.charDataSvc.loadNotesItems(this.noteID).subscribe(function (val) {
-            _this37.allNotes = val.results;
-            _this37.noteTitle = val.title;
+            _this38.allNotes = val.results;
+            _this38.noteTitle = val.title;
           });
         }
       }]);
@@ -42977,14 +43191,14 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
     "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
 
     var ClassesService = function ClassesService(http) {
-      var _this38 = this;
+      var _this39 = this;
 
       _classCallCheck2(this, ClassesService);
 
       this.http = http;
 
       this.getClasses = function () {
-        return _this38.http.get('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/classes/all', {
+        return _this39.http.get('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/classes/all', {
           headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
             'Access-Control-Allow-Origin': '*'
           })
@@ -43052,14 +43266,14 @@ function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Con
     "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
 
     var RaceService = function RaceService(http) {
-      var _this39 = this;
+      var _this40 = this;
 
       _classCallCheck2(this, RaceService);
 
       this.http = http;
 
       this.getRaces = function () {
-        return _this39.http.get('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/races/all', {
+        return _this40.http.get('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/races/all', {
           headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
             'Access-Control-Allow-Origin': '*'
           })

@@ -14,7 +14,7 @@ export class EditNotesComponent implements OnInit {
   theNote: string;
   notesSet;
   indNotes;
-  theID = _.last(this.router.url.split('/'));;
+  theID = _.last(this.router.url.split('/'));
 
   constructor(private charDataSvc: CharDataService,
     private router: Router) { }

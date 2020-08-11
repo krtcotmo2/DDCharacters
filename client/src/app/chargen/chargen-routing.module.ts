@@ -16,6 +16,7 @@ import { NewFeatComponent } from './new-feat/new-feat.component';
 import { CharNotesComponent } from './char-notes/char-notes.component';
 import { SingleNoteComponent } from './single-note/single-note.component';
 import { EditNotesComponent } from './edit-notes/edit-notes.component';
+import { EditSpellComponent } from './edit-spell/edit-spell.component';
 
 const routes: Routes = [
   {path: '', component: ChargenHomeComponent,
@@ -28,8 +29,12 @@ const routes: Routes = [
       {path: 'feats', component: CharFeatsComponent },
       {path: 'equip', component: CharEquipComponent },
       {path: 'spells', component: CharSpellsComponent },
-      {path: 'notes', component: CharNotesComponent,
+      {path: 'spells', component: EditSpellComponent,
+        children: [
+          {path: '**', component:EditSpellComponent}
+        ]
       },
+      {path: 'notes', component: CharNotesComponent },
       {path: 'notes', component: EditNotesComponent,
         children: [
         {path: 'editNote', component: EditNotesComponent,

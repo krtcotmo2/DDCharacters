@@ -8,4 +8,8 @@ router.route("/togglespell").post(spellController.toggleSpell);
 
 router.route("/addASpell").post(spellController.addASpell);
 
+router.route("/deleteASpell/:id").delete(spellController.deleteASpell);
+
+router.route("/updateASpell").post(spellController.updateASpell);
+
 module.exports = router;
