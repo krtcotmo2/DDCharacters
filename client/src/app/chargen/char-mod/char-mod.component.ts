@@ -102,7 +102,6 @@ export class CharModComponent implements OnInit {
   }
   onSubmit = (evt) => {
     evt.preventDefault();
-    console.log(this.theStats, this.attribute, this.modType)
     this.numChanged = 0;
     this.numFinished = 0;
     for (let a of this.attribute){

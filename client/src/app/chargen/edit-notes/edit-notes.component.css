@@ -1,7 +1,5 @@
 p{display: flex; justify-content: flex-start; flex-direction: row;}
-div{
-  font-size: 1rem;
-}
+
 
 span.statVal i{margin-left:5px}
 
@@ -13,7 +11,7 @@ button + button{
   background-color: rgba(0, 0, 0, 0.20);
 }
 .gridRow span{
-  /* margin-bottom:12px; */
+  margin-bottom:12px;
 }
 .column.breakdown{
   overflow: hidden;
@@ -54,6 +52,7 @@ button + button{
   border-bottom: 0px;
   margin:0 2px;
 }
+
 .gridHeader .three:first-child, .gridRow .three:first-child{
   border-right: 1px solid rgba(34, 36, 38, 0.1);
 }
@@ -62,10 +61,7 @@ button + button{
   color:#000;
   border-radius: 0em;
 }
-.gridRow:hover{
-  background: #eee;
-}
-.gridRow .eleven{
+.gridRow .eight{
   font-weight: normal;
 }
 .gridRow:last-child, .gridHeader:last-child{
@@ -86,14 +82,8 @@ button + button{
 .ui.grid{
   margin-top:0px
 }
-
-.hidden{
-  display:none;
-}
-form input{
-  margin-right:12px;
-  padding:3px 6px;
-  border:1px solid #ccc;
-  border-radius: 3px;
-  font-size:1.4rem;
+.ui.input > input, textarea.scoreInput {
+  width:100%;
+  border: 1px solid rgba(34, 36, 38, 0.15);
+  border-radius: 0.28571429rem
 }

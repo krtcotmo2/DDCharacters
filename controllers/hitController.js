@@ -16,7 +16,6 @@ module.exports = {
       }
     })
     .then(async oneItem => {
-      console.log("oneItem[0].dataValues", oneItem[1], oneItem[0].dataValues)
       if(oneItem[1]){
         let newVal = {
           toHitID: oneItem[0].dataValues.toHitID,

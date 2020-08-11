@@ -33,15 +33,15 @@ module.exports = {
       res.json(newFeat);
     },
 
-    deleteFeat: async function(req, res){
-      console.log(req);
-      const retVal =  await db.CharFeat.destroy({
-        where:{id:req.params.id}
-      }).then(arg => {
-        console.log("arg", arg)
-      return arg
-      });
-      res.json({'results': retVal});
-    }
+  deleteFeat: async function(req, res){
+    console.log(req);
+    const retVal =  await db.CharFeat.destroy({
+      where:{id:req.params.id}
+    }).then(arg => {
+      console.log("arg", arg)
+    return arg
+    });
+    res.json({'results': retVal});
+  }
   
 }

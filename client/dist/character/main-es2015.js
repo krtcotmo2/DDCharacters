@@ -254,7 +254,7 @@ ChargenHomeComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdef
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](18, "Notes");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "a", 9);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](20, "Spells (Coming Soon)");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](20, "Spells");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](21, "div", 10);
@@ -382,6 +382,7 @@ class CharDataService {
         this.allEquipment = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]({ results: [] });
         this.allAC = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]({ results: [] });
         this.allNotes = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]({ results: [] });
+        this.allSpells = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]({ results: [] });
         // GETTERS
         this.getIsNew = this.isNew.asObservable();
         this.getIsReadOnly = this.readOnly.asObservable();
@@ -397,6 +398,7 @@ class CharDataService {
         this.getAllToHits = this.allToHits.asObservable();
         this.getAllEquip = this.allEquipment.asObservable();
         this.getAllACs = this.allAC.asObservable();
+        this.getAllSpells = this.allSpells.asObservable();
         this.setCharBasics = (arg) => { this.charBasics.next(arg); };
         this.setAllFeats = (arg) => { this.allFeats.next(arg); };
         this.setStats = (arg) => { this.allStats.next(arg); };
@@ -406,6 +408,7 @@ class CharDataService {
         this.setAllToHits = (arg) => { this.allToHits.next(arg); };
         this.setAllEquipment = (arg) => { this.allEquipment.next(arg); };
         this.setAllACs = (arg) => { this.allAC.next(arg); };
+        this.setAllSpells = (arg) => { this.allSpells.next(arg); };
         // global reset
         this.reset = () => {
             this.readOnly.next(true);
@@ -418,6 +421,7 @@ class CharDataService {
             this.allSaves.next(null);
             this.allToHits.next(null);
             this.allNotes.next(null);
+            this.allSpells.next(null);
         };
         // remote loaders
         // tslint:disable:max-line-length
@@ -707,7 +711,6 @@ class CharDataService {
         };
         // NOTES
         this.loadNotes = (charID) => {
-            console.log('loading:', charID);
             const val = this.http.get('/api/notes/getCharNotes/' + charID.toString(), {
                 headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
                     'Access-Control-Allow-Origin': '*'
@@ -726,7 +729,6 @@ class CharDataService {
             return val;
         };
         this.loadNotesItems = (noteID) => {
-            console.log("noteID", noteID);
             const val = this.http.get('/api/notes/getNoteItems/' + noteID, {
                 headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
                     'Access-Control-Allow-Origin': '*'
@@ -743,8 +745,86 @@ class CharDataService {
             });
             return val;
         };
+        this.updateNoteHeader = (body) => {
+            const val = this.http.post('/api/notes/updateNote', body, {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                    'Access-Control-Allow-Origin': '*'
+                }),
+            });
+            return val;
+        };
+        this.updateNoteItem = (body) => {
+            const val = this.http.post('/api/notes/updateNoteItem', body, {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                    'Access-Control-Allow-Origin': '*'
+                }),
+            });
+            return val;
+        };
+        this.deleteNoteHeader = (noteID) => {
+            const val = this.http.post('/api/notes/deleteNote/' + noteID, {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                    'Access-Control-Allow-Origin': '*'
+                }),
+            });
+            return val;
+        };
+        this.deleteNoteItem = (id) => {
+            const val = this.http.post('/api/notes/deleteNoteItem/' + id, {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                    'Access-Control-Allow-Origin': '*'
+                }),
+            });
+            return val;
+        };
         // CLASSES
         this.loadClasses = (id) => {
+        };
+        //SPELLS
+        this.loadSpells = (charID) => {
+            const val = this.http.get('/api/spells/getAllSpells/' + charID.toString(), {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                    'Access-Control-Allow-Origin': '*'
+                }),
+            });
+            console.log('val', val);
+            return val;
+        };
+        this.insertSpell = (body) => {
+            const val = this.http.post('/api/spells/addASpell', body, {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                    'Access-Control-Allow-Origin': '*'
+                }),
+            });
+            console.log(val);
+            return val;
+        };
+        this.toggleSpell = (body) => {
+            const val = this.http.post('/api/spells/toggleSpell', body, {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                    'Access-Control-Allow-Origin': '*'
+                }),
+            });
+            console.log(val);
+            return val;
+        };
+        this.updateSpell = (body) => {
+            const val = this.http.post('/api/spells/updateASpell', body, {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                    'Access-Control-Allow-Origin': '*'
+                }),
+            });
+            console.log(val);
+            return val;
+        };
+        this.deleteSpell = (id) => {
+            const val = this.http.delete('/api/spells/deleteASpell/' + id, {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                    'Access-Control-Allow-Origin': '*'
+                }),
+            });
+            console.log(val);
+            return val;
         };
     }
     // SETTERS

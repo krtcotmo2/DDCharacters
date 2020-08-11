@@ -1,0 +1,18 @@
+<h1>Modify Note</h1>
+<form #modForm='ngForm' (ngSubmit)='onSubmit($event)'>
+  <div #formRoot>
+    <div class='ui grid gridRow'>
+      <div *ngIf='theType === "header"' class="column fifteen wide ui input" >
+        <input type='text' [(ngModel)] ='theNote' name='noteTitle' class='scoreInput'>
+      </div>
+      <div  *ngIf='theType === "ind"'  class="column fifteen wide">
+        <textarea rows="7" [(ngModel)]='theNote' name='noteDetails' class='scoreInput'></textarea>
+      </div>
+      <div *ngIf='theType !== undefined' class="column one wide ui"><i class="trash alternate outline icon"  title="Delete" (click)='deleteNote("d")'></i></div>
+    </div>
+  </div>
+  <div class="container" style='text-align: center; margin-top:24px'>
+    <button class='ui primary button' type="submit">Save</button>
+    <button class='ui yellow button' type="button" style="margin-left:24px" (click)='onCancel()' >Cancel</button>
+  </div>
+</form>

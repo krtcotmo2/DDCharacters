@@ -10,6 +10,7 @@ const featRoutes = require("./feat");
 const toHitRoutes = require("./toHit");
 const skillRoutes = require("./skill");
 const noteRoutes = require("./notes");
+const spellRoutes = require("./spells");
 
 router.use("/login", loginRoutes);
 router.use("/races", raceRoutes);
@@ -20,5 +21,6 @@ router.use("/feats", featRoutes);
 router.use("/newToHit", toHitRoutes);
 router.use("/skills", skillRoutes);
 router.use("/notes", noteRoutes);
+router.use("/spells", spellRoutes);
 
 module.exports = router;

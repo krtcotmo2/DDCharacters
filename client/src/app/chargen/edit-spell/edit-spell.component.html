@@ -1,0 +1,22 @@
+<h1>Modify Spell</h1>
+<div class="ui grid gridHeader">
+  <div class="two wide column">Spell Level</div>
+  <div class="thirteen wide column">Spell Name</div>
+</div>
+<form #modForm='ngForm' (ngSubmit)='onSubmit($event)'>
+  <div #formRoot>
+    <div class='ui grid gridRow'>
+      <div  class="column two wide ui input" >
+        <input type='number' [(ngModel)] ='spellLevel' name='spellLevel' class='spellInput'>
+      </div>
+      <div  class="column thirteen wide ui input" >
+        <input type='text' [(ngModel)] ='theSpell' name='noteTitle' class='spellInput'>
+      </div>
+      <div class="column one wide ui"><i class="trash alternate outline icon"  title="Delete" (click)='deleteNote(theID)'></i></div>
+    </div>
+  </div>
+  <div class="container" style='text-align: center; margin-top:24px'>
+    <button class='ui primary button' type="submit">Save</button>
+    <button class='ui yellow button' type="button" style="margin-left:24px" (click)='onCancel()' >Cancel</button>
+  </div>
+</form>

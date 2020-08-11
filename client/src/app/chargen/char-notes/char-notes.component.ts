@@ -54,6 +54,11 @@ export class CharNotesComponent implements OnInit {
     });
   }
 
+  editNote = (id:string) => {
+    const oneNote = this.notesSet['results'].find(a => a.noteID.toString() === id);
+    this.router.navigate(['/charGen/notes/editNote/' + id], {state: {data: {type:'header', theNote:oneNote.noteTitle} }});
+  }
+
   filterList = (evt) => {
     this.filterText = evt.target.value;
     const allRows: any = document.getElementsByClassName('ui grid gridRow');

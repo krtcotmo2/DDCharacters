@@ -55,6 +55,18 @@ interface Saves {
   }[];
 }
 
+interface Spells {
+  charID: string;
+  results: {
+    id: number,
+    spellID: number,
+    charID: number,
+    spellLevel: number,
+    spellName: string,
+    isCast: boolean
+    }[];
+}
+
 interface CharToHits {
   charID: string;
   results: {
@@ -152,6 +164,7 @@ export class CharDataService {
   private allEquipment = new BehaviorSubject<Equipment>( {results: []} as Equipment );
   private allAC = new BehaviorSubject<AC>( {results: []} as AC );
   private allNotes = new BehaviorSubject<Notes>( {results: []} as Notes);
+  private allSpells = new BehaviorSubject<Spells>( {results: []} as Spells);
 
   // GETTERS
   getIsNew = this.isNew.asObservable();
@@ -168,6 +181,7 @@ export class CharDataService {
   getAllToHits = this.allToHits.asObservable();
   getAllEquip = this.allEquipment.asObservable();
   getAllACs = this.allAC.asObservable();
+  getAllSpells = this.allSpells.asObservable();
 
   // SETTERS
   changeIsNew(arg: boolean) { this.isNew.next(arg); }
@@ -184,6 +198,7 @@ export class CharDataService {
   setAllToHits = (arg) => { this.allToHits.next(arg) };
   setAllEquipment = (arg) => { this.allEquipment.next(arg) };
   setAllACs = (arg) => { this.allAC.next(arg) };
+  setAllSpells = (arg) => { this.allSpells.next(arg) };
 
   // global reset
     reset = () => {
@@ -197,6 +212,7 @@ export class CharDataService {
       this.allSaves.next(null);
       this.allToHits.next(null);
       this.allNotes.next(null);
+      this.allSpells.next(null);
     }
 
   // remote loaders
@@ -509,7 +525,6 @@ export class CharDataService {
 
     // NOTES
       loadNotes = (charID: number) =>{
-        console.log('loading:', charID)
         const val =  this.http.get<any>('/api/notes/getCharNotes/' + charID.toString(), {
             headers: new HttpHeaders({
             'Access-Control-Allow-Origin': '*'
@@ -530,13 +545,12 @@ export class CharDataService {
       }
 
       loadNotesItems = (noteID: string) => {
-        console.log("noteID", noteID)
         const val =  this.http.get<any>('/api/notes/getNoteItems/' + noteID, {
           headers: new HttpHeaders({
-          'Access-Control-Allow-Origin': '*'
-        }),
-      });
-      return val;
+            'Access-Control-Allow-Origin': '*'
+          }),
+        });
+        return val;
       }
 
       addNoteItem = (body: {}) => {
@@ -548,8 +562,94 @@ export class CharDataService {
         });
         return val;
       }
+
+      updateNoteHeader = (body: {}) => {
+        const val =  this.http.post<any>('/api/notes/updateNote', body, {
+          headers: new HttpHeaders({
+            'Access-Control-Allow-Origin': '*'
+          }),
+        });
+        return val;
+      }
+
+      updateNoteItem = (body: {}) => {
+        const val =  this.http.post<any>('/api/notes/updateNoteItem', body, {
+          headers: new HttpHeaders({
+            'Access-Control-Allow-Origin': '*'
+          }),
+        });
+        return val;
+      }
+
+      deleteNoteHeader = (noteID: string) => {
+        const val =  this.http.post<any>('/api/notes/deleteNote/' + noteID, {
+          headers: new HttpHeaders({
+            'Access-Control-Allow-Origin': '*'
+          }),
+        });
+        return val;
+      }
+
+      deleteNoteItem = (id: string) => {
+        const val =  this.http.post<any>('/api/notes/deleteNoteItem/' + id, {
+          headers: new HttpHeaders({
+            'Access-Control-Allow-Origin': '*'
+          }),
+        });
+        return val;
+      }
     // CLASSES
       loadClasses = (id: string) => {
       }
+    //SPELLS
+      loadSpells = (charID: number) =>{
+        const val =  this.http.get<any>('/api/spells/getAllSpells/' + charID.toString(), {
+            headers: new HttpHeaders({
+            'Access-Control-Allow-Origin': '*'
+          }),
+        });
+        console.log('val', val)
+        return val;
+      }
 
-}
+      insertSpell = (body: {}) => {
+        const val =  this.http.post<any>('/api/spells/addASpell', body, {
+          headers: new HttpHeaders({
+            'Access-Control-Allow-Origin': '*'
+          }),
+        });
+        console.log(val)
+        return val;
+      }
+
+      toggleSpell = (body: {}) => {
+        const val =  this.http.post<any>('/api/spells/toggleSpell', body, {
+          headers: new HttpHeaders({
+            'Access-Control-Allow-Origin': '*'
+          }),
+        });
+        console.log(val)
+        return val;
+      }
+
+      updateSpell = (body: {}) => {
+        const val =  this.http.post<any>('/api/spells/updateASpell', body, {
+          headers: new HttpHeaders({
+            'Access-Control-Allow-Origin': '*'
+          }),
+        });
+        console.log(val)
+        return val;
+      }
+
+      deleteSpell = (id: string) => {
+        const val =  this.http.delete<any>('/api/spells/deleteASpell/' + id, {
+          headers: new HttpHeaders({
+            'Access-Control-Allow-Origin': '*'
+          }),
+        });
+        console.log(val)
+        return val;
+      }
+
+    }

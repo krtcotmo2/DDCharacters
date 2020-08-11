@@ -532,7 +532,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "a", 9);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](20, "Spells (Coming Soon)");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](20, "Spells");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -799,6 +799,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         });
         this.allNotes = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]({
           results: []
+        });
+        this.allSpells = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]({
+          results: []
         }); // GETTERS
 
         this.getIsNew = this.isNew.asObservable();
@@ -815,6 +818,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.getAllToHits = this.allToHits.asObservable();
         this.getAllEquip = this.allEquipment.asObservable();
         this.getAllACs = this.allAC.asObservable();
+        this.getAllSpells = this.allSpells.asObservable();
 
         this.setCharBasics = function (arg) {
           _this3.charBasics.next(arg);
@@ -850,6 +854,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.setAllACs = function (arg) {
           _this3.allAC.next(arg);
+        };
+
+        this.setAllSpells = function (arg) {
+          _this3.allSpells.next(arg);
         }; // global reset
 
 
@@ -873,6 +881,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           _this3.allToHits.next(null);
 
           _this3.allNotes.next(null);
+
+          _this3.allSpells.next(null);
         }; // remote loaders
         // tslint:disable:max-line-length
         // CHARACTER
@@ -1228,8 +1238,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
         this.loadNotes = function (charID) {
-          console.log('loading:', charID);
-
           var val = _this3.http.get('/api/notes/getCharNotes/' + charID.toString(), {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
@@ -1252,8 +1260,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.loadNotesItems = function (noteID) {
-          console.log("noteID", noteID);
-
           var val = _this3.http.get('/api/notes/getNoteItems/' + noteID, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
@@ -1272,10 +1278,106 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
 
           return val;
+        };
+
+        this.updateNoteHeader = function (body) {
+          var val = _this3.http.post('/api/notes/updateNote', body, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+              'Access-Control-Allow-Origin': '*'
+            })
+          });
+
+          return val;
+        };
+
+        this.updateNoteItem = function (body) {
+          var val = _this3.http.post('/api/notes/updateNoteItem', body, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+              'Access-Control-Allow-Origin': '*'
+            })
+          });
+
+          return val;
+        };
+
+        this.deleteNoteHeader = function (noteID) {
+          var val = _this3.http.post('/api/notes/deleteNote/' + noteID, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+              'Access-Control-Allow-Origin': '*'
+            })
+          });
+
+          return val;
+        };
+
+        this.deleteNoteItem = function (id) {
+          var val = _this3.http.post('/api/notes/deleteNoteItem/' + id, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+              'Access-Control-Allow-Origin': '*'
+            })
+          });
+
+          return val;
         }; // CLASSES
 
 
-        this.loadClasses = function (id) {};
+        this.loadClasses = function (id) {}; //SPELLS
+
+
+        this.loadSpells = function (charID) {
+          var val = _this3.http.get('/api/spells/getAllSpells/' + charID.toString(), {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+              'Access-Control-Allow-Origin': '*'
+            })
+          });
+
+          console.log('val', val);
+          return val;
+        };
+
+        this.insertSpell = function (body) {
+          var val = _this3.http.post('/api/spells/addASpell', body, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+              'Access-Control-Allow-Origin': '*'
+            })
+          });
+
+          console.log(val);
+          return val;
+        };
+
+        this.toggleSpell = function (body) {
+          var val = _this3.http.post('/api/spells/toggleSpell', body, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+              'Access-Control-Allow-Origin': '*'
+            })
+          });
+
+          console.log(val);
+          return val;
+        };
+
+        this.updateSpell = function (body) {
+          var val = _this3.http.post('/api/spells/updateASpell', body, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+              'Access-Control-Allow-Origin': '*'
+            })
+          });
+
+          console.log(val);
+          return val;
+        };
+
+        this.deleteSpell = function (id) {
+          var val = _this3.http["delete"]('/api/spells/deleteASpell/' + id, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+              'Access-Control-Allow-Origin': '*'
+            })
+          });
+
+          console.log(val);
+          return val;
+        };
       } // SETTERS
 
 
