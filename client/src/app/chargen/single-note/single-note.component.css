@@ -2,13 +2,10 @@ p{display: flex; justify-content: flex-start; flex-direction: row;}
 div{
   font-size: 1rem;
 }
-
 span.statVal i{margin-left:5px}
-
 button + button{
   margin-left:12px;
 }
-
 .ui.labeled.icon.button > .icon{
   background-color: rgba(0, 0, 0, 0.20);
 }
@@ -29,13 +26,10 @@ button + button{
   padding:0px !important;
   transition: 0.5s;
 }
-
 .column.breakdown.expanded{
   max-height:600px;
   transition: 0.5s;
 }
-
-
 [data-position="right center"][data-tooltip]:after{
   max-width:500px;
   width:500px;
@@ -103,4 +97,7 @@ form textarea{
 }
 a:link{
   color:black;
+}
+.cdk-drag span{
+  font-weight:normal !important;
 }

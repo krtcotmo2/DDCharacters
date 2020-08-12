@@ -166,4 +166,25 @@ module.exports = {
     });
     res.json({'results': retVal});
   },
+
+  reorderNoteItem: async function(req, res){
+    let allUpdates = req.body.updates;
+    console.log(allUpdates)
+    let numUpdated = 0;
+    allUpdates.forEach(async function(item){
+      const theNote = await db.NoteItems.update({itemOrder:item.itemOrder},{
+        where:{id:item.id}
+      }).then(nextNum => { 
+        numUpdated++;       
+        return true;
+      }).catch(err => {
+        console.log("err",err)
+      }); 
+      if(numUpdated === allUpdates.length){
+        res.status(200).json({done:true}) ;
+        return;
+      }
+    });
+  }
+
 }

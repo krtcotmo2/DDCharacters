@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { CharDataService } from '../../services/char-data.service';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
+import _ from 'lodash';
 
 @Component({
   selector: 'app-single-note',
@@ -16,7 +18,8 @@ export class SingleNoteComponent implements OnInit {
   noteTitle = '';
   notesForm;
   newNote;
-  noteID
+  noteID;
+
   constructor( private charDataSvc: CharDataService,
     private router: Router) { }
 
@@ -67,5 +70,16 @@ export class SingleNoteComponent implements OnInit {
     this.router.navigate(['/charGen/notes/editNote/' + id], {state: {data: {type:'ind', theNote:oneNote.itemDetails}}});
   }
 
+  drop(event: CdkDragDrop<string[]>) {
+    const anArray = [event.previousIndex, event.currentIndex].sort();
+    console.log(anArray)
+    moveItemInArray(this.allNotes, event.previousIndex, event.currentIndex);
+    this.allNotes.map( (c, i) => c.itemOrder = i + 1);
+    const passVal = _.slice(this.allNotes, anArray[0],  anArray[1] + 1);
+    console.log(this.allNotes, passVal);
+    this.charDataSvc.reorderNoteItems({ updates: passVal}).subscribe( (arg) => {
+      console.log(arg)
+    })
 
+  }
 }

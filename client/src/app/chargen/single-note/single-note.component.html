@@ -14,9 +14,14 @@
     </a>
   </div>
 </div>
-<div *ngFor='let nt of allNotes' class="ui grid gridRow" >
-  <span class='stat fifteen wide column'>
-    {{nt.itemDetails}}
-  </span>
-  <div class="column one wide ui"><i class="edit icon pointer"  title="Edit" (click)='editNote(nt.id.toString())'></i></div>
+<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+  <div *ngFor='let nt of allNotes' class="ui grid gridRow example-box" cdkDrag>
+      <div class="example-handle one wide column" cdkDragHandle>
+        <i class="bars icon"></i>
+      </div>
+      <span class='stat fourteen wide column'>
+        {{nt.itemDetails}}
+      </span>
+      <div class="column one wide ui"><i class="edit icon pointer"  title="Edit" (click)='editNote(nt.id.toString())'></i></div>
+  </div>
 </div>
