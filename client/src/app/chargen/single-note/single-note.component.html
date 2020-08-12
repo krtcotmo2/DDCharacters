@@ -17,7 +17,7 @@
 <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
   <div *ngFor='let nt of allNotes' class="ui grid gridRow example-box" cdkDrag>
       <div class="example-handle one wide column" cdkDragHandle>
-        <i class="bars icon"></i>
+        <i class="bars icon" title='Reorder'></i>
       </div>
       <span class='stat fourteen wide column'>
         {{nt.itemDetails}}
