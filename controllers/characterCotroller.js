@@ -449,6 +449,7 @@ module.exports = {
   getAllEquipForChar: function (req, res) {
     db.CharEquip.findAll({
       where: {charID:req.params.id},
+      order:['equipOrder']
       })
     .then(results => {
       res.status(200).json({ charID: req.params.id.trim(), results:results });
@@ -476,6 +477,25 @@ module.exports = {
      return arg
     });
     res.json({'results': retVal});
+  },
+  reorder: async function (req, res) {
+    let allUpdates = req.body.updates;
+    console.log(allUpdates)
+    let numUpdated = 0;
+    allUpdates.forEach(async function(item){
+      const theNote = await db.CharEquip.update({equipOrder:item.equipOrder},{
+        where:{id:item.id}
+      }).then(nextNum => { 
+        numUpdated++;       
+        return true;
+      }).catch(err => {
+        console.log("err",err)
+      }); 
+      if(numUpdated === allUpdates.length){
+        res.status(200).json({done:true}) ;
+        return;
+      }
+    });
   },
 
   //AC

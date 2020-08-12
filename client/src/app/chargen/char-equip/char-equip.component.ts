@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CharDataService } from '../../services/char-data.service';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import {Router} from '@angular/router';
+import _ from 'lodash';
 
 @Component({
   selector: 'app-char-equip',
@@ -76,5 +78,18 @@ export class CharEquipComponent implements OnInit {
         r.classList.add('hidden');
       }
     }
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    const anArray = [event.previousIndex, event.currentIndex].sort();
+    console.log(anArray);
+    moveItemInArray(this.allEquip.results, event.previousIndex, event.currentIndex);
+    this.allEquip.results.map( (c, i) => c.equipOrder = i + 1);
+    const passVal = _.slice(this.allEquip.results, anArray[0],  anArray[1] + 1);
+    console.log(this.allEquip.results, passVal);
+    this.charDataSvc.reorderEqiup({ updates: passVal}).subscribe( (arg) => {
+      console.log(arg)
+    })
+
   }
 }

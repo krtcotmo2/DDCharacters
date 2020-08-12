@@ -676,6 +676,15 @@ class CharDataService {
             });
             return val;
         };
+        this.reorderEqiup = (body) => {
+            console.log("body", body);
+            const val = this.http.put('/api/characters/equip/reorderEquip', body, {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                    'Access-Control-Allow-Origin': '*'
+                }),
+            });
+            return val;
+        };
         // AC
         this.loadAC = (id) => {
             console.log("id", id);
@@ -784,6 +793,14 @@ class CharDataService {
         };
         this.reorderNoteItems = (body) => {
             const val = this.http.put('/api/notes/reorderNoteItem', body, {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                    'Access-Control-Allow-Origin': '*'
+                }),
+            });
+            return val;
+        };
+        this.reorderNoteHeader = (body) => {
+            const val = this.http.put('/api/notes/reorderNoteHeader', body, {
                 headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
                     'Access-Control-Allow-Origin': '*'
                 }),

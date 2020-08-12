@@ -28,4 +28,7 @@ router.route("/deleteNoteItem/:id").post(noteController.deleteNoteItem);
 //route for api/notes/reorderNoteItem
 router.route("/reorderNoteItem/").put(noteController.reorderNoteItem);
 
+//route for api/notes/reorderNoteItem
+router.route("/reorderNoteHeader/").put(noteController.reorderNoteHeader);
+
 module.exports = router;

@@ -10,14 +10,19 @@
 <div class="ui grid gridHeader">
   <div class="two wide column"></div>
 </div>
-<div *ngFor='let nt of allNotes' class="ui grid gridRow" >
-  <span class='stat fifteen wide column' >
-      <a [routerLink]="['/charGen/notes/' + nt.noteID.toString()]" style='display:flex; justify-content: space-between; justify-items: stretch;'>
-      <span>{{nt.noteTitle}}</span>
-      <i class="angle right icon"></i>
-    </a>
-  </span>
-  <div class="column one wide ui"><i class="edit icon pointer"  title="Edit" (click)='editNote(nt.noteID.toString())'></i></div>
+<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+  <div *ngFor='let nt of allNotes' class="ui grid gridRow example-box" cdkDrag>
+    <div class="example-handle one wide column" cdkDragHandle  style="font-weight: normal;">
+      <i class="bars icon" title='Reorder'></i>
+    </div>
+    <span class='stat fourteen wide column' >
+        <a [routerLink]="['/charGen/notes/' + nt.noteID.toString()]" style='display:flex; justify-content: space-between; justify-items: stretch;'>
+        <span>{{nt.noteTitle}}</span>
+        <i class="angle right icon"></i>
+      </a>
+    </span>
+    <div class="column one wide ui"><i class="edit icon pointer"  title="Edit" (click)='editNote(nt.noteID.toString())'></i></div>
+  </div>
 </div>
 
 

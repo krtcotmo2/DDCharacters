@@ -121,6 +121,7 @@ interface Equipment {
       weight: number,
       equip: string,
       location: string,
+      equipOrder: number
     }[];
 }
 interface AC {
@@ -482,6 +483,15 @@ export class CharDataService {
         return val;
       }
 
+      reorderEqiup = (body: {}) => {
+        console.log("body", body)
+        const val =  this.http.put<any>('/api/characters/equip/reorderEquip', body, {
+          headers: new HttpHeaders({
+            'Access-Control-Allow-Origin': '*'
+          }),
+        });
+        return val;
+      }
     // AC
       loadAC = (id: number) => {
         console.log("id", id)
@@ -601,6 +611,15 @@ export class CharDataService {
 
       reorderNoteItems = (body: {}) => {
         const val =  this.http.put<any>('/api/notes/reorderNoteItem', body, {
+          headers: new HttpHeaders({
+            'Access-Control-Allow-Origin': '*'
+          }),
+        });
+        return val;
+      }
+
+      reorderNoteHeader = (body: {}) => {
+        const val =  this.http.put<any>('/api/notes/reorderNoteHeader', body, {
           headers: new HttpHeaders({
             'Access-Control-Allow-Origin': '*'
           }),
