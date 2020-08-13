@@ -25,7 +25,11 @@ class CharEquip extends Model{
         location: {
           type: DataTypes.STRING,
             allowNull: true
-        }
+        },
+        equipOrder: {
+          type: DataTypes.INTEGER,
+            allowNull: true
+        },
       },
       {sequelize, tableName: "charequip"}
     )

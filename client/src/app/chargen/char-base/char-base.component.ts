@@ -152,11 +152,10 @@ export class CharBaseComponent implements OnInit {
   }
 
   onSubmit = () => {
-    console.log(this.charBasic)
+
   }
 
   editHP = charID => {
-    console.log('/charGen/mods/hp/' + charID)
     this.router.navigate(['/charGen/mods/hp/' + charID]);
   }
   editAC = charID =>{

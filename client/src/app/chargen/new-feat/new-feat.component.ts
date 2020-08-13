@@ -32,7 +32,6 @@ export class NewFeatComponent implements OnInit {
   getAllFeats(arr){
     this.charDataSvc.loadOtherFeats(arr).subscribe(arg => {
       this.categories = [...new Set(arg.results.map(i => i['type'] ))];
-      console.log(this.categories)
       this.allFeats = arg.results;
     })
   }
@@ -40,7 +39,6 @@ export class NewFeatComponent implements OnInit {
   optionSelected(event){
     const selected = event.target.getAttribute("data-value");
     const aFeat = this.allFeats.find(arg => arg.id.toString() === selected);
-    console.log(aFeat)
     const newFeat = {
       Feat:{...aFeat},
       featID: aFeat.featID,
@@ -49,9 +47,7 @@ export class NewFeatComponent implements OnInit {
     }
 
     this.charDataSvc.saveNewFeat(this.charID, aFeat).subscribe(val => {
-      console.log("val", val, this.curFeats)
       this.curFeats.results.push(val);
-      console.log(this.curFeats)
       this.charDataSvc.setAllFeats(this.curFeats);
       this.router.navigate(['/charGen/feats']);
     })

@@ -28,7 +28,6 @@ export class NewSkillComponent implements OnInit {
 
   getAllSkills(arr){
     this.charDataSvc.loadOtherSkills(arr).subscribe(arg => {
-      console.log(arg);
       this.allSkills = arg.results;
     })
   }

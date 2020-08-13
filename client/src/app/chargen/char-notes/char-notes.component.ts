@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {Router} from '@angular/router';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import { CharDataService } from '../../services/char-data.service';
+import _ from 'lodash';
 
 @Component({
   selector: 'app-char-notes',
@@ -30,7 +32,6 @@ export class CharNotesComponent implements OnInit {
       this.charDataSvc.loadNotes(this.charID).subscribe( val => {
         this.allNotes = val.results;
         this.charDataSvc.setAllNotes(val);
-        console.log(this.charID, this.curChar , this.allNotes)
       });
     }
   }
@@ -70,5 +71,14 @@ export class CharNotesComponent implements OnInit {
         r.classList.add('hidden');
       }
     }
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    const anArray = [event.previousIndex, event.currentIndex].sort();
+    moveItemInArray(this.allNotes, event.previousIndex, event.currentIndex);
+    this.allNotes.map( (c, i) => c.noteOrder = i + 1);
+    const passVal = _.slice(this.allNotes, anArray[0],  anArray[1] + 1);
+    this.charDataSvc.reorderNoteHeader({ updates: passVal}).subscribe( (arg) => {
+    });
   }
 }

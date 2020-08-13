@@ -4,7 +4,7 @@
 </div>
 <div class="ui grid gridRow" *ngFor='let f of charFeats'>
   <div class="three wide column">{{f.Feat.name}} <i class="info circle icon pointer" (click)='showPreReq($event)' title='Prerequisites'></i></div>
-  <div class="twelve wide column">
+  <div class="twelve wide column"  style='font-weight: normal'>
     <p>{{f.Feat.shortdescription}}</p>
     <p>{{f.Feat.benefit}}</p>
   </div>

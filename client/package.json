@@ -4,13 +4,10 @@
   "proxy": "http://localhost:4200/",
   "scripts": {
     "ng": "ng",
-
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "ng serve --open",
-
-
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -19,11 +16,13 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~9.0.5",
+    "@angular/cdk": "^9.2.4",
     "@angular/common": "~9.0.5",
     "@angular/compiler": "~9.0.5",
     "@angular/core": "~9.0.5",
     "@angular/forms": "~9.0.5",
     "@angular/localize": "~9.0.5",
+    "@angular/material": "^9.2.4",
     "@angular/platform-browser": "~9.0.5",
     "@angular/platform-browser-dynamic": "~9.0.5",
     "@angular/router": "~9.0.5",

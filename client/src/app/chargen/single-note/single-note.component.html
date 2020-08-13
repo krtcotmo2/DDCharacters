@@ -6,7 +6,7 @@
   <textarea rows="4" class='equipInput' placeholder="Item" [(ngModel)]='note' name="note"></textarea>
   <button class='mini ui primary button'>Submit</button>
 </form>
-<span class='ui input' style='font-size:1rem; width:100%' ><input type='text' name='filter' [value]='filterText' placeholder="Filter - type in value" (input)='filterList($event)' /></span></h1>
+<span class='ui input' style='font-size:1rem; width:100%; margin-top:12px;' ><input type='text' name='filter' [value]='filterText' placeholder="Filter - type in value" (input)='filterList($event)' /></span></h1>
 <div class="ui grid gridHeader">
   <div class="two wide column">
     <a [routerLink]="['/charGen/notes/']">
@@ -14,9 +14,14 @@
     </a>
   </div>
 </div>
-<div *ngFor='let nt of allNotes' class="ui grid gridRow" >
-  <span class='stat fifteen wide column'>
-    {{nt.itemDetails}}
-  </span>
-  <div class="column one wide ui"><i class="edit icon pointer"  title="Edit" (click)='editNote(nt.id.toString())'></i></div>
+<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+  <div *ngFor='let nt of allNotes' class="ui grid gridRow example-box" cdkDrag>
+      <div class="example-handle one wide column" cdkDragHandle>
+        <i class="bars icon" title='Reorder'></i>
+      </div>
+      <span class='stat fourteen wide column'>
+        {{nt.itemDetails}}
+      </span>
+      <div class="column one wide ui"><i class="edit icon pointer"  title="Edit" (click)='editNote(nt.id.toString())'></i></div>
+  </div>
 </div>

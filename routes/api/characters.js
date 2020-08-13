@@ -39,6 +39,9 @@ router.route('/equip/:id').get(characterController.getAllEquipForChar);
 //route for /api/characters/equip/add
 router.post('/equip/add', bodyParser, characterController.createEquip );
 
+//route for /api/characters/equip/reorder
+router.put('/equip/reorderEquip', bodyParser, characterController.reorder);
+
 //deleteEquip
 router.delete('/deleteequip/:id', bodyParser, characterController.deleteEquip);
 

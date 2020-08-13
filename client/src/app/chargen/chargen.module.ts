@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { ChargenRoutingModule } from './chargen-routing.module';
 import { GenerateComponent } from './generate/generate.component';
@@ -52,7 +53,8 @@ import { EditSpellComponent } from './edit-spell/edit-spell.component';
     FontAwesomeModule,
     ReactiveFormsModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    DragDropModule
   ]
 })
 export class ChargenModule { }

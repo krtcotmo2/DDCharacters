@@ -16,7 +16,6 @@ export class DiceRollService {
       const aNum = Math.ceil(Math.random() * sided);
       arr.push(aNum);
     }
-    console.log(arr.sort((a, b) => a - b).reverse());
     return arr.sort((a, b) => a - b).reverse().reduce( (a, b, i) => i < sumOf ? a + b : a, 0);
   }
 
@@ -35,7 +34,6 @@ export class DiceRollService {
       const aNum = Math.ceil(Math.random() * sided);
       arr.push(aNum);
     }
-    console.log(arr.sort((a, b) => a - b))
     return arr.sort((a, b) => a - b).slice(0, numRet);
   }
 }

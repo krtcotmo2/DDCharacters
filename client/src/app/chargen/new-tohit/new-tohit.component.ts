@@ -45,12 +45,10 @@ export class NewTohitComponent implements OnInit {
     } else {
       this.attribute = this.allHits.results.find(arg => arg.toHitID.toString() === this.partID);
     }
-    console.log(this.attribute)
   }
   onSubmit = (evt) => {
     evt.preventDefault();
     let obj = {...this.attribute['ToHit'], toHitID: parseInt(this.partID, 10)}
-    console.log(obj)
     this.charDataSvc.newToHit(this.charID, obj).subscribe( val => {
       if (val.results){
         this.allHits.results = this.allHits.results.filter(arg => arg.id !== val.results.id);

@@ -47,7 +47,6 @@ export class CharSkillsComponent implements OnInit {
       return element.contains(evt.target);
     });
     const myRow = filtered[0].children;
-    console.log(myRow)
     myRow[4].classList.toggle('expanded');
   }
 
@@ -56,7 +55,6 @@ export class CharSkillsComponent implements OnInit {
     const ids = [...new Set(ar.map(i => i.skillID))];
     for( const sid of ids){
       const temp = ar.filter( i => i.skillID === sid);
-      console.log(temp)
       const score = temp.reduce( (a, b) => a + b.score, 0);
       const breakdown = [];
       const tempSk = temp.find(d => d.isRanks);

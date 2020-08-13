@@ -109,7 +109,6 @@ module.exports = {
     );
   },
   createUpdateStat: async function(req, res){
-    console.log(req.body);
     const retVal =  await db.Stats.findOrCreate({
       where:{id:req.body.id},
       defaults: {
@@ -122,7 +121,6 @@ module.exports = {
       }
     })
     .then(async oneItem => {
-      console.log("oneItem[0].dataValues", oneItem[0].dataValues)
       if(oneItem[1]){
         let newVal = {          
 
@@ -159,11 +157,9 @@ module.exports = {
     res.json({'results': retVal});
   },
   deleteStat: async function(req, res){
-    console.log(req.body);
     const retVal =  await db.Stats.destroy({
       where:{id:req.params.id}
     }).then(arg => {
-      console.log("arg", arg)
      return arg
     });
     res.json({'results': retVal});
@@ -171,7 +167,6 @@ module.exports = {
 
   //SKILLS
   getAllSkillsForChar: function(req, res){
-    console.log("get skills")
     db.CharSkill.findAll({where:{charID:req.params.id},
       include: [{
         model: Skill,
@@ -198,8 +193,6 @@ module.exports = {
       }
     })
     .then(async oneItem => {
-      console.log("oneItem[0].dataValues", oneItem[0].dataValues)
-
       let skillDetail = await db.Skill.findOne({where:{skillID:oneItem[0].dataValues.skillID}})
       .then(arg => arg);
       if(oneItem[1]){
@@ -255,11 +248,9 @@ module.exports = {
     res.json({'results': retVal});
   },
   deleteSkill: async function(req, res){
-    console.log(req);
     const retVal =  await db.CharSkill.destroy({
       where:{id:req.params.id}
     }).then(arg => {
-      console.log("arg", arg)
      return arg
     });
     res.json({'results': retVal});
@@ -337,11 +328,9 @@ module.exports = {
     res.json({'results': retVal});
   },
   deleteSave: async function(req, res){
-    console.log(req.body);
     const retVal =  await db.CharSave.destroy({
       where:{id:req.params.id}
     }).then(arg => {
-      console.log("arg", arg)
      return arg
     });
     res.json({'results': retVal});
@@ -361,20 +350,16 @@ module.exports = {
         ],
       }]})
     .then(results => {
-      console.log(results.ToHit)
       for(let i of results){
         i.toHitDesc = i.ToHit.toHitDesc;
       }
-      console.log(results);
       res.status(200).json({ charID: req.params.id.trim(), results:results });
     })
     .catch(err =>{
-      console.log(err);
       res.status(500).json({ error:err})
     });
   },
   createUpdateToHits: async function(req, res){
-    console.log(req.body)
     const retVal =  await db.CharToHits.findOrCreate({
       where:{id:req.body.id},
       defaults: {
@@ -389,7 +374,6 @@ module.exports = {
     .then(async oneItem => {
       let hitDetail = await db.ToHits.findOne({where:{toHitID:oneItem[0].dataValues.toHitID}})
       .then(arg => arg);
-      console.log('hitDetail.dataValues', hitDetail.dataValues)
       if(oneItem[1]){
         let newVal = {
           ToHit: {
@@ -435,11 +419,9 @@ module.exports = {
     res.json({'results': retVal});
   },
   deleteToHit: async function(req, res){
-    console.log(req.body);
     const retVal =  await db.CharToHits.destroy({
       where:{id:req.params.id}
     }).then(arg => {
-      console.log("arg", arg)
      return arg
     });
     res.json({'results': retVal});
@@ -449,17 +431,16 @@ module.exports = {
   getAllEquipForChar: function (req, res) {
     db.CharEquip.findAll({
       where: {charID:req.params.id},
+      order:['equipOrder']
       })
     .then(results => {
       res.status(200).json({ charID: req.params.id.trim(), results:results });
     })
     .catch(err =>{
-      console.log(err);
       res.status(500).json({ error:err})
     });
   },
   createEquip: async function (req, res) {
-    console.log(req.body)
     const retVal = await  db.CharEquip.create(req.body)
     .then(results => results)
     .catch(err => {
@@ -468,14 +449,30 @@ module.exports = {
     res.json(retVal);;
   },
   deleteEquip: async function (req, res) {
-    console.log(req.params.id)
     const retVal =  await db.CharEquip.destroy({
       where:{id:req.params.id}
     }).then(arg => {
-      console.log("arg", arg)
      return arg
     });
     res.json({'results': retVal});
+  },
+  reorder: async function (req, res) {
+    let allUpdates = req.body.updates;
+    let numUpdated = 0;
+    allUpdates.forEach(async function(item){
+      const theNote = await db.CharEquip.update({equipOrder:item.equipOrder},{
+        where:{id:item.id}
+      }).then(nextNum => { 
+        numUpdated++;       
+        return true;
+      }).catch(err => {
+        console.log("err",err)
+      }); 
+      if(numUpdated === allUpdates.length){
+        res.status(200).json({done:true}) ;
+        return;
+      }
+    });
   },
 
   //AC
@@ -484,8 +481,7 @@ module.exports = {
       {attributes: ["id",'charID', 'score', 'isBase', "isMod", "modDesc"],
       where:{charID:req.params.id},
       })
-    .then(results => {
-      console.log(results);      
+    .then(results => {      
       res.status(200).json({ charID: req.params.id.trim(), results:results });
     })
     .catch(err =>{
@@ -494,7 +490,6 @@ module.exports = {
     });
   },
   createUpdateAC: async function(req, res){
-    console.log(req.body)
     const retVal =  await db.CharACs.findOrCreate({
       where:{id:req.body.id},
       defaults: {
@@ -539,11 +534,9 @@ module.exports = {
     res.json({'results': retVal});
   },
   deleteAC: async function(req, res){
-    console.log(req.body);
     const retVal =  await db.CharACs.destroy({
       where:{id:req.params.id}
     }).then(arg => {
-      console.log("arg", arg)
      return arg
     });
     res.json({'results': retVal});

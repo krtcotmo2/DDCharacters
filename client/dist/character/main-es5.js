@@ -339,6 +339,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! @ng-bootstrap/ng-bootstrap */
     "./node_modules/@ng-bootstrap/ng-bootstrap/__ivy_ngcc__/fesm2015/ng-bootstrap.js");
+    /* harmony import */
+
+
+    var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! @angular/platform-browser/animations */
+    "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/animations.js");
 
     var AppModule = function AppModule() {
       _classCallCheck(this, AppModule);
@@ -353,13 +359,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         return new (t || AppModule)();
       },
       providers: [],
-      imports: [[_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClientModule"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__["NgbModule"]]]
+      imports: [[_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClientModule"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__["NgbModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_8__["BrowserAnimationsModule"]]]
     });
 
     (function () {
       (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppModule, {
         declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _home_home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"], _chargen_chargen_home_chargen_home_component__WEBPACK_IMPORTED_MODULE_6__["ChargenHomeComponent"]],
-        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClientModule"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__["NgbModule"]]
+        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClientModule"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__["NgbModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_8__["BrowserAnimationsModule"]]
       });
     })();
     /*@__PURE__*/
@@ -370,7 +376,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"],
         args: [{
           declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _home_home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"], _chargen_chargen_home_chargen_home_component__WEBPACK_IMPORTED_MODULE_6__["ChargenHomeComponent"]],
-          imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClientModule"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__["NgbModule"]],
+          imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClientModule"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__["NgbModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_8__["BrowserAnimationsModule"]],
           providers: [],
           bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
         }]
@@ -1077,7 +1083,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var body = {
             id: attId
           };
-          console.log(body);
           var val;
 
           switch (attType) {
@@ -1189,12 +1194,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
 
           return val;
+        };
+
+        this.reorderEqiup = function (body) {
+          var val = _this3.http.put('/api/characters/equip/reorderEquip', body, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+              'Access-Control-Allow-Origin': '*'
+            })
+          });
+
+          return val;
         }; // AC
 
 
         this.loadAC = function (id) {
-          console.log("id", id); //const val =  this.http.get<Equipment>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/ac/' + id, {
-
+          //const val =  this.http.get<Equipment>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/ac/' + id, {
           var val = _this3.http.get('/api/characters/ac/' + id, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
@@ -1244,13 +1258,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             })
           });
 
-          console.log('val', val);
           return val;
         };
 
-        this.addNoteHeader = function (body) {
-          //const val =  this.http.post<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/equip/add', body, {
-          var val = _this3.http.post('/api/notes/insertNoteHeader', body, {
+        this.loadNotesItems = function (noteID) {
+          var val = _this3.http.get('/api/notes/getNoteItems/' + noteID, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -1259,8 +1271,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           return val;
         };
 
-        this.loadNotesItems = function (noteID) {
-          var val = _this3.http.get('/api/notes/getNoteItems/' + noteID, {
+        this.addNoteHeader = function (body) {
+          //const val =  this.http.post<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/equip/add', body, {
+          var val = _this3.http.post('/api/notes/insertNoteHeader', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -1318,6 +1331,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
 
           return val;
+        };
+
+        this.reorderNoteItems = function (body) {
+          var val = _this3.http.put('/api/notes/reorderNoteItem', body, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+              'Access-Control-Allow-Origin': '*'
+            })
+          });
+
+          return val;
+        };
+
+        this.reorderNoteHeader = function (body) {
+          var val = _this3.http.put('/api/notes/reorderNoteHeader', body, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+              'Access-Control-Allow-Origin': '*'
+            })
+          });
+
+          return val;
         }; // CLASSES
 
 
@@ -1331,7 +1364,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             })
           });
 
-          console.log('val', val);
           return val;
         };
 
@@ -1342,7 +1374,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             })
           });
 
-          console.log(val);
           return val;
         };
 
@@ -1353,7 +1384,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             })
           });
 
-          console.log(val);
           return val;
         };
 
@@ -1364,7 +1394,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             })
           });
 
-          console.log(val);
           return val;
         };
 
@@ -1375,7 +1404,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             })
           });
 
-          console.log(val);
           return val;
         };
       } // SETTERS

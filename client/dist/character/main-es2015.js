@@ -145,6 +145,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
 /* harmony import */ var _chargen_chargen_home_chargen_home_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./chargen/chargen-home/chargen-home.component */ "./src/app/chargen/chargen-home/chargen-home.component.ts");
 /* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/__ivy_ngcc__/fesm2015/ng-bootstrap.js");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/animations.js");
+
 
 
 
@@ -161,14 +163,16 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
             _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClientModule"],
-            _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__["NgbModule"]
+            _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__["NgbModule"],
+            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_8__["BrowserAnimationsModule"]
         ]] });
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
         _home_home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"],
         _chargen_chargen_home_chargen_home_component__WEBPACK_IMPORTED_MODULE_6__["ChargenHomeComponent"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
         _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
         _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClientModule"],
-        _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__["NgbModule"]] }); })();
+        _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__["NgbModule"],
+        _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_8__["BrowserAnimationsModule"]] }); })();
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](AppModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"],
         args: [{
@@ -181,7 +185,8 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
                     _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
                     _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
                     _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClientModule"],
-                    _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__["NgbModule"]
+                    _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__["NgbModule"],
+                    _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_8__["BrowserAnimationsModule"]
                 ],
                 providers: [],
                 bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
@@ -579,7 +584,6 @@ class CharDataService {
             const body = {
                 id: attId,
             };
-            console.log(body);
             let val;
             switch (attType) {
                 case 'skill':
@@ -671,9 +675,16 @@ class CharDataService {
             });
             return val;
         };
+        this.reorderEqiup = (body) => {
+            const val = this.http.put('/api/characters/equip/reorderEquip', body, {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                    'Access-Control-Allow-Origin': '*'
+                }),
+            });
+            return val;
+        };
         // AC
         this.loadAC = (id) => {
-            console.log("id", id);
             //const val =  this.http.get<Equipment>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/ac/' + id, {
             const val = this.http.get('/api/characters/ac/' + id, {
                 headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
@@ -716,20 +727,19 @@ class CharDataService {
                     'Access-Control-Allow-Origin': '*'
                 }),
             });
-            console.log('val', val);
             return val;
         };
-        this.addNoteHeader = (body) => {
-            //const val =  this.http.post<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/equip/add', body, {
-            const val = this.http.post('/api/notes/insertNoteHeader', body, {
+        this.loadNotesItems = (noteID) => {
+            const val = this.http.get('/api/notes/getNoteItems/' + noteID, {
                 headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
                     'Access-Control-Allow-Origin': '*'
                 }),
             });
             return val;
         };
-        this.loadNotesItems = (noteID) => {
-            const val = this.http.get('/api/notes/getNoteItems/' + noteID, {
+        this.addNoteHeader = (body) => {
+            //const val =  this.http.post<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/equip/add', body, {
+            const val = this.http.post('/api/notes/insertNoteHeader', body, {
                 headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
                     'Access-Control-Allow-Origin': '*'
                 }),
@@ -777,6 +787,22 @@ class CharDataService {
             });
             return val;
         };
+        this.reorderNoteItems = (body) => {
+            const val = this.http.put('/api/notes/reorderNoteItem', body, {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                    'Access-Control-Allow-Origin': '*'
+                }),
+            });
+            return val;
+        };
+        this.reorderNoteHeader = (body) => {
+            const val = this.http.put('/api/notes/reorderNoteHeader', body, {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                    'Access-Control-Allow-Origin': '*'
+                }),
+            });
+            return val;
+        };
         // CLASSES
         this.loadClasses = (id) => {
         };
@@ -787,7 +813,6 @@ class CharDataService {
                     'Access-Control-Allow-Origin': '*'
                 }),
             });
-            console.log('val', val);
             return val;
         };
         this.insertSpell = (body) => {
@@ -796,7 +821,6 @@ class CharDataService {
                     'Access-Control-Allow-Origin': '*'
                 }),
             });
-            console.log(val);
             return val;
         };
         this.toggleSpell = (body) => {
@@ -805,7 +829,6 @@ class CharDataService {
                     'Access-Control-Allow-Origin': '*'
                 }),
             });
-            console.log(val);
             return val;
         };
         this.updateSpell = (body) => {
@@ -814,7 +837,6 @@ class CharDataService {
                     'Access-Control-Allow-Origin': '*'
                 }),
             });
-            console.log(val);
             return val;
         };
         this.deleteSpell = (id) => {
@@ -823,7 +845,6 @@ class CharDataService {
                     'Access-Control-Allow-Origin': '*'
                 }),
             });
-            console.log(val);
             return val;
         };
     }

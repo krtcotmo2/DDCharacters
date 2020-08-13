@@ -21,7 +21,6 @@ export class EditNotesComponent implements OnInit {
 
   ngOnInit(): void {
     this.theType = history.state.data.type;
-    console.log(history.state.data)
     this.theNote = history.state.data.theNote;
   }
 
@@ -33,7 +32,6 @@ export class EditNotesComponent implements OnInit {
         this.charDataSvc.getAllNotes.subscribe((val) => this.notesSet = val === null ? {} : val);
         let filteredArr = this.notesSet['results'].filter(a => a.noteID.toString() !== this.theID );
         this.notesSet['results'] = filteredArr
-        console.log(this.notesSet)
         this.charDataSvc.setAllNotes(this.notesSet);
       });
     }
@@ -58,7 +56,6 @@ export class EditNotesComponent implements OnInit {
       this.charDataSvc.updateNoteHeader(body).subscribe( retItem => {
         this.charDataSvc.getAllNotes.subscribe((val) => this.notesSet = val === null ? {} : val);
         let filteredArr = this.notesSet['results'].filter(a => a.noteID !== retItem.noteID )
-        console.log(filteredArr, retItem)
         this.notesSet['results'] = _.orderBy([...filteredArr, retItem], ['noteOrder']);
         this.charDataSvc.setAllNotes(this.notesSet);
       });

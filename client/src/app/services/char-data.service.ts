@@ -121,6 +121,7 @@ interface Equipment {
       weight: number,
       equip: string,
       location: string,
+      equipOrder: number
     }[];
 }
 interface AC {
@@ -384,7 +385,6 @@ export class CharDataService {
         const body = {
           id: attId,
         };
-        console.log(body)
         let val;
         switch(attType){
           case 'skill':
@@ -482,9 +482,16 @@ export class CharDataService {
         return val;
       }
 
+      reorderEqiup = (body: {}) => {
+        const val =  this.http.put<any>('/api/characters/equip/reorderEquip', body, {
+          headers: new HttpHeaders({
+            'Access-Control-Allow-Origin': '*'
+          }),
+        });
+        return val;
+      }
     // AC
       loadAC = (id: number) => {
-        console.log("id", id)
         //const val =  this.http.get<Equipment>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/ac/' + id, {
         const val =  this.http.get<Equipment>('/api/characters/ac/' + id, {
             headers: new HttpHeaders({
@@ -530,7 +537,15 @@ export class CharDataService {
             'Access-Control-Allow-Origin': '*'
           }),
         });
-        console.log('val', val)
+        return val;
+      }
+
+      loadNotesItems = (noteID: string) => {
+        const val =  this.http.get<any>('/api/notes/getNoteItems/' + noteID, {
+          headers: new HttpHeaders({
+            'Access-Control-Allow-Origin': '*'
+          }),
+        });
         return val;
       }
 
@@ -538,15 +553,6 @@ export class CharDataService {
         //const val =  this.http.post<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/equip/add', body, {
         const val =  this.http.post<any>('/api/notes/insertNoteHeader', body, {
             headers: new HttpHeaders({
-            'Access-Control-Allow-Origin': '*'
-          }),
-        });
-        return val;
-      }
-
-      loadNotesItems = (noteID: string) => {
-        const val =  this.http.get<any>('/api/notes/getNoteItems/' + noteID, {
-          headers: new HttpHeaders({
             'Access-Control-Allow-Origin': '*'
           }),
         });
@@ -598,6 +604,24 @@ export class CharDataService {
         });
         return val;
       }
+
+      reorderNoteItems = (body: {}) => {
+        const val =  this.http.put<any>('/api/notes/reorderNoteItem', body, {
+          headers: new HttpHeaders({
+            'Access-Control-Allow-Origin': '*'
+          }),
+        });
+        return val;
+      }
+
+      reorderNoteHeader = (body: {}) => {
+        const val =  this.http.put<any>('/api/notes/reorderNoteHeader', body, {
+          headers: new HttpHeaders({
+            'Access-Control-Allow-Origin': '*'
+          }),
+        });
+        return val;
+      }
     // CLASSES
       loadClasses = (id: string) => {
       }
@@ -608,7 +632,6 @@ export class CharDataService {
             'Access-Control-Allow-Origin': '*'
           }),
         });
-        console.log('val', val)
         return val;
       }
 
@@ -618,7 +641,6 @@ export class CharDataService {
             'Access-Control-Allow-Origin': '*'
           }),
         });
-        console.log(val)
         return val;
       }
 
@@ -628,7 +650,6 @@ export class CharDataService {
             'Access-Control-Allow-Origin': '*'
           }),
         });
-        console.log(val)
         return val;
       }
 
@@ -638,7 +659,6 @@ export class CharDataService {
             'Access-Control-Allow-Origin': '*'
           }),
         });
-        console.log(val)
         return val;
       }
 
@@ -648,7 +668,6 @@ export class CharDataService {
             'Access-Control-Allow-Origin': '*'
           }),
         });
-        console.log(val)
         return val;
       }
 

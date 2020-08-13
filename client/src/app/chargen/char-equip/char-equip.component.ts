@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CharDataService } from '../../services/char-data.service';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import {Router} from '@angular/router';
+import _ from 'lodash';
 
 @Component({
   selector: 'app-char-equip',
@@ -18,6 +20,7 @@ export class CharEquipComponent implements OnInit {
   equipForm;
   gatherNewInfo = false;
   filterText = '';
+  totalWeight = 0;
 
   constructor(private charDataSvc: CharDataService,
     private router: Router,) { }
@@ -31,14 +34,16 @@ export class CharEquipComponent implements OnInit {
       this.charDataSvc.loadEquipment(this.charID).subscribe( val => {
         this.allEquip = val;
         this.charDataSvc.setAllEquipment(val);
+        this.calcWeight();
       });
     }
+    this.calcWeight();
   }
   deleteEquip = (evt, id) => {
-    console.log(id);
     this.charDataSvc.deleteEquipment(id).subscribe( val => {
       this.allEquip.results = this.allEquip.results.filter(arg => arg.id !== id);
       this.charDataSvc.setAllEquipment(this.allEquip);
+      this.calcWeight();
     });
   }
   toggleForm =() => {
@@ -59,7 +64,9 @@ export class CharEquipComponent implements OnInit {
       this.wt =0;
       this.loc ='';
       this.gatherNewInfo = false;
-    })
+      this.calcWeight();
+    });
+
   };
 
   filterList = (evt) => {
@@ -76,5 +83,20 @@ export class CharEquipComponent implements OnInit {
         r.classList.add('hidden');
       }
     }
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    const anArray = [event.previousIndex, event.currentIndex].sort();
+    moveItemInArray(this.allEquip.results, event.previousIndex, event.currentIndex);
+    this.allEquip.results.map( (c, i) => c.equipOrder = i + 1);
+    const passVal = _.slice(this.allEquip.results, anArray[0],  anArray[1] + 1);
+    this.charDataSvc.reorderEqiup({ updates: passVal}).subscribe( (arg) => {
+    });
+  }
+
+  calcWeight = () => {
+    this.totalWeight = this.allEquip['results'].reduce( (a, b) => {
+     return a + b.weight;
+    }, 0);
   }
 }

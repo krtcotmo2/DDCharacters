@@ -35,7 +35,6 @@ export class CharSavesComponent implements OnInit {
     } else {
       this.grpSaves = this.createSaveGrps(this.allSaves);
     }
-    console.log("this.allSaves", this.allSaves)
   }
   showBreakDown(evt){
     const gridRowsElements = document.getElementsByClassName('gridRow');

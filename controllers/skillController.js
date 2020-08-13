@@ -29,7 +29,6 @@ module.exports = {
       .then(arg => {
         let newCharSkill = arg.dataValues;
         newCharSkill.Skill = skill;
-        console.log("newCharSkill", newCharSkill);
         return newCharSkill
       })
       .catch(err => {
