@@ -34,10 +34,8 @@ module.exports = {
         })
         .then(arg => arg);
         let newObj={...newCharToHit.dataValues, ToHit:newVal}
-        console.log("newCharToHit --- ", newObj)
         return newObj
       }else{
-        console.log("update existing")
         let updatedVal = await oneItem[0].update(
           {
             toHitDesc:req.body.toHitDesc, 
@@ -46,25 +44,20 @@ module.exports = {
             critDamage: req.body.critDamage
           }
         ).then( async success => {
-          console.log("success", success)
           let newVal = await db.CharToHits.findOne({
             where:{'charID':charID, toHitID: req.body.id }
           }).then(charHit => {
-            console.log("charHit", charHit);
             return charHit;
           })
           let newObj = {...newVal.dataValues, ToHit:success}
-          console.log("newObj", newObj)
           return newObj
         }).catch(err => {
           console.log(err)
           return err;
         });
-        console.log("updatedVal", updatedVal)
         return updatedVal;
       }
     })
-    console.log("retVal", retVal)
     res.json({'results': retVal});
   },
 

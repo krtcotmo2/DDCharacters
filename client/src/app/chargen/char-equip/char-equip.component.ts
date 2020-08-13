@@ -20,6 +20,7 @@ export class CharEquipComponent implements OnInit {
   equipForm;
   gatherNewInfo = false;
   filterText = '';
+  totalWeight = 0;
 
   constructor(private charDataSvc: CharDataService,
     private router: Router,) { }
@@ -33,11 +34,12 @@ export class CharEquipComponent implements OnInit {
       this.charDataSvc.loadEquipment(this.charID).subscribe( val => {
         this.allEquip = val;
         this.charDataSvc.setAllEquipment(val);
+        this.calcWeight();
       });
     }
+    this.calcWeight();
   }
   deleteEquip = (evt, id) => {
-    console.log(id);
     this.charDataSvc.deleteEquipment(id).subscribe( val => {
       this.allEquip.results = this.allEquip.results.filter(arg => arg.id !== id);
       this.charDataSvc.setAllEquipment(this.allEquip);
@@ -61,7 +63,9 @@ export class CharEquipComponent implements OnInit {
       this.wt =0;
       this.loc ='';
       this.gatherNewInfo = false;
-    })
+      this.calcWeight();
+    });
+
   };
 
   filterList = (evt) => {
@@ -82,14 +86,16 @@ export class CharEquipComponent implements OnInit {
 
   drop(event: CdkDragDrop<string[]>) {
     const anArray = [event.previousIndex, event.currentIndex].sort();
-    console.log(anArray);
     moveItemInArray(this.allEquip.results, event.previousIndex, event.currentIndex);
     this.allEquip.results.map( (c, i) => c.equipOrder = i + 1);
     const passVal = _.slice(this.allEquip.results, anArray[0],  anArray[1] + 1);
-    console.log(this.allEquip.results, passVal);
     this.charDataSvc.reorderEqiup({ updates: passVal}).subscribe( (arg) => {
-      console.log(arg)
-    })
+    });
 
+  }
+  calcWeight = () => {
+    this.totalWeight = this.allEquip['results'].reduce( (a, b) => {
+     return a + b.weight;
+    }, 0);
   }
 }

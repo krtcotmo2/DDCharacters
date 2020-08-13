@@ -584,7 +584,6 @@ class CharDataService {
             const body = {
                 id: attId,
             };
-            console.log(body);
             let val;
             switch (attType) {
                 case 'skill':
@@ -677,7 +676,6 @@ class CharDataService {
             return val;
         };
         this.reorderEqiup = (body) => {
-            console.log("body", body);
             const val = this.http.put('/api/characters/equip/reorderEquip', body, {
                 headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
                     'Access-Control-Allow-Origin': '*'
@@ -687,7 +685,6 @@ class CharDataService {
         };
         // AC
         this.loadAC = (id) => {
-            console.log("id", id);
             //const val =  this.http.get<Equipment>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/ac/' + id, {
             const val = this.http.get('/api/characters/ac/' + id, {
                 headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
@@ -730,7 +727,6 @@ class CharDataService {
                     'Access-Control-Allow-Origin': '*'
                 }),
             });
-            console.log('val', val);
             return val;
         };
         this.loadNotesItems = (noteID) => {
@@ -817,7 +813,6 @@ class CharDataService {
                     'Access-Control-Allow-Origin': '*'
                 }),
             });
-            console.log('val', val);
             return val;
         };
         this.insertSpell = (body) => {
@@ -826,7 +821,6 @@ class CharDataService {
                     'Access-Control-Allow-Origin': '*'
                 }),
             });
-            console.log(val);
             return val;
         };
         this.toggleSpell = (body) => {
@@ -835,7 +829,6 @@ class CharDataService {
                     'Access-Control-Allow-Origin': '*'
                 }),
             });
-            console.log(val);
             return val;
         };
         this.updateSpell = (body) => {
@@ -844,7 +837,6 @@ class CharDataService {
                     'Access-Control-Allow-Origin': '*'
                 }),
             });
-            console.log(val);
             return val;
         };
         this.deleteSpell = (id) => {
@@ -853,7 +845,6 @@ class CharDataService {
                     'Access-Control-Allow-Origin': '*'
                 }),
             });
-            console.log(val);
             return val;
         };
     }

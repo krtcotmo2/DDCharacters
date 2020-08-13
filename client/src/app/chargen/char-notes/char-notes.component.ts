@@ -32,7 +32,6 @@ export class CharNotesComponent implements OnInit {
       this.charDataSvc.loadNotes(this.charID).subscribe( val => {
         this.allNotes = val.results;
         this.charDataSvc.setAllNotes(val);
-        console.log(this.charID, this.curChar , this.allNotes)
       });
     }
   }
@@ -76,14 +75,10 @@ export class CharNotesComponent implements OnInit {
 
   drop(event: CdkDragDrop<string[]>) {
     const anArray = [event.previousIndex, event.currentIndex].sort();
-    console.log(anArray);
     moveItemInArray(this.allNotes, event.previousIndex, event.currentIndex);
     this.allNotes.map( (c, i) => c.noteOrder = i + 1);
     const passVal = _.slice(this.allNotes, anArray[0],  anArray[1] + 1);
-    console.log(this.allNotes, passVal);
     this.charDataSvc.reorderNoteHeader({ updates: passVal}).subscribe( (arg) => {
-      console.log(arg)
-    })
-
+    });
   }
 }

@@ -47123,13 +47123,9 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
           init: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])
         });
 
-        this.onSubmit = function () {
-          console.log(_this54.charBasic);
-        };
+        this.onSubmit = function () {};
 
         this.editHP = function (charID) {
-          console.log('/charGen/mods/hp/' + charID);
-
           _this54.router.navigate(['/charGen/mods/hp/' + charID]);
         };
 
@@ -47417,7 +47413,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       if (rf & 1) {
         var _r60 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 13);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function CharEquipComponent_button_2_Template_button_click_0_listener() {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r60);
@@ -47427,7 +47423,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
           return ctx_r59.toggleForm();
         });
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "i", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "i", 14);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, " Add Equipment ");
 
@@ -47439,7 +47435,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       if (rf & 1) {
         var _r63 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "form", 13, 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "form", 15, 16);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngSubmit", function CharEquipComponent_form_3_Template_form_ngSubmit_0_listener($event) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r63);
@@ -47449,7 +47445,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
           return ctx_r62.onSubmit($event);
         });
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "input", 15);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "input", 17);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function CharEquipComponent_form_3_Template_input_ngModelChange_2_listener($event) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r63);
@@ -47461,7 +47457,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "input", 16);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "input", 18);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function CharEquipComponent_form_3_Template_input_ngModelChange_3_listener($event) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r63);
@@ -47473,7 +47469,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "input", 17);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "input", 19);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function CharEquipComponent_form_3_Template_input_ngModelChange_4_listener($event) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r63);
@@ -47485,7 +47481,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "button", 18);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "button", 20);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6, "Submit");
 
@@ -47515,35 +47511,35 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       if (rf & 1) {
         var _r69 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 19);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 21);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 20);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 22);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "i", 21);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "i", 23);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "span", 22);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "span", 24);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "span", 23);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "span", 25);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "span", 24);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "span", 26);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "div", 25);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "div", 27);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "i", 26);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "i", 28);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function CharEquipComponent_div_16_Template_i_click_10_listener($event) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r69);
@@ -47591,10 +47587,9 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         this.router = router;
         this.gatherNewInfo = false;
         this.filterText = '';
+        this.totalWeight = 0;
 
         this.deleteEquip = function (evt, id) {
-          console.log(id);
-
           _this56.charDataSvc.deleteEquipment(id).subscribe(function (val) {
             _this56.allEquip.results = _this56.allEquip.results.filter(function (arg) {
               return arg.id !== id;
@@ -47626,6 +47621,8 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
             _this56.wt = 0;
             _this56.loc = '';
             _this56.gatherNewInfo = false;
+
+            _this56.calcWeight();
           });
         };
 
@@ -47656,6 +47653,12 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
             _iterator4.f();
           }
         };
+
+        this.calcWeight = function () {
+          _this56.totalWeight = _this56.allEquip['results'].reduce(function (a, b) {
+            return a + b.weight;
+          }, 0);
+        };
       }
 
       _createClass2(CharEquipComponent, [{
@@ -47681,25 +47684,25 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
               _this57.allEquip = val;
 
               _this57.charDataSvc.setAllEquipment(val);
+
+              _this57.calcWeight();
             });
           }
+
+          this.calcWeight();
         }
       }, {
         key: "drop",
         value: function drop(event) {
           var anArray = [event.previousIndex, event.currentIndex].sort();
-          console.log(anArray);
           Object(_angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_1__["moveItemInArray"])(this.allEquip.results, event.previousIndex, event.currentIndex);
           this.allEquip.results.map(function (c, i) {
             return c.equipOrder = i + 1;
           });
           var passVal = lodash__WEBPACK_IMPORTED_MODULE_2___default.a.slice(this.allEquip.results, anArray[0], anArray[1] + 1);
-          console.log(this.allEquip.results, passVal);
           this.charDataSvc.reorderEqiup({
             updates: passVal
-          }).subscribe(function (arg) {
-            console.log(arg);
-          });
+          }).subscribe(function (arg) {});
         }
       }]);
 
@@ -47713,9 +47716,9 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
     CharEquipComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: CharEquipComponent,
       selectors: [["app-char-equip"]],
-      decls: 17,
-      vars: 4,
-      consts: [["class", "mini ui primary button labeled icon", "style", "vertical-align: text-bottom; margin-left:12px", 3, "click", 4, "ngIf"], ["style", "display:inline-block; font-size:14px", 3, "ngSubmit", 4, "ngIf"], [1, "ui", "input", 2, "font-size", "1rem", "width", "33%", "margin-top", "12px"], ["type", "text", "name", "filter", "placeholder", "Filter - type in value", 3, "value", "input"], [1, "ui", "grid", "gridHeader"], [1, "one", "wide", "column"], [1, "six", "wide", "column"], [1, "three", "wide", "column"], [1, "five", "wide", "column"], ["cdkDropList", "", 1, "example-list", 3, "cdkDropListDropped"], ["class", "ui grid gridRow example-box", "cdkDrag", "", 4, "ngFor", "ngForOf"], [1, "mini", "ui", "primary", "button", "labeled", "icon", 2, "vertical-align", "text-bottom", "margin-left", "12px", 3, "click"], [1, "plus", "square", "outline", "icon"], [2, "display", "inline-block", "font-size", "14px", 3, "ngSubmit"], ["equipForm", "ngForm"], ["type", "text", "placeholder", "Item", "name", "equip", 1, "equipInput", 3, "ngModel", "ngModelChange"], ["type", "number", "placeholder", "Weight", "name", "wt", "step", "0.1", 1, "weightInput", 3, "ngModel", "ngModelChange"], ["type", "text", "placeholder", "Location", "name", "loc", 1, "locInput", 3, "ngModel", "ngModelChange"], [1, "mini", "ui", "primary", "button"], ["cdkDrag", "", 1, "ui", "grid", "gridRow", "example-box"], ["cdkDragHandle", "", 1, "example-handle", "one", "wide", "column", 2, "font-weight", "normal"], ["title", "Reorder", 1, "bars", "icon"], [1, "stat", "six", "wide", "column", 2, "font-weight", "normal"], [1, "stat", "three", "wide", "column", 2, "font-weight", "normal"], [1, "stat", "five", "wide", "column", 2, "font-weight", "normal"], [1, "column", "one", "wide", "ui"], ["title", "Edit", 1, "trash", "alternate", "outline", "icon", "pointer", 3, "click"]],
+      decls: 23,
+      vars: 5,
+      consts: [["class", "mini ui primary button labeled icon", "style", "vertical-align: text-bottom; margin-left:12px", 3, "click", 4, "ngIf"], ["style", "display:inline-block; font-size:14px", 3, "ngSubmit", 4, "ngIf"], [1, "ui", "input", 2, "font-size", "1rem", "width", "33%", "margin-top", "12px"], ["type", "text", "name", "filter", "placeholder", "Filter - type in value", 3, "value", "input"], [1, "ui", "grid", "gridHeader"], [1, "one", "wide", "column"], [1, "six", "wide", "column"], [1, "three", "wide", "column"], [1, "five", "wide", "column"], ["cdkDropList", "", 1, "example-list", 3, "cdkDropListDropped"], ["class", "ui grid gridRow example-box", "cdkDrag", "", 4, "ngFor", "ngForOf"], [1, "ui", "grid", 2, "border-top", "1px solid #ccc"], [1, "seven", "wide", "column"], [1, "mini", "ui", "primary", "button", "labeled", "icon", 2, "vertical-align", "text-bottom", "margin-left", "12px", 3, "click"], [1, "plus", "square", "outline", "icon"], [2, "display", "inline-block", "font-size", "14px", 3, "ngSubmit"], ["equipForm", "ngForm"], ["type", "text", "placeholder", "Item", "name", "equip", 1, "equipInput", 3, "ngModel", "ngModelChange"], ["type", "number", "placeholder", "Weight", "name", "wt", "step", "0.1", 1, "weightInput", 3, "ngModel", "ngModelChange"], ["type", "text", "placeholder", "Location", "name", "loc", 1, "locInput", 3, "ngModel", "ngModelChange"], [1, "mini", "ui", "primary", "button"], ["cdkDrag", "", 1, "ui", "grid", "gridRow", "example-box"], ["cdkDragHandle", "", 1, "example-handle", "one", "wide", "column", 2, "font-weight", "normal"], ["alt", "Reorder", 1, "bars", "icon"], [1, "stat", "six", "wide", "column", 2, "font-weight", "normal"], [1, "stat", "three", "wide", "column", 2, "font-weight", "normal"], [1, "stat", "five", "wide", "column", 2, "font-weight", "normal"], [1, "column", "one", "wide", "ui"], ["title", "Edit", 1, "trash", "alternate", "outline", "icon", "pointer", 3, "click"]],
       template: function CharEquipComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h1");
@@ -47776,6 +47779,24 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](16, CharEquipComponent_div_16_Template, 11, 3, "div", 10);
 
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "div", 11);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "div", 12);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](19, "Total Weight");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "div", 7);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](21);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](22, "div", 6);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
 
@@ -47795,6 +47816,10 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](10);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.allEquip.results);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.totalWeight);
         }
       },
       directives: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["NgIf"], _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_1__["CdkDropList"], _angular_common__WEBPACK_IMPORTED_MODULE_5__["NgForOf"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NgForm"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NgModel"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NumberValueAccessor"], _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_1__["CdkDrag"], _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_1__["CdkDragHandle"]],
@@ -47950,8 +47975,6 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
               _this59.allFeats = results.results;
 
               _this59.charDataSvc.setAllFeats(results);
-
-              console.log(_this59.allFeats);
             });
           } else {
             this.charDataSvc.getAllFeats.subscribe(function (val) {
@@ -48409,11 +48432,9 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
               var statChanged = a.score.toString() !== score[0]['value'];
               var baseChecked = document.getElementsByName('stat' + a.id);
               var descChnaged = a.modDesc === undefined && desc.length === 0 || a.modDesc !== null && a.modDesc !== desc[0]['value'].trim() || a.modDesc === null && desc[0]['value'].trim() !== '';
-              console.log('score', score);
 
               if (statChanged || descChnaged) {
                 _this60.numChanged++;
-                console.log('item ' + a.id + ' has changed', a, score[0]['value'], desc.length > 0 ? desc[0]['value'] : '');
                 var attrObj = {
                   id: a.id,
                   score: parseInt(score[0]['value'], 10),
@@ -48452,7 +48473,6 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
                 } else {
                   _this60.charDataSvc.updateAttribute(_this60.modType, attrObj).subscribe(function (val) {
                     var list = '';
-                    console.log('val', val);
 
                     switch (_this60.modType) {
                       case 'skill':
@@ -48526,12 +48546,10 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
                           break;
                       }
                     } catch (err) {
-                      console.log(err);
                       throw new Error("did not save");
                     } finally {
                       if (_this60.numChanged === _this60.numFinished) {
                         var retRoute = _this60.modType.trim() === 'ac' ? '' : _this60.modType + 's';
-                        console.log("retRoute", retRoute);
 
                         _this60.router.navigate(['/charGen/' + retRoute]);
                       }
@@ -48730,7 +48748,6 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
                 _this61.attribute = _this61.theACs.results.filter(function (arg) {
                   return arg.charID === _this61.charID;
                 });
-                console.log(val);
               });
               break;
 
@@ -48738,7 +48755,6 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
               this.charDataSvc.getCharBasics.subscribe(function (val) {
                 return _this61.theCharBasics = val;
               });
-              console.log(this.theCharBasics);
               this.attribute = [{
                 id: this.theCharBasics.charID,
                 score: this.theCharBasics.results.charHP
@@ -48749,7 +48765,6 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
               this.charDataSvc.getCharBasics.subscribe(function (val) {
                 return _this61.theCharBasics = val;
               });
-              console.log(this.theCharBasics);
               this.attribute = [{
                 id: this.theCharBasics.charID,
                 score: this.theCharBasics.results.init
@@ -49260,8 +49275,6 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
               _this63.allNotes = val.results;
 
               _this63.charDataSvc.setAllNotes(val);
-
-              console.log(_this63.charID, _this63.curChar, _this63.allNotes);
             });
           }
         }
@@ -49269,18 +49282,14 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         key: "drop",
         value: function drop(event) {
           var anArray = [event.previousIndex, event.currentIndex].sort();
-          console.log(anArray);
           Object(_angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_1__["moveItemInArray"])(this.allNotes, event.previousIndex, event.currentIndex);
           this.allNotes.map(function (c, i) {
             return c.noteOrder = i + 1;
           });
           var passVal = lodash__WEBPACK_IMPORTED_MODULE_2___default.a.slice(this.allNotes, anArray[0], anArray[1] + 1);
-          console.log(this.allNotes, passVal);
           this.charDataSvc.reorderNoteHeader({
             updates: passVal
-          }).subscribe(function (arg) {
-            console.log(arg);
-          });
+          }).subscribe(function (arg) {});
         }
       }]);
 
@@ -49647,8 +49656,6 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
           } else {
             this.grpSaves = this.createSaveGrps(this.allSaves);
           }
-
-          console.log("this.allSaves", this.allSaves);
         }
       }, {
         key: "showBreakDown",
@@ -50094,7 +50101,6 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
               var temp = ar.filter(function (i) {
                 return i.skillID === sid;
               });
-              console.log(temp);
               var score = temp.reduce(function (a, b) {
                 return a + b.score;
               }, 0);
@@ -50239,7 +50245,6 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
             return element.contains(evt.target);
           });
           var myRow = filtered[0].children;
-          console.log(myRow);
           myRow[4].classList.toggle('expanded');
         }
       }]);
@@ -50682,7 +50687,6 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
           };
 
           _this68.charDataSvc.insertSpell(body).subscribe(function (val) {
-            console.log(val);
             _this68.allSpells = [].concat(_toConsumableArray2(_this68.allSpells), [val]);
 
             var nameSorter = function nameSorter(spell) {
@@ -50690,7 +50694,6 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
             };
 
             _this68.allSpells = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.orderBy(_this68.allSpells, ['spellLevel', nameSorter], ['asc', 'asc']);
-            console.log(_this68.allSpells);
             _this68.levelBreakDown = Array.from(Array(_this68.allSpells.slice(-1).pop().spellLevel), function (_, i) {
               return i + 1;
             });
@@ -50701,8 +50704,6 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         };
 
         this.editNote = function (id) {
-          console.log(id, _this68.spellLevel, _this68.spellName);
-
           var chosenSpell = _this68.allSpells.find(function (s) {
             return s.id.toString() === id;
           });
@@ -50718,7 +50719,6 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         };
 
         this.filteredSpells = function (l) {
-          console.log("l", l);
           return _this68.allSpells.filter(function (a) {
             return a.spellLevel === l;
           });
@@ -51229,17 +51229,12 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
               if (_this71.allHits.length > 0) {
                 _this71.grpHits = _this71.createToHitGrps(_this71.allHits);
               }
-
-              console.log('this.allHits1', _this71.allHits);
             });
           }
 
           if (this.allHits.length > 0) {
             this.grpHits = this.createToHitGrps(this.allHits);
-            console.log('this.allHits2', this.allHits);
           }
-
-          console.log('this.allHits3', this.allHits);
         }
       }, {
         key: "showBreakDown",
@@ -52028,7 +52023,6 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
               });
 
               _this72.notesSet['results'] = filteredArr;
-              console.log(_this72.notesSet);
 
               _this72.charDataSvc.setAllNotes(_this72.notesSet);
             });
@@ -52063,7 +52057,6 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
                 return a.noteID !== retItem.noteID;
               });
 
-              console.log(filteredArr, retItem);
               _this72.notesSet['results'] = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.orderBy([].concat(_toConsumableArray2(filteredArr), [retItem]), ['noteOrder']);
 
               _this72.charDataSvc.setAllNotes(_this72.notesSet);
@@ -52082,7 +52075,6 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         key: "ngOnInit",
         value: function ngOnInit() {
           this.theType = history.state.data.type;
-          console.log(history.state.data);
           this.theNote = history.state.data.theNote;
         }
       }]);
@@ -52784,8 +52776,6 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
           _this74.getStat(4, 'wis');
 
           _this74.getStat(4, 'chr');
-
-          console.log(_this74.stats);
         };
 
         this.getStat = function (arg, stat) {
@@ -52827,17 +52817,12 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
             this.stats = [];
             this.charDataSvc.loadStats(this.charID).subscribe(function (sts) {
               _this75.stats = sts.results;
-              console.log(sts);
 
               _this75.charDataSvc.setStats(sts);
 
               _this75.charDataSvc.setCurCharID(_this75.charID);
-
-              console.log('loaded stats from db');
             });
-          } else {
-            console.log(this.stats);
-          }
+          } else {}
         }
       }, {
         key: "processStats",
@@ -53791,7 +53776,6 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
             _this78.categories = _toConsumableArray2(new Set(arg.results.map(function (i) {
               return i['type'];
             })));
-            console.log(_this78.categories);
             _this78.allFeats = arg.results;
           });
         }
@@ -53804,7 +53788,6 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
           var aFeat = this.allFeats.find(function (arg) {
             return arg.id.toString() === selected;
           });
-          console.log(aFeat);
           var newFeat = {
             Feat: Object.assign({}, aFeat),
             featID: aFeat.featID,
@@ -53812,11 +53795,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
             id: 0
           };
           this.charDataSvc.saveNewFeat(this.charID, aFeat).subscribe(function (val) {
-            console.log("val", val, _this79.curFeats);
-
             _this79.curFeats.results.push(val);
-
-            console.log(_this79.curFeats);
 
             _this79.charDataSvc.setAllFeats(_this79.curFeats);
 
@@ -54047,7 +54026,6 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
           var _this82 = this;
 
           this.charDataSvc.loadOtherSkills(arr).subscribe(function (arg) {
-            console.log(arg);
             _this82.allSkills = arg.results;
           });
         }
@@ -54230,7 +54208,6 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
           var obj = Object.assign(Object.assign({}, _this84.attribute['ToHit']), {
             toHitID: parseInt(_this84.partID, 10)
           });
-          console.log(obj);
 
           _this84.charDataSvc.newToHit(_this84.charID, obj).subscribe(function (val) {
             if (val.results) {
@@ -54315,8 +54292,6 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
               return arg.toHitID.toString() === _this85.partID;
             });
           }
-
-          console.log(this.attribute);
         }
       }, {
         key: "setInputName",
@@ -54758,14 +54733,10 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         };
 
         this.deleteFeat = function (arg) {
-          console.log(_this86.charFeats);
-
           _this86.charDataSvc.deleteFeat(arg).subscribe(function (val) {
             var newArray = _this86.charFeats.filter(function (ft) {
               return ft['id'] !== arg;
             });
-
-            console.log("newArray", newArray, _this86.charFeats);
 
             _this86.charDataSvc.setAllFeats({
               charID: _this86.charID,
@@ -55104,9 +55075,6 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         };
 
         this.editNote = function (id) {
-          console.log("ind", id);
-          console.log(_this88.allNotes);
-
           var oneNote = _this88.allNotes.find(function (a) {
             return a.id.toString() === id;
           });
@@ -55140,18 +55108,14 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         key: "drop",
         value: function drop(event) {
           var anArray = [event.previousIndex, event.currentIndex].sort();
-          console.log(anArray);
           Object(_angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_1__["moveItemInArray"])(this.allNotes, event.previousIndex, event.currentIndex);
           this.allNotes.map(function (c, i) {
             return c.itemOrder = i + 1;
           });
           var passVal = lodash__WEBPACK_IMPORTED_MODULE_2___default.a.slice(this.allNotes, anArray[0], anArray[1] + 1);
-          console.log(this.allNotes, passVal);
           this.charDataSvc.reorderNoteItems({
             updates: passVal
-          }).subscribe(function (arg) {
-            console.log(arg);
-          });
+          }).subscribe(function (arg) {});
         }
       }]);
 
@@ -55313,9 +55277,6 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
           arr.push(aNum);
         }
 
-        console.log(arr.sort(function (a, b) {
-          return a - b;
-        }).reverse());
         return arr.sort(function (a, b) {
           return a - b;
         }).reverse().reduce(function (a, b, i) {
@@ -55346,9 +55307,6 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
           arr.push(aNum);
         }
 
-        console.log(arr.sort(function (a, b) {
-          return a - b;
-        }));
         return arr.sort(function (a, b) {
           return a - b;
         }).slice(0, numRet);

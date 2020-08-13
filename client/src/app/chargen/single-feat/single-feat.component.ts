@@ -28,10 +28,8 @@ export class SingleFeatComponent implements OnInit {
   }
 
   deleteFeat = (arg: number) => {
-    console.log(this.charFeats);
     this.charDataSvc.deleteFeat(arg).subscribe( val => {
       const newArray = this.charFeats.filter(ft => ft['id'] !== arg);
-      console.log("newArray", newArray, this.charFeats);
       this.charDataSvc.setAllFeats({charID: this.charID, results: newArray});
       this.router.navigate(['/charGen/feats']);
     });

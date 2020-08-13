@@ -38,7 +38,6 @@ export class CharFeatsComponent implements OnInit {
       this.charDataSvc.loadFeats(this.charID.toString()).subscribe( results => {
         this.allFeats = results.results;
         this.charDataSvc.setAllFeats(results);
-        console.log(this.allFeats)
       });
     } else {
       this.charDataSvc.getAllFeats.subscribe( (val) => this.allFeats = val.results);

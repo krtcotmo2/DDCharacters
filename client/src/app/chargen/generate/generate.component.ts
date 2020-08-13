@@ -37,13 +37,10 @@ export class GenerateComponent implements OnInit {
       this.stats = [];
       this.charDataSvc.loadStats(this.charID).subscribe( sts => {
         this.stats = sts.results;
-        console.log(sts)
         this.charDataSvc.setStats(sts);
         this.charDataSvc.setCurCharID(this.charID);
-        console.log('loaded stats from db')
       });
      } else {
-      console.log(this.stats)
     }
   }
 
@@ -85,7 +82,6 @@ export class GenerateComponent implements OnInit {
     this.getStat(4, 'int');
     this.getStat(4, 'wis');
     this.getStat(4, 'chr');
-    console.log(this.stats);
   }
 
   getStat = (arg, stat) => {

@@ -1083,7 +1083,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var body = {
             id: attId
           };
-          console.log(body);
           var val;
 
           switch (attType) {
@@ -1198,8 +1197,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.reorderEqiup = function (body) {
-          console.log("body", body);
-
           var val = _this3.http.put('/api/characters/equip/reorderEquip', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
@@ -1211,8 +1208,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
         this.loadAC = function (id) {
-          console.log("id", id); //const val =  this.http.get<Equipment>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/ac/' + id, {
-
+          //const val =  this.http.get<Equipment>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/ac/' + id, {
           var val = _this3.http.get('/api/characters/ac/' + id, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
@@ -1262,7 +1258,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             })
           });
 
-          console.log('val', val);
           return val;
         };
 
@@ -1369,7 +1364,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             })
           });
 
-          console.log('val', val);
           return val;
         };
 
@@ -1380,7 +1374,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             })
           });
 
-          console.log(val);
           return val;
         };
 
@@ -1391,7 +1384,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             })
           });
 
-          console.log(val);
           return val;
         };
 
@@ -1402,7 +1394,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             })
           });
 
-          console.log(val);
           return val;
         };
 
@@ -1413,7 +1404,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             })
           });
 
-          console.log(val);
           return val;
         };
       } // SETTERS

@@ -62,17 +62,14 @@ export class CharModComponent implements OnInit {
         this.charDataSvc.getAllACs.subscribe( (val) => {
           this.theACs = val;
           this.attribute = this.theACs.results.filter(arg => arg.charID === this.charID);
-          console.log(val)
         });
         break;
       case 'hp':
           this.charDataSvc.getCharBasics.subscribe( (val) => this.theCharBasics = val);
-          console.log(this.theCharBasics)
           this.attribute = [{id:this.theCharBasics.charID ,score:this.theCharBasics.results.charHP}]
           break;
       case 'init':
         this.charDataSvc.getCharBasics.subscribe( (val) => this.theCharBasics = val);
-        console.log(this.theCharBasics)
         this.attribute = [{id:this.theCharBasics.charID ,score:this.theCharBasics.results.init}]
         break;
       default:
@@ -112,10 +109,9 @@ export class CharModComponent implements OnInit {
       const statChanged = a.score.toString() !== score[0]['value'];
       const baseChecked = document.getElementsByName('stat' + a.id);
       const descChnaged = (a.modDesc === undefined && desc.length === 0) || (a.modDesc !== null && a.modDesc !== desc[0]['value'].trim()) || (a.modDesc === null && desc[0]['value'].trim() !== '')  ;
-      console.log('score', score);
+
       if (statChanged || descChnaged){
         this.numChanged++;
-        console.log('item ' + a.id + ' has changed', a, score[0]['value'], desc.length > 0 ? desc[0]['value'] : '');
         let attrObj = {
           id: a.id,
           score: parseInt(score[0]['value'], 10),
@@ -146,7 +142,6 @@ export class CharModComponent implements OnInit {
         } else {
           this.charDataSvc.updateAttribute(this.modType, attrObj).subscribe( val => {
             let list = '';
-            console.log('val', val);
             switch(this.modType){
               case 'skill':
                 list = 'theSkills';
@@ -200,12 +195,10 @@ export class CharModComponent implements OnInit {
                   break;
               }
             } catch (err){
-              console.log(err);
               throw new Error("did not save")
             } finally {
               if (this.numChanged === this.numFinished){
                 let retRoute =  this.modType.trim() === 'ac' ? '' : this.modType + 's';
-                console.log("retRoute",retRoute)
                 this.router.navigate(['/charGen/' + retRoute]);
               }
             }

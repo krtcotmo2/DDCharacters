@@ -32,14 +32,11 @@ export class CharTohitComponent implements OnInit {
         if (this.allHits.length > 0){
           this.grpHits = this.createToHitGrps(this.allHits);
         }
-        console.log('this.allHits1',this.allHits)
       });
     }
     if(this.allHits.length > 0){
       this.grpHits = this.createToHitGrps(this.allHits);
-      console.log('this.allHits2',this.allHits)
     }
-    console.log('this.allHits3',this.allHits)
   }
 
   createToHitGrps = ar => {

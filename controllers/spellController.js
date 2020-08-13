@@ -4,7 +4,6 @@ const { Op } = require("sequelize");
 module.exports = {
   getAllSpells: function(req, res){
     const selChar = parseInt(req.params.id);
-    console.log("selChar", selChar)
     db.CharSpells.findAll({
       where: {charID: selChar},
       order:['spellLevel', 'spellName']
@@ -53,11 +52,9 @@ module.exports = {
 
   deleteASpell: async function(req, res){
     const {id} = req.params.id;
-    console.log("id", id)
     const deletedSpell = await db.CharSpells.destroy({
       where:{id: req.params.id}
     }).then(arg => {
-      console.log('the retval', arg)
       return arg
     }).catch(err => {      
       console.log("err", err)
@@ -70,7 +67,6 @@ module.exports = {
     const updatedSpell = await db.CharSpells.update({spellLevel:spellLevel, spellName: spellName},{
       where:{id:id}
     }).then(arg => {
-      console.log("arg", arg)
       return arg
     }).catch(err => console.log(err));
     res.json({'results': updatedSpell});

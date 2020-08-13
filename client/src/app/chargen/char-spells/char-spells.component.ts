@@ -60,11 +60,9 @@ export class CharSpellsComponent implements OnInit {
       level: this.spellLevel
     }
     this.charDataSvc.insertSpell(body).subscribe(val => {
-      console.log(val)
       this.allSpells = [...this.allSpells, val];
       let nameSorter = spell => spell.spellName.toLowerCase();
       this.allSpells = _.orderBy(this.allSpells, ['spellLevel', nameSorter], ['asc','asc']);
-      console.log(this.allSpells)
       this.levelBreakDown = Array.from(Array(this.allSpells.slice(-1).pop().spellLevel), (_, i) => i + 1);
       this.spellLevel= null;
       this.spellName='';
@@ -73,14 +71,12 @@ export class CharSpellsComponent implements OnInit {
   }
 
   editNote = (id: string) => {
-    console.log(id,this.spellLevel, this.spellName)
     let chosenSpell = this.allSpells.find(s => s.id.toString() === id);
     this.router.navigate(['/charGen/spells/' + id], {state: {data: {spellLevel: chosenSpell.spellLevel, spellName: chosenSpell.spellName}}});
 
   }
 
   filteredSpells = (l: number) => {
-    console.log("l",l)
     return this.allSpells.filter( a => a.spellLevel === l);
   }
   toggelDisplay = (evt:Event, arg:number) => {

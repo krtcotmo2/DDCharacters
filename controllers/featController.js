@@ -24,7 +24,6 @@ module.exports = {
       .then(arg => {
         let newCharFeat = arg.dataValues;
         newCharFeat.Feat = feat;
-        console.log("newCharFeat", newCharFeat);
         return newCharFeat
       })
       .catch(err => {
@@ -34,11 +33,9 @@ module.exports = {
     },
 
   deleteFeat: async function(req, res){
-    console.log(req);
     const retVal =  await db.CharFeat.destroy({
       where:{id:req.params.id}
     }).then(arg => {
-      console.log("arg", arg)
     return arg
     });
     res.json({'results': retVal});

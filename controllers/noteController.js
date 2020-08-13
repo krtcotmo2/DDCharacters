@@ -9,7 +9,6 @@ module.exports = {
       order:['noteOrder']
     })
       .then(results => {
-        //console.log(results)
         res.status(200).json({ charID: req.params.id.trim(), results:results });
       })
       .catch(err => {
@@ -81,24 +80,19 @@ module.exports = {
         let newVal =  db.CharNotes.findOne({
           where:{'noteID':noteID}
         }).then(charNote => {
-          console.log("charNote", charNote);
           return charNote;
         })
         return newVal;
       }).catch(err => {
         console.log("err",err)
-      });    
-      console.log(theNote)
-        
+      });            
       res.json(theNote);
   },
 
   deleteNote: async function(req, res){
-    console.log(req);
     const retVal =  await db.CharNotes.destroy({
       where:{noteID:req.params.id}
     }).then(arg => {
-      console.log("arg", arg)
     return arg
     });
     res.json({'results': retVal});
@@ -107,15 +101,13 @@ module.exports = {
   insertNoteItem: async function (req, res){
     const itemDetails = req.body.itemDetails;
     const noteID = req.body.noteID;
-    console.log("req.body",req.body)
     const lastOrder = await db.NoteItems.findOne({
       where:{noteID: noteID},
       order:[
         ['itemOrder', 'DESC']
       ]
     }).then(nextNum => {
-      let nexNumVal = !nextNum ? null : nextNum.dataValues 
-      console.log("nexNumVal",nexNumVal)
+      let nexNumVal = !nextNum ? null : nextNum.dataValues
       return nexNumVal;
     }).catch(err => {
       console.log("err",err)
@@ -138,7 +130,6 @@ module.exports = {
   updateNoteItem: async function (req, res){
     const note = req.body.note;
     const id = req.body.id;
-    console.log(id, note)
     const theNote = await db.NoteItems.update({itemDetails:note},{
         where:{id:id}
       }).then(nextNum => {
@@ -151,17 +142,13 @@ module.exports = {
       }).catch(err => {
         console.log("err",err)
       });    
-      console.log(theNote)
-        
       res.json(theNote);
   },
   
   deleteNoteItem: async function(req, res){
-    console.log(req);
     const retVal =  await db.NoteItems.destroy({
       where:{id:req.params.id}
     }).then(arg => {
-      console.log("arg", arg)
     return arg
     });
     res.json({'results': retVal});
@@ -169,7 +156,6 @@ module.exports = {
 
   reorderNoteHeader: async function(req, res){
     let allUpdates = req.body.updates;
-    console.log(allUpdates)
     let numUpdated = 0;
     allUpdates.forEach(async function(item){
       const theNote = await db.CharNotes.update({noteOrder:item.noteOrder},{
@@ -189,7 +175,6 @@ module.exports = {
 
   reorderNoteItem: async function(req, res){
     let allUpdates = req.body.updates;
-    console.log(allUpdates)
     let numUpdated = 0;
     allUpdates.forEach(async function(item){
       const theNote = await db.NoteItems.update({itemOrder:item.itemOrder},{
