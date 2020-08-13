@@ -47596,6 +47596,8 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
             });
 
             _this56.charDataSvc.setAllEquipment(_this56.allEquip);
+
+            _this56.calcWeight();
           });
         };
 

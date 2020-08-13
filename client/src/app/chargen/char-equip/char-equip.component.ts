@@ -43,6 +43,7 @@ export class CharEquipComponent implements OnInit {
     this.charDataSvc.deleteEquipment(id).subscribe( val => {
       this.allEquip.results = this.allEquip.results.filter(arg => arg.id !== id);
       this.charDataSvc.setAllEquipment(this.allEquip);
+      this.calcWeight();
     });
   }
   toggleForm =() => {
@@ -91,8 +92,8 @@ export class CharEquipComponent implements OnInit {
     const passVal = _.slice(this.allEquip.results, anArray[0],  anArray[1] + 1);
     this.charDataSvc.reorderEqiup({ updates: passVal}).subscribe( (arg) => {
     });
-
   }
+
   calcWeight = () => {
     this.totalWeight = this.allEquip['results'].reduce( (a, b) => {
      return a + b.weight;

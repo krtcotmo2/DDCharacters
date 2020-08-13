@@ -36228,6 +36228,7 @@ class CharEquipComponent {
             this.charDataSvc.deleteEquipment(id).subscribe(val => {
                 this.allEquip.results = this.allEquip.results.filter(arg => arg.id !== id);
                 this.charDataSvc.setAllEquipment(this.allEquip);
+                this.calcWeight();
             });
         };
         this.toggleForm = () => {
