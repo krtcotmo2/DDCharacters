@@ -11,10 +11,10 @@
 </div>
 <div *ngFor='let th of grpHits' class="ui grid gridRow" >
   <span class='stat six wide column'>{{th.toHitDesc}}<i class="info circle icon pointer" (click)='showBreakDown($event)' title='Breakdown'></i><i class="edit icon pointer" title="Edit Weapon Data" (click)='editToHit(th.id)'></i></span>
-  <span class='statVal column one wide'>{{th.score}}</span>
-  <span class='statVal column three wide'>{{th.damage}}</span>
-  <span class='statMod column two wide'>{{th.critRange}}</span>
-  <span class='statVal column three wide'>{{th.critDamage}}</span>
+  <span class='statVal column one wide' style='font-weight: normal'>{{th.score}}</span>
+  <span class='statVal column three wide' style='font-weight: normal'>{{th.damage}}</span>
+  <span class='statMod column two wide' style='font-weight: normal'>{{th.critRange}}</span>
+  <span class='statVal column three wide' style='font-weight: normal'>{{th.critDamage}}</span>
   <span class='statMod column one wide'><i class="edit icon pointer" title="Edit to Hit Modifiers" (click)='editToHitMod(th.id)'></i></span>
   <div class="sixteen wide column breakdown ui grid" style="margin-left: 0px;">
     <div *ngFor='let th of th.breakdown'>
