@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import { CharDataService } from '../../services/char-data.service';
 import _ from 'lodash';
 
@@ -41,13 +42,16 @@ export class CharTohitComponent implements OnInit {
 
   createToHitGrps = ar => {
      // tslint:disable:max-line-length
-    const retVal = [];
+    let retVal = [];
     const ids = [...new Set(ar.map(i => i.toHitID))];
+
     for( const sid of ids){
       const temp = ar.filter( i => i.toHitID === sid);
       const score = temp.reduce( (a, b) => a + b.score, 0);
       const breakdown = [];
       const tempSk = temp.find(d => d.isBase);
+      console.log(temp[0], temp[0].ToHit.toHitOrder)
+      const toHitOrder = temp[0].ToHit.toHitOrder;
       if(tempSk){
         breakdown.push({score: tempSk.score, desc: 'Base'})
       }
@@ -55,10 +59,10 @@ export class CharTohitComponent implements OnInit {
         const reason = aSk.modDesc;
         breakdown.push({score: aSk.score, desc: reason})
       }
-      const obj = {id: sid, score: score, toHitDesc: temp[0].ToHit.toHitDesc, damage: temp[0].ToHit.damage, critRange: temp[0].ToHit.critRange, critDamage: temp[0].ToHit.critDamage, breakdown: breakdown};
+      const obj = {id: sid, score: score, toHitOrder: toHitOrder, toHitDesc: temp[0].ToHit.toHitDesc, damage: temp[0].ToHit.damage, critRange: temp[0].ToHit.critRange, critDamage: temp[0].ToHit.critDamage, breakdown: breakdown};
       retVal.push(obj);
     }
-    return retVal;
+    return _.orderBy(retVal, 'toHitOrder', 'asc');
   }
 
   showBreakDown(evt){
@@ -88,5 +92,14 @@ export class CharTohitComponent implements OnInit {
       }
     }
 
+  }
+  drop(event: CdkDragDrop<string[]>) {
+    const anArray = [event.previousIndex, event.currentIndex].sort();
+    moveItemInArray(this.grpHits, event.previousIndex, event.currentIndex);
+    this.grpHits.map( (c, i) => c.toHitOrder = i + 1);
+    console.log(this.grpHits)
+    const passVal = _.slice(this.grpHits, anArray[0],  anArray[1] + 1);
+    this.charDataSvc.reorderToHits({ updates: passVal}).subscribe( (arg) => {
+    });
   }
 }

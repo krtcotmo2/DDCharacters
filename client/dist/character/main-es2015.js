@@ -647,6 +647,14 @@ class CharDataService {
             });
             return val;
         };
+        this.reorderToHits = (body) => {
+            const val = this.http.put('/api/newToHit/reorderToHits', body, {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                    'Access-Control-Allow-Origin': '*'
+                }),
+            });
+            return val;
+        };
         // EQUIPMENT
         this.loadEquipment = (id) => {
             //const val =  this.http.get<Equipment>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/equip/' + id, {

@@ -9,16 +9,19 @@
   <div class="two wide column">Crit Range</div>
   <div class="three wide column">Crit Damage</div>
 </div>
-<div *ngFor='let th of grpHits' class="ui grid gridRow" >
-  <span class='stat six wide column'>{{th.toHitDesc}}<i class="info circle icon pointer" (click)='showBreakDown($event)' title='Breakdown'></i><i class="edit icon pointer" title="Edit Weapon Data" (click)='editToHit(th.id)'></i></span>
-  <span class='statVal column one wide' style='font-weight: normal'>{{th.score}}</span>
-  <span class='statVal column three wide' style='font-weight: normal'>{{th.damage}}</span>
-  <span class='statMod column two wide' style='font-weight: normal'>{{th.critRange}}</span>
-  <span class='statVal column three wide' style='font-weight: normal'>{{th.critDamage}}</span>
-  <span class='statMod column one wide'><i class="edit icon pointer" title="Edit to Hit Modifiers" (click)='editToHitMod(th.id)'></i></span>
-  <div class="sixteen wide column breakdown ui grid" style="margin-left: 0px;">
-    <div *ngFor='let th of th.breakdown'>
-      <div  style='margin:12px 6px;' >{{th.score}} - {{th.desc}}</div>
+<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+  <div *ngFor='let th of grpHits' class="ui grid gridRow" cdkDrag>
+    <span class='statVal one wide column'><i class="bars icon" title='Reorder'></i></span>
+    <span class='stat five wide column'>{{th.toHitDesc}}<i class="info circle icon pointer" (click)='showBreakDown($event)' title='Breakdown'></i><i class="edit icon pointer" title="Edit Weapon Data" (click)='editToHit(th.id)'></i></span>
+    <span class='statVal column one wide' style='font-weight: normal'>{{th.score}}</span>
+    <span class='statVal column three wide' style='font-weight: normal'>{{th.damage}}</span>
+    <span class='statMod column two wide' style='font-weight: normal'>{{th.critRange}}</span>
+    <span class='statVal column three wide' style='font-weight: normal'>{{th.critDamage}}</span>
+    <span class='statMod column one wide'><i class="edit icon pointer" title="Edit to Hit Modifiers" (click)='editToHitMod(th.id)'></i></span>
+    <div class="sixteen wide column breakdown ui grid" style="margin-left: 0px;">
+      <div *ngFor='let th of th.breakdown'>
+        <div  style='margin:12px 6px;' >{{th.score}} - {{th.desc}}</div>
+      </div>
     </div>
   </div>
 </div>

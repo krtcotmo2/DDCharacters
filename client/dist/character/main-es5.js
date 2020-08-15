@@ -1160,6 +1160,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
 
           return val;
+        };
+
+        this.reorderToHits = function (body) {
+          var val = _this3.http.put('/api/newToHit/reorderToHits', body, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+              'Access-Control-Allow-Origin': '*'
+            })
+          });
+
+          return val;
         }; // EQUIPMENT
 
 

@@ -61,4 +61,22 @@ module.exports = {
     res.json({'results': retVal});
   },
 
+  reorderToHits: async function(req, res){
+    let allUpdates = req.body.updates;
+    let numUpdated = 0;
+    allUpdates.forEach(async function(item){
+      const theToHit = await db.ToHits.update({toHitOrder:item.toHitOrder},{
+        where:{toHitID:item.id}
+      }).then(nextNum => { 
+        numUpdated++;       
+        return true;
+      }).catch(err => {
+        console.log("err",err)
+      }); 
+      if(numUpdated === allUpdates.length){
+        res.status(200).json({done:true}) ;
+        return;
+      }
+    });
+  }
 };

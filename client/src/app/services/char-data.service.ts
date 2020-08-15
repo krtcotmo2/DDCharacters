@@ -451,6 +451,15 @@ export class CharDataService {
         });
         return val;
       }
+
+      reorderToHits = (body: {}) => {
+        const val =  this.http.put<any>('/api/newToHit/reorderToHits', body, {
+          headers: new HttpHeaders({
+            'Access-Control-Allow-Origin': '*'
+          }),
+        });
+        return val;
+      }
     // EQUIPMENT
       loadEquipment = (id: number) => {
         //const val =  this.http.get<Equipment>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/equip/' + id, {

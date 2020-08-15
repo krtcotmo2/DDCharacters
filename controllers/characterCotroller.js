@@ -343,7 +343,7 @@ module.exports = {
       where:{charID:req.params.id},
       include: [{
         model: ToHits,
-        attributes: ["toHitDesc", "damage", "critRange", "critDamage"],
+        attributes: ["toHitDesc", "damage", "critRange", "critDamage", "toHitOrder"],
         order: [
           [db.ToHits, 'toHitID', 'ASC'],
           [db.toHitID, 'isBase', 'DESC'],

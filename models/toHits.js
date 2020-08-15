@@ -9,6 +9,7 @@ class ToHits extends Model {
           autoIncrement: true,
           primaryKey: true
         },
+        toHitOrder: {type:DataTypes.INTEGER},
         toHitDesc:{type: DataTypes.STRING},
         damage:{type: DataTypes.STRING},
         critRange:{type: DataTypes.STRING},
