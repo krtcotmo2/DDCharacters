@@ -21,7 +21,6 @@ router.delete('/deleteSkill/:id', bodyParser, characterController.deleteSkill);
 router.route('/saves/:id').get(characterController.getAllSavesForChar);
 
 //updateSave
-//router.route('/updateSave').post(characterController.updateSkill);
 router.post('/updateSave', bodyParser, characterController.createUpdateSave);
 
 //deleteSave
