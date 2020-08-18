@@ -170,9 +170,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var _services_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ./services/user.service */
+    "./src/app/services/user.service.ts");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/router */
     "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @angular/common */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 
     var _c0 = function _c0() {
       return {
@@ -180,26 +192,70 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       };
     };
 
-    var AppComponent = function AppComponent(charDataSvc) {
-      _classCallCheck(this, AppComponent);
+    function AppComponent_a_4_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 7);
 
-      this.charDataSvc = charDataSvc;
-      this.title = 'character';
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Load Character");
 
-      this.setNew = function () {//this.charDataSvc.reset();
-      };
-    };
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLinkActiveOptions", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](1, _c0));
+      }
+    }
+
+    function AppComponent_a_5_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 8);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Character");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+    }
+
+    var AppComponent =
+    /*#__PURE__*/
+    function () {
+      function AppComponent(charDataSvc, userService) {
+        _classCallCheck(this, AppComponent);
+
+        this.charDataSvc = charDataSvc;
+        this.userService = userService;
+        this.title = 'character';
+        this.theUser = {};
+        this.isLoggedIn = false;
+      }
+
+      _createClass(AppComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          var _this = this;
+
+          this.userService.getUser.subscribe(function (val) {
+            _this.theUser = val;
+            console.log(_this.theUser);
+            _this.isLoggedIn = _this.theUser['isLoggedIn'];
+            _this.userName = _this.theUser['userName'];
+          });
+        }
+      }]);
+
+      return AppComponent;
+    }();
 
     AppComponent.ɵfac = function AppComponent_Factory(t) {
-      return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_char_data_service__WEBPACK_IMPORTED_MODULE_1__["CharDataService"]));
+      return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_char_data_service__WEBPACK_IMPORTED_MODULE_1__["CharDataService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"]));
     };
 
     AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: AppComponent,
       selectors: [["app-root"]],
       decls: 10,
-      vars: 4,
-      consts: [["role", "main", 1, "content"], [1, "ui", "secondary", "pointing", "menu"], ["routerLink", "", "routerLinkActive", "active", 1, "item", 3, "routerLinkActiveOptions"], ["routerLink", "charLoad", "routerLinkActive", "active", 1, "item", 3, "routerLinkActiveOptions"], ["routerLink", "charGen", "routerLinkActive", "active", 1, "item", 3, "click"], [1, "ui", "segment", "container"]],
+      vars: 5,
+      consts: [["role", "main", 1, "content"], [1, "ui", "secondary", "pointing", "menu"], ["routerLink", "", "routerLinkActive", "active", 1, "item", 3, "routerLinkActiveOptions"], ["routerLink", "charLoad", "class", "item", "routerLinkActive", "active", 3, "routerLinkActiveOptions", 4, "ngIf"], ["routerLink", "charGen", "routerLinkActive", "active", "class", "item", 4, "ngIf"], [1, "item", 2, "position", "absolute", "right", "0px"], [1, "ui", "segment", "container"], ["routerLink", "charLoad", "routerLinkActive", "active", 1, "item", 3, "routerLinkActiveOptions"], ["routerLink", "charGen", "routerLinkActive", "active", 1, "item"]],
       template: function AppComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
@@ -212,25 +268,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "a", 3);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, AppComponent_a_4_Template, 2, 2, "a", 3);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5, "Load Character");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](5, AppComponent_a_5_Template, 2, 0, "a", 4);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "div", 5);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "a", 4);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AppComponent_Template_a_click_6_listener() {
-            return ctx.setNew();
-          });
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7, "Character");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "div", 5);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "div", 6);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](9, "router-outlet");
 
@@ -242,14 +292,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         if (rf & 2) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLinkActiveOptions", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](2, _c0));
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLinkActiveOptions", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](4, _c0));
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLinkActiveOptions", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](3, _c0));
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.isLoggedIn);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.isLoggedIn);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("Welcome ", ctx.theUser["userName"], "");
         }
       },
-      directives: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterLinkWithHref"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterLinkActive"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterOutlet"]],
+      directives: [_angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterLinkWithHref"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterLinkActive"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterOutlet"]],
       styles: [".ui.secondary.pointing[_ngcontent-%COMP%]   .active.item[_ngcontent-%COMP%]{\r\n  color:#336699;\r\n  border-color:#336699\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxhQUFhO0VBQ2I7QUFDRiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnVpLnNlY29uZGFyeS5wb2ludGluZyAuYWN0aXZlLml0ZW17XHJcbiAgY29sb3I6IzMzNjY5OTtcclxuICBib3JkZXItY29sb3I6IzMzNjY5OVxyXG59XHJcblxyXG4iXX0= */"]
     });
     /*@__PURE__*/
@@ -265,6 +323,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }], function () {
         return [{
           type: _services_char_data_service__WEBPACK_IMPORTED_MODULE_1__["CharDataService"]
+        }, {
+          type: _services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"]
         }];
       }, null);
     })();
@@ -345,6 +405,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! @angular/platform-browser/animations */
     "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/animations.js");
+    /* harmony import */
+
+
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 
     var AppModule = function AppModule() {
       _classCallCheck(this, AppModule);
@@ -359,13 +425,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         return new (t || AppModule)();
       },
       providers: [],
-      imports: [[_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClientModule"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__["NgbModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_8__["BrowserAnimationsModule"]]]
+      imports: [[_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClientModule"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__["NgbModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_8__["BrowserAnimationsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["ReactiveFormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormsModule"]]]
     });
 
     (function () {
       (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppModule, {
         declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _home_home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"], _chargen_chargen_home_chargen_home_component__WEBPACK_IMPORTED_MODULE_6__["ChargenHomeComponent"]],
-        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClientModule"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__["NgbModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_8__["BrowserAnimationsModule"]]
+        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClientModule"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__["NgbModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_8__["BrowserAnimationsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["ReactiveFormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormsModule"]]
       });
     })();
     /*@__PURE__*/
@@ -376,7 +442,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"],
         args: [{
           declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _home_home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"], _chargen_chargen_home_chargen_home_component__WEBPACK_IMPORTED_MODULE_6__["ChargenHomeComponent"]],
-          imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClientModule"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__["NgbModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_8__["BrowserAnimationsModule"]],
+          imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClientModule"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__["NgbModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_8__["BrowserAnimationsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["ReactiveFormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormsModule"]],
           providers: [],
           bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
         }]
@@ -434,33 +500,33 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function ChargenHomeComponent(charDataSvc) {
-        var _this = this;
+        var _this2 = this;
 
         _classCallCheck(this, ChargenHomeComponent);
 
         this.charDataSvc = charDataSvc;
 
         this.titleValue = function () {
-          return _this.isNew ? 'Create Character' : _this.charName;
+          return _this2.isNew ? 'Create Character' : _this2.charName;
         };
       }
 
       _createClass(ChargenHomeComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this2 = this;
+          var _this3 = this;
 
           this.charDataSvc.getIsNew.subscribe(function (val) {
-            return _this2.isNew = val;
+            return _this3.isNew = val;
           });
           this.charDataSvc.getIsReadOnly.subscribe(function (val) {
-            return _this2.isReadOnly = val;
+            return _this3.isReadOnly = val;
           });
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this2.charID = val;
+            return _this3.charID = val;
           });
           this.charDataSvc.getCharName.subscribe(function (val) {
-            return _this2.charName = val;
+            return _this3.charName = val;
           });
         }
       }]);
@@ -613,32 +679,186 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _services_user_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! ../services/user.service */
+    "./src/app/services/user.service.ts");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/common/http */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+    /* harmony import */
+
+
+    var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @ng-bootstrap/ng-bootstrap */
+    "./node_modules/@ng-bootstrap/ng-bootstrap/__ivy_ngcc__/fesm2015/ng-bootstrap.js");
+    /* harmony import */
+
+
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+    /* harmony import */
+
+
+    var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! @angular/common */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+
+    function HomeComponent_div_9_Template(rf, ctx) {
+      if (rf & 1) {
+        var _r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", null, 6);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 7);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 8);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "div", 9);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](5, "i", 10);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "input", 11);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function HomeComponent_div_9_Template_input_ngModelChange_6_listener($event) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r4);
+
+          var ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+          return ctx_r3.userName = $event;
+        });
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "div", 8);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "div", 9);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](9, "i", 12);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "input", 13);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function HomeComponent_div_9_Template_input_ngModelChange_10_listener($event) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r4);
+
+          var ctx_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+          return ctx_r5.password = $event;
+        });
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "button", 14);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, "Login");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](13, "div", 15);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx_r1.userName);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx_r1.password);
+      }
+    }
 
     var HomeComponent =
     /*#__PURE__*/
     function () {
-      function HomeComponent() {
+      function HomeComponent(userService, router, http, modalService) {
+        var _this4 = this;
+
         _classCallCheck(this, HomeComponent);
+
+        this.userService = userService;
+        this.router = router;
+        this.http = http;
+        this.modalService = modalService;
+
+        this.onSubmit = function (evt) {
+          evt.preventDefault();
+          var body = {
+            userEmail: _this4.userName,
+            password: _this4.password
+          };
+
+          _this4.userService.loginUser(body).subscribe(function (val) {
+            _this4.theUser = val;
+            console.log(_this4.theUser);
+
+            if (_this4.theUser.forcedReset) {
+              alert("need to redo password");
+              return;
+            } else {
+              _this4.theUser.isLoggedIn = true;
+
+              _this4.userService.setUser(_this4.theUser);
+
+              _this4.router.navigate(['/charLoad']);
+            }
+          }, function (err) {
+            alert('invalid login');
+          });
+        };
       }
 
       _createClass(HomeComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {}
+        value: function ngOnInit() {
+          var _this5 = this;
+
+          this.userService.getUser.subscribe(function (val) {
+            return _this5.theUser = val;
+          });
+          this.isLoggedIn = this.theUser.userEmail !== undefined;
+        }
       }]);
 
       return HomeComponent;
     }();
 
     HomeComponent.ɵfac = function HomeComponent_Factory(t) {
-      return new (t || HomeComponent)();
+      return new (t || HomeComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_4__["NgbModal"]));
     };
 
     HomeComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: HomeComponent,
       selectors: [["app-home"]],
-      decls: 20,
-      vars: 0,
-      consts: [[1, "ui", "grid"], [1, "ten", "wide", "column"], [1, "six", "wide", "column"], [1, "ui", "large", "form"], [1, "ui", "stacked", "segment"], [1, "field"], [1, "ui", "left", "icon", "input"], [1, "user", "icon"], ["type", "text", "name", "email", "placeholder", "E-mail address"], [1, "lock", "icon"], ["type", "password", "name", "password", "placeholder", "Password"], [1, "ui", "fluid", "large", "primary", "button"], [1, "ui", "error", "message"]],
+      decls: 10,
+      vars: 1,
+      consts: [[1, "ui", "grid"], [1, "ten", "wide", "column"], [1, "six", "wide", "column"], [1, "ui", "large", "form", 3, "ngSubmit"], ["modForm", "ngForm"], [4, "ngIf"], ["formRoot", ""], [1, "ui", "stacked", "segment"], [1, "field"], [1, "ui", "left", "icon", "input"], [1, "user", "icon"], ["type", "text", "name", "email", "placeholder", "E-mail address", 3, "ngModel", "ngModelChange"], [1, "lock", "icon"], ["type", "password", "name", "password", "placeholder", "Password", 3, "ngModel", "ngModelChange"], ["type", "submit", 1, "ui", "fluid", "large", "primary", "button"], [1, "ui", "error", "message"]],
       template: function HomeComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h1");
@@ -661,43 +881,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "div", 2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "form", 3);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "form", 3, 4);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "div", 4);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngSubmit", function HomeComponent_Template_form_ngSubmit_7_listener($event) {
+            return ctx.onSubmit($event);
+          });
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "div", 5);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "div", 6);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](11, "i", 7);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](12, "input", 8);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "div", 5);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "div", 6);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](15, "i", 9);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](16, "input", 10);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "div", 11);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](18, "Login");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](19, "div", 12);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](9, HomeComponent_div_9_Template, 14, 2, "div", 5);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -705,8 +895,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
+
+        if (rf & 2) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](9);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.isLoggedIn);
+        }
       },
-      styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvaG9tZS5jb21wb25lbnQuY3NzIn0= */"]
+      directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["NgForm"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgIf"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["NgModel"]],
+      styles: [".ui.stacked.segment[_ngcontent-%COMP%]:after{\r\n  position: static;\r\n  border: 0px;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvaG9tZS9ob21lLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxnQkFBZ0I7RUFDaEIsV0FBVztBQUNiIiwiZmlsZSI6InNyYy9hcHAvaG9tZS9ob21lLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIudWkuc3RhY2tlZC5zZWdtZW50OmFmdGVye1xyXG4gIHBvc2l0aW9uOiBzdGF0aWM7XHJcbiAgYm9yZGVyOiAwcHg7XHJcbn1cclxuIl19 */"]
     });
     /*@__PURE__*/
 
@@ -719,7 +916,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           styleUrls: ['./home.component.css']
         }]
       }], function () {
-        return [];
+        return [{
+          type: _services_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+        }, {
+          type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]
+        }, {
+          type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_4__["NgbModal"]
+        }];
       }, null);
     })();
     /***/
@@ -768,7 +973,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function CharDataService(http) {
-        var _this3 = this;
+        var _this6 = this;
 
         _classCallCheck(this, CharDataService);
 
@@ -827,68 +1032,68 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.getAllSpells = this.allSpells.asObservable();
 
         this.setCharBasics = function (arg) {
-          _this3.charBasics.next(arg);
+          _this6.charBasics.next(arg);
         };
 
         this.setAllFeats = function (arg) {
-          _this3.allFeats.next(arg);
+          _this6.allFeats.next(arg);
         };
 
         this.setStats = function (arg) {
-          _this3.allStats.next(arg);
+          _this6.allStats.next(arg);
         };
 
         this.setSaves = function (arg) {
-          _this3.allSaves.next(arg);
+          _this6.allSaves.next(arg);
         };
 
         this.setAllSkills = function (arg) {
-          _this3.allSkills.next(arg);
+          _this6.allSkills.next(arg);
         };
 
         this.setAllNotes = function (arg) {
-          _this3.allNotes.next(arg);
+          _this6.allNotes.next(arg);
         };
 
         this.setAllToHits = function (arg) {
-          _this3.allToHits.next(arg);
+          _this6.allToHits.next(arg);
         };
 
         this.setAllEquipment = function (arg) {
-          _this3.allEquipment.next(arg);
+          _this6.allEquipment.next(arg);
         };
 
         this.setAllACs = function (arg) {
-          _this3.allAC.next(arg);
+          _this6.allAC.next(arg);
         };
 
         this.setAllSpells = function (arg) {
-          _this3.allSpells.next(arg);
+          _this6.allSpells.next(arg);
         }; // global reset
 
 
         this.reset = function () {
-          _this3.readOnly.next(true);
+          _this6.readOnly.next(true);
 
-          _this3.isNew.next(true);
+          _this6.isNew.next(true);
 
-          _this3.charName.next('');
+          _this6.charName.next('');
 
-          _this3.charID.next(0);
+          _this6.charID.next(0);
 
-          _this3.allFeats.next(null);
+          _this6.allFeats.next(null);
 
-          _this3.allSkills.next(null);
+          _this6.allSkills.next(null);
 
-          _this3.allStats.next(null);
+          _this6.allStats.next(null);
 
-          _this3.allSaves.next(null);
+          _this6.allSaves.next(null);
 
-          _this3.allToHits.next(null);
+          _this6.allToHits.next(null);
 
-          _this3.allNotes.next(null);
+          _this6.allNotes.next(null);
 
-          _this3.allSpells.next(null);
+          _this6.allSpells.next(null);
         }; // remote loaders
         // tslint:disable:max-line-length
         // CHARACTER
@@ -896,7 +1101,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.loadCharBase = function (id) {
           //const val = this.http.get<CharBasics>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/' + id, {
-          var val = _this3.http.get('/api/characters/' + id, {
+          var val = _this6.http.get('/api/characters/' + id, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -908,7 +1113,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.loadStats = function (arg) {
           //const val = this.http.get<Stats>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/stats/ ' + arg, {
-          var val = _this3.http.get('/api/stats/ ' + arg, {
+          var val = _this6.http.get('/api/stats/ ' + arg, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -920,7 +1125,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.loadFeats = function (id) {
           //const val =  this.http.get<CharFeat>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/feats/' + id, {
-          var val = _this3.http.get('/api/characters/feats/' + id, {
+          var val = _this6.http.get('/api/characters/feats/' + id, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -934,7 +1139,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             val: arr.join(",")
           }; //const val =  this.http.post<CharSkills>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/feats/all', body, {
 
-          var val = _this3.http.post('/api/feats/all', body, {
+          var val = _this6.http.post('/api/feats/all', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -949,7 +1154,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             feat: feat
           }; //const val =  this.http.post<CharFeat>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/feats/addFeat', body, {
 
-          var val = _this3.http.post('/api/feats/addFeat', body, {
+          var val = _this6.http.post('/api/feats/addFeat', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -960,7 +1165,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.deleteFeat = function (id) {
           //const val =  this.http.delete<CharFeat>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/feats/delete/' + id, {
-          var val = _this3.http["delete"]('/api/feats/delete/' + id, {
+          var val = _this6.http["delete"]('/api/feats/delete/' + id, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -972,7 +1177,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.loadSkills = function (id) {
           //const val =  this.http.get<CharSkills>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/skills/' + id, {
-          var val = _this3.http.get('/api/characters/skills/' + id, {
+          var val = _this6.http.get('/api/characters/skills/' + id, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -986,7 +1191,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             val: arr.join(",")
           }; //const val =  this.http.post<CharSkills>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/skills/all', body, {
 
-          var val = _this3.http.post('/api/skills/all', body, {
+          var val = _this6.http.post('/api/skills/all', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -1001,7 +1206,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             skill: skill
           }; //const val =  this.http.post<CharSkills>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/skills/addSKill', body, {
 
-          var val = _this3.http.post('/api/skills/addSKill', body, {
+          var val = _this6.http.post('/api/skills/addSKill', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -1029,7 +1234,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           switch (attType) {
             case 'skill':
               //val =  this.http.post<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/updateSkill/', body, {
-              val = _this3.http.post('/api/characters/updateSkill/', body, {
+              val = _this6.http.post('/api/characters/updateSkill/', body, {
                 headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
                   'Access-Control-Allow-Origin': '*'
                 })
@@ -1038,7 +1243,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
             case 'stat':
               //val =  this.http.post<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/updateStat/', body, {
-              val = _this3.http.post('/api/characters/updateStat/', body, {
+              val = _this6.http.post('/api/characters/updateStat/', body, {
                 headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
                   'Access-Control-Allow-Origin': '*'
                 })
@@ -1047,7 +1252,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
             case 'save':
               //val =  this.http.post<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/updateSave/', body, {
-              val = _this3.http.post('/api/characters/updateSave/', body, {
+              val = _this6.http.post('/api/characters/updateSave/', body, {
                 headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
                   'Access-Control-Allow-Origin': '*'
                 })
@@ -1056,7 +1261,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
             case 'ac':
               //val =  this.http.post<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/ac/', body, {
-              val = _this3.http.post('/api/characters/ac/', body, {
+              val = _this6.http.post('/api/characters/ac/', body, {
                 headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
                   'Access-Control-Allow-Origin': '*'
                 })
@@ -1065,7 +1270,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
             case 'tohit':
               //val =  this.http.post<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/updateToHit/', body, {
-              val = _this3.http.post('/api/characters/updateToHit/', body, {
+              val = _this6.http.post('/api/characters/updateToHit/', body, {
                 headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
                   'Access-Control-Allow-Origin': '*'
                 })
@@ -1088,28 +1293,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           switch (attType) {
             case 'skill':
               //val =  this.http.delete<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/deleteSkill/'+attId);
-              val = _this3.http["delete"]('/api/characters/deleteSkill/' + attId);
+              val = _this6.http["delete"]('/api/characters/deleteSkill/' + attId);
               break;
 
             case 'stat':
               //val =  this.http.delete<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/deleteStat/'+attId);
-              val = _this3.http["delete"]('/api/characters/deleteStat/' + attId);
+              val = _this6.http["delete"]('/api/characters/deleteStat/' + attId);
               break;
               break;
 
             case 'save':
               //val =  this.http.delete<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/deleteSave/'+attId);
-              val = _this3.http["delete"]('/api/characters/deleteSave/' + attId);
+              val = _this6.http["delete"]('/api/characters/deleteSave/' + attId);
               break;
 
             case 'ac':
               //val =  this.http.delete<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/deleteAC/'+attId);
-              val = _this3.http["delete"]('/api/characters/deleteAC/' + attId);
+              val = _this6.http["delete"]('/api/characters/deleteAC/' + attId);
               break;
 
             case 'tohit':
               //val =  this.http.delete<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/deleteToHit/'+attId);
-              val = _this3.http["delete"]('/api/characters/deleteToHit/' + attId);
+              val = _this6.http["delete"]('/api/characters/deleteToHit/' + attId);
               break;
 
             default:
@@ -1122,7 +1327,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.loadSaves = function (id) {
           //const val =  this.http.get<Saves>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/saves/' + id, {
-          var val = _this3.http.get('/api/characters/saves/' + id, {
+          var val = _this6.http.get('/api/characters/saves/' + id, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -1134,7 +1339,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.loadToHits = function (id) {
           //const val =  this.http.get<CharToHits>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/toHits/' + id, {
-          var val = _this3.http.get('/api/characters/toHits/' + id, {
+          var val = _this6.http.get('/api/characters/toHits/' + id, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -1153,7 +1358,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             charID: cID
           }; //const val = this.http.post<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/newToHit/', body, {
 
-          var val = _this3.http.post('/api/newToHit/', body, {
+          var val = _this6.http.post('/api/newToHit/', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -1163,7 +1368,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.reorderToHits = function (body) {
-          var val = _this3.http.put('/api/newToHit/reorderToHits', body, {
+          var val = _this6.http.put('/api/newToHit/reorderToHits', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -1175,7 +1380,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.loadEquipment = function (id) {
           //const val =  this.http.get<Equipment>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/equip/' + id, {
-          var val = _this3.http.get('/api/characters/equip/' + id, {
+          var val = _this6.http.get('/api/characters/equip/' + id, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -1186,7 +1391,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.addEquipment = function (body) {
           //const val =  this.http.post<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/equip/add', body, {
-          var val = _this3.http.post('/api/characters/equip/add', body, {
+          var val = _this6.http.post('/api/characters/equip/add', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -1197,7 +1402,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.deleteEquipment = function (id) {
           //const val =  this.http.delete<Equipment>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/deleteequip/' + id, {
-          var val = _this3.http["delete"]('/api/characters/deleteequip/' + id, {
+          var val = _this6.http["delete"]('/api/characters/deleteequip/' + id, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -1207,7 +1412,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.reorderEqiup = function (body) {
-          var val = _this3.http.put('/api/characters/equip/reorderEquip', body, {
+          var val = _this6.http.put('/api/characters/equip/reorderEquip', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -1219,7 +1424,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.loadAC = function (id) {
           //const val =  this.http.get<Equipment>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/ac/' + id, {
-          var val = _this3.http.get('/api/characters/ac/' + id, {
+          var val = _this6.http.get('/api/characters/ac/' + id, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -1235,7 +1440,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             charHP: charHP
           }; //const val =  this.http.get<Equipment>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/ac/' + id, {
 
-          var val = _this3.http.post('/api/characters/updateHP/', body, {
+          var val = _this6.http.post('/api/characters/updateHP/', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -1251,7 +1456,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             init: init
           };
 
-          var val = _this3.http.post('/api/characters/updateInit/', body, {
+          var val = _this6.http.post('/api/characters/updateInit/', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -1262,7 +1467,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
         this.loadNotes = function (charID) {
-          var val = _this3.http.get('/api/notes/getCharNotes/' + charID.toString(), {
+          var val = _this6.http.get('/api/notes/getCharNotes/' + charID.toString(), {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -1272,7 +1477,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.loadNotesItems = function (noteID) {
-          var val = _this3.http.get('/api/notes/getNoteItems/' + noteID, {
+          var val = _this6.http.get('/api/notes/getNoteItems/' + noteID, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -1283,7 +1488,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.addNoteHeader = function (body) {
           //const val =  this.http.post<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/equip/add', body, {
-          var val = _this3.http.post('/api/notes/insertNoteHeader', body, {
+          var val = _this6.http.post('/api/notes/insertNoteHeader', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -1294,7 +1499,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.addNoteItem = function (body) {
           //const val =  this.http.post<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/equip/add', body, {
-          var val = _this3.http.post('/api/notes/insertNoteItem', body, {
+          var val = _this6.http.post('/api/notes/insertNoteItem', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -1304,7 +1509,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.updateNoteHeader = function (body) {
-          var val = _this3.http.post('/api/notes/updateNote', body, {
+          var val = _this6.http.post('/api/notes/updateNote', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -1314,7 +1519,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.updateNoteItem = function (body) {
-          var val = _this3.http.post('/api/notes/updateNoteItem', body, {
+          var val = _this6.http.post('/api/notes/updateNoteItem', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -1324,7 +1529,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.deleteNoteHeader = function (noteID) {
-          var val = _this3.http.post('/api/notes/deleteNote/' + noteID, {
+          var val = _this6.http.post('/api/notes/deleteNote/' + noteID, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -1334,7 +1539,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.deleteNoteItem = function (id) {
-          var val = _this3.http.post('/api/notes/deleteNoteItem/' + id, {
+          var val = _this6.http.post('/api/notes/deleteNoteItem/' + id, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -1344,7 +1549,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.reorderNoteItems = function (body) {
-          var val = _this3.http.put('/api/notes/reorderNoteItem', body, {
+          var val = _this6.http.put('/api/notes/reorderNoteItem', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -1354,7 +1559,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.reorderNoteHeader = function (body) {
-          var val = _this3.http.put('/api/notes/reorderNoteHeader', body, {
+          var val = _this6.http.put('/api/notes/reorderNoteHeader', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -1368,7 +1573,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
         this.loadSpells = function (charID) {
-          var val = _this3.http.get('/api/spells/getAllSpells/' + charID.toString(), {
+          var val = _this6.http.get('/api/spells/getAllSpells/' + charID.toString(), {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -1378,7 +1583,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.insertSpell = function (body) {
-          var val = _this3.http.post('/api/spells/addASpell', body, {
+          var val = _this6.http.post('/api/spells/addASpell', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -1388,7 +1593,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.toggleSpell = function (body) {
-          var val = _this3.http.post('/api/spells/toggleSpell', body, {
+          var val = _this6.http.post('/api/spells/toggleSpell', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -1398,7 +1603,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.updateSpell = function (body) {
-          var val = _this3.http.post('/api/spells/updateASpell', body, {
+          var val = _this6.http.post('/api/spells/updateASpell', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -1408,7 +1613,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.deleteSpell = function (id) {
-          var val = _this3.http["delete"]('/api/spells/deleteASpell/' + id, {
+          var val = _this6.http["delete"]('/api/spells/deleteASpell/' + id, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -1462,6 +1667,106 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     (function () {
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](CharDataService, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
+        args: [{
+          providedIn: 'root'
+        }]
+      }], function () {
+        return [{
+          type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]
+        }];
+      }, null);
+    })();
+    /***/
+
+  },
+
+  /***/
+  "./src/app/services/user.service.ts":
+  /*!******************************************!*\
+    !*** ./src/app/services/user.service.ts ***!
+    \******************************************/
+
+  /*! exports provided: UserService */
+
+  /***/
+  function srcAppServicesUserServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "UserService", function () {
+      return UserService;
+    });
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! rxjs */
+    "./node_modules/rxjs/_esm2015/index.js");
+    /* harmony import */
+
+
+    var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/common/http */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+
+    var UserService =
+    /*#__PURE__*/
+    function () {
+      function UserService(http) {
+        var _this7 = this;
+
+        _classCallCheck(this, UserService);
+
+        this.http = http;
+        this.user = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]({}); // GETTERS
+
+        this.getUser = this.user.asObservable();
+
+        this.loginUser = function (body) {
+          var val = _this7.http.post('/api/login', body, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+              'Access-Control-Allow-Origin': '*'
+            })
+          });
+
+          return val;
+        };
+      } // SETTERS
+
+
+      _createClass(UserService, [{
+        key: "setUser",
+        value: function setUser(arg) {
+          this.user.next(arg);
+        }
+      }]);
+
+      return UserService;
+    }();
+
+    UserService.ɵfac = function UserService_Factory(t) {
+      return new (t || UserService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]));
+    };
+
+    UserService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({
+      token: UserService,
+      factory: UserService.ɵfac,
+      providedIn: 'root'
+    });
+    /*@__PURE__*/
+
+    (function () {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](UserService, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
         args: [{
           providedIn: 'root'

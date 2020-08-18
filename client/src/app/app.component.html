@@ -1,9 +1,10 @@
 <div class="content" role="main">
   <div class="ui secondary pointing menu">
     <a routerLink='' class="item" routerLinkActive='active' [routerLinkActiveOptions]="{exact:true}">Home</a>
-    <a routerLink='charLoad' class="item" routerLinkActive='active' [routerLinkActiveOptions]="{exact:true}">Load Character</a>
-    <a (click)='setNew()' routerLink='charGen' routerLinkActive='active' class="item" >Character</a>
+    <a *ngIf='isLoggedIn' routerLink='charLoad' class="item" routerLinkActive='active' [routerLinkActiveOptions]="{exact:true}">Load Character</a>
+    <a *ngIf='isLoggedIn' routerLink='charGen' routerLinkActive='active' class="item" >Character</a>
+    <div class="item" style='position: absolute; right:0px;'>Welcome {{theUser['userName']}}</div>
   </div>
-<div class="ui segment container">
-  <router-outlet></router-outlet>
-</div>
+  <div class="ui segment container">
+    <router-outlet></router-outlet>
+  </div>

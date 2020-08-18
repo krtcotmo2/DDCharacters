@@ -1,0 +1,4 @@
+.ui.stacked.segment:after{
+  position: static;
+  border: 0px;
+}

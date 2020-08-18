@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CharDataService } from './services/char-data.service';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +9,20 @@ import { CharDataService } from './services/char-data.service';
 })
 export class AppComponent {
   title = 'character';
+  theUser = {};
+  userName: string;
+  isLoggedIn = false;
 
-  constructor(private charDataSvc: CharDataService){}
+  constructor(private charDataSvc: CharDataService,
+    private userService: UserService){}
 
-  setNew = () => {
-    //this.charDataSvc.reset();
-  }
+    ngOnInit(): void {
+      this.userService.getUser.subscribe( val => {
+        this.theUser = val;
+        console.log(this.theUser)
+        this.isLoggedIn = this.theUser['isLoggedIn'];
+        this.userName = this.theUser['userName'];
+      });
+
+    }
 }

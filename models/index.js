@@ -73,6 +73,8 @@ models.CharSkill.hasOne(Skill, {foreignKey: 'skillID', sourceKey: 'skillID'})
 models.CharSave.hasOne(Save, {foreignKey: 'saveID', sourceKey: 'saveID'})
 models.CharToHits.hasOne(ToHits, {foreignKey: 'toHitID', sourceKey: 'toHitID'})
 
+//models.User.hasMany(Character, {foreignKey: 'userID', sourceKey: 'userID'})
+
 Object.values(models)
 .filter(model => typeof model.associate === "function")
 .forEach(model => model.associate(models));

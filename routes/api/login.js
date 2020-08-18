@@ -1,10 +1,7 @@
 const router = require("express").Router();
-
-
+const userController = require("../../controllers/userController");
 
 // loginUser matches with "/api/login"
-router.get("/", (req, res, next) => {
-    res.status(200).json({item:'sss'});
-  });
+router.route("/").post(userController.loginUser);
 
 module.exports = router;
