@@ -1,30 +1,8 @@
-function _defineProperty2(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _createForOfIteratorHelper(o) { if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) { var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e2) { throw _e2; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var it, normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e3) { didErr = true; err = _e3; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
 
 function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
 
 function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
-
-function _slicedToArray2(arr, i) { return _arrayWithHoles2(arr) || _iterableToArrayLimit2(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest2(); }
-
-function _nonIterableRest2() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _iterableToArrayLimit2(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles2(arr) { if (Array.isArray(arr)) return arr; }
-
-function _toConsumableArray2(arr) { return _arrayWithoutHoles2(arr) || _iterableToArray2(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread2(); }
-
-function _nonIterableSpread2() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _iterableToArray2(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
-
-function _arrayWithoutHoles2(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _createForOfIteratorHelper(o) { if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) { var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e2) { throw _e2; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var it, normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e3) { didErr = true; err = _e3; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -40,6 +18,28 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _defineProperty2(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray2(arr, i) { return _arrayWithHoles2(arr) || _iterableToArrayLimit2(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest2(); }
+
+function _nonIterableRest2() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArrayLimit2(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles2(arr) { if (Array.isArray(arr)) return arr; }
+
+function _toConsumableArray2(arr) { return _arrayWithoutHoles2(arr) || _iterableToArray2(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread2(); }
+
+function _nonIterableSpread2() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray2(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles2(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -47,1109 +47,6 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["chargen-chargen-module"], {
-  /***/
-  "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/bidi.js":
-  /*!*****************************************************************!*\
-    !*** ./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/bidi.js ***!
-    \*****************************************************************/
-
-  /*! exports provided: BidiModule, DIR_DOCUMENT, Dir, Directionality, ɵangular_material_src_cdk_bidi_bidi_a */
-
-  /***/
-  function node_modulesAngularCdk__ivy_ngcc__Fesm2015BidiJs(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "BidiModule", function () {
-      return BidiModule;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "DIR_DOCUMENT", function () {
-      return DIR_DOCUMENT;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "Dir", function () {
-      return Dir;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "Directionality", function () {
-      return Directionality;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "ɵangular_material_src_cdk_bidi_bidi_a", function () {
-      return DIR_DOCUMENT_FACTORY;
-    });
-    /* harmony import */
-
-
-    var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! @angular/core */
-    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-    /* harmony import */
-
-
-    var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! @angular/common */
-    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: src/cdk/bidi/dir-document-token.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    /**
-     * Injection token used to inject the document into Directionality.
-     * This is used so that the value can be faked in tests.
-     *
-     * We can't use the real document in tests because changing the real `dir` causes geometry-based
-     * tests in Safari to fail.
-     *
-     * We also can't re-provide the DOCUMENT token from platform-brower because the unit tests
-     * themselves use things like `querySelector` in test code.
-     *
-     * This token is defined in a separate file from Directionality as a workaround for
-     * https://github.com/angular/angular/issues/22559
-     *
-     * \@docs-private
-     * @type {?}
-     */
-
-
-    var DIR_DOCUMENT = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["InjectionToken"]('cdk-dir-doc', {
-      providedIn: 'root',
-      factory: DIR_DOCUMENT_FACTORY
-    });
-    /**
-     * \@docs-private
-     * @return {?}
-     */
-
-    function DIR_DOCUMENT_FACTORY() {
-      return Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["inject"])(_angular_common__WEBPACK_IMPORTED_MODULE_1__["DOCUMENT"]);
-    }
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: src/cdk/bidi/directionality.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    /**
-     * The directionality (LTR / RTL) context for the application (or a subtree of it).
-     * Exposes the current direction and a stream of direction changes.
-     */
-
-
-    var Directionality =
-    /*#__PURE__*/
-    function () {
-      /**
-       * @param {?=} _document
-       */
-      function Directionality(_document) {
-        _classCallCheck2(this, Directionality);
-
-        /**
-         * The current 'ltr' or 'rtl' value.
-         */
-        this.value = 'ltr';
-        /**
-         * Stream that emits whenever the 'ltr' / 'rtl' state changes.
-         */
-
-        this.change = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-
-        if (_document) {
-          // TODO: handle 'auto' value -
-          // We still need to account for dir="auto".
-          // It looks like HTMLElemenet.dir is also "auto" when that's set to the attribute,
-          // but getComputedStyle return either "ltr" or "rtl". avoiding getComputedStyle for now
-
-          /** @type {?} */
-          var bodyDir = _document.body ? _document.body.dir : null;
-          /** @type {?} */
-
-          var htmlDir = _document.documentElement ? _document.documentElement.dir : null;
-          /** @type {?} */
-
-          var value = bodyDir || htmlDir;
-          this.value = value === 'ltr' || value === 'rtl' ? value : 'ltr';
-        }
-      }
-      /**
-       * @return {?}
-       */
-
-
-      _createClass2(Directionality, [{
-        key: "ngOnDestroy",
-        value: function ngOnDestroy() {
-          this.change.complete();
-        }
-      }]);
-
-      return Directionality;
-    }();
-
-    Directionality.ɵfac = function Directionality_Factory(t) {
-      return new (t || Directionality)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](DIR_DOCUMENT, 8));
-    };
-    /** @nocollapse */
-
-
-    Directionality.ctorParameters = function () {
-      return [{
-        type: undefined,
-        decorators: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Optional"]
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"],
-          args: [DIR_DOCUMENT]
-        }]
-      }];
-    };
-    /** @nocollapse */
-
-
-    Directionality.ɵprov = Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"])({
-      factory: function Directionality_Factory() {
-        return new Directionality(Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"])(DIR_DOCUMENT, 8));
-      },
-      token: Directionality,
-      providedIn: "root"
-    });
-    /*@__PURE__*/
-
-    (function () {
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](Directionality, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
-        args: [{
-          providedIn: 'root'
-        }]
-      }], function () {
-        return [{
-          type: undefined,
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Optional"]
-          }, {
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"],
-            args: [DIR_DOCUMENT]
-          }]
-        }];
-      }, null);
-    })();
-
-    if (false) {}
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: src/cdk/bidi/dir.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    /**
-     * Directive to listen for changes of direction of part of the DOM.
-     *
-     * Provides itself as Directionality such that descendant directives only need to ever inject
-     * Directionality to get the closest direction.
-     */
-
-
-    var Dir =
-    /*#__PURE__*/
-    function () {
-      function Dir() {
-        _classCallCheck2(this, Dir);
-
-        /**
-         * Normalized direction that accounts for invalid/unsupported values.
-         */
-        this._dir = 'ltr';
-        /**
-         * Whether the `value` has been set to its initial value.
-         */
-
-        this._isInitialized = false;
-        /**
-         * Event emitted when the direction changes.
-         */
-
-        this.change = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-      }
-      /**
-       * \@docs-private
-       * @return {?}
-       */
-
-
-      _createClass2(Dir, [{
-        key: "ngAfterContentInit",
-
-        /**
-         * Initialize once default value has been set.
-         * @return {?}
-         */
-        value: function ngAfterContentInit() {
-          this._isInitialized = true;
-        }
-        /**
-         * @return {?}
-         */
-
-      }, {
-        key: "ngOnDestroy",
-        value: function ngOnDestroy() {
-          this.change.complete();
-        }
-      }, {
-        key: "dir",
-        get: function get() {
-          return this._dir;
-        }
-        /**
-         * @param {?} value
-         * @return {?}
-         */
-        ,
-        set: function set(value) {
-          /** @type {?} */
-          var old = this._dir;
-          /** @type {?} */
-
-          var normalizedValue = value ? value.toLowerCase() : value;
-          this._rawDir = value;
-          this._dir = normalizedValue === 'ltr' || normalizedValue === 'rtl' ? normalizedValue : 'ltr';
-
-          if (old !== this._dir && this._isInitialized) {
-            this.change.emit(this._dir);
-          }
-        }
-        /**
-         * Current layout direction of the element.
-         * @return {?}
-         */
-
-      }, {
-        key: "value",
-        get: function get() {
-          return this.dir;
-        }
-      }]);
-
-      return Dir;
-    }();
-
-    Dir.ɵfac = function Dir_Factory(t) {
-      return new (t || Dir)();
-    };
-
-    Dir.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({
-      type: Dir,
-      selectors: [["", "dir", ""]],
-      hostVars: 1,
-      hostBindings: function Dir_HostBindings(rf, ctx) {
-        if (rf & 2) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵattribute"]("dir", ctx._rawDir);
-        }
-      },
-      inputs: {
-        dir: "dir"
-      },
-      outputs: {
-        change: "dirChange"
-      },
-      exportAs: ["dir"],
-      features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([{
-        provide: Directionality,
-        useExisting: Dir
-      }])]
-    });
-    Dir.propDecorators = {
-      change: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"],
-        args: ['dirChange']
-      }],
-      dir: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-      }]
-    };
-    /*@__PURE__*/
-
-    (function () {
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](Dir, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"],
-        args: [{
-          selector: '[dir]',
-          providers: [{
-            provide: Directionality,
-            useExisting: Dir
-          }],
-          host: {
-            '[attr.dir]': '_rawDir'
-          },
-          exportAs: 'dir'
-        }]
-      }], function () {
-        return [];
-      }, {
-        change: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"],
-          args: ['dirChange']
-        }],
-        dir: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-        }]
-      });
-    })();
-
-    if (false) {}
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: src/cdk/bidi/bidi-module.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-
-    var BidiModule = function BidiModule() {
-      _classCallCheck2(this, BidiModule);
-    };
-
-    BidiModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
-      type: BidiModule
-    });
-    BidiModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({
-      factory: function BidiModule_Factory(t) {
-        return new (t || BidiModule)();
-      }
-    });
-
-    (function () {
-      (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](BidiModule, {
-        declarations: [Dir],
-        exports: [Dir]
-      });
-    })();
-    /*@__PURE__*/
-
-
-    (function () {
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](BidiModule, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
-        args: [{
-          exports: [Dir],
-          declarations: [Dir]
-        }]
-      }], null, null);
-    })();
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: src/cdk/bidi/public-api.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    /**
-     * Generated bundle index. Do not edit.
-     */
-    //# sourceMappingURL=bidi.js.map
-
-    /***/
-
-  },
-
-  /***/
-  "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/collections.js":
-  /*!************************************************************************!*\
-    !*** ./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/collections.js ***!
-    \************************************************************************/
-
-  /*! exports provided: ArrayDataSource, DataSource, SelectionModel, UniqueSelectionDispatcher, getMultipleValuesInSingleSelectionError, isDataSource */
-
-  /***/
-  function node_modulesAngularCdk__ivy_ngcc__Fesm2015CollectionsJs(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "ArrayDataSource", function () {
-      return ArrayDataSource;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "DataSource", function () {
-      return DataSource;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "SelectionModel", function () {
-      return SelectionModel;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "UniqueSelectionDispatcher", function () {
-      return UniqueSelectionDispatcher;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "getMultipleValuesInSingleSelectionError", function () {
-      return getMultipleValuesInSingleSelectionError;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "isDataSource", function () {
-      return isDataSource;
-    });
-    /* harmony import */
-
-
-    var rxjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! rxjs */
-    "./node_modules/rxjs/_esm2015/index.js");
-    /* harmony import */
-
-
-    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! @angular/core */
-    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: src/cdk/collections/data-source.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    /**
-     * @license
-     * Copyright Google LLC All Rights Reserved.
-     *
-     * Use of this source code is governed by an MIT-style license that can be
-     * found in the LICENSE file at https://angular.io/license
-     */
-
-    /**
-     * @abstract
-     * @template T
-     */
-
-
-    var DataSource = function DataSource() {
-      _classCallCheck2(this, DataSource);
-    };
-
-    if (false) {}
-    /**
-     * Checks whether an object is a data source.
-     * @param {?} value
-     * @return {?}
-     */
-
-
-    function isDataSource(value) {
-      // Check if the value is a DataSource by observing if it has a connect function. Cannot
-      // be checked as an `instanceof DataSource` since people could create their own sources
-      // that match the interface, but don't extend DataSource.
-      return value && typeof value.connect === 'function';
-    }
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: src/cdk/collections/array-data-source.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    /**
-     * DataSource wrapper for a native array.
-     * @template T
-     */
-
-
-    var ArrayDataSource =
-    /*#__PURE__*/
-    function (_DataSource) {
-      _inherits(ArrayDataSource, _DataSource);
-
-      var _super = _createSuper(ArrayDataSource);
-
-      /**
-       * @param {?} _data
-       */
-      function ArrayDataSource(_data) {
-        var _this2;
-
-        _classCallCheck2(this, ArrayDataSource);
-
-        _this2 = _super.call(this);
-        _this2._data = _data;
-        return _this2;
-      }
-      /**
-       * @return {?}
-       */
-
-
-      _createClass2(ArrayDataSource, [{
-        key: "connect",
-        value: function connect() {
-          return Object(rxjs__WEBPACK_IMPORTED_MODULE_0__["isObservable"])(this._data) ? this._data : Object(rxjs__WEBPACK_IMPORTED_MODULE_0__["of"])(this._data);
-        }
-        /**
-         * @return {?}
-         */
-
-      }, {
-        key: "disconnect",
-        value: function disconnect() {}
-      }]);
-
-      return ArrayDataSource;
-    }(DataSource);
-
-    if (false) {}
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: src/cdk/collections/collection-viewer.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    /**
-     * @license
-     * Copyright Google LLC All Rights Reserved.
-     *
-     * Use of this source code is governed by an MIT-style license that can be
-     * found in the LICENSE file at https://angular.io/license
-     */
-
-    /**
-     * Interface for any component that provides a view of some data collection and wants to provide
-     * information regarding the view and any changes made.
-     * @record
-     */
-
-
-    function CollectionViewer() {}
-
-    if (false) {}
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: src/cdk/collections/selection-model.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    /**
-     * Class to be used to power selecting one or more options from a list.
-     * @template T
-     */
-
-
-    var SelectionModel =
-    /*#__PURE__*/
-    function () {
-      /**
-       * @param {?=} _multiple
-       * @param {?=} initiallySelectedValues
-       * @param {?=} _emitChanges
-       */
-      function SelectionModel() {
-        var _this3 = this;
-
-        var _multiple = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-
-        var initiallySelectedValues = arguments.length > 1 ? arguments[1] : undefined;
-
-        var _emitChanges = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-
-        _classCallCheck2(this, SelectionModel);
-
-        this._multiple = _multiple;
-        this._emitChanges = _emitChanges;
-        /**
-         * Currently-selected values.
-         */
-
-        this._selection = new Set();
-        /**
-         * Keeps track of the deselected options that haven't been emitted by the change event.
-         */
-
-        this._deselectedToEmit = [];
-        /**
-         * Keeps track of the selected options that haven't been emitted by the change event.
-         */
-
-        this._selectedToEmit = [];
-        /**
-         * Event emitted when the value has changed.
-         */
-
-        this.changed = new rxjs__WEBPACK_IMPORTED_MODULE_0__["Subject"]();
-
-        if (initiallySelectedValues && initiallySelectedValues.length) {
-          if (_multiple) {
-            initiallySelectedValues.forEach(
-            /**
-            * @param {?} value
-            * @return {?}
-            */
-            function (value) {
-              return _this3._markSelected(value);
-            });
-          } else {
-            this._markSelected(initiallySelectedValues[0]);
-          } // Clear the array in order to avoid firing the change event for preselected values.
-
-
-          this._selectedToEmit.length = 0;
-        }
-      }
-      /**
-       * Selected values.
-       * @return {?}
-       */
-
-
-      _createClass2(SelectionModel, [{
-        key: "select",
-
-        /**
-         * Selects a value or an array of values.
-         * @param {...?} values
-         * @return {?}
-         */
-        value: function select() {
-          var _this4 = this;
-
-          for (var _len2 = arguments.length, values = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-            values[_key2] = arguments[_key2];
-          }
-
-          this._verifyValueAssignment(values);
-
-          values.forEach(
-          /**
-          * @param {?} value
-          * @return {?}
-          */
-          function (value) {
-            return _this4._markSelected(value);
-          });
-
-          this._emitChangeEvent();
-        }
-        /**
-         * Deselects a value or an array of values.
-         * @param {...?} values
-         * @return {?}
-         */
-
-      }, {
-        key: "deselect",
-        value: function deselect() {
-          var _this5 = this;
-
-          for (var _len3 = arguments.length, values = new Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-            values[_key3] = arguments[_key3];
-          }
-
-          this._verifyValueAssignment(values);
-
-          values.forEach(
-          /**
-          * @param {?} value
-          * @return {?}
-          */
-          function (value) {
-            return _this5._unmarkSelected(value);
-          });
-
-          this._emitChangeEvent();
-        }
-        /**
-         * Toggles a value between selected and deselected.
-         * @param {?} value
-         * @return {?}
-         */
-
-      }, {
-        key: "toggle",
-        value: function toggle(value) {
-          this.isSelected(value) ? this.deselect(value) : this.select(value);
-        }
-        /**
-         * Clears all of the selected values.
-         * @return {?}
-         */
-
-      }, {
-        key: "clear",
-        value: function clear() {
-          this._unmarkAll();
-
-          this._emitChangeEvent();
-        }
-        /**
-         * Determines whether a value is selected.
-         * @param {?} value
-         * @return {?}
-         */
-
-      }, {
-        key: "isSelected",
-        value: function isSelected(value) {
-          return this._selection.has(value);
-        }
-        /**
-         * Determines whether the model does not have a value.
-         * @return {?}
-         */
-
-      }, {
-        key: "isEmpty",
-        value: function isEmpty() {
-          return this._selection.size === 0;
-        }
-        /**
-         * Determines whether the model has a value.
-         * @return {?}
-         */
-
-      }, {
-        key: "hasValue",
-        value: function hasValue() {
-          return !this.isEmpty();
-        }
-        /**
-         * Sorts the selected values based on a predicate function.
-         * @param {?=} predicate
-         * @return {?}
-         */
-
-      }, {
-        key: "sort",
-        value: function sort(predicate) {
-          if (this._multiple && this.selected) {
-            /** @type {?} */
-            this._selected.sort(predicate);
-          }
-        }
-        /**
-         * Gets whether multiple values can be selected.
-         * @return {?}
-         */
-
-      }, {
-        key: "isMultipleSelection",
-        value: function isMultipleSelection() {
-          return this._multiple;
-        }
-        /**
-         * Emits a change event and clears the records of selected and deselected values.
-         * @private
-         * @return {?}
-         */
-
-      }, {
-        key: "_emitChangeEvent",
-        value: function _emitChangeEvent() {
-          // Clear the selected values so they can be re-cached.
-          this._selected = null;
-
-          if (this._selectedToEmit.length || this._deselectedToEmit.length) {
-            this.changed.next({
-              source: this,
-              added: this._selectedToEmit,
-              removed: this._deselectedToEmit
-            });
-            this._deselectedToEmit = [];
-            this._selectedToEmit = [];
-          }
-        }
-        /**
-         * Selects a value.
-         * @private
-         * @param {?} value
-         * @return {?}
-         */
-
-      }, {
-        key: "_markSelected",
-        value: function _markSelected(value) {
-          if (!this.isSelected(value)) {
-            if (!this._multiple) {
-              this._unmarkAll();
-            }
-
-            this._selection.add(value);
-
-            if (this._emitChanges) {
-              this._selectedToEmit.push(value);
-            }
-          }
-        }
-        /**
-         * Deselects a value.
-         * @private
-         * @param {?} value
-         * @return {?}
-         */
-
-      }, {
-        key: "_unmarkSelected",
-        value: function _unmarkSelected(value) {
-          if (this.isSelected(value)) {
-            this._selection["delete"](value);
-
-            if (this._emitChanges) {
-              this._deselectedToEmit.push(value);
-            }
-          }
-        }
-        /**
-         * Clears out the selected values.
-         * @private
-         * @return {?}
-         */
-
-      }, {
-        key: "_unmarkAll",
-        value: function _unmarkAll() {
-          var _this6 = this;
-
-          if (!this.isEmpty()) {
-            this._selection.forEach(
-            /**
-            * @param {?} value
-            * @return {?}
-            */
-            function (value) {
-              return _this6._unmarkSelected(value);
-            });
-          }
-        }
-        /**
-         * Verifies the value assignment and throws an error if the specified value array is
-         * including multiple values while the selection model is not supporting multiple values.
-         * @private
-         * @param {?} values
-         * @return {?}
-         */
-
-      }, {
-        key: "_verifyValueAssignment",
-        value: function _verifyValueAssignment(values) {
-          if (values.length > 1 && !this._multiple) {
-            throw getMultipleValuesInSingleSelectionError();
-          }
-        }
-      }, {
-        key: "selected",
-        get: function get() {
-          if (!this._selected) {
-            this._selected = Array.from(this._selection.values());
-          }
-
-          return this._selected;
-        }
-      }]);
-
-      return SelectionModel;
-    }();
-
-    if (false) {}
-    /**
-     * Event emitted when the value of a MatSelectionModel has changed.
-     * \@docs-private
-     * @record
-     * @template T
-     */
-
-
-    function SelectionChange() {}
-
-    if (false) {}
-    /**
-     * Returns an error that reports that multiple values are passed into a selection model
-     * with a single value.
-     * \@docs-private
-     * @return {?}
-     */
-
-
-    function getMultipleValuesInSingleSelectionError() {
-      return Error('Cannot pass multiple values into SelectionModel with single-value mode.');
-    }
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: src/cdk/collections/unique-selection-dispatcher.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    /**
-     * Class to coordinate unique selection based on name.
-     * Intended to be consumed as an Angular service.
-     * This service is needed because native radio change events are only fired on the item currently
-     * being selected, and we still need to uncheck the previous selection.
-     *
-     * This service does not *store* any IDs and names because they may change at any time, so it is
-     * less error-prone if they are simply passed through when the events occur.
-     */
-
-
-    var UniqueSelectionDispatcher =
-    /*#__PURE__*/
-    function () {
-      function UniqueSelectionDispatcher() {
-        _classCallCheck2(this, UniqueSelectionDispatcher);
-
-        this._listeners = [];
-      }
-      /**
-       * Notify other items that selection for the given name has been set.
-       * @param {?} id ID of the item.
-       * @param {?} name Name of the item.
-       * @return {?}
-       */
-
-
-      _createClass2(UniqueSelectionDispatcher, [{
-        key: "notify",
-        value: function notify(id, name) {
-          var _iterator = _createForOfIteratorHelper(this._listeners),
-              _step;
-
-          try {
-            for (_iterator.s(); !(_step = _iterator.n()).done;) {
-              var listener = _step.value;
-              listener(id, name);
-            }
-          } catch (err) {
-            _iterator.e(err);
-          } finally {
-            _iterator.f();
-          }
-        }
-        /**
-         * Listen for future changes to item selection.
-         * @param {?} listener
-         * @return {?} Function used to deregister listener
-         */
-
-      }, {
-        key: "listen",
-        value: function listen(listener) {
-          var _this7 = this;
-
-          this._listeners.push(listener);
-
-          return (
-            /**
-            * @return {?}
-            */
-            function () {
-              _this7._listeners = _this7._listeners.filter(
-              /**
-              * @param {?} registered
-              * @return {?}
-              */
-              function (registered) {
-                return listener !== registered;
-              });
-            }
-          );
-        }
-        /**
-         * @return {?}
-         */
-
-      }, {
-        key: "ngOnDestroy",
-        value: function ngOnDestroy() {
-          this._listeners = [];
-        }
-      }]);
-
-      return UniqueSelectionDispatcher;
-    }();
-
-    UniqueSelectionDispatcher.ɵfac = function UniqueSelectionDispatcher_Factory(t) {
-      return new (t || UniqueSelectionDispatcher)();
-    };
-    /** @nocollapse */
-
-
-    UniqueSelectionDispatcher.ɵprov = Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"])({
-      factory: function UniqueSelectionDispatcher_Factory() {
-        return new UniqueSelectionDispatcher();
-      },
-      token: UniqueSelectionDispatcher,
-      providedIn: "root"
-    });
-    /*@__PURE__*/
-
-    (function () {
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](UniqueSelectionDispatcher, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"],
-        args: [{
-          providedIn: 'root'
-        }]
-      }], function () {
-        return [];
-      }, null);
-    })();
-
-    if (false) {}
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: src/cdk/collections/tree-adapter.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    /**
-     * @license
-     * Copyright Google LLC All Rights Reserved.
-     *
-     * Use of this source code is governed by an MIT-style license that can be
-     * found in the LICENSE file at https://angular.io/license
-     */
-
-    /**
-     * Interface for a class that can flatten hierarchical structured data and re-expand the flattened
-     * data back into its original structure. Should be used in conjunction with the cdk-tree.
-     * @record
-     * @template T
-     */
-
-
-    function TreeDataNodeFlattener() {}
-
-    if (false) {}
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: src/cdk/collections/public-api.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    /**
-     * Generated bundle index. Do not edit.
-     */
-    //# sourceMappingURL=collections.js.map
-
-    /***/
-
-  },
-
   /***/
   "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/drag-drop.js":
   /*!**********************************************************************!*\
@@ -1625,7 +522,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }, {
         key: "cache",
         value: function cache(elements) {
-          var _this8 = this;
+          var _this2 = this;
 
           this.clear();
           this.positions.set(this._document, {
@@ -1637,7 +534,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
           * @return {?}
           */
           function (element) {
-            _this8.positions.set(element, {
+            _this2.positions.set(element, {
               scrollPosition: {
                 top: element.scrollTop,
                 left: element.scrollLeft
@@ -1828,7 +725,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
        * @param {?} _dragDropRegistry
        */
       function DragRef(element, _config, _document, _ngZone, _viewportRuler, _dragDropRegistry) {
-        var _this9 = this;
+        var _this3 = this;
 
         _classCallCheck2(this, DragRef);
 
@@ -1964,12 +861,12 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         * @return {?}
         */
         function (event) {
-          _this9.beforeStarted.next(); // Delegate the event based on whether it started from a handle or the element itself.
+          _this3.beforeStarted.next(); // Delegate the event based on whether it started from a handle or the element itself.
 
 
-          if (_this9._handles.length) {
+          if (_this3._handles.length) {
             /** @type {?} */
-            var targetHandle = _this9._handles.find(
+            var targetHandle = _this3._handles.find(
             /**
             * @param {?} handle
             * @return {?}
@@ -1982,11 +879,11 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
               target));
             });
 
-            if (targetHandle && !_this9._disabledHandles.has(targetHandle) && !_this9.disabled) {
-              _this9._initializeDragSequence(targetHandle, event);
+            if (targetHandle && !_this3._disabledHandles.has(targetHandle) && !_this3.disabled) {
+              _this3._initializeDragSequence(targetHandle, event);
             }
-          } else if (!_this9.disabled) {
-            _this9._initializeDragSequence(_this9._rootElement, event);
+          } else if (!_this3.disabled) {
+            _this3._initializeDragSequence(_this3._rootElement, event);
           }
         };
         /**
@@ -2005,27 +902,27 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
           event.preventDefault();
           /** @type {?} */
 
-          var pointerPosition = _this9._getPointerPositionOnPage(event);
+          var pointerPosition = _this3._getPointerPositionOnPage(event);
 
-          if (!_this9._hasStartedDragging) {
+          if (!_this3._hasStartedDragging) {
             /** @type {?} */
-            var distanceX = Math.abs(pointerPosition.x - _this9._pickupPositionOnPage.x);
-            /** @type {?} */
-
-            var distanceY = Math.abs(pointerPosition.y - _this9._pickupPositionOnPage.y);
+            var distanceX = Math.abs(pointerPosition.x - _this3._pickupPositionOnPage.x);
             /** @type {?} */
 
-            var isOverThreshold = distanceX + distanceY >= _this9._config.dragStartThreshold; // Only start dragging after the user has moved more than the minimum distance in either
+            var distanceY = Math.abs(pointerPosition.y - _this3._pickupPositionOnPage.y);
+            /** @type {?} */
+
+            var isOverThreshold = distanceX + distanceY >= _this3._config.dragStartThreshold; // Only start dragging after the user has moved more than the minimum distance in either
             // direction. Note that this is preferrable over doing something like `skip(minimumDistance)`
             // in the `pointerMove` subscription, because we're not guaranteed to have one move event
             // per pixel of movement (e.g. if the user moves their pointer quickly).
 
             if (isOverThreshold) {
               /** @type {?} */
-              var isDelayElapsed = Date.now() >= _this9._dragStartTime + _this9._getDragStartDelay(event);
+              var isDelayElapsed = Date.now() >= _this3._dragStartTime + _this3._getDragStartDelay(event);
 
               if (!isDelayElapsed) {
-                _this9._endDragSequence(event);
+                _this3._endDragSequence(event);
 
                 return;
               } // Prevent other drag sequences from starting while something in the container is still
@@ -2033,15 +930,15 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
               // and can cause errors, because some elements might still be moving around.
 
 
-              if (!_this9._dropContainer || !_this9._dropContainer.isDragging()) {
-                _this9._hasStartedDragging = true;
+              if (!_this3._dropContainer || !_this3._dropContainer.isDragging()) {
+                _this3._hasStartedDragging = true;
 
-                _this9._ngZone.run(
+                _this3._ngZone.run(
                 /**
                 * @return {?}
                 */
                 function () {
-                  return _this9._startDragSequence(event);
+                  return _this3._startDragSequence(event);
                 });
               }
             }
@@ -2050,56 +947,56 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
           } // We only need the preview dimensions if we have a boundary element.
 
 
-          if (_this9._boundaryElement) {
+          if (_this3._boundaryElement) {
             // Cache the preview element rect if we haven't cached it already or if
             // we cached it too early before the element dimensions were computed.
-            if (!_this9._previewRect || !_this9._previewRect.width && !_this9._previewRect.height) {
-              _this9._previewRect = (_this9._preview || _this9._rootElement).getBoundingClientRect();
+            if (!_this3._previewRect || !_this3._previewRect.width && !_this3._previewRect.height) {
+              _this3._previewRect = (_this3._preview || _this3._rootElement).getBoundingClientRect();
             }
           }
           /** @type {?} */
 
 
-          var constrainedPointerPosition = _this9._getConstrainedPointerPosition(pointerPosition);
+          var constrainedPointerPosition = _this3._getConstrainedPointerPosition(pointerPosition);
 
-          _this9._hasMoved = true;
+          _this3._hasMoved = true;
 
-          _this9._updatePointerDirectionDelta(constrainedPointerPosition);
+          _this3._updatePointerDirectionDelta(constrainedPointerPosition);
 
-          if (_this9._dropContainer) {
-            _this9._updateActiveDropContainer(constrainedPointerPosition);
+          if (_this3._dropContainer) {
+            _this3._updateActiveDropContainer(constrainedPointerPosition);
           } else {
             /** @type {?} */
-            var activeTransform = _this9._activeTransform;
-            activeTransform.x = constrainedPointerPosition.x - _this9._pickupPositionOnPage.x + _this9._passiveTransform.x;
-            activeTransform.y = constrainedPointerPosition.y - _this9._pickupPositionOnPage.y + _this9._passiveTransform.y;
+            var activeTransform = _this3._activeTransform;
+            activeTransform.x = constrainedPointerPosition.x - _this3._pickupPositionOnPage.x + _this3._passiveTransform.x;
+            activeTransform.y = constrainedPointerPosition.y - _this3._pickupPositionOnPage.y + _this3._passiveTransform.y;
 
-            _this9._applyRootElementTransform(activeTransform.x, activeTransform.y); // Apply transform as attribute if dragging and svg element to work for IE
+            _this3._applyRootElementTransform(activeTransform.x, activeTransform.y); // Apply transform as attribute if dragging and svg element to work for IE
 
 
-            if (typeof SVGElement !== 'undefined' && _this9._rootElement instanceof SVGElement) {
+            if (typeof SVGElement !== 'undefined' && _this3._rootElement instanceof SVGElement) {
               /** @type {?} */
               var appliedTransform = "translate(".concat(activeTransform.x, " ").concat(activeTransform.y, ")");
 
-              _this9._rootElement.setAttribute('transform', appliedTransform);
+              _this3._rootElement.setAttribute('transform', appliedTransform);
             }
           } // Since this event gets fired for every pixel while dragging, we only
           // want to fire it if the consumer opted into it. Also we have to
           // re-enter the zone because we run all of the events on the outside.
 
 
-          if (_this9._moveEvents.observers.length) {
-            _this9._ngZone.run(
+          if (_this3._moveEvents.observers.length) {
+            _this3._ngZone.run(
             /**
             * @return {?}
             */
             function () {
-              _this9._moveEvents.next({
-                source: _this9,
+              _this3._moveEvents.next({
+                source: _this3,
                 pointerPosition: constrainedPointerPosition,
                 event: event,
-                distance: _this9._getDragDistance(constrainedPointerPosition),
-                delta: _this9._pointerDirectionDelta
+                distance: _this3._getDragDistance(constrainedPointerPosition),
+                delta: _this3._pointerDirectionDelta
               });
             });
           }
@@ -2115,7 +1012,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         * @return {?}
         */
         function (event) {
-          _this9._endDragSequence(event);
+          _this3._endDragSequence(event);
         };
 
         this.withRootElement(element);
@@ -2249,7 +1146,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }, {
         key: "withRootElement",
         value: function withRootElement(rootElement) {
-          var _this10 = this;
+          var _this4 = this;
 
           /** @type {?} */
           var element = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_4__["coerceElement"])(rootElement);
@@ -2274,10 +1171,10 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
             function () {
               element.addEventListener('mousedown',
               /** @type {?} */
-              _this10._pointerDown, activeEventListenerOptions);
+              _this4._pointerDown, activeEventListenerOptions);
               element.addEventListener('touchstart',
               /** @type {?} */
-              _this10._pointerDown, passiveEventListenerOptions);
+              _this4._pointerDown, passiveEventListenerOptions);
             });
 
             /** @type {?} */
@@ -2303,7 +1200,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }, {
         key: "withBoundaryElement",
         value: function withBoundaryElement(boundaryElement) {
-          var _this11 = this;
+          var _this5 = this;
 
           /** @type {?} */
           this._boundaryElement = boundaryElement ? Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_4__["coerceElement"])(boundaryElement) : null;
@@ -2322,7 +1219,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
             function () {
               return (
                 /** @type {?} */
-                _this11._containInsideBoundaryOnResize()
+                _this5._containInsideBoundaryOnResize()
               );
             });
           }
@@ -2597,7 +1494,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }, {
         key: "_endDragSequence",
         value: function _endDragSequence(event) {
-          var _this12 = this;
+          var _this6 = this;
 
           // Note that here we use `isDragging` from the service, rather than from `this`.
           // The difference is that the one from the service reflects whether a dragging sequence
@@ -2634,11 +1531,11 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
             * @return {?}
             */
             function () {
-              _this12._cleanupDragArtifacts(event);
+              _this6._cleanupDragArtifacts(event);
 
-              _this12._cleanupCachedDimensions();
+              _this6._cleanupCachedDimensions();
 
-              _this12._dragDropRegistry.stopDragging(_this12);
+              _this6._dragDropRegistry.stopDragging(_this6);
             });
           } else {
             // Convert the active transform into a passive one. This means that next time
@@ -2652,9 +1549,9 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
             * @return {?}
             */
             function () {
-              _this12.ended.next({
-                source: _this12,
-                distance: _this12._getDragDistance(_this12._getPointerPositionOnPage(event))
+              _this6.ended.next({
+                source: _this6,
+                distance: _this6._getDragDistance(_this6._getPointerPositionOnPage(event))
               });
             });
 
@@ -2743,7 +1640,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }, {
         key: "_initializeDragSequence",
         value: function _initializeDragSequence(referenceElement, event) {
-          var _this13 = this;
+          var _this7 = this;
 
           // Always stop propagation for the event that initializes
           // the dragging sequence, in order to prevent it from potentially
@@ -2804,7 +1701,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
           * @return {?}
           */
           function (scrollEvent) {
-            _this13._updateOnScroll(scrollEvent);
+            _this7._updateOnScroll(scrollEvent);
           });
 
           if (this._boundaryElement) {
@@ -2847,7 +1744,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }, {
         key: "_cleanupDragArtifacts",
         value: function _cleanupDragArtifacts(event) {
-          var _this14 = this;
+          var _this8 = this;
 
           // Restore the element's visibility and insert it at its old position in the DOM.
           // It's important that we maintain the position, because moving the element around in the DOM
@@ -2872,39 +1769,39 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
             /** @type {?} */
             var container =
             /** @type {?} */
-            _this14._dropContainer;
+            _this8._dropContainer;
             /** @type {?} */
 
-            var currentIndex = container.getItemIndex(_this14);
+            var currentIndex = container.getItemIndex(_this8);
             /** @type {?} */
 
-            var pointerPosition = _this14._getPointerPositionOnPage(event);
+            var pointerPosition = _this8._getPointerPositionOnPage(event);
             /** @type {?} */
 
 
-            var distance = _this14._getDragDistance(_this14._getPointerPositionOnPage(event));
+            var distance = _this8._getDragDistance(_this8._getPointerPositionOnPage(event));
             /** @type {?} */
 
 
             var isPointerOverContainer = container._isOverContainer(pointerPosition.x, pointerPosition.y);
 
-            _this14.ended.next({
-              source: _this14,
+            _this8.ended.next({
+              source: _this8,
               distance: distance
             });
 
-            _this14.dropped.next({
-              item: _this14,
+            _this8.dropped.next({
+              item: _this8,
               currentIndex: currentIndex,
-              previousIndex: _this14._initialIndex,
+              previousIndex: _this8._initialIndex,
               container: container,
-              previousContainer: _this14._initialContainer,
+              previousContainer: _this8._initialContainer,
               isPointerOverContainer: isPointerOverContainer,
               distance: distance
             });
 
-            container.drop(_this14, currentIndex, _this14._initialContainer, isPointerOverContainer, distance, _this14._initialIndex);
-            _this14._dropContainer = _this14._initialContainer;
+            container.drop(_this8, currentIndex, _this8._initialContainer, isPointerOverContainer, distance, _this8._initialIndex);
+            _this8._dropContainer = _this8._initialContainer;
           });
         }
         /**
@@ -2918,7 +1815,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }, {
         key: "_updateActiveDropContainer",
         value: function _updateActiveDropContainer(_ref3) {
-          var _this15 = this;
+          var _this9 = this;
 
           var x = _ref3.x,
               y = _ref3.y;
@@ -2943,33 +1840,33 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
             */
             function () {
               // Notify the old container that the item has left.
-              _this15.exited.next({
-                item: _this15,
+              _this9.exited.next({
+                item: _this9,
                 container:
                 /** @type {?} */
-                _this15._dropContainer
+                _this9._dropContainer
               });
 
               /** @type {?} */
-              _this15._dropContainer.exit(_this15); // Notify the new container that the item has entered.
+              _this9._dropContainer.exit(_this9); // Notify the new container that the item has entered.
 
 
-              _this15._dropContainer =
+              _this9._dropContainer =
               /** @type {?} */
               newContainer;
 
-              _this15._dropContainer.enter(_this15, x, y, newContainer === _this15._initialContainer && // If we're re-entering the initial container and sorting is disabled,
+              _this9._dropContainer.enter(_this9, x, y, newContainer === _this9._initialContainer && // If we're re-entering the initial container and sorting is disabled,
               // put item the into its starting index to begin with.
-              newContainer.sortingDisabled ? _this15._initialIndex : undefined);
+              newContainer.sortingDisabled ? _this9._initialIndex : undefined);
 
-              _this15.entered.next({
-                item: _this15,
+              _this9.entered.next({
+                item: _this9,
                 container:
                 /** @type {?} */
                 newContainer,
                 currentIndex:
                 /** @type {?} */
-                newContainer.getItemIndex(_this15)
+                newContainer.getItemIndex(_this9)
               });
             });
           }
@@ -3072,7 +1969,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }, {
         key: "_animatePreviewToPlaceholder",
         value: function _animatePreviewToPlaceholder() {
-          var _this16 = this;
+          var _this10 = this;
 
           // If the user hasn't moved yet, the transitionend event won't fire.
           if (!this._hasMoved) {
@@ -3120,8 +2017,8 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
               * @return {?}
               */
               function handler(event) {
-                if (!event || event.target === _this16._preview && event.propertyName === 'transform') {
-                  _this16._preview.removeEventListener('transitionend', handler);
+                if (!event || event.target === _this10._preview && event.propertyName === 'transform') {
+                  _this10._preview.removeEventListener('transitionend', handler);
 
                   resolve();
                   clearTimeout(timeout);
@@ -3137,7 +2034,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
               /** @type {?} */
               handler, duration * 1.5);
 
-              _this16._preview.addEventListener('transitionend', handler);
+              _this10._preview.addEventListener('transitionend', handler);
             });
           });
         }
@@ -3918,7 +2815,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
        * @param {?} _viewportRuler
        */
       function DropListRef(element, _dragDropRegistry, _document, _ngZone, _viewportRuler) {
-        var _this17 = this;
+        var _this11 = this;
 
         _classCallCheck2(this, DropListRef);
 
@@ -4059,31 +2956,31 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         * @return {?}
         */
         function () {
-          _this17._stopScrolling();
+          _this11._stopScrolling();
 
-          Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["interval"])(0, rxjs__WEBPACK_IMPORTED_MODULE_5__["animationFrameScheduler"]).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["takeUntil"])(_this17._stopScrollTimers)).subscribe(
+          Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["interval"])(0, rxjs__WEBPACK_IMPORTED_MODULE_5__["animationFrameScheduler"]).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["takeUntil"])(_this11._stopScrollTimers)).subscribe(
           /**
           * @return {?}
           */
           function () {
             /** @type {?} */
-            var node = _this17._scrollNode;
+            var node = _this11._scrollNode;
 
-            if (_this17._verticalScrollDirection === 1
+            if (_this11._verticalScrollDirection === 1
             /* UP */
             ) {
                 incrementVerticalScroll(node, -AUTO_SCROLL_STEP);
-              } else if (_this17._verticalScrollDirection === 2
+              } else if (_this11._verticalScrollDirection === 2
             /* DOWN */
             ) {
                 incrementVerticalScroll(node, AUTO_SCROLL_STEP);
               }
 
-            if (_this17._horizontalScrollDirection === 1
+            if (_this11._horizontalScrollDirection === 1
             /* LEFT */
             ) {
                 incrementHorizontalScroll(node, -AUTO_SCROLL_STEP);
-              } else if (_this17._horizontalScrollDirection === 2
+              } else if (_this11._horizontalScrollDirection === 2
             /* RIGHT */
             ) {
                 incrementHorizontalScroll(node, AUTO_SCROLL_STEP);
@@ -4148,7 +3045,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }, {
         key: "start",
         value: function start() {
-          var _this18 = this;
+          var _this12 = this;
 
           /** @type {?} */
           var styles = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_4__["coerceElement"])(this.element).style;
@@ -4172,7 +3069,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
           * @return {?}
           */
           function (sibling) {
-            return sibling._startReceiving(_this18);
+            return sibling._startReceiving(_this12);
           });
 
           this._viewportScrollSubscription.unsubscribe();
@@ -4335,7 +3232,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }, {
         key: "withItems",
         value: function withItems(items) {
-          var _this19 = this;
+          var _this13 = this;
 
           /** @type {?} */
           var previousItems =
@@ -4352,7 +3249,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
           function (item) {
             return item._withDropContainer(
             /** @type {?} */
-            _this19);
+            _this13);
           });
 
           if (
@@ -4645,7 +3542,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }, {
         key: "_startScrollingIfNecessary",
         value: function _startScrollingIfNecessary(pointerX, pointerY) {
-          var _this20 = this;
+          var _this14 = this;
 
           if (this.autoScrollDisabled) {
             return;
@@ -4674,7 +3571,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
           function (position, element) {
             // We have special handling for the `document` below. Also this would be
             // nicer with a  for...of loop, but it requires changing a compiler flag.
-            if (element === _this20._document || !position.clientRect || scrollNode) {
+            if (element === _this14._document || !position.clientRect || scrollNode) {
               return;
             }
 
@@ -4804,7 +3701,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }, {
         key: "_reset",
         value: function _reset() {
-          var _this21 = this;
+          var _this15 = this;
 
           this._isDragging = false;
           /** @type {?} */
@@ -4834,7 +3731,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
           * @return {?}
           */
           function (sibling) {
-            return sibling._stopReceiving(_this21);
+            return sibling._stopReceiving(_this15);
           });
 
           this._activeDraggables = [];
@@ -4965,7 +3862,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }, {
         key: "_getItemIndexFromPointerPosition",
         value: function _getItemIndexFromPointerPosition(item, pointerX, pointerY, delta) {
-          var _this22 = this;
+          var _this16 = this;
 
           /** @type {?} */
           var isHorizontal = this._orientation === 'horizontal';
@@ -4991,7 +3888,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
               var direction = isHorizontal ? delta.x : delta.y; // If the user is still hovering over the same item as last time, and they didn't change
               // the direction in which they're dragging, we don't consider it a direction swap.
 
-              if (drag === _this22._previousSwap.drag && direction === _this22._previousSwap.delta) {
+              if (drag === _this16._previousSwap.drag && direction === _this16._previousSwap.delta) {
                 return false;
               }
             }
@@ -5130,7 +4027,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }, {
         key: "_listenToScrollEvents",
         value: function _listenToScrollEvents() {
-          var _this23 = this;
+          var _this17 = this;
 
           this._viewportScrollSubscription = this._dragDropRegistry.scroll.subscribe(
           /**
@@ -5138,16 +4035,16 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
           * @return {?}
           */
           function (event) {
-            if (_this23.isDragging()) {
+            if (_this17.isDragging()) {
               /** @type {?} */
-              var scrollDifference = _this23._parentPositions.handleScroll(event);
+              var scrollDifference = _this17._parentPositions.handleScroll(event);
 
               if (scrollDifference) {
                 // Since we know the amount that the user has scrolled we can shift all of the
                 // client rectangles ourselves. This is cheaper than re-measuring everything and
                 // we can avoid inconsistent behavior where we might be measuring the element before
                 // its position has changed.
-                _this23._itemPositions.forEach(
+                _this17._itemPositions.forEach(
                 /**
                 * @param {?} __0
                 * @return {?}
@@ -5159,7 +4056,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
                 // positions to be up-to-date before we re-sort the item.
 
 
-                _this23._itemPositions.forEach(
+                _this17._itemPositions.forEach(
                 /**
                 * @param {?} __0
                 * @return {?}
@@ -5167,15 +4064,15 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
                 function (_ref6) {
                   var drag = _ref6.drag;
 
-                  if (_this23._dragDropRegistry.isDragging(drag)) {
+                  if (_this17._dragDropRegistry.isDragging(drag)) {
                     // We need to re-sort the item manually, because the pointer move
                     // events won't be dispatched while the user is scrolling.
                     drag._sortFromLastPointerPosition();
                   }
                 });
               }
-            } else if (_this23.isReceiving()) {
-              _this23._cacheParentPositions();
+            } else if (_this17.isReceiving()) {
+              _this17._cacheParentPositions();
             }
           });
         }
@@ -5429,7 +4326,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
        * @param {?} _document
        */
       function DragDropRegistry(_ngZone, _document) {
-        var _this24 = this;
+        var _this18 = this;
 
         _classCallCheck2(this, DragDropRegistry);
 
@@ -5482,7 +4379,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         * @return {?}
         */
         function (event) {
-          if (_this24._activeDragInstances.size) {
+          if (_this18._activeDragInstances.size) {
             event.preventDefault();
           }
         };
@@ -5512,7 +4409,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }, {
         key: "registerDragItem",
         value: function registerDragItem(drag) {
-          var _this25 = this;
+          var _this19 = this;
 
           this._dragInstances.add(drag); // The `touchmove` event gets bound once, ahead of time, because WebKit
           // won't preventDefault on a dynamically-added `touchmove` listener.
@@ -5527,7 +4424,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
             function () {
               // The event handler has to be explicitly active,
               // because newer browsers make it passive by default.
-              _this25._document.addEventListener('touchmove', _this25._preventDefaultWhileDragging, activeCapturingEventOptions);
+              _this19._document.addEventListener('touchmove', _this19._preventDefaultWhileDragging, activeCapturingEventOptions);
             });
           }
         }
@@ -5569,7 +4466,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }, {
         key: "startDragging",
         value: function startDragging(drag, event) {
-          var _this26 = this;
+          var _this20 = this;
 
           // Do not process the same drag twice to avoid memory leaks and redundant listeners
           if (this._activeDragInstances.has(drag)) {
@@ -5598,7 +4495,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
               * @return {?}
               */
               function handler(e) {
-                return _this26.pointerMove.next(
+                return _this20.pointerMove.next(
                 /** @type {?} */
                 e);
               },
@@ -5610,7 +4507,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
               * @return {?}
               */
               function handler(e) {
-                return _this26.pointerUp.next(
+                return _this20.pointerUp.next(
                 /** @type {?} */
                 e);
               },
@@ -5622,7 +4519,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
               * @return {?}
               */
               function handler(e) {
-                return _this26.scroll.next(e);
+                return _this20.scroll.next(e);
               },
               // Use capturing so that we pick up scroll changes in any scrollable nodes that aren't
               // the document. See https://github.com/angular/components/issues/17144.
@@ -5641,14 +4538,14 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
             * @return {?}
             */
             function () {
-              _this26._globalListeners.forEach(
+              _this20._globalListeners.forEach(
               /**
               * @param {?} config
               * @param {?} name
               * @return {?}
               */
               function (config, name) {
-                _this26._document.addEventListener(name, config.handler, config.options);
+                _this20._document.addEventListener(name, config.handler, config.options);
               });
             });
           }
@@ -5686,7 +4583,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }, {
         key: "ngOnDestroy",
         value: function ngOnDestroy() {
-          var _this27 = this;
+          var _this21 = this;
 
           this._dragInstances.forEach(
           /**
@@ -5694,7 +4591,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
           * @return {?}
           */
           function (instance) {
-            return _this27.removeDragItem(instance);
+            return _this21.removeDragItem(instance);
           });
 
           this._dropInstances.forEach(
@@ -5703,7 +4600,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
           * @return {?}
           */
           function (instance) {
-            return _this27.removeDropContainer(instance);
+            return _this21.removeDropContainer(instance);
           });
 
           this._clearGlobalListeners();
@@ -5720,7 +4617,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }, {
         key: "_clearGlobalListeners",
         value: function _clearGlobalListeners() {
-          var _this28 = this;
+          var _this22 = this;
 
           this._globalListeners.forEach(
           /**
@@ -5729,7 +4626,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
           * @return {?}
           */
           function (config, name) {
-            _this28._document.removeEventListener(name, config.handler, config.options);
+            _this22._document.removeEventListener(name, config.handler, config.options);
           });
 
           this._globalListeners.clear();
@@ -6394,7 +5291,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
        * @param {?} _changeDetectorRef
        */
       function CdkDrag(element, dropContainer, _document, _ngZone, _viewContainerRef, config, _dir, dragDrop, _changeDetectorRef) {
-        var _this29 = this;
+        var _this23 = this;
 
         _classCallCheck2(this, CdkDrag);
 
@@ -6448,14 +5345,14 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         */
         function (observer) {
           /** @type {?} */
-          var subscription = _this29._dragRef.moved.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(
+          var subscription = _this23._dragRef.moved.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(
           /**
           * @param {?} movedEvent
           * @return {?}
           */
           function (movedEvent) {
             return {
-              source: _this29,
+              source: _this23,
               pointerPosition: movedEvent.pointerPosition,
               event: movedEvent.event,
               delta: movedEvent.delta,
@@ -6554,7 +5451,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }, {
         key: "ngAfterViewInit",
         value: function ngAfterViewInit() {
-          var _this30 = this;
+          var _this24 = this;
 
           // We need to wait for the zone to stabilize, in order for the reference
           // element to be in the proper place in the DOM. This is mostly relevant
@@ -6565,10 +5462,10 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
           * @return {?}
           */
           function () {
-            _this30._updateRootElement(); // Listen for any newly-added handles.
+            _this24._updateRootElement(); // Listen for any newly-added handles.
 
 
-            _this30._handles.changes.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["startWith"])(_this30._handles), // Sync the new handles with the DragRef.
+            _this24._handles.changes.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["startWith"])(_this24._handles), // Sync the new handles with the DragRef.
             Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["tap"])(
             /**
             * @param {?} handles
@@ -6582,7 +5479,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
               * @return {?}
               */
               function (handle) {
-                return handle._parentDrag === _this30;
+                return handle._parentDrag === _this24;
               }).map(
               /**
               * @param {?} handle
@@ -6592,7 +5489,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
                 return handle.element;
               });
 
-              _this30._dragRef.withHandles(childHandleElements);
+              _this24._dragRef.withHandles(childHandleElements);
             }), // Listen if the state of any of the handles changes.
             Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["switchMap"])(
             /**
@@ -6611,7 +5508,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
                   return item._stateChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["startWith"])(item));
                 })))
               );
-            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["takeUntil"])(_this30._destroyed)).subscribe(
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["takeUntil"])(_this24._destroyed)).subscribe(
             /**
             * @param {?} handleInstance
             * @return {?}
@@ -6620,15 +5517,15 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
               // Enabled/disable the handle that changed in the DragRef.
 
               /** @type {?} */
-              var dragRef = _this30._dragRef;
+              var dragRef = _this24._dragRef;
               /** @type {?} */
 
               var handle = handleInstance.element.nativeElement;
               handleInstance.disabled ? dragRef.disableHandle(handle) : dragRef.enableHandle(handle);
             });
 
-            if (_this30.freeDragPosition) {
-              _this30._dragRef.setFreeDragPosition(_this30.freeDragPosition);
+            if (_this24.freeDragPosition) {
+              _this24._dragRef.setFreeDragPosition(_this24.freeDragPosition);
             }
           });
         }
@@ -6734,7 +5631,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }, {
         key: "_syncInputs",
         value: function _syncInputs(ref) {
-          var _this31 = this;
+          var _this25 = this;
 
           ref.beforeStarted.subscribe(
           /**
@@ -6743,31 +5640,31 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
           function () {
             if (!ref.isDragging()) {
               /** @type {?} */
-              var dir = _this31._dir;
+              var dir = _this25._dir;
               /** @type {?} */
 
-              var dragStartDelay = _this31.dragStartDelay;
+              var dragStartDelay = _this25.dragStartDelay;
               /** @type {?} */
 
-              var placeholder = _this31._placeholderTemplate ? {
-                template: _this31._placeholderTemplate.templateRef,
-                context: _this31._placeholderTemplate.data,
-                viewContainer: _this31._viewContainerRef
+              var placeholder = _this25._placeholderTemplate ? {
+                template: _this25._placeholderTemplate.templateRef,
+                context: _this25._placeholderTemplate.data,
+                viewContainer: _this25._viewContainerRef
               } : null;
               /** @type {?} */
 
-              var preview = _this31._previewTemplate ? {
-                template: _this31._previewTemplate.templateRef,
-                context: _this31._previewTemplate.data,
-                matchSize: _this31._previewTemplate.matchSize,
-                viewContainer: _this31._viewContainerRef
+              var preview = _this25._previewTemplate ? {
+                template: _this25._previewTemplate.templateRef,
+                context: _this25._previewTemplate.data,
+                matchSize: _this25._previewTemplate.matchSize,
+                viewContainer: _this25._viewContainerRef
               } : null;
-              ref.disabled = _this31.disabled;
-              ref.lockAxis = _this31.lockAxis;
+              ref.disabled = _this25.disabled;
+              ref.lockAxis = _this25.lockAxis;
               ref.dragStartDelay = typeof dragStartDelay === 'object' && dragStartDelay ? dragStartDelay : Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_4__["coerceNumberProperty"])(dragStartDelay);
-              ref.constrainPosition = _this31.constrainPosition;
-              ref.previewClass = _this31.previewClass;
-              ref.withBoundaryElement(_this31._getBoundaryElement()).withPlaceholderTemplate(placeholder).withPreviewTemplate(preview);
+              ref.constrainPosition = _this25.constrainPosition;
+              ref.previewClass = _this25.previewClass;
+              ref.withBoundaryElement(_this25._getBoundaryElement()).withPlaceholderTemplate(placeholder).withPreviewTemplate(preview);
 
               if (dir) {
                 ref.withDirection(dir.value);
@@ -6785,28 +5682,28 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }, {
         key: "_handleEvents",
         value: function _handleEvents(ref) {
-          var _this32 = this;
+          var _this26 = this;
 
           ref.started.subscribe(
           /**
           * @return {?}
           */
           function () {
-            _this32.started.emit({
-              source: _this32
+            _this26.started.emit({
+              source: _this26
             }); // Since all of these events run outside of change detection,
             // we need to ensure that everything is marked correctly.
 
 
-            _this32._changeDetectorRef.markForCheck();
+            _this26._changeDetectorRef.markForCheck();
           });
           ref.released.subscribe(
           /**
           * @return {?}
           */
           function () {
-            _this32.released.emit({
-              source: _this32
+            _this26.released.emit({
+              source: _this26
             });
           });
           ref.ended.subscribe(
@@ -6815,14 +5712,14 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
           * @return {?}
           */
           function (event) {
-            _this32.ended.emit({
-              source: _this32,
+            _this26.ended.emit({
+              source: _this26,
               distance: event.distance
             }); // Since all of these events run outside of change detection,
             // we need to ensure that everything is marked correctly.
 
 
-            _this32._changeDetectorRef.markForCheck();
+            _this26._changeDetectorRef.markForCheck();
           });
           ref.entered.subscribe(
           /**
@@ -6830,9 +5727,9 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
           * @return {?}
           */
           function (event) {
-            _this32.entered.emit({
+            _this26.entered.emit({
               container: event.container.data,
-              item: _this32,
+              item: _this26,
               currentIndex: event.currentIndex
             });
           });
@@ -6842,9 +5739,9 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
           * @return {?}
           */
           function (event) {
-            _this32.exited.emit({
+            _this26.exited.emit({
               container: event.container.data,
-              item: _this32
+              item: _this26
             });
           });
           ref.dropped.subscribe(
@@ -6853,13 +5750,13 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
           * @return {?}
           */
           function (event) {
-            _this32.dropped.emit({
+            _this26.dropped.emit({
               previousIndex: event.previousIndex,
               currentIndex: event.currentIndex,
               previousContainer: event.previousContainer.data,
               container: event.container.data,
               isPointerOverContainer: event.isPointerOverContainer,
-              item: _this32,
+              item: _this26,
               distance: event.distance
             });
           });
@@ -7413,7 +6310,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
        * @param {?=} config
        */
       function CdkDropList(element, dragDrop, _changeDetectorRef, _dir, _group, _scrollDispatcher, config) {
-        var _this33 = this;
+        var _this27 = this;
 
         _classCallCheck2(this, CdkDropList);
 
@@ -7497,7 +6394,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         * @return {?}
         */
         function (drag, drop) {
-          return _this33.enterPredicate(drag.data, drop.data);
+          return _this27.enterPredicate(drag.data, drop.data);
         };
 
         this._setupInputSyncSubscription(this._dropListRef);
@@ -7680,7 +6577,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }, {
         key: "_setupInputSyncSubscription",
         value: function _setupInputSyncSubscription(ref) {
-          var _this34 = this;
+          var _this28 = this;
 
           if (this._dir) {
             this._dir.change.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["startWith"])(this._dir.value), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["takeUntil"])(this._destroyed)).subscribe(
@@ -7699,7 +6596,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
           */
           function () {
             /** @type {?} */
-            var siblings = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_4__["coerceArray"])(_this34.connectedTo).map(
+            var siblings = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_4__["coerceArray"])(_this28.connectedTo).map(
             /**
             * @param {?} drop
             * @return {?}
@@ -7717,8 +6614,8 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
               }) : drop;
             });
 
-            if (_this34._group) {
-              _this34._group._items.forEach(
+            if (_this28._group) {
+              _this28._group._items.forEach(
               /**
               * @param {?} drop
               * @return {?}
@@ -7733,9 +6630,9 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
             // @breaking-change 11.0.0 Remove null check for _scrollDispatcher once it's required.
 
 
-            if (!_this34._scrollableParentsResolved && _this34._scrollDispatcher) {
+            if (!_this28._scrollableParentsResolved && _this28._scrollDispatcher) {
               /** @type {?} */
-              var scrollableParents = _this34._scrollDispatcher.getAncestorScrollContainers(_this34.element).map(
+              var scrollableParents = _this28._scrollDispatcher.getAncestorScrollContainers(_this28.element).map(
               /**
               * @param {?} scrollable
               * @return {?}
@@ -7744,24 +6641,24 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
                 return scrollable.getElementRef().nativeElement;
               });
 
-              _this34._dropListRef.withScrollableParents(scrollableParents); // Only do this once since it involves traversing the DOM and the parents
+              _this28._dropListRef.withScrollableParents(scrollableParents); // Only do this once since it involves traversing the DOM and the parents
               // shouldn't be able to change without the drop list being destroyed.
 
 
-              _this34._scrollableParentsResolved = true;
+              _this28._scrollableParentsResolved = true;
             }
 
-            ref.disabled = _this34.disabled;
-            ref.lockAxis = _this34.lockAxis;
-            ref.sortingDisabled = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_4__["coerceBooleanProperty"])(_this34.sortingDisabled);
-            ref.autoScrollDisabled = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_4__["coerceBooleanProperty"])(_this34.autoScrollDisabled);
+            ref.disabled = _this28.disabled;
+            ref.lockAxis = _this28.lockAxis;
+            ref.sortingDisabled = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_4__["coerceBooleanProperty"])(_this28.sortingDisabled);
+            ref.autoScrollDisabled = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_4__["coerceBooleanProperty"])(_this28.autoScrollDisabled);
             ref.connectedTo(siblings.filter(
             /**
             * @param {?} drop
             * @return {?}
             */
             function (drop) {
-              return drop && drop !== _this34;
+              return drop && drop !== _this28;
             }).map(
             /**
             * @param {?} list
@@ -7769,7 +6666,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
             */
             function (list) {
               return list._dropListRef;
-            })).withOrientation(_this34.orientation);
+            })).withOrientation(_this28.orientation);
           });
         }
         /**
@@ -7782,16 +6679,16 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }, {
         key: "_handleEvents",
         value: function _handleEvents(ref) {
-          var _this35 = this;
+          var _this29 = this;
 
           ref.beforeStarted.subscribe(
           /**
           * @return {?}
           */
           function () {
-            _this35._syncItemsWithRef();
+            _this29._syncItemsWithRef();
 
-            _this35._changeDetectorRef.markForCheck();
+            _this29._changeDetectorRef.markForCheck();
           });
           ref.entered.subscribe(
           /**
@@ -7799,8 +6696,8 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
           * @return {?}
           */
           function (event) {
-            _this35.entered.emit({
-              container: _this35,
+            _this29.entered.emit({
+              container: _this29,
               item: event.item.data,
               currentIndex: event.currentIndex
             });
@@ -7811,12 +6708,12 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
           * @return {?}
           */
           function (event) {
-            _this35.exited.emit({
-              container: _this35,
+            _this29.exited.emit({
+              container: _this29,
               item: event.item.data
             });
 
-            _this35._changeDetectorRef.markForCheck();
+            _this29._changeDetectorRef.markForCheck();
           });
           ref.sorted.subscribe(
           /**
@@ -7824,10 +6721,10 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
           * @return {?}
           */
           function (event) {
-            _this35.sorted.emit({
+            _this29.sorted.emit({
               previousIndex: event.previousIndex,
               currentIndex: event.currentIndex,
-              container: _this35,
+              container: _this29,
               item: event.item.data
             });
           });
@@ -7837,7 +6734,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
           * @return {?}
           */
           function (event) {
-            _this35.dropped.emit({
+            _this29.dropped.emit({
               previousIndex: event.previousIndex,
               currentIndex: event.currentIndex,
               previousContainer: event.previousContainer.data,
@@ -7849,7 +6746,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
             // detection and we're not guaranteed for something else to have triggered it.
 
 
-            _this35._changeDetectorRef.markForCheck();
+            _this29._changeDetectorRef.markForCheck();
           });
         }
         /**
@@ -8222,3928 +7119,6 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
   },
 
   /***/
-  "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/platform.js":
-  /*!*********************************************************************!*\
-    !*** ./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/platform.js ***!
-    \*********************************************************************/
-
-  /*! exports provided: Platform, PlatformModule, _getShadowRoot, _supportsShadowDom, getRtlScrollAxisType, getSupportedInputTypes, normalizePassiveListenerOptions, supportsPassiveEventListeners, supportsScrollBehavior */
-
-  /***/
-  function node_modulesAngularCdk__ivy_ngcc__Fesm2015PlatformJs(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "Platform", function () {
-      return Platform;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "PlatformModule", function () {
-      return PlatformModule;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "_getShadowRoot", function () {
-      return _getShadowRoot;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "_supportsShadowDom", function () {
-      return _supportsShadowDom;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "getRtlScrollAxisType", function () {
-      return getRtlScrollAxisType;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "getSupportedInputTypes", function () {
-      return getSupportedInputTypes;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "normalizePassiveListenerOptions", function () {
-      return normalizePassiveListenerOptions;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "supportsPassiveEventListeners", function () {
-      return supportsPassiveEventListeners;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "supportsScrollBehavior", function () {
-      return supportsScrollBehavior;
-    });
-    /* harmony import */
-
-
-    var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! @angular/core */
-    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-    /* harmony import */
-
-
-    var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! @angular/common */
-    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: src/cdk/platform/platform.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-    // Whether the current platform supports the V8 Break Iterator. The V8 check
-    // is necessary to detect all Blink based browsers.
-
-    /** @type {?} */
-
-
-    var hasV8BreakIterator; // We need a try/catch around the reference to `Intl`, because accessing it in some cases can
-    // cause IE to throw. These cases are tied to particular versions of Windows and can happen if
-    // the consumer is providing a polyfilled `Map`. See:
-    // https://github.com/Microsoft/ChakraCore/issues/3189
-    // https://github.com/angular/components/issues/15687
-
-    try {
-      hasV8BreakIterator = typeof Intl !== 'undefined' &&
-      /** @type {?} */
-      Intl.v8BreakIterator;
-    } catch (_a) {
-      hasV8BreakIterator = false;
-    }
-    /**
-     * Service to detect the current platform by comparing the userAgent strings and
-     * checking browser-specific global properties.
-     */
-
-
-    var Platform =
-    /**
-     * \@breaking-change 8.0.0 remove optional decorator
-     * @param {?=} _platformId
-     */
-    function Platform(_platformId) {
-      _classCallCheck2(this, Platform);
-
-      this._platformId = _platformId; // We want to use the Angular platform check because if the Document is shimmed
-      // without the navigator, the following checks will fail. This is preferred because
-      // sometimes the Document may be shimmed without the user's knowledge or intention
-
-      /**
-       * Whether the Angular application is being rendered in the browser.
-       */
-
-      this.isBrowser = this._platformId ? Object(_angular_common__WEBPACK_IMPORTED_MODULE_1__["isPlatformBrowser"])(this._platformId) : typeof document === 'object' && !!document;
-      /**
-       * Whether the current browser is Microsoft Edge.
-       */
-
-      this.EDGE = this.isBrowser && /(edge)/i.test(navigator.userAgent);
-      /**
-       * Whether the current rendering engine is Microsoft Trident.
-       */
-
-      this.TRIDENT = this.isBrowser && /(msie|trident)/i.test(navigator.userAgent); // EdgeHTML and Trident mock Blink specific things and need to be excluded from this check.
-
-      /**
-       * Whether the current rendering engine is Blink.
-       */
-
-      this.BLINK = this.isBrowser && !!(
-      /** @type {?} */
-      window.chrome || hasV8BreakIterator) && typeof CSS !== 'undefined' && !this.EDGE && !this.TRIDENT; // Webkit is part of the userAgent in EdgeHTML, Blink and Trident. Therefore we need to
-      // ensure that Webkit runs standalone and is not used as another engine's base.
-
-      /**
-       * Whether the current rendering engine is WebKit.
-       */
-
-      this.WEBKIT = this.isBrowser && /AppleWebKit/i.test(navigator.userAgent) && !this.BLINK && !this.EDGE && !this.TRIDENT;
-      /**
-       * Whether the current platform is Apple iOS.
-       */
-
-      this.IOS = this.isBrowser && /iPad|iPhone|iPod/.test(navigator.userAgent) && !('MSStream' in window); // It's difficult to detect the plain Gecko engine, because most of the browsers identify
-      // them self as Gecko-like browsers and modify the userAgent's according to that.
-      // Since we only cover one explicit Firefox case, we can simply check for Firefox
-      // instead of having an unstable check for Gecko.
-
-      /**
-       * Whether the current browser is Firefox.
-       */
-
-      this.FIREFOX = this.isBrowser && /(firefox|minefield)/i.test(navigator.userAgent);
-      /**
-       * Whether the current platform is Android.
-       */
-      // Trident on mobile adds the android platform to the userAgent to trick detections.
-
-      this.ANDROID = this.isBrowser && /android/i.test(navigator.userAgent) && !this.TRIDENT; // Safari browsers will include the Safari keyword in their userAgent. Some browsers may fake
-      // this and just place the Safari keyword in the userAgent. To be more safe about Safari every
-      // Safari browser should also use Webkit as its layout engine.
-
-      /**
-       * Whether the current browser is Safari.
-       */
-
-      this.SAFARI = this.isBrowser && /safari/i.test(navigator.userAgent) && this.WEBKIT;
-    };
-
-    Platform.ɵfac = function Platform_Factory(t) {
-      return new (t || Platform)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["PLATFORM_ID"], 8));
-    };
-    /** @nocollapse */
-
-
-    Platform.ctorParameters = function () {
-      return [{
-        type: Object,
-        decorators: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Optional"]
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"],
-          args: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["PLATFORM_ID"]]
-        }]
-      }];
-    };
-    /** @nocollapse */
-
-
-    Platform.ɵprov = Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"])({
-      factory: function Platform_Factory() {
-        return new Platform(Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"])(_angular_core__WEBPACK_IMPORTED_MODULE_0__["PLATFORM_ID"], 8));
-      },
-      token: Platform,
-      providedIn: "root"
-    });
-    /*@__PURE__*/
-
-    (function () {
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](Platform, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
-        args: [{
-          providedIn: 'root'
-        }]
-      }], function () {
-        return [{
-          type: Object,
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Optional"]
-          }, {
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"],
-            args: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["PLATFORM_ID"]]
-          }]
-        }];
-      }, null);
-    })();
-
-    if (false) {}
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: src/cdk/platform/platform-module.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-
-    var PlatformModule = function PlatformModule() {
-      _classCallCheck2(this, PlatformModule);
-    };
-
-    PlatformModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
-      type: PlatformModule
-    });
-    PlatformModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({
-      factory: function PlatformModule_Factory(t) {
-        return new (t || PlatformModule)();
-      }
-    });
-    /*@__PURE__*/
-
-    (function () {
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](PlatformModule, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
-        args: [{}]
-      }], null, null);
-    })();
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: src/cdk/platform/features/input-types.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    /**
-     * @license
-     * Copyright Google LLC All Rights Reserved.
-     *
-     * Use of this source code is governed by an MIT-style license that can be
-     * found in the LICENSE file at https://angular.io/license
-     */
-
-    /**
-     * Cached result Set of input types support by the current browser.
-     * @type {?}
-     */
-
-
-    var supportedInputTypes;
-    /**
-     * Types of `<input>` that *might* be supported.
-     * @type {?}
-     */
-
-    var candidateInputTypes = [// `color` must come first. Chrome 56 shows a warning if we change the type to `color` after
-    // first changing it to something else:
-    // The specified value "" does not conform to the required format.
-    // The format is "#rrggbb" where rr, gg, bb are two-digit hexadecimal numbers.
-    'color', 'button', 'checkbox', 'date', 'datetime-local', 'email', 'file', 'hidden', 'image', 'month', 'number', 'password', 'radio', 'range', 'reset', 'search', 'submit', 'tel', 'text', 'time', 'url', 'week'];
-    /**
-     * @return {?} The input types supported by this browser.
-     */
-
-    function getSupportedInputTypes() {
-      // Result is cached.
-      if (supportedInputTypes) {
-        return supportedInputTypes;
-      } // We can't check if an input type is not supported until we're on the browser, so say that
-      // everything is supported when not on the browser. We don't use `Platform` here since it's
-      // just a helper function and can't inject it.
-
-
-      if (typeof document !== 'object' || !document) {
-        supportedInputTypes = new Set(candidateInputTypes);
-        return supportedInputTypes;
-      }
-      /** @type {?} */
-
-
-      var featureTestInput = document.createElement('input');
-      supportedInputTypes = new Set(candidateInputTypes.filter(
-      /**
-      * @param {?} value
-      * @return {?}
-      */
-      function (value) {
-        featureTestInput.setAttribute('type', value);
-        return featureTestInput.type === value;
-      }));
-      return supportedInputTypes;
-    }
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: src/cdk/platform/features/passive-listeners.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    /**
-     * @license
-     * Copyright Google LLC All Rights Reserved.
-     *
-     * Use of this source code is governed by an MIT-style license that can be
-     * found in the LICENSE file at https://angular.io/license
-     */
-
-    /**
-     * Cached result of whether the user's browser supports passive event listeners.
-     * @type {?}
-     */
-
-
-    var supportsPassiveEvents;
-    /**
-     * Checks whether the user's browser supports passive event listeners.
-     * See: https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md
-     * @return {?}
-     */
-
-    function supportsPassiveEventListeners() {
-      if (supportsPassiveEvents == null && typeof window !== 'undefined') {
-        try {
-          window.addEventListener('test',
-          /** @type {?} */
-          null, Object.defineProperty({}, 'passive', {
-            get:
-            /**
-            * @return {?}
-            */
-            function get() {
-              return supportsPassiveEvents = true;
-            }
-          }));
-        } finally {
-          supportsPassiveEvents = supportsPassiveEvents || false;
-        }
-      }
-
-      return supportsPassiveEvents;
-    }
-    /**
-     * Normalizes an `AddEventListener` object to something that can be passed
-     * to `addEventListener` on any browser, no matter whether it supports the
-     * `options` parameter.
-     * @param {?} options Object to be normalized.
-     * @return {?}
-     */
-
-
-    function normalizePassiveListenerOptions(options) {
-      return supportsPassiveEventListeners() ? options : !!options.capture;
-    }
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: src/cdk/platform/features/scrolling.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    /**
-     * @license
-     * Copyright Google LLC All Rights Reserved.
-     *
-     * Use of this source code is governed by an MIT-style license that can be
-     * found in the LICENSE file at https://angular.io/license
-     */
-
-    /** @enum {number} */
-
-
-    var RtlScrollAxisType = {
-      /**
-       * scrollLeft is 0 when scrolled all the way left and (scrollWidth - clientWidth) when scrolled
-       * all the way right.
-       */
-      NORMAL: 0,
-
-      /**
-       * scrollLeft is -(scrollWidth - clientWidth) when scrolled all the way left and 0 when scrolled
-       * all the way right.
-       */
-      NEGATED: 1,
-
-      /**
-       * scrollLeft is (scrollWidth - clientWidth) when scrolled all the way left and 0 when scrolled
-       * all the way right.
-       */
-      INVERTED: 2
-    };
-    /**
-     * Cached result of the way the browser handles the horizontal scroll axis in RTL mode.
-     * @type {?}
-     */
-
-    var rtlScrollAxisType;
-    /**
-     * Check whether the browser supports scroll behaviors.
-     * @return {?}
-     */
-
-    function supportsScrollBehavior() {
-      return !!(typeof document == 'object' && 'scrollBehavior' in
-      /** @type {?} */
-      document.documentElement.style);
-    }
-    /**
-     * Checks the type of RTL scroll axis used by this browser. As of time of writing, Chrome is NORMAL,
-     * Firefox & Safari are NEGATED, and IE & Edge are INVERTED.
-     * @return {?}
-     */
-
-
-    function getRtlScrollAxisType() {
-      // We can't check unless we're on the browser. Just assume 'normal' if we're not.
-      if (typeof document !== 'object' || !document) {
-        return 0
-        /* NORMAL */
-        ;
-      }
-
-      if (rtlScrollAxisType == null) {
-        // Create a 1px wide scrolling container and a 2px wide content element.
-
-        /** @type {?} */
-        var scrollContainer = document.createElement('div');
-        /** @type {?} */
-
-        var containerStyle = scrollContainer.style;
-        scrollContainer.dir = 'rtl';
-        containerStyle.height = '1px';
-        containerStyle.width = '1px';
-        containerStyle.overflow = 'auto';
-        containerStyle.visibility = 'hidden';
-        containerStyle.pointerEvents = 'none';
-        containerStyle.position = 'absolute';
-        /** @type {?} */
-
-        var content = document.createElement('div');
-        /** @type {?} */
-
-        var contentStyle = content.style;
-        contentStyle.width = '2px';
-        contentStyle.height = '1px';
-        scrollContainer.appendChild(content);
-        document.body.appendChild(scrollContainer);
-        rtlScrollAxisType = 0
-        /* NORMAL */
-        ; // The viewport starts scrolled all the way to the right in RTL mode. If we are in a NORMAL
-        // browser this would mean that the scrollLeft should be 1. If it's zero instead we know we're
-        // dealing with one of the other two types of browsers.
-
-        if (scrollContainer.scrollLeft === 0) {
-          // In a NEGATED browser the scrollLeft is always somewhere in [-maxScrollAmount, 0]. For an
-          // INVERTED browser it is always somewhere in [0, maxScrollAmount]. We can determine which by
-          // setting to the scrollLeft to 1. This is past the max for a NEGATED browser, so it will
-          // return 0 when we read it again.
-          scrollContainer.scrollLeft = 1;
-          rtlScrollAxisType = scrollContainer.scrollLeft === 0 ? 1
-          /* NEGATED */
-          : 2
-          /* INVERTED */
-          ;
-        }
-
-        /** @type {?} */
-        scrollContainer.parentNode.removeChild(scrollContainer);
-      }
-
-      return rtlScrollAxisType;
-    }
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: src/cdk/platform/features/shadow-dom.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    /**
-     * @license
-     * Copyright Google LLC All Rights Reserved.
-     *
-     * Use of this source code is governed by an MIT-style license that can be
-     * found in the LICENSE file at https://angular.io/license
-     */
-
-    /** @type {?} */
-
-
-    var shadowDomIsSupported;
-    /**
-     * Checks whether the user's browser support Shadow DOM.
-     * @return {?}
-     */
-
-    function _supportsShadowDom() {
-      if (shadowDomIsSupported == null) {
-        /** @type {?} */
-        var head = typeof document !== 'undefined' ? document.head : null;
-        shadowDomIsSupported = !!(head && (
-        /** @type {?} */
-        head.createShadowRoot || head.attachShadow));
-      }
-
-      return shadowDomIsSupported;
-    }
-    /**
-     * Gets the shadow root of an element, if supported and the element is inside the Shadow DOM.
-     * @param {?} element
-     * @return {?}
-     */
-
-
-    function _getShadowRoot(element) {
-      if (_supportsShadowDom()) {
-        /** @type {?} */
-        var rootNode = element.getRootNode ? element.getRootNode() : null; // Note that this should be caught by `_supportsShadowDom`, but some
-        // teams have been able to hit this code path on unsupported browsers.
-
-        if (typeof ShadowRoot !== 'undefined' && ShadowRoot && rootNode instanceof ShadowRoot) {
-          return rootNode;
-        }
-      }
-
-      return null;
-    }
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: src/cdk/platform/public-api.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    /**
-     * Generated bundle index. Do not edit.
-     */
-    //# sourceMappingURL=platform.js.map
-
-    /***/
-
-  },
-
-  /***/
-  "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/scrolling.js":
-  /*!**********************************************************************!*\
-    !*** ./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/scrolling.js ***!
-    \**********************************************************************/
-
-  /*! exports provided: CdkFixedSizeVirtualScroll, CdkScrollable, CdkScrollableModule, CdkVirtualForOf, CdkVirtualScrollViewport, DEFAULT_RESIZE_TIME, DEFAULT_SCROLL_TIME, FixedSizeVirtualScrollStrategy, ScrollDispatcher, ScrollingModule, VIRTUAL_SCROLL_STRATEGY, ViewportRuler, _fixedSizeVirtualScrollStrategyFactory */
-
-  /***/
-  function node_modulesAngularCdk__ivy_ngcc__Fesm2015ScrollingJs(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "CdkFixedSizeVirtualScroll", function () {
-      return CdkFixedSizeVirtualScroll;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "CdkScrollable", function () {
-      return CdkScrollable;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "CdkScrollableModule", function () {
-      return CdkScrollableModule;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "CdkVirtualForOf", function () {
-      return CdkVirtualForOf;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "CdkVirtualScrollViewport", function () {
-      return CdkVirtualScrollViewport;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "DEFAULT_RESIZE_TIME", function () {
-      return DEFAULT_RESIZE_TIME;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "DEFAULT_SCROLL_TIME", function () {
-      return DEFAULT_SCROLL_TIME;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "FixedSizeVirtualScrollStrategy", function () {
-      return FixedSizeVirtualScrollStrategy;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "ScrollDispatcher", function () {
-      return ScrollDispatcher;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "ScrollingModule", function () {
-      return ScrollingModule;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "VIRTUAL_SCROLL_STRATEGY", function () {
-      return VIRTUAL_SCROLL_STRATEGY;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "ViewportRuler", function () {
-      return ViewportRuler;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "_fixedSizeVirtualScrollStrategyFactory", function () {
-      return _fixedSizeVirtualScrollStrategyFactory;
-    });
-    /* harmony import */
-
-
-    var _angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! @angular/cdk/coercion */
-    "./node_modules/@angular/cdk/fesm2015/coercion.js");
-    /* harmony import */
-
-
-    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! @angular/core */
-    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-    /* harmony import */
-
-
-    var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! rxjs */
-    "./node_modules/rxjs/_esm2015/index.js");
-    /* harmony import */
-
-
-    var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! rxjs/operators */
-    "./node_modules/rxjs/_esm2015/operators/index.js");
-    /* harmony import */
-
-
-    var _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! @angular/cdk/platform */
-    "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/platform.js");
-    /* harmony import */
-
-
-    var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! @angular/common */
-    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
-    /* harmony import */
-
-
-    var _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! @angular/cdk/bidi */
-    "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/bidi.js");
-    /* harmony import */
-
-
-    var _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-    /*! @angular/cdk/collections */
-    "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/collections.js");
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: src/cdk/scrolling/virtual-scroll-strategy.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    /**
-     * The injection token used to specify the virtual scrolling strategy.
-     * @type {?}
-     */
-
-
-    var _c0 = ["contentWrapper"];
-    var _c1 = ["*"];
-    var VIRTUAL_SCROLL_STRATEGY = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]('VIRTUAL_SCROLL_STRATEGY');
-    /**
-     * A strategy that dictates which items should be rendered in the viewport.
-     * @record
-     */
-
-    function VirtualScrollStrategy() {}
-
-    if (false) {}
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: src/cdk/scrolling/fixed-size-virtual-scroll.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    /**
-     * Virtual scrolling strategy for lists with items of known fixed size.
-     */
-
-
-    var FixedSizeVirtualScrollStrategy =
-    /*#__PURE__*/
-    function () {
-      /**
-       * @param {?} itemSize The size of the items in the virtually scrolling list.
-       * @param {?} minBufferPx The minimum amount of buffer (in pixels) before needing to render more
-       * @param {?} maxBufferPx The amount of buffer (in pixels) to render when rendering more.
-       */
-      function FixedSizeVirtualScrollStrategy(itemSize, minBufferPx, maxBufferPx) {
-        _classCallCheck2(this, FixedSizeVirtualScrollStrategy);
-
-        this._scrolledIndexChange = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
-        /**
-         * \@docs-private Implemented as part of VirtualScrollStrategy.
-         */
-
-        this.scrolledIndexChange = this._scrolledIndexChange.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["distinctUntilChanged"])());
-        /**
-         * The attached viewport.
-         */
-
-        this._viewport = null;
-        this._itemSize = itemSize;
-        this._minBufferPx = minBufferPx;
-        this._maxBufferPx = maxBufferPx;
-      }
-      /**
-       * Attaches this scroll strategy to a viewport.
-       * @param {?} viewport The viewport to attach this strategy to.
-       * @return {?}
-       */
-
-
-      _createClass2(FixedSizeVirtualScrollStrategy, [{
-        key: "attach",
-        value: function attach(viewport) {
-          this._viewport = viewport;
-
-          this._updateTotalContentSize();
-
-          this._updateRenderedRange();
-        }
-        /**
-         * Detaches this scroll strategy from the currently attached viewport.
-         * @return {?}
-         */
-
-      }, {
-        key: "detach",
-        value: function detach() {
-          this._scrolledIndexChange.complete();
-
-          this._viewport = null;
-        }
-        /**
-         * Update the item size and buffer size.
-         * @param {?} itemSize The size of the items in the virtually scrolling list.
-         * @param {?} minBufferPx The minimum amount of buffer (in pixels) before needing to render more
-         * @param {?} maxBufferPx The amount of buffer (in pixels) to render when rendering more.
-         * @return {?}
-         */
-
-      }, {
-        key: "updateItemAndBufferSize",
-        value: function updateItemAndBufferSize(itemSize, minBufferPx, maxBufferPx) {
-          if (maxBufferPx < minBufferPx) {
-            throw Error('CDK virtual scroll: maxBufferPx must be greater than or equal to minBufferPx');
-          }
-
-          this._itemSize = itemSize;
-          this._minBufferPx = minBufferPx;
-          this._maxBufferPx = maxBufferPx;
-
-          this._updateTotalContentSize();
-
-          this._updateRenderedRange();
-        }
-        /**
-         * \@docs-private Implemented as part of VirtualScrollStrategy.
-         * @return {?}
-         */
-
-      }, {
-        key: "onContentScrolled",
-        value: function onContentScrolled() {
-          this._updateRenderedRange();
-        }
-        /**
-         * \@docs-private Implemented as part of VirtualScrollStrategy.
-         * @return {?}
-         */
-
-      }, {
-        key: "onDataLengthChanged",
-        value: function onDataLengthChanged() {
-          this._updateTotalContentSize();
-
-          this._updateRenderedRange();
-        }
-        /**
-         * \@docs-private Implemented as part of VirtualScrollStrategy.
-         * @return {?}
-         */
-
-      }, {
-        key: "onContentRendered",
-        value: function onContentRendered() {}
-        /**
-         * \@docs-private Implemented as part of VirtualScrollStrategy.
-         * @return {?}
-         */
-
-      }, {
-        key: "onRenderedOffsetChanged",
-        value: function onRenderedOffsetChanged() {}
-        /**
-         * Scroll to the offset for the given index.
-         * @param {?} index The index of the element to scroll to.
-         * @param {?} behavior The ScrollBehavior to use when scrolling.
-         * @return {?}
-         */
-
-      }, {
-        key: "scrollToIndex",
-        value: function scrollToIndex(index, behavior) {
-          if (this._viewport) {
-            this._viewport.scrollToOffset(index * this._itemSize, behavior);
-          }
-        }
-        /**
-         * Update the viewport's total content size.
-         * @private
-         * @return {?}
-         */
-
-      }, {
-        key: "_updateTotalContentSize",
-        value: function _updateTotalContentSize() {
-          if (!this._viewport) {
-            return;
-          }
-
-          this._viewport.setTotalContentSize(this._viewport.getDataLength() * this._itemSize);
-        }
-        /**
-         * Update the viewport's rendered range.
-         * @private
-         * @return {?}
-         */
-
-      }, {
-        key: "_updateRenderedRange",
-        value: function _updateRenderedRange() {
-          if (!this._viewport) {
-            return;
-          }
-          /** @type {?} */
-
-
-          var scrollOffset = this._viewport.measureScrollOffset();
-          /** @type {?} */
-
-
-          var firstVisibleIndex = scrollOffset / this._itemSize;
-          /** @type {?} */
-
-          var renderedRange = this._viewport.getRenderedRange();
-          /** @type {?} */
-
-
-          var newRange = {
-            start: renderedRange.start,
-            end: renderedRange.end
-          };
-          /** @type {?} */
-
-          var viewportSize = this._viewport.getViewportSize();
-          /** @type {?} */
-
-
-          var dataLength = this._viewport.getDataLength();
-          /** @type {?} */
-
-
-          var startBuffer = scrollOffset - newRange.start * this._itemSize;
-
-          if (startBuffer < this._minBufferPx && newRange.start != 0) {
-            /** @type {?} */
-            var expandStart = Math.ceil((this._maxBufferPx - startBuffer) / this._itemSize);
-            newRange.start = Math.max(0, newRange.start - expandStart);
-            newRange.end = Math.min(dataLength, Math.ceil(firstVisibleIndex + (viewportSize + this._minBufferPx) / this._itemSize));
-          } else {
-            /** @type {?} */
-            var endBuffer = newRange.end * this._itemSize - (scrollOffset + viewportSize);
-
-            if (endBuffer < this._minBufferPx && newRange.end != dataLength) {
-              /** @type {?} */
-              var expandEnd = Math.ceil((this._maxBufferPx - endBuffer) / this._itemSize);
-
-              if (expandEnd > 0) {
-                newRange.end = Math.min(dataLength, newRange.end + expandEnd);
-                newRange.start = Math.max(0, Math.floor(firstVisibleIndex - this._minBufferPx / this._itemSize));
-              }
-            }
-          }
-
-          this._viewport.setRenderedRange(newRange);
-
-          this._viewport.setRenderedContentOffset(this._itemSize * newRange.start);
-
-          this._scrolledIndexChange.next(Math.floor(firstVisibleIndex));
-        }
-      }]);
-
-      return FixedSizeVirtualScrollStrategy;
-    }();
-
-    if (false) {}
-    /**
-     * Provider factory for `FixedSizeVirtualScrollStrategy` that simply extracts the already created
-     * `FixedSizeVirtualScrollStrategy` from the given directive.
-     * @param {?} fixedSizeDir The instance of `CdkFixedSizeVirtualScroll` to extract the
-     *     `FixedSizeVirtualScrollStrategy` from.
-     * @return {?}
-     */
-
-
-    function _fixedSizeVirtualScrollStrategyFactory(fixedSizeDir) {
-      return fixedSizeDir._scrollStrategy;
-    }
-    /**
-     * A virtual scroll strategy that supports fixed-size items.
-     */
-
-
-    var CdkFixedSizeVirtualScroll =
-    /*#__PURE__*/
-    function () {
-      function CdkFixedSizeVirtualScroll() {
-        _classCallCheck2(this, CdkFixedSizeVirtualScroll);
-
-        this._itemSize = 20;
-        this._minBufferPx = 100;
-        this._maxBufferPx = 200;
-        /**
-         * The scroll strategy used by this directive.
-         */
-
-        this._scrollStrategy = new FixedSizeVirtualScrollStrategy(this.itemSize, this.minBufferPx, this.maxBufferPx);
-      }
-      /**
-       * The size of the items in the list (in pixels).
-       * @return {?}
-       */
-
-
-      _createClass2(CdkFixedSizeVirtualScroll, [{
-        key: "ngOnChanges",
-
-        /**
-         * @return {?}
-         */
-        value: function ngOnChanges() {
-          this._scrollStrategy.updateItemAndBufferSize(this.itemSize, this.minBufferPx, this.maxBufferPx);
-        }
-      }, {
-        key: "itemSize",
-        get: function get() {
-          return this._itemSize;
-        }
-        /**
-         * @param {?} value
-         * @return {?}
-         */
-        ,
-        set: function set(value) {
-          this._itemSize = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_0__["coerceNumberProperty"])(value);
-        }
-        /**
-         * The minimum amount of buffer rendered beyond the viewport (in pixels).
-         * If the amount of buffer dips below this number, more items will be rendered. Defaults to 100px.
-         * @return {?}
-         */
-
-      }, {
-        key: "minBufferPx",
-        get: function get() {
-          return this._minBufferPx;
-        }
-        /**
-         * @param {?} value
-         * @return {?}
-         */
-        ,
-        set: function set(value) {
-          this._minBufferPx = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_0__["coerceNumberProperty"])(value);
-        }
-        /**
-         * The number of pixels worth of buffer to render for when rendering new items. Defaults to 200px.
-         * @return {?}
-         */
-
-      }, {
-        key: "maxBufferPx",
-        get: function get() {
-          return this._maxBufferPx;
-        }
-        /**
-         * @param {?} value
-         * @return {?}
-         */
-        ,
-        set: function set(value) {
-          this._maxBufferPx = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_0__["coerceNumberProperty"])(value);
-        }
-      }]);
-
-      return CdkFixedSizeVirtualScroll;
-    }();
-
-    CdkFixedSizeVirtualScroll.ɵfac = function CdkFixedSizeVirtualScroll_Factory(t) {
-      return new (t || CdkFixedSizeVirtualScroll)();
-    };
-
-    CdkFixedSizeVirtualScroll.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineDirective"]({
-      type: CdkFixedSizeVirtualScroll,
-      selectors: [["cdk-virtual-scroll-viewport", "itemSize", ""]],
-      inputs: {
-        itemSize: "itemSize",
-        minBufferPx: "minBufferPx",
-        maxBufferPx: "maxBufferPx"
-      },
-      features: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵProvidersFeature"]([{
-        provide: VIRTUAL_SCROLL_STRATEGY,
-        useFactory: _fixedSizeVirtualScrollStrategyFactory,
-        deps: [Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["forwardRef"])(
-        /**
-        * @return {?}
-        */
-        function () {
-          return CdkFixedSizeVirtualScroll;
-        })]
-      }]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵNgOnChangesFeature"]]
-    });
-    CdkFixedSizeVirtualScroll.propDecorators = {
-      itemSize: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-      }],
-      minBufferPx: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-      }],
-      maxBufferPx: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-      }]
-    };
-    /*@__PURE__*/
-
-    (function () {
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CdkFixedSizeVirtualScroll, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"],
-        args: [{
-          selector: 'cdk-virtual-scroll-viewport[itemSize]',
-          providers: [{
-            provide: VIRTUAL_SCROLL_STRATEGY,
-            useFactory: _fixedSizeVirtualScrollStrategyFactory,
-            deps: [Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["forwardRef"])(
-            /**
-            * @return {?}
-            */
-            function () {
-              return CdkFixedSizeVirtualScroll;
-            })]
-          }]
-        }]
-      }], function () {
-        return [];
-      }, {
-        itemSize: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }],
-        minBufferPx: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }],
-        maxBufferPx: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }]
-      });
-    })();
-
-    if (false) {}
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: src/cdk/scrolling/scroll-dispatcher.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    /**
-     * Time in ms to throttle the scrolling events by default.
-     * @type {?}
-     */
-
-
-    var DEFAULT_SCROLL_TIME = 20;
-    /**
-     * Service contained all registered Scrollable references and emits an event when any one of the
-     * Scrollable references emit a scrolled event.
-     */
-
-    var ScrollDispatcher =
-    /*#__PURE__*/
-    function () {
-      /**
-       * @param {?} _ngZone
-       * @param {?} _platform
-       * @param {?=} document
-       */
-      function ScrollDispatcher(_ngZone, _platform,
-      /** @breaking-change 11.0.0 make document required */
-      document) {
-        _classCallCheck2(this, ScrollDispatcher);
-
-        this._ngZone = _ngZone;
-        this._platform = _platform;
-        /**
-         * Subject for notifying that a registered scrollable reference element has been scrolled.
-         */
-
-        this._scrolled = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
-        /**
-         * Keeps track of the global `scroll` and `resize` subscriptions.
-         */
-
-        this._globalSubscription = null;
-        /**
-         * Keeps track of the amount of subscriptions to `scrolled`. Used for cleaning up afterwards.
-         */
-
-        this._scrolledCount = 0;
-        /**
-         * Map of all the scrollable references that are registered with the service and their
-         * scroll event subscriptions.
-         */
-
-        this.scrollContainers = new Map();
-        this._document = document;
-      }
-      /**
-       * Registers a scrollable instance with the service and listens for its scrolled events. When the
-       * scrollable is scrolled, the service emits the event to its scrolled observable.
-       * @param {?} scrollable Scrollable instance to be registered.
-       * @return {?}
-       */
-
-
-      _createClass2(ScrollDispatcher, [{
-        key: "register",
-        value: function register(scrollable) {
-          var _this36 = this;
-
-          if (!this.scrollContainers.has(scrollable)) {
-            this.scrollContainers.set(scrollable, scrollable.elementScrolled().subscribe(
-            /**
-            * @return {?}
-            */
-            function () {
-              return _this36._scrolled.next(scrollable);
-            }));
-          }
-        }
-        /**
-         * Deregisters a Scrollable reference and unsubscribes from its scroll event observable.
-         * @param {?} scrollable Scrollable instance to be deregistered.
-         * @return {?}
-         */
-
-      }, {
-        key: "deregister",
-        value: function deregister(scrollable) {
-          /** @type {?} */
-          var scrollableReference = this.scrollContainers.get(scrollable);
-
-          if (scrollableReference) {
-            scrollableReference.unsubscribe();
-            this.scrollContainers["delete"](scrollable);
-          }
-        }
-        /**
-         * Returns an observable that emits an event whenever any of the registered Scrollable
-         * references (or window, document, or body) fire a scrolled event. Can provide a time in ms
-         * to override the default "throttle" time.
-         *
-         * **Note:** in order to avoid hitting change detection for every scroll event,
-         * all of the events emitted from this stream will be run outside the Angular zone.
-         * If you need to update any data bindings as a result of a scroll event, you have
-         * to run the callback using `NgZone.run`.
-         * @param {?=} auditTimeInMs
-         * @return {?}
-         */
-
-      }, {
-        key: "scrolled",
-        value: function scrolled() {
-          var _this37 = this;
-
-          var auditTimeInMs = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : DEFAULT_SCROLL_TIME;
-
-          if (!this._platform.isBrowser) {
-            return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])();
-          }
-
-          return new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"](
-          /**
-          * @param {?} observer
-          * @return {?}
-          */
-          function (observer) {
-            if (!_this37._globalSubscription) {
-              _this37._addGlobalListener();
-            } // In the case of a 0ms delay, use an observable without auditTime
-            // since it does add a perceptible delay in processing overhead.
-
-            /** @type {?} */
-
-
-            var subscription = auditTimeInMs > 0 ? _this37._scrolled.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["auditTime"])(auditTimeInMs)).subscribe(observer) : _this37._scrolled.subscribe(observer);
-            _this37._scrolledCount++;
-            return (
-              /**
-              * @return {?}
-              */
-              function () {
-                subscription.unsubscribe();
-                _this37._scrolledCount--;
-
-                if (!_this37._scrolledCount) {
-                  _this37._removeGlobalListener();
-                }
-              }
-            );
-          });
-        }
-        /**
-         * @return {?}
-         */
-
-      }, {
-        key: "ngOnDestroy",
-        value: function ngOnDestroy() {
-          var _this38 = this;
-
-          this._removeGlobalListener();
-
-          this.scrollContainers.forEach(
-          /**
-          * @param {?} _
-          * @param {?} container
-          * @return {?}
-          */
-          function (_, container) {
-            return _this38.deregister(container);
-          });
-
-          this._scrolled.complete();
-        }
-        /**
-         * Returns an observable that emits whenever any of the
-         * scrollable ancestors of an element are scrolled.
-         * @param {?} elementRef Element whose ancestors to listen for.
-         * @param {?=} auditTimeInMs Time to throttle the scroll events.
-         * @return {?}
-         */
-
-      }, {
-        key: "ancestorScrolled",
-        value: function ancestorScrolled(elementRef, auditTimeInMs) {
-          /** @type {?} */
-          var ancestors = this.getAncestorScrollContainers(elementRef);
-          return this.scrolled(auditTimeInMs).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["filter"])(
-          /**
-          * @param {?} target
-          * @return {?}
-          */
-          function (target) {
-            return !target || ancestors.indexOf(target) > -1;
-          }));
-        }
-        /**
-         * Returns all registered Scrollables that contain the provided element.
-         * @param {?} elementRef
-         * @return {?}
-         */
-
-      }, {
-        key: "getAncestorScrollContainers",
-        value: function getAncestorScrollContainers(elementRef) {
-          var _this39 = this;
-
-          /** @type {?} */
-          var scrollingContainers = [];
-          this.scrollContainers.forEach(
-          /**
-          * @param {?} _subscription
-          * @param {?} scrollable
-          * @return {?}
-          */
-          function (_subscription, scrollable) {
-            if (_this39._scrollableContainsElement(scrollable, elementRef)) {
-              scrollingContainers.push(scrollable);
-            }
-          });
-          return scrollingContainers;
-        }
-        /**
-         * Access injected document if available or fallback to global document reference
-         * @private
-         * @return {?}
-         */
-
-      }, {
-        key: "_getDocument",
-        value: function _getDocument() {
-          return this._document || document;
-        }
-        /**
-         * Use defaultView of injected document if available or fallback to global window reference
-         * @private
-         * @return {?}
-         */
-
-      }, {
-        key: "_getWindow",
-        value: function _getWindow() {
-          /** @type {?} */
-          var doc = this._getDocument();
-
-          return doc.defaultView || window;
-        }
-        /**
-         * Returns true if the element is contained within the provided Scrollable.
-         * @private
-         * @param {?} scrollable
-         * @param {?} elementRef
-         * @return {?}
-         */
-
-      }, {
-        key: "_scrollableContainsElement",
-        value: function _scrollableContainsElement(scrollable, elementRef) {
-          /** @type {?} */
-          var element = elementRef.nativeElement;
-          /** @type {?} */
-
-          var scrollableElement = scrollable.getElementRef().nativeElement; // Traverse through the element parents until we reach null, checking if any of the elements
-          // are the scrollable's element.
-
-          do {
-            if (element == scrollableElement) {
-              return true;
-            }
-          } while (element =
-          /** @type {?} */
-          element.parentElement);
-
-          return false;
-        }
-        /**
-         * Sets up the global scroll listeners.
-         * @private
-         * @return {?}
-         */
-
-      }, {
-        key: "_addGlobalListener",
-        value: function _addGlobalListener() {
-          var _this40 = this;
-
-          this._globalSubscription = this._ngZone.runOutsideAngular(
-          /**
-          * @return {?}
-          */
-          function () {
-            /** @type {?} */
-            var window = _this40._getWindow();
-
-            return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["fromEvent"])(window.document, 'scroll').subscribe(
-            /**
-            * @return {?}
-            */
-            function () {
-              return _this40._scrolled.next();
-            });
-          });
-        }
-        /**
-         * Cleans up the global scroll listener.
-         * @private
-         * @return {?}
-         */
-
-      }, {
-        key: "_removeGlobalListener",
-        value: function _removeGlobalListener() {
-          if (this._globalSubscription) {
-            this._globalSubscription.unsubscribe();
-
-            this._globalSubscription = null;
-          }
-        }
-      }]);
-
-      return ScrollDispatcher;
-    }();
-
-    ScrollDispatcher.ɵfac = function ScrollDispatcher_Factory(t) {
-      return new (t || ScrollDispatcher)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["Platform"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_common__WEBPACK_IMPORTED_MODULE_5__["DOCUMENT"], 8));
-    };
-    /** @nocollapse */
-
-
-    ScrollDispatcher.ctorParameters = function () {
-      return [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]
-      }, {
-        type: _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["Platform"]
-      }, {
-        type: undefined,
-        decorators: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-          args: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["DOCUMENT"]]
-        }]
-      }];
-    };
-    /** @nocollapse */
-
-
-    ScrollDispatcher.ɵprov = Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"])({
-      factory: function ScrollDispatcher_Factory() {
-        return new ScrollDispatcher(Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]), Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["Platform"]), Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_common__WEBPACK_IMPORTED_MODULE_5__["DOCUMENT"], 8));
-      },
-      token: ScrollDispatcher,
-      providedIn: "root"
-    });
-    /*@__PURE__*/
-
-    (function () {
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](ScrollDispatcher, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"],
-        args: [{
-          providedIn: 'root'
-        }]
-      }], function () {
-        return [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]
-        }, {
-          type: _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["Platform"]
-        }, {
-          type: undefined,
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
-          }, {
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-            args: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["DOCUMENT"]]
-          }]
-        }];
-      }, null);
-    })();
-
-    if (false) {}
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: src/cdk/scrolling/scrollable.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    /**
-     * Sends an event when the directive's element is scrolled. Registers itself with the
-     * ScrollDispatcher service to include itself as part of its collection of scrolling events that it
-     * can be listened to through the service.
-     */
-
-
-    var CdkScrollable =
-    /*#__PURE__*/
-    function () {
-      /**
-       * @param {?} elementRef
-       * @param {?} scrollDispatcher
-       * @param {?} ngZone
-       * @param {?=} dir
-       */
-      function CdkScrollable(elementRef, scrollDispatcher, ngZone, dir) {
-        var _this41 = this;
-
-        _classCallCheck2(this, CdkScrollable);
-
-        this.elementRef = elementRef;
-        this.scrollDispatcher = scrollDispatcher;
-        this.ngZone = ngZone;
-        this.dir = dir;
-        this._destroyed = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
-        this._elementScrolled = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"](
-        /**
-        * @param {?} observer
-        * @return {?}
-        */
-        function (observer) {
-          return _this41.ngZone.runOutsideAngular(
-          /**
-          * @return {?}
-          */
-          function () {
-            return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["fromEvent"])(_this41.elementRef.nativeElement, 'scroll').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(_this41._destroyed)).subscribe(observer);
-          });
-        });
-      }
-      /**
-       * @return {?}
-       */
-
-
-      _createClass2(CdkScrollable, [{
-        key: "ngOnInit",
-        value: function ngOnInit() {
-          this.scrollDispatcher.register(this);
-        }
-        /**
-         * @return {?}
-         */
-
-      }, {
-        key: "ngOnDestroy",
-        value: function ngOnDestroy() {
-          this.scrollDispatcher.deregister(this);
-
-          this._destroyed.next();
-
-          this._destroyed.complete();
-        }
-        /**
-         * Returns observable that emits when a scroll event is fired on the host element.
-         * @return {?}
-         */
-
-      }, {
-        key: "elementScrolled",
-        value: function elementScrolled() {
-          return this._elementScrolled;
-        }
-        /**
-         * Gets the ElementRef for the viewport.
-         * @return {?}
-         */
-
-      }, {
-        key: "getElementRef",
-        value: function getElementRef() {
-          return this.elementRef;
-        }
-        /**
-         * Scrolls to the specified offsets. This is a normalized version of the browser's native scrollTo
-         * method, since browsers are not consistent about what scrollLeft means in RTL. For this method
-         * left and right always refer to the left and right side of the scrolling container irrespective
-         * of the layout direction. start and end refer to left and right in an LTR context and vice-versa
-         * in an RTL context.
-         * @param {?} options specified the offsets to scroll to.
-         * @return {?}
-         */
-
-      }, {
-        key: "scrollTo",
-        value: function scrollTo(options) {
-          /** @type {?} */
-          var el = this.elementRef.nativeElement;
-          /** @type {?} */
-
-          var isRtl = this.dir && this.dir.value == 'rtl'; // Rewrite start & end offsets as right or left offsets.
-
-          if (options.left == null) {
-            options.left = isRtl ? options.end : options.start;
-          }
-
-          if (options.right == null) {
-            options.right = isRtl ? options.start : options.end;
-          } // Rewrite the bottom offset as a top offset.
-
-
-          if (options.bottom != null) {
-            /** @type {?} */
-            options.top = el.scrollHeight - el.clientHeight - options.bottom;
-          } // Rewrite the right offset as a left offset.
-
-
-          if (isRtl && Object(_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["getRtlScrollAxisType"])() != 0
-          /* NORMAL */
-          ) {
-              if (options.left != null) {
-                /** @type {?} */
-                options.right = el.scrollWidth - el.clientWidth - options.left;
-              }
-
-              if (Object(_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["getRtlScrollAxisType"])() == 2
-              /* INVERTED */
-              ) {
-                  options.left = options.right;
-                } else if (Object(_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["getRtlScrollAxisType"])() == 1
-              /* NEGATED */
-              ) {
-                  options.left = options.right ? -options.right : options.right;
-                }
-            } else {
-            if (options.right != null) {
-              /** @type {?} */
-              options.left = el.scrollWidth - el.clientWidth - options.right;
-            }
-          }
-
-          this._applyScrollToOptions(options);
-        }
-        /**
-         * @private
-         * @param {?} options
-         * @return {?}
-         */
-
-      }, {
-        key: "_applyScrollToOptions",
-        value: function _applyScrollToOptions(options) {
-          /** @type {?} */
-          var el = this.elementRef.nativeElement;
-
-          if (Object(_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["supportsScrollBehavior"])()) {
-            el.scrollTo(options);
-          } else {
-            if (options.top != null) {
-              el.scrollTop = options.top;
-            }
-
-            if (options.left != null) {
-              el.scrollLeft = options.left;
-            }
-          }
-        }
-        /**
-         * Measures the scroll offset relative to the specified edge of the viewport. This method can be
-         * used instead of directly checking scrollLeft or scrollTop, since browsers are not consistent
-         * about what scrollLeft means in RTL. The values returned by this method are normalized such that
-         * left and right always refer to the left and right side of the scrolling container irrespective
-         * of the layout direction. start and end refer to left and right in an LTR context and vice-versa
-         * in an RTL context.
-         * @param {?} from The edge to measure from.
-         * @return {?}
-         */
-
-      }, {
-        key: "measureScrollOffset",
-        value: function measureScrollOffset(from) {
-          /** @type {?} */
-          var LEFT = 'left';
-          /** @type {?} */
-
-          var RIGHT = 'right';
-          /** @type {?} */
-
-          var el = this.elementRef.nativeElement;
-
-          if (from == 'top') {
-            return el.scrollTop;
-          }
-
-          if (from == 'bottom') {
-            return el.scrollHeight - el.clientHeight - el.scrollTop;
-          } // Rewrite start & end as left or right offsets.
-
-          /** @type {?} */
-
-
-          var isRtl = this.dir && this.dir.value == 'rtl';
-
-          if (from == 'start') {
-            from = isRtl ? RIGHT : LEFT;
-          } else if (from == 'end') {
-            from = isRtl ? LEFT : RIGHT;
-          }
-
-          if (isRtl && Object(_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["getRtlScrollAxisType"])() == 2
-          /* INVERTED */
-          ) {
-              // For INVERTED, scrollLeft is (scrollWidth - clientWidth) when scrolled all the way left and
-              // 0 when scrolled all the way right.
-              if (from == LEFT) {
-                return el.scrollWidth - el.clientWidth - el.scrollLeft;
-              } else {
-                return el.scrollLeft;
-              }
-            } else if (isRtl && Object(_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["getRtlScrollAxisType"])() == 1
-          /* NEGATED */
-          ) {
-              // For NEGATED, scrollLeft is -(scrollWidth - clientWidth) when scrolled all the way left and
-              // 0 when scrolled all the way right.
-              if (from == LEFT) {
-                return el.scrollLeft + el.scrollWidth - el.clientWidth;
-              } else {
-                return -el.scrollLeft;
-              }
-            } else {
-            // For NORMAL, as well as non-RTL contexts, scrollLeft is 0 when scrolled all the way left and
-            // (scrollWidth - clientWidth) when scrolled all the way right.
-            if (from == LEFT) {
-              return el.scrollLeft;
-            } else {
-              return el.scrollWidth - el.clientWidth - el.scrollLeft;
-            }
-          }
-        }
-      }]);
-
-      return CdkScrollable;
-    }();
-
-    CdkScrollable.ɵfac = function CdkScrollable_Factory(t) {
-      return new (t || CdkScrollable)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](ScrollDispatcher), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_6__["Directionality"], 8));
-    };
-
-    CdkScrollable.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineDirective"]({
-      type: CdkScrollable,
-      selectors: [["", "cdk-scrollable", ""], ["", "cdkScrollable", ""]]
-    });
-    /** @nocollapse */
-
-    CdkScrollable.ctorParameters = function () {
-      return [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]
-      }, {
-        type: ScrollDispatcher
-      }, {
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]
-      }, {
-        type: _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_6__["Directionality"],
-        decorators: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
-        }]
-      }];
-    };
-    /*@__PURE__*/
-
-
-    (function () {
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CdkScrollable, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"],
-        args: [{
-          selector: '[cdk-scrollable], [cdkScrollable]'
-        }]
-      }], function () {
-        return [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]
-        }, {
-          type: ScrollDispatcher
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]
-        }, {
-          type: _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_6__["Directionality"],
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
-          }]
-        }];
-      }, null);
-    })();
-
-    if (false) {}
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: src/cdk/scrolling/viewport-ruler.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    /**
-     * Time in ms to throttle the resize events by default.
-     * @type {?}
-     */
-
-
-    var DEFAULT_RESIZE_TIME = 20;
-    /**
-     * Object that holds the scroll position of the viewport in each direction.
-     * @record
-     */
-
-    function ViewportScrollPosition() {}
-
-    if (false) {}
-    /**
-     * Simple utility for getting the bounds of the browser viewport.
-     * \@docs-private
-     */
-
-
-    var ViewportRuler =
-    /*#__PURE__*/
-    function () {
-      /**
-       * @param {?} _platform
-       * @param {?} ngZone
-       * @param {?=} document
-       */
-      function ViewportRuler(_platform, ngZone,
-      /** @breaking-change 11.0.0 make document required */
-      document) {
-        var _this42 = this;
-
-        _classCallCheck2(this, ViewportRuler);
-
-        this._platform = _platform;
-        this._document = document;
-        ngZone.runOutsideAngular(
-        /**
-        * @return {?}
-        */
-        function () {
-          /** @type {?} */
-          var window = _this42._getWindow();
-
-          _this42._change = _platform.isBrowser ? Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["merge"])(Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["fromEvent"])(window, 'resize'), Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["fromEvent"])(window, 'orientationchange')) : Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(); // Note that we need to do the subscription inside `runOutsideAngular`
-          // since subscribing is what causes the event listener to be added.
-
-          _this42._invalidateCache = _this42.change().subscribe(
-          /**
-          * @return {?}
-          */
-          function () {
-            return _this42._updateViewportSize();
-          });
-        });
-      }
-      /**
-       * @return {?}
-       */
-
-
-      _createClass2(ViewportRuler, [{
-        key: "ngOnDestroy",
-        value: function ngOnDestroy() {
-          this._invalidateCache.unsubscribe();
-        }
-        /**
-         * Returns the viewport's width and height.
-         * @return {?}
-         */
-
-      }, {
-        key: "getViewportSize",
-        value: function getViewportSize() {
-          if (!this._viewportSize) {
-            this._updateViewportSize();
-          }
-          /** @type {?} */
-
-
-          var output = {
-            width: this._viewportSize.width,
-            height: this._viewportSize.height
-          }; // If we're not on a browser, don't cache the size since it'll be mocked out anyway.
-
-          if (!this._platform.isBrowser) {
-            this._viewportSize =
-            /** @type {?} */
-            null;
-          }
-
-          return output;
-        }
-        /**
-         * Gets a ClientRect for the viewport's bounds.
-         * @return {?}
-         */
-
-      }, {
-        key: "getViewportRect",
-        value: function getViewportRect() {
-          // Use the document element's bounding rect rather than the window scroll properties
-          // (e.g. pageYOffset, scrollY) due to in issue in Chrome and IE where window scroll
-          // properties and client coordinates (boundingClientRect, clientX/Y, etc.) are in different
-          // conceptual viewports. Under most circumstances these viewports are equivalent, but they
-          // can disagree when the page is pinch-zoomed (on devices that support touch).
-          // See https://bugs.chromium.org/p/chromium/issues/detail?id=489206#c4
-          // We use the documentElement instead of the body because, by default (without a css reset)
-          // browsers typically give the document body an 8px margin, which is not included in
-          // getBoundingClientRect().
-
-          /** @type {?} */
-          var scrollPosition = this.getViewportScrollPosition();
-
-          var _this$getViewportSize = this.getViewportSize(),
-              width = _this$getViewportSize.width,
-              height = _this$getViewportSize.height;
-
-          return {
-            top: scrollPosition.top,
-            left: scrollPosition.left,
-            bottom: scrollPosition.top + height,
-            right: scrollPosition.left + width,
-            height: height,
-            width: width
-          };
-        }
-        /**
-         * Gets the (top, left) scroll position of the viewport.
-         * @return {?}
-         */
-
-      }, {
-        key: "getViewportScrollPosition",
-        value: function getViewportScrollPosition() {
-          // While we can get a reference to the fake document
-          // during SSR, it doesn't have getBoundingClientRect.
-          if (!this._platform.isBrowser) {
-            return {
-              top: 0,
-              left: 0
-            };
-          } // The top-left-corner of the viewport is determined by the scroll position of the document
-          // body, normally just (scrollLeft, scrollTop). However, Chrome and Firefox disagree about
-          // whether `document.body` or `document.documentElement` is the scrolled element, so reading
-          // `scrollTop` and `scrollLeft` is inconsistent. However, using the bounding rect of
-          // `document.documentElement` works consistently, where the `top` and `left` values will
-          // equal negative the scroll position.
-
-          /** @type {?} */
-
-
-          var document = this._getDocument();
-          /** @type {?} */
-
-
-          var window = this._getWindow();
-          /** @type {?} */
-
-
-          var documentElement =
-          /** @type {?} */
-          document.documentElement;
-          /** @type {?} */
-
-          var documentRect = documentElement.getBoundingClientRect();
-          /** @type {?} */
-
-          var top = -documentRect.top || document.body.scrollTop || window.scrollY || documentElement.scrollTop || 0;
-          /** @type {?} */
-
-          var left = -documentRect.left || document.body.scrollLeft || window.scrollX || documentElement.scrollLeft || 0;
-          return {
-            top: top,
-            left: left
-          };
-        }
-        /**
-         * Returns a stream that emits whenever the size of the viewport changes.
-         * @param {?=} throttleTime Time in milliseconds to throttle the stream.
-         * @return {?}
-         */
-
-      }, {
-        key: "change",
-        value: function change() {
-          var throttleTime = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : DEFAULT_RESIZE_TIME;
-          return throttleTime > 0 ? this._change.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["auditTime"])(throttleTime)) : this._change;
-        }
-        /**
-         * Access injected document if available or fallback to global document reference
-         * @private
-         * @return {?}
-         */
-
-      }, {
-        key: "_getDocument",
-        value: function _getDocument() {
-          return this._document || document;
-        }
-        /**
-         * Use defaultView of injected document if available or fallback to global window reference
-         * @private
-         * @return {?}
-         */
-
-      }, {
-        key: "_getWindow",
-        value: function _getWindow() {
-          /** @type {?} */
-          var doc = this._getDocument();
-
-          return doc.defaultView || window;
-        }
-        /**
-         * Updates the cached viewport size.
-         * @private
-         * @return {?}
-         */
-
-      }, {
-        key: "_updateViewportSize",
-        value: function _updateViewportSize() {
-          /** @type {?} */
-          var window = this._getWindow();
-
-          this._viewportSize = this._platform.isBrowser ? {
-            width: window.innerWidth,
-            height: window.innerHeight
-          } : {
-            width: 0,
-            height: 0
-          };
-        }
-      }]);
-
-      return ViewportRuler;
-    }();
-
-    ViewportRuler.ɵfac = function ViewportRuler_Factory(t) {
-      return new (t || ViewportRuler)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["Platform"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_common__WEBPACK_IMPORTED_MODULE_5__["DOCUMENT"], 8));
-    };
-    /** @nocollapse */
-
-
-    ViewportRuler.ctorParameters = function () {
-      return [{
-        type: _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["Platform"]
-      }, {
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]
-      }, {
-        type: undefined,
-        decorators: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-          args: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["DOCUMENT"]]
-        }]
-      }];
-    };
-    /** @nocollapse */
-
-
-    ViewportRuler.ɵprov = Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"])({
-      factory: function ViewportRuler_Factory() {
-        return new ViewportRuler(Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["Platform"]), Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]), Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_common__WEBPACK_IMPORTED_MODULE_5__["DOCUMENT"], 8));
-      },
-      token: ViewportRuler,
-      providedIn: "root"
-    });
-    /*@__PURE__*/
-
-    (function () {
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](ViewportRuler, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"],
-        args: [{
-          providedIn: 'root'
-        }]
-      }], function () {
-        return [{
-          type: _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["Platform"]
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]
-        }, {
-          type: undefined,
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
-          }, {
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-            args: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["DOCUMENT"]]
-          }]
-        }];
-      }, null);
-    })();
-
-    if (false) {}
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: src/cdk/scrolling/virtual-scroll-viewport.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    /**
-     * Checks if the given ranges are equal.
-     * @param {?} r1
-     * @param {?} r2
-     * @return {?}
-     */
-
-
-    function rangesEqual(r1, r2) {
-      return r1.start == r2.start && r1.end == r2.end;
-    }
-    /**
-     * Scheduler to be used for scroll events. Needs to fall back to
-     * something that doesn't rely on requestAnimationFrame on environments
-     * that don't support it (e.g. server-side rendering).
-     * @type {?}
-     */
-
-
-    var SCROLL_SCHEDULER = typeof requestAnimationFrame !== 'undefined' ? rxjs__WEBPACK_IMPORTED_MODULE_2__["animationFrameScheduler"] : rxjs__WEBPACK_IMPORTED_MODULE_2__["asapScheduler"];
-    /**
-     * A viewport that virtualizes its scrolling with the help of `CdkVirtualForOf`.
-     */
-
-    var CdkVirtualScrollViewport =
-    /*#__PURE__*/
-    function (_CdkScrollable) {
-      _inherits(CdkVirtualScrollViewport, _CdkScrollable);
-
-      var _super2 = _createSuper(CdkVirtualScrollViewport);
-
-      /**
-       * @param {?} elementRef
-       * @param {?} _changeDetectorRef
-       * @param {?} ngZone
-       * @param {?} _scrollStrategy
-       * @param {?} dir
-       * @param {?} scrollDispatcher
-       * @param {?=} viewportRuler
-       */
-      function CdkVirtualScrollViewport(elementRef, _changeDetectorRef, ngZone, _scrollStrategy, dir, scrollDispatcher,
-      /**
-       * @deprecated `viewportRuler` parameter to become required.
-       * @breaking-change 11.0.0
-       */
-      viewportRuler) {
-        var _this43;
-
-        _classCallCheck2(this, CdkVirtualScrollViewport);
-
-        _this43 = _super2.call(this, elementRef, scrollDispatcher, ngZone, dir);
-        _this43.elementRef = elementRef;
-        _this43._changeDetectorRef = _changeDetectorRef;
-        _this43._scrollStrategy = _scrollStrategy;
-        /**
-         * Emits when the viewport is detached from a CdkVirtualForOf.
-         */
-
-        _this43._detachedSubject = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
-        /**
-         * Emits when the rendered range changes.
-         */
-
-        _this43._renderedRangeSubject = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
-        _this43._orientation = 'vertical'; // Note: we don't use the typical EventEmitter here because we need to subscribe to the scroll
-        // strategy lazily (i.e. only if the user is actually listening to the events). We do this because
-        // depending on how the strategy calculates the scrolled index, it may come at a cost to
-        // performance.
-
-        /**
-         * Emits when the index of the first element visible in the viewport changes.
-         */
-
-        _this43.scrolledIndexChange = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"](
-        /**
-        * @param {?} observer
-        * @return {?}
-        */
-        function (observer) {
-          return _this43._scrollStrategy.scrolledIndexChange.subscribe(
-          /**
-          * @param {?} index
-          * @return {?}
-          */
-          function (index) {
-            return Promise.resolve().then(
-            /**
-            * @return {?}
-            */
-            function () {
-              return _this43.ngZone.run(
-              /**
-              * @return {?}
-              */
-              function () {
-                return observer.next(index);
-              });
-            });
-          });
-        });
-        /**
-         * A stream that emits whenever the rendered range changes.
-         */
-
-        _this43.renderedRangeStream = _this43._renderedRangeSubject.asObservable();
-        /**
-         * The total size of all content (in pixels), including content that is not currently rendered.
-         */
-
-        _this43._totalContentSize = 0;
-        /**
-         * A string representing the `style.width` property value to be used for the spacer element.
-         */
-
-        _this43._totalContentWidth = '';
-        /**
-         * A string representing the `style.height` property value to be used for the spacer element.
-         */
-
-        _this43._totalContentHeight = '';
-        /**
-         * The currently rendered range of indices.
-         */
-
-        _this43._renderedRange = {
-          start: 0,
-          end: 0
-        };
-        /**
-         * The length of the data bound to this viewport (in number of items).
-         */
-
-        _this43._dataLength = 0;
-        /**
-         * The size of the viewport (in pixels).
-         */
-
-        _this43._viewportSize = 0;
-        /**
-         * The last rendered content offset that was set.
-         */
-
-        _this43._renderedContentOffset = 0;
-        /**
-         * Whether the last rendered content offset was to the end of the content (and therefore needs to
-         * be rewritten as an offset to the start of the content).
-         */
-
-        _this43._renderedContentOffsetNeedsRewrite = false;
-        /**
-         * Whether there is a pending change detection cycle.
-         */
-
-        _this43._isChangeDetectionPending = false;
-        /**
-         * A list of functions to run after the next change detection cycle.
-         */
-
-        _this43._runAfterChangeDetection = [];
-        /**
-         * Subscription to changes in the viewport size.
-         */
-
-        _this43._viewportChanges = rxjs__WEBPACK_IMPORTED_MODULE_2__["Subscription"].EMPTY;
-
-        if (!_scrollStrategy) {
-          throw Error('Error: cdk-virtual-scroll-viewport requires the "itemSize" property to be set.');
-        } // @breaking-change 11.0.0 Remove null check for `viewportRuler`.
-
-
-        if (viewportRuler) {
-          _this43._viewportChanges = viewportRuler.change().subscribe(
-          /**
-          * @return {?}
-          */
-          function () {
-            _this43.checkViewportSize();
-          });
-        }
-
-        return _this43;
-      }
-      /**
-       * The direction the viewport scrolls.
-       * @return {?}
-       */
-
-
-      _createClass2(CdkVirtualScrollViewport, [{
-        key: "ngOnInit",
-
-        /**
-         * @return {?}
-         */
-        value: function ngOnInit() {
-          var _this44 = this;
-
-          _get(_getPrototypeOf(CdkVirtualScrollViewport.prototype), "ngOnInit", this).call(this); // It's still too early to measure the viewport at this point. Deferring with a promise allows
-          // the Viewport to be rendered with the correct size before we measure. We run this outside the
-          // zone to avoid causing more change detection cycles. We handle the change detection loop
-          // ourselves instead.
-
-
-          this.ngZone.runOutsideAngular(
-          /**
-          * @return {?}
-          */
-          function () {
-            return Promise.resolve().then(
-            /**
-            * @return {?}
-            */
-            function () {
-              _this44._measureViewportSize();
-
-              _this44._scrollStrategy.attach(_this44);
-
-              _this44.elementScrolled().pipe( // Start off with a fake scroll event so we properly detect our initial position.
-              Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["startWith"])(
-              /** @type {?} */
-              null), // Collect multiple events into one until the next animation frame. This way if
-              // there are multiple scroll events in the same frame we only need to recheck
-              // our layout once.
-              Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["auditTime"])(0, SCROLL_SCHEDULER)).subscribe(
-              /**
-              * @return {?}
-              */
-              function () {
-                return _this44._scrollStrategy.onContentScrolled();
-              });
-
-              _this44._markChangeDetectionNeeded();
-            });
-          });
-        }
-        /**
-         * @return {?}
-         */
-
-      }, {
-        key: "ngOnDestroy",
-        value: function ngOnDestroy() {
-          this.detach();
-
-          this._scrollStrategy.detach(); // Complete all subjects
-
-
-          this._renderedRangeSubject.complete();
-
-          this._detachedSubject.complete();
-
-          this._viewportChanges.unsubscribe();
-
-          _get(_getPrototypeOf(CdkVirtualScrollViewport.prototype), "ngOnDestroy", this).call(this);
-        }
-        /**
-         * Attaches a `CdkVirtualForOf` to this viewport.
-         * @param {?} forOf
-         * @return {?}
-         */
-
-      }, {
-        key: "attach",
-        value: function attach(forOf) {
-          var _this45 = this;
-
-          if (this._forOf) {
-            throw Error('CdkVirtualScrollViewport is already attached.');
-          } // Subscribe to the data stream of the CdkVirtualForOf to keep track of when the data length
-          // changes. Run outside the zone to avoid triggering change detection, since we're managing the
-          // change detection loop ourselves.
-
-
-          this.ngZone.runOutsideAngular(
-          /**
-          * @return {?}
-          */
-          function () {
-            _this45._forOf = forOf;
-
-            _this45._forOf.dataStream.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(_this45._detachedSubject)).subscribe(
-            /**
-            * @param {?} data
-            * @return {?}
-            */
-            function (data) {
-              /** @type {?} */
-              var newLength = data.length;
-
-              if (newLength !== _this45._dataLength) {
-                _this45._dataLength = newLength;
-
-                _this45._scrollStrategy.onDataLengthChanged();
-              }
-
-              _this45._doChangeDetection();
-            });
-          });
-        }
-        /**
-         * Detaches the current `CdkVirtualForOf`.
-         * @return {?}
-         */
-
-      }, {
-        key: "detach",
-        value: function detach() {
-          this._forOf = null;
-
-          this._detachedSubject.next();
-        }
-        /**
-         * Gets the length of the data bound to this viewport (in number of items).
-         * @return {?}
-         */
-
-      }, {
-        key: "getDataLength",
-        value: function getDataLength() {
-          return this._dataLength;
-        }
-        /**
-         * Gets the size of the viewport (in pixels).
-         * @return {?}
-         */
-
-      }, {
-        key: "getViewportSize",
-        value: function getViewportSize() {
-          return this._viewportSize;
-        } // TODO(mmalerba): This is technically out of sync with what's really rendered until a render
-        // cycle happens. I'm being careful to only call it after the render cycle is complete and before
-        // setting it to something else, but its error prone and should probably be split into
-        // `pendingRange` and `renderedRange`, the latter reflecting whats actually in the DOM.
-
-        /**
-         * Get the current rendered range of items.
-         * @return {?}
-         */
-
-      }, {
-        key: "getRenderedRange",
-        value: function getRenderedRange() {
-          return this._renderedRange;
-        }
-        /**
-         * Sets the total size of all content (in pixels), including content that is not currently
-         * rendered.
-         * @param {?} size
-         * @return {?}
-         */
-
-      }, {
-        key: "setTotalContentSize",
-        value: function setTotalContentSize(size) {
-          if (this._totalContentSize !== size) {
-            this._totalContentSize = size;
-
-            this._calculateSpacerSize();
-
-            this._markChangeDetectionNeeded();
-          }
-        }
-        /**
-         * Sets the currently rendered range of indices.
-         * @param {?} range
-         * @return {?}
-         */
-
-      }, {
-        key: "setRenderedRange",
-        value: function setRenderedRange(range) {
-          var _this46 = this;
-
-          if (!rangesEqual(this._renderedRange, range)) {
-            this._renderedRangeSubject.next(this._renderedRange = range);
-
-            this._markChangeDetectionNeeded(
-            /**
-            * @return {?}
-            */
-            function () {
-              return _this46._scrollStrategy.onContentRendered();
-            });
-          }
-        }
-        /**
-         * Gets the offset from the start of the viewport to the start of the rendered data (in pixels).
-         * @return {?}
-         */
-
-      }, {
-        key: "getOffsetToRenderedContentStart",
-        value: function getOffsetToRenderedContentStart() {
-          return this._renderedContentOffsetNeedsRewrite ? null : this._renderedContentOffset;
-        }
-        /**
-         * Sets the offset from the start of the viewport to either the start or end of the rendered data
-         * (in pixels).
-         * @param {?} offset
-         * @param {?=} to
-         * @return {?}
-         */
-
-      }, {
-        key: "setRenderedContentOffset",
-        value: function setRenderedContentOffset(offset) {
-          var _this47 = this;
-
-          var to = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'to-start';
-          // For a horizontal viewport in a right-to-left language we need to translate along the x-axis
-          // in the negative direction.
-
-          /** @type {?} */
-          var isRtl = this.dir && this.dir.value == 'rtl';
-          /** @type {?} */
-
-          var isHorizontal = this.orientation == 'horizontal';
-          /** @type {?} */
-
-          var axis = isHorizontal ? 'X' : 'Y';
-          /** @type {?} */
-
-          var axisDirection = isHorizontal && isRtl ? -1 : 1;
-          /** @type {?} */
-
-          var transform = "translate".concat(axis, "(").concat(Number(axisDirection * offset), "px)");
-          this._renderedContentOffset = offset;
-
-          if (to === 'to-end') {
-            transform += " translate".concat(axis, "(-100%)"); // The viewport should rewrite this as a `to-start` offset on the next render cycle. Otherwise
-            // elements will appear to expand in the wrong direction (e.g. `mat-expansion-panel` would
-            // expand upward).
-
-            this._renderedContentOffsetNeedsRewrite = true;
-          }
-
-          if (this._renderedContentTransform != transform) {
-            // We know this value is safe because we parse `offset` with `Number()` before passing it
-            // into the string.
-            this._renderedContentTransform = transform;
-
-            this._markChangeDetectionNeeded(
-            /**
-            * @return {?}
-            */
-            function () {
-              if (_this47._renderedContentOffsetNeedsRewrite) {
-                _this47._renderedContentOffset -= _this47.measureRenderedContentSize();
-                _this47._renderedContentOffsetNeedsRewrite = false;
-
-                _this47.setRenderedContentOffset(_this47._renderedContentOffset);
-              } else {
-                _this47._scrollStrategy.onRenderedOffsetChanged();
-              }
-            });
-          }
-        }
-        /**
-         * Scrolls to the given offset from the start of the viewport. Please note that this is not always
-         * the same as setting `scrollTop` or `scrollLeft`. In a horizontal viewport with right-to-left
-         * direction, this would be the equivalent of setting a fictional `scrollRight` property.
-         * @param {?} offset The offset to scroll to.
-         * @param {?=} behavior The ScrollBehavior to use when scrolling. Default is behavior is `auto`.
-         * @return {?}
-         */
-
-      }, {
-        key: "scrollToOffset",
-        value: function scrollToOffset(offset) {
-          var behavior = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'auto';
-
-          /** @type {?} */
-          var options = {
-            behavior: behavior
-          };
-
-          if (this.orientation === 'horizontal') {
-            options.start = offset;
-          } else {
-            options.top = offset;
-          }
-
-          this.scrollTo(options);
-        }
-        /**
-         * Scrolls to the offset for the given index.
-         * @param {?} index The index of the element to scroll to.
-         * @param {?=} behavior The ScrollBehavior to use when scrolling. Default is behavior is `auto`.
-         * @return {?}
-         */
-
-      }, {
-        key: "scrollToIndex",
-        value: function scrollToIndex(index) {
-          var behavior = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'auto';
-
-          this._scrollStrategy.scrollToIndex(index, behavior);
-        }
-        /**
-         * Gets the current scroll offset from the start of the viewport (in pixels).
-         * @param {?=} from The edge to measure the offset from. Defaults to 'top' in vertical mode and 'start'
-         *     in horizontal mode.
-         * @return {?}
-         */
-
-      }, {
-        key: "measureScrollOffset",
-        value: function measureScrollOffset(from) {
-          return from ? _get(_getPrototypeOf(CdkVirtualScrollViewport.prototype), "measureScrollOffset", this).call(this, from) : _get(_getPrototypeOf(CdkVirtualScrollViewport.prototype), "measureScrollOffset", this).call(this, this.orientation === 'horizontal' ? 'start' : 'top');
-        }
-        /**
-         * Measure the combined size of all of the rendered items.
-         * @return {?}
-         */
-
-      }, {
-        key: "measureRenderedContentSize",
-        value: function measureRenderedContentSize() {
-          /** @type {?} */
-          var contentEl = this._contentWrapper.nativeElement;
-          return this.orientation === 'horizontal' ? contentEl.offsetWidth : contentEl.offsetHeight;
-        }
-        /**
-         * Measure the total combined size of the given range. Throws if the range includes items that are
-         * not rendered.
-         * @param {?} range
-         * @return {?}
-         */
-
-      }, {
-        key: "measureRangeSize",
-        value: function measureRangeSize(range) {
-          if (!this._forOf) {
-            return 0;
-          }
-
-          return this._forOf.measureRangeSize(range, this.orientation);
-        }
-        /**
-         * Update the viewport dimensions and re-render.
-         * @return {?}
-         */
-
-      }, {
-        key: "checkViewportSize",
-        value: function checkViewportSize() {
-          // TODO: Cleanup later when add logic for handling content resize
-          this._measureViewportSize();
-
-          this._scrollStrategy.onDataLengthChanged();
-        }
-        /**
-         * Measure the viewport size.
-         * @private
-         * @return {?}
-         */
-
-      }, {
-        key: "_measureViewportSize",
-        value: function _measureViewportSize() {
-          /** @type {?} */
-          var viewportEl = this.elementRef.nativeElement;
-          this._viewportSize = this.orientation === 'horizontal' ? viewportEl.clientWidth : viewportEl.clientHeight;
-        }
-        /**
-         * Queue up change detection to run.
-         * @private
-         * @param {?=} runAfter
-         * @return {?}
-         */
-
-      }, {
-        key: "_markChangeDetectionNeeded",
-        value: function _markChangeDetectionNeeded(runAfter) {
-          var _this48 = this;
-
-          if (runAfter) {
-            this._runAfterChangeDetection.push(runAfter);
-          } // Use a Promise to batch together calls to `_doChangeDetection`. This way if we set a bunch of
-          // properties sequentially we only have to run `_doChangeDetection` once at the end.
-
-
-          if (!this._isChangeDetectionPending) {
-            this._isChangeDetectionPending = true;
-            this.ngZone.runOutsideAngular(
-            /**
-            * @return {?}
-            */
-            function () {
-              return Promise.resolve().then(
-              /**
-              * @return {?}
-              */
-              function () {
-                _this48._doChangeDetection();
-              });
-            });
-          }
-        }
-        /**
-         * Run change detection.
-         * @private
-         * @return {?}
-         */
-
-      }, {
-        key: "_doChangeDetection",
-        value: function _doChangeDetection() {
-          var _this49 = this;
-
-          this._isChangeDetectionPending = false; // Apply the content transform. The transform can't be set via an Angular binding because
-          // bypassSecurityTrustStyle is banned in Google. However the value is safe, it's composed of
-          // string literals, a variable that can only be 'X' or 'Y', and user input that is run through
-          // the `Number` function first to coerce it to a numeric value.
-
-          this._contentWrapper.nativeElement.style.transform = this._renderedContentTransform; // Apply changes to Angular bindings. Note: We must call `markForCheck` to run change detection
-          // from the root, since the repeated items are content projected in. Calling `detectChanges`
-          // instead does not properly check the projected content.
-
-          this.ngZone.run(
-          /**
-          * @return {?}
-          */
-          function () {
-            return _this49._changeDetectorRef.markForCheck();
-          });
-          /** @type {?} */
-
-          var runAfterChangeDetection = this._runAfterChangeDetection;
-          this._runAfterChangeDetection = [];
-
-          var _iterator2 = _createForOfIteratorHelper(runAfterChangeDetection),
-              _step2;
-
-          try {
-            for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-              var fn = _step2.value;
-              fn();
-            }
-          } catch (err) {
-            _iterator2.e(err);
-          } finally {
-            _iterator2.f();
-          }
-        }
-        /**
-         * Calculates the `style.width` and `style.height` for the spacer element.
-         * @private
-         * @return {?}
-         */
-
-      }, {
-        key: "_calculateSpacerSize",
-        value: function _calculateSpacerSize() {
-          this._totalContentHeight = this.orientation === 'horizontal' ? '' : "".concat(this._totalContentSize, "px");
-          this._totalContentWidth = this.orientation === 'horizontal' ? "".concat(this._totalContentSize, "px") : '';
-        }
-      }, {
-        key: "orientation",
-        get: function get() {
-          return this._orientation;
-        }
-        /**
-         * @param {?} orientation
-         * @return {?}
-         */
-        ,
-        set: function set(orientation) {
-          if (this._orientation !== orientation) {
-            this._orientation = orientation;
-
-            this._calculateSpacerSize();
-          }
-        }
-      }]);
-
-      return CdkVirtualScrollViewport;
-    }(CdkScrollable);
-
-    CdkVirtualScrollViewport.ɵfac = function CdkVirtualScrollViewport_Factory(t) {
-      return new (t || CdkVirtualScrollViewport)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](VIRTUAL_SCROLL_STRATEGY, 8), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_6__["Directionality"], 8), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](ScrollDispatcher), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](ViewportRuler, 8));
-    };
-
-    CdkVirtualScrollViewport.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
-      type: CdkVirtualScrollViewport,
-      selectors: [["cdk-virtual-scroll-viewport"]],
-      viewQuery: function CdkVirtualScrollViewport_Query(rf, ctx) {
-        if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵstaticViewQuery"](_c0, true);
-        }
-
-        if (rf & 2) {
-          var _t;
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx._contentWrapper = _t.first);
-        }
-      },
-      hostAttrs: [1, "cdk-virtual-scroll-viewport"],
-      hostVars: 4,
-      hostBindings: function CdkVirtualScrollViewport_HostBindings(rf, ctx) {
-        if (rf & 2) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵclassProp"]("cdk-virtual-scroll-orientation-horizontal", ctx.orientation === "horizontal")("cdk-virtual-scroll-orientation-vertical", ctx.orientation !== "horizontal");
-        }
-      },
-      inputs: {
-        orientation: "orientation"
-      },
-      outputs: {
-        scrolledIndexChange: "scrolledIndexChange"
-      },
-      features: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵProvidersFeature"]([{
-        provide: CdkScrollable,
-        useExisting: CdkVirtualScrollViewport
-      }]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵInheritDefinitionFeature"]],
-      ngContentSelectors: _c1,
-      decls: 4,
-      vars: 4,
-      consts: [[1, "cdk-virtual-scroll-content-wrapper"], ["contentWrapper", ""], [1, "cdk-virtual-scroll-spacer"]],
-      template: function CdkVirtualScrollViewport_Template(rf, ctx) {
-        if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵprojectionDef"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 0, 1);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵprojection"](2);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](3, "div", 2);
-        }
-
-        if (rf & 2) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵstyleProp"]("width", ctx._totalContentWidth)("height", ctx._totalContentHeight);
-        }
-      },
-      styles: ["cdk-virtual-scroll-viewport{display:block;position:relative;overflow:auto;contain:strict;transform:translateZ(0);will-change:scroll-position;-webkit-overflow-scrolling:touch}.cdk-virtual-scroll-content-wrapper{position:absolute;top:0;left:0;contain:content}[dir=rtl] .cdk-virtual-scroll-content-wrapper{right:0;left:auto}.cdk-virtual-scroll-orientation-horizontal .cdk-virtual-scroll-content-wrapper{min-height:100%}.cdk-virtual-scroll-orientation-horizontal .cdk-virtual-scroll-content-wrapper>dl:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-horizontal .cdk-virtual-scroll-content-wrapper>ol:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-horizontal .cdk-virtual-scroll-content-wrapper>table:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-horizontal .cdk-virtual-scroll-content-wrapper>ul:not([cdkVirtualFor]){padding-left:0;padding-right:0;margin-left:0;margin-right:0;border-left-width:0;border-right-width:0;outline:none}.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper{min-width:100%}.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper>dl:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper>ol:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper>table:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper>ul:not([cdkVirtualFor]){padding-top:0;padding-bottom:0;margin-top:0;margin-bottom:0;border-top-width:0;border-bottom-width:0;outline:none}.cdk-virtual-scroll-spacer{position:absolute;top:0;left:0;height:1px;width:1px;transform-origin:0 0}[dir=rtl] .cdk-virtual-scroll-spacer{right:0;left:auto;transform-origin:100% 0}\n"],
-      encapsulation: 2,
-      changeDetection: 0
-    });
-    /** @nocollapse */
-
-    CdkVirtualScrollViewport.ctorParameters = function () {
-      return [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]
-      }, {
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
-      }, {
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]
-      }, {
-        type: undefined,
-        decorators: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-          args: [VIRTUAL_SCROLL_STRATEGY]
-        }]
-      }, {
-        type: _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_6__["Directionality"],
-        decorators: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
-        }]
-      }, {
-        type: ScrollDispatcher
-      }, {
-        type: ViewportRuler,
-        decorators: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
-        }]
-      }];
-    };
-
-    CdkVirtualScrollViewport.propDecorators = {
-      orientation: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-      }],
-      scrolledIndexChange: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
-      }],
-      _contentWrapper: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
-        args: ['contentWrapper', {
-          "static": true
-        }]
-      }]
-    };
-    /*@__PURE__*/
-
-    (function () {
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CdkVirtualScrollViewport, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"],
-        args: [{
-          selector: 'cdk-virtual-scroll-viewport',
-          template: "<!--\n  Wrap the rendered content in an element that will be used to offset it based on the scroll\n  position.\n-->\n<div #contentWrapper class=\"cdk-virtual-scroll-content-wrapper\">\n  <ng-content></ng-content>\n</div>\n<!--\n  Spacer used to force the scrolling container to the correct size for the *total* number of items\n  so that the scrollbar captures the size of the entire data set.\n-->\n<div class=\"cdk-virtual-scroll-spacer\"\n     [style.width]=\"_totalContentWidth\" [style.height]=\"_totalContentHeight\"></div>\n",
-          host: {
-            'class': 'cdk-virtual-scroll-viewport',
-            '[class.cdk-virtual-scroll-orientation-horizontal]': 'orientation === "horizontal"',
-            '[class.cdk-virtual-scroll-orientation-vertical]': 'orientation !== "horizontal"'
-          },
-          encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-          changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectionStrategy"].OnPush,
-          providers: [{
-            provide: CdkScrollable,
-            useExisting: CdkVirtualScrollViewport
-          }],
-          styles: ["cdk-virtual-scroll-viewport{display:block;position:relative;overflow:auto;contain:strict;transform:translateZ(0);will-change:scroll-position;-webkit-overflow-scrolling:touch}.cdk-virtual-scroll-content-wrapper{position:absolute;top:0;left:0;contain:content}[dir=rtl] .cdk-virtual-scroll-content-wrapper{right:0;left:auto}.cdk-virtual-scroll-orientation-horizontal .cdk-virtual-scroll-content-wrapper{min-height:100%}.cdk-virtual-scroll-orientation-horizontal .cdk-virtual-scroll-content-wrapper>dl:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-horizontal .cdk-virtual-scroll-content-wrapper>ol:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-horizontal .cdk-virtual-scroll-content-wrapper>table:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-horizontal .cdk-virtual-scroll-content-wrapper>ul:not([cdkVirtualFor]){padding-left:0;padding-right:0;margin-left:0;margin-right:0;border-left-width:0;border-right-width:0;outline:none}.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper{min-width:100%}.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper>dl:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper>ol:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper>table:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper>ul:not([cdkVirtualFor]){padding-top:0;padding-bottom:0;margin-top:0;margin-bottom:0;border-top-width:0;border-bottom-width:0;outline:none}.cdk-virtual-scroll-spacer{position:absolute;top:0;left:0;height:1px;width:1px;transform-origin:0 0}[dir=rtl] .cdk-virtual-scroll-spacer{right:0;left:auto;transform-origin:100% 0}\n"]
-        }]
-      }], function () {
-        return [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]
-        }, {
-          type: undefined,
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
-          }, {
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-            args: [VIRTUAL_SCROLL_STRATEGY]
-          }]
-        }, {
-          type: _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_6__["Directionality"],
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
-          }]
-        }, {
-          type: ScrollDispatcher
-        }, {
-          type: ViewportRuler,
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
-          }]
-        }];
-      }, {
-        scrolledIndexChange: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
-        }],
-        orientation: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }],
-        _contentWrapper: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
-          args: ['contentWrapper', {
-            "static": true
-          }]
-        }]
-      });
-    })();
-
-    if (false) {}
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: src/cdk/scrolling/virtual-for-of.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    /**
-     * Helper to extract size from a DOM Node.
-     * @param {?} orientation
-     * @param {?} node
-     * @return {?}
-     */
-
-
-    function getSize(orientation, node) {
-      /** @type {?} */
-      var el =
-      /** @type {?} */
-      node;
-
-      if (!el.getBoundingClientRect) {
-        return 0;
-      }
-      /** @type {?} */
-
-
-      var rect = el.getBoundingClientRect();
-      return orientation == 'horizontal' ? rect.width : rect.height;
-    }
-    /**
-     * A directive similar to `ngForOf` to be used for rendering data inside a virtual scrolling
-     * container.
-     * @template T
-     */
-
-
-    var CdkVirtualForOf =
-    /*#__PURE__*/
-    function () {
-      /**
-       * @param {?} _viewContainerRef
-       * @param {?} _template
-       * @param {?} _differs
-       * @param {?} _viewport
-       * @param {?} ngZone
-       */
-      function CdkVirtualForOf(_viewContainerRef, _template, _differs, _viewport, ngZone) {
-        var _this50 = this;
-
-        _classCallCheck2(this, CdkVirtualForOf);
-
-        this._viewContainerRef = _viewContainerRef;
-        this._template = _template;
-        this._differs = _differs;
-        this._viewport = _viewport;
-        /**
-         * Emits when the rendered view of the data changes.
-         */
-
-        this.viewChange = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
-        /**
-         * Subject that emits when a new DataSource instance is given.
-         */
-
-        this._dataSourceChanges = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
-        /**
-         * The size of the cache used to store templates that are not being used for re-use later.
-         * Setting the cache size to `0` will disable caching. Defaults to 20 templates.
-         */
-
-        this.cdkVirtualForTemplateCacheSize = 20;
-        /**
-         * Emits whenever the data in the current DataSource changes.
-         */
-
-        this.dataStream = this._dataSourceChanges.pipe( // Start off with null `DataSource`.
-        Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["startWith"])(
-        /** @type {?} */
-        null), // Bundle up the previous and current data sources so we can work with both.
-        Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["pairwise"])(), // Use `_changeDataSource` to disconnect from the previous data source and connect to the
-        // new one, passing back a stream of data changes which we run through `switchMap` to give
-        // us a data stream that emits the latest data from whatever the current `DataSource` is.
-        Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["switchMap"])(
-        /**
-        * @param {?} __0
-        * @return {?}
-        */
-        function (_ref7) {
-          var _ref8 = _slicedToArray2(_ref7, 2),
-              prev = _ref8[0],
-              cur = _ref8[1];
-
-          return _this50._changeDataSource(prev, cur);
-        }), // Replay the last emitted data when someone subscribes.
-        Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["shareReplay"])(1));
-        /**
-         * The differ used to calculate changes to the data.
-         */
-
-        this._differ = null;
-        /**
-         * The template cache used to hold on ot template instancess that have been stamped out, but don't
-         * currently need to be rendered. These instances will be reused in the future rather than
-         * stamping out brand new ones.
-         */
-
-        this._templateCache = [];
-        /**
-         * Whether the rendered data should be updated during the next ngDoCheck cycle.
-         */
-
-        this._needsUpdate = false;
-        this._destroyed = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
-        this.dataStream.subscribe(
-        /**
-        * @param {?} data
-        * @return {?}
-        */
-        function (data) {
-          _this50._data = data;
-
-          _this50._onRenderedDataChange();
-        });
-
-        this._viewport.renderedRangeStream.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._destroyed)).subscribe(
-        /**
-        * @param {?} range
-        * @return {?}
-        */
-        function (range) {
-          _this50._renderedRange = range;
-          ngZone.run(
-          /**
-          * @return {?}
-          */
-          function () {
-            return _this50.viewChange.next(_this50._renderedRange);
-          });
-
-          _this50._onRenderedDataChange();
-        });
-
-        this._viewport.attach(this);
-      }
-      /**
-       * The DataSource to display.
-       * @return {?}
-       */
-
-
-      _createClass2(CdkVirtualForOf, [{
-        key: "measureRangeSize",
-
-        /**
-         * Measures the combined size (width for horizontal orientation, height for vertical) of all items
-         * in the specified range. Throws an error if the range includes items that are not currently
-         * rendered.
-         * @param {?} range
-         * @param {?} orientation
-         * @return {?}
-         */
-        value: function measureRangeSize(range, orientation) {
-          if (range.start >= range.end) {
-            return 0;
-          }
-
-          if (range.start < this._renderedRange.start || range.end > this._renderedRange.end) {
-            throw Error("Error: attempted to measure an item that isn't rendered.");
-          } // The index into the list of rendered views for the first item in the range.
-
-          /** @type {?} */
-
-
-          var renderedStartIndex = range.start - this._renderedRange.start; // The length of the range we're measuring.
-
-          /** @type {?} */
-
-          var rangeLen = range.end - range.start; // Loop over all root nodes for all items in the range and sum up their size.
-
-          /** @type {?} */
-
-          var totalSize = 0;
-          /** @type {?} */
-
-          var i = rangeLen;
-
-          while (i--) {
-            /** @type {?} */
-            var view =
-            /** @type {?} */
-            this._viewContainerRef.get(i + renderedStartIndex);
-            /** @type {?} */
-
-
-            var j = view ? view.rootNodes.length : 0;
-
-            while (j--) {
-              totalSize += getSize(orientation,
-              /** @type {?} */
-              view.rootNodes[j]);
-            }
-          }
-
-          return totalSize;
-        }
-        /**
-         * @return {?}
-         */
-
-      }, {
-        key: "ngDoCheck",
-        value: function ngDoCheck() {
-          if (this._differ && this._needsUpdate) {
-            // TODO(mmalerba): We should differentiate needs update due to scrolling and a new portion of
-            // this list being rendered (can use simpler algorithm) vs needs update due to data actually
-            // changing (need to do this diff).
-
-            /** @type {?} */
-            var changes = this._differ.diff(this._renderedItems);
-
-            if (!changes) {
-              this._updateContext();
-            } else {
-              this._applyChanges(changes);
-            }
-
-            this._needsUpdate = false;
-          }
-        }
-        /**
-         * @return {?}
-         */
-
-      }, {
-        key: "ngOnDestroy",
-        value: function ngOnDestroy() {
-          this._viewport.detach();
-
-          this._dataSourceChanges.next();
-
-          this._dataSourceChanges.complete();
-
-          this.viewChange.complete();
-
-          this._destroyed.next();
-
-          this._destroyed.complete();
-
-          var _iterator3 = _createForOfIteratorHelper(this._templateCache),
-              _step3;
-
-          try {
-            for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
-              var view = _step3.value;
-              view.destroy();
-            }
-          } catch (err) {
-            _iterator3.e(err);
-          } finally {
-            _iterator3.f();
-          }
-        }
-        /**
-         * React to scroll state changes in the viewport.
-         * @private
-         * @return {?}
-         */
-
-      }, {
-        key: "_onRenderedDataChange",
-        value: function _onRenderedDataChange() {
-          if (!this._renderedRange) {
-            return;
-          }
-
-          this._renderedItems = this._data.slice(this._renderedRange.start, this._renderedRange.end);
-
-          if (!this._differ) {
-            this._differ = this._differs.find(this._renderedItems).create(this.cdkVirtualForTrackBy);
-          }
-
-          this._needsUpdate = true;
-        }
-        /**
-         * Swap out one `DataSource` for another.
-         * @private
-         * @param {?} oldDs
-         * @param {?} newDs
-         * @return {?}
-         */
-
-      }, {
-        key: "_changeDataSource",
-        value: function _changeDataSource(oldDs, newDs) {
-          if (oldDs) {
-            oldDs.disconnect(this);
-          }
-
-          this._needsUpdate = true;
-          return newDs ? newDs.connect(this) : Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])();
-        }
-        /**
-         * Update the `CdkVirtualForOfContext` for all views.
-         * @private
-         * @return {?}
-         */
-
-      }, {
-        key: "_updateContext",
-        value: function _updateContext() {
-          /** @type {?} */
-          var count = this._data.length;
-          /** @type {?} */
-
-          var i = this._viewContainerRef.length;
-
-          while (i--) {
-            /** @type {?} */
-            var view =
-            /** @type {?} */
-            this._viewContainerRef.get(i);
-
-            view.context.index = this._renderedRange.start + i;
-            view.context.count = count;
-
-            this._updateComputedContextProperties(view.context);
-
-            view.detectChanges();
-          }
-        }
-        /**
-         * Apply changes to the DOM.
-         * @private
-         * @param {?} changes
-         * @return {?}
-         */
-
-      }, {
-        key: "_applyChanges",
-        value: function _applyChanges(changes) {
-          var _this51 = this;
-
-          // Rearrange the views to put them in the right location.
-          changes.forEachOperation(
-          /**
-          * @param {?} record
-          * @param {?} adjustedPreviousIndex
-          * @param {?} currentIndex
-          * @return {?}
-          */
-          function (record, adjustedPreviousIndex, currentIndex) {
-            if (record.previousIndex == null) {
-              // Item added.
-              // Item added.
-
-              /** @type {?} */
-              var view = _this51._insertViewForNewItem(
-              /** @type {?} */
-              currentIndex);
-
-              view.context.$implicit = record.item;
-            } else if (currentIndex == null) {
-              // Item removed.
-              _this51._cacheView(_this51._detachView(
-              /** @type {?} */
-              adjustedPreviousIndex));
-            } else {
-              // Item moved.
-              // Item moved.
-
-              /** @type {?} */
-              var _view =
-              /** @type {?} */
-              _this51._viewContainerRef.get(
-              /** @type {?} */
-              adjustedPreviousIndex);
-
-              _this51._viewContainerRef.move(_view, currentIndex);
-
-              _view.context.$implicit = record.item;
-            }
-          }); // Update $implicit for any items that had an identity change.
-
-          changes.forEachIdentityChange(
-          /**
-          * @param {?} record
-          * @return {?}
-          */
-          function (record) {
-            /** @type {?} */
-            var view =
-            /** @type {?} */
-            _this51._viewContainerRef.get(
-            /** @type {?} */
-            record.currentIndex);
-
-            view.context.$implicit = record.item;
-          }); // Update the context variables on all items.
-
-          /** @type {?} */
-
-          var count = this._data.length;
-          /** @type {?} */
-
-          var i = this._viewContainerRef.length;
-
-          while (i--) {
-            /** @type {?} */
-            var view =
-            /** @type {?} */
-            this._viewContainerRef.get(i);
-
-            view.context.index = this._renderedRange.start + i;
-            view.context.count = count;
-
-            this._updateComputedContextProperties(view.context);
-          }
-        }
-        /**
-         * Cache the given detached view.
-         * @private
-         * @param {?} view
-         * @return {?}
-         */
-
-      }, {
-        key: "_cacheView",
-        value: function _cacheView(view) {
-          if (this._templateCache.length < this.cdkVirtualForTemplateCacheSize) {
-            this._templateCache.push(view);
-          } else {
-            /** @type {?} */
-            var index = this._viewContainerRef.indexOf(view); // It's very unlikely that the index will ever be -1, but just in case,
-            // destroy the view on its own, otherwise destroy it through the
-            // container to ensure that all the references are removed.
-
-
-            if (index === -1) {
-              view.destroy();
-            } else {
-              this._viewContainerRef.remove(index);
-            }
-          }
-        }
-        /**
-         * Inserts a view for a new item, either from the cache or by creating a new one.
-         * @private
-         * @param {?} index
-         * @return {?}
-         */
-
-      }, {
-        key: "_insertViewForNewItem",
-        value: function _insertViewForNewItem(index) {
-          return this._insertViewFromCache(index) || this._createEmbeddedViewAt(index);
-        }
-        /**
-         * Update the computed properties on the `CdkVirtualForOfContext`.
-         * @private
-         * @param {?} context
-         * @return {?}
-         */
-
-      }, {
-        key: "_updateComputedContextProperties",
-        value: function _updateComputedContextProperties(context) {
-          context.first = context.index === 0;
-          context.last = context.index === context.count - 1;
-          context.even = context.index % 2 === 0;
-          context.odd = !context.even;
-        }
-        /**
-         * Creates a new embedded view and moves it to the given index
-         * @private
-         * @param {?} index
-         * @return {?}
-         */
-
-      }, {
-        key: "_createEmbeddedViewAt",
-        value: function _createEmbeddedViewAt(index) {
-          // Note that it's important that we insert the item directly at the proper index,
-          // rather than inserting it and the moving it in place, because if there's a directive
-          // on the same node that injects the `ViewContainerRef`, Angular will insert another
-          // comment node which can throw off the move when it's being repeated for all items.
-          return this._viewContainerRef.createEmbeddedView(this._template, {
-            $implicit:
-            /** @type {?} */
-            null,
-            // It's guaranteed that the iterable is not "undefined" or "null" because we only
-            // generate views for elements if the "cdkVirtualForOf" iterable has elements.
-            cdkVirtualForOf:
-            /** @type {?} */
-            this._cdkVirtualForOf,
-            index: -1,
-            count: -1,
-            first: false,
-            last: false,
-            odd: false,
-            even: false
-          }, index);
-        }
-        /**
-         * Inserts a recycled view from the cache at the given index.
-         * @private
-         * @param {?} index
-         * @return {?}
-         */
-
-      }, {
-        key: "_insertViewFromCache",
-        value: function _insertViewFromCache(index) {
-          /** @type {?} */
-          var cachedView = this._templateCache.pop();
-
-          if (cachedView) {
-            this._viewContainerRef.insert(cachedView, index);
-          }
-
-          return cachedView || null;
-        }
-        /**
-         * Detaches the embedded view at the given index.
-         * @private
-         * @param {?} index
-         * @return {?}
-         */
-
-      }, {
-        key: "_detachView",
-        value: function _detachView(index) {
-          return (
-            /** @type {?} */
-            this._viewContainerRef.detach(index)
-          );
-        }
-      }, {
-        key: "cdkVirtualForOf",
-        get: function get() {
-          return this._cdkVirtualForOf;
-        }
-        /**
-         * @param {?} value
-         * @return {?}
-         */
-        ,
-        set: function set(value) {
-          this._cdkVirtualForOf = value;
-
-          if (Object(_angular_cdk_collections__WEBPACK_IMPORTED_MODULE_7__["isDataSource"])(value)) {
-            this._dataSourceChanges.next(value);
-          } else {
-            // Slice the value if its an NgIterable to ensure we're working with an array.
-            this._dataSourceChanges.next(new _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_7__["ArrayDataSource"](Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["isObservable"])(value) ? value : Array.prototype.slice.call(value || [])));
-          }
-        }
-        /**
-         * The `TrackByFunction` to use for tracking changes. The `TrackByFunction` takes the index and
-         * the item and produces a value to be used as the item's identity when tracking changes.
-         * @return {?}
-         */
-
-      }, {
-        key: "cdkVirtualForTrackBy",
-        get: function get() {
-          return this._cdkVirtualForTrackBy;
-        }
-        /**
-         * @param {?} fn
-         * @return {?}
-         */
-        ,
-        set: function set(fn) {
-          var _this52 = this;
-
-          this._needsUpdate = true;
-          this._cdkVirtualForTrackBy = fn ?
-          /**
-          * @param {?} index
-          * @param {?} item
-          * @return {?}
-          */
-          function (index, item) {
-            return fn(index + (_this52._renderedRange ? _this52._renderedRange.start : 0), item);
-          } : undefined;
-        }
-        /**
-         * The template used to stamp out new elements.
-         * @param {?} value
-         * @return {?}
-         */
-
-      }, {
-        key: "cdkVirtualForTemplate",
-        set: function set(value) {
-          if (value) {
-            this._needsUpdate = true;
-            this._template = value;
-          }
-        }
-      }]);
-
-      return CdkVirtualForOf;
-    }();
-
-    CdkVirtualForOf.ɵfac = function CdkVirtualForOf_Factory(t) {
-      return new (t || CdkVirtualForOf)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["IterableDiffers"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](CdkVirtualScrollViewport, 4), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]));
-    };
-
-    CdkVirtualForOf.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineDirective"]({
-      type: CdkVirtualForOf,
-      selectors: [["", "cdkVirtualFor", "", "cdkVirtualForOf", ""]],
-      inputs: {
-        cdkVirtualForTemplateCacheSize: "cdkVirtualForTemplateCacheSize",
-        cdkVirtualForOf: "cdkVirtualForOf",
-        cdkVirtualForTrackBy: "cdkVirtualForTrackBy",
-        cdkVirtualForTemplate: "cdkVirtualForTemplate"
-      }
-    });
-    /** @nocollapse */
-
-    CdkVirtualForOf.ctorParameters = function () {
-      return [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"]
-      }, {
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"]
-      }, {
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["IterableDiffers"]
-      }, {
-        type: CdkVirtualScrollViewport,
-        decorators: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["SkipSelf"]
-        }]
-      }, {
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]
-      }];
-    };
-
-    CdkVirtualForOf.propDecorators = {
-      cdkVirtualForOf: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-      }],
-      cdkVirtualForTrackBy: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-      }],
-      cdkVirtualForTemplate: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-      }],
-      cdkVirtualForTemplateCacheSize: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-      }]
-    };
-    /*@__PURE__*/
-
-    (function () {
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CdkVirtualForOf, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"],
-        args: [{
-          selector: '[cdkVirtualFor][cdkVirtualForOf]'
-        }]
-      }], function () {
-        return [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"]
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"]
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["IterableDiffers"]
-        }, {
-          type: CdkVirtualScrollViewport,
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["SkipSelf"]
-          }]
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]
-        }];
-      }, {
-        cdkVirtualForTemplateCacheSize: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }],
-        cdkVirtualForOf: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }],
-        cdkVirtualForTrackBy: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }],
-        cdkVirtualForTemplate: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }]
-      });
-    })();
-
-    if (false) {}
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: src/cdk/scrolling/scrolling-module.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-
-    var CdkScrollableModule = function CdkScrollableModule() {
-      _classCallCheck2(this, CdkScrollableModule);
-    };
-
-    CdkScrollableModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({
-      type: CdkScrollableModule
-    });
-    CdkScrollableModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({
-      factory: function CdkScrollableModule_Factory(t) {
-        return new (t || CdkScrollableModule)();
-      }
-    });
-
-    (function () {
-      (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](CdkScrollableModule, {
-        declarations: [CdkScrollable],
-        exports: [CdkScrollable]
-      });
-    })();
-    /*@__PURE__*/
-
-
-    (function () {
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CdkScrollableModule, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"],
-        args: [{
-          exports: [CdkScrollable],
-          declarations: [CdkScrollable]
-        }]
-      }], null, null);
-    })();
-
-    var ScrollingModule = function ScrollingModule() {
-      _classCallCheck2(this, ScrollingModule);
-    };
-
-    ScrollingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({
-      type: ScrollingModule
-    });
-    ScrollingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({
-      factory: function ScrollingModule_Factory(t) {
-        return new (t || ScrollingModule)();
-      },
-      imports: [[_angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_6__["BidiModule"], _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["PlatformModule"], CdkScrollableModule], _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_6__["BidiModule"], CdkScrollableModule]
-    });
-
-    (function () {
-      (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](ScrollingModule, {
-        declarations: function declarations() {
-          return [CdkFixedSizeVirtualScroll, CdkVirtualForOf, CdkVirtualScrollViewport];
-        },
-        imports: function imports() {
-          return [_angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_6__["BidiModule"], _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["PlatformModule"], CdkScrollableModule];
-        },
-        exports: function exports() {
-          return [_angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_6__["BidiModule"], CdkScrollableModule, CdkFixedSizeVirtualScroll, CdkVirtualForOf, CdkVirtualScrollViewport];
-        }
-      });
-    })();
-    /*@__PURE__*/
-
-
-    (function () {
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](ScrollingModule, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"],
-        args: [{
-          imports: [_angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_6__["BidiModule"], _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["PlatformModule"], CdkScrollableModule],
-          exports: [_angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_6__["BidiModule"], CdkScrollableModule, CdkFixedSizeVirtualScroll, CdkVirtualForOf, CdkVirtualScrollViewport],
-          declarations: [CdkFixedSizeVirtualScroll, CdkVirtualForOf, CdkVirtualScrollViewport]
-        }]
-      }], null, null);
-    })();
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: src/cdk/scrolling/public-api.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    /**
-     * Generated bundle index. Do not edit.
-     */
-    //# sourceMappingURL=scrolling.js.map
-
-    /***/
-
-  },
-
-  /***/
-  "./node_modules/@angular/cdk/fesm2015/coercion.js":
-  /*!********************************************************!*\
-    !*** ./node_modules/@angular/cdk/fesm2015/coercion.js ***!
-    \********************************************************/
-
-  /*! exports provided: _isNumberValue, coerceArray, coerceBooleanProperty, coerceCssPixelValue, coerceElement, coerceNumberProperty */
-
-  /***/
-  function node_modulesAngularCdkFesm2015CoercionJs(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "_isNumberValue", function () {
-      return _isNumberValue;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "coerceArray", function () {
-      return coerceArray;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "coerceBooleanProperty", function () {
-      return coerceBooleanProperty;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "coerceCssPixelValue", function () {
-      return coerceCssPixelValue;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "coerceElement", function () {
-      return coerceElement;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "coerceNumberProperty", function () {
-      return coerceNumberProperty;
-    });
-    /* harmony import */
-
-
-    var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! @angular/core */
-    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-    /**
-     * @license
-     * Copyright Google LLC All Rights Reserved.
-     *
-     * Use of this source code is governed by an MIT-style license that can be
-     * found in the LICENSE file at https://angular.io/license
-     */
-
-    /** Coerces a data-bound value (typically a string) to a boolean. */
-
-
-    function coerceBooleanProperty(value) {
-      return value != null && "".concat(value) !== 'false';
-    }
-    /**
-     * @license
-     * Copyright Google LLC All Rights Reserved.
-     *
-     * Use of this source code is governed by an MIT-style license that can be
-     * found in the LICENSE file at https://angular.io/license
-     */
-
-
-    function coerceNumberProperty(value) {
-      var fallbackValue = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
-      return _isNumberValue(value) ? Number(value) : fallbackValue;
-    }
-    /**
-     * Whether the provided value is considered a number.
-     * @docs-private
-     */
-
-
-    function _isNumberValue(value) {
-      // parseFloat(value) handles most of the cases we're interested in (it treats null, empty string,
-      // and other non-number values as NaN, where Number just uses 0) but it considers the string
-      // '123hello' to be a valid number. Therefore we also check if Number(value) is NaN.
-      return !isNaN(parseFloat(value)) && !isNaN(Number(value));
-    }
-    /**
-     * @license
-     * Copyright Google LLC All Rights Reserved.
-     *
-     * Use of this source code is governed by an MIT-style license that can be
-     * found in the LICENSE file at https://angular.io/license
-     */
-
-
-    function coerceArray(value) {
-      return Array.isArray(value) ? value : [value];
-    }
-    /**
-     * @license
-     * Copyright Google LLC All Rights Reserved.
-     *
-     * Use of this source code is governed by an MIT-style license that can be
-     * found in the LICENSE file at https://angular.io/license
-     */
-
-    /** Coerces a value to a CSS pixel value. */
-
-
-    function coerceCssPixelValue(value) {
-      if (value == null) {
-        return '';
-      }
-
-      return typeof value === 'string' ? value : "".concat(value, "px");
-    }
-    /**
-     * @license
-     * Copyright Google LLC All Rights Reserved.
-     *
-     * Use of this source code is governed by an MIT-style license that can be
-     * found in the LICENSE file at https://angular.io/license
-     */
-
-    /**
-     * Coerces an ElementRef or an Element into an element.
-     * Useful for APIs that can accept either a ref or the native element itself.
-     */
-
-
-    function coerceElement(elementOrRef) {
-      return elementOrRef instanceof _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"] ? elementOrRef.nativeElement : elementOrRef;
-    }
-    /**
-     * @license
-     * Copyright Google LLC All Rights Reserved.
-     *
-     * Use of this source code is governed by an MIT-style license that can be
-     * found in the LICENSE file at https://angular.io/license
-     */
-
-    /**
-     * @license
-     * Copyright Google LLC All Rights Reserved.
-     *
-     * Use of this source code is governed by an MIT-style license that can be
-     * found in the LICENSE file at https://angular.io/license
-     */
-    //# sourceMappingURL=coercion.js.map
-
-    /***/
-
-  },
-
-  /***/
   "./node_modules/@fortawesome/angular-fontawesome/__ivy_ngcc__/fesm2015/angular-fontawesome.js":
   /*!****************************************************************************************************!*\
     !*** ./node_modules/@fortawesome/angular-fontawesome/__ivy_ngcc__/fesm2015/angular-fontawesome.js ***!
@@ -12368,7 +7343,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         key: "addIconPacks",
         value: function addIconPacks() {
           var _arguments = arguments,
-              _this53 = this;
+              _this30 = this;
 
           var _loop = function _loop(i) {
             /** @type {?} */
@@ -12384,7 +7359,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
               return pack[key];
             });
 
-            _this53.addIcons.apply(_this53, _toConsumableArray2(icons));
+            _this30.addIcons.apply(_this30, _toConsumableArray2(icons));
           };
 
           for (var i = 0; i < arguments.length; i++) {
@@ -13056,12 +8031,12 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
     function (_FaIconComponent) {
       _inherits(FaDuotoneIconComponent, _FaIconComponent);
 
-      var _super3 = _createSuper(FaDuotoneIconComponent);
+      var _super = _createSuper(FaDuotoneIconComponent);
 
       function FaDuotoneIconComponent() {
         _classCallCheck2(this, FaDuotoneIconComponent);
 
-        return _super3.apply(this, arguments);
+        return _super.apply(this, arguments);
       }
 
       _createClass2(FaDuotoneIconComponent, [{
@@ -13526,12 +8501,12 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
     function (_FaLayersTextBaseComp) {
       _inherits(FaLayersCounterComponent, _FaLayersTextBaseComp);
 
-      var _super4 = _createSuper(FaLayersCounterComponent);
+      var _super2 = _createSuper(FaLayersCounterComponent);
 
       function FaLayersCounterComponent() {
         _classCallCheck2(this, FaLayersCounterComponent);
 
-        return _super4.apply(this, arguments);
+        return _super2.apply(this, arguments);
       }
 
       _createClass2(FaLayersCounterComponent, [{
@@ -13612,12 +8587,12 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
     function (_FaLayersTextBaseComp2) {
       _inherits(FaLayersTextComponent, _FaLayersTextBaseComp2);
 
-      var _super5 = _createSuper(FaLayersTextComponent);
+      var _super3 = _createSuper(FaLayersTextComponent);
 
       function FaLayersTextComponent() {
         _classCallCheck2(this, FaLayersTextComponent);
 
-        return _super5.apply(this, arguments);
+        return _super3.apply(this, arguments);
       }
 
       _createClass2(FaLayersTextComponent, [{
@@ -46609,11 +41584,11 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var r_r48 = ctx.$implicit;
+        var r_r57 = ctx.$implicit;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](r_r48.raceDesc);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](r_r57.raceDesc);
       }
     }
 
@@ -46637,11 +41612,11 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var ctx_r45 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+        var ctx_r54 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r45.charForm.get("charRace").errors.required);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r54.charForm.get("charRace").errors.required);
       }
     }
 
@@ -46655,11 +41630,11 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var c_r50 = ctx.$implicit;
+        var c_r59 = ctx.$implicit;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](c_r50.className);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](c_r59.className);
       }
     }
 
@@ -46683,11 +41658,11 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var ctx_r47 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+        var ctx_r56 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r47.charForm.get("classes").errors.required);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r56.charForm.get("classes").errors.required);
       }
     }
 
@@ -46747,31 +41722,31 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var ctx_r41 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+        var ctx_r50 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("formControl", ctx_r41.charForm.get("charRace"));
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("formControl", ctx_r50.charForm.get("charRace"));
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r41.races);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r50.races);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r41.charForm.get("charRace").errors && ctx_r41.charForm.get("charRace").dirty && ctx_r41.charForm.get("charRace").touched);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r50.charForm.get("charRace").errors && ctx_r50.charForm.get("charRace").dirty && ctx_r50.charForm.get("charRace").touched);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("formControl", ctx_r41.charForm.get("classes"));
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("formControl", ctx_r50.charForm.get("classes"));
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r41.classes);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r50.classes);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r41.charForm.get("classes").errors && ctx_r41.charForm.get("classes").dirty && ctx_r41.charForm.get("classes").touched);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r50.charForm.get("classes").errors && ctx_r50.charForm.get("classes").dirty && ctx_r50.charForm.get("classes").touched);
       }
     }
 
@@ -46793,15 +41768,15 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var c_r54 = ctx.$implicit;
+        var c_r63 = ctx.$implicit;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("", c_r54["CharClass"]["className"], ":");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("", c_r63["CharClass"]["className"], ":");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", c_r54.classLevel, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", c_r63.classLevel, "");
       }
     }
 
@@ -46819,17 +41794,17 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var st_r55 = ctx.$implicit;
+        var st_r64 = ctx.$implicit;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"]("", st_r55.score, ": ", st_r55.modDesc === "" ? "Base" : st_r55.modDesc, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"]("", st_r64.score, ": ", st_r64.modDesc === "" ? "Base" : st_r64.modDesc, "");
       }
     }
 
     function CharBaseComponent_ng_container_8_Template(rf, ctx) {
       if (rf & 1) {
-        var _r57 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r66 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](0);
 
@@ -46908,11 +41883,11 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](27, "i", 18);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function CharBaseComponent_ng_container_8_Template_i_click_27_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r57);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r66);
 
-          var ctx_r56 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r65 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r56.editHP(ctx_r56.charID);
+          return ctx_r65.editHP(ctx_r65.charID);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -46938,11 +41913,11 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](34, "i", 19);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function CharBaseComponent_ng_container_8_Template_i_click_34_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r57);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r66);
 
-          var ctx_r58 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r67 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r58.showBreakDown($event);
+          return ctx_r67.showBreakDown($event);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -46954,11 +41929,11 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](36, "i", 18);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function CharBaseComponent_ng_container_8_Template_i_click_36_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r57);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r66);
 
-          var ctx_r59 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r68 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r59.editAC(ctx_r59.charID);
+          return ctx_r68.editAC(ctx_r68.charID);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -46990,11 +41965,11 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](45, "i", 18);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function CharBaseComponent_ng_container_8_Template_i_click_45_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r57);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r66);
 
-          var ctx_r60 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r69 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r60.editInit(ctx_r60.charID);
+          return ctx_r69.editInit(ctx_r69.charID);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -47020,11 +41995,11 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](52, "i", 18);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function CharBaseComponent_ng_container_8_Template_i_click_52_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r57);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r66);
 
-          var ctx_r61 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r70 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r61.editAC(ctx_r61.charID);
+          return ctx_r70.editAC(ctx_r70.charID);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -47041,39 +42016,39 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var ctx_r42 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+        var ctx_r51 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](8);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r42.charBasic.results.Race.raceDesc);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r51.charBasic.results.Race.raceDesc);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r42.charBasic.results.CharLevels);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r51.charBasic.results.CharLevels);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r42.charBasic.results.Alignment.alignName);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r51.charBasic.results.Alignment.alignName);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx_r42.charBasic.results.charHP, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx_r51.charBasic.results.charHP, " ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](7);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx_r42.charAC, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx_r51.charAC, " ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r42.acs["results"]);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r51.acs["results"]);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx_r42.init, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx_r51.init, " ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](7);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx_r42.charAC, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx_r51.charAC, " ");
       }
     }
 
@@ -47101,7 +42076,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
     /*#__PURE__*/
     function () {
       function CharBaseComponent(raceSvc, classSvc, charDataSvc, router) {
-        var _this54 = this;
+        var _this31 = this;
 
         _classCallCheck2(this, CharBaseComponent);
 
@@ -47126,84 +42101,84 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         this.onSubmit = function () {};
 
         this.editHP = function (charID) {
-          _this54.router.navigate(['/charGen/mods/hp/' + charID]);
+          _this31.router.navigate(['/charGen/mods/hp/' + charID]);
         };
 
         this.editAC = function (charID) {
-          _this54.router.navigate(['/charGen/mods/ac/' + charID]);
+          _this31.router.navigate(['/charGen/mods/ac/' + charID]);
         };
 
         this.editInit = function (charID) {
-          _this54.router.navigate(['/charGen/mods/init/' + charID]);
+          _this31.router.navigate(['/charGen/mods/init/' + charID]);
         };
       }
 
       _createClass2(CharBaseComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this55 = this;
+          var _this32 = this;
 
           this.charDataSvc.getIsNew.subscribe(function (val) {
-            return _this55.isNew = val;
+            return _this32.isNew = val;
           });
           this.charDataSvc.getIsReadOnly.subscribe(function (val) {
-            return _this55.isReadOnly = val;
+            return _this32.isReadOnly = val;
           });
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this55.charID = val;
+            return _this32.charID = val;
           });
 
           if (this.isNew) {
             this.raceSvc.getRaces().subscribe(function (results) {
-              _this55.races = results.results;
+              _this32.races = results.results;
             });
             this.classSvc.getClasses().subscribe(function (results) {
-              _this55.classes = results.results;
+              _this32.classes = results.results;
             });
             return;
           }
 
           this.charDataSvc.getCharBasics.subscribe(function (val) {
-            return _this55.charBasic = val;
+            return _this32.charBasic = val;
           });
           this.curChar = this.charBasic.charID;
 
           if (!this.isNew && this.charID && this.charID.toString() !== this.curChar) {
             this.charDataSvc.loadCharBase(this.charID.toString()).subscribe(function (val) {
-              _this55.charBasic = val;
+              _this32.charBasic = val;
 
-              _this55.charDataSvc.setCharBasics(val);
+              _this32.charDataSvc.setCharBasics(val);
 
-              _this55.charRace = _this55.charBasic.results.Race.raceDesc;
-              _this55.charAlign = _this55.charBasic.results.Alignment.alignName;
-              _this55.charName = _this55.charBasic.results.charName;
-              _this55.charHP = _this55.charBasic.results.charHP.toString();
-              _this55.init = _this55.charBasic.results.init.toString();
+              _this32.charRace = _this32.charBasic.results.Race.raceDesc;
+              _this32.charAlign = _this32.charBasic.results.Alignment.alignName;
+              _this32.charName = _this32.charBasic.results.charName;
+              _this32.charHP = _this32.charBasic.results.charHP.toString();
+              _this32.init = _this32.charBasic.results.init.toString();
 
-              _this55.charForm.patchValue({
-                charName: _this55.charName,
-                charRace: _this55.charRace,
-                charAlign: _this55.charAlign,
-                charHP: _this55.charHP
+              _this32.charForm.patchValue({
+                charName: _this32.charName,
+                charRace: _this32.charRace,
+                charAlign: _this32.charAlign,
+                charHP: _this32.charHP
               });
 
-              _this55.charDataSvc.loadAC(_this55.charID).subscribe(function (val) {
-                _this55.acs = val;
+              _this32.charDataSvc.loadAC(_this32.charID).subscribe(function (val) {
+                _this32.acs = val;
 
-                _this55.charDataSvc.setAllACs(val);
+                _this32.charDataSvc.setAllACs(val);
 
-                _this55.charAC = _this55.acs['results'].reduce(function (a, b) {
+                _this32.charAC = _this32.acs['results'].reduce(function (a, b) {
                   return a + b.score;
                 }, 0).toString();
 
-                _this55.charForm.patchValue({
-                  charAC: _this55.charAC
+                _this32.charForm.patchValue({
+                  charAC: _this32.charAC
                 });
               });
             });
           } else {
             this.charDataSvc.getCharBasics.subscribe(function (val) {
-              return _this55.charBasic = val;
+              return _this32.charBasic = val;
             });
             this.charName = this.charBasic.results.charName;
             this.charRace = this.charBasic.results.Race.raceDesc;
@@ -47217,13 +42192,13 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
               charHP: this.charHP
             });
             this.charDataSvc.getAllACs.subscribe(function (val) {
-              _this55.acs = val;
-              _this55.charAC = _this55.acs['results'].reduce(function (a, b) {
+              _this32.acs = val;
+              _this32.charAC = _this32.acs['results'].reduce(function (a, b) {
                 return a + b.score;
               }, 0).toString();
 
-              _this55.charForm.patchValue({
-                charAC: _this55.charAC
+              _this32.charForm.patchValue({
+                charAC: _this32.charAC
               });
             });
           }
@@ -47411,16 +42386,16 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
 
     function CharEquipComponent_button_2_Template(rf, ctx) {
       if (rf & 1) {
-        var _r66 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r75 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 13);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function CharEquipComponent_button_2_Template_button_click_0_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r66);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r75);
 
-          var ctx_r65 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r74 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r65.toggleForm();
+          return ctx_r74.toggleForm();
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "i", 14);
@@ -47433,26 +42408,26 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
 
     function CharEquipComponent_form_3_Template(rf, ctx) {
       if (rf & 1) {
-        var _r69 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r78 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "form", 15, 16);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngSubmit", function CharEquipComponent_form_3_Template_form_ngSubmit_0_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r69);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r78);
 
-          var ctx_r68 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r77 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r68.onSubmit($event);
+          return ctx_r77.onSubmit($event);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "input", 17);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function CharEquipComponent_form_3_Template_input_ngModelChange_2_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r69);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r78);
 
-          var ctx_r70 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r79 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r70.equip = $event;
+          return ctx_r79.equip = $event;
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -47460,11 +42435,11 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "input", 18);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function CharEquipComponent_form_3_Template_input_ngModelChange_3_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r69);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r78);
 
-          var ctx_r71 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r80 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r71.wt = $event;
+          return ctx_r80.wt = $event;
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -47472,11 +42447,11 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "input", 19);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function CharEquipComponent_form_3_Template_input_ngModelChange_4_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r69);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r78);
 
-          var ctx_r72 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r81 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r72.loc = $event;
+          return ctx_r81.loc = $event;
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -47491,25 +42466,25 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var ctx_r63 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+        var ctx_r72 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx_r63.equip);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx_r72.equip);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx_r63.wt);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx_r72.wt);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx_r63.loc);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx_r72.loc);
       }
     }
 
     function CharEquipComponent_div_16_Template(rf, ctx) {
       if (rf & 1) {
-        var _r75 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r84 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 21);
 
@@ -47542,13 +42517,13 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "i", 28);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function CharEquipComponent_div_16_Template_i_click_10_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r75);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r84);
 
-          var nt_r73 = ctx.$implicit;
+          var nt_r82 = ctx.$implicit;
 
-          var ctx_r74 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r83 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r74.deleteEquip($event, nt_r73.id);
+          return ctx_r83.deleteEquip($event, nt_r82.id);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -47559,19 +42534,19 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var nt_r73 = ctx.$implicit;
+        var nt_r82 = ctx.$implicit;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", nt_r73.equip, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", nt_r82.equip, " ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", nt_r73.weight, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", nt_r82.weight, " ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", nt_r73.location, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", nt_r82.location, " ");
       }
     }
 
@@ -47579,7 +42554,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
     /*#__PURE__*/
     function () {
       function CharEquipComponent(charDataSvc, router) {
-        var _this56 = this;
+        var _this33 = this;
 
         _classCallCheck2(this, CharEquipComponent);
 
@@ -47590,74 +42565,74 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         this.totalWeight = 0;
 
         this.deleteEquip = function (evt, id) {
-          _this56.charDataSvc.deleteEquipment(id).subscribe(function (val) {
-            _this56.allEquip.results = _this56.allEquip.results.filter(function (arg) {
+          _this33.charDataSvc.deleteEquipment(id).subscribe(function (val) {
+            _this33.allEquip.results = _this33.allEquip.results.filter(function (arg) {
               return arg.id !== id;
             });
 
-            _this56.charDataSvc.setAllEquipment(_this56.allEquip);
+            _this33.charDataSvc.setAllEquipment(_this33.allEquip);
 
-            _this56.calcWeight();
+            _this33.calcWeight();
           });
         };
 
         this.toggleForm = function () {
-          _this56.gatherNewInfo = true;
+          _this33.gatherNewInfo = true;
         };
 
         this.onSubmit = function (evt) {
           evt.preventDefault();
           var body = {
-            charID: _this56.charID,
-            equip: _this56.equip,
-            weight: _this56.wt,
-            location: _this56.loc
+            charID: _this33.charID,
+            equip: _this33.equip,
+            weight: _this33.wt,
+            location: _this33.loc
           };
 
-          _this56.charDataSvc.addEquipment(body).subscribe(function (vals) {
-            _this56.allEquip.results = [].concat(_toConsumableArray2(_this56.allEquip.results), [vals]);
+          _this33.charDataSvc.addEquipment(body).subscribe(function (vals) {
+            _this33.allEquip.results = [].concat(_toConsumableArray2(_this33.allEquip.results), [vals]);
 
-            _this56.charDataSvc.setAllEquipment(_this56.allEquip);
+            _this33.charDataSvc.setAllEquipment(_this33.allEquip);
 
-            _this56.equip = '';
-            _this56.wt = 0;
-            _this56.loc = '';
-            _this56.gatherNewInfo = false;
+            _this33.equip = '';
+            _this33.wt = 0;
+            _this33.loc = '';
+            _this33.gatherNewInfo = false;
 
-            _this56.calcWeight();
+            _this33.calcWeight();
           });
         };
 
         this.filterList = function (evt) {
-          _this56.filterText = evt.target.value;
+          _this33.filterText = evt.target.value;
           var aTable = document.getElementsByClassName('ui selectable celled table striped');
           var tbody = aTable[0].getElementsByTagName("tbody");
           var allRows = tbody[0].getElementsByTagName("tr");
 
-          var _iterator4 = _createForOfIteratorHelper(allRows),
-              _step4;
+          var _iterator = _createForOfIteratorHelper(allRows),
+              _step;
 
           try {
-            for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
-              var r = _step4.value;
+            for (_iterator.s(); !(_step = _iterator.n()).done;) {
+              var r = _step.value;
               var aTag = r.getElementsByTagName('td')[0].innerText;
               var cTag = r.getElementsByTagName('td')[2].innerText;
 
-              if (aTag.toLowerCase().includes(_this56.filterText.toLowerCase()) || cTag.toLowerCase().includes(_this56.filterText.toLowerCase())) {
+              if (aTag.toLowerCase().includes(_this33.filterText.toLowerCase()) || cTag.toLowerCase().includes(_this33.filterText.toLowerCase())) {
                 r.classList.remove('hidden');
               } else {
                 r.classList.add('hidden');
               }
             }
           } catch (err) {
-            _iterator4.e(err);
+            _iterator.e(err);
           } finally {
-            _iterator4.f();
+            _iterator.f();
           }
         };
 
         this.calcWeight = function () {
-          _this56.totalWeight = _this56.allEquip['results'].reduce(function (a, b) {
+          _this33.totalWeight = _this33.allEquip['results'].reduce(function (a, b) {
             return a + b.weight;
           }, 0);
         };
@@ -47666,28 +42641,28 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       _createClass2(CharEquipComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this57 = this;
+          var _this34 = this;
 
           this.charDataSvc.getIsNew.subscribe(function (val) {
-            return _this57.isNew = val;
+            return _this34.isNew = val;
           });
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this57.charID = val;
+            return _this34.charID = val;
           });
           this.charDataSvc.getAllEquip.subscribe(function (val) {
-            return _this57.curChar = val.charID;
+            return _this34.curChar = val.charID;
           });
           this.charDataSvc.getAllEquip.subscribe(function (val) {
-            return _this57.allEquip = val;
+            return _this34.allEquip = val;
           });
 
           if (!this.isNew && this.charID && this.charID !== this.curChar) {
             this.charDataSvc.loadEquipment(this.charID).subscribe(function (val) {
-              _this57.allEquip = val;
+              _this34.allEquip = val;
 
-              _this57.charDataSvc.setAllEquipment(val);
+              _this34.charDataSvc.setAllEquipment(val);
 
-              _this57.calcWeight();
+              _this34.calcWeight();
             });
           }
 
@@ -47909,7 +42884,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
     /*#__PURE__*/
     function () {
       function CharFeatsComponent(charSvc, charDataSvc, router) {
-        var _this58 = this;
+        var _this35 = this;
 
         _classCallCheck2(this, CharFeatsComponent);
 
@@ -47923,32 +42898,32 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         this.filterText = '';
 
         this.addNewFeat = function () {
-          _this58.router.navigate(['/charGen/mods/newfeat']);
+          _this35.router.navigate(['/charGen/mods/newfeat']);
         };
 
         this.filterList = function (evt) {
-          _this58.filterText = evt.target.value;
+          _this35.filterText = evt.target.value;
           var allRows = document.getElementsByClassName('ui grid gridRow');
 
-          var _iterator5 = _createForOfIteratorHelper(allRows),
-              _step5;
+          var _iterator2 = _createForOfIteratorHelper(allRows),
+              _step2;
 
           try {
-            for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
-              var r = _step5.value;
+            for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+              var r = _step2.value;
               var aTag = r.getElementsByTagName('div')[0].innerText;
               var bTag = r.getElementsByTagName('div')[1].innerText;
 
-              if (aTag.toLowerCase().includes(_this58.filterText.toLowerCase()) || bTag.toLowerCase().includes(_this58.filterText.toLowerCase())) {
+              if (aTag.toLowerCase().includes(_this35.filterText.toLowerCase()) || bTag.toLowerCase().includes(_this35.filterText.toLowerCase())) {
                 r.classList.remove('hidden');
               } else {
                 r.classList.add('hidden');
               }
             }
           } catch (err) {
-            _iterator5.e(err);
+            _iterator2.e(err);
           } finally {
-            _iterator5.f();
+            _iterator2.f();
           }
         };
       }
@@ -47956,31 +42931,31 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       _createClass2(CharFeatsComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this59 = this;
+          var _this36 = this;
 
           this.charDataSvc.getIsNew.subscribe(function (val) {
-            return _this59.isNew = val;
+            return _this36.isNew = val;
           });
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this59.charID = val;
+            return _this36.charID = val;
           });
           this.charDataSvc.getAllFeats.subscribe(function (val) {
-            return _this59.allFeats = val === null ? [] : val.results;
+            return _this36.allFeats = val === null ? [] : val.results;
           });
           this.charDataSvc.getAllFeats.subscribe(function (val) {
-            return _this59.curChar = val === null ? "0" : val.charID;
+            return _this36.curChar = val === null ? "0" : val.charID;
           });
 
           if (!this.isNew && this.charID && this.charID.toString() !== this.curChar) {
             this.allFeats = [];
             this.charDataSvc.loadFeats(this.charID.toString()).subscribe(function (results) {
-              _this59.allFeats = results.results;
+              _this36.allFeats = results.results;
 
-              _this59.charDataSvc.setAllFeats(results);
+              _this36.charDataSvc.setAllFeats(results);
             });
           } else {
             this.charDataSvc.getAllFeats.subscribe(function (val) {
-              return _this59.allFeats = val.results;
+              return _this36.allFeats = val.results;
             });
           }
         }
@@ -48147,16 +43122,16 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
 
     function CharModComponent_button_2_Template(rf, ctx) {
       if (rf & 1) {
-        var _r102 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r111 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 13);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function CharModComponent_button_2_Template_button_click_0_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r102);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r111);
 
-          var ctx_r101 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r110 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r101.addMod($event);
+          return ctx_r110.addMod($event);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "i", 14);
@@ -48173,9 +43148,9 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var ctx_r96 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+        var ctx_r105 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("innerHTML", ctx_r96.mainTitle, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeHtml"]);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("innerHTML", ctx_r105.mainTitle, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeHtml"]);
       }
     }
 
@@ -48225,13 +43200,13 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var st_r103 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+        var st_r112 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
 
-        var ctx_r104 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+        var ctx_r113 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("name", ctx_r104.setInputName("stat", st_r103.id.toString()))("checked", ctx_r104.getBaseBinding(st_r103.isRanks, st_r103.isBase));
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("name", ctx_r113.setInputName("stat", st_r112.id.toString()))("checked", ctx_r113.getBaseBinding(st_r112.isRanks, st_r112.isBase));
       }
     }
 
@@ -48251,13 +43226,13 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var st_r103 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+        var st_r112 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
 
-        var ctx_r105 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+        var ctx_r114 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("name", ctx_r105.setInputName("stat", st_r103.id.toString()))("checked", st_r103.isMod);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("name", ctx_r114.setInputName("stat", st_r112.id.toString()))("checked", st_r112.isMod);
       }
     }
 
@@ -48277,13 +43252,13 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var st_r103 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+        var st_r112 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
 
-        var ctx_r106 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+        var ctx_r115 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("name", ctx_r106.setInputName("stat", st_r103.id.toString()))("checked", st_r103.isClassSkill);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("name", ctx_r115.setInputName("stat", st_r112.id.toString()))("checked", st_r112.isClassSkill);
       }
     }
 
@@ -48297,32 +43272,32 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var st_r103 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+        var st_r112 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
 
-        var ctx_r107 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+        var ctx_r116 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("value", st_r103.modDesc)("name", ctx_r107.setInputName("desc", st_r103.id));
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("value", st_r112.modDesc)("name", ctx_r116.setInputName("desc", st_r112.id));
       }
     }
 
     function CharModComponent_div_14_div_7_Template(rf, ctx) {
       if (rf & 1) {
-        var _r115 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r124 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 30);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "i", 31);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function CharModComponent_div_14_div_7_Template_i_click_1_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r115);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r124);
 
-          var st_r103 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+          var st_r112 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
 
-          var ctx_r113 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r122 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r113.deleteAttribute(st_r103.id);
+          return ctx_r122.deleteAttribute(st_r112.id);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -48355,33 +43330,33 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var st_r103 = ctx.$implicit;
+        var st_r112 = ctx.$implicit;
 
-        var ctx_r100 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+        var ctx_r109 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("value", st_r103.score)("name", ctx_r100.setInputName("score", st_r103.id));
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("value", st_r112.score)("name", ctx_r109.setInputName("score", st_r112.id));
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r100.modType !== "hp" && ctx_r100.modType !== "init");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r109.modType !== "hp" && ctx_r109.modType !== "init");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r100.modType !== "hp" && ctx_r100.modType !== "init");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r109.modType !== "hp" && ctx_r109.modType !== "init");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r100.modType === "skill");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r109.modType === "skill");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r100.modType !== "hp" && ctx_r100.modType !== "init");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r109.modType !== "hp" && ctx_r109.modType !== "init");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r100.modType !== "hp" && ctx_r100.modType !== "init");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r109.modType !== "hp" && ctx_r109.modType !== "init");
       }
     }
 
@@ -48389,7 +43364,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
     /*#__PURE__*/
     function () {
       function CharModComponent(charDataSvc, router, http) {
-        var _this60 = this;
+        var _this37 = this;
 
         _classCallCheck2(this, CharModComponent);
 
@@ -48404,7 +43379,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         this.scoreParts = [];
 
         this.addMod = function (evt) {
-          _this60.attribute.push({
+          _this37.attribute.push({
             id: 0,
             score: '',
             modDesc: '',
@@ -48418,15 +43393,15 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
 
         this.onSubmit = function (evt) {
           evt.preventDefault();
-          _this60.numChanged = 0;
-          _this60.numFinished = 0;
+          _this37.numChanged = 0;
+          _this37.numFinished = 0;
 
-          var _iterator6 = _createForOfIteratorHelper(_this60.attribute),
-              _step6;
+          var _iterator3 = _createForOfIteratorHelper(_this37.attribute),
+              _step3;
 
           try {
             var _loop2 = function _loop2() {
-              var a = _step6.value;
+              var a = _step3.value;
               // tslint:disable:no-string-literal
               // tslint:disable:max-line-length
               var score = document.getElementsByName('score' + a.id);
@@ -48436,47 +43411,47 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
               var descChnaged = a.modDesc === undefined && desc.length === 0 || a.modDesc !== null && a.modDesc !== desc[0]['value'].trim() || a.modDesc === null && desc[0]['value'].trim() !== '';
 
               if (statChanged || descChnaged) {
-                _this60.numChanged++;
+                _this37.numChanged++;
                 var attrObj = {
                   id: a.id,
                   score: parseInt(score[0]['value'], 10),
                   modDesc: desc.length > 0 ? desc[0]['value'].trim() : "",
-                  statID: parseInt(_this60.partID, 10),
-                  charID: _this60.charID,
+                  statID: parseInt(_this37.partID, 10),
+                  charID: _this37.charID,
                   isBase: baseChecked.length > 0 ? baseChecked[0]['checked'] : false,
                   isMod: baseChecked.length > 1 ? baseChecked[1]['checked'] : false,
                   isClassSkill: baseChecked[2] === undefined ? false : baseChecked[2]['checked']
                 };
 
-                if (_this60.modType === 'hp') {
-                  _this60.charDataSvc.updateHP(_this60.charID, attrObj.score).subscribe(function (val) {
+                if (_this37.modType === 'hp') {
+                  _this37.charDataSvc.updateHP(_this37.charID, attrObj.score).subscribe(function (val) {
                     if (val.results) {
-                      _this60.theCharBasics.results = Object.assign(Object.assign({}, _this60.theCharBasics.results), {
+                      _this37.theCharBasics.results = Object.assign(Object.assign({}, _this37.theCharBasics.results), {
                         charHP: attrObj.score
                       });
 
-                      _this60.charDataSvc.setCharBasics(_this60.theCharBasics);
+                      _this37.charDataSvc.setCharBasics(_this37.theCharBasics);
 
-                      _this60.router.navigate(['/charGen']);
+                      _this37.router.navigate(['/charGen']);
                     }
                   });
-                } else if (_this60.modType === 'init') {
-                  _this60.charDataSvc.updateInit(_this60.charID, attrObj.score).subscribe(function (val) {
+                } else if (_this37.modType === 'init') {
+                  _this37.charDataSvc.updateInit(_this37.charID, attrObj.score).subscribe(function (val) {
                     if (val.results) {
-                      _this60.theCharBasics.results = Object.assign(Object.assign({}, _this60.theCharBasics.results), {
+                      _this37.theCharBasics.results = Object.assign(Object.assign({}, _this37.theCharBasics.results), {
                         init: attrObj.score
                       });
 
-                      _this60.charDataSvc.setCharBasics(_this60.theCharBasics);
+                      _this37.charDataSvc.setCharBasics(_this37.theCharBasics);
 
-                      _this60.router.navigate(['/charGen']);
+                      _this37.router.navigate(['/charGen']);
                     }
                   });
                 } else {
-                  _this60.charDataSvc.updateAttribute(_this60.modType, attrObj).subscribe(function (val) {
+                  _this37.charDataSvc.updateAttribute(_this37.modType, attrObj).subscribe(function (val) {
                     var list = '';
 
-                    switch (_this60.modType) {
+                    switch (_this37.modType) {
                       case 'skill':
                         list = 'theSkills';
                         break;
@@ -48505,42 +43480,42 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
                     }
 
                     if (a.id === 0) {
-                      _this60[list].results.push(a);
+                      _this37[list].results.push(a);
                     }
 
-                    _this60[list].results = _this60[list].results.map(function (li) {
+                    _this37[list].results = _this37[list].results.map(function (li) {
                       if (li.id === 0 || li.id === val.results.id) {
                         li = Object.assign({}, val.results);
-                        _this60.numFinished++;
+                        _this37.numFinished++;
                       }
 
                       return li;
                     });
 
                     try {
-                      switch (_this60.modType) {
+                      switch (_this37.modType) {
                         case 'skill':
-                          _this60.charDataSvc.setAllSkills(_this60.theSkills);
+                          _this37.charDataSvc.setAllSkills(_this37.theSkills);
 
                           break;
 
                         case 'stat':
-                          _this60.charDataSvc.setStats(_this60.theStats);
+                          _this37.charDataSvc.setStats(_this37.theStats);
 
                           break;
 
                         case 'save':
-                          _this60.charDataSvc.setSaves(_this60.theSaves);
+                          _this37.charDataSvc.setSaves(_this37.theSaves);
 
                           break;
 
                         case 'ac':
-                          _this60.charDataSvc.setAllACs(_this60.theACs);
+                          _this37.charDataSvc.setAllACs(_this37.theACs);
 
                           break;
 
                         case 'tohit':
-                          _this60.charDataSvc.setAllToHits(_this60.theToHits);
+                          _this37.charDataSvc.setAllToHits(_this37.theToHits);
 
                           break;
 
@@ -48550,10 +43525,10 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
                     } catch (err) {
                       throw new Error("did not save");
                     } finally {
-                      if (_this60.numChanged === _this60.numFinished) {
-                        var retRoute = _this60.modType.trim() === 'ac' ? '' : _this60.modType + 's';
+                      if (_this37.numChanged === _this37.numFinished) {
+                        var retRoute = _this37.modType.trim() === 'ac' ? '' : _this37.modType + 's';
 
-                        _this60.router.navigate(['/charGen/' + retRoute]);
+                        _this37.router.navigate(['/charGen/' + retRoute]);
                       }
                     }
                   });
@@ -48561,110 +43536,110 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
               }
             };
 
-            for (_iterator6.s(); !(_step6 = _iterator6.n()).done;) {
+            for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
               _loop2();
             }
           } catch (err) {
-            _iterator6.e(err);
+            _iterator3.e(err);
           } finally {
-            _iterator6.f();
+            _iterator3.f();
           }
         };
 
         this.onCancel = function () {
-          switch (_this60.modType) {
+          switch (_this37.modType) {
             case 'skill':
-              _this60.router.navigate(['/charGen/skills']);
+              _this37.router.navigate(['/charGen/skills']);
 
               break;
 
             case 'stat':
-              _this60.router.navigate(['/charGen/stats']);
+              _this37.router.navigate(['/charGen/stats']);
 
               break;
 
             case 'feat':
-              _this60.router.navigate(['/charGen/stats']);
+              _this37.router.navigate(['/charGen/stats']);
 
               break;
 
             case 'tohit':
-              _this60.router.navigate(['/charGen/tohits']);
+              _this37.router.navigate(['/charGen/tohits']);
 
               break;
 
             case 'save':
-              _this60.router.navigate(['/charGen/saves']);
+              _this37.router.navigate(['/charGen/saves']);
 
               break;
 
             case 'ac':
-              _this60.router.navigate(['/charGen']);
+              _this37.router.navigate(['/charGen']);
 
               break;
 
             case 'hp':
-              _this60.router.navigate(['/charGen']);
+              _this37.router.navigate(['/charGen']);
 
               break;
 
             case 'init':
-              _this60.router.navigate(['/charGen']);
+              _this37.router.navigate(['/charGen']);
 
               break;
 
             default:
-              _this60.router.navigate(['/charGen']);
+              _this37.router.navigate(['/charGen']);
 
           }
         };
 
         this.deleteAttribute = function (arg) {
-          _this60.charDataSvc.deleteAttribute(_this60.modType, parseInt(arg, 10)).subscribe(function (val) {
+          _this37.charDataSvc.deleteAttribute(_this37.modType, parseInt(arg, 10)).subscribe(function (val) {
             try {
-              switch (_this60.modType) {
+              switch (_this37.modType) {
                 case 'skill':
-                  _this60.theSkills = _this60.theSkills.results.filter(function (li) {
+                  _this37.theSkills = _this37.theSkills.results.filter(function (li) {
                     return li.id !== parseInt(arg, 10);
                   });
 
-                  _this60.charDataSvc.setAllSkills(_this60.theSkills);
+                  _this37.charDataSvc.setAllSkills(_this37.theSkills);
 
                   break;
 
                 case 'stat':
-                  _this60.theStats = _this60.theStats.results.filter(function (li) {
+                  _this37.theStats = _this37.theStats.results.filter(function (li) {
                     return li.id !== parseInt(arg, 10);
                   });
 
-                  _this60.charDataSvc.setStats(_this60.theStats);
+                  _this37.charDataSvc.setStats(_this37.theStats);
 
                   break;
 
                 case 'save':
-                  _this60.theSaves = _this60.theSaves.results.filter(function (li) {
+                  _this37.theSaves = _this37.theSaves.results.filter(function (li) {
                     return li.id !== parseInt(arg, 10);
                   });
 
-                  _this60.charDataSvc.setSaves(_this60.theSaves);
+                  _this37.charDataSvc.setSaves(_this37.theSaves);
 
                   break;
 
                 case 'ac':
-                  _this60.theACs.results = _this60.theACs.results.filter(function (li) {
+                  _this37.theACs.results = _this37.theACs.results.filter(function (li) {
                     return li.id !== parseInt(arg, 10);
                   });
 
-                  _this60.charDataSvc.setAllACs(_this60.theACs);
+                  _this37.charDataSvc.setAllACs(_this37.theACs);
 
                   break;
 
                 case 'tohit':
-                  _this60.theToHits = _this60.theToHits.results.filter(function (li) {
+                  _this37.theToHits = _this37.theToHits.results.filter(function (li) {
                     return li.id !== parseInt(arg, 10);
                   });
 
-                  _this60.charDataSvc.setAllToHits(_this60.theToHits);
+                  _this37.charDataSvc.setAllToHits(_this37.theToHits);
 
                   break;
 
@@ -48672,13 +43647,13 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
                   break;
               }
             } catch (err) {} finally {
-              if (_this60.modType === 'ac') {
-                _this60.router.navigate(['/charGen']);
+              if (_this37.modType === 'ac') {
+                _this37.router.navigate(['/charGen']);
 
                 return;
               }
 
-              _this60.router.navigate(['/charGen/' + _this60.modType + 's']);
+              _this37.router.navigate(['/charGen/' + _this37.modType + 's']);
             }
           });
         };
@@ -48691,10 +43666,10 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       _createClass2(CharModComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this61 = this;
+          var _this38 = this;
 
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this61.charID = val;
+            return _this38.charID = val;
           });
 
           if (this.charID === 0) {
@@ -48704,58 +43679,58 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
           switch (this.modType) {
             case 'skill':
               this.charDataSvc.getAllSkills.subscribe(function (val) {
-                return _this61.theSkills = val;
+                return _this38.theSkills = val;
               });
               this.attribute = this.theSkills.results.filter(function (arg) {
-                return arg.skillID.toString() === _this61.partID;
+                return arg.skillID.toString() === _this38.partID;
               });
               break;
 
             case 'stat':
               this.charDataSvc.getAllStats.subscribe(function (val) {
-                return _this61.theStats = val;
+                return _this38.theStats = val;
               });
               this.attribute = this.theStats.results.filter(function (arg) {
-                return arg.statID.toString() === _this61.partID;
+                return arg.statID.toString() === _this38.partID;
               });
               break;
 
             case 'feat':
               this.charDataSvc.getAllFeats.subscribe(function (val) {
-                return _this61.theFeats = val;
+                return _this38.theFeats = val;
               });
               break;
 
             case 'tohit':
               this.charDataSvc.getAllToHits.subscribe(function (val) {
-                return _this61.theToHits = val;
+                return _this38.theToHits = val;
               });
               this.attribute = this.theToHits.results.filter(function (arg) {
-                return arg.toHitID.toString() === _this61.partID;
+                return arg.toHitID.toString() === _this38.partID;
               });
               break;
 
             case 'save':
               this.charDataSvc.getAllSaves.subscribe(function (val) {
-                return _this61.theSaves = val;
+                return _this38.theSaves = val;
               });
               this.attribute = this.theSaves.results.filter(function (arg) {
-                return arg.saveID.toString() === _this61.partID;
+                return arg.saveID.toString() === _this38.partID;
               });
               break;
 
             case 'ac':
               this.charDataSvc.getAllACs.subscribe(function (val) {
-                _this61.theACs = val;
-                _this61.attribute = _this61.theACs.results.filter(function (arg) {
-                  return arg.charID === _this61.charID;
+                _this38.theACs = val;
+                _this38.attribute = _this38.theACs.results.filter(function (arg) {
+                  return arg.charID === _this38.charID;
                 });
               });
               break;
 
             case 'hp':
               this.charDataSvc.getCharBasics.subscribe(function (val) {
-                return _this61.theCharBasics = val;
+                return _this38.theCharBasics = val;
               });
               this.attribute = [{
                 id: this.theCharBasics.charID,
@@ -48765,7 +43740,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
 
             case 'init':
               this.charDataSvc.getCharBasics.subscribe(function (val) {
-                return _this61.theCharBasics = val;
+                return _this38.theCharBasics = val;
               });
               this.attribute = [{
                 id: this.theCharBasics.charID,
@@ -49048,16 +44023,16 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
 
     function CharNotesComponent_button_2_Template(rf, ctx) {
       if (rf & 1) {
-        var _r154 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r163 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 8);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function CharNotesComponent_button_2_Template_button_click_0_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r154);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r163);
 
-          var ctx_r153 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r162 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r153.addNewNote($event);
+          return ctx_r162.addNewNote($event);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "i", 9);
@@ -49070,26 +44045,26 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
 
     function CharNotesComponent_form_3_Template(rf, ctx) {
       if (rf & 1) {
-        var _r157 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r166 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "form", 10, 11);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngSubmit", function CharNotesComponent_form_3_Template_form_ngSubmit_0_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r157);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r166);
 
-          var ctx_r156 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r165 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r156.onSubmit($event);
+          return ctx_r165.onSubmit($event);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "input", 12);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function CharNotesComponent_form_3_Template_input_ngModelChange_2_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r157);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r166);
 
-          var ctx_r158 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r167 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r158.note = $event;
+          return ctx_r167.note = $event;
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -49104,11 +44079,11 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var ctx_r151 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+        var ctx_r160 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx_r151.note);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx_r160.note);
       }
     }
 
@@ -49118,7 +44093,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
 
     function CharNotesComponent_div_9_Template(rf, ctx) {
       if (rf & 1) {
-        var _r161 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r170 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 14);
 
@@ -49149,13 +44124,13 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "i", 21);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function CharNotesComponent_div_9_Template_i_click_9_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r161);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r170);
 
-          var nt_r159 = ctx.$implicit;
+          var nt_r168 = ctx.$implicit;
 
-          var ctx_r160 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r169 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r160.editNote(nt_r159.noteID.toString());
+          return ctx_r169.editNote(nt_r168.noteID.toString());
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -49166,15 +44141,15 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var nt_r159 = ctx.$implicit;
+        var nt_r168 = ctx.$implicit;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](2, _c0, "/charGen/notes/" + nt_r159.noteID.toString()));
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](2, _c0, "/charGen/notes/" + nt_r168.noteID.toString()));
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](nt_r159.noteTitle);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](nt_r168.noteTitle);
       }
     }
 
@@ -49182,7 +44157,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
     /*#__PURE__*/
     function () {
       function CharNotesComponent(charDataSvc, router) {
-        var _this62 = this;
+        var _this39 = this;
 
         _classCallCheck2(this, CharNotesComponent);
 
@@ -49193,32 +44168,32 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         this.notesSet = {};
 
         this.addNewNote = function (evt) {
-          _this62.newNote = true;
+          _this39.newNote = true;
         };
 
         this.onSubmit = function (evt) {
           evt.preventDefault();
           var body = {
-            charID: _this62.charID,
-            note: _this62.note
+            charID: _this39.charID,
+            note: _this39.note
           };
 
-          _this62.charDataSvc.addNoteHeader(body).subscribe(function (vals) {
-            _this62.notesSet['results'] = [].concat(_toConsumableArray2(_this62.notesSet['results']), [vals]);
+          _this39.charDataSvc.addNoteHeader(body).subscribe(function (vals) {
+            _this39.notesSet['results'] = [].concat(_toConsumableArray2(_this39.notesSet['results']), [vals]);
 
-            _this62.charDataSvc.setAllNotes(_this62.notesSet);
+            _this39.charDataSvc.setAllNotes(_this39.notesSet);
 
-            _this62.note = '';
-            _this62.newNote = false;
+            _this39.note = '';
+            _this39.newNote = false;
           });
         };
 
         this.editNote = function (id) {
-          var oneNote = _this62.notesSet['results'].find(function (a) {
+          var oneNote = _this39.notesSet['results'].find(function (a) {
             return a.noteID.toString() === id;
           });
 
-          _this62.router.navigate(['/charGen/notes/editNote/' + id], {
+          _this39.router.navigate(['/charGen/notes/editNote/' + id], {
             state: {
               data: {
                 type: 'header',
@@ -49229,27 +44204,27 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         };
 
         this.filterList = function (evt) {
-          _this62.filterText = evt.target.value;
+          _this39.filterText = evt.target.value;
           var allRows = document.getElementsByClassName('ui grid gridRow');
 
-          var _iterator7 = _createForOfIteratorHelper(allRows),
-              _step7;
+          var _iterator4 = _createForOfIteratorHelper(allRows),
+              _step4;
 
           try {
-            for (_iterator7.s(); !(_step7 = _iterator7.n()).done;) {
-              var r = _step7.value;
+            for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+              var r = _step4.value;
               var aTag = r.getElementsByTagName('span')[0].innerText;
 
-              if (aTag.toLowerCase().includes(_this62.filterText.toLowerCase())) {
+              if (aTag.toLowerCase().includes(_this39.filterText.toLowerCase())) {
                 r.classList.remove('hidden');
               } else {
                 r.classList.add('hidden');
               }
             }
           } catch (err) {
-            _iterator7.e(err);
+            _iterator4.e(err);
           } finally {
-            _iterator7.f();
+            _iterator4.f();
           }
         };
       }
@@ -49257,26 +44232,26 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       _createClass2(CharNotesComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this63 = this;
+          var _this40 = this;
 
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this63.charID = val;
+            return _this40.charID = val;
           });
           this.charDataSvc.getAllNotes.subscribe(function (val) {
-            return _this63.notesSet = val === null ? {} : val;
+            return _this40.notesSet = val === null ? {} : val;
           });
           this.charDataSvc.getAllNotes.subscribe(function (val) {
-            return _this63.allNotes = val === null ? [] : val.results;
+            return _this40.allNotes = val === null ? [] : val.results;
           });
           this.charDataSvc.getAllNotes.subscribe(function (val) {
-            return _this63.curChar = val === null ? '0' : val.charID;
+            return _this40.curChar = val === null ? '0' : val.charID;
           });
 
           if (this.charID && this.charID.toString() !== this.curChar) {
             this.charDataSvc.loadNotes(this.charID).subscribe(function (val) {
-              _this63.allNotes = val.results;
+              _this40.allNotes = val.results;
 
-              _this63.charDataSvc.setAllNotes(val);
+              _this40.charDataSvc.setAllNotes(val);
             });
           }
         }
@@ -49448,11 +44423,11 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var st_r119 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+        var st_r128 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
 
-        var ctx_r120 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+        var ctx_r129 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("innerHtml", ctx_r120.processBreakDown(st_r119.breakdown), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeHtml"]);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("innerHtml", ctx_r129.processBreakDown(st_r128.breakdown), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeHtml"]);
       }
     }
 
@@ -49466,11 +44441,11 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var st_r119 = ctx.$implicit;
+        var st_r128 = ctx.$implicit;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", st_r119.id === 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", st_r128.id === 1);
       }
     }
 
@@ -49480,11 +44455,11 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var st_r122 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+        var st_r131 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
 
-        var ctx_r123 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+        var ctx_r132 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("innerHtml", ctx_r123.processBreakDown(st_r122.breakdown), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeHtml"]);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("innerHtml", ctx_r132.processBreakDown(st_r131.breakdown), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeHtml"]);
       }
     }
 
@@ -49498,11 +44473,11 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var st_r122 = ctx.$implicit;
+        var st_r131 = ctx.$implicit;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", st_r122.id === 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", st_r131.id === 2);
       }
     }
 
@@ -49512,11 +44487,11 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var st_r125 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+        var st_r134 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
 
-        var ctx_r126 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+        var ctx_r135 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("innerHtml", ctx_r126.processBreakDown(st_r125.breakdown), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeHtml"]);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("innerHtml", ctx_r135.processBreakDown(st_r134.breakdown), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeHtml"]);
       }
     }
 
@@ -49530,11 +44505,11 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var st_r125 = ctx.$implicit;
+        var st_r134 = ctx.$implicit;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", st_r125.id === 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", st_r134.id === 3);
       }
     }
 
@@ -49542,7 +44517,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
     /*#__PURE__*/
     function () {
       function CharSavesComponent(charDataSvc, router, sanitizer) {
-        var _this64 = this;
+        var _this41 = this;
 
         _classCallCheck2(this, CharSavesComponent);
 
@@ -49559,12 +44534,12 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
             return i.saveID;
           })));
 
-          var _iterator8 = _createForOfIteratorHelper(ids),
-              _step8;
+          var _iterator5 = _createForOfIteratorHelper(ids),
+              _step5;
 
           try {
             var _loop3 = function _loop3() {
-              var sid = _step8.value;
+              var sid = _step5.value;
               var temp = ar.filter(function (i) {
                 return i.saveID === sid;
               });
@@ -49580,14 +44555,14 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
                 desc: 'Base'
               });
 
-              var _iterator9 = _createForOfIteratorHelper(temp.filter(function (d) {
+              var _iterator6 = _createForOfIteratorHelper(temp.filter(function (d) {
                 return d.isBase === false;
               })),
-                  _step9;
+                  _step6;
 
               try {
-                for (_iterator9.s(); !(_step9 = _iterator9.n()).done;) {
-                  var aSk = _step9.value;
+                for (_iterator6.s(); !(_step6 = _iterator6.n()).done;) {
+                  var aSk = _step6.value;
                   var reason = aSk.modDesc;
                   breakdown.push({
                     score: aSk.score,
@@ -49595,9 +44570,9 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
                   });
                 }
               } catch (err) {
-                _iterator9.e(err);
+                _iterator6.e(err);
               } finally {
-                _iterator9.f();
+                _iterator6.f();
               }
 
               var obj = {
@@ -49609,13 +44584,13 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
               retVal.push(obj);
             };
 
-            for (_iterator8.s(); !(_step8 = _iterator8.n()).done;) {
+            for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
               _loop3();
             }
           } catch (err) {
-            _iterator8.e(err);
+            _iterator5.e(err);
           } finally {
-            _iterator8.f();
+            _iterator5.f();
           }
 
           retVal.sort(function (a, b) {
@@ -49625,35 +44600,35 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         };
 
         this.editSave = function (arg) {
-          _this64.router.navigate(['/charGen/mods/save/' + arg]);
+          _this41.router.navigate(['/charGen/mods/save/' + arg]);
         };
       }
 
       _createClass2(CharSavesComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this65 = this;
+          var _this42 = this;
 
           this.charDataSvc.getIsNew.subscribe(function (val) {
-            return _this65.isNew = val;
+            return _this42.isNew = val;
           });
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this65.charID = val === null ? 0 : val;
+            return _this42.charID = val === null ? 0 : val;
           });
           this.charDataSvc.getAllSaves.subscribe(function (val) {
-            _this65.curChar = val === null ? '0' : val.charID;
+            _this42.curChar = val === null ? '0' : val.charID;
           });
           this.charDataSvc.getAllSaves.subscribe(function (val) {
-            return _this65.allSaves = val === null ? null : val.results;
+            return _this42.allSaves = val === null ? null : val.results;
           });
 
           if (!this.isNew && this.charID && this.charID.toString() !== this.curChar) {
             this.charDataSvc.loadSaves(this.charID.toString()).subscribe(function (val) {
-              _this65.allSaves = val.results;
+              _this42.allSaves = val.results;
 
-              _this65.charDataSvc.setSaves(val);
+              _this42.charDataSvc.setSaves(val);
 
-              _this65.grpSaves = _this65.createSaveGrps(_this65.allSaves);
+              _this42.grpSaves = _this42.createSaveGrps(_this42.allSaves);
             });
           } else {
             this.grpSaves = this.createSaveGrps(this.allSaves);
@@ -49675,20 +44650,20 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         value: function processBreakDown(stat) {
           var retStr = '';
 
-          var _iterator10 = _createForOfIteratorHelper(stat),
-              _step10;
+          var _iterator7 = _createForOfIteratorHelper(stat),
+              _step7;
 
           try {
-            for (_iterator10.s(); !(_step10 = _iterator10.n()).done;) {
-              var item = _step10.value;
+            for (_iterator7.s(); !(_step7 = _iterator7.n()).done;) {
+              var item = _step7.value;
               var desc = item.desc;
               var score = item.score;
               retStr += '<div><span style="width:36px; display:inline-block; text-align:right">' + score + '</span> - ' + desc + '</div>';
             }
           } catch (err) {
-            _iterator10.e(err);
+            _iterator7.e(err);
           } finally {
-            _iterator10.f();
+            _iterator7.f();
           }
 
           return this.sanitizer.bypassSecurityTrustHtml(retStr);
@@ -49981,17 +44956,17 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var st_r9 = ctx.$implicit;
+        var st_r18 = ctx.$implicit;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"]("", st_r9.score, " - ", st_r9.desc, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"]("", st_r18.score, " - ", st_r18.desc, "");
       }
     }
 
     function CharSkillsComponent_div_14_Template(rf, ctx) {
       if (rf & 1) {
-        var _r11 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r20 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 9);
 
@@ -50008,11 +44983,11 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "i", 12);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function CharSkillsComponent_div_14_Template_i_click_5_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r11);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r20);
 
-          var ctx_r10 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r19 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r10.showBreakDown($event);
+          return ctx_r19.showBreakDown($event);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -50030,13 +45005,13 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "i", 15);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function CharSkillsComponent_div_14_Template_i_click_9_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r11);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r20);
 
-          var sk_r7 = ctx.$implicit;
+          var sk_r16 = ctx.$implicit;
 
-          var ctx_r12 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r21 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r12.editSkill(sk_r7.id);
+          return ctx_r21.editSkill(sk_r16.id);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -50053,23 +45028,23 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var sk_r7 = ctx.$implicit;
+        var sk_r16 = ctx.$implicit;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](sk_r7.skillName);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](sk_r16.skillName);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](sk_r7.score);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](sk_r16.score);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](sk_r7.skillDesc);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](sk_r16.skillDesc);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", sk_r7.breakdown);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", sk_r16.breakdown);
       }
     }
 
@@ -50077,7 +45052,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
     /*#__PURE__*/
     function () {
       function CharSkillsComponent(charDataSvc, router) {
-        var _this66 = this;
+        var _this43 = this;
 
         _classCallCheck2(this, CharSkillsComponent);
 
@@ -50094,12 +45069,12 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
             return i.skillID;
           })));
 
-          var _iterator11 = _createForOfIteratorHelper(ids),
-              _step11;
+          var _iterator8 = _createForOfIteratorHelper(ids),
+              _step8;
 
           try {
             var _loop4 = function _loop4() {
-              var sid = _step11.value;
+              var sid = _step8.value;
               var temp = ar.filter(function (i) {
                 return i.skillID === sid;
               });
@@ -50125,14 +45100,14 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
                 });
               }
 
-              var _iterator12 = _createForOfIteratorHelper(temp.filter(function (d) {
+              var _iterator9 = _createForOfIteratorHelper(temp.filter(function (d) {
                 return d.isRanks === false && d.isClassSkill === false;
               })),
-                  _step12;
+                  _step9;
 
               try {
-                for (_iterator12.s(); !(_step12 = _iterator12.n()).done;) {
-                  var aSk = _step12.value;
+                for (_iterator9.s(); !(_step9 = _iterator9.n()).done;) {
+                  var aSk = _step9.value;
                   var reason = aSk.isClassSkill ? 'Class Skill' : aSk.modDesc;
                   breakdown.push({
                     score: aSk.score,
@@ -50140,9 +45115,9 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
                   });
                 }
               } catch (err) {
-                _iterator12.e(err);
+                _iterator9.e(err);
               } finally {
-                _iterator12.f();
+                _iterator9.f();
               }
 
               var obj = {
@@ -50155,13 +45130,13 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
               retVal.push(obj);
             };
 
-            for (_iterator11.s(); !(_step11 = _iterator11.n()).done;) {
+            for (_iterator8.s(); !(_step8 = _iterator8.n()).done;) {
               _loop4();
             }
           } catch (err) {
-            _iterator11.e(err);
+            _iterator8.e(err);
           } finally {
-            _iterator11.f();
+            _iterator8.f();
           }
 
           retVal.sort(function (a, b) {
@@ -50171,35 +45146,35 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         };
 
         this.editSkill = function (arg) {
-          _this66.router.navigate(['/charGen/mods/skill/' + arg]);
+          _this43.router.navigate(['/charGen/mods/skill/' + arg]);
         };
 
         this.addNewSkill = function () {
-          _this66.router.navigate(['/charGen/mods/newskill']);
+          _this43.router.navigate(['/charGen/mods/newskill']);
         };
 
         this.filterList = function (evt) {
-          _this66.filterText = evt.target.value;
+          _this43.filterText = evt.target.value;
           var allRows = document.getElementsByClassName('ui grid gridRow');
 
-          var _iterator13 = _createForOfIteratorHelper(allRows),
-              _step13;
+          var _iterator10 = _createForOfIteratorHelper(allRows),
+              _step10;
 
           try {
-            for (_iterator13.s(); !(_step13 = _iterator13.n()).done;) {
-              var r = _step13.value;
+            for (_iterator10.s(); !(_step10 = _iterator10.n()).done;) {
+              var r = _step10.value;
               var aTag = r.getElementsByTagName('span')[0].innerText;
 
-              if (aTag.toLowerCase().includes(_this66.filterText.toLowerCase())) {
+              if (aTag.toLowerCase().includes(_this43.filterText.toLowerCase())) {
                 r.classList.remove('hidden');
               } else {
                 r.classList.add('hidden');
               }
             }
           } catch (err) {
-            _iterator13.e(err);
+            _iterator10.e(err);
           } finally {
-            _iterator13.f();
+            _iterator10.f();
           }
         };
       }
@@ -50207,29 +45182,29 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       _createClass2(CharSkillsComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this67 = this;
+          var _this44 = this;
 
           this.charDataSvc.getIsNew.subscribe(function (val) {
-            return _this67.isNew = val;
+            return _this44.isNew = val;
           });
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this67.charID = val;
+            return _this44.charID = val;
           });
           this.charDataSvc.getAllSkills.subscribe(function (val) {
-            return _this67.allSkills = val === null ? [] : val.results;
+            return _this44.allSkills = val === null ? [] : val.results;
           });
           this.charDataSvc.getAllSkills.subscribe(function (val) {
-            return _this67.curChar = val === null ? "0" : val.charID;
+            return _this44.curChar = val === null ? "0" : val.charID;
           });
 
           if (!this.isNew && this.charID && this.charID.toString() !== this.curChar) {
             this.charDataSvc.loadSkills(this.charID.toString()).subscribe(function (val) {
-              _this67.allSkills = val.results;
+              _this44.allSkills = val.results;
 
-              _this67.charDataSvc.setAllSkills(val);
+              _this44.charDataSvc.setAllSkills(val);
 
-              if (_this67.allSkills.length > 0) {
-                _this67.grpSkils = _this67.createSkillGrps(_this67.allSkills);
+              if (_this44.allSkills.length > 0) {
+                _this44.grpSkils = _this44.createSkillGrps(_this44.allSkills);
               }
             });
           } else {
@@ -50420,26 +45395,26 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
 
     function CharSpellsComponent_form_5_Template(rf, ctx) {
       if (rf & 1) {
-        var _r80 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r89 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "form", 9, 10);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngSubmit", function CharSpellsComponent_form_5_Template_form_ngSubmit_0_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r80);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r89);
 
-          var ctx_r79 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r88 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r79.onSubmit($event);
+          return ctx_r88.onSubmit($event);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "input", 11);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function CharSpellsComponent_form_5_Template_input_ngModelChange_2_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r80);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r89);
 
-          var ctx_r81 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r90 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r81.spellName = $event;
+          return ctx_r90.spellName = $event;
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -50447,11 +45422,11 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "input", 12);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function CharSpellsComponent_form_5_Template_input_ngModelChange_3_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r80);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r89);
 
-          var ctx_r82 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r91 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r82.spellLevel = $event;
+          return ctx_r91.spellLevel = $event;
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -50465,11 +45440,11 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "button", 14);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function CharSpellsComponent_form_5_Template_button_click_6_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r80);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r89);
 
-          var ctx_r83 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r92 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r83.cancelAdd($event);
+          return ctx_r92.cancelAdd($event);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7, "Cancel");
@@ -50480,21 +45455,21 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var ctx_r76 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+        var ctx_r85 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx_r76.spellName);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx_r85.spellName);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx_r76.spellLevel);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx_r85.spellLevel);
       }
     }
 
     function CharSpellsComponent_div_13_div_6_Template(rf, ctx) {
       if (rf & 1) {
-        var _r88 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r97 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 20);
 
@@ -50505,18 +45480,18 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "input", 23);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function CharSpellsComponent_div_13_div_6_Template_input_change_3_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r88);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r97);
 
-          var nt_r86 = ctx.$implicit;
+          var nt_r95 = ctx.$implicit;
 
-          var ctx_r87 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+          var ctx_r96 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
 
-          return ctx_r87.reportCheck($event, nt_r86.id);
+          return ctx_r96.reportCheck($event, nt_r95.id);
         })("checkedChange", function CharSpellsComponent_div_13_div_6_Template_input_checkedChange_3_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r88);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r97);
 
-          var nt_r86 = ctx.$implicit;
-          return nt_r86.isCast = $event;
+          var nt_r95 = ctx.$implicit;
+          return nt_r95.isCast = $event;
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -50542,13 +45517,13 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "i", 26);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function CharSpellsComponent_div_13_div_6_Template_i_click_9_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r88);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r97);
 
-          var nt_r86 = ctx.$implicit;
+          var nt_r95 = ctx.$implicit;
 
-          var ctx_r90 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+          var ctx_r99 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
 
-          return ctx_r90.editNote(nt_r86.id.toString());
+          return ctx_r99.editNote(nt_r95.id.toString());
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -50559,23 +45534,23 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var nt_r86 = ctx.$implicit;
+        var nt_r95 = ctx.$implicit;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("name", nt_r86.id);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("name", nt_r95.id);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("checked", nt_r86.isCast);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("checked", nt_r95.isCast);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](nt_r86.spellName);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](nt_r95.spellName);
       }
     }
 
     function CharSpellsComponent_div_13_Template(rf, ctx) {
       if (rf & 1) {
-        var _r92 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r101 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
 
@@ -50584,13 +45559,13 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "i", 16);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function CharSpellsComponent_div_13_Template_i_click_2_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r92);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r101);
 
-          var lvl_r84 = ctx.$implicit;
+          var lvl_r93 = ctx.$implicit;
 
-          var ctx_r91 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r100 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r91.toggelDisplay($event, lvl_r84);
+          return ctx_r100.toggelDisplay($event, lvl_r93);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -50613,21 +45588,21 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var lvl_r84 = ctx.$implicit;
+        var lvl_r93 = ctx.$implicit;
 
-        var ctx_r77 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+        var ctx_r86 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("Level ", lvl_r84, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("Level ", lvl_r93, "");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("id", ctx_r77.setIDName(lvl_r84));
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("id", ctx_r86.setIDName(lvl_r93));
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r77.filteredSpells(lvl_r84));
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r86.filteredSpells(lvl_r93));
       }
     }
 
@@ -50635,7 +45610,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
     /*#__PURE__*/
     function () {
       function CharSpellsComponent(charDataSvc, router) {
-        var _this68 = this;
+        var _this45 = this;
 
         _classCallCheck2(this, CharSpellsComponent);
 
@@ -50647,70 +45622,70 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         this.showingForm = false;
 
         this.filterList = function (evt) {
-          _this68.filterText = evt.target.value;
+          _this45.filterText = evt.target.value;
           var allRows = document.getElementsByClassName('ui grid gridRow');
 
-          var _iterator14 = _createForOfIteratorHelper(allRows),
-              _step14;
+          var _iterator11 = _createForOfIteratorHelper(allRows),
+              _step11;
 
           try {
-            for (_iterator14.s(); !(_step14 = _iterator14.n()).done;) {
-              var r = _step14.value;
+            for (_iterator11.s(); !(_step11 = _iterator11.n()).done;) {
+              var r = _step11.value;
               var aTag = r.getElementsByTagName('span')[0].innerText;
 
-              if (aTag.toLowerCase().includes(_this68.filterText.toLowerCase())) {
+              if (aTag.toLowerCase().includes(_this45.filterText.toLowerCase())) {
                 r.classList.remove('hidden');
               } else {
                 r.classList.add('hidden');
               }
             }
           } catch (err) {
-            _iterator14.e(err);
+            _iterator11.e(err);
           } finally {
-            _iterator14.f();
+            _iterator11.f();
           }
         };
 
         this.addNewSpell = function (evt) {
-          _this68.showingForm = true;
+          _this45.showingForm = true;
         };
 
         this.cancelAdd = function (event) {
           event.preventDefault();
-          _this68.showingForm = false;
+          _this45.showingForm = false;
         };
 
         this.onSubmit = function (evt) {
           evt.preventDefault();
           var body = {
-            charID: _this68.charID,
-            name: _this68.spellName,
-            level: _this68.spellLevel
+            charID: _this45.charID,
+            name: _this45.spellName,
+            level: _this45.spellLevel
           };
 
-          _this68.charDataSvc.insertSpell(body).subscribe(function (val) {
-            _this68.allSpells = [].concat(_toConsumableArray2(_this68.allSpells), [val]);
+          _this45.charDataSvc.insertSpell(body).subscribe(function (val) {
+            _this45.allSpells = [].concat(_toConsumableArray2(_this45.allSpells), [val]);
 
             var nameSorter = function nameSorter(spell) {
               return spell.spellName.toLowerCase();
             };
 
-            _this68.allSpells = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.orderBy(_this68.allSpells, ['spellLevel', nameSorter], ['asc', 'asc']);
-            _this68.levelBreakDown = Array.from(Array(_this68.allSpells.slice(-1).pop().spellLevel), function (_, i) {
+            _this45.allSpells = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.orderBy(_this45.allSpells, ['spellLevel', nameSorter], ['asc', 'asc']);
+            _this45.levelBreakDown = Array.from(Array(_this45.allSpells.slice(-1).pop().spellLevel), function (_, i) {
               return i + 1;
             });
-            _this68.spellLevel = null;
-            _this68.spellName = '';
-            _this68.showingForm = false;
+            _this45.spellLevel = null;
+            _this45.spellName = '';
+            _this45.showingForm = false;
           });
         };
 
         this.editNote = function (id) {
-          var chosenSpell = _this68.allSpells.find(function (s) {
+          var chosenSpell = _this45.allSpells.find(function (s) {
             return s.id.toString() === id;
           });
 
-          _this68.router.navigate(['/charGen/spells/' + id], {
+          _this45.router.navigate(['/charGen/spells/' + id], {
             state: {
               data: {
                 spellLevel: chosenSpell.spellLevel,
@@ -50721,7 +45696,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         };
 
         this.filteredSpells = function (l) {
-          return _this68.allSpells.filter(function (a) {
+          return _this45.allSpells.filter(function (a) {
             return a.spellLevel === l;
           });
         };
@@ -50739,7 +45714,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         };
 
         this.reportCheck = function (evt, id) {
-          var aSpell = _this68.allSpells.find(function (x) {
+          var aSpell = _this45.allSpells.find(function (x) {
             return x.id === parseInt(id);
           });
 
@@ -50750,7 +45725,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
             currentStatus: chk.checked
           };
 
-          _this68.charDataSvc.toggleSpell(body).subscribe(function (retVal) {
+          _this45.charDataSvc.toggleSpell(body).subscribe(function (retVal) {
             if (retVal === true) {
               console.log('saved');
             } else {
@@ -50763,17 +45738,17 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       _createClass2(CharSpellsComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this69 = this;
+          var _this46 = this;
 
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this69.charID = val === null ? 0 : val;
+            return _this46.charID = val === null ? 0 : val;
           });
           this.charDataSvc.loadSpells(this.charID).subscribe(function (val) {
-            _this69.allSpells = val.results;
+            _this46.allSpells = val.results;
 
-            _this69.charDataSvc.setAllSpells(val);
+            _this46.charDataSvc.setAllSpells(val);
 
-            _this69.levelBreakDown = Array.from(Array(_this69.allSpells.slice(-1).pop().spellLevel), function (_, i) {
+            _this46.levelBreakDown = Array.from(Array(_this46.allSpells.slice(-1).pop().spellLevel), function (_, i) {
               return i + 1;
             });
           });
@@ -50967,17 +45942,17 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var th_r131 = ctx.$implicit;
+        var th_r140 = ctx.$implicit;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"]("", th_r131.score, " - ", th_r131.desc, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"]("", th_r140.score, " - ", th_r140.desc, "");
       }
     }
 
     function CharTohitComponent_div_19_Template(rf, ctx) {
       if (rf & 1) {
-        var _r133 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r142 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 11);
 
@@ -50994,11 +45969,11 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "i", 15);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function CharTohitComponent_div_19_Template_i_click_5_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r133);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r142);
 
-          var ctx_r132 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r141 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r132.showBreakDown($event);
+          return ctx_r141.showBreakDown($event);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -51006,13 +45981,13 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "i", 16);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function CharTohitComponent_div_19_Template_i_click_6_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r133);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r142);
 
-          var th_r129 = ctx.$implicit;
+          var th_r138 = ctx.$implicit;
 
-          var ctx_r134 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r143 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r134.editToHit(th_r129.id);
+          return ctx_r143.editToHit(th_r138.id);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -51048,13 +46023,13 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "i", 21);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function CharTohitComponent_div_19_Template_i_click_16_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r133);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r142);
 
-          var th_r129 = ctx.$implicit;
+          var th_r138 = ctx.$implicit;
 
-          var ctx_r135 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r144 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r135.editToHitMod(th_r129.id);
+          return ctx_r144.editToHitMod(th_r138.id);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -51071,31 +46046,31 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var th_r129 = ctx.$implicit;
+        var th_r138 = ctx.$implicit;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](th_r129.toHitDesc);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](th_r138.toHitDesc);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](th_r129.score);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](th_r138.score);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](th_r129.damage);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](th_r138.damage);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](th_r129.critRange);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](th_r138.critRange);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](th_r129.critDamage);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](th_r138.critDamage);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", th_r129.breakdown);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", th_r138.breakdown);
       }
     }
 
@@ -51103,7 +46078,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
     /*#__PURE__*/
     function () {
       function CharTohitComponent(charDataSvc, router) {
-        var _this70 = this;
+        var _this47 = this;
 
         _classCallCheck2(this, CharTohitComponent);
 
@@ -51122,12 +46097,12 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
             return i.toHitID;
           })));
 
-          var _iterator15 = _createForOfIteratorHelper(ids),
-              _step15;
+          var _iterator12 = _createForOfIteratorHelper(ids),
+              _step12;
 
           try {
             var _loop5 = function _loop5() {
-              var sid = _step15.value;
+              var sid = _step12.value;
               var temp = ar.filter(function (i) {
                 return i.toHitID === sid;
               });
@@ -51148,14 +46123,14 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
                 });
               }
 
-              var _iterator16 = _createForOfIteratorHelper(temp.filter(function (d) {
+              var _iterator13 = _createForOfIteratorHelper(temp.filter(function (d) {
                 return d.isBase === false;
               })),
-                  _step16;
+                  _step13;
 
               try {
-                for (_iterator16.s(); !(_step16 = _iterator16.n()).done;) {
-                  var aSk = _step16.value;
+                for (_iterator13.s(); !(_step13 = _iterator13.n()).done;) {
+                  var aSk = _step13.value;
                   var reason = aSk.modDesc;
                   breakdown.push({
                     score: aSk.score,
@@ -51163,9 +46138,9 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
                   });
                 }
               } catch (err) {
-                _iterator16.e(err);
+                _iterator13.e(err);
               } finally {
-                _iterator16.f();
+                _iterator13.f();
               }
 
               var obj = {
@@ -51181,40 +46156,40 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
               retVal.push(obj);
             };
 
-            for (_iterator15.s(); !(_step15 = _iterator15.n()).done;) {
+            for (_iterator12.s(); !(_step12 = _iterator12.n()).done;) {
               _loop5();
             }
           } catch (err) {
-            _iterator15.e(err);
+            _iterator12.e(err);
           } finally {
-            _iterator15.f();
+            _iterator12.f();
           }
 
           return lodash__WEBPACK_IMPORTED_MODULE_2___default.a.orderBy(retVal, 'toHitOrder', 'asc');
         };
 
         this.filterList = function (evt) {
-          _this70.filterText = evt.target.value;
+          _this47.filterText = evt.target.value;
           var allRows = document.getElementsByClassName('ui grid gridRow');
 
-          var _iterator17 = _createForOfIteratorHelper(allRows),
-              _step17;
+          var _iterator14 = _createForOfIteratorHelper(allRows),
+              _step14;
 
           try {
-            for (_iterator17.s(); !(_step17 = _iterator17.n()).done;) {
-              var r = _step17.value;
+            for (_iterator14.s(); !(_step14 = _iterator14.n()).done;) {
+              var r = _step14.value;
               var aTag = r.getElementsByTagName('span')[0].innerText;
 
-              if (aTag.toLowerCase().includes(_this70.filterText.toLowerCase())) {
+              if (aTag.toLowerCase().includes(_this47.filterText.toLowerCase())) {
                 r.classList.remove('hidden');
               } else {
                 r.classList.add('hidden');
               }
             }
           } catch (err) {
-            _iterator17.e(err);
+            _iterator14.e(err);
           } finally {
-            _iterator17.f();
+            _iterator14.f();
           }
         };
       }
@@ -51222,29 +46197,29 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       _createClass2(CharTohitComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this71 = this;
+          var _this48 = this;
 
           this.charDataSvc.getIsNew.subscribe(function (val) {
-            return _this71.isNew = val;
+            return _this48.isNew = val;
           });
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this71.charID = val;
+            return _this48.charID = val;
           });
           this.charDataSvc.getAllToHits.subscribe(function (val) {
-            return _this71.allHits = val === null ? [] : val.results;
+            return _this48.allHits = val === null ? [] : val.results;
           });
           this.charDataSvc.getAllToHits.subscribe(function (val) {
-            return _this71.curChar = val === null ? "0" : val.charID;
+            return _this48.curChar = val === null ? "0" : val.charID;
           });
 
           if (!this.isNew && this.charID && this.charID.toString() !== this.curChar) {
             this.charDataSvc.loadToHits(this.charID.toString()).subscribe(function (val) {
-              _this71.allHits = val.results;
+              _this48.allHits = val.results;
 
-              _this71.charDataSvc.setAllToHits(val);
+              _this48.charDataSvc.setAllToHits(val);
 
-              if (_this71.allHits.length > 0) {
-                _this71.grpHits = _this71.createToHitGrps(_this71.allHits);
+              if (_this48.allHits.length > 0) {
+                _this48.grpHits = _this48.createToHitGrps(_this48.allHits);
               }
             });
           }
@@ -51956,18 +46931,18 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
 
     function EditNotesComponent_div_7_Template(rf, ctx) {
       if (rf & 1) {
-        var _r180 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r189 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 10);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "input", 11);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function EditNotesComponent_div_7_Template_input_ngModelChange_1_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r180);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r189);
 
-          var ctx_r179 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r188 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r179.theNote = $event;
+          return ctx_r188.theNote = $event;
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -51976,28 +46951,28 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var ctx_r176 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+        var ctx_r185 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx_r176.theNote);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx_r185.theNote);
       }
     }
 
     function EditNotesComponent_div_8_Template(rf, ctx) {
       if (rf & 1) {
-        var _r182 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r191 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 12);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "textarea", 13);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function EditNotesComponent_div_8_Template_textarea_ngModelChange_1_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r182);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r191);
 
-          var ctx_r181 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r190 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r181.theNote = $event;
+          return ctx_r190.theNote = $event;
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -52006,28 +46981,28 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var ctx_r177 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+        var ctx_r186 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx_r177.theNote);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx_r186.theNote);
       }
     }
 
     function EditNotesComponent_div_9_Template(rf, ctx) {
       if (rf & 1) {
-        var _r184 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r193 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 14);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "i", 15);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function EditNotesComponent_div_9_Template_i_click_1_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r184);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r193);
 
-          var ctx_r183 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r192 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r183.deleteNote("d");
+          return ctx_r192.deleteNote("d");
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -52040,7 +47015,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
     /*#__PURE__*/
     function () {
       function EditNotesComponent(charDataSvc, router) {
-        var _this72 = this;
+        var _this49 = this;
 
         _classCallCheck2(this, EditNotesComponent);
 
@@ -52049,64 +47024,64 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         this.theID = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.last(this.router.url.split('/'));
 
         this.deleteNote = function (id) {
-          if (_this72.theType === 'ind') {
-            _this72.charDataSvc.deleteNoteItem(_this72.theID).subscribe(function (retVal) {});
+          if (_this49.theType === 'ind') {
+            _this49.charDataSvc.deleteNoteItem(_this49.theID).subscribe(function (retVal) {});
           } else {
-            _this72.charDataSvc.deleteNoteHeader(_this72.theID).subscribe(function (retItem) {
-              _this72.charDataSvc.getAllNotes.subscribe(function (val) {
-                return _this72.notesSet = val === null ? {} : val;
+            _this49.charDataSvc.deleteNoteHeader(_this49.theID).subscribe(function (retItem) {
+              _this49.charDataSvc.getAllNotes.subscribe(function (val) {
+                return _this49.notesSet = val === null ? {} : val;
               });
 
-              var filteredArr = _this72.notesSet['results'].filter(function (a) {
-                return a.noteID.toString() !== _this72.theID;
+              var filteredArr = _this49.notesSet['results'].filter(function (a) {
+                return a.noteID.toString() !== _this49.theID;
               });
 
-              _this72.notesSet['results'] = filteredArr;
+              _this49.notesSet['results'] = filteredArr;
 
-              _this72.charDataSvc.setAllNotes(_this72.notesSet);
+              _this49.charDataSvc.setAllNotes(_this49.notesSet);
             });
           }
 
-          _this72.router.navigate(['/charGen/notes']);
+          _this49.router.navigate(['/charGen/notes']);
         };
 
         this.onSubmit = function (evt) {
           evt.preventDefault();
           var body = {
             id: '',
-            noteID: _this72.theID,
-            note: _this72.theNote
+            noteID: _this49.theID,
+            note: _this49.theNote
           };
 
-          if (_this72.theType === 'ind') {
+          if (_this49.theType === 'ind') {
             body = {
-              id: _this72.theID,
+              id: _this49.theID,
               noteID: '',
-              note: _this72.theNote
+              note: _this49.theNote
             };
 
-            _this72.charDataSvc.updateNoteItem(body).subscribe(function (retItem) {});
+            _this49.charDataSvc.updateNoteItem(body).subscribe(function (retItem) {});
           } else {
-            _this72.charDataSvc.updateNoteHeader(body).subscribe(function (retItem) {
-              _this72.charDataSvc.getAllNotes.subscribe(function (val) {
-                return _this72.notesSet = val === null ? {} : val;
+            _this49.charDataSvc.updateNoteHeader(body).subscribe(function (retItem) {
+              _this49.charDataSvc.getAllNotes.subscribe(function (val) {
+                return _this49.notesSet = val === null ? {} : val;
               });
 
-              var filteredArr = _this72.notesSet['results'].filter(function (a) {
+              var filteredArr = _this49.notesSet['results'].filter(function (a) {
                 return a.noteID !== retItem.noteID;
               });
 
-              _this72.notesSet['results'] = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.orderBy([].concat(_toConsumableArray2(filteredArr), [retItem]), ['noteOrder']);
+              _this49.notesSet['results'] = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.orderBy([].concat(_toConsumableArray2(filteredArr), [retItem]), ['noteOrder']);
 
-              _this72.charDataSvc.setAllNotes(_this72.notesSet);
+              _this49.charDataSvc.setAllNotes(_this49.notesSet);
             });
           }
 
-          _this72.router.navigate(['/charGen/notes']);
+          _this49.router.navigate(['/charGen/notes']);
         };
 
         this.onCancel = function () {
-          _this72.router.navigate(['/charGen/notes']);
+          _this49.router.navigate(['/charGen/notes']);
         };
       }
 
@@ -52281,7 +47256,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
     /*#__PURE__*/
     function () {
       function EditSpellComponent(charDataSvc, router) {
-        var _this73 = this;
+        var _this50 = this;
 
         _classCallCheck2(this, EditSpellComponent);
 
@@ -52290,27 +47265,27 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         this.theID = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.last(this.router.url.split('/'));
 
         this.deleteNote = function (id) {
-          _this73.charDataSvc.deleteSpell(id).subscribe(function (val) {
+          _this50.charDataSvc.deleteSpell(id).subscribe(function (val) {
             var a = val;
 
-            _this73.router.navigate(['/charGen/spells']);
+            _this50.router.navigate(['/charGen/spells']);
           });
         };
 
         this.onSubmit = function (evt) {
           var body = {
-            id: _this73.theID,
-            spellLevel: _this73.spellLevel,
-            spellName: _this73.theSpell
+            id: _this50.theID,
+            spellLevel: _this50.spellLevel,
+            spellName: _this50.theSpell
           };
 
-          _this73.charDataSvc.updateSpell(body).subscribe(function (val) {
-            _this73.router.navigate(['/charGen/spells']);
+          _this50.charDataSvc.updateSpell(body).subscribe(function (val) {
+            _this50.router.navigate(['/charGen/spells']);
           });
         };
 
         this.onCancel = function () {
-          _this73.router.navigate(['/charGen/spells']);
+          _this50.router.navigate(['/charGen/spells']);
         };
       }
 
@@ -52543,18 +47518,18 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
 
     function GenerateComponent_p_2_Template(rf, ctx) {
       if (rf & 1) {
-        var _r21 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r30 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "p");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "button", 15);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function GenerateComponent_p_2_Template_button_click_1_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r21);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r30);
 
-          var ctx_r20 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r29 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r20.rollAll();
+          return ctx_r29.rollAll();
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "i", 16);
@@ -52570,11 +47545,11 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "button", 18);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function GenerateComponent_p_2_Template_button_click_5_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r21);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r30);
 
-          var ctx_r22 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r31 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r22.reset();
+          return ctx_r31.reset();
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](6, "i", 19);
@@ -52587,111 +47562,15 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var ctx_r13 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+        var ctx_r22 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("icon", ctx_r13.faDice);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("icon", ctx_r22.faDice);
       }
     }
 
     function GenerateComponent_div_21_div_1_Template(rf, ctx) {
-      if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "div", 21);
-      }
-
-      if (rf & 2) {
-        var st_r23 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
-
-        var ctx_r24 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("innerHtml", ctx_r24.processBreakDown(st_r23), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeHtml"]);
-      }
-    }
-
-    function GenerateComponent_div_21_Template(rf, ctx) {
-      if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, GenerateComponent_div_21_div_1_Template, 1, 1, "div", 20);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-      }
-
-      if (rf & 2) {
-        var st_r23 = ctx.$implicit;
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", st_r23.statID === 1);
-      }
-    }
-
-    function GenerateComponent_div_33_div_1_Template(rf, ctx) {
-      if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "div", 21);
-      }
-
-      if (rf & 2) {
-        var st_r26 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
-
-        var ctx_r27 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("innerHtml", ctx_r27.processBreakDown(st_r26), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeHtml"]);
-      }
-    }
-
-    function GenerateComponent_div_33_Template(rf, ctx) {
-      if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, GenerateComponent_div_33_div_1_Template, 1, 1, "div", 20);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-      }
-
-      if (rf & 2) {
-        var st_r26 = ctx.$implicit;
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", st_r26.statID === 2);
-      }
-    }
-
-    function GenerateComponent_div_45_div_1_Template(rf, ctx) {
-      if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "div", 21);
-      }
-
-      if (rf & 2) {
-        var st_r29 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
-
-        var ctx_r30 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("innerHtml", ctx_r30.processBreakDown(st_r29), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeHtml"]);
-      }
-    }
-
-    function GenerateComponent_div_45_Template(rf, ctx) {
-      if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, GenerateComponent_div_45_div_1_Template, 1, 1, "div", 20);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-      }
-
-      if (rf & 2) {
-        var st_r29 = ctx.$implicit;
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", st_r29.statID === 3);
-      }
-    }
-
-    function GenerateComponent_div_57_div_1_Template(rf, ctx) {
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "div", 21);
       }
@@ -52705,11 +47584,11 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
     }
 
-    function GenerateComponent_div_57_Template(rf, ctx) {
+    function GenerateComponent_div_21_Template(rf, ctx) {
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, GenerateComponent_div_57_div_1_Template, 1, 1, "div", 20);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, GenerateComponent_div_21_div_1_Template, 1, 1, "div", 20);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
       }
@@ -52719,11 +47598,11 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", st_r32.statID === 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", st_r32.statID === 1);
       }
     }
 
-    function GenerateComponent_div_69_div_1_Template(rf, ctx) {
+    function GenerateComponent_div_33_div_1_Template(rf, ctx) {
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "div", 21);
       }
@@ -52737,11 +47616,11 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
     }
 
-    function GenerateComponent_div_69_Template(rf, ctx) {
+    function GenerateComponent_div_33_Template(rf, ctx) {
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, GenerateComponent_div_69_div_1_Template, 1, 1, "div", 20);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, GenerateComponent_div_33_div_1_Template, 1, 1, "div", 20);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
       }
@@ -52751,11 +47630,11 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", st_r35.statID === 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", st_r35.statID === 2);
       }
     }
 
-    function GenerateComponent_div_81_div_1_Template(rf, ctx) {
+    function GenerateComponent_div_45_div_1_Template(rf, ctx) {
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "div", 21);
       }
@@ -52769,6 +47648,102 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
     }
 
+    function GenerateComponent_div_45_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, GenerateComponent_div_45_div_1_Template, 1, 1, "div", 20);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var st_r38 = ctx.$implicit;
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", st_r38.statID === 3);
+      }
+    }
+
+    function GenerateComponent_div_57_div_1_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "div", 21);
+      }
+
+      if (rf & 2) {
+        var st_r41 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+
+        var ctx_r42 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("innerHtml", ctx_r42.processBreakDown(st_r41), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeHtml"]);
+      }
+    }
+
+    function GenerateComponent_div_57_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, GenerateComponent_div_57_div_1_Template, 1, 1, "div", 20);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var st_r41 = ctx.$implicit;
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", st_r41.statID === 4);
+      }
+    }
+
+    function GenerateComponent_div_69_div_1_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "div", 21);
+      }
+
+      if (rf & 2) {
+        var st_r44 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+
+        var ctx_r45 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("innerHtml", ctx_r45.processBreakDown(st_r44), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeHtml"]);
+      }
+    }
+
+    function GenerateComponent_div_69_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, GenerateComponent_div_69_div_1_Template, 1, 1, "div", 20);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var st_r44 = ctx.$implicit;
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", st_r44.statID === 5);
+      }
+    }
+
+    function GenerateComponent_div_81_div_1_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "div", 21);
+      }
+
+      if (rf & 2) {
+        var st_r47 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+
+        var ctx_r48 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("innerHtml", ctx_r48.processBreakDown(st_r47), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeHtml"]);
+      }
+    }
+
     function GenerateComponent_div_81_Template(rf, ctx) {
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
@@ -52779,11 +47754,11 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var st_r38 = ctx.$implicit;
+        var st_r47 = ctx.$implicit;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", st_r38.statID === 6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", st_r47.statID === 6);
       }
     }
 
@@ -52791,7 +47766,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
     /*#__PURE__*/
     function () {
       function GenerateComponent(dr, charDataSvc, sanitizer, router) {
-        var _this74 = this;
+        var _this51 = this;
 
         _classCallCheck2(this, GenerateComponent);
 
@@ -52804,62 +47779,62 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         this.stats = [];
 
         this.rollAll = function () {
-          _this74.getStat(5, 'str');
+          _this51.getStat(5, 'str');
 
-          _this74.getStat(4, 'dex');
+          _this51.getStat(4, 'dex');
 
-          _this74.getStat(5, 'con');
+          _this51.getStat(5, 'con');
 
-          _this74.getStat(4, 'int');
+          _this51.getStat(4, 'int');
 
-          _this74.getStat(4, 'wis');
+          _this51.getStat(4, 'wis');
 
-          _this74.getStat(4, 'chr');
+          _this51.getStat(4, 'chr');
         };
 
         this.getStat = function (arg, stat) {
-          var roll1 = _this74.dr.sumRoll(6, arg, 3);
+          var roll1 = _this51.dr.sumRoll(6, arg, 3);
 
-          var roll2 = _this74.dr.sumRoll(6, arg, 3);
+          var roll2 = _this51.dr.sumRoll(6, arg, 3);
 
-          _this74.stats[stat] = Math.max(roll1, roll2);
+          _this51.stats[stat] = Math.max(roll1, roll2);
         };
 
         this.reset = function () {
-          _this74.stats = [];
+          _this51.stats = [];
         };
 
         this.ediStat = function (arg) {
-          _this74.router.navigate(['/charGen/mods/stat/' + arg]);
+          _this51.router.navigate(['/charGen/mods/stat/' + arg]);
         };
       }
 
       _createClass2(GenerateComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this75 = this;
+          var _this52 = this;
 
           this.charDataSvc.getIsNew.subscribe(function (val) {
-            return _this75.isNew = val;
+            return _this52.isNew = val;
           });
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this75.charID = val;
+            return _this52.charID = val;
           });
           this.charDataSvc.getAllStats.subscribe(function (val) {
-            return _this75.stats = val === null ? [] : val.results;
+            return _this52.stats = val === null ? [] : val.results;
           });
           this.charDataSvc.getAllStats.subscribe(function (val) {
-            return _this75.curChar = val === null ? "0" : val.charID;
+            return _this52.curChar = val === null ? "0" : val.charID;
           });
 
           if (!this.isNew && this.charID && this.charID.toString() !== this.curChar) {
             this.stats = [];
             this.charDataSvc.loadStats(this.charID).subscribe(function (sts) {
-              _this75.stats = sts.results;
+              _this52.stats = sts.results;
 
-              _this75.charDataSvc.setStats(sts);
+              _this52.charDataSvc.setStats(sts);
 
-              _this75.charDataSvc.setCurCharID(_this75.charID);
+              _this52.charDataSvc.setCurCharID(_this52.charID);
             });
           } else {}
         }
@@ -53514,31 +48489,31 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var ctx_r187 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+        var ctx_r196 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r187.control.errors.required);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r196.control.errors.required);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r187.control.errors.minlength);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r196.control.errors.minlength);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r187.control.errors.maxlength);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r196.control.errors.maxlength);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r187.control.errors.pattern && ctx_r187.val === "num");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r196.control.errors.pattern && ctx_r196.val === "num");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r187.control.errors.pattern && ctx_r187.val === "exp");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r196.control.errors.pattern && ctx_r196.val === "exp");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r187.control.errors.pattern && ctx_r187.val === "sec" && ctx_r187.checkNum(ctx_r187.control.value));
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r196.control.errors.pattern && ctx_r196.val === "sec" && ctx_r196.checkNum(ctx_r196.control.value));
       }
     }
 
@@ -53552,17 +48527,17 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
     /*#__PURE__*/
     function () {
       function InputComponent() {
-        var _this76 = this;
+        var _this53 = this;
 
         _classCallCheck2(this, InputComponent);
 
         this.placeHolder = '';
 
         this.isErrored = function () {
-          var _this76$control = _this76.control,
-              dirty = _this76$control.dirty,
-              touched = _this76$control.touched,
-              errors = _this76$control.errors;
+          var _this53$control = _this53.control,
+              dirty = _this53$control.dirty,
+              touched = _this53$control.touched,
+              errors = _this53$control.errors;
           return errors && touched && dirty;
         };
 
@@ -53712,16 +48687,16 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
 
     function NewFeatComponent_div_7_Template(rf, ctx) {
       if (rf & 1) {
-        var _r146 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r155 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 8);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function NewFeatComponent_div_7_Template_div_click_0_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r146);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r155);
 
-          var ctx_r145 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r154 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r145.categoryselected($event);
+          return ctx_r154.categoryselected($event);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
@@ -53730,26 +48705,26 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var c_r144 = ctx.$implicit;
+        var c_r153 = ctx.$implicit;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](c_r144);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](c_r153);
       }
     }
 
     function NewFeatComponent_div_13_Template(rf, ctx) {
       if (rf & 1) {
-        var _r149 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r158 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 8);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function NewFeatComponent_div_13_Template_div_click_0_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r149);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r158);
 
-          var ctx_r148 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r157 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r148.optionSelected($event);
+          return ctx_r157.optionSelected($event);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
@@ -53758,13 +48733,13 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var f_r147 = ctx.$implicit;
+        var f_r156 = ctx.$implicit;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵattribute"]("data-value", f_r147.id);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵattribute"]("data-value", f_r156.id);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](f_r147.name);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](f_r156.name);
       }
     }
 
@@ -53785,19 +48760,19 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       _createClass2(NewFeatComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this77 = this;
+          var _this54 = this;
 
           this.charDataSvc.getIsNew.subscribe(function (val) {
-            return _this77.isNew = val;
+            return _this54.isNew = val;
           });
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this77.charID = val;
+            return _this54.charID = val;
           });
           this.charDataSvc.getAllFeats.subscribe(function (val) {
-            return _this77.curChar = val.charID;
+            return _this54.curChar = val.charID;
           });
           this.charDataSvc.getAllFeats.subscribe(function (val) {
-            return _this77.curFeats = val;
+            return _this54.curFeats = val;
           });
 
           var ids = _toConsumableArray2(new Set(this.curFeats.results.map(function (i) {
@@ -53809,19 +48784,19 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }, {
         key: "getAllFeats",
         value: function getAllFeats(arr) {
-          var _this78 = this;
+          var _this55 = this;
 
           this.charDataSvc.loadOtherFeats(arr).subscribe(function (arg) {
-            _this78.categories = _toConsumableArray2(new Set(arg.results.map(function (i) {
+            _this55.categories = _toConsumableArray2(new Set(arg.results.map(function (i) {
               return i['type'];
             })));
-            _this78.allFeats = arg.results;
+            _this55.allFeats = arg.results;
           });
         }
       }, {
         key: "optionSelected",
         value: function optionSelected(event) {
-          var _this79 = this;
+          var _this56 = this;
 
           var selected = event.target.getAttribute("data-value");
           var aFeat = this.allFeats.find(function (arg) {
@@ -53834,21 +48809,21 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
             id: 0
           };
           this.charDataSvc.saveNewFeat(this.charID, aFeat).subscribe(function (val) {
-            _this79.curFeats.results.push(val);
+            _this56.curFeats.results.push(val);
 
-            _this79.charDataSvc.setAllFeats(_this79.curFeats);
+            _this56.charDataSvc.setAllFeats(_this56.curFeats);
 
-            _this79.router.navigate(['/charGen/feats']);
+            _this56.router.navigate(['/charGen/feats']);
           });
         }
       }, {
         key: "categoryselected",
         value: function categoryselected(event) {
-          var _this80 = this;
+          var _this57 = this;
 
           this.selCat = event.target.innerText;
           this.filteredFeats = this.allFeats.filter(function (item) {
-            return item['type'] === _this80.selCat;
+            return item['type'] === _this57.selCat;
           });
         }
       }]);
@@ -53996,16 +48971,16 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
 
     function NewSkillComponent_div_7_Template(rf, ctx) {
       if (rf & 1) {
-        var _r141 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r150 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 5);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function NewSkillComponent_div_7_Template_div_click_0_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r141);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r150);
 
-          var ctx_r140 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r149 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r140.optionSelected($event);
+          return ctx_r149.optionSelected($event);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
@@ -54014,13 +48989,13 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var sk_r139 = ctx.$implicit;
+        var sk_r148 = ctx.$implicit;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵattribute"]("data-value", sk_r139.skillID);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵattribute"]("data-value", sk_r148.skillID);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"]("", sk_r139.skillName, " - ", sk_r139.skillAttr, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"]("", sk_r148.skillName, " - ", sk_r148.skillAttr, "");
       }
     }
 
@@ -54038,19 +49013,19 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       _createClass2(NewSkillComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this81 = this;
+          var _this58 = this;
 
           this.charDataSvc.getIsNew.subscribe(function (val) {
-            return _this81.isNew = val;
+            return _this58.isNew = val;
           });
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this81.charID = val;
+            return _this58.charID = val;
           });
           this.charDataSvc.getAllSkills.subscribe(function (val) {
-            return _this81.curChar = val.charID;
+            return _this58.curChar = val.charID;
           });
           this.charDataSvc.getAllSkills.subscribe(function (val) {
-            return _this81.curSkills = val;
+            return _this58.curSkills = val;
           });
 
           var ids = _toConsumableArray2(new Set(this.curSkills.results.map(function (i) {
@@ -54062,16 +49037,16 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }, {
         key: "getAllSkills",
         value: function getAllSkills(arr) {
-          var _this82 = this;
+          var _this59 = this;
 
           this.charDataSvc.loadOtherSkills(arr).subscribe(function (arg) {
-            _this82.allSkills = arg.results;
+            _this59.allSkills = arg.results;
           });
         }
       }, {
         key: "optionSelected",
         value: function optionSelected(event) {
-          var _this83 = this;
+          var _this60 = this;
 
           var selected = event.target.getAttribute("data-value");
           var aSkill = this.allSkills.find(function (arg) {
@@ -54089,11 +49064,11 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
             id: 0
           };
           this.charDataSvc.saveNewSkill(this.charID, aSkill).subscribe(function (val) {
-            _this83.curSkills.results.push(val);
+            _this60.curSkills.results.push(val);
 
-            _this83.charDataSvc.setAllSkills(_this83.curSkills);
+            _this60.charDataSvc.setAllSkills(_this60.curSkills);
 
-            _this83.router.navigate(['/charGen/skills']);
+            _this60.router.navigate(['/charGen/skills']);
           });
         }
       }]);
@@ -54229,7 +49204,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
     /*#__PURE__*/
     function () {
       function NewTohitComponent(charDataSvc, router) {
-        var _this84 = this;
+        var _this61 = this;
 
         _classCallCheck2(this, NewTohitComponent);
 
@@ -54244,71 +49219,71 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
 
         this.onSubmit = function (evt) {
           evt.preventDefault();
-          var obj = Object.assign(Object.assign({}, _this84.attribute['ToHit']), {
-            toHitID: parseInt(_this84.partID, 10)
+          var obj = Object.assign(Object.assign({}, _this61.attribute['ToHit']), {
+            toHitID: parseInt(_this61.partID, 10)
           });
 
-          _this84.charDataSvc.newToHit(_this84.charID, obj).subscribe(function (val) {
+          _this61.charDataSvc.newToHit(_this61.charID, obj).subscribe(function (val) {
             if (val.results) {
-              _this84.allHits.results = _this84.allHits.results.filter(function (arg) {
+              _this61.allHits.results = _this61.allHits.results.filter(function (arg) {
                 return arg.id !== val.results.id;
               });
 
-              var allRelatedAttacks = _this84.allHits.results.filter(function (arg) {
+              var allRelatedAttacks = _this61.allHits.results.filter(function (arg) {
                 return arg.toHitID === val.results.toHitID;
               });
 
               var newTohit = val.results.ToHit;
 
-              var _iterator18 = _createForOfIteratorHelper(allRelatedAttacks),
-                  _step18;
+              var _iterator15 = _createForOfIteratorHelper(allRelatedAttacks),
+                  _step15;
 
               try {
-                for (_iterator18.s(); !(_step18 = _iterator18.n()).done;) {
-                  var hit = _step18.value;
+                for (_iterator15.s(); !(_step15 = _iterator15.n()).done;) {
+                  var hit = _step15.value;
                   hit.ToHit = Object.assign({}, newTohit);
                 }
               } catch (err) {
-                _iterator18.e(err);
+                _iterator15.e(err);
               } finally {
-                _iterator18.f();
+                _iterator15.f();
               }
 
-              _this84.allHits.results.push(val.results);
+              _this61.allHits.results.push(val.results);
 
-              _this84.allHits.results.sort(function (a, b) {
+              _this61.allHits.results.sort(function (a, b) {
                 return a.toHitID - b.toHitID;
               });
 
-              _this84.charDataSvc.setAllToHits(_this84.allHits);
+              _this61.charDataSvc.setAllToHits(_this61.allHits);
 
-              _this84.router.navigate(['/charGen/tohits']);
+              _this61.router.navigate(['/charGen/tohits']);
             }
           });
         };
 
         this.onCancel = function () {
-          _this84.router.navigate(['/charGen/tohits']);
+          _this61.router.navigate(['/charGen/tohits']);
         };
       }
 
       _createClass2(NewTohitComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this85 = this;
+          var _this62 = this;
 
           this.charDataSvc.getIsNew.subscribe(function (val) {
-            return _this85.isNew = val;
+            return _this62.isNew = val;
           });
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this85.charID = val;
+            return _this62.charID = val;
           });
           this.charDataSvc.getAllToHits.subscribe(function (val) {
-            return _this85.curChar = val.charID;
+            return _this62.curChar = val.charID;
           }); //this.charDataSvc.getAllToHits.subscribe( (val) => this.allHits = val.results);
 
           this.charDataSvc.getAllToHits.subscribe(function (val) {
-            return _this85.allHits = val;
+            return _this62.allHits = val;
           });
 
           if (this.partID === '0') {
@@ -54328,7 +49303,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
             };
           } else {
             this.attribute = this.allHits.results.find(function (arg) {
-              return arg.toHitID.toString() === _this85.partID;
+              return arg.toHitID.toString() === _this62.partID;
             });
           }
         }
@@ -54632,7 +49607,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
 
     function SingleFeatComponent_div_5_Template(rf, ctx) {
       if (rf & 1) {
-        var _r197 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r206 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 4);
 
@@ -54643,11 +49618,11 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "i", 5);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function SingleFeatComponent_div_5_Template_i_click_3_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r197);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r206);
 
-          var ctx_r196 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r205 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r196.showPreReq($event);
+          return ctx_r205.showPreReq($event);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -54675,13 +49650,13 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "i", 8);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function SingleFeatComponent_div_5_Template_i_click_10_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r197);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r206);
 
-          var f_r195 = ctx.$implicit;
+          var f_r204 = ctx.$implicit;
 
-          var ctx_r198 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r207 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r198.deleteFeat(f_r195.id);
+          return ctx_r207.deleteFeat(f_r204.id);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -54726,27 +49701,27 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var f_r195 = ctx.$implicit;
+        var f_r204 = ctx.$implicit;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("", f_r195.Feat.name, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("", f_r204.Feat.name, " ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](f_r195.Feat.shortdescription);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](f_r204.Feat.shortdescription);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](f_r195.Feat.benefit);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](f_r204.Feat.benefit);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](9);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", f_r195.Feat.prerequisites || "None", "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", f_r204.Feat.prerequisites || "None", "");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", f_r195.Feat.prerequisitie_feats || "None", "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", f_r204.Feat.prerequisitie_feats || "None", "");
       }
     }
 
@@ -54754,7 +49729,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
     /*#__PURE__*/
     function () {
       function SingleFeatComponent(router, charDataSvc) {
-        var _this86 = this;
+        var _this63 = this;
 
         _classCallCheck2(this, SingleFeatComponent);
 
@@ -54772,17 +49747,17 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         };
 
         this.deleteFeat = function (arg) {
-          _this86.charDataSvc.deleteFeat(arg).subscribe(function (val) {
-            var newArray = _this86.charFeats.filter(function (ft) {
+          _this63.charDataSvc.deleteFeat(arg).subscribe(function (val) {
+            var newArray = _this63.charFeats.filter(function (ft) {
               return ft['id'] !== arg;
             });
 
-            _this86.charDataSvc.setAllFeats({
-              charID: _this86.charID,
+            _this63.charDataSvc.setAllFeats({
+              charID: _this63.charID,
               results: newArray
             });
 
-            _this86.router.navigate(['/charGen/feats']);
+            _this63.router.navigate(['/charGen/feats']);
           });
         };
       }
@@ -54790,10 +49765,10 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       _createClass2(SingleFeatComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this87 = this;
+          var _this64 = this;
 
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this87.charID = val;
+            return _this64.charID = val;
           });
         }
       }]);
@@ -54940,16 +49915,16 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
 
     function SingleNoteComponent_button_2_Template(rf, ctx) {
       if (rf & 1) {
-        var _r166 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r175 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 10);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function SingleNoteComponent_button_2_Template_button_click_0_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r166);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r175);
 
-          var ctx_r165 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r174 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r165.addNewNote($event);
+          return ctx_r174.addNewNote($event);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "i", 11);
@@ -54962,26 +49937,26 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
 
     function SingleNoteComponent_form_3_Template(rf, ctx) {
       if (rf & 1) {
-        var _r169 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r178 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "form", 12, 13);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngSubmit", function SingleNoteComponent_form_3_Template_form_ngSubmit_0_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r169);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r178);
 
-          var ctx_r168 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r177 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r168.onSubmit($event);
+          return ctx_r177.onSubmit($event);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "textarea", 14);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function SingleNoteComponent_form_3_Template_textarea_ngModelChange_2_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r169);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r178);
 
-          var ctx_r170 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r179 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r170.note = $event;
+          return ctx_r179.note = $event;
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -54996,17 +49971,17 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var ctx_r163 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+        var ctx_r172 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx_r163.note);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx_r172.note);
       }
     }
 
     function SingleNoteComponent_div_12_Template(rf, ctx) {
       if (rf & 1) {
-        var _r173 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r182 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 16);
 
@@ -55027,13 +50002,13 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "i", 21);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function SingleNoteComponent_div_12_Template_i_click_6_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r173);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r182);
 
-          var nt_r171 = ctx.$implicit;
+          var nt_r180 = ctx.$implicit;
 
-          var ctx_r172 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r181 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r172.editNote(nt_r171.id.toString());
+          return ctx_r181.editNote(nt_r180.id.toString());
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -55044,11 +50019,11 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       }
 
       if (rf & 2) {
-        var nt_r171 = ctx.$implicit;
+        var nt_r180 = ctx.$implicit;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", nt_r171.itemDetails, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", nt_r180.itemDetails, " ");
       }
     }
 
@@ -55060,7 +50035,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
     /*#__PURE__*/
     function () {
       function SingleNoteComponent(charDataSvc, router) {
-        var _this88 = this;
+        var _this65 = this;
 
         _classCallCheck2(this, SingleNoteComponent);
 
@@ -55071,54 +50046,54 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
         this.noteTitle = '';
 
         this.addNewNote = function (evt) {
-          _this88.newNote = true;
+          _this65.newNote = true;
         };
 
         this.onSubmit = function (evt) {
           evt.preventDefault();
           var body = {
-            noteID: _this88.noteID,
-            itemDetails: _this88.note
+            noteID: _this65.noteID,
+            itemDetails: _this65.note
           };
 
-          _this88.charDataSvc.addNoteItem(body).subscribe(function (vals) {
-            _this88.allNotes = [].concat(_toConsumableArray2(_this88.allNotes), [vals]);
-            _this88.note = '';
-            _this88.newNote = false;
+          _this65.charDataSvc.addNoteItem(body).subscribe(function (vals) {
+            _this65.allNotes = [].concat(_toConsumableArray2(_this65.allNotes), [vals]);
+            _this65.note = '';
+            _this65.newNote = false;
           });
         };
 
         this.filterList = function (evt) {
-          _this88.filterText = evt.target.value;
+          _this65.filterText = evt.target.value;
           var allRows = document.getElementsByClassName('ui grid gridRow');
 
-          var _iterator19 = _createForOfIteratorHelper(allRows),
-              _step19;
+          var _iterator16 = _createForOfIteratorHelper(allRows),
+              _step16;
 
           try {
-            for (_iterator19.s(); !(_step19 = _iterator19.n()).done;) {
-              var r = _step19.value;
+            for (_iterator16.s(); !(_step16 = _iterator16.n()).done;) {
+              var r = _step16.value;
               var aTag = r.getElementsByTagName('span')[0].innerText;
 
-              if (aTag.toLowerCase().includes(_this88.filterText.toLowerCase())) {
+              if (aTag.toLowerCase().includes(_this65.filterText.toLowerCase())) {
                 r.classList.remove('hidden');
               } else {
                 r.classList.add('hidden');
               }
             }
           } catch (err) {
-            _iterator19.e(err);
+            _iterator16.e(err);
           } finally {
-            _iterator19.f();
+            _iterator16.f();
           }
         };
 
         this.editNote = function (id) {
-          var oneNote = _this88.allNotes.find(function (a) {
+          var oneNote = _this65.allNotes.find(function (a) {
             return a.id.toString() === id;
           });
 
-          _this88.router.navigate(['/charGen/notes/editNote/' + id], {
+          _this65.router.navigate(['/charGen/notes/editNote/' + id], {
             state: {
               data: {
                 type: 'ind',
@@ -55132,15 +50107,15 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
       _createClass2(SingleNoteComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this89 = this;
+          var _this66 = this;
 
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this89.charID = val;
+            return _this66.charID = val;
           });
           this.noteID = this.router.url.split("/").pop();
           this.charDataSvc.loadNotesItems(this.noteID).subscribe(function (val) {
-            _this89.allNotes = val.results;
-            _this89.noteTitle = val.title;
+            _this66.allNotes = val.results;
+            _this66.noteTitle = val.title;
           });
         }
       }, {
@@ -55458,14 +50433,14 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
     "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
 
     var ClassesService = function ClassesService(http) {
-      var _this90 = this;
+      var _this67 = this;
 
       _classCallCheck2(this, ClassesService);
 
       this.http = http;
 
       this.getClasses = function () {
-        return _this90.http.get('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/classes/all', {
+        return _this67.http.get('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/classes/all', {
           headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
             'Access-Control-Allow-Origin': '*'
           })
@@ -55533,14 +50508,14 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
     "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
 
     var RaceService = function RaceService(http) {
-      var _this91 = this;
+      var _this68 = this;
 
       _classCallCheck2(this, RaceService);
 
       this.http = http;
 
       this.getRaces = function () {
-        return _this91.http.get('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/races/all', {
+        return _this68.http.get('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/races/all', {
           headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
             'Access-Control-Allow-Origin': '*'
           })

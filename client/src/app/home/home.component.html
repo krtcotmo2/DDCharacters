@@ -4,26 +4,50 @@
     <p>This application allows for easy storage and access to all aspect of a Pathfinder character. In its current state, all characters are visible to all users. Future states will the user to login using their email address and a pasword.</p>
   </div>
   <div class="six wide column">
-    <form class="ui large form" #modForm='ngForm' (ngSubmit)='onSubmit($event)'>
-  <div #formRoot *ngIf='!isLoggedIn'>
-      <div class="ui stacked segment">
-        <div class="field">
-          <div class="ui left icon input">
-            <i class="user icon"></i>
-            <input type="text" name="email" [(ngModel)]='userName' placeholder="E-mail address">
+    <form class="ui large form" #modForm='ngForm' (ngSubmit)='onSubmit($event)' *ngIf='!isLoggedIn'>
+      <div #formRoot >
+        <div class="ui stacked segment">
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="user icon"></i>
+              <input type="text" name="email" [(ngModel)]='userName' placeholder="E-mail address">
+            </div>
           </div>
-        </div>
-        <div class="field">
-          <div class="ui left icon input">
-            <i class="lock icon"></i>
-            <input type="password" name="password"  [(ngModel)]='password' placeholder="Password">
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="lock icon"></i>
+              <input type="password" name="password"  [(ngModel)]='password' placeholder="Password">
+            </div>
           </div>
+          <button class="ui fluid large primary button" type="submit">Login</button>
         </div>
-        <button class="ui fluid large primary button" type="submit">Login</button>
-      </div>
 
-      <div class="ui error message"></div>
-    </div>
+        <div class="ui error message"></div>
+      </div>
+    </form>
+
+    <form class="ui large form" #restForm='ngForm' (ngSubmit)='onReSubmit($event)' *ngIf='isForced'>
+      <div #restFormRoot >
+        <div class="ui stacked segment">
+          <h1>Password Reset</h1>
+          <p>You must reset your password before proceeding.</p>
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="lock icon"></i>
+              <input type="password" name="newPassword"  [(ngModel)]='newPassword' placeholder="New Password">
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="lock icon"></i>
+              <input type="password" name="confPassword"  [(ngModel)]='confPassword' placeholder="Verify Password" #confPasswordField>
+            </div>
+          </div>
+          <button class="ui fluid large primary button" type="submit">Save</button>
+        </div>
+
+        <div class="ui error message"></div>
+      </div>
     </form>
   </div>
 </div>

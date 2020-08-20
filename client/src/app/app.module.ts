@@ -9,6 +9,8 @@ import { ChargenHomeComponent } from './chargen/chargen-home/chargen-home.compon
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBar} from '@angular/material/snack-bar';
+import { OverlayModule  } from '@angular/cdk/overlay';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -24,9 +26,10 @@ import { FormsModule } from '@angular/forms';
     NgbModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    OverlayModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [MatSnackBar],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

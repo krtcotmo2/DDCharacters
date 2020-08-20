@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import {Router} from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {MatSnackBar} from '@angular/material/snack-bar';
 import { UserService } from '../services/user.service';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import _ from 'lodash';
 
 @Component({
@@ -12,17 +12,22 @@ import _ from 'lodash';
 })
 export class HomeComponent implements OnInit {
   isLoggedIn: boolean;
+  isForced: boolean;
   theUser;
   userName: string;
   password:string;
+  newPassword: string;
+  confPassword: string;
   modForm;
-
+  restForm;
+  @ViewChild('confPasswordField') confPasswordField: ElementRef;
   constructor(private userService: UserService,
     private router: Router,
     private http: HttpClient,
-    private modalService: NgbModal ) { }
+    private _snackBar: MatSnackBar ) { }
 
   ngOnInit(): void {
+    this.isForced = false;
     this.userService.getUser.subscribe( val => this.theUser = val);
     this.isLoggedIn = this.theUser.userEmail !== undefined;
   }
@@ -37,7 +42,8 @@ export class HomeComponent implements OnInit {
       this.theUser = val;
       console.log(this.theUser);
       if (this.theUser.forcedReset){
-        alert("need to redo password");
+        this.isLoggedIn = true;
+        this.isForced = true;
         return;
       } else {
         this.theUser.isLoggedIn = true;
@@ -46,8 +52,33 @@ export class HomeComponent implements OnInit {
       }
     },
     err => {
-      alert('invalid login')
+      this._snackBar.open('Invalid Login. Try Again', '', {
+        duration: 2000,
+        horizontalPosition: 'center',
+        verticalPosition: 'top',
+        panelClass: ['red-snackbar']
+      });
     })
   }
 
+  onReSubmit = evt => {
+    evt.preventDefault();
+    if (this.newPassword !== this.confPassword){
+      this.confPassword = '';
+      this.confPasswordField.nativeElement.focus()
+      this._snackBar.open('Passwords did not match, Try Again', '', {
+        duration: 2000,
+        horizontalPosition: 'center',
+        verticalPosition: 'top',
+        panelClass: ['red-snackbar']
+      });
+      return;
+    }
+    this._snackBar.open('Password Sent', '', {
+      duration: 2000,
+      horizontalPosition: 'center',
+      verticalPosition: 'top',
+      panelClass: ['green-snackbar']
+    });
+  }
 }
