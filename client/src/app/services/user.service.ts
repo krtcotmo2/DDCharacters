@@ -33,4 +33,22 @@ export class UserService {
     });
     return val;
   }
+
+  resetPassword = (body: {}) => {
+    const val =  this.http.post<any>('/api/login/resetPassword', body, {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*'
+      }),
+    });
+    return val;
+  }
+
+  insertUser  = (body: {}) => {
+    const val =  this.http.post<any>('/api/login/insertUser', body, {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*'
+      }),
+    });
+    return val;
+  }
 }

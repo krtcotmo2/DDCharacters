@@ -21,6 +21,7 @@ module.exports = {
             error: "email username not found"
           });
         } else {
+          console.log(password, foundUser.userPassword)
           bcrypt.compare(password, foundUser.userPassword, function (err, match) {
             if (err) {
               res.status(500).json({
@@ -49,12 +50,40 @@ module.exports = {
                 userEmail:foundUser.userEmail,
                 forcedReset:foundUser.forcedReset,
                 userPassword: null
-              });
-              
-              
+              });   
             }
           });
         }
       })
+  },
+
+  resetPassword: async function(req, res){
+    const {userName, password, userID} = req.body
+    const theHash =  bcrypt.hashSync(password, saltRounds, function(err, hash) {
+      return hash;
+    });    
+    db.User.update({userPassword:theHash, forcedReset: false},{
+      where:{userID:userID}
+    }).then(nextNum => {        
+      res.status(200).json({status:'done'})
+    }).catch(err => {
+      console.log("err",err)
+      res.status(503).json({status:'server Error'})
+    }); 
+    
+  },
+
+  insertUser: async function(req, res){
+    const {userName, password, userEmail} = req.body;
+    const theHash =  bcrypt.hashSync(password, saltRounds, function(err, hash) {
+      return hash;
+    });    
+    const retval = await db.User.create({userPassword:theHash, forcedReset: false, userEmail: userEmail, userName:userName})
+    .then(results => results)
+    .catch(err => {
+      console.log("err",err)
+      res.status(503).json({status:'server Error'})
+    });
+    res.json(retval);
   }
 }
