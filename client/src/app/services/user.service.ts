@@ -51,4 +51,13 @@ export class UserService {
     });
     return val;
   }
+
+  newPassword  = (body: {}) => {
+    const val =  this.http.post<any>('/api/login/newPassword', body, {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*'
+      }),
+    });
+    return val;
+  }
 }

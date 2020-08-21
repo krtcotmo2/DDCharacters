@@ -19,7 +19,6 @@ export class AppComponent {
     ngOnInit(): void {
       this.userService.getUser.subscribe( val => {
         this.theUser = val;
-        console.log(this.theUser)
         this.isLoggedIn = this.theUser['isLoggedIn'];
         this.userName = this.theUser['userName'];
       });

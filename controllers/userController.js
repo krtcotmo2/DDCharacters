@@ -3,7 +3,10 @@ const User = require('../models/user');
 const Character = require('../models/character');
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const nodemailer = require('nodemailer');
 const secret = require(__dirname + '/../config/config.json')["secret"];
+const nmEmailAcct = require(__dirname + '/../config/config.json')["nmEmailAcct"];
+const nmPass = require(__dirname + '/../config/config.json')["nmPass"];
 const saltRounds = 10;
 const myPlaintextPassword = secret;
 
@@ -21,7 +24,6 @@ module.exports = {
             error: "email username not found"
           });
         } else {
-          console.log(password, foundUser.userPassword)
           bcrypt.compare(password, foundUser.userPassword, function (err, match) {
             if (err) {
               res.status(500).json({
@@ -85,5 +87,76 @@ module.exports = {
       res.status(503).json({status:'server Error'})
     });
     res.json(retval);
+  },
+
+  newPassword: async function(req, res){
+    const {userEmail} = req.body;
+    const newPass = createPassword();
+    const theHash =  bcrypt.hashSync(newPass, saltRounds, function(err, hash) {
+      return hash;
+    });
+
+    const theReset = await db.User.update({userPassword:theHash, forcedReset: true},{
+      where:{userEmail:userEmail}
+    }).then(nextNum => {
+      console.log(nextNum);
+      if(nextNum[0] === 0){
+        res.status(503).json({msg:"email not found"});
+        return;
+      }
+      return nextNum
+    })
+    .catch(err => {
+      console.log("err",err)
+      res.status(404).json({msg:"email not found"})
+    });
+
+
+    if(theReset === undefined){
+      return;
+    }
+    const emailed = await new Promise((resolve, reject) => {
+
+      const smtpConnectionString = {
+        service: 'gmail',
+        auth: {
+              user: nmEmailAcct,
+              pass: nmPass
+          }
+      };
+      const transporter = nodemailer.createTransport(smtpConnectionString);
+      const mailOptions = {
+          from: 'krtcotmo2@gmail.com',
+          to: 'krtcotmo2@gmail.com',
+          subject: 'DO NOT REPLY: Pathfinder Password Reset',
+          html:"<h2>"+newPass+"</h2>"
+      };
+      transporter.sendMail(mailOptions, function(error, info) {
+          if (error) {
+            resolve(false);
+          } else {
+            console.log("true");
+            resolve(true);          
+          }
+      });
+    });
+
+    
+
+    console.log("ready return");
+    if(theReset){
+      res.json({pass:newPass, val: emailed, theReset: theReset});
+    }
   }
+
+
+}
+
+function createPassword(){
+  let newPass = '';
+  const rString = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  for(let d=0; d<8; d++){
+    newPass += rString.charAt(Math.floor(Math.random()*rString.length));
+  }
+  return newPass;
 }

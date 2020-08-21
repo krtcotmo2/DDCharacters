@@ -20,8 +20,9 @@
     "host": "ofcmikjy9x4lroa2.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
-  "secret": "ddChar306W"
-
+  "secret": "ddChar306W",
+  "nmEmailAcct": "krtcotmo2@gmail.com",
+  "nmPass": "fqykfokrnkysibhn"
 }
 
 

@@ -43,7 +43,6 @@ export class HomeComponent implements OnInit {
     }
     this.userService.loginUser(body).subscribe( (val) => {
       this.theUser = val;
-      console.log(this.theUser);
       if (this.theUser.forcedReset){
         this.isLoggedIn = true;
         this.isForced = true;
@@ -84,10 +83,15 @@ export class HomeComponent implements OnInit {
     };
 
     this.userService.resetPassword(body).subscribe( (val) => {
-      let aValue = val;
-      console.log(aValue);
-      this.isForced = false;
-      this.theUser.isLoggedIn = true;
+      const aValue: {} = val;
+      if (aValue['status'] === 'done') {
+        this.theUser.isLoggedIn = true;
+        this.theUser.forcedReset = false;
+        this.userService.setUser(this.theUser);
+        this.isForced = false;
+        this.isLoggedIn = true;
+        this.router.navigate(['/charLoad']);
+      }
     });
   }
 
@@ -103,13 +107,41 @@ export class HomeComponent implements OnInit {
       });
       return;
     }
-    console.log(this.userName, this.emailAddress, this.newPassword, this.confPassword);
     const body = {
       userName: this.userName,
       password: this.newPassword,
       userEmail: this.emailAddress
     };
+    this.userService.insertUser(body).subscribe( val => {
+      this.theUser = val;
+      this.theUser.userPassword = null;
+      this.userService.setUser(this.theUser);
+      this.router.navigate(['/charLoad']);
+    });
+  }
 
-    this.userService.insertUser(body).subscribe();
+  resendPassword = () =>{
+    const tempEmail = this.userName;
+    this.userName = '';
+    console.log(tempEmail);
+    const body = {
+      userEmail: tempEmail
+    }
+    this.userService.newPassword(body).subscribe(val => {
+      this._snackBar.open('Password reset. Check your email', '', {
+        duration: 2000,
+        horizontalPosition: 'center',
+        verticalPosition: 'top',
+        panelClass: ['red-snackbar']
+      });
+    },
+    err => {
+      this._snackBar.open('Email not found in database', '', {
+        duration: 2000,
+        horizontalPosition: 'center',
+        verticalPosition: 'top',
+        panelClass: ['red-snackbar']
+      });
+    });
   }
 }

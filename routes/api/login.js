@@ -4,9 +4,13 @@ const userController = require("../../controllers/userController");
 // loginUser matches with "/api/login"
 router.route("/").post(userController.loginUser);
 
-// loginUser matches with "/api/login/resetPassword"
+// resetPassword matches with "/api/login/resetPassword"
 router.route("/resetPassword").post(userController.resetPassword);
 
-// loginUser matches with "/api/login/insertUser"
+// add new user matches with "/api/login/insertUser"
 router.route("/insertUser").post(userController.insertUser);
+
+// resets password and sends email matches with "/api/login/newPassword"
+router.route("/newPassword").post(userController.newPassword);
+
 module.exports = router;

@@ -50,7 +50,6 @@ export class CharTohitComponent implements OnInit {
       const score = temp.reduce( (a, b) => a + b.score, 0);
       const breakdown = [];
       const tempSk = temp.find(d => d.isBase);
-      console.log(temp[0], temp[0].ToHit.toHitOrder)
       const toHitOrder = temp[0].ToHit.toHitOrder;
       if(tempSk){
         breakdown.push({score: tempSk.score, desc: 'Base'})
@@ -97,7 +96,6 @@ export class CharTohitComponent implements OnInit {
     const anArray = [event.previousIndex, event.currentIndex].sort();
     moveItemInArray(this.grpHits, event.previousIndex, event.currentIndex);
     this.grpHits.map( (c, i) => c.toHitOrder = i + 1);
-    console.log(this.grpHits)
     const passVal = _.slice(this.grpHits, anArray[0],  anArray[1] + 1);
     this.charDataSvc.reorderToHits({ updates: passVal}).subscribe( (arg) => {
     });
