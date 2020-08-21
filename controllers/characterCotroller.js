@@ -48,9 +48,11 @@ module.exports = {
       .then(function(results) {
         res.json({ results });
       })
-      .catch(err =>
-        res.status(500).json({ error:err, comments:"Nice going jackass"})
-      );
+      .catch(err => {        
+        console.log(err)
+        res.status(500).json({ error:err, comments:"Nice going jackass"});
+      })
+ 
   },
   getBaseForChar: function(req, res){
     db.Character.findOne(

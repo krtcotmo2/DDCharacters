@@ -19,7 +19,10 @@
     "database": "o21i9qjv1erfge4p",
     "host": "ofcmikjy9x4lroa2.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
-  }
+  },
+  "secret": "ddChar306W",
+  "nmEmailAcct": "krtcotmo2@gmail.com",
+  "nmPass": "fqykfokrnkysibhn"
 }
 
 
