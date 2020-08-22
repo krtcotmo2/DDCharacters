@@ -1,7 +1,13 @@
-<h1>Feats <button class='mini ui primary button labeled icon' style='vertical-align: text-bottom; margin-left:12px' (click)='addNewFeat()'>
-  <i class="plus square outline icon"></i>
-  Add Feat
-</button><span class='ui input' style='font-size:1rem; margin-left:24px; width:33%' ><input type='text' name='filter' [value]='filterText' placeholder="Filter - type in value" (input)='filterList($event)' /></span></h1>
+<h1>Feats <span *ngIf='isMyCharacter'>
+  <button class='mini ui primary button labeled icon' style='vertical-align: text-bottom; margin-left:12px' (click)='addNewFeat()'>
+    <i class="plus square outline icon"></i>
+    Add Feat
+  </button>
+  <span class='ui input' style='font-size:1rem; margin-left:24px; width:33%' >
+    <input type='text' name='filter' [value]='filterText' placeholder="Filter - type in value" (input)='filterList($event)' />
+  </span>
+</span>
+</h1>
 <!-- <form [formGroup]='featForm' (submit)='onSubmit($event)'>
   <input formControlName='val1' id='val1'/><button class='ui primary button mini'>Get Feats</button>
 </form> -->

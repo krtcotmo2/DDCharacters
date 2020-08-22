@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import { CharDataService } from '../../services/char-data.service';
+import { UserService } from '../../services/user.service';
 import _ from 'lodash';
 
 @Component({
@@ -10,23 +11,28 @@ import _ from 'lodash';
   styleUrls: ['./char-tohit.component.css']
 })
 export class CharTohitComponent implements OnInit {
-  isNew: boolean;
   charID: number;
   curChar: string;
   partID = _.last(this.router.url.split('/'));
   allHits=  [];
   grpHits = [];
   filterText = '';
+  loggedIn: {};
+  isMyCharacter: boolean;
+  charBasic: any;
 
   constructor(private charDataSvc: CharDataService,
+    private userService: UserService,
     private router: Router) { }
 
   ngOnInit(): void {
-    this.charDataSvc.getIsNew.subscribe( (val) => this.isNew = val);
+    this.userService.getUser.subscribe( (val) => this.loggedIn = val);
     this.charDataSvc.getCharID.subscribe( (val) => this.charID = val);
+    this.charDataSvc.getCharBasics.subscribe( (val) => this.charBasic = val);
+    this.isMyCharacter = this.loggedIn['userID'] === this.charBasic.results.userID;
     this.charDataSvc.getAllToHits.subscribe( (val) => this.allHits = val === null ? [] : val.results);
     this.charDataSvc.getAllToHits.subscribe( (val) => this.curChar = val === null ? "0" :val.charID);
-    if (!this.isNew && this.charID && this.charID.toString() !== this.curChar) {
+    if (this.charID && this.charID.toString() !== this.curChar) {
       this.charDataSvc.loadToHits(this.charID.toString()).subscribe( val => {
         this.allHits = val.results;
         this.charDataSvc.setAllToHits(val);
@@ -71,7 +77,7 @@ export class CharTohitComponent implements OnInit {
       return element.contains(evt.target);
     });
     const myRow = filtered[0].children;
-    myRow[6].classList.toggle('expanded');
+    myRow[7].classList.toggle('expanded');
   }
   editToHitMod(arg){
     this.router.navigate(['/charGen/mods/tohit/' + arg]);

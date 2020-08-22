@@ -6,7 +6,7 @@
 <div class="ui grid gridRow" >
   <span class='stat column three wide'>Fortitude<i class="info circle icon pointer" (click)='showBreakDown($event)' title='Breakdown'></i></span>
   <span class='statMod column twelve wide' style='font-weight: normal'>{{processSaves(1) === 0 ? '': processSaves(1)}}</span>
-  <span class='statMod column one wide'><i class="edit icon pointer" title="Edit" (click)='editSave(1)'></i></span>
+  <span class='statMod column one wide'><i *ngIf='isMyCharacter' class="edit icon pointer" title="Edit" (click)='editSave(1)'></i></span>
   <div class="sixteen wide column breakdown ui grid" style="margin-left: 0px;">
     <div *ngFor='let st of grpSaves'>
       <div  style='margin:12px 6px;' *ngIf='st.id === 1' [innerHtml]="processBreakDown(st.breakdown)"></div>
@@ -16,7 +16,7 @@
 <div class="ui grid gridRow" >
   <span class='stat column three wide'>Reflex<i class="info circle icon pointer" (click)='showBreakDown($event)' title='Breakdown'></i></span>
   <span class='statMod column twelve wide' style='font-weight: normal'>{{processSaves(2) === 0 ? '': processSaves(2)}}</span>
-  <span class='statMod column one wide'><i class="edit icon pointer" title="Edit" (click)='editSave(2)'></i></span>
+  <span class='statMod column one wide'><i *ngIf='isMyCharacter' class="edit icon pointer" title="Edit" (click)='editSave(2)'></i></span>
   <div class="sixteen wide column breakdown ui grid" style="margin-left: 0px;">
     <div *ngFor='let st of grpSaves'>
       <div  style='margin:12px 6px;' *ngIf='st.id === 2' [innerHtml]="processBreakDown(st.breakdown)"></div>
@@ -27,7 +27,7 @@
 <div class="ui grid gridRow" >
   <span class='stat column three wide'>Will<i class="info circle icon pointer" (click)='showBreakDown($event)' title='Breakdown'></i></span>
   <span class='statMod column twelve wide' style='font-weight: normal'>{{processSaves(3) === 0 ? '': processSaves(3)}}</span>
-  <span class='statMod column one wide'><i class="edit icon pointer" title="Edit" (click)='editSave(3)'></i></span>
+  <span class='statMod column one wide'><i *ngIf='isMyCharacter' class="edit icon pointer" title="Edit" (click)='editSave(3)'></i></span>
   <div class="sixteen wide column breakdown ui grid" style="margin-left: 0px;">
     <div *ngFor='let st of grpSaves'>
         <div style='margin:12px 6px;' *ngIf='st.id === 3'  [innerHtml]="processBreakDown(st.breakdown)"> </div>

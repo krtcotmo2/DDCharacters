@@ -8,7 +8,7 @@
     <p>{{f.Feat.shortdescription}}</p>
     <p>{{f.Feat.benefit}}</p>
   </div>
-  <div class='statMod column one wide'><i class="trash alternate outline icon" title="Delete" (click)='deleteFeat(f.id)'></i></div>
+  <div class='statMod column one wide'><i *ngIf='isMyCharacter' class="trash alternate outline icon" title="Delete" (click)='deleteFeat(f.id)'></i></div>
 
   <div class="sixteen wide column preReq">
     <div style="margin:12px">

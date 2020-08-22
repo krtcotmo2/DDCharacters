@@ -3,8 +3,7 @@
   <input [formControl]="control"
   class='input form-control'
   [ngClass]="{'is-danger':isErrored()}"
-  [placeholder]="placeHolder"
-  [readonly]="isReadOnly ? true : null" />
+  [placeholder]="placeHolder" />
 </div>
 <ng-container *ngIf="isErrored()">
   <div class='help is-danger' *ngIf="control.errors.required">Value is required</div>

@@ -521,7 +521,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.charDataSvc = charDataSvc;
 
         this.titleValue = function () {
-          return _this2.isNew ? 'Create Character' : _this2.charName;
+          return _this2.charName;
         };
       }
 
@@ -530,12 +530,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngOnInit() {
           var _this3 = this;
 
-          this.charDataSvc.getIsNew.subscribe(function (val) {
-            return _this3.isNew = val;
-          });
-          this.charDataSvc.getIsReadOnly.subscribe(function (val) {
-            return _this3.isReadOnly = val;
-          });
           this.charDataSvc.getCharID.subscribe(function (val) {
             return _this3.charID = val;
           });
@@ -1240,7 +1234,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngOnInit() {
           var _this5 = this;
 
-          this.isNew = document.location.pathname === '/newUser';
+          this.isNewUser = document.location.pathname === '/newUser';
           this.isForced = false;
           this.userService.getUser.subscribe(function (val) {
             return _this5.theUser = val;
@@ -1309,7 +1303,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         if (rf & 2) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](7);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.isLoggedIn && !ctx.isNew);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.isLoggedIn && !ctx.isNewUser);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
@@ -1317,7 +1311,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.isNew);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.isNewUser);
         }
       },
       directives: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["NgIf"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NgForm"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NgModel"]],
@@ -1402,8 +1396,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.http = http; // DECLARATIONS
 
-        this.isNew = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](true);
-        this.readOnly = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](true);
         this.curCharID = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](0);
         this.charID = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](0);
         this.charBasics = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]({
@@ -1438,8 +1430,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           results: []
         }); // GETTERS
 
-        this.getIsNew = this.isNew.asObservable();
-        this.getIsReadOnly = this.readOnly.asObservable();
         this.getCurCharID = this.curCharID.asObservable();
         this.getCharID = this.charID.asObservable();
         this.getCharBasics = this.charBasics.asObservable();
@@ -1496,9 +1486,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
         this.reset = function () {
-          _this6.readOnly.next(true);
-
-          _this6.isNew.next(true);
+          _this6.charBasics.next(null);
 
           _this6.charName.next('');
 
@@ -2048,16 +2036,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
       _createClass(CharDataService, [{
-        key: "changeIsNew",
-        value: function changeIsNew(arg) {
-          this.isNew.next(arg);
-        }
-      }, {
-        key: "changeReadOnly",
-        value: function changeReadOnly(arg) {
-          this.readOnly.next(arg);
-        }
-      }, {
         key: "setCurCharID",
         value: function setCurCharID(arg) {
           this.curCharID.next(arg);

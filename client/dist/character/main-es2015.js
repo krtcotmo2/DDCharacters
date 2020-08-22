@@ -260,12 +260,10 @@ class ChargenHomeComponent {
     constructor(charDataSvc) {
         this.charDataSvc = charDataSvc;
         this.titleValue = () => {
-            return this.isNew ? 'Create Character' : this.charName;
+            return this.charName;
         };
     }
     ngOnInit() {
-        this.charDataSvc.getIsNew.subscribe((val) => this.isNew = val);
-        this.charDataSvc.getIsReadOnly.subscribe((val) => this.isReadOnly = val);
         this.charDataSvc.getCharID.subscribe((val) => this.charID = val);
         this.charDataSvc.getCharName.subscribe((val) => this.charName = val);
     }
@@ -609,7 +607,7 @@ class HomeComponent {
         };
     }
     ngOnInit() {
-        this.isNew = document.location.pathname === '/newUser';
+        this.isNewUser = document.location.pathname === '/newUser';
         this.isForced = false;
         this.userService.getUser.subscribe(val => this.theUser = val);
         this.isLoggedIn = this.theUser.userEmail !== undefined;
@@ -639,11 +637,11 @@ HomeComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComp
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.isLoggedIn && !ctx.isNew);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.isLoggedIn && !ctx.isNewUser);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.isForced);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.isNew);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.isNewUser);
     } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["NgIf"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NgForm"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NgModel"]], styles: [".ui.stacked.segment[_ngcontent-%COMP%]:after{\r\n  position: static;\r\n  border: 0px;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvaG9tZS9ob21lLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxnQkFBZ0I7RUFDaEIsV0FBVztBQUNiIiwiZmlsZSI6InNyYy9hcHAvaG9tZS9ob21lLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIudWkuc3RhY2tlZC5zZWdtZW50OmFmdGVye1xyXG4gIHBvc2l0aW9uOiBzdGF0aWM7XHJcbiAgYm9yZGVyOiAwcHg7XHJcbn1cclxuXHJcblxyXG4iXX0= */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](HomeComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
@@ -682,8 +680,6 @@ class CharDataService {
     constructor(http) {
         this.http = http;
         // DECLARATIONS
-        this.isNew = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](true);
-        this.readOnly = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](true);
         this.curCharID = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](0);
         this.charID = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](0);
         this.charBasics = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]({ results: {} });
@@ -698,8 +694,6 @@ class CharDataService {
         this.allNotes = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]({ results: [] });
         this.allSpells = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]({ results: [] });
         // GETTERS
-        this.getIsNew = this.isNew.asObservable();
-        this.getIsReadOnly = this.readOnly.asObservable();
         this.getCurCharID = this.curCharID.asObservable();
         this.getCharID = this.charID.asObservable();
         this.getCharBasics = this.charBasics.asObservable();
@@ -725,8 +719,7 @@ class CharDataService {
         this.setAllSpells = (arg) => { this.allSpells.next(arg); };
         // global reset
         this.reset = () => {
-            this.readOnly.next(true);
-            this.isNew.next(true);
+            this.charBasics.next(null);
             this.charName.next('');
             this.charID.next(0);
             this.allFeats.next(null);
@@ -1166,8 +1159,6 @@ class CharDataService {
         };
     }
     // SETTERS
-    changeIsNew(arg) { this.isNew.next(arg); }
-    changeReadOnly(arg) { this.readOnly.next(arg); }
     setCurCharID(arg) { this.curCharID.next(arg); }
     setCharID(arg) { this.charID.next(arg); }
     setCharName(arg) { this.charName.next(arg); }

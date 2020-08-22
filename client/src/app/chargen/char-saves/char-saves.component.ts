@@ -1,7 +1,34 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {Router} from '@angular/router';
 import { CharDataService } from '../../services/char-data.service';
-import { DomSanitizer } from '@angular/platform-browser'
+import { UserService } from '../../services/user.service';
+import { DomSanitizer } from '@angular/platform-browser';
+
+interface CharBasics {
+  charID: string;
+  results: {
+    charID: number;
+    charName: string;
+    charHP: number;
+    init: number;
+    userID: number;
+    Alignment: {
+      alignID: number;
+      alignName: string;
+    },
+    Race: {
+      raceID: number;
+      raceDesc: string;
+    },
+    CharLevels: {
+      classLevel: number;
+      CharClass: {
+        className: string;
+        classID: number;
+      }
+    }[]
+  };
+}
 
 @Component({
   selector: 'app-char-saves',
@@ -9,24 +36,29 @@ import { DomSanitizer } from '@angular/platform-browser'
   styleUrls: ['./char-saves.component.css']
 })
 export class CharSavesComponent implements OnInit {
-  isNew: boolean;
   charID: number;
   curChar: string;
   allSaves=  [];
   grpSaves = [];
+  loggedIn: {};
+  isMyCharacter: boolean;
+  charBasic: CharBasics;
 
   constructor(private charDataSvc: CharDataService,
     private router: Router,
+    private userService: UserService,
     private sanitizer: DomSanitizer,) { }
 
   ngOnInit(): void {
-    this.charDataSvc.getIsNew.subscribe( (val) => this.isNew = val);
+    this.userService.getUser.subscribe( (val) => this.loggedIn = val);
     this.charDataSvc.getCharID.subscribe( (val) => this.charID = val === null ? 0 : val);
+    this.charDataSvc.getCharBasics.subscribe( (val) => this.charBasic = val);
+    this.isMyCharacter = this.loggedIn['userID'] === this.charBasic.results.userID;
     this.charDataSvc.getAllSaves.subscribe( (val) => {
       this.curChar = val === null ? '0' : val.charID;
     });
     this.charDataSvc.getAllSaves.subscribe( (val) => this.allSaves = val === null ? null : val.results);
-    if (!this.isNew && this.charID && this.charID.toString() !== this.curChar) {
+    if (this.charID && this.charID.toString() !== this.curChar) {
       this.charDataSvc.loadSaves(this.charID.toString()).subscribe( val => {
         this.allSaves = val.results;
         this.charDataSvc.setSaves(val);

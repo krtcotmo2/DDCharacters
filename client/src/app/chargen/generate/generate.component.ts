@@ -2,10 +2,36 @@ import { Component, OnInit } from '@angular/core';
 import { DiceRollService } from '../../helpers/dice-roll.service';
 import {Router} from '@angular/router';
 import { CharDataService } from '../../services/char-data.service';
+import { UserService } from '../../services/user.service';
 import { faDice } from '@fortawesome/free-solid-svg-icons';
 import { Stats} from '../../helpers/enum';
 import { DomSanitizer } from '@angular/platform-browser'
 
+interface CharBasics {
+  charID: string;
+  results: {
+    charID: number;
+    charName: string;
+    charHP: number;
+    init: number;
+    userID: number;
+    Alignment: {
+      alignID: number;
+      alignName: string;
+    },
+    Race: {
+      raceID: number;
+      raceDesc: string;
+    },
+    CharLevels: {
+      classLevel: number;
+      CharClass: {
+        className: string;
+        classID: number;
+      }
+    }[]
+  };
+}
 
 @Component({
   selector: 'app-generate',
@@ -15,25 +41,30 @@ import { DomSanitizer } from '@angular/platform-browser'
 export class GenerateComponent implements OnInit {
   faDice = faDice;
   statType = Stats;
-  isNew: boolean;
   charID: number;
   curChar: string;
   stats = [];
   strMod: number;
+  loggedIn: {};
+  isMyCharacter: boolean;
+  charBasic: CharBasics;
 
   constructor(
     private dr: DiceRollService,
     private charDataSvc: CharDataService,
+    private userService: UserService,
     private sanitizer: DomSanitizer,
     private router: Router
     ) { }
 
   ngOnInit(): void {
-    this.charDataSvc.getIsNew.subscribe( (val) => this.isNew = val);
+    this.userService.getUser.subscribe( (val) => this.loggedIn = val);
     this.charDataSvc.getCharID.subscribe( (val) => this.charID = val);
+    this.charDataSvc.getCharBasics.subscribe( (val) => this.charBasic = val);
+    this.isMyCharacter = this.loggedIn['userID'] === this.charBasic.results.userID;
     this.charDataSvc.getAllStats.subscribe( (val) => this.stats = val === null ? [] : val.results);
     this.charDataSvc.getAllStats.subscribe( (val) => this.curChar = val === null ? "0" :val.charID);
-    if (!this.isNew && this.charID && this.charID.toString() !== this.curChar) {
+    if (this.charID && this.charID.toString() !== this.curChar) {
       this.stats = [];
       this.charDataSvc.loadStats(this.charID).subscribe( sts => {
         this.stats = sts.results;

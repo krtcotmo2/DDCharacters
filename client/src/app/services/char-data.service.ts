@@ -11,6 +11,7 @@ interface CharBasics {
     charName: string;
     charHP: number;
     init:number,
+    userID:number,
     Alignment: {
       alignID: number;
       alignName: string;
@@ -124,6 +125,7 @@ interface Equipment {
       equipOrder: number
     }[];
 }
+
 interface AC {
   charID: number,
   results: {
@@ -135,6 +137,7 @@ interface AC {
       isMod: boolean,
     }[];
 }
+
 interface Notes {
   charID: string,
   results: {
@@ -151,8 +154,6 @@ export class CharDataService {
   constructor(private http: HttpClient) { }
 
   // DECLARATIONS
-  private isNew = new BehaviorSubject(true);
-  private readOnly = new BehaviorSubject(true);
   private curCharID = new BehaviorSubject(0);
   private charID = new BehaviorSubject(0);
   private charBasics = new BehaviorSubject<CharBasics> ({results: {}} as CharBasics);
@@ -168,8 +169,6 @@ export class CharDataService {
   private allSpells = new BehaviorSubject<Spells>( {results: []} as Spells);
 
   // GETTERS
-  getIsNew = this.isNew.asObservable();
-  getIsReadOnly = this.readOnly.asObservable();
   getCurCharID = this.curCharID.asObservable();
   getCharID = this.charID.asObservable();
   getCharBasics = this.charBasics.asObservable();
@@ -185,8 +184,6 @@ export class CharDataService {
   getAllSpells = this.allSpells.asObservable();
 
   // SETTERS
-  changeIsNew(arg: boolean) { this.isNew.next(arg); }
-  changeReadOnly(arg: boolean) { this.readOnly.next(arg); }
   setCurCharID(arg: number) { this.curCharID.next(arg); }
   setCharID(arg: number) { this.charID.next(arg); }
   setCharBasics = (arg) => { this.charBasics.next(arg); };
@@ -203,8 +200,7 @@ export class CharDataService {
 
   // global reset
     reset = () => {
-      this.readOnly.next(true);
-      this.isNew.next(true);
+      this.charBasics.next(null);
       this.charName.next('');
       this.charID.next(0);
       this.allFeats.next(null);

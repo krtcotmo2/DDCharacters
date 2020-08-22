@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   confPassword: string;
   modForm;
   restForm;
-  isNew: boolean;
+  isNewUser: boolean;
   @ViewChild('confPasswordField') confPasswordField: ElementRef;
   constructor(private userService: UserService,
     private router: Router,
@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
     private _snackBar: MatSnackBar ) { }
 
   ngOnInit(): void {
-    this.isNew = document.location.pathname === '/newUser';
+    this.isNewUser = document.location.pathname === '/newUser';
     this.isForced = false;
     this.userService.getUser.subscribe( val => this.theUser = val);
     this.isLoggedIn = this.theUser.userEmail !== undefined;

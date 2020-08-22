@@ -8,7 +8,6 @@ import { CharDataService } from '../../services/char-data.service';
   styleUrls: ['./new-feat.component.css']
 })
 export class NewFeatComponent implements OnInit {
-  isNew: boolean;
   charID: number;
   curChar: string;
   curFeats;
@@ -21,7 +20,6 @@ export class NewFeatComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    this.charDataSvc.getIsNew.subscribe( (val) => this.isNew = val);
     this.charDataSvc.getCharID.subscribe( (val) => this.charID = val);
     this.charDataSvc.getAllFeats.subscribe( (val) => this.curChar = val.charID);
     this.charDataSvc.getAllFeats.subscribe( (val) => this.curFeats = val);

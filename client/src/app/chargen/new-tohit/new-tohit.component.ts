@@ -10,7 +10,6 @@ import _ from 'lodash';
 })
 export class NewTohitComponent implements OnInit {
   modForm;
-  isNew: boolean;
   charID: number;
   curChar: string;
   partID = _.last(this.router.url.split('/'));
@@ -22,7 +21,6 @@ export class NewTohitComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    this.charDataSvc.getIsNew.subscribe( (val) => this.isNew = val);
     this.charDataSvc.getCharID.subscribe( (val) => this.charID = val);
     this.charDataSvc.getAllToHits.subscribe( (val) => this.curChar = val.charID);
     //this.charDataSvc.getAllToHits.subscribe( (val) => this.allHits = val.results);

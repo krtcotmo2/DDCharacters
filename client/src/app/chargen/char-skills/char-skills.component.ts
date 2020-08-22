@@ -1,7 +1,33 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {Router} from '@angular/router';
 import { CharDataService } from '../../services/char-data.service';
+import { UserService } from '../../services/user.service';
 
+interface CharBasics {
+  charID: string;
+  results: {
+    charID: number;
+    charName: string;
+    charHP: number;
+    init: number;
+    userID: number;
+    Alignment: {
+      alignID: number;
+      alignName: string;
+    },
+    Race: {
+      raceID: number;
+      raceDesc: string;
+    },
+    CharLevels: {
+      classLevel: number;
+      CharClass: {
+        className: string;
+        classID: number;
+      }
+    }[]
+  };
+}
 
 @Component({
   selector: 'app-char-skills',
@@ -10,22 +36,27 @@ import { CharDataService } from '../../services/char-data.service';
 })
 
 export class CharSkillsComponent implements OnInit {
-  isNew: boolean;
   charID: number;
   curChar: string;
   allSkills=  [];
   grpSkils = [];
   filterText = '';
+  loggedIn: {};
+  isMyCharacter: boolean;
+  charBasic: CharBasics;
 
   constructor(private charDataSvc: CharDataService,
+    private userService: UserService,
     private router: Router) { }
 
   ngOnInit(): void {
-    this.charDataSvc.getIsNew.subscribe( (val) => this.isNew = val);
+    this.userService.getUser.subscribe( (val) => this.loggedIn = val);
     this.charDataSvc.getCharID.subscribe( (val) => this.charID = val);
+    this.charDataSvc.getCharBasics.subscribe( (val) => this.charBasic = val);
+    this.isMyCharacter = this.loggedIn['userID'] === this.charBasic.results.userID;
     this.charDataSvc.getAllSkills.subscribe( (val) => this.allSkills = val === null ? [] : val.results);
     this.charDataSvc.getAllSkills.subscribe( (val) => this.curChar = val === null ? "0" :val.charID);
-    if (!this.isNew && this.charID && this.charID.toString() !== this.curChar) {
+    if (this.charID && this.charID.toString() !== this.curChar) {
       this.charDataSvc.loadSkills(this.charID.toString()).subscribe( val => {
         this.allSkills = val.results;
         this.charDataSvc.setAllSkills(val);

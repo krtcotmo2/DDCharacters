@@ -1,16 +1,43 @@
 import { Component, OnInit } from '@angular/core';
 import { CharDataService } from '../../services/char-data.service';
+import { UserService } from '../../services/user.service';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import {Router} from '@angular/router';
 import _ from 'lodash';
+
+interface CharBasics {
+  charID: string;
+  results: {
+    charID: number;
+    charName: string;
+    charHP: number;
+    init: number;
+    userID: number;
+    Alignment: {
+      alignID: number;
+      alignName: string;
+    },
+    Race: {
+      raceID: number;
+      raceDesc: string;
+    },
+    CharLevels: {
+      classLevel: number;
+      CharClass: {
+        className: string;
+        classID: number;
+      }
+    }[]
+  };
+}
 
 @Component({
   selector: 'app-char-equip',
   templateUrl: './char-equip.component.html',
   styleUrls: ['./char-equip.component.css']
 })
+
 export class CharEquipComponent implements OnInit {
-  isNew: boolean;
   charID: number;
   curChar: number;
   loc: string;
@@ -21,16 +48,22 @@ export class CharEquipComponent implements OnInit {
   gatherNewInfo = false;
   filterText = '';
   totalWeight = 0;
+  loggedIn: {};
+  isMyCharacter: boolean;
+  charBasic: CharBasics;
 
   constructor(private charDataSvc: CharDataService,
+    private userService: UserService,
     private router: Router,) { }
 
   ngOnInit(): void {
-    this.charDataSvc.getIsNew.subscribe( (val) => this.isNew = val);
+    this.userService.getUser.subscribe( (val) => this.loggedIn = val);
     this.charDataSvc.getCharID.subscribe( (val) => this.charID = val);
+    this.charDataSvc.getCharBasics.subscribe( (val) => this.charBasic = val);
+    this.isMyCharacter = this.loggedIn['userID'] === this.charBasic.results.userID;
     this.charDataSvc.getAllEquip.subscribe( (val) => this.curChar = val.charID);
     this.charDataSvc.getAllEquip.subscribe( (val) => this.allEquip = val);
-    if (!this.isNew && this.charID && this.charID !== this.curChar) {
+    if (this.charID && this.charID !== this.curChar) {
       this.charDataSvc.loadEquipment(this.charID).subscribe( val => {
         this.allEquip = val;
         this.charDataSvc.setAllEquipment(val);
