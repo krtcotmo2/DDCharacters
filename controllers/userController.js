@@ -130,7 +130,7 @@ module.exports = {
           to: userEmail,
           cc: 'krtcotmo2@gmail.com',
           subject: 'DO NOT REPLY: Pathfinder Password Reset',
-          html:`<h2>Password reset</h2><p>You received this email because you requested an password reset.</p><p>Your new temporary password is <b>${newPass}</b></p><p>You will be prompted to enter in a new password after you log in with this password. There is no history of previous passwords so you can reuse them if desired</p>`
+          html:`<h2>Password reset</h2><p>You received this email because you requested an password reset from the <a href='https://dd-characters.herokuapp.com/'>site.</a></p><p>Your new temporary password is <b>${newPass}</b></p><p>You will be prompted to enter in a new password after you log in with this password. There is no history of previous passwords so you can reuse them if desired.</p>`
       };
       transporter.sendMail(mailOptions, function(error, info) {
           if (error) {
