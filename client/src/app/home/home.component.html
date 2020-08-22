@@ -1,7 +1,8 @@
 <h1>Pathfinder Character Management System</h1>
 <div class="ui grid">
   <div class="ten wide column">
-    <p>This application allows for easy storage and access to all aspects of a Pathfinder character. In its current state, all characters are visible to all users. Future states will the user to login using their email address and a password.</p>
+    <p>This application allows for easy storage and access to all aspects of a Pathfinder character. All characters are visible to all users but you can only edit characters that you control.</p>
+    <p>Once you log in the top navigation bar will have an option to load a character or view details for a loaded character. Character details include Stats, To hits, Armor Class, Saves, Skills, Feats, Notes, Equipment, and Memorized Spells.</p>
   </div>
   <div class="six wide column">
     <form class="ui large form" #modForm='ngForm' (ngSubmit)='onSubmit($event)' *ngIf='!isLoggedIn && !isNewUser'>
