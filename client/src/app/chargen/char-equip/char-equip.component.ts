@@ -104,13 +104,10 @@ export class CharEquipComponent implements OnInit {
 
   filterList = (evt) => {
     this.filterText = evt.target.value;
-    const aTable: any = document.getElementsByClassName('ui selectable celled table striped');
-    const tbody = aTable[0].getElementsByTagName("tbody");
-    const allRows = tbody[0].getElementsByTagName("tr");
+    const allRows: any = document.getElementsByClassName('ui grid gridRow');
     for(let r of allRows){
-      const aTag: any = r.getElementsByTagName('td')[0].innerText;
-      const cTag: any = r.getElementsByTagName('td')[2].innerText;
-      if (aTag.toLowerCase().includes(this.filterText.toLowerCase()) || cTag.toLowerCase().includes(this.filterText.toLowerCase())) {
+      const aTag: any = r.getElementsByTagName('span')[0].innerText + ' ' + r.getElementsByTagName('span')[2].innerText;
+      if (aTag.toLowerCase().includes(this.filterText.toLowerCase())) {
         r.classList.remove('hidden');
       } else {
         r.classList.add('hidden');

@@ -1,7 +1,7 @@
 <h1>Skills<span *ngIf='isMyCharacter'><button (click)='addNewSkill()' class='mini ui primary button labeled icon' style='vertical-align: text-bottom; margin-left:12px'>
   <i class="plus square outline icon"></i>
   Add Skill
-</button><span class='ui input' style='font-size:1rem; margin-left:24px; width:33%' ><input type='text' name='filter' [value]='filterText' placeholder="Filter - type in value" (input)='filterList($event)' /></span></span></h1>
+</button></span><span class='ui input' style='font-size:1rem; margin-left:24px; width:33%' ><input type='text' name='filter' [value]='filterText' placeholder="Filter - type in value" (input)='filterList($event)' /></span></h1>
 <div class="ui grid gridHeader">
   <div class="two wide column">Name</div>
   <div class="two wide column centered aligned ">Score</div>

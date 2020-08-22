@@ -1,7 +1,7 @@
 <h1>To Hits<span *ngIf='isMyCharacter'><button  (click)='editToHit(0)' class='mini ui primary button labeled icon' style='vertical-align: text-bottom; margin-left:12px'>
   <i class="plus square outline icon"></i>
   Add New To Hit
-</button><span class='ui input' style='font-size:1rem; margin-left:24px; width:33%' ><input type='text' name='filter' [value]='filterText' placeholder="Filter - type in value" (input)='filterList($event)' /></span></span></h1>
+</button></span><span class='ui input' style='font-size:1rem; margin-left:24px; width:33%' ><input type='text' name='filter' [value]='filterText' placeholder="Filter - type in value" (input)='filterList($event)' /></span></h1>
 <div class="ui grid gridHeader">
   <div class="six wide column">Attack</div>
   <div class="one wide column">Score</div>
@@ -11,7 +11,7 @@
 </div>
 <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
   <div *ngFor='let th of grpHits' class="ui grid gridRow" cdkDrag>
-    <span class='statVal one wide column'><i *ngIf='isMyCharacter' class="bars icon" title='Reorder'></i></span>
+    <div class='statVal one wide column'><i *ngIf='isMyCharacter' class="bars icon" title='Reorder'></i></div>
     <span class='stat five wide column'>{{th.toHitDesc}}<i class="info circle icon pointer" (click)='showBreakDown($event)' title='Breakdown'></i><i  *ngIf='isMyCharacter' class="edit icon pointer" title="Edit Weapon Data" (click)='editToHit(th.id)'></i></span>
     <span class='statVal column one wide' style='font-weight: normal'>{{th.score}}</span>
     <span class='statVal column three wide' style='font-weight: normal'>{{th.damage}}</span>

@@ -31,7 +31,7 @@ const routes: Routes = [
       {path: 'spells', component: CharSpellsComponent },
       {path: 'spells', component: EditSpellComponent,
         children: [
-          {path: '**', component:EditSpellComponent}
+          {path: '**', component: EditSpellComponent}
         ]
       },
       {path: 'notes', component: CharNotesComponent },
