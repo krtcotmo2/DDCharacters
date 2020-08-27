@@ -1,5 +1,5 @@
 
-![alt text](https://img.shields.io/badge/uses-Node-brightgreen.svg) ![alt text](https://img.shields.io/badge/uses-MySql-brightgreen.svg) ![alt text](https://img.shields.io/badge/uses-Express-brightgreen.svg)![alt text](https://img.shields.io/badge/uses-bcrypt-brightgreen.svg) ![alt text](https://img.shields.io/badge/uses-Json_Web_Token-brightgreen.svg) ![alt text](https://img.shields.io/badge/uses-Lodash-brightgreen.svg)
+![alt text](https://img.shields.io/badge/uses-Node-brightgreen.svg) ![alt text](https://img.shields.io/badge/uses-MySql-brightgreen.svg) ![alt text](https://img.shields.io/badge/uses-Express-brightgreen.svg) ![alt text](https://img.shields.io/badge/uses-bcrypt-brightgreen.svg) ![alt text](https://img.shields.io/badge/uses-Json_Web_Token-brightgreen.svg) ![alt text](https://img.shields.io/badge/uses-Lodash-brightgreen.svg)
 
 ![alt text](https://img.shields.io/badge/uses-Angular-blue.svg) ![alt text](https://img.shields.io/badge/uses-Material-blue.svg)  ![alt text](https://img.shields.io/badge/uses-semantic-blue.svg)
 
