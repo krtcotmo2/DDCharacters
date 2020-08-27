@@ -16,8 +16,13 @@ Yes this only further proves I a a geek. Paging though numerous pages of the har
   * Each individual value can have its own unique description to enable the user to know if a modifier came form a feat, or a magical device or a base score
   * Each value can be removed or modified as needed 
 ## Ordering of lists
-  * Most lists has the ability to be custom sorted using a drag and drop technique
- 
+  * Most lists have the ability to be custom sorted using a drag and drop technique
+## Expanded Notes
+* Notes page allows user to create a notes topic
+* Each note can have individual pieces of information about the note
+* Allows for deeper definitions of more complex or layer information
+## Filtering for Lists
+* Almost all lists can be filtered by typing in a key word search
+* The tool searches for the keywords within the title and decryption portion of the list items, hiding those items not containing the keyword
 
- 
 
