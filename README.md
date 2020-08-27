@@ -5,7 +5,7 @@
 
 https://dd-characters.herokuapp.com/
 
-Yes this only further proves I a a geek. Paging though numerous pages of the hard copies for a character was annoying so I decided to do something about it. The tool lists all the characters stored in the mysql db and the user can look at/edit a character. A tabbed navigation breaks down the sections for the stats, skills, feats, saves, to hits, a list of memorized spells, and notes.
+Yes this only further proves I am a geek. Paging though numerous pages of the hard copies for a character was annoying so I decided to do something about it. The tool lists all the characters stored in the mysql db and the user can look at/edit a character. A tabbed navigation breaks down the sections for the stats, skills, feats, saves, to hits, a list of memorized spells, and notes.
 
 ## Login IDs and character ownership:
   * Bcrypt and JWToken hash out passwords for a more secure process of logging in
