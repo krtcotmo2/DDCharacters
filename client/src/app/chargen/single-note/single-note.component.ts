@@ -1,8 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { CharDataService } from '../../services/char-data.service';
+import { UserService } from '../../services/user.service';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import _ from 'lodash';
+
+interface CharBasics {
+  charID: string;
+  results: {
+    charID: number;
+    charName: string;
+    charHP: number;
+    init: number;
+    userID: number;
+    Alignment: {
+      alignID: number;
+      alignName: string;
+    },
+    Race: {
+      raceID: number;
+      raceDesc: string;
+    },
+    CharLevels: {
+      classLevel: number;
+      CharClass: {
+        className: string;
+        classID: number;
+      }
+    }[]
+  };
+}
 
 @Component({
   selector: 'app-single-note',
@@ -19,12 +46,19 @@ export class SingleNoteComponent implements OnInit {
   notesForm;
   newNote;
   noteID;
+  loggedIn: {};
+  isMyCharacter: boolean;
+  charBasic: CharBasics;
 
   constructor( private charDataSvc: CharDataService,
+    private userService: UserService,
     private router: Router) { }
 
   ngOnInit(): void {
+    this.userService.getUser.subscribe( (val) => this.loggedIn = val);
     this.charDataSvc.getCharID.subscribe( (val) => this.charID = val);
+    this.charDataSvc.getCharBasics.subscribe( (val) => this.charBasic = val);
+    this.isMyCharacter = this.loggedIn['userID'] === this.charBasic.results.userID;
     this.noteID = this.router.url.split("/").pop();
     this.charDataSvc.loadNotesItems(this.noteID).subscribe( val => {
         this.allNotes = val.results;

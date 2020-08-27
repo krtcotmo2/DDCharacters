@@ -2,8 +2,34 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup} from '@angular/forms';
 import { CharService } from '../../services/char.service';
 import { CharDataService } from '../../services/char-data.service';
+import { UserService } from '../../services/user.service';
 import {Router} from '@angular/router';
 
+interface CharBasics {
+  charID: string;
+  results: {
+    charID: number;
+    charName: string;
+    charHP: number;
+    init: number;
+    userID: number;
+    Alignment: {
+      alignID: number;
+      alignName: string;
+    },
+    Race: {
+      raceID: number;
+      raceDesc: string;
+    },
+    CharLevels: {
+      classLevel: number;
+      CharClass: {
+        className: string;
+        classID: number;
+      }
+    }[]
+  };
+}
 
 @Component({
   selector: 'app-char-feats',
@@ -11,7 +37,6 @@ import {Router} from '@angular/router';
   styleUrls: ['./char-feats.component.css']
 })
 export class CharFeatsComponent implements OnInit {
-  isNew: boolean;
   curChar: string;
   charID: number;
   featForm = new FormGroup({
@@ -19,21 +44,24 @@ export class CharFeatsComponent implements OnInit {
   });
   allFeats = [];
   filterText = '';
+  loggedIn: {};
+  isMyCharacter: boolean;
+  charBasic: CharBasics;
 
   constructor(private charSvc: CharService,
     private charDataSvc: CharDataService,
-    private router: Router) {
-
-   }
+    private userService: UserService,
+    private router: Router) {}
 
 
    ngOnInit(): void {
-    this.charDataSvc.getIsNew.subscribe( (val) => this.isNew = val);
+    this.userService.getUser.subscribe( (val) => this.loggedIn = val);
     this.charDataSvc.getCharID.subscribe( (val) => this.charID = val);
-
+    this.charDataSvc.getCharBasics.subscribe( (val) => this.charBasic = val);
+    this.isMyCharacter = this.loggedIn['userID'] === this.charBasic.results.userID;
     this.charDataSvc.getAllFeats.subscribe( (val) => this.allFeats = val === null ? [] : val.results);
     this.charDataSvc.getAllFeats.subscribe( (val) => this.curChar = val === null ? "0" :val.charID);
-    if (!this.isNew && this.charID && this.charID.toString() !== this.curChar) {
+    if (this.charID && this.charID.toString() !== this.curChar) {
       this.allFeats = [];
       this.charDataSvc.loadFeats(this.charID.toString()).subscribe( results => {
         this.allFeats = results.results;
@@ -41,7 +69,6 @@ export class CharFeatsComponent implements OnInit {
       });
     } else {
       this.charDataSvc.getAllFeats.subscribe( (val) => this.allFeats = val.results);
-
     }
   }
   addNewFeat = () => {

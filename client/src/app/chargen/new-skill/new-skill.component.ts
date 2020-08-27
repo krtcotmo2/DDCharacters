@@ -8,7 +8,6 @@ import { CharDataService } from '../../services/char-data.service';
   styleUrls: ['./new-skill.component.css']
 })
 export class NewSkillComponent implements OnInit {
-  isNew: boolean;
   charID: number;
   curChar: string;
   curSkills;
@@ -18,7 +17,6 @@ export class NewSkillComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    this.charDataSvc.getIsNew.subscribe( (val) => this.isNew = val);
     this.charDataSvc.getCharID.subscribe( (val) => this.charID = val);
     this.charDataSvc.getAllSkills.subscribe( (val) => this.curChar = val.charID);
     this.charDataSvc.getAllSkills.subscribe( (val) => this.curSkills = val);

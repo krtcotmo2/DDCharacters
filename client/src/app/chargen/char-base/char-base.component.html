@@ -1,29 +1,6 @@
 <form [formGroup]='charForm' (ngSubmit)='onSubmit()'>
   <div class="container">
     <p><strong>Character Name:</strong><br/>{{charBasic.results.charName}}</p>
-    <ng-container *ngIf='isNew'>
-      <div class="col-md-4 m-b-3 p-0">
-        <label class='label'>Race:</label>
-        <select [formControl]="charForm.get('charRace')"  class="browser-default custom-select">
-          <option class='p-3' value=''>Select a Race</option>
-          <option class='p-3' *ngFor='let r of races' value='r.rceID'>{{r.raceDesc}}</option>
-        </select>
-        <ng-container *ngIf="charForm.get('charRace').errors && charForm.get('charRace').dirty && charForm.get('charRace').touched">
-          <div class='help is-danger' *ngIf="charForm.get('charRace').errors.required">Value is required</div>
-        </ng-container>
-      </div>
-      <div class="col-md-4 m-b-3 p-0">
-        <label class='label'>Class:</label>
-        <select [formControl]="charForm.get('classes')"  class="browser-default custom-select">
-          <option class='p-3' value=''>Select a Class</option>
-          <option class='p-3' *ngFor='let c of classes' value='r.rceID'>{{c.className}}</option>
-        </select>
-        <ng-container *ngIf="charForm.get('classes').errors && charForm.get('classes').dirty && charForm.get('classes').touched">
-          <div class='help is-danger' *ngIf="charForm.get('classes').errors.required">Value is required</div>
-        </ng-container>
-      </div>
-    </ng-container>
-    <ng-container *ngIf='!isNew'>
       <div class="ui two column grid">
         <div class="column">
           <div class="ui">
@@ -40,11 +17,11 @@
         </div>
         <div class="column">
           <p><strong>HP:</strong><br/> {{charBasic.results.charHP}}
-            <span class='statMod'><i class="edit icon pointer" title="Edit" (click)='editHP(charID)'></i></span></p>
+            <span class='statMod'><i *ngIf='isMyCharacter' class="edit icon pointer" title="Edit" (click)='editHP(charID)'></i></span></p>
           <p><strong>AC:</strong><br/>
             {{this.charAC}}
             <span class='statMod'><i class="info circle icon pointer" title="Breakdown" (click)='showBreakDown($event)'></i></span>
-            <span class='statMod'><i class="edit icon pointer" title="Edit" (click)='editAC(charID)'></i></span>
+            <span class='statMod'><i *ngIf='isMyCharacter' class="edit icon pointer" title="Edit" (click)='editAC(charID)'></i></span>
           </p>
           <div class="sixteen wide column breakdown ui" style="margin-left: 0px;">
             <div *ngFor='let st of acs["results"]'>
@@ -53,7 +30,7 @@
           </div>
           <p><strong>Initiative:<br/></strong>
             {{this.init}}
-            <span class='statMod'><i class="edit icon pointer" title="Edit" (click)='editInit(charID)'></i></span>
+            <span class='statMod'><i *ngIf='isMyCharacter' class="edit icon pointer" title="Edit" (click)='editInit(charID)'></i></span>
           </p>
           <!--
           <p><strong>Languages:<br/></strong>
@@ -63,12 +40,6 @@
           -->
         </div>
       </div>
-
-    </ng-container>
-  </div>
-  <div *ngIf='isNew' class="container" style='text-align: center; margin-top:24px'>
-    <button class='ui primary button' type="submit">Submit</button>
-    <button class='ui yellow button' type="button" style="margin-left:24px" >Reset</button>
   </div>
 </form>
 

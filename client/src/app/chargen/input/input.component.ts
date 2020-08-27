@@ -11,7 +11,6 @@ export class InputComponent implements OnInit {
   @Input() label: string;
   @Input() val: string;
   @Input() placeHolder = '';
-  @Input() isReadOnly: boolean;
 
   constructor() {
 

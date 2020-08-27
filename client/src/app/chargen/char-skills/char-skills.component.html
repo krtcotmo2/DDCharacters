@@ -1,7 +1,7 @@
-<h1>Skills<button (click)='addNewSkill()' class='mini ui primary button labeled icon' style='vertical-align: text-bottom; margin-left:12px'>
+<h1>Skills<span *ngIf='isMyCharacter'><button (click)='addNewSkill()' class='mini ui primary button labeled icon' style='vertical-align: text-bottom; margin-left:12px'>
   <i class="plus square outline icon"></i>
   Add Skill
-</button><span class='ui input' style='font-size:1rem; margin-left:24px; width:33%' ><input type='text' name='filter' [value]='filterText' placeholder="Filter - type in value" (input)='filterList($event)' /></span></h1>
+</button></span><span class='ui input' style='font-size:1rem; margin-left:24px; width:33%' ><input type='text' name='filter' [value]='filterText' placeholder="Filter - type in value" (input)='filterList($event)' /></span></h1>
 <div class="ui grid gridHeader">
   <div class="two wide column">Name</div>
   <div class="two wide column centered aligned ">Score</div>
@@ -11,7 +11,7 @@
   <span class='stat two wide column'>{{sk.skillName}}</span>
   <span class='statVal column two wide' style='font-weight: normal'>{{sk.score}}<i class="info circle icon pointer" (click)='showBreakDown($event)' title='Breakdown'></i></span>
   <span class='statVal column eleven wide'>{{sk.skillDesc}}</span>
-  <span class='statMod column one wide'><i class="edit icon pointer" title="Edit" (click)='editSkill(sk.id)'></i></span>
+  <span class='statMod column one wide'><i *ngIf='isMyCharacter' class="edit icon pointer" title="Edit" (click)='editSkill(sk.id)'></i></span>
   <div class="sixteen wide column breakdown ui grid" style="margin-left: 0px;">
     <div *ngFor='let st of sk.breakdown'>
       <div  style='margin:12px 6px;' >{{st.score}} - {{st.desc}}</div>

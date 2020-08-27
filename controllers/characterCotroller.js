@@ -56,7 +56,7 @@ module.exports = {
   },
   getBaseForChar: function(req, res){
     db.Character.findOne(
-      {attributes: ['charID', 'charName', 'charHP', 'init'],
+      {attributes: ['charID', 'charName', 'charHP', 'init', 'userID'],
       where:{charID:req.params.id},
       include: [
         {

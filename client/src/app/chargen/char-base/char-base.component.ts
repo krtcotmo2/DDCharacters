@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { RaceService } from 'src/app/services/race.service';
 import { ClassesService } from 'src/app/services/classes.service';
 import { CharDataService } from '../../services/char-data.service';
+import { UserService } from '../../services/user.service';
 import {Router} from '@angular/router';
 import { visitAll } from '@angular/compiler';
 
@@ -13,6 +14,7 @@ interface CharBasics {
     charName: string;
     charHP: number;
     init: number;
+    userID: number;
     Alignment: {
       alignID: number;
       alignName: string;
@@ -49,21 +51,21 @@ interface CharAC {
   styleUrls: ['./char-base.component.css']
 })
 export class CharBaseComponent implements OnInit {
-  @Input() isReadOnly: boolean;
-  isNew: boolean;
   charID: number;
   curChar: string;
   races = [];
   classes = [];
   acs = {};
   collapsed = true;
-  charBasic: any;
   charName: string;
   charRace: string;
   charAlign: string;
   charHP: string;
   charAC: string;
   init: string;
+  loggedIn: {};
+  isMyCharacter: boolean;
+  charBasic: CharBasics;
 
   charForm = new FormGroup({
     charName: new FormControl('', [
@@ -91,63 +93,33 @@ export class CharBaseComponent implements OnInit {
   });
   constructor(private raceSvc: RaceService,
               private classSvc: ClassesService,
+              private userService: UserService,
               private charDataSvc: CharDataService,
               private router: Router,) { }
 
   ngOnInit(): void {
-    this.charDataSvc.getIsNew.subscribe( (val) => this.isNew = val);
-    this.charDataSvc.getIsReadOnly.subscribe( (val) => this.isReadOnly = val);
+    this.userService.getUser.subscribe( (val) => this.loggedIn = val);
     this.charDataSvc.getCharID.subscribe( (val) => this.charID = val);
-    if(this.isNew){
-      this.raceSvc.getRaces().subscribe( results => {
-        this.races = results.results;
-      });
-      this.classSvc.getClasses().subscribe( results => {
-        this.classes = results.results;
-      });
-      return;
-    }
+    this.charDataSvc.getCharBasics.subscribe( (val) => this.charBasic = val);
+    this.isMyCharacter = this.loggedIn['userID'] === this.charBasic.results.userID;
     this.charDataSvc.getCharBasics.subscribe( (val) => this.charBasic = val);
     this.curChar = this.charBasic.charID;
-    if (!this.isNew && this.charID && this.charID.toString() !== this.curChar) {
-      this.charDataSvc.loadCharBase(this.charID.toString()).subscribe( val => {
-        this.charBasic = val;
-        this.charDataSvc.setCharBasics(val);
-        this.charRace = this.charBasic.results.Race.raceDesc;
-        this.charAlign = this.charBasic.results.Alignment.alignName;
-        this.charName = this.charBasic.results.charName;
-        this.charHP = this.charBasic.results.charHP.toString();
-        this.init = this.charBasic.results.init.toString();
-        this.charForm.patchValue( {charName: this.charName,
-          charRace: this.charRace,
-          charAlign: this.charAlign,
-          charHP: this.charHP
-          });
-        this.charDataSvc.loadAC(this.charID).subscribe( (val) => {
-          this.acs = val;
-          this.charDataSvc.setAllACs(val);
-          this.charAC = this.acs['results'].reduce( (a, b) => a + b.score, 0 ).toString();
-          this.charForm.patchValue( {charAC: this.charAC});
-        });
+    this.charDataSvc.loadAC(parseInt(this.charBasic.charID)).subscribe( val => {
+      this.charDataSvc.setAllACs(val);
+      this.acs = val;
+      this.charAC = this.acs['results'].reduce( (a, b) => a + b.score, 0 ).toString();
+      this.charForm.patchValue( {charAC: this.charAC});
+    });
+    this.charName = this.charBasic.results.charName;
+    this.charRace = this.charBasic.results.Race.raceDesc;
+    this.charAlign = this.charBasic.results.Alignment.alignName;
+    this.charHP = this.charBasic.results.charHP.toString();
+    this.init = this.charBasic.results.init.toString();
+    this.charForm.patchValue( {charName: this.charName,
+      charRace: this.charRace,
+      charAlign: this.charAlign,
+      charHP: this.charHP
       });
-    } else {
-      this.charDataSvc.getCharBasics.subscribe( (val) => this.charBasic = val);
-      this.charName = this.charBasic.results.charName;
-      this.charRace = this.charBasic.results.Race.raceDesc;
-      this.charAlign = this.charBasic.results.Alignment.alignName;
-      this.charHP = this.charBasic.results.charHP.toString();
-      this.init = this.charBasic.results.init.toString();
-      this.charForm.patchValue( {charName: this.charName,
-        charRace: this.charRace,
-        charAlign: this.charAlign,
-        charHP: this.charHP
-        });
-      this.charDataSvc.getAllACs.subscribe( (val) => {
-        this.acs = val;
-        this.charAC = this.acs['results'].reduce( (a, b) => a + b.score, 0 ).toString();
-        this.charForm.patchValue( {charAC: this.charAC});
-      });
-    }
 
   }
 

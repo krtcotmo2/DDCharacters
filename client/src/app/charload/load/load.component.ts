@@ -10,7 +10,6 @@ import { CharDataService } from '../../services/char-data.service';
 })
 export class LoadComponent implements OnInit {
   characters = [];
-  isNew: boolean;
   charID: number;
   constructor(private charSvc: CharService,
               private charDataSvc: CharDataService,
@@ -21,13 +20,15 @@ export class LoadComponent implements OnInit {
       this.characters = results.results;
     });
   }
-  displayChar = (id: number, name: string) => {
+  displayChar = async (id: number, name: string) => {
     this.charDataSvc.reset();
-    this.charDataSvc.changeIsNew(false);
-    this.charDataSvc.changeReadOnly(true);
-    this.charDataSvc.setCharID(id);
-    this.charDataSvc.setCharName(name);
-    this.router.navigate(['/charGen']);
+    this.charDataSvc.loadCharBase(id.toString()).subscribe( async val => {
+      this.charDataSvc.setCharBasics(val);
+      this.charDataSvc.setCharID(id);
+      this.charDataSvc.setCharName(name);
+      this.router.navigate(['/charGen']);
+    });
+
   }
   getClasses = (arr) => {
     const str = []

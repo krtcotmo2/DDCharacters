@@ -1,11 +1,11 @@
-<h1>Notes <button class='mini ui primary button labeled icon' style='vertical-align: text-bottom; margin-left:12px' (click)='addNewNote($event)' *ngIf='!newNote'>
+<h1>Notes <span *ngIf='isMyCharacter'><button class='mini ui primary button labeled icon' style='vertical-align: text-bottom; margin-left:12px' (click)='addNewNote($event)' *ngIf='!newNote'>
   <i class="plus square outline icon"></i>
   Add Note Category
 </button>
 <form style='display:flex; align-items: stretch; margin:12px 0;' #notesForm='ngForm' (ngSubmit)='onSubmit($event)' *ngIf='newNote'>
   <input type='text' class='equipInput' placeholder="Item"  [(ngModel)]='note' name="note">
   <button class='mini ui primary button'>Submit</button>
-</form>
+</form></span>
 <span class='ui input' style='font-size:1rem; width:100%; margin-top:12px' ><input type='text' name='filter' [value]='filterText' placeholder="Filter - type in value" (input)='filterList($event)' /></span></h1>
 <div class="ui grid gridHeader">
   <div class="two wide column"></div>
@@ -13,7 +13,7 @@
 <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
   <div *ngFor='let nt of allNotes' class="ui grid gridRow example-box" cdkDrag>
     <div class="example-handle one wide column" cdkDragHandle  style="font-weight: normal;">
-      <i class="bars icon" title='Reorder'></i>
+      <i *ngIf='isMyCharacter' class="bars icon" title='Reorder'></i>
     </div>
     <span class='stat fourteen wide column' >
         <a [routerLink]="['/charGen/notes/' + nt.noteID.toString()]" style='display:flex; justify-content: space-between; justify-items: stretch;'>
@@ -21,7 +21,7 @@
         <i class="angle right icon"></i>
       </a>
     </span>
-    <div class="column one wide ui"><i class="edit icon pointer"  title="Edit" (click)='editNote(nt.noteID.toString())'></i></div>
+    <div class="column one wide ui"><i *ngIf='isMyCharacter' class="edit icon pointer"  title="Edit" (click)='editNote(nt.noteID.toString())'></i></div>
   </div>
 </div>
 

@@ -1,8 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { CharDataService } from '../../services/char-data.service';
+import { UserService } from '../../services/user.service';
 import _ from 'lodash';
 
+interface CharBasics {
+  charID: string;
+  results: {
+    charID: number;
+    charName: string;
+    charHP: number;
+    init: number;
+    userID: number;
+    Alignment: {
+      alignID: number;
+      alignName: string;
+    },
+    Race: {
+      raceID: number;
+      raceDesc: string;
+    },
+    CharLevels: {
+      classLevel: number;
+      CharClass: {
+        className: string;
+        classID: number;
+      }
+    }[]
+  };
+}
 
 @Component({
   selector: 'app-char-spells',
@@ -18,12 +44,19 @@ export class CharSpellsComponent implements OnInit {
   filterText = '';
   showingForm = false;
   charID: number;
+  loggedIn: {};
+  isMyCharacter: boolean;
+  charBasic: CharBasics;
 
   constructor(private charDataSvc: CharDataService,
+    private userService: UserService,
     private router: Router) { }
 
   ngOnInit(): void {
+    this.userService.getUser.subscribe( (val) => this.loggedIn = val);
     this.charDataSvc.getCharID.subscribe( (val) => this.charID = val === null ? 0 : val);
+    this.charDataSvc.getCharBasics.subscribe( (val) => this.charBasic = val);
+    this.isMyCharacter = this.loggedIn['userID'] === this.charBasic.results.userID;
     this.charDataSvc.loadSpells(this.charID).subscribe( val => {
       this.allSpells = val.results;
       this.charDataSvc.setAllSpells(val);
