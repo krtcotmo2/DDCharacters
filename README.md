@@ -15,7 +15,7 @@ Yes this only further proves I a a geek. Paging though numerous pages of the har
   * It can be easy to forget how a score was created so the tool allows multiple values to be stored under each score
   * Each individual value can have its own unique description to enable the user to know if a modifier came form a feat, or a magical device or a base score
   * Each value can be removed or modified as needed 
-## Ordering of lists
+## Ordering of Lists
   * Most lists have the ability to be custom sorted using a drag and drop technique
 ## Expanded Notes
 * Notes page allows user to create a notes topic
