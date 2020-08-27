@@ -11,7 +11,7 @@ Yes this only further proves I a a geek. Paging though numerous pages of the har
   * A user can receive a temporary password in the event they forget their password
   * Users that reset their password must enter in a new password after logging into the system using a temporary password
 ## Accumulated stats:
-  * Most values from stats, and saves to skills and to hits have a Accumulated Score.
+  * Most values from stats and saves to skills and to hits have a Accumulated Score.
   * It can be easy to forget how a score was created so the tool allows multiple values to be stored under each score
   * Each individual value can have its own unique description to enable the user to know if a modifier came form a feat, or a magical device or a base score
   * Each value can be removed or modified as needed 
