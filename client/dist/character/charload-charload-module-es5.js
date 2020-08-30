@@ -821,18 +821,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     function LoadComponent_tr_14_Template(rf, ctx) {
       if (rf & 1) {
-        var _r278 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
+        var _r281 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "tr", 2);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function LoadComponent_tr_14_Template_tr_click_0_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r278);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r281);
 
-          var c_r276 = ctx.$implicit;
+          var c_r279 = ctx.$implicit;
 
-          var ctx_r277 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
+          var ctx_r280 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
 
-          return ctx_r277.displayChar(c_r276.charID, c_r276.charName);
+          return ctx_r280.displayChar(c_r279.charID, c_r279.charName);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "td", 3);
@@ -863,25 +863,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
 
       if (rf & 2) {
-        var c_r276 = ctx.$implicit;
+        var c_r279 = ctx.$implicit;
 
-        var ctx_r275 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate"](c_r276.charName);
+        var ctx_r278 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate"](c_r276.Race.raceDesc);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate"](c_r279.charName);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate"](ctx_r275.getClasses(c_r276.CharLevels));
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate"](c_r279.Race.raceDesc);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate"](ctx_r275.getLevels(c_r276.CharLevels));
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate"](ctx_r278.getClasses(c_r279.CharLevels));
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate"](ctx_r278.getLevels(c_r279.CharLevels));
       }
     }
 

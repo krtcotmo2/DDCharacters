@@ -1,4 +1,4 @@
-<h1>Modify {{modName}} <button (click)='addMod($event)' *ngIf='modType !== "hp" && modType !== "init"' class='mini ui primary button labeled icon' style='vertical-align: text-bottom; margin-left:12px'>
+<h1>Modify {{modName}} <button (click)='addMod($event)' *ngIf='modType !== "hp" && modType !== "init" && modType !== "xp"' class='mini ui primary button labeled icon' style='vertical-align: text-bottom; margin-left:12px'>
   <i class="plus square outline icon"></i>
   Add Modifier
 </button></h1>
@@ -6,22 +6,22 @@
   <div #formRoot>
     <div class="ui grid gridHeader">
       <div class="two wide column">{{modType === 'hp' ? 'Total' : 'Score'}}</div>
-      <div *ngIf='modType !== "hp" && modType !== "init"' class="two wide column" [innerHTML]='mainTitle'></div>
-      <div *ngIf='modType !== "hp" && modType !== "init"' class="two wide column">Modifier</div>
+      <div *ngIf='modType !== "hp" && modType !== "init" && modType !== "xp"' class="two wide column" [innerHTML]='mainTitle'></div>
+      <div *ngIf='modType !== "hp" && modType !== "init" && modType !== "xp"' class="two wide column">Modifier</div>
       <div *ngIf='modType === "skill"' class="two wide column" >Class Skill</div>
-      <div *ngIf='modType !== "hp" && modType !== "init"' class="eight wide column">Description</div>
+      <div *ngIf='modType !== "hp" && modType !== "init" && modType !== "xp"' class="eight wide column">Description</div>
     </div>
     <div class='ui grid gridRow' *ngFor='let st of attribute'>
       <div class="column two wide ui input" >
         <input type='number' [value]='st.score' [name]='setInputName("score", st.id)' class='scoreInput'>
       </div>
-      <div *ngIf='modType !== "hp" && modType !== "init"' class="column two wide">
+      <div *ngIf='modType !== "hp" && modType !== "init" && modType !== "xp"' class="column two wide">
         <div class="ui radio checkbox">
             <input type="radio" [name]='setInputName("stat", st.id.toString())' [checked]='getBaseBinding(st.isRanks, st.isBase)' value='isBase' >
             <label></label>
         </div>
       </div>
-      <div *ngIf='modType !== "hp" && modType !== "init"' class="column two wide">
+      <div *ngIf='modType !== "hp" && modType !== "init" && modType !== "xp"' class="column two wide">
         <div class="ui radio checkbox">
           <input type="radio" [name]='setInputName("stat", st.id.toString())' [checked]='st.isMod' value='isMod'>
           <label></label>
@@ -33,10 +33,10 @@
           <label></label>
         </div>
       </div>
-      <div *ngIf='modType !== "hp" && modType !== "init"' class="column seven wide ui input">
+      <div *ngIf='modType !== "hp" && modType !== "init" && modType !== "xp"' class="column seven wide ui input">
         <input type='text' [value]='st.modDesc' [name]='setInputName("desc", st.id)' class='descInput'>
       </div>
-      <div *ngIf='modType !== "hp" && modType !== "init"' class="column one wide ui"><i class="trash alternate outline icon"  title="Delete" (click)='deleteAttribute(st.id)'></i></div>
+      <div *ngIf='modType !== "hp" && modType !== "init" && modType !== "xp"' class="column one wide ui"><i class="trash alternate outline icon"  title="Delete" (click)='deleteAttribute(st.id)'></i></div>
     </div>
 </div>
 <div class="container" style='text-align: center; margin-top:24px'>

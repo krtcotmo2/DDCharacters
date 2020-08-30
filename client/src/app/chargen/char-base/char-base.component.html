@@ -32,6 +32,10 @@
             {{this.init}}
             <span class='statMod'><i *ngIf='isMyCharacter' class="edit icon pointer" title="Edit" (click)='editInit(charID)'></i></span>
           </p>
+          <p><strong>Experience Points:<br/></strong>
+            {{this.charXP}}
+            <span class='statMod'><i *ngIf='isMyCharacter' class="edit icon pointer" title="Experience Points" (click)='editXP(charID)'></i></span>
+          </p>
           <!--
           <p><strong>Languages:<br/></strong>
             {{this.charAC}}

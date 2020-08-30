@@ -72,6 +72,10 @@ export class CharModComponent implements OnInit {
         this.charDataSvc.getCharBasics.subscribe( (val) => this.theCharBasics = val);
         this.attribute = [{id:this.theCharBasics.charID ,score:this.theCharBasics.results.init}]
         break;
+      case 'xp':
+        this.charDataSvc.getCharBasics.subscribe( (val) => this.theCharBasics = val);
+        this.attribute = [{id:this.theCharBasics.charID ,score:this.theCharBasics.results.charXP}]
+        break;
       default:
         this.router.navigate(['/charGen']);
       }
@@ -135,6 +139,14 @@ export class CharModComponent implements OnInit {
           this.charDataSvc.updateInit(this.charID, attrObj.score).subscribe(val => {
             if(val.results){
               this.theCharBasics.results = {...this.theCharBasics.results, init: attrObj.score};
+              this.charDataSvc.setCharBasics(this.theCharBasics);
+              this.router.navigate(['/charGen']);
+            }
+          });
+        } else if(this.modType === 'xp'){
+          this.charDataSvc.updateXP(this.charID, attrObj.score).subscribe(val => {
+            if(val.results){
+              this.theCharBasics.results = {...this.theCharBasics.results, charXP: attrObj.score};
               this.charDataSvc.setCharBasics(this.theCharBasics);
               this.router.navigate(['/charGen']);
             }
@@ -298,6 +310,8 @@ export class CharModComponent implements OnInit {
       return 'init';
     } else if (this.router.url.includes('tohit')){
       return 'tohit';
+    } else if (this.router.url.includes('xp')){
+        return 'xp';
     }
   }
   getModName(obj){
@@ -312,7 +326,9 @@ export class CharModComponent implements OnInit {
     } else if (this.modType.toLowerCase() === 'hp'){
       return 'HP';
     } else if (this.modType.toLowerCase() === 'init'){
-        return 'Iniiative';
+        return 'Initiative';
+    } else if (this.modType.toLowerCase() === 'xp'){
+      return 'Experience Points';
     } else {
      return '';
     }

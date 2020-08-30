@@ -13,6 +13,7 @@ interface CharBasics {
     charID: number;
     charName: string;
     charHP: number;
+    charXP: number;
     init: number;
     userID: number;
     Alignment: {
@@ -61,6 +62,7 @@ export class CharBaseComponent implements OnInit {
   charRace: string;
   charAlign: string;
   charHP: string;
+  charXP: string;
   charAC: string;
   init: string;
   loggedIn: {};
@@ -90,14 +92,19 @@ export class CharBaseComponent implements OnInit {
     init: new FormControl('', [
       Validators.required,
     ]),
+    xp: new FormControl('', [
+
+    ]),
   });
+
   constructor(private raceSvc: RaceService,
               private classSvc: ClassesService,
               private userService: UserService,
               private charDataSvc: CharDataService,
               private router: Router,) { }
 
-  ngOnInit(): void {
+
+              ngOnInit(): void {
     this.userService.getUser.subscribe( (val) => this.loggedIn = val);
     this.charDataSvc.getCharID.subscribe( (val) => this.charID = val);
     this.charDataSvc.getCharBasics.subscribe( (val) => this.charBasic = val);
@@ -115,6 +122,7 @@ export class CharBaseComponent implements OnInit {
     this.charAlign = this.charBasic.results.Alignment.alignName;
     this.charHP = this.charBasic.results.charHP.toString();
     this.init = this.charBasic.results.init.toString();
+    this.charXP = this.charBasic.results.charXP === null ? '0' : parseFloat(this.charBasic.results.charXP.toString()).toLocaleString('en');
     this.charForm.patchValue( {charName: this.charName,
       charRace: this.charRace,
       charAlign: this.charAlign,
@@ -135,6 +143,9 @@ export class CharBaseComponent implements OnInit {
   }
   editInit = charID => {
     this.router.navigate(['/charGen/mods/init/' + charID]);
+  }
+  editXP = charID => {
+    this.router.navigate(['/charGen/mods/xp/' + charID]);
   }
   showBreakDown(evt){
     const gridRowsElements = document.getElementsByClassName('sixteen');

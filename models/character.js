@@ -24,6 +24,10 @@ class Character extends Model {
           type: DataTypes.INTEGER,
           allowNull: true
         },
+        charXP:{
+          type: DataTypes.INTEGER,
+          allowNull: true
+        },
         init:{
           type: DataTypes.INTEGER,
           allowNull: true
