@@ -110,7 +110,8 @@ export class CharModComponent implements OnInit {
       // tslint:disable:max-line-length
       const score = document.getElementsByName('score' + a.id);
       const desc = document.getElementsByName('desc' + a.id);
-      const statChanged = a.score.toString() !== score[0]['value'];
+      const scoreNull = a.score === null ? '' : a.score.toString();
+      const statChanged = scoreNull !== score[0]['value'];
       const baseChecked = document.getElementsByName('stat' + a.id);
       const descChnaged = (a.modDesc === undefined && desc.length === 0) || (a.modDesc !== null && a.modDesc !== desc[0]['value'].trim()) || (a.modDesc === null && desc[0]['value'].trim() !== '')  ;
 
@@ -119,7 +120,7 @@ export class CharModComponent implements OnInit {
         let attrObj = {
           id: a.id,
           score: parseInt(score[0]['value'], 10),
-          modDesc: desc.length > 0 ? desc[0]['value'].trim() : "",
+          modDesc: desc.length > 0 ? desc[0]['value'].trim() : '',
           statID: parseInt(this.partID, 10),
           charID:  this.charID,
           isBase: baseChecked.length > 0 ? baseChecked[0]['checked'] : false ,

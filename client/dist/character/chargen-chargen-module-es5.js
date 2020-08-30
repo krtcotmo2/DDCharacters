@@ -43272,7 +43272,8 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
               // tslint:disable:max-line-length
               var score = document.getElementsByName('score' + a.id);
               var desc = document.getElementsByName('desc' + a.id);
-              var statChanged = a.score.toString() !== score[0]['value'];
+              var scoreNull = a.score === null ? '' : a.score.toString();
+              var statChanged = scoreNull !== score[0]['value'];
               var baseChecked = document.getElementsByName('stat' + a.id);
               var descChnaged = a.modDesc === undefined && desc.length === 0 || a.modDesc !== null && a.modDesc !== desc[0]['value'].trim() || a.modDesc === null && desc[0]['value'].trim() !== '';
 
@@ -43281,7 +43282,7 @@ function _createClass2(Constructor, protoProps, staticProps) { if (protoProps) _
                 var attrObj = {
                   id: a.id,
                   score: parseInt(score[0]['value'], 10),
-                  modDesc: desc.length > 0 ? desc[0]['value'].trim() : "",
+                  modDesc: desc.length > 0 ? desc[0]['value'].trim() : '',
                   statID: parseInt(_this37.partID, 10),
                   charID: _this37.charID,
                   isBase: baseChecked.length > 0 ? baseChecked[0]['checked'] : false,
