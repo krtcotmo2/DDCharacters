@@ -17,7 +17,7 @@ const ToHits = require('../models/toHits');
 module.exports = {
   //CHARACTERS
     getCharacters: function(req, res){
-      db.Character.findAll({attributes: ['charID', 'charName', 'charHP', 'charXP', 'init'],
+      db.Character.findAll({attributes: ['charID', 'charName', 'charHP', 'charXP', 'init', 'isDead'],
           include: [
             {
               model: Race,
@@ -56,7 +56,7 @@ module.exports = {
     },
     getBaseForChar: function(req, res){
       db.Character.findOne(
-        {attributes: ['charID', 'charName', 'charHP', 'charXP', 'init', 'userID'],
+        {attributes: ['charID', 'charName', 'charHP', 'charXP', 'init', 'userID', 'isDead'],
         where:{charID:req.params.id},
         include: [
           {

@@ -10,6 +10,7 @@ import { CharDataService } from '../../services/char-data.service';
 })
 export class LoadComponent implements OnInit {
   characters = [];
+  deadCharacters = [];
   charID: number;
   constructor(private charSvc: CharService,
               private charDataSvc: CharDataService,
@@ -17,7 +18,8 @@ export class LoadComponent implements OnInit {
 
   ngOnInit(): void {
     this.charSvc.getChars().subscribe( results => {
-      this.characters = results.results;
+      this.characters = results.results.filter(a => !a['isDead']);
+      this.deadCharacters = results.results.filter(a => a['isDead']);
     });
   }
   displayChar = async (id: number, name: string) => {

@@ -16,4 +16,20 @@
 
   </tbody>
 </table>
+<table class="ui selectable celled table striped">
+  <thead>
+    <tr>
+      <th colspan="4">Dead</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style='cursor: pointer;' *ngFor='let c of deadCharacters' (click)='displayChar(c.charID, c.charName)'>
+      <td data-label='Name'>{{c.charName}}</td>
+      <td data-label='Race'>{{c.Race.raceDesc}}</td>
+      <td data-label='Classes'>{{getClasses(c.CharLevels)}}</td>
+      <td data-label='Levels'>{{getLevels(c.CharLevels)}}</td>
+    </tr>
+
+  </tbody>
+</table>
 

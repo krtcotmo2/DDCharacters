@@ -11,8 +11,9 @@ interface CharBasics {
     charName: string;
     charHP: number;
     charXP: number;
-    init:number,
-    userID:number,
+    init: number;
+    userID: number;
+    isDead: boolean;
     Alignment: {
       alignID: number;
       alignName: string;
