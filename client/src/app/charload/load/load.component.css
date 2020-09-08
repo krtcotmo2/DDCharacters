@@ -1,0 +1,39 @@
+.cards{
+  padding: 0 24px;
+}
+.classBar{
+  background: #007038;
+  padding:12px;
+  color: white;
+  text-transform: uppercase;
+}
+.card .content{
+  padding:0px;
+}
+.card .content .header{
+  padding:12px 12px 0 12px;
+}
+.card .content img{
+  margin:18px auto;
+  display: block;
+  position: relative;
+}
+.card .content .detailHolder{
+  padding:18px;
+}
+.acRating, .hpRating{
+  width:72px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+.acRating{
+  float: left;
+}
+.hpRating{
+  float:right;
+}
+.clear{
+  display: block;
+  clear: both;
+}
+
