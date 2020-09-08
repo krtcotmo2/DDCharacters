@@ -72,6 +72,10 @@ export class CharModComponent implements OnInit {
         this.charDataSvc.getCharBasics.subscribe( (val) => this.theCharBasics = val);
         this.attribute = [{id:this.theCharBasics.charID ,score:this.theCharBasics.results.init}]
         break;
+      case 'xp':
+        this.charDataSvc.getCharBasics.subscribe( (val) => this.theCharBasics = val);
+        this.attribute = [{id:this.theCharBasics.charID ,score:this.theCharBasics.results.charXP}]
+        break;
       default:
         this.router.navigate(['/charGen']);
       }
@@ -106,7 +110,8 @@ export class CharModComponent implements OnInit {
       // tslint:disable:max-line-length
       const score = document.getElementsByName('score' + a.id);
       const desc = document.getElementsByName('desc' + a.id);
-      const statChanged = a.score.toString() !== score[0]['value'];
+      const scoreNull = a.score === null ? '' : a.score.toString();
+      const statChanged = scoreNull !== score[0]['value'];
       const baseChecked = document.getElementsByName('stat' + a.id);
       const descChnaged = (a.modDesc === undefined && desc.length === 0) || (a.modDesc !== null && a.modDesc !== desc[0]['value'].trim()) || (a.modDesc === null && desc[0]['value'].trim() !== '')  ;
 
@@ -115,7 +120,7 @@ export class CharModComponent implements OnInit {
         let attrObj = {
           id: a.id,
           score: parseInt(score[0]['value'], 10),
-          modDesc: desc.length > 0 ? desc[0]['value'].trim() : "",
+          modDesc: desc.length > 0 ? desc[0]['value'].trim() : '',
           statID: parseInt(this.partID, 10),
           charID:  this.charID,
           isBase: baseChecked.length > 0 ? baseChecked[0]['checked'] : false ,
@@ -135,6 +140,14 @@ export class CharModComponent implements OnInit {
           this.charDataSvc.updateInit(this.charID, attrObj.score).subscribe(val => {
             if(val.results){
               this.theCharBasics.results = {...this.theCharBasics.results, init: attrObj.score};
+              this.charDataSvc.setCharBasics(this.theCharBasics);
+              this.router.navigate(['/charGen']);
+            }
+          });
+        } else if(this.modType === 'xp'){
+          this.charDataSvc.updateXP(this.charID, attrObj.score).subscribe(val => {
+            if(val.results){
+              this.theCharBasics.results = {...this.theCharBasics.results, charXP: attrObj.score};
               this.charDataSvc.setCharBasics(this.theCharBasics);
               this.router.navigate(['/charGen']);
             }
@@ -298,6 +311,8 @@ export class CharModComponent implements OnInit {
       return 'init';
     } else if (this.router.url.includes('tohit')){
       return 'tohit';
+    } else if (this.router.url.includes('xp')){
+        return 'xp';
     }
   }
   getModName(obj){
@@ -312,7 +327,9 @@ export class CharModComponent implements OnInit {
     } else if (this.modType.toLowerCase() === 'hp'){
       return 'HP';
     } else if (this.modType.toLowerCase() === 'init'){
-        return 'Iniiative';
+        return 'Initiative';
+    } else if (this.modType.toLowerCase() === 'xp'){
+      return 'Experience Points';
     } else {
      return '';
     }
