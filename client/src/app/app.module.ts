@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBar} from '@angular/material/snack-bar';
 import { OverlayModule  } from '@angular/cdk/overlay';
 import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { FormsModule } from '@angular/forms';
     ReactiveFormsModule,
     OverlayModule,
     FormsModule,
+    FontAwesomeModule,
   ],
   providers: [MatSnackBar],
   bootstrap: [AppComponent]
