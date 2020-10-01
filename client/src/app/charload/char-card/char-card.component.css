@@ -1,0 +1,96 @@
+
+.crossbar{
+  transform: rotate(45deg);
+    position: absolute;
+    color: white;
+    background: black;
+    padding: 6px 32px;
+    z-index: 1;
+    right: -30px;
+    top: 18px;
+    box-shadow: -1px 3px 12px 0px rgba(0,0,0,0.5);
+}
+.classBar{
+  background: #007038;
+  padding:12px;
+  color: white;
+  text-transform: uppercase;
+  box-shadow: -1px 3px 12px 0px rgba(0,0,0,0.5);
+}
+.card .content{
+  padding:0px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: -1px 3px 12px 0px rgba(0,0,0,0.5);
+  cursor:pointer;
+}
+.card .content .header{
+  padding:12px 12px 0 12px;
+  font-weight: bold;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-size: 1.28571429em;
+    margin-top: -0.21425em;
+    line-height: 1.28571429em;
+}
+.card .content img{
+  margin:18px;
+  display: block;
+  position: relative;
+}
+.card .content .detailHolder{
+  padding:12px 18px 18px 18px;
+}
+.card .content .detailHolder div:last-child::after{
+  content:'';
+  display: block;
+  height:0px;
+  clear: both;
+}
+.acRating, .hpRating{
+  width:72px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  background: url('../../../assets/health.png') no-repeat center center;
+  background-size: 95%;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.acRating{
+  float: left;
+  background: url('../../../assets/shiled.png') no-repeat center center;
+  background-size: 95%;
+
+}
+.hpRating{
+  float:right;
+}
+.clear{
+  display: block;
+  clear: both;
+}
+
+.ui.cards .card {
+  display: flex;
+  margin: 0.875em 0.5em;
+  float: none;
+  max-width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 290px;
+  min-height: 0px;
+  background: #FFFFFF;
+  padding: 0em;
+  border: none;
+  border-radius: 0.28571429rem;
+  box-shadow: 0px 1px 3px 0px #D4D4D5, 0px 0px 0px 1px #D4D4D5;
+  transition: box-shadow 0.1s ease, transform 0.1s ease;
+  z-index: '';
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+

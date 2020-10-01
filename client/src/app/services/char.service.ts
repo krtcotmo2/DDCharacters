@@ -20,7 +20,11 @@ interface Character {
       CharClass: {
         className: string;
       }
-    }[]
+    }[],
+    Alignment:{
+      alignID: number;
+      alignName: string;
+    }
   }[];
 }
 

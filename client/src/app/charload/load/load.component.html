@@ -1,4 +1,3 @@
-<h1>Load Character</h1>
 <!--
 <table class="ui selectable celled table striped">
   <thead>
@@ -35,67 +34,5 @@
 </table>
 -->
 <div class="ui cards">
-  <div class="card">
-    <div class="content">
-      <div class="header">Sybak the Usurper</div>
-      <img src="https://via.placeholder.com/250" />
-      <div class='classBar'>Druid - 4</div>
-      <div class='detailHolder'>
-        <div class='acRating'>
-          <p>21</p>
-        </div>
-        <div class='hpRating'>
-          <p>43</p>
-        </div>
-        <div style='text-align: center;' class="clear">Half-Elf</div>
-        <div style='margin-top:12px'>more</div>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="content">
-      <div class="header">Chip</div>
-      <img src="https://via.placeholder.com/250" />
-      <div class='classBar'>Ranger - 4</div>
-
-    </div>
-  </div>
-  <div class="card">
-    <div class="content">
-      <div class="header">Clutch</div>
-      <img src="https://via.placeholder.com/250" />
-      <div class='classBar'>Rogue - 4</div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="content">
-      <div class="header">Oberon</div>
-      <img src="https://via.placeholder.com/250" />
-      <div class='classBar'>Cleric/Paladin - 1/4</div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="content">
-      <div class="header">Victor</div>
-      <img src="https://via.placeholder.com/250" />
-      <div class='classBar'>Cleric - 4</div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="content">
-      <div class='crossbar'>Deceased</div>
-      <div class="header">Koa Honan</div>
-      <img src="https://via.placeholder.com/250" />
-      <div class='classBar'>Animal - 3</div>
-      <div class='detailHolder'>
-        <div class='acRating'>
-          <p>18</p>
-        </div>
-        <div class='hpRating'>
-          <p>28</p>
-        </div>
-        <div style='text-align: center;' class="clear">Black Bear</div>
-      </div>
-    </div>
-  </div>
+    <app-char-card *ngFor = "let aChar of characters" [char]="aChar" (click)='displayChar(aChar.charID, aChar.charName)' ></app-char-card>
 </div>

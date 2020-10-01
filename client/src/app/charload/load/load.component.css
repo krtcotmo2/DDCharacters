@@ -1,64 +1,9 @@
-.cards{
-  padding: 0 24px;
+.ui.cards{
+  padding: 24px;
+  justify-content: space-around !important;
+  grid-row-gap: 18px;
+  column-gap: 18px;
 }
-.crossbar{
-  transform: rotate(45deg);
-    position: absolute;
-    color: white;
-    background: black;
-    padding: 6px 32px;
-    z-index: 1;
-    right: -30px;
-    top: 18px;
-    box-shadow: -1px 3px 12px 0px rgba(0,0,0,0.5);
+.ui.cards:after, .ui.card:after{
+  display:none;
 }
-.classBar{
-  background: #007038;
-  padding:12px;
-  color: white;
-  text-transform: uppercase;
-  box-shadow: -1px 3px 12px 0px rgba(0,0,0,0.5);
-}
-.card .content{
-  padding:0px;
-  overflow: hidden;
-  position: relative;
-  box-shadow: -1px 3px 12px 0px rgba(0,0,0,0.5);
-}
-.card .content .header{
-  padding:12px 12px 0 12px;
-}
-.card .content img{
-  margin:18px auto;
-  display: block;
-  position: relative;
-}
-.card .content .detailHolder{
-  padding:12px 18px 18px 18px;
-}
-.acRating, .hpRating{
-  width:72px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 64px;
-  background: url('../../../assets/health.png') no-repeat center center;
-  background-size: 95%;
-  font-weight: bold;
-  font-size: 1.5rem;
-}
-.acRating{
-  float: left;
-  background: url('../../../assets/shiled.png') no-repeat center center;
-  background-size: 95%;
-
-}
-.hpRating{
-  float:right;
-}
-.clear{
-  display: block;
-  clear: both;
-}
-

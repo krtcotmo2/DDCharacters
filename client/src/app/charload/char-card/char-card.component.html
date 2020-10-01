@@ -1,0 +1,22 @@
+
+  <div class="card">
+    <div class="content">
+      <div *ngIf="isDeceased(char)" class='crossbar'>Deceased</div>
+      <div class="header">{{char["charName"]}}</div>
+      <img src="../../../assets/{{char['image']}}" />
+      <div class='classBar'>{{joinArrays(char['CharLevels'])}} </div>
+      <div class='detailHolder'>
+        <div class='acRating'>
+          <p>{{char["ac"]}}</p>
+        </div>
+        <div class='hpRating'>
+          <p>{{char["charHP"]}}</p>
+        </div>
+        <div style='text-align: center;'>{{char["User"]["userName"]}}</div>
+        <div style='text-align: center;'>{{char['Race']['raceDesc']}}</div>
+        <div style='text-align: center;'>{{char['Alignment']['alignName']}}</div>
+      </div>
+    </div>
+  </div>
+
+

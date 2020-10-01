@@ -17,7 +17,7 @@ const ToHits = require('../models/toHits');
 module.exports = {
   //CHARACTERS
     getCharacters: function(req, res){
-      db.Character.findAll({attributes: ['charID', 'charName', 'charHP', 'charXP', 'init', 'isDead'],
+      db.Character.findAll({attributes: ['charID', 'charName', 'charHP', 'charXP', 'init', 'isDead', 'image'],
           include: [
             {
               model: Race,
@@ -36,14 +36,11 @@ module.exports = {
               }
           ]},
           {
-            model: CharFeat,
-            include: [{
-              model: Feat,
-              order: [[db.Feat, 'id', 'DESC']],
-            }
-        ]}
+            model: Alignments,
+            attributes: ['alignID','alignName']
+          }
         ],
-          order: ['charName']
+          order: ['isDead','charName']
         })
         .then(function(results) {
           res.json({ results });
