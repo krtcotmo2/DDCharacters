@@ -475,13 +475,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function LoadComponent_app_char_card_1_Template(rf, ctx) { if (rf & 1) {
-    const _r496 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
+    const _r289 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "app-char-card", 2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function LoadComponent_app_char_card_1_Template_app_char_card_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r496); const aChar_r494 = ctx.$implicit; const ctx_r495 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](); return ctx_r495.displayChar(aChar_r494.charID, aChar_r494.charName); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function LoadComponent_app_char_card_1_Template_app_char_card_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r289); const aChar_r287 = ctx.$implicit; const ctx_r288 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](); return ctx_r288.displayChar(aChar_r287.charID, aChar_r287.charName); });
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 } if (rf & 2) {
-    const aChar_r494 = ctx.$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("char", aChar_r494);
+    const aChar_r287 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("char", aChar_r287);
 } }
 class LoadComponent {
     constructor(charSvc, charDataSvc, router) {
@@ -490,56 +490,6 @@ class LoadComponent {
         this.router = router;
         this.characters = [];
         this.deadCharacters = [];
-        this.carChars2 = [
-            { charName: 'Sybak theUsurper',
-                charID: 5,
-                owner: 'Kurt',
-                isDead: false,
-                hp: 38,
-                ac: 21,
-                race: 'Half-Elf',
-                alignment: 'Neutral Good',
-                class: ['Druid'],
-                level: [4],
-                image: 'sybak.png',
-            },
-            { charName: 'Chip',
-                charID: 3,
-                owner: 'Dean',
-                isDead: true,
-                hp: 35,
-                ac: 20,
-                race: 'Elf',
-                alignment: 'Chaotic Good',
-                class: ['Ranger', 'Rogue'],
-                level: [4, 1],
-                image: 'chip.png',
-            },
-            { charName: 'Sybak theUsurper',
-                charID: 1,
-                owner: 'Kurt',
-                isDead: false,
-                hp: 38,
-                ac: 21,
-                race: 'Half-Elf',
-                alignment: 'Neutral Good',
-                class: ['Druid'],
-                level: [4],
-                image: 'sybak.png',
-            },
-            { charName: 'Chip',
-                charID: 45,
-                owner: 'Dean',
-                isDead: true,
-                hp: 35,
-                ac: 20,
-                race: 'Elf',
-                alignment: 'Chaotic Good',
-                class: ['Ranger', 'Rogue'],
-                level: [4, 1],
-                image: 'chip.png',
-            }
-        ];
         this.displayChar = (id, name) => Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             this.charDataSvc.reset();
             this.charDataSvc.loadCharBase(id.toString()).subscribe((val) => Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
