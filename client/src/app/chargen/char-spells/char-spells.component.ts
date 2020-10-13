@@ -60,7 +60,7 @@ export class CharSpellsComponent implements OnInit {
     this.charDataSvc.loadSpells(this.charID).subscribe( val => {
       this.allSpells = val.results;
       this.charDataSvc.setAllSpells(val);
-      this.levelBreakDown = Array.from(Array(this.allSpells.slice(-1).pop().spellLevel), (_, i) => i + 1);
+      this.levelBreakDown = Array.from(Array(this.allSpells.slice(-1).pop().spellLevel + 1), (_, i) => i);
     });
   }
 
@@ -96,7 +96,7 @@ export class CharSpellsComponent implements OnInit {
       this.allSpells = [...this.allSpells, val];
       let nameSorter = spell => spell.spellName.toLowerCase();
       this.allSpells = _.orderBy(this.allSpells, ['spellLevel', nameSorter], ['asc','asc']);
-      this.levelBreakDown = Array.from(Array(this.allSpells.slice(-1).pop().spellLevel), (_, i) => i + 1);
+      this.levelBreakDown = Array.from(Array(this.allSpells.slice(-1).pop().spellLevel + 1), (_, i) => i);
       this.spellLevel= null;
       this.spellName='';
       this.showingForm = false;
