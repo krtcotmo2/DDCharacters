@@ -2,6 +2,7 @@ const db = require("../models");
 const User = require('../models/user');
 const Race = require('../models/race');
 const CharClass = require('../models/charClass');
+const CharAC = require('../models/charAC');
 const CharLevel = require('../models/charLevels');
 const CharFeat = require('../models/charFeats');
 const CharSkill = require('../models/charSkills');
@@ -28,12 +29,19 @@ module.exports = {
               attributes: ['userName', 'userEmail']
             },
             {
+              model: CharAC,
+              attributes: ['score'],
+            },
+            {
               model: CharLevel,
               attributes: ['classLevel'],
               include: [{
                 model: CharClass,
                 attributes: ['className']
               }
+                // {attributes: ["id",'charID', 'score', 'isBase', "isMod", "modDesc"],
+                // where:{charID:req.params.id},
+                // })
           ]},
           {
             model: Alignments,

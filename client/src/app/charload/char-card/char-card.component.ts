@@ -10,12 +10,14 @@ import { UserService } from '../../services/user.service';
 })
 export class CharCardComponent implements OnInit {
   @Input() char: {};
+  ac:number;
 
   constructor(private router: Router,
     private userService: UserService,
     private charDataSvc: CharDataService) { }
 
   ngOnInit(): void {
+    this.ac = this.calcAc(this.char["CharACs"]);
   }
   isDeceased = (pers: {}) => {
     return pers['isDead'];
@@ -24,6 +26,9 @@ export class CharCardComponent implements OnInit {
     const classes = arr.map(arg => arg['CharClass']['className']+'/').join('');
     const lvls = arr.map(arg => arg['classLevel']+'/').join('');
     return `${classes.substr(0, classes.length - 1)} - ${lvls.substr(0, lvls.length - 1)}`;
+  }
+  calcAc = (arr:[]) => {
+    return arr.reduce( (a, b) => a + b["score"], 0);
   }
 
 }

@@ -16,6 +16,9 @@ interface Character {
       userName: string;
       userEmail: string;
     },
+    CharAcs: {
+      score: number;
+    }[],
     CharLevels: {
       classLevel: number;
       CharClass: {
