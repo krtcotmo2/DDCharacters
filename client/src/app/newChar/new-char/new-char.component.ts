@@ -36,6 +36,7 @@ export class NewCharComponent implements OnInit {
       this.userDataService.getUser.subscribe( (val) => this.loggedIn = val);
     }
     onCancel = evt =>{
+      console.log('evt')
       this.router.navigate(['/charLoad']);
     }
 

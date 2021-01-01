@@ -6,6 +6,7 @@ const routes: Routes = [
   {path: '', component: NewCharComponent}
 ];
 
+
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]

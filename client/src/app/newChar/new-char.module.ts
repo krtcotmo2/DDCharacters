@@ -8,7 +8,6 @@ import { NewCharRoutingModule } from './new-char-routing.module';
 
 @NgModule({
   declarations: [
-
   ],
   imports: [
     CommonModule,

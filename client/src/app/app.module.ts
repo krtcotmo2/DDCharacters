@@ -22,6 +22,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     NewCharComponent,
     ChargenHomeComponent,
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
