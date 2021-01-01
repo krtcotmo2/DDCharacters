@@ -89,6 +89,47 @@ module.exports = {
         res.status(500).json({ error:err})
       );
     },
+    newCharacter: async function(req, res){
+      const userID = req.body.userID;
+      const charName = req.body.charName;
+      const charHP = req.body.charHP;
+      const raceID = req.body.raceID;
+      const alignID = req.body.alignID;
+      const classID = req.body.classID;
+      const classLvl = req.body.classLvl;
+     
+      const newChar = await db.Character.create({
+        userID: userID,
+        charName: charName,
+        charHP: charHP,
+        raceID: raceID,
+        alignID: alignID,
+        charXP: 0,
+        init: 0,
+        isDead: false,
+        image: 'default.png',
+      }).then(async (arg) => {
+        let newCharObj = arg.dataValues;
+        return newCharObj;
+      })
+      .catch(err => {
+        return err
+      });
+      const newClass = await db.CharLevels.create({
+        charID: newChar.charID,
+        classID: classID,
+        classLevel: classLvl
+      })
+      .then(results => {
+        console.log(results)
+        return results
+      })
+      .catch(err => {
+        console.log(err)
+        return err
+      })
+      res.json(newChar);
+    },
 
   //FEATS
     getAllFeatsForChar: function(req, res){

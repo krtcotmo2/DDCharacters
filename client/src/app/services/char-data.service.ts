@@ -229,6 +229,23 @@ export class CharDataService {
         return val;
       }
 
+      addCharacter = (obj: object) => {
+        const val = this.http.post<any>('/api/characters/new', {...obj}, {
+            headers: new HttpHeaders({
+            'Access-Control-Allow-Origin': '*'
+          }),
+        });
+
+        return val;
+      }
+
+      // insertClassLevels = (obj: object) =>{
+      //   const val = this.http.post<any>('/api/characters/classLevel', {...obj}, {
+      //     headers: new HttpHeaders({
+      //     'Access-Control-Allow-Origin': '*'
+      //   }),
+      // });
+      //}
     // STATS
       loadStats = (arg: number ) => {
         //const val = this.http.get<Stats>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/stats/ ' + arg, {

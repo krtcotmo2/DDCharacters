@@ -3,6 +3,7 @@
     <a routerLink='' class="item" routerLinkActive='active' [routerLinkActiveOptions]="{exact:true}">Home</a>
     <a *ngIf='isLoggedIn' routerLink='charLoad' class="item" routerLinkActive='active' [routerLinkActiveOptions]="{exact:true}">Load Character</a>
     <a *ngIf='isLoggedIn' routerLink='charGen' routerLinkActive='active' class="item" >Character</a>
+    <a *ngIf='isLoggedIn' routerLink='newChar' routerLinkActive='active' class="item" >New Character</a>
     <div class="item" style='position: absolute; right:0px;'>Welcome {{theUser['userName']}}</div>
   </div>
   <div class="ui segment container">

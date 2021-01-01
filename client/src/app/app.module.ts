@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { NewCharComponent } from './newChar/new-char/new-char.component';
 import { ChargenHomeComponent } from './chargen/chargen-home/chargen-home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -18,6 +19,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   declarations: [
     AppComponent,
     HomeComponent,
+    NewCharComponent,
     ChargenHomeComponent,
   ],
   imports: [
