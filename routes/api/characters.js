@@ -8,8 +8,8 @@ router.route("/all").get(characterController.getCharacters);
 //route for /api/characters/new
 router.route("/new").post(characterController.newCharacter);
 
-//route for /api/characters/classLevel
-//router.route("/classLevel").post(characterController.classLevel);
+//route for /api/characters/updateClass
+router.route("/updateClass").post(characterController.updateClass);
 
 //route for /api/characters/feats/#
 router.route('/feats/:id').get(characterController.getAllFeatsForChar);
