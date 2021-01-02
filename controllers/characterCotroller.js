@@ -631,54 +631,65 @@ module.exports = {
       res.json({'results': retVal});
     },
   //LEVELS PER CLASS
-  updateClass: async function(req, res){
-    const {id, charID, classID, classLevel} = req.body;
-    const retVal = await db.CharLevels.findOrCreate({
-      where:{id:id},
-      defaults: {
-        charID: charID, 
-        classID: classID, 
-        classLevel: classLevel
-      }
-    })
-    .then(async item => {
-      console.log("item", item)
-      if(item[1]){
-        let newClass = {
+    updateClass: async function(req, res){
+      const {id, charID, classID, classLevel} = req.body;
+      const retVal = await db.CharLevels.findOrCreate({
+        where:{id:id},
+        defaults: {
           charID: charID, 
           classID: classID, 
           classLevel: classLevel
         }
-        let newCharClass = await db.CharLevels.create({
-          charID: charID, 
-          classID: classID, 
-          classLevel: classLevel
-        })
-        .then(arg => arg)
-        let newObj={...newCharClass.dataValues, Classes:newClass}
-        return newObj
-      }else{
-        console.log(id, charID, classID, classLevel)
-        let updatedVal = await item[0].update({
-          charID: charID, 
-          classID: classID, 
-          classLevel: classLevel
-        }).then( async success => {
-          let newVal = await db.CharLevels.findOne({
-            where:{'id':id }
-          }).then(charClass => {
-            return charClass;
+      })
+      .then(async item => {
+        console.log("item", item)
+        if(item[1]){
+          let newClass = {
+            charID: charID, 
+            classID: classID, 
+            classLevel: classLevel
+          }
+          let newCharClass = await db.CharLevels.create({
+            charID: charID, 
+            classID: classID, 
+            classLevel: classLevel
           })
-          let newObj = {...newVal.dataValues, Classes:success}
+          .then(arg => arg)
+          let newObj={...newCharClass.dataValues, Classes:newClass}
           return newObj
-        })
-        .catch(err => {
-          console.log(err)
-          return err;
-        });
-        return updatedVal
-      }
-    })
-    res.status(200).json({'results': retVal});
-  }
+        }else{
+          console.log(id, charID, classID, classLevel)
+          let updatedVal = await item[0].update({
+            charID: charID, 
+            classID: classID, 
+            classLevel: classLevel
+          }).then( async success => {
+            let newVal = await db.CharLevels.findOne({
+              where:{'id':id }
+            }).then(charClass => {
+              return charClass;
+            })
+            let newObj = {...newVal.dataValues, Classes:success}
+            return newObj
+          })
+          .catch(err => {
+            console.log(err)
+            return err;
+          });
+          return updatedVal
+        }
+      })
+      res.status(200).json({'results': retVal});
+    },
+
+  //ALIGNMENTS
+    getAllAlignments: function(req, res){
+      db.Alignments.findAll(
+        {attributes: ["alignID",'alignName']}
+      )
+      .then(results => {
+        res.status(200).json({ results:results });
+      })
+      .catch(err => err)
+    },
 };

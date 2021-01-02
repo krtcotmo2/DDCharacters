@@ -149,6 +149,13 @@ interface Notes {
   }[];
 }
 
+interface Alignments {
+  results: {
+      alignID: string,
+      alignName: string,
+    }[];
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -169,6 +176,7 @@ export class CharDataService {
   private allAC = new BehaviorSubject<AC>( {results: []} as AC );
   private allNotes = new BehaviorSubject<Notes>( {results: []} as Notes);
   private allSpells = new BehaviorSubject<Spells>( {results: []} as Spells);
+  private allAlignments = new BehaviorSubject<Alignments>( {results: []} as Alignments);
 
   // GETTERS
   getCurCharID = this.curCharID.asObservable();
@@ -184,6 +192,7 @@ export class CharDataService {
   getAllEquip = this.allEquipment.asObservable();
   getAllACs = this.allAC.asObservable();
   getAllSpells = this.allSpells.asObservable();
+  getAllAlignment = this.allAlignments.asObservable();
 
   // SETTERS
   setCurCharID(arg: number) { this.curCharID.next(arg); }
@@ -195,10 +204,11 @@ export class CharDataService {
   setSaves = (arg) => { this.allSaves.next(arg); };
   setAllSkills = (arg) => { this.allSkills.next(arg); };
   setAllNotes = (arg) => { this.allNotes.next(arg); };
-  setAllToHits = (arg) => { this.allToHits.next(arg) };
-  setAllEquipment = (arg) => { this.allEquipment.next(arg) };
-  setAllACs = (arg) => { this.allAC.next(arg) };
-  setAllSpells = (arg) => { this.allSpells.next(arg) };
+  setAllToHits = (arg) => { this.allToHits.next(arg); };
+  setAllEquipment = (arg) => { this.allEquipment.next(arg); };
+  setAllACs = (arg) => { this.allAC.next(arg); };
+  setAllSpells = (arg) => { this.allSpells.next(arg); };
+  setAllAlignments = (arg) => { this.allAlignments.next(arg); };
 
   // global reset
     reset = () => {
@@ -660,7 +670,7 @@ export class CharDataService {
     // CLASSES
       loadClasses = (id: string) => {
       }
-    //SPELLS
+    // SPELLS
       loadSpells = (charID: number) =>{
         const val =  this.http.get<any>('/api/spells/getAllSpells/' + charID.toString(), {
             headers: new HttpHeaders({
@@ -706,4 +716,13 @@ export class CharDataService {
         return val;
       }
 
-    }
+    // ALIGNMENTS
+      loadAlignments = () => {
+        const val =  this.http.get<Alignments>('/api/alignments/', {
+          headers: new HttpHeaders({
+          'Access-Control-Allow-Origin': '*'
+          }),
+        });
+        return val;
+      }
+}

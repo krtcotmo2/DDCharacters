@@ -26,6 +26,7 @@ export class NewCharComponent implements OnInit {
   charInt: string;
   charWis: string;
   charChr: string;
+  theAlignments;
 
   constructor(private charDataSvc: CharDataService,
     private userDataService: UserService,
@@ -34,6 +35,13 @@ export class NewCharComponent implements OnInit {
 
     ngOnInit(): void {
       this.userDataService.getUser.subscribe( (val) => this.loggedIn = val);
+      this.charDataSvc.getAllAlignment.subscribe( (val) => this.theAlignments = val.results);
+      if (!this.theAlignments || this.theAlignments.length === 0){
+        this.charDataSvc.loadAlignments().subscribe( val => {
+          this.theAlignments = val.results;
+          this.charDataSvc.setAllAlignments(val);
+        });
+      }
     }
     onCancel = evt =>{
       console.log('evt')
