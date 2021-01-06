@@ -1,0 +1,59 @@
+.b {font-weight: bold;}
+form input{
+  margin: 0em;
+  max-width: 100%;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  text-align: left;
+  line-height: 1.21428571em;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  padding: 0.67857143em 1em;
+  background: #FFFFFF;
+  border: 1px solid rgba(34, 36, 38, 0.15);
+  color: rgba(0, 0, 0, 0.87);
+  border-radius: 0.28571429rem;
+  -webkit-transition: border-color 0.1s ease, -webkit-box-shadow 0.1s ease;
+  transition: border-color 0.1s ease, -webkit-box-shadow 0.1s ease;
+  transition: box-shadow 0.1s ease, border-color 0.1s ease;
+  transition: box-shadow 0.1s ease, border-color 0.1s ease, -webkit-box-shadow 0.1s ease;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.hidden{
+  display:none;
+}
+.ui.grid + .grid {
+  margin-top: 0px;
+}
+.gridHeader, .gridRow{
+  border-radius: 6px 6px 0em 0em;
+  cursor: auto;
+  background: #F9FAFB;
+  text-align: inherit;
+  color: rgba(0, 0, 0, 0.87);
+  padding: 0.0.25 0.78571429em;
+  vertical-align: inherit;
+  font-style: none;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: none;
+  border: 1px solid rgba(34, 36, 38, 0.1);
+  border-bottom: 0px;
+  margin:0 2px;
+}
+
+.gridRow{
+  background: #fff;
+  color:#000;
+  border-radius: 0em;
+}
+.gridRow .eleven{
+  font-weight: normal;
+}
+
+.gridRow:last-child, .gridHeader:last-child{
+  border-bottom: 1px solid rgba(34, 36, 38, 0.1);
+}

@@ -26,6 +26,7 @@ import { CharNotesComponent } from './char-notes/char-notes.component';
 import { SingleNoteComponent } from './single-note/single-note.component';
 import { EditNotesComponent } from './edit-notes/edit-notes.component';
 import { EditSpellComponent } from './edit-spell/edit-spell.component';
+import { CharLevelComponent } from './char-level/char-level.component';
 
 @NgModule({
   declarations: [GenerateComponent,
@@ -46,7 +47,8 @@ import { EditSpellComponent } from './edit-spell/edit-spell.component';
     CharNotesComponent,
     SingleNoteComponent,
     EditNotesComponent,
-    EditSpellComponent],
+    EditSpellComponent,
+    CharLevelComponent],
   imports: [
     CommonModule,
     ChargenRoutingModule,

@@ -115,7 +115,7 @@ export class CharModComponent implements OnInit {
       const baseChecked = document.getElementsByName('stat' + a.id);
       const descChnaged = (a.modDesc === undefined && desc.length === 0) || (a.modDesc !== null && a.modDesc !== desc[0]['value'].trim()) || (a.modDesc === null && desc[0]['value'].trim() !== '')  ;
 
-      if (statChanged || descChnaged){
+      if (statChanged || descChnaged) {
         this.numChanged++;
         let attrObj = {
           id: a.id,
@@ -188,7 +188,7 @@ export class CharModComponent implements OnInit {
             })
 
             try{
-              switch(this.modType){
+              switch (this.modType){
                 case 'skill':
                   this.charDataSvc.setAllSkills(this.theSkills);
                   break;

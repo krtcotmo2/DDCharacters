@@ -80,7 +80,6 @@ export class CharSkillsComponent implements OnInit {
     const myRow = filtered[0].children;
     myRow[4].classList.toggle('expanded');
   }
-
   createSkillGrps = (ar) => {
     const retVal = [];
     const ids = [...new Set(ar.map(i => i.skillID))];

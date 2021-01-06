@@ -147,6 +147,9 @@ export class CharBaseComponent implements OnInit {
   editXP = charID => {
     this.router.navigate(['/charGen/mods/xp/' + charID]);
   }
+  editLevels = charID => {
+    this.router.navigate(['/charGen/mods/levels/']);
+  }
   showBreakDown(evt){
     const gridRowsElements = document.getElementsByClassName('sixteen');
     const  gridRows = Array.prototype.slice.call(gridRowsElements);

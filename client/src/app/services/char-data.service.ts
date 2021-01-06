@@ -229,7 +229,6 @@ export class CharDataService {
 
     // CHARACTER
       loadCharBase = (id: string) => {
-        //const val = this.http.get<CharBasics>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/' + id, {
         const val = this.http.get<CharBasics>('/api/characters/' + id, {
             headers: new HttpHeaders({
             'Access-Control-Allow-Origin': '*'
@@ -249,16 +248,16 @@ export class CharDataService {
         return val;
       }
 
-      // insertClassLevels = (obj: object) =>{
-      //   const val = this.http.post<any>('/api/characters/classLevel', {...obj}, {
-      //     headers: new HttpHeaders({
-      //     'Access-Control-Allow-Origin': '*'
-      //   }),
-      // });
-      //}
+      insertClassLevels = (obj: object) => {
+        const val = this.http.post<any>('/api/characters/updateClass', {...obj}, {
+          headers: new HttpHeaders({
+            'Access-Control-Allow-Origin': '*'
+          }),
+        });
+        return val;
+      }
     // STATS
       loadStats = (arg: number ) => {
-        //const val = this.http.get<Stats>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/stats/ ' + arg, {
         const val = this.http.get<Stats>('/api/stats/ ' + arg, {
             headers: new HttpHeaders({
             'Access-Control-Allow-Origin': '*'
@@ -269,7 +268,6 @@ export class CharDataService {
 
     // FEATS
       loadFeats = (id: string) => {
-        //const val =  this.http.get<CharFeat>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/feats/' + id, {
         const val =  this.http.get<CharFeat>('/api/characters/feats/' + id, {
             headers: new HttpHeaders({
             'Access-Control-Allow-Origin': '*'
@@ -282,7 +280,6 @@ export class CharDataService {
         const body = {
           val: arr.join(",")
         };
-        //const val =  this.http.post<CharSkills>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/feats/all', body, {
         const val =  this.http.post<CharSkills>('/api/feats/all', body, {
             headers: new HttpHeaders({
             'Access-Control-Allow-Origin': '*'
@@ -296,7 +293,6 @@ export class CharDataService {
           charID,
           feat
         };
-        //const val =  this.http.post<CharFeat>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/feats/addFeat', body, {
         const val =  this.http.post<CharFeat>('/api/feats/addFeat', body, {
             headers: new HttpHeaders({
             'Access-Control-Allow-Origin': '*'
@@ -306,7 +302,6 @@ export class CharDataService {
       }
 
       deleteFeat = (id) => {
-        //const val =  this.http.delete<CharFeat>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/feats/delete/' + id, {
         const val =  this.http.delete<CharFeat>('/api/feats/delete/' + id, {
             headers: new HttpHeaders({
             'Access-Control-Allow-Origin': '*'
@@ -317,7 +312,6 @@ export class CharDataService {
 
     // SKILLS
       loadSkills = (id: string) => {
-        //const val =  this.http.get<CharSkills>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/skills/' + id, {
         const val =  this.http.get<CharSkills>('/api/characters/skills/' + id, {
             headers: new HttpHeaders({
             'Access-Control-Allow-Origin': '*'
@@ -330,7 +324,6 @@ export class CharDataService {
         const body = {
           val: arr.join(",")
         };
-        //const val =  this.http.post<CharSkills>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/skills/all', body, {
         const val =  this.http.post<CharSkills>('/api/skills/all', body, {
             headers: new HttpHeaders({
             'Access-Control-Allow-Origin': '*'
@@ -344,7 +337,6 @@ export class CharDataService {
           charID,
           skill
         };
-        //const val =  this.http.post<CharSkills>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/skills/addSKill', body, {
         const val =  this.http.post<CharSkills>('/api/skills/addSKill', body, {
             headers: new HttpHeaders({
             'Access-Control-Allow-Origin': '*'
@@ -370,31 +362,26 @@ export class CharDataService {
         let val;
         switch(attType){
           case 'skill':
-            //val =  this.http.post<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/updateSkill/', body, {
             val =  this.http.post<any>('/api/characters/updateSkill/', body, {
                 headers: new HttpHeaders({'Access-Control-Allow-Origin': '*'}),
             });
             break;
           case 'stat':
-            //val =  this.http.post<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/updateStat/', body, {
             val =  this.http.post<any>('/api/characters/updateStat/', body, {
                 headers: new HttpHeaders({'Access-Control-Allow-Origin': '*'}),
             });
             break;
           case 'save':
-            //val =  this.http.post<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/updateSave/', body, {
             val =  this.http.post<any>('/api/characters/updateSave/', body, {
                 headers: new HttpHeaders({'Access-Control-Allow-Origin': '*'}),
             });
             break;
           case 'ac':
-            //val =  this.http.post<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/ac/', body, {
             val =  this.http.post<any>('/api/characters/ac/', body, {
                 headers: new HttpHeaders({'Access-Control-Allow-Origin': '*'}),
             });
-              break;
+            break;
           case 'tohit':
-            //val =  this.http.post<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/updateToHit/', body, {
             val =  this.http.post<any>('/api/characters/updateToHit/', body, {
                 headers: new HttpHeaders({'Access-Control-Allow-Origin': '*'}),
             });

@@ -1,0 +1,27 @@
+<h1>Modify Levels<button (click)='addLevel($event)' class='mini ui primary button labeled icon' style='vertical-align: text-bottom; margin-left:12px'>
+  <i class="plus square outline icon"></i>
+  Add a Class
+</button></h1>
+<form #modForm='ngForm' (ngSubmit)='onSubmit($event)' class="ui large form">
+  <div #formRoot>
+    <div class="ui grid gridHeader">
+      <div class="three wide column b">Class</div>
+      <div class="two wide column b">Level</div>
+    </div>
+    <div *ngFor='let cl of theLevels' class="ui grid gridRow" >
+      <div class="column three wide ui input" >
+        <span class='stat' *ngIf='cl.CharClass.classID !== 0' [id]='setInputName("class", cl.CharClass.classID)'>{{cl.CharClass.className}}</span>
+        <select *ngIf='cl.CharClass.classID === 0' name="charClass" [(ngModel)]='charClass' >
+          <option *ngFor='let c of avaialbleClasses' value={{c.value}}>{{c.name}}</option>=
+        </select>
+      </div>
+      <div class="column two wide" >
+        <input type='number' [(ngModel)]='cl.classLevel' [name]='setInputName("level", cl.CharClass.classID)' [id]='setInputName("level", cl.CharClass.classID)' class='descInput'>
+      </div>
+    </div>
+    <div class="container" style='text-align: center; margin-top:24px'>
+      <button class='ui primary button' type="submit">Save</button>
+      <button class='ui yellow button' type="button" style="margin-left:24px" (click)='onCancel()' >Cancel</button>
+    </div>
+  </div>
+</form>
