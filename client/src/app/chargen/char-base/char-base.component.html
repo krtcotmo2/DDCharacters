@@ -5,7 +5,7 @@
         <div class="column">
           <div class="ui">
             <p><strong>Race:</strong><br/>{{charBasic.results.Race.raceDesc}}</p>
-            <p><strong>Class(es):</strong><br/>
+            <p><strong>Class(es):</strong>&nbsp;<span class='statMod'><i *ngIf='isMyCharacter' class="edit icon pointer" title="Edit" (click)='editLevels(charID)'></i></span><br/>
             <ng-container *ngFor='let c of charBasic.results.CharLevels'>
               <strong>{{c['CharClass']['className']}}:</strong> {{c.classLevel}}<br/>
             </ng-container>

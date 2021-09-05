@@ -1,0 +1,90 @@
+<h1>New Character</h1>
+<form class="ui large form" #modForm='ngForm' (ngSubmit)='onSubmit($event)'>
+  <div>
+    <div class='ui grid gridRow'>
+      <div  class="column sixteen wide ui input" >
+        <label for="charName">Name</label>
+        <input type='text' name='charName' [(ngModel)]='charName' >
+      </div>
+      <div  class="column ui input"  style="width: calc(100% / 3);">
+        <label for="charRace">Race</label>
+        <select name="charRace"  [(ngModel)]='charRace'>
+          <option value="1">Dwarf</option>
+          <option value="2">Elf</option>
+          <option value="3">Gnome</option>
+          <option value="4">Halfling</option>
+          <option value="5">Half-elf</option>
+          <option value="6">Half-orc</option>
+          <option value="7">Human</option>
+        </select>
+      </div>
+      <div  class="column ui input" style="width: calc(100% / 3);">
+        <label for="charClass">Class</label>
+        <select name="charClass" [(ngModel)]='charClass'>
+          <option value="0">Select One</option>
+          <option value="1">Barbarian</option>
+          <option value="2">Bard</option>
+          <option value="3">Cleric</option>
+          <option value="4">Druid</option>
+          <option value="5">Fighter</option>
+          <option value="6">Monk</option>
+          <option value="7">Paladin</option>
+          <option value="8">Ranger</option>
+          <option value="9">Rogue</option>
+          <option value="10">Sorcerer</option>
+          <option value="11">Wizard</option>
+        </select>
+      </div>
+      <div  class="column ui input"  style="width: calc(100% / 3);">
+        <label for="charLevel">Level</label>
+        <input type='number' name='charLevel' class='spellInput' [(ngModel)]='charLevel'>
+      </div>
+      <div class='ui grid gridRow' style="width: 100%; margin-bottom: 14px;">
+        <div  class="column wide ui input" style="width: calc(100% / 6);">
+          <label for="charAlignment">Alignment</label>
+          <select name="charAlignment" [(ngModel)]='charAlignment'>
+            <option value="0"></option>
+            <option *ngFor='let al of theAlignments' value={{al.alignID}}>{{al.alignName}}</option>
+          </select>
+        </div>
+        <div  class="column wide ui input" style="width: calc(100% / 6);">
+          <label for="charHP">Hit Points</label>
+          <input type='number' name='charHP' class='spellInput' [(ngModel)]='charHP'>
+        </div>
+      </div>
+      <!--
+      <h1>Base Stats - do not include racial benefits. </h1>
+      <div class='ui grid gridRow'>
+        <div  class="column wide ui input" style="width: calc(100% / 6);">
+          <label for="charStr">Strength</label>
+          <input type='number' name='charStr' [(ngModel)]='charStr'>
+        </div>
+        <div  class="column wide ui input" style="width: calc(100% / 6);">
+          <label for="charDex">Dexterity</label>
+          <input type='number' name='charDex' [(ngModel)]='charDex'>
+        </div>
+        <div  class="column wide ui input" style="width: calc(100% / 6);">
+          <label for="charCon">Constitution</label>
+          <input type='number' name='charCon' [(ngModel)]='charCon'>
+        </div>
+        <div  class="column wide ui input" style="width: calc(100% / 6);">
+          <label for="charInt">Intelligence</label>
+          <input type='number' name='charInt' [(ngModel)]='charInt'>
+        </div>
+        <div  class="column wide ui input" style="width: calc(100% / 6);">
+          <label for="charWis">Wisdom</label>
+          <input type='number' name='charWis' [(ngModel)]='charWis'>
+        </div>
+        <div  class="column wide ui input" style="width: calc(100% / 6);">
+          <label for="charChr">Chraisma</label>
+          <input type='number' name='charChr' [(ngModel)]='charChr'>
+        </div>
+      </div>
+      -->
+    </div>
+  </div>
+  <div class="container" style='text-align: center; margin-top:24px'>
+    <button class='ui primary button' type="submit">Save</button>
+    <button class='ui yellow button' type="button" style="margin-left:24px" (click)='onCancel($event)'>Cancel</button>
+  </div>
+</form>

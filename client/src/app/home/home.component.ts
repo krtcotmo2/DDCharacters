@@ -41,6 +41,22 @@ export class HomeComponent implements OnInit {
       userEmail: this.userName,
       password: this.password
     }
+
+    if(this.userName === 'guest' && this.password ==='Gu3st'){
+      console.log('guest');
+      const guest = {
+        forcedReset: false,
+        userEmail: "guest@guest.com",
+        userID: 0,
+        userName: "Guest",
+        userPassword: null,
+        isLoggedIn: true
+      }
+      this.userService.setUser(guest);
+      this.router.navigate(['/charLoad']);
+      return;
+    }
+
     this.userService.loginUser(body).subscribe( (val) => {
       this.theUser = val;
       if (this.theUser.forcedReset){

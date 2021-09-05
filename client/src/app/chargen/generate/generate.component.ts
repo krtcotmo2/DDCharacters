@@ -139,4 +139,16 @@ export class GenerateComponent implements OnInit {
   ediStat = (arg: number) => {
     this.router.navigate(['/charGen/mods/stat/' + arg]);
   }
+  calculateFirstCol = () => {
+    if (window.innerWidth > 1000) {
+      return 'stat column one wide';
+    }
+    return 'stat column two wide';
+  }
+  calculateWideCol = (add: number) => {
+    if (window.innerWidth > 1000) {
+      return `column ${add === 1 ? 'eleven' : 'twelve'} wide`;
+    }
+    return `column ${add === 1 ? 'twelve' : 'eleven'} wide`;
+  }
 }

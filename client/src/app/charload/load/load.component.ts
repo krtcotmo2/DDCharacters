@@ -2,6 +2,36 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { CharService } from '../../services/char.service';
 import { CharDataService } from '../../services/char-data.service';
+import {CharCardComponent} from "../char-card/char-card.component"
+
+interface Character {
+  results: {
+    charID: number;
+    charName: string;
+    charHP: number;
+    Race: {
+      raceDesc: string;
+    },
+    User: {
+      userName: string;
+      userEmail: string;
+    },
+    CharAcs: {
+      score: number;
+    }[],
+    CharLevels: {
+      classLevel: number;
+      CharClass: {
+        className: string;
+      }
+    }[],
+    Alignment:{
+      alignID: number;
+      alignName: string;
+    }
+  }[];
+}
+
 
 @Component({
   selector: 'app-load',
@@ -12,14 +42,14 @@ export class LoadComponent implements OnInit {
   characters = [];
   deadCharacters = [];
   charID: number;
+
   constructor(private charSvc: CharService,
               private charDataSvc: CharDataService,
               private router: Router) { }
 
   ngOnInit(): void {
     this.charSvc.getChars().subscribe( results => {
-      this.characters = results.results.filter(a => !a['isDead']);
-      this.deadCharacters = results.results.filter(a => a['isDead']);
+      this.characters = results.results;
     });
   }
   displayChar = async (id: number, name: string) => {

@@ -2,6 +2,7 @@ const db = require("../models");
 const User = require('../models/user');
 const Race = require('../models/race');
 const CharClass = require('../models/charClass');
+const CharAC = require('../models/charAC');
 const CharLevel = require('../models/charLevels');
 const CharFeat = require('../models/charFeats');
 const CharSkill = require('../models/charSkills');
@@ -17,7 +18,7 @@ const ToHits = require('../models/toHits');
 module.exports = {
   //CHARACTERS
     getCharacters: function(req, res){
-      db.Character.findAll({attributes: ['charID', 'charName', 'charHP', 'charXP', 'init', 'isDead'],
+      db.Character.findAll({attributes: ['charID', 'charName', 'charHP', 'charXP', 'init', 'isDead', 'image'],
           include: [
             {
               model: Race,
@@ -28,22 +29,26 @@ module.exports = {
               attributes: ['userName', 'userEmail']
             },
             {
+              model: CharAC,
+              attributes: ['score'],
+            },
+            {
               model: CharLevel,
               attributes: ['classLevel'],
               include: [{
                 model: CharClass,
                 attributes: ['className']
               }
+                // {attributes: ["id",'charID', 'score', 'isBase', "isMod", "modDesc"],
+                // where:{charID:req.params.id},
+                // })
           ]},
           {
-            model: CharFeat,
-            include: [{
-              model: Feat,
-              order: [[db.Feat, 'id', 'DESC']],
-            }
-        ]}
+            model: Alignments,
+            attributes: ['alignID','alignName']
+          }
         ],
-          order: ['charName']
+          order: ['isDead','charName']
         })
         .then(function(results) {
           res.json({ results });
@@ -83,6 +88,47 @@ module.exports = {
       .catch(err =>
         res.status(500).json({ error:err})
       );
+    },
+    newCharacter: async function(req, res){
+      const userID = req.body.userID;
+      const charName = req.body.charName;
+      const charHP = req.body.charHP;
+      const raceID = req.body.raceID;
+      const alignID = req.body.alignID;
+      const classID = req.body.classID;
+      const classLvl = req.body.classLvl;
+     
+      const newChar = await db.Character.create({
+        userID: userID,
+        charName: charName,
+        charHP: charHP,
+        raceID: raceID,
+        alignID: alignID,
+        charXP: 0,
+        init: 0,
+        isDead: false,
+        image: 'default.png',
+      }).then(async (arg) => {
+        let newCharObj = arg.dataValues;
+        return newCharObj;
+      })
+      .catch(err => {
+        return err
+      });
+      const newClass = await db.CharLevels.create({
+        charID: newChar.charID,
+        classID: classID,
+        classLevel: classLvl
+      })
+      .then(results => {
+        console.log(results)
+        return results
+      })
+      .catch(err => {
+        console.log(err)
+        return err
+      })
+      res.json(newChar);
     },
 
   //FEATS
@@ -583,5 +629,48 @@ module.exports = {
         return  true;
       }).catch(err => {error: err})
       res.json({'results': retVal});
+    },
+  //LEVELS PER CLASS
+    updateClass: async function(req, res){
+      const {charID, classID, classLevel} = req.body;
+      const retVal = await db.CharLevels.findOrCreate({
+        where:{charID:charID,
+          classID:classID
+        },
+        defaults: {
+          charID: charID, 
+          classID: classID, 
+          classLevel: classLevel
+        }
+      })
+      .then(async item => {
+        let updatedVal = await item[0].update({
+              charID: charID, 
+              classID: classID, 
+              classLevel: classLevel
+            }).then( async success => {
+              let newVal = await db.CharLevels.findOne({
+                where:{charID:charID,
+                  classID:classID
+                },
+              }).then(charClass => {
+                return charClass;
+              })
+              let newObj = {...newVal.dataValues, Classes:success}
+              return newObj
+            })        
+      })
+      res.status(200).json({'results': retVal});
+    },
+
+  //ALIGNMENTS
+    getAllAlignments: function(req, res){
+      db.Alignments.findAll(
+        {attributes: ["alignID",'alignName']}
+      )
+      .then(results => {
+        res.status(200).json({ results:results });
+      })
+      .catch(err => err)
     },
 };

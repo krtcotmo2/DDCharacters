@@ -43,6 +43,10 @@ class Character extends Model {
         alignID:{
           type: DataTypes.INTEGER,
           allowNull: true
+        },
+        image:{
+          type: DataTypes.STRING,
+          allowNull: true
         }
       },
       {sequelize, tableName: "characters"}

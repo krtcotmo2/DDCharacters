@@ -1,4 +1,4 @@
-<h1>Load Character</h1>
+<!--
 <table class="ui selectable celled table striped">
   <thead>
     <tr><th>Name</th>
@@ -32,4 +32,7 @@
 
   </tbody>
 </table>
-
+-->
+<div class="ui cards">
+    <app-char-card *ngFor = "let aChar of characters" [char]="aChar" (click)='displayChar(aChar.charID, aChar.charName)' ></app-char-card>
+</div>

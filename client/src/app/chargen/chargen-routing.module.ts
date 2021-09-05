@@ -17,6 +17,7 @@ import { CharNotesComponent } from './char-notes/char-notes.component';
 import { SingleNoteComponent } from './single-note/single-note.component';
 import { EditNotesComponent } from './edit-notes/edit-notes.component';
 import { EditSpellComponent } from './edit-spell/edit-spell.component';
+import { CharLevelComponent } from './char-level/char-level.component';
 
 const routes: Routes = [
   {path: '', component: ChargenHomeComponent,
@@ -48,6 +49,14 @@ const routes: Routes = [
           children: [
             {path: '**', component: SingleNoteComponent}
           ]
+      },
+      {path: 'mods', component: CharLevelComponent,
+        children: [
+          {path: 'levels', component: CharLevelComponent,
+          children: [
+            {path: '**', component: CharLevelComponent}
+          ]}
+        ]
       },
       {path: 'mods', component: NewTohitComponent,
         children: [
