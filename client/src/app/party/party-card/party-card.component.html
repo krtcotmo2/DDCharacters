@@ -1,21 +1,20 @@
 <p><b>{{charName}}</b></p>
 <p>AC: {{charAC}}</p>
 <p>HP: {{curHP}}</p>
-
+<form #hpForm='ngForm'  (ngSubmit)='doNothing($event)'>
 <div *ngIf="dmTools" class="ui small buttons hpAdjuster">
-  <button class="ui button healBtn">Heal</button>
-  <div class="inputWrapper">
-    <input type="text"/>
+    <button class="ui button healBtn" (click)="addHP(true)">Heal</button>
+    <div class="inputWrapper">
+      <input type="text" [(ngModel)]="hpModifier" #hpMod/>
+    </div>
+    <button class="ui button damBtn" (click)="addHP(false)">Damage</button>
   </div>
-  <button class="ui button damBtn">Damage</button>
-</div>
-
+</form>
 <p>
   <span style="width:33%; display: inline-block;"><b>Fort:&nbsp;</b>{{fortSave}}</span>
-  <span style="width:33%; display: inline-block"><b>Reflex:&nbsp;</b>{{reflexSave}}</span>
   <span style="width:33%; display: inline-block"><b>Will:&nbsp;</b>{{willSave}}</span>
+  <span style="width:33%; display: inline-block"><b>Reflex:&nbsp;</b>{{reflexSave}}</span>
 </p>
 <p>Potion List</p>
 <p>Scroll List</p>
 <p *ngIf="isCaster">Spell List</p>
-<button *ngIf="dmTools" class="ui primary button">Update</button>

@@ -1,10 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Party, PartyService } from 'src/app/services/party.service';
 import _ from 'lodash';
 import { PartyRoutingModule } from '../party-routing.module';
 import { CharDataService } from 'src/app/services/char-data.service';
 import { CharService } from 'src/app/services/char.service';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-party-card',
@@ -14,7 +15,9 @@ import { CharService } from 'src/app/services/char.service';
 
 export class PartyCardComponent implements OnInit {
   @Input() charID: number;
-  @Input()  dmTools: boolean;
+  @Input() dmTools: boolean;
+  //@Input() grpCalc: () => void;
+  hpForm;
   partyID = _.last(this.router.url.split('/'));
   curHP: number;
   charName: string;
@@ -23,14 +26,15 @@ export class PartyCardComponent implements OnInit {
   fortSave: number;
   reflexSave: number;
   willSave: number;
-
-
+  hpModifier = 0;
+  maxHP: number;
 
   constructor(
     private charSvc: CharService,
     private charDataSvc: CharDataService,
     private partyService: PartyService,
     private router: Router,
+    private element: ElementRef<HTMLInputElement>,
   ) { }
 
   ngOnInit(): void {
@@ -55,6 +59,19 @@ export class PartyCardComponent implements OnInit {
     });
   }
 
+  addHP = (heal: boolean): void => {
+    if(!+this.hpModifier){
+      this.hpModifier = 0;
+      this.element.nativeElement.focus();
+      return;
+    }
+    this.curHP = this.curHP + (this.hpModifier * (heal ? 1 : -1));
+    this.hpModifier = 0;
+    this.hpForm.focus();
+  }
+  doNothing = (evt: Event): void => {
+    evt.preventDefault();
+  }
 }
 
 

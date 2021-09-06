@@ -25,7 +25,7 @@
   height: 2.3rem;
 }
 
-.hpAdjuster input{
+.hpAdjuster input, .hpAdjuster input:focus{
   width: 33%;
   border-radius: 18px;
   position: absolute;

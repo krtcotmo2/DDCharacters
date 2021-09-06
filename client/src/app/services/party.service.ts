@@ -41,4 +41,14 @@ export class PartyService {
     return val;
   }
 
+  updateHP = (charID: number, amount: number): void => {
+    const body = {charID, amount}
+    this.http.post<Party>('/api/party/updateHP', body, {
+      headers: new HttpHeaders({
+      'Access-Control-Allow-Origin': '*'
+    }),
+  });
+
+  }
+
 }
