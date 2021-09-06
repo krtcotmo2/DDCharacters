@@ -1,4 +1,17 @@
-<p>Adjust all HP by    <button class="ui primary button">Submit</button></p>
+<div *ngIf="dmTools" class="ui small buttons hpAdjuster">
+  <button class="ui button healBtn">Heal</button>
+  <div class="inputWrapper">
+    <input type="text"/>
+  </div>
+  <button class="ui button damBtn">Damage</button>
+</div>
 <div class="ui grid partyWrapper">
-  <app-party-card  *ngFor="let p of peeps" [charID]="p" class="three wide column partyCard"></app-party-card>
+  <app-party-card  *ngFor="let p of peeps" [charID]="p" [dmTools]= "dmTools" class="three wide column partyCard"></app-party-card>
+</div>
+
+<div class='dmToggle'>
+  <div class="ui toggle checkbox toolToggle">
+    <input type="checkbox" name="dmTools" [checked]="dmTools" (change)="toggleTools()">
+    <label>DM Tools</label>
+  </div>
 </div>

@@ -88,8 +88,8 @@ button + button{
   display:none;
 }
 .partyRow span{
-  margin:0 12px;
   color: rgba(0, 0, 0, 0.87);
+  margin:0px
 }
 .partyRow:hover{
   cursor: pointer;

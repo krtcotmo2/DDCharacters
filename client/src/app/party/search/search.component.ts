@@ -23,9 +23,7 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getUser.subscribe( (val) => this.loggedIn = val);
     this.partyService.getAllParties.subscribe( val => {
-        console.log(val.results);
         this.allParties = _.uniqBy(val.results, 'partyID');
-        console.log(this.allParties);
       });
     this.partyService.loadParties().subscribe( val => {
         this.allParties = val.results;

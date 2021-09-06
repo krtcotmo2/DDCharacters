@@ -619,7 +619,6 @@ module.exports = {
     },
   //XP
     updateXP: async function(req, res){
-      console.log(req.body)
       const retVal =  await db.Character.findOne({
         where:{charID:req.body.charID},
       })

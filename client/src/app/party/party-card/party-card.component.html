@@ -1,7 +1,21 @@
-<p>{{charName}}</p>
+<p><b>{{charName}}</b></p>
 <p>AC: {{charAC}}</p>
 <p>HP: {{curHP}}</p>
+
+<div *ngIf="dmTools" class="ui small buttons hpAdjuster">
+  <button class="ui button healBtn">Heal</button>
+  <div class="inputWrapper">
+    <input type="text"/>
+  </div>
+  <button class="ui button damBtn">Damage</button>
+</div>
+
+<p>
+  <span style="width:33%; display: inline-block;"><b>Fort:&nbsp;</b>{{fortSave}}</span>
+  <span style="width:33%; display: inline-block"><b>Reflex:&nbsp;</b>{{reflexSave}}</span>
+  <span style="width:33%; display: inline-block"><b>Will:&nbsp;</b>{{willSave}}</span>
+</p>
 <p>Potion List</p>
 <p>Scroll List</p>
-<p>Spell List</p>
-<button class="ui primary button">Update</button>
+<p *ngIf="isCaster">Spell List</p>
+<button *ngIf="dmTools" class="ui primary button">Update</button>

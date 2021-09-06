@@ -6,33 +6,7 @@ import { CharDataService } from '../../services/char-data.service';
 import { UserService } from '../../services/user.service';
 import {Router} from '@angular/router';
 import { visitAll } from '@angular/compiler';
-
-interface CharBasics {
-  charID: string;
-  results: {
-    charID: number;
-    charName: string;
-    charHP: number;
-    charXP: number;
-    init: number;
-    userID: number;
-    Alignment: {
-      alignID: number;
-      alignName: string;
-    },
-    Race: {
-      raceID: number;
-      raceDesc: string;
-    },
-    CharLevels: {
-      classLevel: number;
-      CharClass: {
-        className: string;
-        classID: number;
-      }
-    }[]
-  };
-}
+import { CharBasics } from '../../interfaces/charBasic';
 
 interface CharAC {
   charID: string;

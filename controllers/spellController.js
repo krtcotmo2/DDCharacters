@@ -9,7 +9,6 @@ module.exports = {
       order:['spellLevel', 'spellName']
     })
     .then(results => {
-      console.log(results)
       res.status(200).json({ charID: req.params.id.trim(), results:results })
     })
     .catch(err => {

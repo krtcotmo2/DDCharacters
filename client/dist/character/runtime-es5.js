@@ -64,7 +64,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"charload-charload-module-ngfactory":"charload-charload-module-ngfactory","default~chargen-chargen-module-ngfactory~party-party-module-ngfactory":"default~chargen-chargen-module-ngfactory~party-party-module-ngfactory","chargen-chargen-module-ngfactory":"chargen-chargen-module-ngfactory","party-party-module-ngfactory":"party-party-module-ngfactory","newChar-new-char-module-ngfactory":"newChar-new-char-module-ngfactory"}[chunkId]||chunkId) +    "-es5.js"
+/******/ 		return __webpack_require__.p + "" + ({"charload-charload-module":"charload-charload-module","default~chargen-chargen-module~party-party-module":"default~chargen-chargen-module~party-party-module","chargen-chargen-module":"chargen-chargen-module","party-party-module":"party-party-module","newChar-new-char-module":"newChar-new-char-module"}[chunkId]||chunkId) +    "-es5.js"
 /******/ 	}
 /******/
 /******/ 	// The require function

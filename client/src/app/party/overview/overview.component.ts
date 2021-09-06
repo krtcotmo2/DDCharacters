@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Party, PartyService } from 'src/app/services/party.service';
 import { UserService } from 'src/app/services/user.service';
@@ -10,9 +10,9 @@ import _ from 'lodash';
   styleUrls: ['./overview.component.css']
 })
 export class OverviewComponent implements OnInit {
-
-  theID = _.last(this.router.url.split('/'));
-  peeps = [5,8,9,10,11];
+  partyID = _.last(this.router.url.split('/'));
+  peeps: number[];
+  dmTools = true;
 
   constructor(
     private partyService: PartyService,
@@ -20,7 +20,16 @@ export class OverviewComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.theID)
+    this.partyService.getAllParties.subscribe(
+      val => {
+        const partydata = val.results.filter( party => party.partyID.toString() === this.partyID);
+        this.peeps = partydata.map(arg => arg.charID);
+      }
+    );
+  }
+
+  toggleTools = () => {
+    this.dmTools = !this.dmTools;
   }
 
 }
