@@ -2,7 +2,7 @@ import { Injectable, ɵɵresolveBody } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-interface CharBasics {
+export interface CharBasics {
   charID: string;
   results: {
     charID: number;

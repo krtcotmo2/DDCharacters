@@ -33,6 +33,7 @@ const CharACs = require('./charAC');
 const CharNotes = require('./notes');
 const NoteItems = require('./noteItem');
 const CharSpells = require('./charSpells');
+const Party = require('./party');
 
 const models = {
   Race: Race.init(sequelize, Sequelize),
@@ -54,7 +55,8 @@ const models = {
   CharACs: CharACs.init(sequelize, Sequelize),
   CharNotes: CharNotes.init(sequelize, Sequelize),
   NoteItems: NoteItems.init(sequelize, Sequelize),
-  CharSpells: CharSpells.init(sequelize, Sequelize)
+  CharSpells: CharSpells.init(sequelize, Sequelize),
+  Party: Party.init(sequelize, Sequelize)
 };
 models.Character.hasOne(Race, {foreignKey: 'raceID', sourceKey: 'raceID'})
 models.Character.hasOne(User, {foreignKey: 'userID', sourceKey: 'userID'})

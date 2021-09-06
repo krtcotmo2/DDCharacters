@@ -1,1 +1,4 @@
-<p>overview works!</p>
+<p>Adjust all HP by    <button class="ui primary button">Submit</button></p>
+<div class="ui grid partyWrapper">
+  <app-party-card  *ngFor="let p of peeps" [charID]="p" class="three wide column partyCard"></app-party-card>
+</div>

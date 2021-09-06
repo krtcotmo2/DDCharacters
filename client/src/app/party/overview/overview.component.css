@@ -1,0 +1,13 @@
+.partyWrapper{
+  justify-content: space-between;
+}
+
+.partyCard{
+  border: 1px solid black;
+  margin-bottom: 12px;
+}
+
+div.ui.segment.container {
+  box-shadow: none !important;
+  border: none !important;
+}

@@ -50,6 +50,7 @@ export class LoadComponent implements OnInit {
   ngOnInit(): void {
     this.charSvc.getChars().subscribe( results => {
       this.characters = results.results;
+      this.charSvc.setAllChars(results);
     });
   }
   displayChar = async (id: number, name: string) => {

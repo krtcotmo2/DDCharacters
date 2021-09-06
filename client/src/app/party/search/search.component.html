@@ -1,1 +1,19 @@
-<p>search works!</p>
+<h1>Current Parties
+
+
+  <p class="ui input" style="font-size:1rem; margin-left:24px; width:33%" >
+    <input type="text" name="filter" [value]="filterText" placeholder="Filter - type in value" (input)="filterList($event)" />
+  </p>
+</h1>
+<div id="partyRowWrapper">
+  <div *ngFor="let party of allParties" class="ui grid gridRow partyRow">
+    <span class='stat fourteen wide column' >
+      <a [routerLink]="['/party/' + party.partyID.toString()]" style='display:flex; justify-content: space-between; justify-items: stretch;'>
+      <span class="stat 12 wide column" style="font-weight: normal;">
+          {{party.partyDesc}}
+        </span>
+      </a>
+  </span>
+  </div>
+</div>
+<button class="ui primary button" style="vertical-align: text-bottom" (click)="addNewParty()" >New Party</button>

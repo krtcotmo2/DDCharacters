@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import {pluck} from 'rxjs/operators';
 
-interface Character {
+export interface Character {
   results: {
     charID: number;
     charName: string;
@@ -21,6 +21,9 @@ interface Character {
         className: string;
       }
     }[],
+    CharACs: {
+      score: number;
+    }[],
     Alignment:{
       alignID: number;
       alignName: string;
@@ -35,6 +38,15 @@ interface Character {
 export class CharService {
 
   constructor(private http: HttpClient) { }
+
+  // DECLARATIONS
+  private allChars = new BehaviorSubject<Character> ({results: []} as Character);
+
+  // GETTERS
+  getAllChars = this.allChars.asObservable();
+
+  // SETTERS
+  setAllChars(arg) { this.allChars.next(arg); }
 
   public getChars = () => {
     //return this.http.get<Character>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/all', {
