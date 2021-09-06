@@ -43,9 +43,9 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     { path: 'charGen', loadChildren: () => Promise.all(/*! import() | chargen-chargen-module */[__webpack_require__.e("default~chargen-chargen-module~party-party-module"), __webpack_require__.e("chargen-chargen-module")]).then(__webpack_require__.bind(null, /*! ./chargen/chargen.module */ "./src/app/chargen/chargen.module.ts")).then(m => m.ChargenModule) },
-    { path: 'charLoad', loadChildren: () => __webpack_require__.e(/*! import() | charload-charload-module */ "charload-charload-module").then(__webpack_require__.bind(null, /*! ./charload/charload.module */ "./src/app/charload/charload.module.ts")).then(m => m.CharloadModule) },
+    { path: 'charLoad', loadChildren: () => Promise.all(/*! import() | charload-charload-module */[__webpack_require__.e("default~charload-charload-module~party-party-module"), __webpack_require__.e("charload-charload-module")]).then(__webpack_require__.bind(null, /*! ./charload/charload.module */ "./src/app/charload/charload.module.ts")).then(m => m.CharloadModule) },
     { path: 'newChar', loadChildren: () => __webpack_require__.e(/*! import() | newChar-new-char-module */ "newChar-new-char-module").then(__webpack_require__.bind(null, /*! ./newChar/new-char.module */ "./src/app/newChar/new-char.module.ts")).then(m => m.NewCharModule) },
-    { path: 'party', loadChildren: () => Promise.all(/*! import() | party-party-module */[__webpack_require__.e("default~chargen-chargen-module~party-party-module"), __webpack_require__.e("party-party-module")]).then(__webpack_require__.bind(null, /*! ./party/party.module */ "./src/app/party/party.module.ts")).then(m => m.PartyModule) },
+    { path: 'party', loadChildren: () => Promise.all(/*! import() | party-party-module */[__webpack_require__.e("default~chargen-chargen-module~party-party-module"), __webpack_require__.e("default~charload-charload-module~party-party-module"), __webpack_require__.e("party-party-module")]).then(__webpack_require__.bind(null, /*! ./party/party.module */ "./src/app/party/party.module.ts")).then(m => m.PartyModule) },
     { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_2__["HomeComponent"] }
 ];
 class AppRoutingModule {
@@ -1286,10 +1286,7 @@ class CharDataService {
         };
         // HP
         this.updateHP = (charID, charHP) => {
-            const body = {
-                charID: charID,
-                charHP: charHP
-            };
+            const body = { charID, charHP };
             const val = this.http.post('/api/characters/updateHP/', body, {
                 headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
                     'Access-Control-Allow-Origin': '*'

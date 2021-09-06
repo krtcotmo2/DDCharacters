@@ -5,7 +5,7 @@
 <div *ngIf="dmTools" class="ui small buttons hpAdjuster">
     <button class="ui button healBtn" (click)="addHP(true)">Heal</button>
     <div class="inputWrapper">
-      <input type="text" [(ngModel)]="hpModifier" #hpMod/>
+      <input type="text" [(ngModel)]="hpModifier" name="hpMod"/>
     </div>
     <button class="ui button damBtn" (click)="addHP(false)">Damage</button>
   </div>

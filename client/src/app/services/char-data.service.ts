@@ -522,10 +522,7 @@ export class CharDataService {
 
   // HP
     updateHP = (charID: number, charHP: number) => {
-      const body = {
-        charID: charID,
-        charHP: charHP
-      }
+      const body = { charID, charHP };
       const val =  this.http.post<any>('/api/characters/updateHP/', body, {
           headers: new HttpHeaders({
           'Access-Control-Allow-Origin': '*'

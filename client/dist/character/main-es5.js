@@ -71,9 +71,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }, {
       path: 'charLoad',
       loadChildren: function loadChildren() {
-        return __webpack_require__.e(
+        return Promise.all(
         /*! import() | charload-charload-module */
-        "charload-charload-module").then(__webpack_require__.bind(null,
+        [__webpack_require__.e("default~charload-charload-module~party-party-module"), __webpack_require__.e("charload-charload-module")]).then(__webpack_require__.bind(null,
         /*! ./charload/charload.module */
         "./src/app/charload/charload.module.ts")).then(function (m) {
           return m.CharloadModule;
@@ -95,7 +95,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() | party-party-module */
-        [__webpack_require__.e("default~chargen-chargen-module~party-party-module"), __webpack_require__.e("party-party-module")]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e("default~chargen-chargen-module~party-party-module"), __webpack_require__.e("default~charload-charload-module~party-party-module"), __webpack_require__.e("party-party-module")]).then(__webpack_require__.bind(null,
         /*! ./party/party.module */
         "./src/app/party/party.module.ts")).then(function (m) {
           return m.PartyModule;

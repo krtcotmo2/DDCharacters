@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Party, PartyService } from 'src/app/services/party.service';
 import _ from 'lodash';
 import { PartyRoutingModule } from '../party-routing.module';
-import { CharDataService } from 'src/app/services/char-data.service';
+import { CharBasics, CharDataService } from 'src/app/services/char-data.service';
 import { CharService } from 'src/app/services/char.service';
 import { ThrowStmt } from '@angular/compiler';
 
@@ -16,7 +16,6 @@ import { ThrowStmt } from '@angular/compiler';
 export class PartyCardComponent implements OnInit {
   @Input() charID: number;
   @Input() dmTools: boolean;
-  //@Input() grpCalc: () => void;
   hpForm;
   partyID = _.last(this.router.url.split('/'));
   curHP: number;
@@ -57,17 +56,30 @@ export class PartyCardComponent implements OnInit {
       this.reflexSave = saves.results.filter( save => save.saveID === 2 ).reduce( (x, y) => x + y.score, 0);
       this.willSave = saves.results.filter( save => save.saveID === 3 ).reduce( (x, y) => x + y.score, 0);
     });
+    this.charDataSvc.loadCharBase(this.charID.toString()).subscribe( char => {
+      this.maxHP = char.results.charHP;
+      if (this.curHP > this.maxHP){
+        this.curHP = this.maxHP;
+      }
+    });
+
   }
 
-  addHP = (heal: boolean): void => {
+  addHP = async (heal: boolean): Promise<void> => {
     if(!+this.hpModifier){
       this.hpModifier = 0;
-      this.element.nativeElement.focus();
       return;
     }
     this.curHP = this.curHP + (this.hpModifier * (heal ? 1 : -1));
+    if(this.curHP > this.maxHP){
+      this.curHP = this.maxHP;
+    }
+    await this.partyService.updateHP(
+      +this.partyID,
+      this.charID,
+      this.curHP
+    ).subscribe();
     this.hpModifier = 0;
-    this.hpForm.focus();
   }
   doNothing = (evt: Event): void => {
     evt.preventDefault();

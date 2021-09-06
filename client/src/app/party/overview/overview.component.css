@@ -1,6 +1,7 @@
 .partyWrapper{
-  justify-content: space-between;
+  justify-content: center;
   margin-top:32px;
+  column-gap: 12px;
 }
 
 .partyCard{
