@@ -1,27 +1,35 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
+import { Socket } from 'ngx-socket-io';
 
 export interface Party {
-  results:
-    {
-      id: number,
-      partyID: number;
-      charID: number;
-      curHP: number;
-      partyDesc: string;
-    }[]
+  results: PartyMember[]
+}
+
+export interface PartyMember {
+  id: number;
+  partyID: number;
+  charID: number;
+  curHP: number;
+  partyDesc: string;
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class PartyService {
-  constructor(private http: HttpClient) { }
 
-  private allPartiess = new BehaviorSubject<Party>( {results: []} as Party);
-  getAllParties = this.allPartiess.asObservable();
-  setAllParties = (arg) => { this.allPartiess.next(arg); };
+  currentMember = this.socket.fromEvent<PartyMember>('UPDATE');
+  allPartyMembers: PartyMember[];
+  constructor(
+    private http: HttpClient,
+    private socket: Socket
+  ) { }
+
+  private allParties = new BehaviorSubject<Party>( {results: []} as Party);
+  getAllParties = this.allParties.asObservable();
+  setAllParties = (arg) => { this.allParties.next(arg); };
 
   getParty = (id: string) => {
     const val =  this.http.get<Party>('/api/party/' + id, {
@@ -48,6 +56,13 @@ export class PartyService {
         'Access-Control-Allow-Origin': '*'
       }),
     });
+    let aChar;
+    this.getAllParties.subscribe(results => {
+      this.allPartyMembers = results.results;
+      aChar = results.results.find(person =>  person.charID === charID);
+    });
+    aChar.curHP = curHP;
+    this.socket.emit('UPDATE', aChar);
     return val;
   }
 

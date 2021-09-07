@@ -9,13 +9,19 @@ import { SearchComponent } from './search/search.component'
 import { NewPartyComponent } from './new-party/new-party.component';
 import { OverviewComponent } from './overview/overview.component';
 import { PartyCardComponent } from './party-card/party-card.component';
+import { SpellListComponent } from './spell-list/spell-list.component';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
+
+const config: SocketIoConfig = { url: 'http://localhost:4200', options: {} };
 
 @NgModule({
   declarations: [
     SearchComponent,
     NewPartyComponent,
     OverviewComponent,
-    PartyCardComponent
+    PartyCardComponent,
+    SpellListComponent,
   ],
   imports: [
     CommonModule,
@@ -24,6 +30,7 @@ import { PartyCardComponent } from './party-card/party-card.component';
     ReactiveFormsModule,
     NgbModule,
     FormsModule,
+    SocketIoModule.forRoot(config),
   ]
 })
 export class PartyModule { }

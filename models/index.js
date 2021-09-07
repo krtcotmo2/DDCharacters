@@ -1,8 +1,6 @@
 const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.json')[env];
 
-console.log("process.env.NODE_ENV", process.env.NODE_ENV)
-
 const Sequelize = require("sequelize");
 let sequelize;
 if (process.env.JAWSDB_URL) {

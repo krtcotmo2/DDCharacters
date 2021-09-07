@@ -14,6 +14,13 @@ import { MatSnackBar} from '@angular/material/snack-bar';
 import { OverlayModule  } from '@angular/cdk/overlay';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
+
+const config: SocketIoConfig = {
+  url: 'http://localhost:4200',
+  options: {}
+};
+
 
 @NgModule({
   declarations: [
@@ -33,6 +40,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     OverlayModule,
     FormsModule,
     FontAwesomeModule,
+    SocketIoModule.forRoot(config),
+
   ],
   providers: [MatSnackBar],
   bootstrap: [AppComponent]

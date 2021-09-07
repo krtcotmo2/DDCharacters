@@ -1,0 +1,7 @@
+.levelHolder{
+  position: relative;
+  max-height:1000px ;
+}
+.collapsed, .hidden{
+  display:none;
+}

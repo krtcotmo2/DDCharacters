@@ -2,33 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { CharDataService } from '../../services/char-data.service';
 import { UserService } from '../../services/user.service';
+import { CharBasics } from '../../services/char-data.service';
 import _ from 'lodash';
-
-interface CharBasics {
-  charID: string;
-  results: {
-    charID: number;
-    charName: string;
-    charHP: number;
-    init: number;
-    userID: number;
-    Alignment: {
-      alignID: number;
-      alignName: string;
-    },
-    Race: {
-      raceID: number;
-      raceDesc: string;
-    },
-    CharLevels: {
-      classLevel: number;
-      CharClass: {
-        className: string;
-        classID: number;
-      }
-    }[]
-  };
-}
 
 @Component({
   selector: 'app-char-spells',

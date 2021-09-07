@@ -1,0 +1,18 @@
+<div *ngFor="let level of levelBreakDown">
+  <div class="sixteen wide column" style='padding: 1rem 0'>
+    <i class="arrow circle down icon pointer" (click)="toggelDisplay($event, level)"></i><h3 style='display:inline'>Level  {{level.spellLevel}} <span style="float:right">{{getRemaining(level)}}</span></h3>
+  </div>
+  <div id={{setIDName(level)}} class='levelHolder'>
+    <div *ngFor='let nt of filteredSpells(level.spellLevel)' class="ui grid gridRow" >
+      <div class="column two wide ui" style="padding: 0 1rem">
+        <div class="ui checkbox">
+          <input type="checkbox" name={{nt.id}} [(checked)]="nt.isCast">
+          <label></label>
+        </div>
+      </div>
+      <span class='stat twelve wide column' style='font-weight: normal; padding: 0 1rem;'>
+          <span style='display:flex; justify-content: space-between; justify-items: stretch;'>{{nt.spellName}}</span>
+      </span>
+    </div>
+  </div>
+</div>
