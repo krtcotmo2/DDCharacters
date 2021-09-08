@@ -38,7 +38,8 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "dist", "character", "index.html"));
 });
 
-io.sockets.on('connection', (socket) => {
+//io.sockets.on('connection', (socket) => {
+  io.on('connection', (socket) => {
   
     console.log(`Socket ${socket.id} has connected`);
      
