@@ -9,22 +9,22 @@ const bodyParser = require('body-parser');
 const indexRouter = require('./routes/index');
 const db = require("./models");
 const cors = require('cors');
-// const socketIO = require('socket.io')(server, {
-//   cors: {
-//     origin: 'http://localhost:4200',
-//     credentials: true
-//   }
-// });
+const socketIO = require('socket.io')(server, {
+  cors: {
+    origin: 'http://localhost:4200',
+    credentials: true
+  }
+});
 // const socketIO = require('socket.io')(server);
 // const io = socketIO.listen(3000);
 
-const io = require('socket.io')(server, {
-    cors: {
-      origin: 'http://localhost:4200',
-      credentials: true,
-      methods: ["GET", "POST"],
-    }
-  });
+// const io = require('socket.io')(server, {
+//     cors: {
+//       origin: 'http://localhost:4200',
+//       credentials: true,
+//       methods: ["GET", "POST"],
+//     }
+//   });
 
 // app.use(cors( {
 //   origin: 'http://localhost:4200',

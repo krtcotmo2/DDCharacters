@@ -482,7 +482,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var config = {
       url: 'http://localhost:4200',
       options: {}
-    };
+    }; // const config = SocketIoModule.forRoot({
+    //   url: `wss://${document.location.host}`,
+    //   options: {
+    //     transports: ['websocket'],
+    //     upgrade : true,
+    //     path: 'http://localhost:4200/socket.io'
+    //   }
+    // });
 
     var AppModule = function AppModule() {
       _classCallCheck(this, AppModule);

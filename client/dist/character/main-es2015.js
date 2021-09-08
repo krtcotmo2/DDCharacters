@@ -230,6 +230,14 @@ const config = {
     url: 'http://localhost:4200',
     options: {}
 };
+// const config = SocketIoModule.forRoot({
+//   url: `wss://${document.location.host}`,
+//   options: {
+//     transports: ['websocket'],
+//     upgrade : true,
+//     path: 'http://localhost:4200/socket.io'
+//   }
+// });
 class AppModule {
 }
 AppModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]] });
