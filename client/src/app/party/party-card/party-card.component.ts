@@ -55,11 +55,11 @@ export class PartyCardComponent implements OnInit {
       this.charAC = char.CharACs.reduce( (x, y) => x + y.score, 0 );
     });
     this.charDataSvc.loadSpells(this.charID).subscribe( spells => {
+      console.log(this.charName, spells.results);
       this.isCaster = spells.results.length > 0;
       this.spellList = spells.results;
     });
     this.charDataSvc.loadSaves(this.charID.toString()).subscribe( saves => {
-      this.isCaster = saves.results.length > 0;
       this.fortSave = saves.results.filter( save => save.saveID === 1 ).reduce( (x, y) => x + y.score, 0);
       this.reflexSave = saves.results.filter( save => save.saveID === 2 ).reduce( (x, y) => x + y.score, 0);
       this.willSave = saves.results.filter( save => save.saveID === 3 ).reduce( (x, y) => x + y.score, 0);
