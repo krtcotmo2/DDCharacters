@@ -1,7 +1,7 @@
 const http = require('http');
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4200;
 const path = require('path');
 const server = http.createServer(app);
 const cookieParser = require('cookie-parser');
@@ -15,7 +15,7 @@ const socketIO = require('socket.io')(server, {
     credentials: true
   }
 });
-const io = socketIO.listen(3001);
+const io = socketIO.listen(3000);
 
 app.use(cors( {
   origin: 'http://localhost:4200',
