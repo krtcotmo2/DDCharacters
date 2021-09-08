@@ -25,7 +25,7 @@ const config = SocketIoModule.forRoot({
   options: {
     transports: ['websocket'],
     upgrade : true,
-    path: '/SomeUniqueEndpoint/socket.io'
+    path: 'http://localhost:4200/socket.io'
   }
 });
 
