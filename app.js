@@ -21,16 +21,24 @@ const cors = require('cors');
 const io = require('socket.io')(server, {
     cors: {
       origin: '*',
-      credentials: true,
-      methods: ["GET", "POST"],
+      handlePreflightRequest: (res, req) => {
+        res.WriteHead(200, {
+          'Access-Control-Allow-Origin':'*',
+          'Access-Control-Allow-Methods': 'GET,POST',
+          'Access-Control-Allow-Headers': 'custom-header',
+          'Access-Control-Allow-Credentials': true
+        })
+      },
+      //credentials: true,
+      //methods: ["GET", "POST"],
     }
   });
 
-app.use(cors( {
-  origin: 'https://dd-characters.herokuapp.com',
-  credentials: true,
-  methods: ["GET", "POST"],
-}));
+// app.use(cors( {
+//   origin: 'https://dd-characters.herokuapp.com',
+//   credentials: true,
+//   methods: ["GET", "POST"],
+// }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
