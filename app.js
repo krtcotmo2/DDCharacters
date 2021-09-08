@@ -20,7 +20,7 @@ const cors = require('cors');
 
 const io = require('socket.io')(server, {
     cors: {
-      origin: 'https://dd-characters.herokuapp.com',
+      origin: '*',
       credentials: true,
       methods: ["GET", "POST"],
     }
