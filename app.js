@@ -15,8 +15,10 @@ const cors = require('cors');
 //     credentials: true
 //   }
 // });
-const socketIO = require('socket.io')(server);
-const io = socketIO.listen(3000);
+// const socketIO = require('socket.io')(server);
+// const io = socketIO.listen(3000);
+
+const io = require('socket.io')(server);
 
 // app.use(cors( {
 //   origin: 'http://localhost:4200',
