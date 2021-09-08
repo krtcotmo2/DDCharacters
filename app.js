@@ -18,7 +18,13 @@ const cors = require('cors');
 // const socketIO = require('socket.io')(server);
 // const io = socketIO.listen(3000);
 
-const io = require('socket.io')(server);
+const io = require('socket.io')(server, {
+    cors: {
+      origin: 'https://dd-characters.herokuapp.com/',
+      credentials: true,
+      methods: ["GET", "POST"],
+    }
+  });
 
 // app.use(cors( {
 //   origin: 'http://localhost:4200',
@@ -45,7 +51,6 @@ app.get("*", (req, res) => {
      
 
     socket.on('UPDATE', (newChar) => {
-      console.log(newChar)
       io.sockets.emit('update', {currentMember: {...newChar}, type: 'UPDATE'});
     })
 });
