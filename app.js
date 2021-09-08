@@ -9,22 +9,22 @@ const bodyParser = require('body-parser');
 const indexRouter = require('./routes/index');
 const db = require("./models");
 const cors = require('cors');
-const socketIO = require('socket.io')(server, {
-  cors: {
-    origin: 'http://localhost:4200',
-    credentials: true
-  }
-});
+// const socketIO = require('socket.io')(server, {
+//   cors: {
+//     origin: 'http://localhost:4200',
+//     credentials: true
+//   }
+// });
 // const socketIO = require('socket.io')(server);
 // const io = socketIO.listen(3000);
 
-// const io = require('socket.io')(server, {
-//     cors: {
-//       origin: 'http://localhost:4200',
-//       credentials: true,
-//       methods: ["GET", "POST"],
-//     }
-//   });
+const io = require('socket.io')(server, {
+    cors: {
+      origins: 'http://dd-characters.herokuapp.com',
+      credentials: true,
+      methods: ["GET", "POST"],
+    }
+  });
 
 // app.use(cors( {
 //   origin: 'http://localhost:4200',
@@ -40,7 +40,6 @@ db.sequelize.sync().then(function() {
   app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
