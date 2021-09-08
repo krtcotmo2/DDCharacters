@@ -488,7 +488,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./node_modules/ngx-socket-io/__ivy_ngcc__/fesm2015/ngx-socket-io.js");
 
     var config = {
-      url: 'http://localhost:4200',
+      url: 'http://localhost:3000',
       options: {}
     };
 

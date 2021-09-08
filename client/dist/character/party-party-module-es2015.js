@@ -427,7 +427,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const config = { url: 'http://localhost:4200', options: {} };
+const config = { url: 'http://localhost:3000', options: {} };
 class PartyModule {
 }
 PartyModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({ type: PartyModule });
