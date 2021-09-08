@@ -20,15 +20,16 @@ const cors = require('cors');
 
 const io = require('socket.io')(server, {
     cors: {
-      origin: 'https://dd-characters.herokuapp.com',
+      origin: 'http://dd-characters.herokuapp.com',
       credentials: true,
       methods: ["GET", "POST"],
     }
   });
 
 app.use(cors( {
-  origin: 'https://dd-characters.herokuapp.com',
-  credentials: true
+  origin: 'http://dd-characters.herokuapp.com',
+  credentials: true,
+  methods: ["GET", "POST"],
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
