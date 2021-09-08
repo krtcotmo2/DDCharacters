@@ -228,7 +228,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const config = {
-    url: 'http://localhost:3000',
+    url: 'http://localhost:4200',
     options: {}
 };
 class AppModule {
