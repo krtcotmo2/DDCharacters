@@ -8,6 +8,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const indexRouter = require('./routes/index');
 const db = require("./models");
+const env = process.env.NODE_ENV || 'development';
 const cors = require('cors');
 // const socketIO = require('socket.io')(server, {
 //   cors: {
@@ -20,7 +21,7 @@ const cors = require('cors');
 
 const io = require('socket.io')(server, {
     cors: {
-      origins: 'http://dd-characters.herokuapp.com',
+      origins: process.env.socketURL ? process.env.socketURL : 'http://dd-characters.herokuapp.com',
       credentials: true,
       methods: ["GET", "POST"],
     }
