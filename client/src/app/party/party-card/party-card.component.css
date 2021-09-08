@@ -48,3 +48,32 @@
   margin: 0 -14px;
   padding: 14px;
 }
+.fine{
+  margin: 0 -14px 19px -14px;
+  width: calc(100% + 28px);
+  padding: 3px 14px;
+
+}
+.red{
+  margin: 0 -14px 19px -14px;
+  width: calc(100% + 28px);
+  padding: 3px 14px;
+  background: red;
+  color: white;
+}
+.yellow{
+  margin: 0 -14px 19px -14px;
+  width: calc(100% + 28px);
+  padding: 3px 14px;
+ background: rgb(238, 227, 125);
+}
+.dead{
+  margin: 0 -14px 19px -14px;
+  width: calc(100% + 28px);
+  padding: 3px 14px;
+  background: black;
+  color: white;
+}
+.collapsed{
+  display: none;
+}

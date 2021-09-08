@@ -104,6 +104,26 @@ export class PartyCardComponent implements OnInit {
   doNothing = (evt: Event): void => {
     evt.preventDefault();
   }
+  buildClass = (): string => {
+    switch (true) {
+      case this.curHP > this.maxHP * 0.66:
+        return 'fine';
+      case this.curHP > this.maxHP * 0.25 && this.curHP <= this.maxHP * 0.66:
+        return 'yellow';
+      case this.curHP > -1 && this.curHP <= this.maxHP * 0.25:
+        return 'red';
+      case this.curHP < 0:
+        return 'dead';
+    }
+  }
+
+  toggelDisplay = (evt: Event) => {
+    const ico: HTMLElement = evt.target as HTMLElement;
+    ico.classList.toggle('down');
+    ico.classList.toggle('right');
+    const el: HTMLElement = ico.parentElement.nextSibling as HTMLElement;
+    el.classList.toggle('collapsed');
+  }
 }
 
 

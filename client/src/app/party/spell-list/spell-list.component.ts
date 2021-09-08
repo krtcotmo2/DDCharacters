@@ -58,4 +58,5 @@ export class SpellListComponent implements OnInit {
       !spell.isCast).length;
     return `${unused} of ${count}`;
   }
+
 }

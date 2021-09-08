@@ -1,6 +1,6 @@
 <p><b>{{charName}}</b></p>
 <p>AC: {{charAC}}</p>
-<p>HP: {{curHP}}</p>
+<p [ngClass]="buildClass()">HP: {{curHP}}</p>
 <form #hpForm='ngForm'  (ngSubmit)='doNothing($event)'>
   <div *ngIf="dmTools" class="ui small buttons hpAdjuster">
     <button class="ui button healBtn" (click)="addHP(true)">Heal</button>
@@ -19,7 +19,7 @@
 <p>Scroll List</p>
 <div *ngIf="isCaster">
   <div>
-    <b>Spells</b>
+    <i class="arrow circle down icon pointer" (click)="toggelDisplay($event)"></i><b>Spells</b>
   </div>
   <app-spell-list
     [spellList]="spellList"

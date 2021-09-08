@@ -31,7 +31,13 @@ const io = require('socket.io')(server, {
 //   credentials: true,
 //   methods: ["GET", "POST"],
 // }));
-app.use(express.json());
+
+
+
+
+db.sequelize.sync().then(function() {
+
+  app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
@@ -57,8 +63,6 @@ app.get("*", (req, res) => {
 });
 
 
-
-db.sequelize.sync().then(function() {
   server.listen(PORT, () => {
     console.log(`🌎 ==> API server now on port ${PORT}!`);
   });
