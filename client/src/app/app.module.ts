@@ -25,7 +25,7 @@ const config:SocketIoConfig = {
   options: {
     transports: ['websocket'],
     upgrade : true,
-    path: 'https://dd-characters.herokuapp.com'
+    path: ''
   }
 };
 

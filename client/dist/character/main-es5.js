@@ -488,7 +488,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       options: {
         transports: ['websocket'],
         upgrade: true,
-        path: 'https://dd-characters.herokuapp.com'
+        path: ''
       }
     };
 
