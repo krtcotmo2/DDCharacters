@@ -1,4 +1,4 @@
-const http = require('http');
+const http = require('https');
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 4200;
@@ -20,14 +20,14 @@ const cors = require('cors');
 
 const io = require('socket.io')(server, {
     cors: {
-      origin: 'http://dd-characters.herokuapp.com',
+      origin: 'https://dd-characters.herokuapp.com',
       credentials: true,
       methods: ["GET", "POST"],
     }
   });
 
 app.use(cors( {
-  origin: 'http://dd-characters.herokuapp.com',
+  origin: 'https://dd-characters.herokuapp.com',
   credentials: true,
   methods: ["GET", "POST"],
 }));
