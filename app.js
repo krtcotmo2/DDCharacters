@@ -57,10 +57,7 @@ app.get("*", (req, res) => {
 
 //io.sockets.on('connection', (socket) => {
   io.on('connection', (socket) => {
-  
     console.log(`Socket ${socket.id} has connected`);
-     
-
     socket.on('UPDATE', (newChar) => {
       io.sockets.emit('update', {currentMember: {...newChar}, type: 'UPDATE'});
     })
