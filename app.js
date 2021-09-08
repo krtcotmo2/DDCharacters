@@ -26,11 +26,11 @@ const io = require('socket.io')(server, {
     }
   });
 
-app.use(cors( {
-  origin: 'http://localhost:4200',
-  credentials: true,
-  methods: ["GET", "POST"],
-}));
+// app.use(cors( {
+//   origin: 'http://localhost:4200',
+//   credentials: true,
+//   methods: ["GET", "POST"],
+// }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
