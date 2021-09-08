@@ -5,6 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { OverviewComponent} from './party/overview/overview.component';
+import { SearchComponent} from './party/search/search.component'
 import { NewCharComponent } from './newChar/new-char/new-char.component';
 import { ChargenHomeComponent } from './chargen/chargen-home/chargen-home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -28,6 +30,8 @@ const config: SocketIoConfig = {
     HomeComponent,
     NewCharComponent,
     ChargenHomeComponent,
+    SearchComponent,
+    OverviewComponent,
   ],
 
   imports: [
