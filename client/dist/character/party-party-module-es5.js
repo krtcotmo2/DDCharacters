@@ -1573,7 +1573,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         this.reportCheck = function (evt, id) {
           var aSpell = _this7.spellList.find(function (x) {
-            return x.id === +id;
+            return x.id === parseInt(id);
           });
 
           var chk = evt.target;
@@ -1587,7 +1587,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (retVal === true) {
               _this7.socket.emit('SPELLUPDATE', body);
 
-              console.log('saved char sheet emit changes spell');
+              console.log('saved party sheet emit changes spell', body);
             } else {
               console.log('save error');
             }
