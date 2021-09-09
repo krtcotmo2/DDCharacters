@@ -72,9 +72,9 @@ export class PartyCardComponent implements OnInit {
     });
     this.subs.push(
       this.socketService.updateHP().subscribe( (data: any): void => {
-        if (data.currentMember.charID === this.charID) {
+        if (data.charID === this.charID) {
           this.currentMember = data;
-          this.curHP = data.currentMember.curHP;
+          this.curHP = data.curHP;
         }
       }),
     );

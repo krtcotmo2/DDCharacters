@@ -287,9 +287,9 @@ class PartyCardComponent {
             }
         });
         this.subs.push(this.socketService.updateHP().subscribe((data) => {
-            if (data.currentMember.charID === this.charID) {
+            if (data.charID === this.charID) {
                 this.currentMember = data;
-                this.curHP = data.currentMember.curHP;
+                this.curHP = data.curHP;
             }
         }));
     }
@@ -627,7 +627,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+/* harmony import */ var src_app_services_socket_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/socket.service */ "./src/app/services/socket.service.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+
 
 
 
@@ -695,11 +697,13 @@ function SpellListComponent_div_0_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r317.filteredSpells(level_r318.spellLevel));
 } }
 class SpellListComponent {
-    constructor() {
+    constructor(socketService) {
+        this.socketService = socketService;
         this.spellList = [];
         this.spellStringBuilder = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         this.levelBreakDown = [];
         this.filterText = '';
+        this.subs = [];
         this.toggelDisplay = (evt, lvl) => {
             const el = document.getElementById('lvl' + lvl.spellLevel + '-' + this.charID);
             el.classList.toggle('collapsed');
@@ -740,6 +744,14 @@ class SpellListComponent {
     }
     ngOnInit() {
         this.levelBreakDown = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.uniqBy(this.spellList, 'spellLevel');
+        this.subs.push(this.socketService.updateSpell().subscribe((data) => {
+            console.log('party sheet senses update spell', data, this.spellList);
+            const aSpell = this.spellList.find(spell => spell.id === data.id);
+            if (aSpell) {
+                aSpell.isCast = data.currentStatus;
+            }
+            console.log('party sheet senses update spell', data, aSpell, this.spellList);
+        }));
     }
     getRemaining(arg) {
         const count = this.spellList.filter(spell => spell.spellLevel === arg.spellLevel).length;
@@ -748,12 +760,12 @@ class SpellListComponent {
         return `${unused} of ${count}`;
     }
 }
-SpellListComponent.ɵfac = function SpellListComponent_Factory(t) { return new (t || SpellListComponent)(); };
+SpellListComponent.ɵfac = function SpellListComponent_Factory(t) { return new (t || SpellListComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_services_socket_service__WEBPACK_IMPORTED_MODULE_2__["SocketService"])); };
 SpellListComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: SpellListComponent, selectors: [["app-spell-list"]], inputs: { spellList: "spellList", charID: "charID" }, outputs: { spellStringBuilder: "spellStringBuilder" }, decls: 1, vars: 1, consts: [[4, "ngFor", "ngForOf"], [1, "sixteen", "wide", "column", 2, "padding", "1rem 0"], [1, "arrow", "circle", "down", "icon", "pointer", 3, "click"], [2, "display", "inline"], [2, "float", "right"], [1, "levelHolder", 3, "id"], ["class", "ui grid gridRow", 4, "ngFor", "ngForOf"], [1, "ui", "grid", "gridRow"], [1, "column", "two", "wide", "ui", 2, "padding", "0 1rem"], [1, "ui", "checkbox"], ["type", "checkbox", 3, "name", "checked", "checkedChange", 4, "ngIf"], [1, "stat", "twelve", "wide", "column", 2, "font-weight", "normal", "padding", "0 1rem"], [2, "display", "flex", "justify-content", "space-between", "justify-items", "stretch"], ["type", "checkbox", 3, "name", "checked", "checkedChange"]], template: function SpellListComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, SpellListComponent_div_0_Template, 9, 4, "div", 0);
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.levelBreakDown);
-    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["NgForOf"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["NgIf"]], styles: [".levelHolder[_ngcontent-%COMP%]{\r\n  position: relative;\r\n  max-height:1000px ;\r\n}\r\n.collapsed[_ngcontent-%COMP%], .hidden[_ngcontent-%COMP%]{\r\n  display:none;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFydHkvc3BlbGwtbGlzdC9zcGVsbC1saXN0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxrQkFBa0I7RUFDbEIsa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSxZQUFZO0FBQ2QiLCJmaWxlIjoic3JjL2FwcC9wYXJ0eS9zcGVsbC1saXN0L3NwZWxsLWxpc3QuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5sZXZlbEhvbGRlcntcclxuICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgbWF4LWhlaWdodDoxMDAwcHggO1xyXG59XHJcbi5jb2xsYXBzZWQsIC5oaWRkZW57XHJcbiAgZGlzcGxheTpub25lO1xyXG59XHJcbiJdfQ== */"] });
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_3__["NgForOf"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgIf"]], styles: [".levelHolder[_ngcontent-%COMP%]{\r\n  position: relative;\r\n  max-height:1000px ;\r\n}\r\n.collapsed[_ngcontent-%COMP%], .hidden[_ngcontent-%COMP%]{\r\n  display:none;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFydHkvc3BlbGwtbGlzdC9zcGVsbC1saXN0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxrQkFBa0I7RUFDbEIsa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSxZQUFZO0FBQ2QiLCJmaWxlIjoic3JjL2FwcC9wYXJ0eS9zcGVsbC1saXN0L3NwZWxsLWxpc3QuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5sZXZlbEhvbGRlcntcclxuICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgbWF4LWhlaWdodDoxMDAwcHggO1xyXG59XHJcbi5jb2xsYXBzZWQsIC5oaWRkZW57XHJcbiAgZGlzcGxheTpub25lO1xyXG59XHJcbiJdfQ== */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](SpellListComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -761,7 +773,7 @@ SpellListComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefin
                 templateUrl: './spell-list.component.html',
                 styleUrls: ['./spell-list.component.css']
             }]
-    }], function () { return []; }, { spellList: [{
+    }], function () { return [{ type: src_app_services_socket_service__WEBPACK_IMPORTED_MODULE_2__["SocketService"] }]; }, { spellList: [{
             type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
         }], charID: [{
             type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
@@ -796,7 +808,6 @@ class PartyService {
     constructor(http, socket) {
         this.http = http;
         this.socket = socket;
-        this.currentMember = this.socket.fromEvent('UPDATE');
         this.allParties = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]({ results: [] });
         this.getAllParties = this.allParties.asObservable();
         this.setAllParties = (arg) => { this.allParties.next(arg); };
@@ -842,50 +853,6 @@ PartyService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInje
                 providedIn: 'root'
             }]
     }], function () { return [{ type: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"] }, { type: ngx_socket_io__WEBPACK_IMPORTED_MODULE_3__["Socket"] }]; }, null); })();
-
-
-/***/ }),
-
-/***/ "./src/app/services/socket.service.ts":
-/*!********************************************!*\
-  !*** ./src/app/services/socket.service.ts ***!
-  \********************************************/
-/*! exports provided: SocketService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SocketService", function() { return SocketService; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var ngx_socket_io__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ngx-socket-io */ "./node_modules/ngx-socket-io/__ivy_ngcc__/fesm2015/ngx-socket-io.js");
-
-
-
-class SocketService {
-    constructor(socket) {
-        this.socket = socket;
-    }
-    getInitialData() {
-        return this.createObserver('initial');
-    }
-    updateHP() {
-        return this.createObserver('hpUupdate');
-    }
-    updateSpell() {
-        return this.createObserver('spellUupdate');
-    }
-    createObserver(evt) {
-        return this.socket.fromEvent(evt);
-    }
-}
-SocketService.ɵfac = function SocketService_Factory(t) { return new (t || SocketService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](ngx_socket_io__WEBPACK_IMPORTED_MODULE_1__["Socket"])); };
-SocketService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: SocketService, factory: SocketService.ɵfac, providedIn: 'root' });
-/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](SocketService, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
-        args: [{
-                providedIn: 'root'
-            }]
-    }], function () { return [{ type: ngx_socket_io__WEBPACK_IMPORTED_MODULE_1__["Socket"] }]; }, null); })();
 
 
 /***/ })

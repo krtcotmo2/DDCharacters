@@ -1,10 +1,9 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
-import { Party, PartyService } from 'src/app/services/party.service';
 import _ from 'lodash';
 import { CharBasics, CharDataService } from 'src/app/services/char-data.service';
 import { CharService } from 'src/app/services/char.service';
-import { ThrowStmt } from '@angular/compiler';
+import { SocketService } from 'src/app/services/socket.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-spell-list',
@@ -18,11 +17,26 @@ export class SpellListComponent implements OnInit {
   availableSpells: string;
   levelBreakDown = [];
   filterText = '';
+  subs: Subscription[] = [];
 
-  constructor() { }
+
+  constructor(
+    private socketService: SocketService,
+  ) { }
 
   ngOnInit(): void {
     this.levelBreakDown =  _.uniqBy(this.spellList, 'spellLevel');
+    this.subs.push(
+      this.socketService.updateSpell().subscribe( (data: any): void => {
+        console.log('party sheet senses update spell', data, this.spellList);
+        const aSpell = this.spellList.find(spell => spell.id === data.id);
+        if(aSpell){
+          aSpell.isCast = data.currentStatus;
+        }
+        console.log('party sheet senses update spell', data, aSpell, this.spellList);
+
+      }),
+    );
   }
 
   toggelDisplay = (evt: Event, lvl: any) => {

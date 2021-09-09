@@ -18163,6 +18163,91 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     })();
     /***/
 
+  },
+
+  /***/
+  "./src/app/services/socket.service.ts": function srcAppServicesSocketServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "SocketService", function () {
+      return SocketService;
+    });
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var ngx_socket_io__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! ngx-socket-io */
+    "./node_modules/ngx-socket-io/__ivy_ngcc__/fesm2015/ngx-socket-io.js");
+
+    var SocketService =
+    /*#__PURE__*/
+    function () {
+      function SocketService(socket) {
+        _classCallCheck(this, SocketService);
+
+        this.socket = socket;
+      }
+
+      _createClass(SocketService, [{
+        key: "getInitialData",
+        value: function getInitialData() {
+          return this.createObserver('initial');
+        }
+      }, {
+        key: "updateHP",
+        value: function updateHP() {
+          return this.createObserver('hpUupdate');
+        }
+      }, {
+        key: "updateSpell",
+        value: function updateSpell() {
+          return this.createObserver('spellUpdate');
+        }
+      }, {
+        key: "createObserver",
+        value: function createObserver(evt) {
+          return this.socket.fromEvent(evt);
+        }
+      }]);
+
+      return SocketService;
+    }();
+
+    SocketService.ɵfac = function SocketService_Factory(t) {
+      return new (t || SocketService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](ngx_socket_io__WEBPACK_IMPORTED_MODULE_1__["Socket"]));
+    };
+
+    SocketService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({
+      token: SocketService,
+      factory: SocketService.ɵfac,
+      providedIn: 'root'
+    });
+    /*@__PURE__*/
+
+    (function () {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](SocketService, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
+        args: [{
+          providedIn: 'root'
+        }]
+      }], function () {
+        return [{
+          type: ngx_socket_io__WEBPACK_IMPORTED_MODULE_1__["Socket"]
+        }];
+      }, null);
+    })();
+    /***/
+
   }
 }]);
 //# sourceMappingURL=default~chargen-chargen-module~party-party-module-es5.js.map

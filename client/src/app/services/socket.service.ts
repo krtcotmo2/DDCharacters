@@ -17,10 +17,10 @@ export class SocketService {
   }
 
   updateSpell() {
-    return this.createObserver('spellUupdate');
+    return this.createObserver('spellUpdate');
   }
 
-  private createObserver(evt: string){
+  private createObserver(evt: string) {
     return this.socket.fromEvent(evt);
   }
 }

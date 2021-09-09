@@ -635,9 +635,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             }
           });
           this.subs.push(this.socketService.updateHP().subscribe(function (data) {
-            if (data.currentMember.charID === _this4.charID) {
+            if (data.charID === _this4.charID) {
               _this4.currentMember = data;
-              _this4.curHP = data.currentMember.curHP;
+              _this4.curHP = data.curHP;
             }
           }));
         }
@@ -1315,7 +1315,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var src_app_services_socket_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/services/socket.service */
+    "./src/app/services/socket.service.ts");
+    /* harmony import */
+
+
+    var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/common */
     "./node_modules/@angular/common/fesm2015/common.js");
 
@@ -1460,15 +1466,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var SpellListComponent =
     /*#__PURE__*/
     function () {
-      function SpellListComponent() {
+      function SpellListComponent(socketService) {
         var _this7 = this;
 
         _classCallCheck(this, SpellListComponent);
 
+        this.socketService = socketService;
         this.spellList = [];
         this.spellStringBuilder = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         this.levelBreakDown = [];
         this.filterText = '';
+        this.subs = [];
 
         this.toggelDisplay = function (evt, lvl) {
           var el = document.getElementById('lvl' + lvl.spellLevel + '-' + _this7.charID);
@@ -1535,7 +1543,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(SpellListComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
+          var _this8 = this;
+
           this.levelBreakDown = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.uniqBy(this.spellList, 'spellLevel');
+          this.subs.push(this.socketService.updateSpell().subscribe(function (data) {
+            console.log('party sheet senses update spell', data, _this8.spellList);
+
+            var aSpell = _this8.spellList.find(function (spell) {
+              return spell.id === data.id;
+            });
+
+            if (aSpell) {
+              aSpell.isCast = data.currentStatus;
+            }
+
+            console.log('party sheet senses update spell', data, aSpell, _this8.spellList);
+          }));
         }
       }, {
         key: "getRemaining",
@@ -1554,7 +1577,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     }();
 
     SpellListComponent.ɵfac = function SpellListComponent_Factory(t) {
-      return new (t || SpellListComponent)();
+      return new (t || SpellListComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_services_socket_service__WEBPACK_IMPORTED_MODULE_2__["SocketService"]));
     };
 
     SpellListComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
@@ -1579,7 +1602,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.levelBreakDown);
         }
       },
-      directives: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["NgForOf"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["NgIf"]],
+      directives: [_angular_common__WEBPACK_IMPORTED_MODULE_3__["NgForOf"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgIf"]],
       styles: [".levelHolder[_ngcontent-%COMP%]{\r\n  position: relative;\r\n  max-height:1000px ;\r\n}\r\n.collapsed[_ngcontent-%COMP%], .hidden[_ngcontent-%COMP%]{\r\n  display:none;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFydHkvc3BlbGwtbGlzdC9zcGVsbC1saXN0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxrQkFBa0I7RUFDbEIsa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSxZQUFZO0FBQ2QiLCJmaWxlIjoic3JjL2FwcC9wYXJ0eS9zcGVsbC1saXN0L3NwZWxsLWxpc3QuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5sZXZlbEhvbGRlcntcclxuICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgbWF4LWhlaWdodDoxMDAwcHggO1xyXG59XHJcbi5jb2xsYXBzZWQsIC5oaWRkZW57XHJcbiAgZGlzcGxheTpub25lO1xyXG59XHJcbiJdfQ== */"]
     });
     /*@__PURE__*/
@@ -1593,7 +1616,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           styleUrls: ['./spell-list.component.css']
         }]
       }], function () {
-        return [];
+        return [{
+          type: src_app_services_socket_service__WEBPACK_IMPORTED_MODULE_2__["SocketService"]
+        }];
       }, {
         spellList: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
@@ -1647,24 +1672,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     "./node_modules/ngx-socket-io/__ivy_ngcc__/fesm2015/ngx-socket-io.js");
 
     var PartyService = function PartyService(http, socket) {
-      var _this8 = this;
+      var _this9 = this;
 
       _classCallCheck(this, PartyService);
 
       this.http = http;
       this.socket = socket;
-      this.currentMember = this.socket.fromEvent('UPDATE');
       this.allParties = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]({
         results: []
       });
       this.getAllParties = this.allParties.asObservable();
 
       this.setAllParties = function (arg) {
-        _this8.allParties.next(arg);
+        _this9.allParties.next(arg);
       };
 
       this.getParty = function (id) {
-        var val = _this8.http.get('/api/party/' + id, {
+        var val = _this9.http.get('/api/party/' + id, {
           headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
             'Access-Control-Allow-Origin': '*'
           })
@@ -1674,7 +1698,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       };
 
       this.loadParties = function () {
-        var val = _this8.http.get('/api/party/all', {
+        var val = _this9.http.get('/api/party/all', {
           headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
             'Access-Control-Allow-Origin': '*'
           })
@@ -1690,7 +1714,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           curHP: curHP
         };
 
-        var val = _this8.http.post('/api/party/updateHP', body, {
+        var val = _this9.http.post('/api/party/updateHP', body, {
           headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
             'Access-Control-Allow-Origin': '*'
           })
@@ -1698,8 +1722,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         var aChar;
 
-        _this8.getAllParties.subscribe(function (results) {
-          _this8.allPartyMembers = results.results;
+        _this9.getAllParties.subscribe(function (results) {
+          _this9.allPartyMembers = results.results;
           aChar = results.results.find(function (person) {
             return person.charID === charID;
           });
@@ -1707,7 +1731,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         aChar.curHP = curHP;
 
-        _this8.socket.emit('HPUPDATE', aChar);
+        _this9.socket.emit('HPUPDATE', aChar);
 
         return val;
       };
@@ -1735,91 +1759,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           type: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]
         }, {
           type: ngx_socket_io__WEBPACK_IMPORTED_MODULE_3__["Socket"]
-        }];
-      }, null);
-    })();
-    /***/
-
-  },
-
-  /***/
-  "./src/app/services/socket.service.ts": function srcAppServicesSocketServiceTs(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "SocketService", function () {
-      return SocketService;
-    });
-    /* harmony import */
-
-
-    var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
-    /* harmony import */
-
-
-    var ngx_socket_io__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! ngx-socket-io */
-    "./node_modules/ngx-socket-io/__ivy_ngcc__/fesm2015/ngx-socket-io.js");
-
-    var SocketService =
-    /*#__PURE__*/
-    function () {
-      function SocketService(socket) {
-        _classCallCheck(this, SocketService);
-
-        this.socket = socket;
-      }
-
-      _createClass(SocketService, [{
-        key: "getInitialData",
-        value: function getInitialData() {
-          return this.createObserver('initial');
-        }
-      }, {
-        key: "updateHP",
-        value: function updateHP() {
-          return this.createObserver('hpUupdate');
-        }
-      }, {
-        key: "updateSpell",
-        value: function updateSpell() {
-          return this.createObserver('spellUupdate');
-        }
-      }, {
-        key: "createObserver",
-        value: function createObserver(evt) {
-          return this.socket.fromEvent(evt);
-        }
-      }]);
-
-      return SocketService;
-    }();
-
-    SocketService.ɵfac = function SocketService_Factory(t) {
-      return new (t || SocketService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](ngx_socket_io__WEBPACK_IMPORTED_MODULE_1__["Socket"]));
-    };
-
-    SocketService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({
-      token: SocketService,
-      factory: SocketService.ɵfac,
-      providedIn: 'root'
-    });
-    /*@__PURE__*/
-
-    (function () {
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](SocketService, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
-        args: [{
-          providedIn: 'root'
-        }]
-      }], function () {
-        return [{
-          type: ngx_socket_io__WEBPACK_IMPORTED_MODULE_1__["Socket"]
         }];
       }, null);
     })();

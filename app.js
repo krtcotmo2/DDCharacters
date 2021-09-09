@@ -41,10 +41,10 @@ db.sequelize.sync().then(function() {
 
   io.on('connection', (socket) => {
     socket.on('HPUPDATE', (newChar) => {
-      io.sockets.emit('hpUupdate', {currentMember: {...newChar}, type: 'HPUPDATE'});
+      io.sockets.emit('hpUupdate', {...newChar, type: 'HPUPDATE'});
     })
-    socket.on('SPELLUPDATE', (newChar) => {
-      io.sockets.emit('spellUupdate', {currentMember: {...newChar}, type: 'SPELLUPDATE'});
+    socket.on('SPELLUPDATE', (spellData) => {
+      io.sockets.emit('spellUpdate', {...spellData, type: 'SPELLUPDATE'});
     })
   });
 

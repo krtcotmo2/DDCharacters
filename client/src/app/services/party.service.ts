@@ -20,7 +20,6 @@ export interface PartyMember {
 })
 export class PartyService {
 
-  currentMember = this.socket.fromEvent<PartyMember>('UPDATE');
   allPartyMembers: PartyMember[];
   constructor(
     private http: HttpClient,

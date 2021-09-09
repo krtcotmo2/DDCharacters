@@ -4,6 +4,9 @@ import { CharDataService } from '../../services/char-data.service';
 import { UserService } from '../../services/user.service';
 import { CharBasics } from '../../services/char-data.service';
 import _ from 'lodash';
+import { Subscription } from 'rxjs';
+import { SocketService } from 'src/app/services/socket.service';
+import { Socket } from 'ngx-socket-io';
 
 @Component({
   selector: 'app-char-spells',
@@ -11,9 +14,9 @@ import _ from 'lodash';
   styleUrls: ['./char-spells.component.css']
 })
 export class CharSpellsComponent implements OnInit {
-  allSpells = [
-  ]
+  allSpells = [];
   levelBreakDown = [];
+  subs: Subscription[] = [];
   spellName: string;
   spellLevel: number;
   filterText = '';
@@ -23,9 +26,13 @@ export class CharSpellsComponent implements OnInit {
   isMyCharacter: boolean;
   charBasic: CharBasics;
 
-  constructor(private charDataSvc: CharDataService,
+  constructor(
+    private charDataSvc: CharDataService,
     private userService: UserService,
-    private router: Router) { }
+    private router: Router,
+    private socketService: SocketService,
+    private socket: Socket,
+  ) { }
 
   ngOnInit(): void {
     this.userService.getUser.subscribe( (val) => this.loggedIn = val);
@@ -37,6 +44,11 @@ export class CharSpellsComponent implements OnInit {
       this.charDataSvc.setAllSpells(val);
       this.levelBreakDown = Array.from(Array(this.allSpells.slice(-1).pop().spellLevel + 1), (_, i) => i);
     });
+    this.subs.push(
+      this.socketService.updateSpell().subscribe( (data: any): void => {
+        console.log('char sheet change detected spell data', data);
+      }),
+    );
   }
 
   filterList = (evt) => {
@@ -95,20 +107,21 @@ export class CharSpellsComponent implements OnInit {
     ico.classList.toggle('right')
   }
   setIDName = (lvl) => {
-    return "lvl"+lvl.toString();
+    return 'lvl' + lvl.toString();
   }
 
-  reportCheck = (evt:Event, id:string) => {
+  reportCheck = (evt: Event, id: string) => {
     let aSpell = this.allSpells.find(x => x.id === parseInt(id));
-    const chk = <HTMLInputElement>evt.target;
+    const chk = <HTMLInputElement> evt.target;
     aSpell.isCast = chk.checked;
     const body = {
-      id: id,
+      id,
       currentStatus: chk.checked
     }
     this.charDataSvc.toggleSpell(body).subscribe( retVal => {
       if(retVal === true){
-        console.log('saved');
+        this.socket.emit('SPELLUPDATE', body);
+        console.log('saved char sheet emit changes spell');
       }else{
         console.log('save error')
       }
