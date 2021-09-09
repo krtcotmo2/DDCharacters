@@ -1585,7 +1585,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _this7.charDataSvc.toggleSpell(body).subscribe(function (retVal) {
             if (retVal === true) {
-              _this7.socket.emit('SPELLUPDATE', body);
+              _this7.socket.emit('SPELLP2C', body);
 
               console.log('saved party sheet emit changes spell', body);
             } else {

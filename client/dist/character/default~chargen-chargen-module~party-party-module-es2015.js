@@ -17323,6 +17323,9 @@ class SocketService {
     updateSpell() {
         return this.createObserver('spellUpdate');
     }
+    spellP2C() {
+        return this.createObserver('spellP2C');
+    }
     createObserver(evt) {
         return this.socket.fromEvent(evt);
     }

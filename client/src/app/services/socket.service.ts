@@ -20,6 +20,10 @@ export class SocketService {
     return this.createObserver('spellUpdate');
   }
 
+  spellP2C() {
+    return this.createObserver('spellP2C');
+  }
+
   private createObserver(evt: string) {
     return this.socket.fromEvent(evt);
   }
