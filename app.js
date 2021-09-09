@@ -9,15 +9,16 @@ const bodyParser = require('body-parser');
 const indexRouter = require('./routes/index');
 const db = require("./models");
 const cors = require('cors');
+const { insertNoteItem } = require('./controllers/noteController');
 
 const io = require('socket.io')(server, {
     cors: {
-      origins: process.env.socketURL ? process.env.socketURL : 'http://localhost:4200',
+      origins: process.env.socketURL ? process.env.socketURL : 'https://localhost:4200',
       credentials: true,
       methods: ["GET", "POST"],
     }
   });
-
+console.log('process.env.socketURL', insertNoteItem)
 db.sequelize.sync().then(function() {
 
   app.use(express.json());
@@ -39,9 +40,11 @@ db.sequelize.sync().then(function() {
   });
 
   io.on('connection', (socket) => {
-    console.log(`Socket ${socket.id} has connected`);
-    socket.on('UPDATE', (newChar) => {
-      io.sockets.emit('update', {currentMember: {...newChar}, type: 'UPDATE'});
+    socket.on('HPUPDATE', (newChar) => {
+      io.sockets.emit('hpUupdate', {currentMember: {...newChar}, type: 'HPUPDATE'});
+    })
+    socket.on('SPELLUPDATE', (newChar) => {
+      io.sockets.emit('spellUupdate', {currentMember: {...newChar}, type: 'SPELLUPDATE'});
     })
   });
 

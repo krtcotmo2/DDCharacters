@@ -469,14 +469,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var ngx_socket_io__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
     /*! ngx-socket-io */
-    "./node_modules/ngx-socket-io/__ivy_ngcc__/fesm2015/ngx-socket-io.js"); // const config: SocketIoConfig = {
-    //   url: 'http://dd-characters.herokuapp.com',
-    //   options: {}
-    //};
+    "./node_modules/ngx-socket-io/__ivy_ngcc__/fesm2015/ngx-socket-io.js");
 
-
+    console.log(document.location.hostname);
+    var protocol = document.location.hostname.includes('localhost') ? 'ws' : 'wss';
     var config = {
-      url: "wss://".concat(document.location.host),
+      url: "".concat(protocol, "://").concat(document.location.host),
       options: {
         transports: ['websocket'],
         upgrade: true,
@@ -2854,6 +2852,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
 
     if (_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].production) {
+      console.log('environment.production', _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"]);
       Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["enableProdMode"])();
     }
 

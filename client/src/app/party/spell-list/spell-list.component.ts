@@ -47,7 +47,7 @@ export class SpellListComponent implements OnInit {
   }
 
   setIDName = (lvl) => {
-    return `lvl ${lvl.spellLevel} - ${this.charID}`;
+    return `lvl${lvl.spellLevel}-${this.charID}`;
   }
 
   filteredSpells = (lvl: number) => {

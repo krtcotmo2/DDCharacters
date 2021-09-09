@@ -16,12 +16,10 @@ import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 
-// const config: SocketIoConfig = {
-//   url: 'http://dd-characters.herokuapp.com',
-//   options: {}
-//};
-const config:SocketIoConfig = {
-  url: `wss://${document.location.host}`,
+console.log(document.location.hostname)
+const protocol =  document.location.hostname.includes('localhost') ? 'ws' : 'wss';
+const config: SocketIoConfig = {
+  url: `${protocol}://${document.location.host}`,
   options: {
     transports: ['websocket'],
     upgrade : true,

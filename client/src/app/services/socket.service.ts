@@ -12,8 +12,12 @@ export class SocketService {
     return this.createObserver('initial');
   }
 
-  getUpdatedData() {
-    return this.createObserver('update');
+  updateHP() {
+    return this.createObserver('hpUupdate');
+  }
+
+  updateSpell() {
+    return this.createObserver('spellUupdate');
   }
 
   private createObserver(evt: string){

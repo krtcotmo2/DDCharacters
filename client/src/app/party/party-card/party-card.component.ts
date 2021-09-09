@@ -56,7 +56,6 @@ export class PartyCardComponent implements OnInit {
       this.charAC = char.CharACs.reduce( (x, y) => x + y.score, 0 );
     });
     this.charDataSvc.loadSpells(this.charID).subscribe( spells => {
-      console.log(this.charName, spells.results);
       this.isCaster = spells.results.length > 0;
       this.spellList = spells.results;
     });
@@ -72,12 +71,12 @@ export class PartyCardComponent implements OnInit {
       }
     });
     this.subs.push(
-      this.socketService.getUpdatedData().subscribe( (data: any): void => {
+      this.socketService.updateHP().subscribe( (data: any): void => {
         if (data.currentMember.charID === this.charID) {
           this.currentMember = data;
           this.curHP = data.currentMember.curHP;
         }
-      })
+      }),
     );
   }
 

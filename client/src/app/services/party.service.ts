@@ -62,7 +62,7 @@ export class PartyService {
       aChar = results.results.find(person =>  person.charID === charID);
     });
     aChar.curHP = curHP;
-    this.socket.emit('UPDATE', aChar);
+    this.socket.emit('TOSSING', aChar);
     return val;
   }
 

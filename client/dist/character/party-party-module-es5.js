@@ -222,7 +222,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       selectors: [["app-overview"]],
       decls: 8,
       vars: 3,
-      consts: [["class", "ui small buttons hpAdjuster", 4, "ngIf"], [1, "ui", "grid", "partyWrapper"], ["class", "four wide column partyCard", 3, "charID", "dmTools", 4, "ngFor", "ngForOf"], [1, "dmToggle"], [1, "ui", "toggle", "checkbox", "toolToggle"], ["type", "checkbox", "name", "dmTools", 3, "checked", "change"], [1, "ui", "small", "buttons", "hpAdjuster"], [1, "ui", "button", "healBtn"], [1, "inputWrapper"], ["type", "text"], [1, "ui", "button", "damBtn"], [1, "four", "wide", "column", "partyCard", 3, "charID", "dmTools"]],
+      consts: [["class", "ui small buttons hpAdjuster", 4, "ngIf"], [1, "ui", "grid", "partyWrapper"], ["class", "three wide column partyCard", 3, "charID", "dmTools", 4, "ngFor", "ngForOf"], [1, "dmToggle"], [1, "ui", "toggle", "checkbox", "toolToggle"], ["type", "checkbox", "name", "dmTools", 3, "checked", "change"], [1, "ui", "small", "buttons", "hpAdjuster"], [1, "ui", "button", "healBtn"], [1, "inputWrapper"], ["type", "text"], [1, "ui", "button", "damBtn"], [1, "three", "wide", "column", "partyCard", 3, "charID", "dmTools"]],
       template: function OverviewComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, OverviewComponent_div_0_Template, 7, 0, "div", 0);
@@ -607,7 +607,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             }, 0);
           });
           this.charDataSvc.loadSpells(this.charID).subscribe(function (spells) {
-            console.log(_this4.charName, spells.results);
             _this4.isCaster = spells.results.length > 0;
             _this4.spellList = spells.results;
           });
@@ -635,11 +634,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               _this4.curHP = _this4.maxHP;
             }
           });
-          this.subs.push(this.socketService.getUpdatedData().subscribe(function (data) {
+          this.subs.push(this.socketService.updateHP().subscribe(function (data) {
             if (data.currentMember.charID === _this4.charID) {
               _this4.currentMember = data;
               _this4.curHP = data.currentMember.curHP;
             }
+          }), this.socketService.updateSpell().subscribe(function (data) {
+            console.log('ran through the spell call');
           }));
         }
       }]);
@@ -1505,7 +1506,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         };
 
         this.setIDName = function (lvl) {
-          return "lvl ".concat(lvl.spellLevel, " - ").concat(_this7.charID);
+          return "lvl".concat(lvl.spellLevel, "-").concat(_this7.charID);
         };
 
         this.filteredSpells = function (lvl) {
@@ -1708,7 +1709,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         aChar.curHP = curHP;
 
-        _this8.socket.emit('UPDATE', aChar);
+        _this8.socket.emit('TOSSING', aChar);
 
         return val;
       };
@@ -1782,9 +1783,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           return this.createObserver('initial');
         }
       }, {
-        key: "getUpdatedData",
-        value: function getUpdatedData() {
-          return this.createObserver('update');
+        key: "updateHP",
+        value: function updateHP() {
+          return this.createObserver('hpUupdate');
+        }
+      }, {
+        key: "updateSpell",
+        value: function updateSpell() {
+          return this.createObserver('spellUupdate');
         }
       }, {
         key: "createObserver",

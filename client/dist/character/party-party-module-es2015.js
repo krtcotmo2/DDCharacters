@@ -99,7 +99,7 @@ class OverviewComponent {
     }
 }
 OverviewComponent.ɵfac = function OverviewComponent_Factory(t) { return new (t || OverviewComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_services_party_service__WEBPACK_IMPORTED_MODULE_2__["PartyService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"])); };
-OverviewComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: OverviewComponent, selectors: [["app-overview"]], decls: 8, vars: 3, consts: [["class", "ui small buttons hpAdjuster", 4, "ngIf"], [1, "ui", "grid", "partyWrapper"], ["class", "four wide column partyCard", 3, "charID", "dmTools", 4, "ngFor", "ngForOf"], [1, "dmToggle"], [1, "ui", "toggle", "checkbox", "toolToggle"], ["type", "checkbox", "name", "dmTools", 3, "checked", "change"], [1, "ui", "small", "buttons", "hpAdjuster"], [1, "ui", "button", "healBtn"], [1, "inputWrapper"], ["type", "text"], [1, "ui", "button", "damBtn"], [1, "four", "wide", "column", "partyCard", 3, "charID", "dmTools"]], template: function OverviewComponent_Template(rf, ctx) { if (rf & 1) {
+OverviewComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: OverviewComponent, selectors: [["app-overview"]], decls: 8, vars: 3, consts: [["class", "ui small buttons hpAdjuster", 4, "ngIf"], [1, "ui", "grid", "partyWrapper"], ["class", "three wide column partyCard", 3, "charID", "dmTools", 4, "ngFor", "ngForOf"], [1, "dmToggle"], [1, "ui", "toggle", "checkbox", "toolToggle"], ["type", "checkbox", "name", "dmTools", 3, "checked", "change"], [1, "ui", "small", "buttons", "hpAdjuster"], [1, "ui", "button", "healBtn"], [1, "inputWrapper"], ["type", "text"], [1, "ui", "button", "damBtn"], [1, "three", "wide", "column", "partyCard", 3, "charID", "dmTools"]], template: function OverviewComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, OverviewComponent_div_0_Template, 7, 0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, OverviewComponent_app_party_card_2_Template, 1, 2, "app-party-card", 2);
@@ -272,7 +272,6 @@ class PartyCardComponent {
             this.charAC = char.CharACs.reduce((x, y) => x + y.score, 0);
         });
         this.charDataSvc.loadSpells(this.charID).subscribe(spells => {
-            console.log(this.charName, spells.results);
             this.isCaster = spells.results.length > 0;
             this.spellList = spells.results;
         });
@@ -287,11 +286,13 @@ class PartyCardComponent {
                 this.curHP = this.maxHP;
             }
         });
-        this.subs.push(this.socketService.getUpdatedData().subscribe((data) => {
+        this.subs.push(this.socketService.updateHP().subscribe((data) => {
             if (data.currentMember.charID === this.charID) {
                 this.currentMember = data;
                 this.curHP = data.currentMember.curHP;
             }
+        }), this.socketService.updateSpell().subscribe((data) => {
+            console.log('ran through the spell call');
         }));
     }
 }
@@ -722,7 +723,7 @@ class SpellListComponent {
             }
         };
         this.setIDName = (lvl) => {
-            return `lvl ${lvl.spellLevel} - ${this.charID}`;
+            return `lvl${lvl.spellLevel}-${this.charID}`;
         };
         this.filteredSpells = (lvl) => {
             if (this.levelBreakDown[0].spellLevel === lvl) {
@@ -830,7 +831,7 @@ class PartyService {
                 aChar = results.results.find(person => person.charID === charID);
             });
             aChar.curHP = curHP;
-            this.socket.emit('UPDATE', aChar);
+            this.socket.emit('TOSSING', aChar);
             return val;
         };
     }
@@ -869,8 +870,11 @@ class SocketService {
     getInitialData() {
         return this.createObserver('initial');
     }
-    getUpdatedData() {
-        return this.createObserver('update');
+    updateHP() {
+        return this.createObserver('hpUupdate');
+    }
+    updateSpell() {
+        return this.createObserver('spellUupdate');
     }
     createObserver(evt) {
         return this.socket.fromEvent(evt);

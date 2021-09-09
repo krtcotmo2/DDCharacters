@@ -217,12 +217,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// const config: SocketIoConfig = {
-//   url: 'http://dd-characters.herokuapp.com',
-//   options: {}
-//};
+console.log(document.location.hostname);
+const protocol = document.location.hostname.includes('localhost') ? 'ws' : 'wss';
 const config = {
-    url: `wss://${document.location.host}`,
+    url: `${protocol}://${document.location.host}`,
     options: {
         transports: ['websocket'],
         upgrade: true,
@@ -1613,6 +1611,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 if (_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].production) {
+    console.log('environment.production', _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"]);
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["enableProdMode"])();
 }
 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["platformBrowser"]().bootstrapModule(_app_app_module__WEBPACK_IMPORTED_MODULE_2__["AppModule"])
