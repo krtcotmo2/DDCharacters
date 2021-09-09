@@ -18,7 +18,6 @@ const io = require('socket.io')(server, {
       methods: ["GET", "POST"],
     }
   });
-console.log('process.env.socketURL', insertNoteItem)
 db.sequelize.sync().then(function() {
 
   app.use(express.json());
