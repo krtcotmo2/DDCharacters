@@ -259,7 +259,6 @@ class PartyCardComponent {
             el.classList.toggle('collapsed');
         };
         this.setSpellAvail = (str) => {
-            console.log('FROM THE CHILD', str);
             this.spellTag = str;
         };
     }
@@ -726,7 +725,6 @@ class SpellListComponent {
             return `lvl ${lvl.spellLevel} - ${this.charID}`;
         };
         this.filteredSpells = (lvl) => {
-            console.log('spell level', lvl);
             if (this.levelBreakDown[0].spellLevel === lvl) {
                 this.availableSpells = '';
             }
@@ -735,7 +733,6 @@ class SpellListComponent {
             this.availableSpells = this.availableSpells + freeSpells.toString();
             if (lodash__WEBPACK_IMPORTED_MODULE_1___default.a.last(this.levelBreakDown).spellLevel === lvl) {
                 this.spellStringBuilder.emit(this.availableSpells);
-                console.log('emmiting', this.availableSpells);
                 return spellCount;
             }
             this.availableSpells = this.availableSpells + ' / ';

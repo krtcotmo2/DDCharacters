@@ -30,17 +30,6 @@ export class AppComponent implements OnInit, OnDestroy{
         this.isLoggedIn = this.theUser['isLoggedIn'];
         this.userName = this.theUser['userName'];
       });
-      // this.socketService.getInitialData().subscribe( (data: any): void => {
-      //   console.log('init', data);
-      // });
-
-      // this.subs.push(
-      //   this.socketService.getUpdatedData().subscribe( (data: any): void => {
-      //     this.currentMenber = data;
-      //     console.log('push', data);
-      //   })
-      // );
-
     }
 
     ngOnDestroy(): void {

@@ -582,7 +582,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         };
 
         this.setSpellAvail = function (str) {
-          console.log('FROM THE CHILD', str);
           _this3.spellTag = str;
         };
       }
@@ -1510,8 +1509,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         };
 
         this.filteredSpells = function (lvl) {
-          console.log('spell level', lvl);
-
           if (_this7.levelBreakDown[0].spellLevel === lvl) {
             _this7.availableSpells = '';
           }
@@ -1528,7 +1525,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           if (lodash__WEBPACK_IMPORTED_MODULE_1___default.a.last(_this7.levelBreakDown).spellLevel === lvl) {
             _this7.spellStringBuilder.emit(_this7.availableSpells);
 
-            console.log('emmiting', _this7.availableSpells);
             return spellCount;
           }
 

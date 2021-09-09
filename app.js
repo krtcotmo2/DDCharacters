@@ -9,14 +9,6 @@ const bodyParser = require('body-parser');
 const indexRouter = require('./routes/index');
 const db = require("./models");
 const cors = require('cors');
-// const socketIO = require('socket.io')(server, {
-//   cors: {
-//     origin: 'http://localhost:4200',
-//     credentials: true
-//   }
-// });
-// const socketIO = require('socket.io')(server);
-// const io = socketIO.listen(3000);
 
 const io = require('socket.io')(server, {
     cors: {
@@ -26,43 +18,32 @@ const io = require('socket.io')(server, {
     }
   });
 
-// app.use(cors( {
-//   origin: 'http://localhost:4200',
-//   credentials: true,
-//   methods: ["GET", "POST"],
-// }));
-
-
-
-
 db.sequelize.sync().then(function() {
 
   app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
-  next();
-});
+  app.use(express.urlencoded({ extended: false }));
+  app.use(cookieParser());
+  app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next();
+  });
 
-app.use(express.static("client/dist/character"));
-app.use('/', indexRouter);
+  app.use(express.static("client/dist/character"));
+  app.use('/', indexRouter);
 
 
-// Serve up static assets (usually on heroku)
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "dist", "character", "index.html"));
-});
+  // Serve up static assets (usually on heroku)
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "dist", "character", "index.html"));
+  });
 
-//io.sockets.on('connection', (socket) => {
   io.on('connection', (socket) => {
     console.log(`Socket ${socket.id} has connected`);
     socket.on('UPDATE', (newChar) => {
       io.sockets.emit('update', {currentMember: {...newChar}, type: 'UPDATE'});
     })
-});
-
+  });
 
   server.listen(PORT, () => {
     console.log(`🌎 ==> API server now on port ${PORT}!`);

@@ -257,15 +257,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             _this.theUser = val;
             _this.isLoggedIn = _this.theUser['isLoggedIn'];
             _this.userName = _this.theUser['userName'];
-          }); // this.socketService.getInitialData().subscribe( (data: any): void => {
-          //   console.log('init', data);
-          // });
-          // this.subs.push(
-          //   this.socketService.getUpdatedData().subscribe( (data: any): void => {
-          //     this.currentMenber = data;
-          //     console.log('push', data);
-          //   })
-          // );
+          });
         }
       }, {
         key: "ngOnDestroy",
