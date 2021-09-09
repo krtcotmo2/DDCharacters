@@ -87,7 +87,7 @@ export class SpellListComponent implements OnInit {
   }
 
   reportCheck = (evt: Event, id: string) => {
-    let aSpell = this.spellList.find(x => x.id === +id);
+    let aSpell = this.spellList.find(x => x.id === parseInt(id));
     const chk = <HTMLInputElement> evt.target;
     aSpell.isCast = chk.checked;
     const body = {
@@ -97,7 +97,7 @@ export class SpellListComponent implements OnInit {
     this.charDataSvc.toggleSpell(body).subscribe( retVal => {
       if(retVal === true){
         this.socket.emit('SPELLUPDATE', body);
-        console.log('saved char sheet emit changes spell');
+        console.log('saved party sheet emit changes spell', body);
       }else{
         console.log('save error')
       }
