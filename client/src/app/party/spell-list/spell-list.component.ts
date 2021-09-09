@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Party, PartyService } from 'src/app/services/party.service';
 import _ from 'lodash';
@@ -14,6 +14,8 @@ import { ThrowStmt } from '@angular/compiler';
 export class SpellListComponent implements OnInit {
   @Input() spellList = []
   @Input() charID: number;
+  @Output() spellStringBuilder = new EventEmitter<string>();
+  availableSpells: string;
   levelBreakDown = [];
   filterText = '';
 
@@ -24,7 +26,7 @@ export class SpellListComponent implements OnInit {
   }
 
   toggelDisplay = (evt: Event, lvl: any) => {
-    const el: HTMLDivElement = document.getElementById('lvl' + lvl.spellLevel + "-" + this.charID) as HTMLDivElement;
+    const el: HTMLDivElement = document.getElementById('lvl' + lvl.spellLevel + '-' + this.charID) as HTMLDivElement;
     el.classList.toggle('collapsed');
     const ico: HTMLElement = evt.target as HTMLElement;
     ico.classList.toggle('down');
@@ -45,11 +47,22 @@ export class SpellListComponent implements OnInit {
   }
 
   setIDName = (lvl) => {
-    return "lvl" + lvl.spellLevel + "-" + this.charID;
+    return `lvl ${lvl.spellLevel} - ${this.charID}`;
   }
 
-  filteredSpells = (l: number) => {
-    return this.spellList.filter( a => a.spellLevel === l);
+  filteredSpells = (lvl: number) => {
+    if(this.levelBreakDown[0].spellLevel === lvl){
+      this.availableSpells = '';
+    }
+    const spellCount = this.spellList.filter( a => a.spellLevel === lvl);
+    const freeSpells = spellCount.filter( spell => !spell.isCast).length;
+    this.availableSpells =  this.availableSpells + freeSpells.toString();
+    if (_.last(this.levelBreakDown).spellLevel === lvl) {
+      this.spellStringBuilder.emit(this.availableSpells);
+      return spellCount;
+    }
+    this.availableSpells =  this.availableSpells + ' / ';
+    return spellCount;
   }
 
   getRemaining(arg): string {

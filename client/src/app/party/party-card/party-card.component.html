@@ -19,10 +19,11 @@
 <p>Scroll List</p>
 <div *ngIf="isCaster">
   <div>
-    <i class="arrow circle down icon pointer" (click)="toggelDisplay($event)"></i><b>Spells</b>
+    <i class="arrow circle down icon pointer" (click)="toggelDisplay($event)" ></i><b>Spells {{spellTag}}</b>
   </div>
   <app-spell-list
     [spellList]="spellList"
     [charID]="charID"
+    (spellStringBuilder)='setSpellAvail($event)'
   ></app-spell-list>
 </div>

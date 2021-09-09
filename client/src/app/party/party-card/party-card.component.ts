@@ -31,6 +31,7 @@ export class PartyCardComponent implements OnInit {
   theChar;
   currentMember: PartyMember;
   subs: Subscription[] = [];
+  spellTag: string;
 
   // private docSub: Subscription;
 
@@ -70,11 +71,6 @@ export class PartyCardComponent implements OnInit {
         this.curHP = this.maxHP;
       }
     });
-    // this.docSub = this.partyService.getAllParties
-    //   .subscribe(parties => {
-    //     this.currentMember = parties.results.find(person =>
-    //     person.charID === this.charID && person.partyID === this.partyID);
-    // });
     this.subs.push(
       this.socketService.getUpdatedData().subscribe( (data: any): void => {
         if (data.currentMember.charID === this.charID) {
@@ -116,13 +112,16 @@ export class PartyCardComponent implements OnInit {
         return 'dead';
     }
   }
-
   toggelDisplay = (evt: Event) => {
     const ico: HTMLElement = evt.target as HTMLElement;
     ico.classList.toggle('down');
     ico.classList.toggle('right');
     const el: HTMLElement = ico.parentElement.nextSibling as HTMLElement;
     el.classList.toggle('collapsed');
+  }
+
+  setSpellAvail = (str: any) => {
+    this.spellTag = str;
   }
 }
 
