@@ -639,8 +639,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               _this4.currentMember = data;
               _this4.curHP = data.currentMember.curHP;
             }
-          }), this.socketService.updateSpell().subscribe(function (data) {
-            console.log('ran through the spell call');
           }));
         }
       }]);
@@ -1709,7 +1707,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         aChar.curHP = curHP;
 
-        _this8.socket.emit('TOSSING', aChar);
+        _this8.socket.emit('HPUPDATE', aChar);
 
         return val;
       };

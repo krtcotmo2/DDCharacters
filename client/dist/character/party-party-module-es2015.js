@@ -291,8 +291,6 @@ class PartyCardComponent {
                 this.currentMember = data;
                 this.curHP = data.currentMember.curHP;
             }
-        }), this.socketService.updateSpell().subscribe((data) => {
-            console.log('ran through the spell call');
         }));
     }
 }
@@ -831,7 +829,7 @@ class PartyService {
                 aChar = results.results.find(person => person.charID === charID);
             });
             aChar.curHP = curHP;
-            this.socket.emit('TOSSING', aChar);
+            this.socket.emit('HPUPDATE', aChar);
             return val;
         };
     }
