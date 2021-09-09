@@ -4,6 +4,7 @@ import { CharBasics, CharDataService } from 'src/app/services/char-data.service'
 import { CharService } from 'src/app/services/char.service';
 import { SocketService } from 'src/app/services/socket.service';
 import { Subscription } from 'rxjs';
+import { Socket } from 'ngx-socket-io';
 
 @Component({
   selector: 'app-spell-list',
@@ -22,19 +23,18 @@ export class SpellListComponent implements OnInit {
 
   constructor(
     private socketService: SocketService,
+    private charDataSvc: CharDataService,
+    private socket: Socket,
   ) { }
 
   ngOnInit(): void {
     this.levelBreakDown =  _.uniqBy(this.spellList, 'spellLevel');
     this.subs.push(
       this.socketService.updateSpell().subscribe( (data: any): void => {
-        console.log('party sheet senses update spell', data, this.spellList);
         const aSpell = this.spellList.find(spell => spell.id === data.id);
         if(aSpell){
           aSpell.isCast = data.currentStatus;
         }
-        console.log('party sheet senses update spell', data, aSpell, this.spellList);
-
       }),
     );
   }
@@ -84,6 +84,24 @@ export class SpellListComponent implements OnInit {
     const unused = this.spellList.filter(spell => spell.spellLevel === arg.spellLevel &&
       !spell.isCast).length;
     return `${unused} of ${count}`;
+  }
+
+  reportCheck = (evt: Event, id: string) => {
+    let aSpell = this.spellList.find(x => x.id === +id);
+    const chk = <HTMLInputElement> evt.target;
+    aSpell.isCast = chk.checked;
+    const body = {
+      id,
+      currentStatus: chk.checked
+    }
+    this.charDataSvc.toggleSpell(body).subscribe( retVal => {
+      if(retVal === true){
+        this.socket.emit('SPELLUPDATE', body);
+        console.log('saved char sheet emit changes spell');
+      }else{
+        console.log('save error')
+      }
+    })
   }
 
 }

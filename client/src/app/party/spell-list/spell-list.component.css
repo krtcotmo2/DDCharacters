@@ -5,3 +5,6 @@
 .collapsed, .hidden{
   display:none;
 }
+.noBorder, .noBorder::before{
+  border:none !important;
+}

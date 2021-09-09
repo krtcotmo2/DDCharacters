@@ -47,6 +47,10 @@ export class CharSpellsComponent implements OnInit {
     this.subs.push(
       this.socketService.updateSpell().subscribe( (data: any): void => {
         console.log('char sheet change detected spell data', data);
+        const aSpell = this.allSpells.find(spell => spell.id === data.id);
+        if(aSpell){
+          aSpell.isCast = data.currentStatus;
+        }
       }),
     );
   }

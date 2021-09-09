@@ -23734,6 +23734,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           });
           this.subs.push(this.socketService.updateSpell().subscribe(function (data) {
             console.log('char sheet change detected spell data', data);
+
+            var aSpell = _this46.allSpells.find(function (spell) {
+              return spell.id === data.id;
+            });
+
+            if (aSpell) {
+              aSpell.isCast = data.currentStatus;
+            }
           }));
         }
       }]);

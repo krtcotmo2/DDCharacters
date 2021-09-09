@@ -6,8 +6,8 @@
     <div *ngFor='let nt of filteredSpells(level.spellLevel)' class="ui grid gridRow" >
       <div class="column two wide ui" style="padding: 0 1rem">
         <div class="ui checkbox">
-          <input *ngIf="level.spellLevel>0" type="checkbox" name={{nt.id}} [(checked)]="nt.isCast" >
-          <label></label>
+          <input *ngIf="level.spellLevel>0" type="checkbox" name={{nt.id}} (change)="reportCheck($event, nt.id)" [(checked)]="nt.isCast" >
+          <label [ngClass]="{'noBorder':nt.spellLevel===0}"></label>
         </div>
       </div>
       <span class='stat twelve wide column' style='font-weight: normal; padding: 0 1rem;'>

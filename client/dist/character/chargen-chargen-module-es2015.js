@@ -14168,6 +14168,10 @@ class CharSpellsComponent {
         });
         this.subs.push(this.socketService.updateSpell().subscribe((data) => {
             console.log('char sheet change detected spell data', data);
+            const aSpell = this.allSpells.find(spell => spell.id === data.id);
+            if (aSpell) {
+                aSpell.isCast = data.currentStatus;
+            }
         }));
     }
 }
