@@ -1,6 +1,6 @@
 <div *ngFor="let level of levelBreakDown">
   <div class="sixteen wide column" style='padding: 1rem 0'>
-    <i class="arrow circle down icon pointer" (click)="toggelDisplay($event, level)"></i><h3 style='display:inline'>Level  {{level.spellLevel}} <span style="float:right">{{getRemaining(level)}}</span></h3>
+    <i class="arrow circle down icon pointer" (click)="toggelDisplay($event, level)"></i><h3 style='display:inline'>Level  {{level.spellLevel}} <span style="float:right"></span></h3>
   </div>
   <div id={{setIDName(level)}} class='levelHolder'>
     <div *ngFor='let nt of filteredSpells(level.spellLevel)' class="ui grid gridRow" >
