@@ -23732,7 +23732,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               return i;
             });
           });
-          this.subs.push(this.socketService.spellP2C().subscribe(function (data) {
+          console.log(this.subs);
+          this.subs.push(this.socketService.updateSpell().subscribe(function (data) {
             console.log('char detected update from party', data);
 
             var aSpell = _this46.allSpells.find(function (spell) {

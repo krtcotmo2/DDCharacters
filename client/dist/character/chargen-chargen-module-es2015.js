@@ -14166,7 +14166,8 @@ class CharSpellsComponent {
             this.charDataSvc.setAllSpells(val);
             this.levelBreakDown = Array.from(Array(this.allSpells.slice(-1).pop().spellLevel + 1), (_, i) => i);
         });
-        this.subs.push(this.socketService.spellP2C().subscribe((data) => {
+        console.log(this.subs);
+        this.subs.push(this.socketService.updateSpell().subscribe((data) => {
             console.log('char detected update from party', data);
             const aSpell = this.allSpells.find(spell => spell.id === data.id);
             if (aSpell) {

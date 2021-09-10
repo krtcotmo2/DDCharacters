@@ -45,9 +45,6 @@ db.sequelize.sync().then(function() {
     socket.on('SPELLUPDATE', (spellData) => {
       io.sockets.emit('spellUpdate', {...spellData, type: 'SPELLUPDATE'});
     })
-    socket.on('SPELLP2C', (spellData) => {
-      io.sockets.emit('spellP2C', {...spellData, type: 'SPELLP2C'});
-    })
   });
 
   server.listen(PORT, () => {

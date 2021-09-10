@@ -18214,11 +18214,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           return this.createObserver('spellUpdate');
         }
       }, {
-        key: "spellP2C",
-        value: function spellP2C() {
-          return this.createObserver('spellP2C');
-        }
-      }, {
         key: "createObserver",
         value: function createObserver(evt) {
           return this.socket.fromEvent(evt);

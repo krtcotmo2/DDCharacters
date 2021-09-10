@@ -44,8 +44,9 @@ export class CharSpellsComponent implements OnInit {
       this.charDataSvc.setAllSpells(val);
       this.levelBreakDown = Array.from(Array(this.allSpells.slice(-1).pop().spellLevel + 1), (_, i) => i);
     });
+    console.log(this.subs)
     this.subs.push(
-      this.socketService.spellP2C().subscribe( (data: any): void => {
+      this.socketService.updateSpell().subscribe( (data: any): void => {
         console.log('char detected update from party', data)
         const aSpell = this.allSpells.find(spell => spell.id === data.id);
         if(aSpell){
