@@ -30,7 +30,7 @@ export class SpellListComponent implements OnInit {
 
   ngOnInit(): void {
     this.levelBreakDown =  _.uniqBy(this.spellList, 'spellLevel');
-
+    this.levelBreakDown.sort();
 
 
     this.subs.push(
@@ -45,12 +45,14 @@ export class SpellListComponent implements OnInit {
         if(this.charID === data.charID){
           this.spellList.push(data);
           this.levelBreakDown =  _.uniqBy(this.spellList, 'spellLevel');
+          this.levelBreakDown.sort();
         }
       }),
       this.socketService.deleteSpell().subscribe( (data: Spell): void => {
         if(this.charID === data.charID){
           this.spellList = this.spellList.filter(spell => spell.id !== +data.id);
           this.levelBreakDown =  _.uniqBy(this.spellList, 'spellLevel');
+          this.levelBreakDown.sort();
         }
       }),
       this.socketService.changeSpell().subscribe( (data: any): void => {

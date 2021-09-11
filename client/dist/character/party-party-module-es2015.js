@@ -771,6 +771,7 @@ class SpellListComponent {
     }
     ngOnInit() {
         this.levelBreakDown = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.uniqBy(this.spellList, 'spellLevel');
+        this.levelBreakDown.sort();
         this.subs.push(this.socketService.updateSpell().subscribe((data) => {
             const aSpell = this.spellList.find(spell => spell.id === +data.id);
             console.log(aSpell);
@@ -781,11 +782,13 @@ class SpellListComponent {
             if (this.charID === data.charID) {
                 this.spellList.push(data);
                 this.levelBreakDown = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.uniqBy(this.spellList, 'spellLevel');
+                this.levelBreakDown.sort();
             }
         }), this.socketService.deleteSpell().subscribe((data) => {
             if (this.charID === data.charID) {
                 this.spellList = this.spellList.filter(spell => spell.id !== +data.id);
                 this.levelBreakDown = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.uniqBy(this.spellList, 'spellLevel');
+                this.levelBreakDown.sort();
             }
         }), this.socketService.changeSpell().subscribe((data) => {
             const aSpell = this.spellList.find(spell => spell.id === +data.id);
