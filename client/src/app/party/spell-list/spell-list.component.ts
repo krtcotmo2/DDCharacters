@@ -29,10 +29,6 @@ export class SpellListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.charDataSvc.loadSpells(this.charID).subscribe( spells => {
-      this.isCaster = spells.results.length > 0;
-      this.spellList = spells.results;
-    });
     this.levelBreakDown =  _.uniqBy(this.spellList, 'spellLevel');
 
     this.subs.push(
@@ -95,8 +91,8 @@ export class SpellListComponent implements OnInit {
   }
 
   reportCheck = (evt: Event, id: string) => {
-    let aSpell = this.spellList.find(x => x.id === parseInt(id));
-    const chk = <HTMLInputElement> evt.target;
+    const aSpell = this.spellList.find(x => x.id === parseInt(id, 10));
+    const chk = evt.target as HTMLInputElement;
     aSpell.isCast = chk.checked;
     const body = {
       id,
@@ -106,7 +102,7 @@ export class SpellListComponent implements OnInit {
       if(retVal === true){
         this.socket.emit('SPELLUPDATE', body);
         console.log('saved party sheet emit changes spell', body);
-      }else{
+      } else {
         console.log('save error')
       }
     })

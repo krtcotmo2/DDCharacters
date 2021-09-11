@@ -57,6 +57,7 @@ export class PartyCardComponent implements OnInit {
     });
     this.charDataSvc.loadSpells(this.charID).subscribe( spells => {
       this.isCaster = spells.results.length > 0;
+      this.charDataSvc.setAllSpells(spells);
       this.spellList = spells.results;
     });
     this.charDataSvc.loadSaves(this.charID.toString()).subscribe( saves => {

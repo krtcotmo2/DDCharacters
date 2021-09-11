@@ -461,7 +461,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](3, "b");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](4, "Spells ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
@@ -491,11 +491,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       if (rf & 2) {
         var ctx_r309 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](4);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"]("Spells ", ctx_r309.spellTag, "");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](5);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("spellList", ctx_r309.spellList)("charID", ctx_r309.charID);
       }
@@ -614,6 +610,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           });
           this.charDataSvc.loadSpells(this.charID).subscribe(function (spells) {
             _this4.isCaster = spells.results.length > 0;
+
+            _this4.charDataSvc.setAllSpells(spells);
+
             _this4.spellList = spells.results;
           });
           this.charDataSvc.loadSaves(this.charID.toString()).subscribe(function (saves) {
@@ -752,7 +751,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](27, PartyCardComponent_div_27_Template, 6, 3, "div", 6);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](27, PartyCardComponent_div_27_Template, 6, 2, "div", 6);
         }
 
         if (rf & 2) {
@@ -1572,7 +1571,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         this.reportCheck = function (evt, id) {
           var aSpell = _this7.spellList.find(function (x) {
-            return x.id === parseInt(id);
+            return x.id === parseInt(id, 10);
           });
 
           var chk = evt.target;
@@ -1599,10 +1598,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           var _this8 = this;
 
-          this.charDataSvc.loadSpells(this.charID).subscribe(function (spells) {
-            _this8.isCaster = spells.results.length > 0;
-            _this8.spellList = spells.results;
-          });
           this.levelBreakDown = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.uniqBy(this.spellList, 'spellLevel');
           this.subs.push(this.socketService.updateSpell().subscribe(function (data) {
             console.log("party sheet detected change in spell list", data);
