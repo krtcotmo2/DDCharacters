@@ -31,6 +31,7 @@ export class SpellListComponent implements OnInit {
     this.levelBreakDown =  _.uniqBy(this.spellList, 'spellLevel');
     this.subs.push(
       this.socketService.updateSpell().subscribe( (data: any): void => {
+        console.log("party sheet detected change", data)
         const aSpell = this.spellList.find(spell => spell.id === data.id);
         if(aSpell){
           aSpell.isCast = data.currentStatus;
