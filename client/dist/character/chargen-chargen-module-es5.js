@@ -23698,8 +23698,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _this45.charDataSvc.toggleSpell(body).subscribe(function (retVal) {
             if (retVal === true) {
-              _this45.socket.emit('SPELLUPDATE', body);
-
               console.log('saved char sheet emit changes spell');
             } else {
               console.log('save error');

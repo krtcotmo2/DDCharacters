@@ -1,6 +1,7 @@
 import { Injectable, ɵɵresolveBody } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Socket } from 'ngx-socket-io';
 
 export interface CharBasics {
   charID: string;
@@ -58,15 +59,17 @@ interface Saves {
 
 interface Spells {
   charID: string;
-  results: {
-    id: number,
-    spellID: number,
-    charID: number,
-    spellLevel: number,
-    spellName: string,
-    isCast: boolean
-    }[];
+  results: Spell[];
 }
+interface Spell {
+  id: number;
+  spellID: number;
+  charID: number;
+  spellLevel: number;
+  spellName: string;
+  isCast: boolean;
+};
+
 
 interface CharToHits {
   charID: string;
@@ -158,7 +161,10 @@ interface Alignments {
   providedIn: 'root'
 })
 export class CharDataService {
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private socket: Socket
+  ) { }
 
   // DECLARATIONS
   private curCharID = new BehaviorSubject(0);
@@ -677,6 +683,7 @@ export class CharDataService {
           'Access-Control-Allow-Origin': '*'
         }),
       });
+      this.socket.emit('SPELLUPDATE', body);
       return val;
     }
 

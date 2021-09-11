@@ -100,12 +100,11 @@ export class SpellListComponent implements OnInit {
     }
     this.charDataSvc.toggleSpell(body).subscribe( retVal => {
       if(retVal === true){
-        this.socket.emit('SPELLUPDATE', body);
-        console.log('saved party sheet emit changes spell', body);
-      } else {
+        console.log('saved char sheet emit changes spell');
+      }else{
         console.log('save error')
       }
-    })
+    } );
   }
 
 }

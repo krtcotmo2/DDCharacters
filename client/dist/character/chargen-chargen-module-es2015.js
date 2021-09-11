@@ -14147,7 +14147,6 @@ class CharSpellsComponent {
             };
             this.charDataSvc.toggleSpell(body).subscribe(retVal => {
                 if (retVal === true) {
-                    this.socket.emit('SPELLUPDATE', body);
                     console.log('saved char sheet emit changes spell');
                 }
                 else {

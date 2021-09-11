@@ -1927,16 +1927,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/common/http */
     "./node_modules/@angular/common/fesm2015/http.js");
+    /* harmony import */
+
+
+    var ngx_socket_io__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ngx-socket-io */
+    "./node_modules/ngx-socket-io/__ivy_ngcc__/fesm2015/ngx-socket-io.js");
+
+    ;
 
     var CharDataService =
     /*#__PURE__*/
     function () {
-      function CharDataService(http) {
+      function CharDataService(http, socket) {
         var _this8 = this;
 
         _classCallCheck(this, CharDataService);
 
-        this.http = http; // DECLARATIONS
+        this.http = http;
+        this.socket = socket; // DECLARATIONS
 
         this.curCharID = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](0);
         this.charID = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](0);
@@ -2586,6 +2595,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             })
           });
 
+          _this8.socket.emit('SPELLUPDATE', body);
+
           return val;
         };
 
@@ -2643,7 +2654,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }();
 
     CharDataService.ɵfac = function CharDataService_Factory(t) {
-      return new (t || CharDataService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]));
+      return new (t || CharDataService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](ngx_socket_io__WEBPACK_IMPORTED_MODULE_3__["Socket"]));
     };
 
     CharDataService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({
@@ -2662,6 +2673,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }], function () {
         return [{
           type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]
+        }, {
+          type: ngx_socket_io__WEBPACK_IMPORTED_MODULE_3__["Socket"]
         }];
       }, null);
     })();

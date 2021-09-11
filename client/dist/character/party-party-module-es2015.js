@@ -761,8 +761,7 @@ class SpellListComponent {
             };
             this.charDataSvc.toggleSpell(body).subscribe(retVal => {
                 if (retVal === true) {
-                    this.socket.emit('SPELLUPDATE', body);
-                    console.log('saved party sheet emit changes spell', body);
+                    console.log('saved char sheet emit changes spell');
                 }
                 else {
                     console.log('save error');
