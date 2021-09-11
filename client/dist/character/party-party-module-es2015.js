@@ -768,6 +768,7 @@ class SpellListComponent {
     ngOnInit() {
         this.levelBreakDown = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.uniqBy(this.spellList, 'spellLevel');
         this.subs.push(this.socketService.updateSpell().subscribe((data) => {
+            console.log("party sheet detected change", data);
             const aSpell = this.spellList.find(spell => spell.id === data.id);
             if (aSpell) {
                 aSpell.isCast = data.currentStatus;

@@ -1594,6 +1594,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this.levelBreakDown = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.uniqBy(this.spellList, 'spellLevel');
           this.subs.push(this.socketService.updateSpell().subscribe(function (data) {
+            console.log("party sheet detected change", data);
+
             var aSpell = _this8.spellList.find(function (spell) {
               return spell.id === data.id;
             });
