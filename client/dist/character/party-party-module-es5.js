@@ -1619,7 +1619,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             });
 
             if (aSpell) {
-              aSpell.isCast = data.currentStatus; //this.levelBreakDown =  _.uniqBy(this.spellList, 'spellLevel');
+              aSpell.isCast = data.currentStatus;
+              _this8.levelBreakDown = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.uniqBy(_this8.spellList, 'spellLevel');
             }
           }));
         }

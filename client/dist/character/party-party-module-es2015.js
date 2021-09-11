@@ -777,7 +777,7 @@ class SpellListComponent {
             const aSpell = this.spellList.find(spell => spell.id === data.id);
             if (aSpell) {
                 aSpell.isCast = data.currentStatus;
-                //this.levelBreakDown =  _.uniqBy(this.spellList, 'spellLevel');
+                this.levelBreakDown = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.uniqBy(this.spellList, 'spellLevel');
             }
         }));
     }

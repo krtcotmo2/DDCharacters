@@ -37,7 +37,7 @@ export class SpellListComponent implements OnInit {
         const aSpell = this.spellList.find(spell => spell.id === data.id);
         if(aSpell){
           aSpell.isCast = data.currentStatus;
-          //this.levelBreakDown =  _.uniqBy(this.spellList, 'spellLevel');
+          this.levelBreakDown =  _.uniqBy(this.spellList, 'spellLevel');
         }
       }),
     );
