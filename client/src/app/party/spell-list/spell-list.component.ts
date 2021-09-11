@@ -38,7 +38,6 @@ export class SpellListComponent implements OnInit {
         const aSpell = this.spellList.find(spell => spell.id === data.id);
         if (aSpell) {
           aSpell.isCast = data.currentStatus;
-          aSpell.spellName = data.spellName;
         }
       }),
       this.socketService.addSpell().subscribe( (data: Spell): void => {
