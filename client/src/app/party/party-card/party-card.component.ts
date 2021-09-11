@@ -4,8 +4,23 @@ import { PartyMember, PartyService } from 'src/app/services/party.service';
 import _ from 'lodash';
 import { CharDataService } from 'src/app/services/char-data.service';
 import { CharService } from 'src/app/services/char.service';
-import { Subscription } from 'rxjs';
+import { BehaviorSubject, Subscription } from 'rxjs';
 import { SocketService } from 'src/app/services/socket.service';
+
+
+interface SpellChange {
+  currentStatus: boolean;
+  id: number;
+}
+
+interface Spell {
+  id: number;
+  spellID: number;
+  charID: number;
+  spellLevel: number;
+  spellName: string;
+  isCast: boolean;
+}
 
 @Component({
   selector: 'app-party-card',
@@ -22,7 +37,7 @@ export class PartyCardComponent implements OnInit {
   charName: string;
   charAC: number;
   isCaster = false;
-  spellList: [];
+
   fortSave: number;
   reflexSave: number;
   willSave: number;
@@ -32,6 +47,10 @@ export class PartyCardComponent implements OnInit {
   currentMember: PartyMember;
   subs: Subscription[] = [];
   spellTag: string;
+
+  spellList = new BehaviorSubject<Spell>( [] as unknown as Spell );
+  getAllSpells = this.spellList.asObservable();
+  setAllSpells = (arg) => { this.spellList.next(arg); };
 
   // private docSub: Subscription;
 
@@ -57,7 +76,7 @@ export class PartyCardComponent implements OnInit {
     });
     this.charDataSvc.loadSpells(this.charID).subscribe( spells => {
       this.isCaster = spells.results.length > 0;
-      this.charDataSvc.setAllSpells(spells);
+      this.setAllSpells(spells);
       this.spellList = spells.results;
     });
     this.charDataSvc.loadSaves(this.charID.toString()).subscribe( saves => {

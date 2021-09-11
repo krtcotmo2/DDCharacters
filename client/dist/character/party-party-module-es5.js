@@ -331,49 +331,55 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var src_app_services_char_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! rxjs */
+    "./node_modules/rxjs/_esm2015/index.js");
+    /* harmony import */
+
+
+    var src_app_services_char_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! src/app/services/char.service */
     "./src/app/services/char.service.ts");
     /* harmony import */
 
 
-    var src_app_services_char_data_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var src_app_services_char_data_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! src/app/services/char-data.service */
     "./src/app/services/char-data.service.ts");
     /* harmony import */
 
 
-    var src_app_services_party_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var src_app_services_party_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! src/app/services/party.service */
     "./src/app/services/party.service.ts");
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! @angular/router */
     "./node_modules/@angular/router/fesm2015/router.js");
     /* harmony import */
 
 
-    var src_app_services_socket_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var src_app_services_socket_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! src/app/services/socket.service */
     "./src/app/services/socket.service.ts");
     /* harmony import */
 
 
-    var _angular_common__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var _angular_common__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! @angular/common */
     "./node_modules/@angular/common/fesm2015/common.js");
     /* harmony import */
 
 
-    var _angular_forms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! @angular/forms */
     "./node_modules/@angular/forms/fesm2015/forms.js");
     /* harmony import */
 
 
-    var _spell_list_spell_list_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    var _spell_list_spell_list_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
     /*! ../spell-list/spell-list.component */
     "./src/app/party/spell-list/spell-list.component.ts");
 
@@ -516,6 +522,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.isCaster = false;
         this.hpModifier = 0;
         this.subs = [];
+        this.spellList = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"]([]);
+        this.getAllSpells = this.spellList.asObservable();
+
+        this.setAllSpells = function (arg) {
+          _this3.spellList.next(arg);
+        };
 
         this.addHP = function (heal) {
           return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this3, void 0, void 0,
@@ -611,7 +623,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.charDataSvc.loadSpells(this.charID).subscribe(function (spells) {
             _this4.isCaster = spells.results.length > 0;
 
-            _this4.charDataSvc.setAllSpells(spells);
+            _this4.setAllSpells(spells);
 
             _this4.spellList = spells.results;
           });
@@ -652,7 +664,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     }();
 
     PartyCardComponent.ɵfac = function PartyCardComponent_Factory(t) {
-      return new (t || PartyCardComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_char_service__WEBPACK_IMPORTED_MODULE_3__["CharService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_char_data_service__WEBPACK_IMPORTED_MODULE_4__["CharDataService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_party_service__WEBPACK_IMPORTED_MODULE_5__["PartyService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_socket_service__WEBPACK_IMPORTED_MODULE_7__["SocketService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]));
+      return new (t || PartyCardComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_char_service__WEBPACK_IMPORTED_MODULE_4__["CharService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_char_data_service__WEBPACK_IMPORTED_MODULE_5__["CharDataService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_party_service__WEBPACK_IMPORTED_MODULE_6__["PartyService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_socket_service__WEBPACK_IMPORTED_MODULE_8__["SocketService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]));
     };
 
     PartyCardComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
@@ -792,7 +804,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx.isCaster);
         }
       },
-      directives: [_angular_common__WEBPACK_IMPORTED_MODULE_8__["NgClass"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["NgForm"], _angular_common__WEBPACK_IMPORTED_MODULE_8__["NgIf"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["NgModel"], _spell_list_spell_list_component__WEBPACK_IMPORTED_MODULE_10__["SpellListComponent"]],
+      directives: [_angular_common__WEBPACK_IMPORTED_MODULE_9__["NgClass"], _angular_forms__WEBPACK_IMPORTED_MODULE_10__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_10__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_10__["NgForm"], _angular_common__WEBPACK_IMPORTED_MODULE_9__["NgIf"], _angular_forms__WEBPACK_IMPORTED_MODULE_10__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_10__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_10__["NgModel"], _spell_list_spell_list_component__WEBPACK_IMPORTED_MODULE_11__["SpellListComponent"]],
       styles: [".healBtn[_ngcontent-%COMP%]{\r\n  background: green;\r\n  font-weight: bold;\r\n  color: white;\r\n  width: 45%;\r\n  padding: 0 12px;\r\n  text-align: left;\r\n  border-top-left-radius: 0px !important;\r\n  border-bottom-left-radius: 0px !important;\r\n}\r\n.damBtn[_ngcontent-%COMP%]{\r\n  background: maroon;\r\n  font-weight: bold;\r\n  color: white;\r\n  width: 45%;\r\n  padding: 0 12px;\r\n  text-align: right;\r\n  border-top-right-radius: 0px !important;\r\n  border-bottom-right-radius: 0px !important;\r\n}\r\n.hpAdjuster[_ngcontent-%COMP%]{\r\n  margin: 0 -14px 19px -14px;\r\n  width: calc(100% + 28px);\r\n  position: relative;\r\n  height: 2.3rem;\r\n}\r\n.hpAdjuster[_ngcontent-%COMP%]   input[_ngcontent-%COMP%], .hpAdjuster[_ngcontent-%COMP%]   input[_ngcontent-%COMP%]:focus{\r\n  width: 33%;\r\n  border-radius: 18px;\r\n  position: absolute;\r\n  height: 2rem;\r\n  left: 33%;\r\n  top: .16rem;\r\n  text-align: center;\r\n  border: none;\r\n  outline: none;\r\n  font-size: 1rem;\r\n}\r\n.inputWrapper[_ngcontent-%COMP%]{\r\n  height: 2.57142857em;\r\n  z-index: 3;\r\n  width: 5%;\r\n  overflow: visible;\r\n}\r\n.savesHolder[_ngcontent-%COMP%]{\r\n  border-top: 1px solid black;\r\n  margin: 0 -14px;\r\n  padding: 14px;\r\n}\r\n.fine[_ngcontent-%COMP%]{\r\n  margin: 0 -14px 19px -14px;\r\n  width: calc(100% + 28px);\r\n  padding: 3px 14px;\r\n\r\n}\r\n.red[_ngcontent-%COMP%]{\r\n  margin: 0 -14px 19px -14px;\r\n  width: calc(100% + 28px);\r\n  padding: 3px 14px;\r\n  background: red;\r\n  color: white;\r\n}\r\n.yellow[_ngcontent-%COMP%]{\r\n  margin: 0 -14px 19px -14px;\r\n  width: calc(100% + 28px);\r\n  padding: 3px 14px;\r\n background: rgb(238, 227, 125);\r\n}\r\n.dead[_ngcontent-%COMP%]{\r\n  margin: 0 -14px 19px -14px;\r\n  width: calc(100% + 28px);\r\n  padding: 3px 14px;\r\n  background: black;\r\n  color: white;\r\n}\r\n.collapsed[_ngcontent-%COMP%]{\r\n  display: none;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFydHkvcGFydHktY2FyZC9wYXJ0eS1jYXJkLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxpQkFBaUI7RUFDakIsaUJBQWlCO0VBQ2pCLFlBQVk7RUFDWixVQUFVO0VBQ1YsZUFBZTtFQUNmLGdCQUFnQjtFQUNoQixzQ0FBc0M7RUFDdEMseUNBQXlDO0FBQzNDO0FBQ0E7RUFDRSxrQkFBa0I7RUFDbEIsaUJBQWlCO0VBQ2pCLFlBQVk7RUFDWixVQUFVO0VBQ1YsZUFBZTtFQUNmLGlCQUFpQjtFQUNqQix1Q0FBdUM7RUFDdkMsMENBQTBDO0FBQzVDO0FBQ0E7RUFDRSwwQkFBMEI7RUFDMUIsd0JBQXdCO0VBQ3hCLGtCQUFrQjtFQUNsQixjQUFjO0FBQ2hCO0FBRUE7RUFDRSxVQUFVO0VBQ1YsbUJBQW1CO0VBQ25CLGtCQUFrQjtFQUNsQixZQUFZO0VBQ1osU0FBUztFQUNULFdBQVc7RUFDWCxrQkFBa0I7RUFDbEIsWUFBWTtFQUNaLGFBQWE7RUFDYixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxvQkFBb0I7RUFDcEIsVUFBVTtFQUNWLFNBQVM7RUFDVCxpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLDJCQUEyQjtFQUMzQixlQUFlO0VBQ2YsYUFBYTtBQUNmO0FBQ0E7RUFDRSwwQkFBMEI7RUFDMUIsd0JBQXdCO0VBQ3hCLGlCQUFpQjs7QUFFbkI7QUFDQTtFQUNFLDBCQUEwQjtFQUMxQix3QkFBd0I7RUFDeEIsaUJBQWlCO0VBQ2pCLGVBQWU7RUFDZixZQUFZO0FBQ2Q7QUFDQTtFQUNFLDBCQUEwQjtFQUMxQix3QkFBd0I7RUFDeEIsaUJBQWlCO0NBQ2xCLDhCQUE4QjtBQUMvQjtBQUNBO0VBQ0UsMEJBQTBCO0VBQzFCLHdCQUF3QjtFQUN4QixpQkFBaUI7RUFDakIsaUJBQWlCO0VBQ2pCLFlBQVk7QUFDZDtBQUNBO0VBQ0UsYUFBYTtBQUNmIiwiZmlsZSI6InNyYy9hcHAvcGFydHkvcGFydHktY2FyZC9wYXJ0eS1jYXJkLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaGVhbEJ0bntcclxuICBiYWNrZ3JvdW5kOiBncmVlbjtcclxuICBmb250LXdlaWdodDogYm9sZDtcclxuICBjb2xvcjogd2hpdGU7XHJcbiAgd2lkdGg6IDQ1JTtcclxuICBwYWRkaW5nOiAwIDEycHg7XHJcbiAgdGV4dC1hbGlnbjogbGVmdDtcclxuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiAwcHggIWltcG9ydGFudDtcclxuICBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAwcHggIWltcG9ydGFudDtcclxufVxyXG4uZGFtQnRue1xyXG4gIGJhY2tncm91bmQ6IG1hcm9vbjtcclxuICBmb250LXdlaWdodDogYm9sZDtcclxuICBjb2xvcjogd2hpdGU7XHJcbiAgd2lkdGg6IDQ1JTtcclxuICBwYWRkaW5nOiAwIDEycHg7XHJcbiAgdGV4dC1hbGlnbjogcmlnaHQ7XHJcbiAgYm9yZGVyLXRvcC1yaWdodC1yYWRpdXM6IDBweCAhaW1wb3J0YW50O1xyXG4gIGJvcmRlci1ib3R0b20tcmlnaHQtcmFkaXVzOiAwcHggIWltcG9ydGFudDtcclxufVxyXG4uaHBBZGp1c3RlcntcclxuICBtYXJnaW46IDAgLTE0cHggMTlweCAtMTRweDtcclxuICB3aWR0aDogY2FsYygxMDAlICsgMjhweCk7XHJcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gIGhlaWdodDogMi4zcmVtO1xyXG59XHJcblxyXG4uaHBBZGp1c3RlciBpbnB1dCwgLmhwQWRqdXN0ZXIgaW5wdXQ6Zm9jdXN7XHJcbiAgd2lkdGg6IDMzJTtcclxuICBib3JkZXItcmFkaXVzOiAxOHB4O1xyXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICBoZWlnaHQ6IDJyZW07XHJcbiAgbGVmdDogMzMlO1xyXG4gIHRvcDogLjE2cmVtO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBib3JkZXI6IG5vbmU7XHJcbiAgb3V0bGluZTogbm9uZTtcclxuICBmb250LXNpemU6IDFyZW07XHJcbn1cclxuLmlucHV0V3JhcHBlcntcclxuICBoZWlnaHQ6IDIuNTcxNDI4NTdlbTtcclxuICB6LWluZGV4OiAzO1xyXG4gIHdpZHRoOiA1JTtcclxuICBvdmVyZmxvdzogdmlzaWJsZTtcclxufVxyXG4uc2F2ZXNIb2xkZXJ7XHJcbiAgYm9yZGVyLXRvcDogMXB4IHNvbGlkIGJsYWNrO1xyXG4gIG1hcmdpbjogMCAtMTRweDtcclxuICBwYWRkaW5nOiAxNHB4O1xyXG59XHJcbi5maW5le1xyXG4gIG1hcmdpbjogMCAtMTRweCAxOXB4IC0xNHB4O1xyXG4gIHdpZHRoOiBjYWxjKDEwMCUgKyAyOHB4KTtcclxuICBwYWRkaW5nOiAzcHggMTRweDtcclxuXHJcbn1cclxuLnJlZHtcclxuICBtYXJnaW46IDAgLTE0cHggMTlweCAtMTRweDtcclxuICB3aWR0aDogY2FsYygxMDAlICsgMjhweCk7XHJcbiAgcGFkZGluZzogM3B4IDE0cHg7XHJcbiAgYmFja2dyb3VuZDogcmVkO1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxufVxyXG4ueWVsbG93e1xyXG4gIG1hcmdpbjogMCAtMTRweCAxOXB4IC0xNHB4O1xyXG4gIHdpZHRoOiBjYWxjKDEwMCUgKyAyOHB4KTtcclxuICBwYWRkaW5nOiAzcHggMTRweDtcclxuIGJhY2tncm91bmQ6IHJnYigyMzgsIDIyNywgMTI1KTtcclxufVxyXG4uZGVhZHtcclxuICBtYXJnaW46IDAgLTE0cHggMTlweCAtMTRweDtcclxuICB3aWR0aDogY2FsYygxMDAlICsgMjhweCk7XHJcbiAgcGFkZGluZzogM3B4IDE0cHg7XHJcbiAgYmFja2dyb3VuZDogYmxhY2s7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG59XHJcbi5jb2xsYXBzZWR7XHJcbiAgZGlzcGxheTogbm9uZTtcclxufVxyXG4iXX0= */"]
     });
     /*@__PURE__*/
@@ -807,15 +819,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }]
       }], function () {
         return [{
-          type: src_app_services_char_service__WEBPACK_IMPORTED_MODULE_3__["CharService"]
+          type: src_app_services_char_service__WEBPACK_IMPORTED_MODULE_4__["CharService"]
         }, {
-          type: src_app_services_char_data_service__WEBPACK_IMPORTED_MODULE_4__["CharDataService"]
+          type: src_app_services_char_data_service__WEBPACK_IMPORTED_MODULE_5__["CharDataService"]
         }, {
-          type: src_app_services_party_service__WEBPACK_IMPORTED_MODULE_5__["PartyService"]
+          type: src_app_services_party_service__WEBPACK_IMPORTED_MODULE_6__["PartyService"]
         }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"]
         }, {
-          type: src_app_services_socket_service__WEBPACK_IMPORTED_MODULE_7__["SocketService"]
+          type: src_app_services_socket_service__WEBPACK_IMPORTED_MODULE_8__["SocketService"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]
         }];
