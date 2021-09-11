@@ -18,6 +18,7 @@ export class SpellListComponent implements OnInit {
   availableSpells: string;
   levelBreakDown = [];
   filterText = '';
+  isCaster = false;
   subs: Subscription[] = [];
 
 
@@ -28,13 +29,19 @@ export class SpellListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.charDataSvc.loadSpells(this.charID).subscribe( spells => {
+      this.isCaster = spells.results.length > 0;
+      this.spellList = spells.results;
+    });
     this.levelBreakDown =  _.uniqBy(this.spellList, 'spellLevel');
+
     this.subs.push(
       this.socketService.updateSpell().subscribe( (data: any): void => {
-        console.log("party sheet detected change", data)
+        console.log("party sheet detected change in spell list", data)
         const aSpell = this.spellList.find(spell => spell.id === data.id);
         if(aSpell){
           aSpell.isCast = data.currentStatus;
+          //this.levelBreakDown =  _.uniqBy(this.spellList, 'spellLevel');
         }
       }),
     );
