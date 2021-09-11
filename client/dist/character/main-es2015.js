@@ -973,7 +973,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-;
 class CharDataService {
     constructor(http, socket) {
         this.http = http;
@@ -1445,6 +1444,9 @@ class CharDataService {
                 }),
             });
             return val;
+        };
+        this.broadcastMessage = (event, payload) => {
+            this.socket.emit(event, payload);
         };
         this.toggleSpell = (body) => {
             const val = this.http.post('/api/spells/toggleSpell', body, {

@@ -2,7 +2,7 @@ import { Component, ElementRef, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PartyMember, PartyService } from 'src/app/services/party.service';
 import _ from 'lodash';
-import { CharDataService } from 'src/app/services/char-data.service';
+import { CharDataService, Spell } from 'src/app/services/char-data.service';
 import { CharService } from 'src/app/services/char.service';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { SocketService } from 'src/app/services/socket.service';
@@ -11,15 +11,6 @@ import { SocketService } from 'src/app/services/socket.service';
 interface SpellChange {
   currentStatus: boolean;
   id: number;
-}
-
-interface Spell {
-  id: number;
-  spellID: number;
-  charID: number;
-  spellLevel: number;
-  spellName: string;
-  isCast: boolean;
 }
 
 @Component({

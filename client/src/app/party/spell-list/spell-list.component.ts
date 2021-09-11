@@ -1,6 +1,6 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import _ from 'lodash';
-import { CharBasics, CharDataService } from 'src/app/services/char-data.service';
+import { CharBasics, CharDataService, Spell } from 'src/app/services/char-data.service';
 import { CharService } from 'src/app/services/char.service';
 import { SocketService } from 'src/app/services/socket.service';
 import { Subscription } from 'rxjs';
@@ -31,13 +31,34 @@ export class SpellListComponent implements OnInit {
   ngOnInit(): void {
     this.levelBreakDown =  _.uniqBy(this.spellList, 'spellLevel');
 
+
+
     this.subs.push(
       this.socketService.updateSpell().subscribe( (data: any): void => {
-        console.log("party sheet detected change in spell list", data)
         const aSpell = this.spellList.find(spell => spell.id === data.id);
-        if(aSpell){
+        if (aSpell) {
           aSpell.isCast = data.currentStatus;
+          aSpell.spellName = data.spellName;
+        }
+      }),
+      this.socketService.addSpell().subscribe( (data: Spell): void => {
+        if(this.charID === data.charID){
+          this.spellList.push(data);
           this.levelBreakDown =  _.uniqBy(this.spellList, 'spellLevel');
+        }
+      }),
+      this.socketService.deleteSpell().subscribe( (data: Spell): void => {
+        if(this.charID === data.charID){
+          this.spellList.filter(spell => spell.id !== data.id);
+          this.levelBreakDown =  _.uniqBy(this.spellList, 'spellLevel');
+        }
+      }),
+      this.socketService.changeSpell().subscribe( (data: any): void => {
+        const aSpell = this.spellList.find(spell => spell.id === data.id);
+        if (aSpell) {
+          aSpell.isCast = data.isCast;
+          aSpell.spellName = data.spellName;
+          aSpell.spellLevel = data.spellLevel;
         }
       }),
     );

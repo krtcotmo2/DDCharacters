@@ -1934,8 +1934,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! ngx-socket-io */
     "./node_modules/ngx-socket-io/__ivy_ngcc__/fesm2015/ngx-socket-io.js");
 
-    ;
-
     var CharDataService =
     /*#__PURE__*/
     function () {
@@ -2586,6 +2584,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
 
           return val;
+        };
+
+        this.broadcastMessage = function (event, payload) {
+          _this8.socket.emit(event, payload);
         };
 
         this.toggleSpell = function (body) {

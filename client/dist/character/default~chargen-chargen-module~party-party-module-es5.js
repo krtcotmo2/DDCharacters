@@ -18214,6 +18214,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           return this.createObserver('spellUpdate');
         }
       }, {
+        key: "addSpell",
+        value: function addSpell() {
+          return this.createObserver('addSpell');
+        }
+      }, {
+        key: "deleteSpell",
+        value: function deleteSpell() {
+          return this.createObserver('deleteSpell');
+        }
+      }, {
+        key: "changeSpell",
+        value: function changeSpell() {
+          return this.createObserver('changeSpell');
+        }
+      }, {
         key: "createObserver",
         value: function createObserver(evt) {
           return this.socket.fromEvent(evt);

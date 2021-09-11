@@ -14118,6 +14118,7 @@ class CharSpellsComponent {
                 this.spellLevel = null;
                 this.spellName = '';
                 this.showingForm = false;
+                this.charDataSvc.broadcastMessage('ADDSPELL', val);
             });
         };
         this.editNote = (id) => {
@@ -14138,16 +14139,17 @@ class CharSpellsComponent {
             return 'lvl' + lvl.toString();
         };
         this.reportCheck = (evt, id) => {
-            let aSpell = this.allSpells.find(x => x.id === parseInt(id));
+            const aSpell = this.allSpells.find(x => x.id === parseInt(id, 10));
             const chk = evt.target;
             aSpell.isCast = chk.checked;
             const body = {
                 id,
-                currentStatus: chk.checked
+                currentStatus: chk.checked,
+                spellName: aSpell.spellName,
             };
             this.charDataSvc.toggleSpell(body).subscribe(retVal => {
                 if (retVal === true) {
-                    console.log('saved char sheet emit changes spell');
+                    console.log('saved');
                 }
                 else {
                     console.log('save error');
@@ -14165,9 +14167,7 @@ class CharSpellsComponent {
             this.charDataSvc.setAllSpells(val);
             this.levelBreakDown = Array.from(Array(this.allSpells.slice(-1).pop().spellLevel + 1), (_, i) => i);
         });
-        console.log(this.subs);
         this.subs.push(this.socketService.updateSpell().subscribe((data) => {
-            console.log('char detected update from party', data);
             const aSpell = this.allSpells.find(spell => spell.id === data.id);
             if (aSpell) {
                 aSpell.isCast = data.currentStatus;
@@ -14944,7 +14944,7 @@ class EditSpellComponent {
         this.theID = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.last(this.router.url.split('/'));
         this.deleteNote = (id) => {
             this.charDataSvc.deleteSpell(id).subscribe((val) => {
-                let a = val;
+                this.charDataSvc.broadcastMessage('DELETESPELL', { charID: this.charID, id });
                 this.router.navigate(['/charGen/spells']);
             });
         };
@@ -14952,9 +14952,11 @@ class EditSpellComponent {
             let body = {
                 id: this.theID,
                 spellLevel: this.spellLevel,
-                spellName: this.theSpell
+                spellName: this.theSpell,
+                charID: this.charID
             };
             this.charDataSvc.updateSpell(body).subscribe(val => {
+                this.charDataSvc.broadcastMessage('CHANGESPELL', body);
                 this.router.navigate(['/charGen/spells']);
             });
         };
@@ -14963,6 +14965,7 @@ class EditSpellComponent {
         };
     }
     ngOnInit() {
+        this.charDataSvc.getCharID.subscribe((val) => this.charID = val === null ? 0 : val);
         this.spellLevel = history.state.data.spellLevel;
         this.theSpell = history.state.data.spellName;
     }

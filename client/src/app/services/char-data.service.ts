@@ -31,84 +31,89 @@ export interface CharBasics {
   };
 }
 
+export interface Stat {
+  statID: number;
+  score: number;
+  isBase: boolean;
+  isMod: boolean;
+  modDesc: string;
+}
 interface Stats {
   charID: string;
-  results: {
-    statID: number;
-    score: number;
-    isBase: boolean;
-    isMod: boolean;
-    modDesc: string;
-  }[];
+  results: Stat[];
 }
 
+export interface Save {
+  id: number;
+  saveID: number;
+  score: number;
+  isBase: boolean;
+  isMod: boolean;
+  modDesc: string;
+  Save: {
+    saveDesc: string;
+  }
+}
 interface Saves {
   charID: string;
-  results: {
-    id: number;
-    saveID: number;
-    score: number;
-    isBase: boolean;
-    isMod: boolean;
-    modDesc: string;
-    Save: {
-      saveDesc: string;
-    }
-  }[];
+  results: Save[];
 }
 
-interface Spells {
-  charID: string;
-  results: Spell[];
-}
-interface Spell {
+export interface Spell {
   id: number;
   spellID: number;
   charID: number;
   spellLevel: number;
   spellName: string;
   isCast: boolean;
-};
+}
+interface Spells {
+  charID: string;
+  results: Spell[];
+}
 
-
+export interface ToHit {
+  name: string,
+}
 interface CharToHits {
   charID: string;
-  results: {
-      name: string,
-    }[];
+  results: ToHit[];
 }
 
+export interface Feat {
+  benefit: string;
+  id: number;
+  name: string;
+  normal: string;
+  prerequisites: string;
+  prerequisitie_feats: string;
+  shortdescription: string;
+  special: string;
+}
 interface CharFeat {
   charID: string;
-  results: {
-      benefit: string;
-      id: number,
-      name: string,
-      normal: string,
-      prerequisites: string,
-      prerequisitie_feats: string,
-      shortdescription: string,
-      special: string
-    }[];
+  results: Feat[];
 }
 
+export interface CharSkill {
+  skillID: number;
+  score: number;
+  isRanks: boolean;
+  isMod: boolean;
+  isClassSkill: boolean;
+  modDesc: string;
+  Skill: Skill;
+}
+export interface Skill {
+  skillID: number;
+  skillName: string;
+  skillAttr: string;
+  SkillDesc: string;
+  untrained: boolean;
+}
 interface CharSkills {
   charID: string;
-  results: {
-    skillID: number;
-    score: number;
-    isRanks: boolean;
-    isMod: boolean;
-    isClassSkill: boolean;
-    modDesc: string;
-    Skill: {
-      skillID: number;
-      skillName: string;
-      skillAttr: string;
-      SkillDesc: string;
-      untrained: boolean;
-    }
-  }[];
+  results: CharSkill[];
 }
 
 interface CharClasses {
@@ -117,43 +122,46 @@ interface CharClasses {
     }[];
 }
 
+export interface Item {
+  id: number;
+  charID: number;
+  weight: number;
+  equip: string;
+  location: string;
+  equipOrder: number;
+}
 interface Equipment {
-  charID: number,
-  results: {
-      id: number,
-      charID: number,
-      weight: number,
-      equip: string,
-      location: string,
-      equipOrder: number
-    }[];
+  charID: number;
+  results: Item[];
 }
 
+export interface ACPart {
+  id: number;
+  charID: number;
+  score: number;
+  modDesc: string;
+  isBase: boolean;
+  isMod: boolean;
+}
 interface AC {
-  charID: number,
-  results: {
-      id: number,
-      charID: number,
-      score: number,
-      modDesc: string,
-      isBase: boolean,
-      isMod: boolean,
-    }[];
+  charID: number;
+  results: ACPart[];
 }
 
+export interface Note {
+  noteID: number;
+  noteOrder: number;
+  noteTitle: string;
+}
 interface Notes {
-  charID: string,
-  results: {
-    noteID: number;
-    noteOrder: number;
-    noteTitle: string;
-  }[];
+  charID: string;
+  results: Note[];
 }
 
 interface Alignments {
   results: {
-      alignID: string,
-      alignName: string,
+      alignID: string;
+      alignName: string;
     }[];
 }
 
@@ -675,6 +683,10 @@ export class CharDataService {
         }),
       });
       return val;
+    }
+
+    broadcastMessage = (event: string, payload: any) => {
+      this.socket.emit(event, payload);
     }
 
     toggleSpell = (body: {}) => {

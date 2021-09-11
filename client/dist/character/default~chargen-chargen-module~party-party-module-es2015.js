@@ -17323,6 +17323,15 @@ class SocketService {
     updateSpell() {
         return this.createObserver('spellUpdate');
     }
+    addSpell() {
+        return this.createObserver('addSpell');
+    }
+    deleteSpell() {
+        return this.createObserver('deleteSpell');
+    }
+    changeSpell() {
+        return this.createObserver('changeSpell');
+    }
     createObserver(evt) {
         return this.socket.fromEvent(evt);
     }

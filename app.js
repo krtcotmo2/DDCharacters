@@ -44,6 +44,15 @@ db.sequelize.sync().then(function() {
     })
     socket.on('SPELLUPDATE', (spellData) => {
       io.sockets.emit('spellUpdate', {...spellData, type: 'SPELLUPDATE'});
+    }) 
+    socket.on('ADDSPELL', (spellData) => {
+      io.sockets.emit('addSpell', {...spellData, type: 'ADDSPELL'});
+    })
+    socket.on('DELETESPELL', (spellData) => {
+      io.sockets.emit('deleteSpell', {...spellData, type: 'DELETESPELL'});
+    })
+    socket.on('CHANGESPELL', (spellData) => {
+      io.sockets.emit('changeSpell', {...spellData, type: 'CHANGESPELL'});
     })
   });
 

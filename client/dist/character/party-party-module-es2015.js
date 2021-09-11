@@ -772,11 +772,27 @@ class SpellListComponent {
     ngOnInit() {
         this.levelBreakDown = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.uniqBy(this.spellList, 'spellLevel');
         this.subs.push(this.socketService.updateSpell().subscribe((data) => {
-            console.log("party sheet detected change in spell list", data);
             const aSpell = this.spellList.find(spell => spell.id === data.id);
             if (aSpell) {
                 aSpell.isCast = data.currentStatus;
+                aSpell.spellName = data.spellName;
+            }
+        }), this.socketService.addSpell().subscribe((data) => {
+            if (this.charID === data.charID) {
+                this.spellList.push(data);
                 this.levelBreakDown = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.uniqBy(this.spellList, 'spellLevel');
+            }
+        }), this.socketService.deleteSpell().subscribe((data) => {
+            if (this.charID === data.charID) {
+                this.spellList.filter(spell => spell.id !== data.id);
+                this.levelBreakDown = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.uniqBy(this.spellList, 'spellLevel');
+            }
+        }), this.socketService.changeSpell().subscribe((data) => {
+            const aSpell = this.spellList.find(spell => spell.id === data.id);
+            if (aSpell) {
+                aSpell.isCast = data.isCast;
+                aSpell.spellName = data.spellName;
+                aSpell.spellLevel = data.spellLevel;
             }
         }));
     }

@@ -1610,15 +1610,37 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this.levelBreakDown = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.uniqBy(this.spellList, 'spellLevel');
           this.subs.push(this.socketService.updateSpell().subscribe(function (data) {
-            console.log("party sheet detected change in spell list", data);
-
             var aSpell = _this8.spellList.find(function (spell) {
               return spell.id === data.id;
             });
 
             if (aSpell) {
               aSpell.isCast = data.currentStatus;
+              aSpell.spellName = data.spellName;
+            }
+          }), this.socketService.addSpell().subscribe(function (data) {
+            if (_this8.charID === data.charID) {
+              _this8.spellList.push(data);
+
               _this8.levelBreakDown = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.uniqBy(_this8.spellList, 'spellLevel');
+            }
+          }), this.socketService.deleteSpell().subscribe(function (data) {
+            if (_this8.charID === data.charID) {
+              _this8.spellList.filter(function (spell) {
+                return spell.id !== data.id;
+              });
+
+              _this8.levelBreakDown = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.uniqBy(_this8.spellList, 'spellLevel');
+            }
+          }), this.socketService.changeSpell().subscribe(function (data) {
+            var aSpell = _this8.spellList.find(function (spell) {
+              return spell.id === data.id;
+            });
+
+            if (aSpell) {
+              aSpell.isCast = data.isCast;
+              aSpell.spellName = data.spellName;
+              aSpell.spellLevel = data.spellLevel;
             }
           }));
         }

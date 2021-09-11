@@ -23648,6 +23648,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             _this45.spellLevel = null;
             _this45.spellName = '';
             _this45.showingForm = false;
+
+            _this45.charDataSvc.broadcastMessage('ADDSPELL', val);
           });
         };
 
@@ -23686,19 +23688,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         this.reportCheck = function (evt, id) {
           var aSpell = _this45.allSpells.find(function (x) {
-            return x.id === parseInt(id);
+            return x.id === parseInt(id, 10);
           });
 
           var chk = evt.target;
           aSpell.isCast = chk.checked;
           var body = {
             id: id,
-            currentStatus: chk.checked
+            currentStatus: chk.checked,
+            spellName: aSpell.spellName
           };
 
           _this45.charDataSvc.toggleSpell(body).subscribe(function (retVal) {
             if (retVal === true) {
-              console.log('saved char sheet emit changes spell');
+              console.log('saved');
             } else {
               console.log('save error');
             }
@@ -23730,10 +23733,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               return i;
             });
           });
-          console.log(this.subs);
           this.subs.push(this.socketService.updateSpell().subscribe(function (data) {
-            console.log('char detected update from party', data);
-
             var aSpell = _this46.allSpells.find(function (spell) {
               return spell.id === data.id;
             });
@@ -25297,7 +25297,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         this.deleteNote = function (id) {
           _this50.charDataSvc.deleteSpell(id).subscribe(function (val) {
-            var a = val;
+            _this50.charDataSvc.broadcastMessage('DELETESPELL', {
+              charID: _this50.charID,
+              id: id
+            });
 
             _this50.router.navigate(['/charGen/spells']);
           });
@@ -25307,10 +25310,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var body = {
             id: _this50.theID,
             spellLevel: _this50.spellLevel,
-            spellName: _this50.theSpell
+            spellName: _this50.theSpell,
+            charID: _this50.charID
           };
 
           _this50.charDataSvc.updateSpell(body).subscribe(function (val) {
+            _this50.charDataSvc.broadcastMessage('CHANGESPELL', body);
+
             _this50.router.navigate(['/charGen/spells']);
           });
         };
@@ -25323,6 +25329,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(EditSpellComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
+          var _this51 = this;
+
+          this.charDataSvc.getCharID.subscribe(function (val) {
+            return _this51.charID = val === null ? 0 : val;
+          });
           this.spellLevel = history.state.data.spellLevel;
           this.theSpell = history.state.data.spellName;
         }
@@ -25843,7 +25854,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function GenerateComponent(dr, charDataSvc, userService, sanitizer, router) {
-        var _this51 = this;
+        var _this52 = this;
 
         _classCallCheck(this, GenerateComponent);
 
@@ -25857,33 +25868,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.stats = [];
 
         this.rollAll = function () {
-          _this51.getStat(5, 'str');
+          _this52.getStat(5, 'str');
 
-          _this51.getStat(4, 'dex');
+          _this52.getStat(4, 'dex');
 
-          _this51.getStat(5, 'con');
+          _this52.getStat(5, 'con');
 
-          _this51.getStat(4, 'int');
+          _this52.getStat(4, 'int');
 
-          _this51.getStat(4, 'wis');
+          _this52.getStat(4, 'wis');
 
-          _this51.getStat(4, 'chr');
+          _this52.getStat(4, 'chr');
         };
 
         this.getStat = function (arg, stat) {
-          var roll1 = _this51.dr.sumRoll(6, arg, 3);
+          var roll1 = _this52.dr.sumRoll(6, arg, 3);
 
-          var roll2 = _this51.dr.sumRoll(6, arg, 3);
+          var roll2 = _this52.dr.sumRoll(6, arg, 3);
 
-          _this51.stats[stat] = Math.max(roll1, roll2);
+          _this52.stats[stat] = Math.max(roll1, roll2);
         };
 
         this.reset = function () {
-          _this51.stats = [];
+          _this52.stats = [];
         };
 
         this.ediStat = function (arg) {
-          _this51.router.navigate(['/charGen/mods/stat/' + arg]);
+          _this52.router.navigate(['/charGen/mods/stat/' + arg]);
         };
 
         this.calculateFirstCol = function () {
@@ -25906,33 +25917,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(GenerateComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this52 = this;
+          var _this53 = this;
 
           this.userService.getUser.subscribe(function (val) {
-            return _this52.loggedIn = val;
+            return _this53.loggedIn = val;
           });
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this52.charID = val;
+            return _this53.charID = val;
           });
           this.charDataSvc.getCharBasics.subscribe(function (val) {
-            return _this52.charBasic = val;
+            return _this53.charBasic = val;
           });
           this.isMyCharacter = this.loggedIn['userID'] === this.charBasic.results.userID;
           this.charDataSvc.getAllStats.subscribe(function (val) {
-            return _this52.stats = val === null ? [] : val.results;
+            return _this53.stats = val === null ? [] : val.results;
           });
           this.charDataSvc.getAllStats.subscribe(function (val) {
-            return _this52.curChar = val === null ? "0" : val.charID;
+            return _this53.curChar = val === null ? "0" : val.charID;
           });
 
           if (this.charID && this.charID.toString() !== this.curChar) {
             this.stats = [];
             this.charDataSvc.loadStats(this.charID).subscribe(function (sts) {
-              _this52.stats = sts.results;
+              _this53.stats = sts.results;
 
-              _this52.charDataSvc.setStats(sts);
+              _this53.charDataSvc.setStats(sts);
 
-              _this52.charDataSvc.setCurCharID(_this52.charID);
+              _this53.charDataSvc.setCurCharID(_this53.charID);
             });
           } else {}
         }
@@ -26657,17 +26668,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function InputComponent() {
-        var _this53 = this;
+        var _this54 = this;
 
         _classCallCheck(this, InputComponent);
 
         this.placeHolder = '';
 
         this.isErrored = function () {
-          var _this53$control = _this53.control,
-              dirty = _this53$control.dirty,
-              touched = _this53$control.touched,
-              errors = _this53$control.errors;
+          var _this54$control = _this54.control,
+              dirty = _this54$control.dirty,
+              touched = _this54$control.touched,
+              errors = _this54$control.errors;
           return errors && touched && dirty;
         };
 
@@ -26878,16 +26889,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(NewFeatComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this54 = this;
+          var _this55 = this;
 
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this54.charID = val;
+            return _this55.charID = val;
           });
           this.charDataSvc.getAllFeats.subscribe(function (val) {
-            return _this54.curChar = val.charID;
+            return _this55.curChar = val.charID;
           });
           this.charDataSvc.getAllFeats.subscribe(function (val) {
-            return _this54.curFeats = val;
+            return _this55.curFeats = val;
           });
 
           var ids = _toConsumableArray(new Set(this.curFeats.results.map(function (i) {
@@ -26899,19 +26910,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllFeats",
         value: function getAllFeats(arr) {
-          var _this55 = this;
+          var _this56 = this;
 
           this.charDataSvc.loadOtherFeats(arr).subscribe(function (arg) {
-            _this55.categories = _toConsumableArray(new Set(arg.results.map(function (i) {
+            _this56.categories = _toConsumableArray(new Set(arg.results.map(function (i) {
               return i['type'];
             })));
-            _this55.allFeats = arg.results;
+            _this56.allFeats = arg.results;
           });
         }
       }, {
         key: "optionSelected",
         value: function optionSelected(event) {
-          var _this56 = this;
+          var _this57 = this;
 
           var selected = event.target.getAttribute("data-value");
           var aFeat = this.allFeats.find(function (arg) {
@@ -26924,21 +26935,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             id: 0
           };
           this.charDataSvc.saveNewFeat(this.charID, aFeat).subscribe(function (val) {
-            _this56.curFeats.results.push(val);
+            _this57.curFeats.results.push(val);
 
-            _this56.charDataSvc.setAllFeats(_this56.curFeats);
+            _this57.charDataSvc.setAllFeats(_this57.curFeats);
 
-            _this56.router.navigate(['/charGen/feats']);
+            _this57.router.navigate(['/charGen/feats']);
           });
         }
       }, {
         key: "categoryselected",
         value: function categoryselected(event) {
-          var _this57 = this;
+          var _this58 = this;
 
           this.selCat = event.target.innerText;
           this.filteredFeats = this.allFeats.filter(function (item) {
-            return item['type'] === _this57.selCat;
+            return item['type'] === _this58.selCat;
           });
         }
       }]);
@@ -27120,16 +27131,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(NewSkillComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this58 = this;
+          var _this59 = this;
 
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this58.charID = val;
+            return _this59.charID = val;
           });
           this.charDataSvc.getAllSkills.subscribe(function (val) {
-            return _this58.curChar = val.charID;
+            return _this59.curChar = val.charID;
           });
           this.charDataSvc.getAllSkills.subscribe(function (val) {
-            return _this58.curSkills = val;
+            return _this59.curSkills = val;
           });
 
           var ids = _toConsumableArray(new Set(this.curSkills.results.map(function (i) {
@@ -27141,16 +27152,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllSkills",
         value: function getAllSkills(arr) {
-          var _this59 = this;
+          var _this60 = this;
 
           this.charDataSvc.loadOtherSkills(arr).subscribe(function (arg) {
-            _this59.allSkills = arg.results;
+            _this60.allSkills = arg.results;
           });
         }
       }, {
         key: "optionSelected",
         value: function optionSelected(event) {
-          var _this60 = this;
+          var _this61 = this;
 
           var selected = event.target.getAttribute("data-value");
           var aSkill = this.allSkills.find(function (arg) {
@@ -27168,11 +27179,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             id: 0
           };
           this.charDataSvc.saveNewSkill(this.charID, aSkill).subscribe(function (val) {
-            _this60.curSkills.results.push(val);
+            _this61.curSkills.results.push(val);
 
-            _this60.charDataSvc.setAllSkills(_this60.curSkills);
+            _this61.charDataSvc.setAllSkills(_this61.curSkills);
 
-            _this60.router.navigate(['/charGen/skills']);
+            _this61.router.navigate(['/charGen/skills']);
           });
         }
       }]);
@@ -27300,7 +27311,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function NewTohitComponent(charDataSvc, router) {
-        var _this61 = this;
+        var _this62 = this;
 
         _classCallCheck(this, NewTohitComponent);
 
@@ -27315,17 +27326,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         this.onSubmit = function (evt) {
           evt.preventDefault();
-          var obj = Object.assign(Object.assign({}, _this61.attribute['ToHit']), {
-            toHitID: parseInt(_this61.partID, 10)
+          var obj = Object.assign(Object.assign({}, _this62.attribute['ToHit']), {
+            toHitID: parseInt(_this62.partID, 10)
           });
 
-          _this61.charDataSvc.newToHit(_this61.charID, obj).subscribe(function (val) {
+          _this62.charDataSvc.newToHit(_this62.charID, obj).subscribe(function (val) {
             if (val.results) {
-              _this61.allHits.results = _this61.allHits.results.filter(function (arg) {
+              _this62.allHits.results = _this62.allHits.results.filter(function (arg) {
                 return arg.id !== val.results.id;
               });
 
-              var allRelatedAttacks = _this61.allHits.results.filter(function (arg) {
+              var allRelatedAttacks = _this62.allHits.results.filter(function (arg) {
                 return arg.toHitID === val.results.toHitID;
               });
 
@@ -27345,38 +27356,38 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 _iterator15.f();
               }
 
-              _this61.allHits.results.push(val.results);
+              _this62.allHits.results.push(val.results);
 
-              _this61.allHits.results.sort(function (a, b) {
+              _this62.allHits.results.sort(function (a, b) {
                 return a.toHitID - b.toHitID;
               });
 
-              _this61.charDataSvc.setAllToHits(_this61.allHits);
+              _this62.charDataSvc.setAllToHits(_this62.allHits);
 
-              _this61.router.navigate(['/charGen/tohits']);
+              _this62.router.navigate(['/charGen/tohits']);
             }
           });
         };
 
         this.onCancel = function () {
-          _this61.router.navigate(['/charGen/tohits']);
+          _this62.router.navigate(['/charGen/tohits']);
         };
       }
 
       _createClass(NewTohitComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this62 = this;
+          var _this63 = this;
 
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this62.charID = val;
+            return _this63.charID = val;
           });
           this.charDataSvc.getAllToHits.subscribe(function (val) {
-            return _this62.curChar = val.charID;
+            return _this63.curChar = val.charID;
           }); //this.charDataSvc.getAllToHits.subscribe( (val) => this.allHits = val.results);
 
           this.charDataSvc.getAllToHits.subscribe(function (val) {
-            return _this62.allHits = val;
+            return _this63.allHits = val;
           });
 
           if (this.partID === '0') {
@@ -27396,7 +27407,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
           } else {
             this.attribute = this.allHits.results.find(function (arg) {
-              return arg.toHitID.toString() === _this62.partID;
+              return arg.toHitID.toString() === _this63.partID;
             });
           }
         }
@@ -27826,7 +27837,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function SingleFeatComponent(router, userService, charDataSvc) {
-        var _this63 = this;
+        var _this64 = this;
 
         _classCallCheck(this, SingleFeatComponent);
 
@@ -27845,17 +27856,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         };
 
         this.deleteFeat = function (arg) {
-          _this63.charDataSvc.deleteFeat(arg).subscribe(function (val) {
-            var newArray = _this63.charFeats.filter(function (ft) {
+          _this64.charDataSvc.deleteFeat(arg).subscribe(function (val) {
+            var newArray = _this64.charFeats.filter(function (ft) {
               return ft['id'] !== arg;
             });
 
-            _this63.charDataSvc.setAllFeats({
-              charID: _this63.charID,
+            _this64.charDataSvc.setAllFeats({
+              charID: _this64.charID,
               results: newArray
             });
 
-            _this63.router.navigate(['/charGen/feats']);
+            _this64.router.navigate(['/charGen/feats']);
           });
         };
       }
@@ -27863,16 +27874,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(SingleFeatComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this64 = this;
+          var _this65 = this;
 
           this.userService.getUser.subscribe(function (val) {
-            return _this64.loggedIn = val;
+            return _this65.loggedIn = val;
           });
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this64.charID = val;
+            return _this65.charID = val;
           });
           this.charDataSvc.getCharBasics.subscribe(function (val) {
-            return _this64.charBasic = val;
+            return _this65.charBasic = val;
           });
           this.isMyCharacter = this.loggedIn['userID'] === this.charBasic.results.userID;
         }
@@ -28186,7 +28197,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function SingleNoteComponent(charDataSvc, userService, router) {
-        var _this65 = this;
+        var _this66 = this;
 
         _classCallCheck(this, SingleNoteComponent);
 
@@ -28198,25 +28209,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.noteTitle = '';
 
         this.addNewNote = function (evt) {
-          _this65.newNote = true;
+          _this66.newNote = true;
         };
 
         this.onSubmit = function (evt) {
           evt.preventDefault();
           var body = {
-            noteID: _this65.noteID,
-            itemDetails: _this65.note
+            noteID: _this66.noteID,
+            itemDetails: _this66.note
           };
 
-          _this65.charDataSvc.addNoteItem(body).subscribe(function (vals) {
-            _this65.allNotes = [].concat(_toConsumableArray(_this65.allNotes), [vals]);
-            _this65.note = '';
-            _this65.newNote = false;
+          _this66.charDataSvc.addNoteItem(body).subscribe(function (vals) {
+            _this66.allNotes = [].concat(_toConsumableArray(_this66.allNotes), [vals]);
+            _this66.note = '';
+            _this66.newNote = false;
           });
         };
 
         this.filterList = function (evt) {
-          _this65.filterText = evt.target.value;
+          _this66.filterText = evt.target.value;
           var allRows = document.getElementsByClassName('ui grid gridRow');
 
           var _iterator16 = _createForOfIteratorHelper(allRows),
@@ -28227,7 +28238,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               var r = _step16.value;
               var aTag = r.getElementsByTagName('span')[0].innerText;
 
-              if (aTag.toLowerCase().includes(_this65.filterText.toLowerCase())) {
+              if (aTag.toLowerCase().includes(_this66.filterText.toLowerCase())) {
                 r.classList.remove('hidden');
               } else {
                 r.classList.add('hidden');
@@ -28241,11 +28252,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         };
 
         this.editNote = function (id) {
-          var oneNote = _this65.allNotes.find(function (a) {
+          var oneNote = _this66.allNotes.find(function (a) {
             return a.id.toString() === id;
           });
 
-          _this65.router.navigate(['/charGen/notes/editNote/' + id], {
+          _this66.router.navigate(['/charGen/notes/editNote/' + id], {
             state: {
               data: {
                 type: 'ind',
@@ -28259,22 +28270,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(SingleNoteComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this66 = this;
+          var _this67 = this;
 
           this.userService.getUser.subscribe(function (val) {
-            return _this66.loggedIn = val;
+            return _this67.loggedIn = val;
           });
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this66.charID = val;
+            return _this67.charID = val;
           });
           this.charDataSvc.getCharBasics.subscribe(function (val) {
-            return _this66.charBasic = val;
+            return _this67.charBasic = val;
           });
           this.isMyCharacter = this.loggedIn['userID'] === this.charBasic.results.userID;
           this.noteID = this.router.url.split("/").pop();
           this.charDataSvc.loadNotesItems(this.noteID).subscribe(function (val) {
-            _this66.allNotes = val.results;
-            _this66.noteTitle = val.title;
+            _this67.allNotes = val.results;
+            _this67.noteTitle = val.title;
           });
         }
       }, {
@@ -28564,14 +28575,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     "./node_modules/@angular/common/fesm2015/http.js");
 
     var ClassesService = function ClassesService(http) {
-      var _this67 = this;
+      var _this68 = this;
 
       _classCallCheck(this, ClassesService);
 
       this.http = http;
 
       this.getClasses = function () {
-        return _this67.http.get('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/classes/all', {
+        return _this68.http.get('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/classes/all', {
           headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
             'Access-Control-Allow-Origin': '*'
           })
@@ -28631,14 +28642,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     "./node_modules/@angular/common/fesm2015/http.js");
 
     var RaceService = function RaceService(http) {
-      var _this68 = this;
+      var _this69 = this;
 
       _classCallCheck(this, RaceService);
 
       this.http = http;
 
       this.getRaces = function () {
-        return _this68.http.get('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/races/all', {
+        return _this69.http.get('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/races/all', {
           headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
             'Access-Control-Allow-Origin': '*'
           })
