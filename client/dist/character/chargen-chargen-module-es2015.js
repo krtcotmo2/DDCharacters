@@ -14122,8 +14122,11 @@ class CharSpellsComponent {
             });
         };
         this.editNote = (id) => {
-            let chosenSpell = this.allSpells.find(s => s.id.toString() === id);
-            this.router.navigate(['/charGen/spells/' + id], { state: { data: { spellLevel: chosenSpell.spellLevel, spellName: chosenSpell.spellName } } });
+            const chosenSpell = this.allSpells.find(s => s.id.toString() === id);
+            this.router.navigate(['/charGen/spells/' + id], { state: { data: {
+                        spellLevel: chosenSpell.spellLevel,
+                        spellName: chosenSpell.spellName
+                    } } });
         };
         this.filteredSpells = (l) => {
             return this.allSpells.filter(a => a.spellLevel === l);
@@ -14144,8 +14147,7 @@ class CharSpellsComponent {
             aSpell.isCast = chk.checked;
             const body = {
                 id,
-                currentStatus: chk.checked,
-                spellName: aSpell.spellName,
+                isCast: chk.checked
             };
             this.charDataSvc.toggleSpell(body).subscribe(retVal => {
                 if (retVal === true) {
@@ -14170,7 +14172,7 @@ class CharSpellsComponent {
         this.subs.push(this.socketService.updateSpell().subscribe((data) => {
             const aSpell = this.allSpells.find(spell => spell.id === data.id);
             if (aSpell) {
-                aSpell.isCast = data.currentStatus;
+                aSpell.isCast = data.isCast;
                 this.levelBreakDown = Array.from(Array(this.allSpells.slice(-1).pop().spellLevel + 1), (_, i) => i);
             }
         }));

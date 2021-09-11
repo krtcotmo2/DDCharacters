@@ -9,7 +9,7 @@ import { SocketService } from 'src/app/services/socket.service';
 
 
 interface SpellChange {
-  currentStatus: boolean;
+  isCast: boolean;
   id: number;
 }
 

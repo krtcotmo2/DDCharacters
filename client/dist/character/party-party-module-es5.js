@@ -1590,12 +1590,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           aSpell.isCast = chk.checked;
           var body = {
             id: id,
-            currentStatus: chk.checked
+            isCast: chk.checked
           };
 
           _this7.charDataSvc.toggleSpell(body).subscribe(function (retVal) {
             if (retVal === true) {
-              console.log('saved char sheet emit changes spell');
+              console.log('saved');
             } else {
               console.log('save error');
             }
@@ -1611,12 +1611,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.levelBreakDown = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.uniqBy(this.spellList, 'spellLevel');
           this.subs.push(this.socketService.updateSpell().subscribe(function (data) {
             var aSpell = _this8.spellList.find(function (spell) {
-              return spell.id === data.id;
+              return spell.id === +data.id;
             });
 
+            console.log(aSpell);
+
             if (aSpell) {
-              aSpell.isCast = data.currentStatus;
-              aSpell.spellName = data.spellName;
+              aSpell.isCast = data.isCast;
             }
           }), this.socketService.addSpell().subscribe(function (data) {
             if (_this8.charID === data.charID) {
@@ -1626,19 +1627,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             }
           }), this.socketService.deleteSpell().subscribe(function (data) {
             if (_this8.charID === data.charID) {
-              _this8.spellList.filter(function (spell) {
-                return spell.id !== data.id;
+              _this8.spellList = _this8.spellList.filter(function (spell) {
+                return spell.id !== +data.id;
               });
-
               _this8.levelBreakDown = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.uniqBy(_this8.spellList, 'spellLevel');
             }
           }), this.socketService.changeSpell().subscribe(function (data) {
             var aSpell = _this8.spellList.find(function (spell) {
-              return spell.id === data.id;
+              return spell.id === +data.id;
             });
 
+            console.log('aSpell', _this8.spellList);
+
             if (aSpell) {
-              aSpell.isCast = data.isCast;
               aSpell.spellName = data.spellName;
               aSpell.spellLevel = data.spellLevel;
             }

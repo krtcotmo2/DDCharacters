@@ -2609,6 +2609,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             })
           });
 
+          _this8.socket.emit('CHANGESPELL', body);
+
           return val;
         };
 

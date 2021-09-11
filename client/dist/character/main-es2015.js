@@ -1463,6 +1463,7 @@ class CharDataService {
                     'Access-Control-Allow-Origin': '*'
                 }),
             });
+            this.socket.emit('CHANGESPELL', body);
             return val;
         };
         this.deleteSpell = (id) => {

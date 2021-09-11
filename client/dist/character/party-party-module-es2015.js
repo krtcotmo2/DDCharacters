@@ -757,11 +757,11 @@ class SpellListComponent {
             aSpell.isCast = chk.checked;
             const body = {
                 id,
-                currentStatus: chk.checked
+                isCast: chk.checked
             };
             this.charDataSvc.toggleSpell(body).subscribe(retVal => {
                 if (retVal === true) {
-                    console.log('saved char sheet emit changes spell');
+                    console.log('saved');
                 }
                 else {
                     console.log('save error');
@@ -772,10 +772,10 @@ class SpellListComponent {
     ngOnInit() {
         this.levelBreakDown = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.uniqBy(this.spellList, 'spellLevel');
         this.subs.push(this.socketService.updateSpell().subscribe((data) => {
-            const aSpell = this.spellList.find(spell => spell.id === data.id);
+            const aSpell = this.spellList.find(spell => spell.id === +data.id);
+            console.log(aSpell);
             if (aSpell) {
-                aSpell.isCast = data.currentStatus;
-                aSpell.spellName = data.spellName;
+                aSpell.isCast = data.isCast;
             }
         }), this.socketService.addSpell().subscribe((data) => {
             if (this.charID === data.charID) {
@@ -784,13 +784,13 @@ class SpellListComponent {
             }
         }), this.socketService.deleteSpell().subscribe((data) => {
             if (this.charID === data.charID) {
-                this.spellList.filter(spell => spell.id !== data.id);
+                this.spellList = this.spellList.filter(spell => spell.id !== +data.id);
                 this.levelBreakDown = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.uniqBy(this.spellList, 'spellLevel');
             }
         }), this.socketService.changeSpell().subscribe((data) => {
-            const aSpell = this.spellList.find(spell => spell.id === data.id);
+            const aSpell = this.spellList.find(spell => spell.id === +data.id);
+            console.log('aSpell', this.spellList);
             if (aSpell) {
-                aSpell.isCast = data.isCast;
                 aSpell.spellName = data.spellName;
                 aSpell.spellLevel = data.spellLevel;
             }

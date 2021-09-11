@@ -23695,8 +23695,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           aSpell.isCast = chk.checked;
           var body = {
             id: id,
-            currentStatus: chk.checked,
-            spellName: aSpell.spellName
+            isCast: chk.checked
           };
 
           _this45.charDataSvc.toggleSpell(body).subscribe(function (retVal) {
@@ -23739,7 +23738,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             });
 
             if (aSpell) {
-              aSpell.isCast = data.currentStatus;
+              aSpell.isCast = data.isCast;
               _this46.levelBreakDown = Array.from(Array(_this46.allSpells.slice(-1).pop().spellLevel + 1), function (_, i) {
                 return i;
               });

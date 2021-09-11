@@ -18,10 +18,10 @@ module.exports = {
   },
 
   toggleSpell: function (req, res){
-    const curStatus = req.body.currentStatus;
+    const isCast = req.body.isCast;
     const id = req.body.id;
 
-    db.CharSpells.update({isCast: curStatus}, {
+    db.CharSpells.update({isCast: isCast}, {
       where: {id: id}
     }).then(results =>{
       res.status(200).json(results[0] > 0);
