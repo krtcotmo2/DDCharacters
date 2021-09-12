@@ -15375,7 +15375,8 @@ class ExpendablesComponent {
             this.filterText = evt.target.value;
             const allRows = document.getElementsByClassName('stat six wide column');
             for (let r of allRows) {
-                if (r.innerText.toLowerCase().includes(this.filterText.toLowerCase())) {
+                if (r.innerText.toLowerCase().includes(this.filterText.toLowerCase()) ||
+                    r.nextSibling.innerText.toLowerCase().includes(this.filterText.toLowerCase())) {
                     r.parentElement.classList.remove('hidden');
                 }
                 else {

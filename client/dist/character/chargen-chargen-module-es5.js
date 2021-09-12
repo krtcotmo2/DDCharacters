@@ -26288,7 +26288,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             for (_iterator15.s(); !(_step15 = _iterator15.n()).done;) {
               var r = _step15.value;
 
-              if (r.innerText.toLowerCase().includes(_this52.filterText.toLowerCase())) {
+              if (r.innerText.toLowerCase().includes(_this52.filterText.toLowerCase()) || r.nextSibling.innerText.toLowerCase().includes(_this52.filterText.toLowerCase())) {
                 r.parentElement.classList.remove('hidden');
               } else {
                 r.parentElement.classList.add('hidden');
