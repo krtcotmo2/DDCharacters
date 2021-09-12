@@ -77,3 +77,27 @@
 .collapsed{
   display: none;
 }
+.expHolder{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  height:22px;
+  max-height: 22px;
+  overflow: hidden;
+}
+.expHolder>div{
+  padding-left: 6px;
+}
+.controls{
+  display: none;
+  min-width: 52px;
+}
+.controls button{
+  border-radius: 16px;
+}
+.expHolder:hover .controls{
+  display: flex;
+  justify-content: space-between;
+}

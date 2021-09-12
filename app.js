@@ -54,6 +54,9 @@ db.sequelize.sync().then(function() {
     socket.on('CHANGESPELL', (spellData) => {
       io.sockets.emit('changeSpell', {...spellData, type: 'CHANGESPELL'});
     })
+    socket.on('UPDATEEXPENDABLE', (expendable) => {
+      io.sockets.emit('updateExpendable', {...expendable, type: 'UPDATEEXPENDABLE'});
+    })
   });
 
   server.listen(PORT, () => {

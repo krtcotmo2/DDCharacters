@@ -17332,6 +17332,9 @@ class SocketService {
     changeSpell() {
         return this.createObserver('changeSpell');
     }
+    updateExpendable() {
+        return this.createObserver('updateExpendable');
+    }
     createObserver(evt) {
         return this.socket.fromEvent(evt);
     }

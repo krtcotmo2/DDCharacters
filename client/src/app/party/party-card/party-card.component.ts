@@ -6,6 +6,8 @@ import { CharDataService, Spell } from 'src/app/services/char-data.service';
 import { CharService } from 'src/app/services/char.service';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { SocketService } from 'src/app/services/socket.service';
+import { ExpendablesComponent } from 'src/app/chargen/expendables/expendables.component';
+import { Expendable, ExpendableService } from 'src/app/services/expendable.service';
 
 
 interface SpellChange {
@@ -28,7 +30,9 @@ export class PartyCardComponent implements OnInit {
   charName: string;
   charAC: number;
   isCaster = false;
-
+  allExpendables: Expendable[] = [];
+  classExpendables: Expendable[] = [];
+  otherExpendables: Expendable[] = [];
   fortSave: number;
   reflexSave: number;
   willSave: number;
@@ -43,6 +47,7 @@ export class PartyCardComponent implements OnInit {
   getAllSpells = this.spellList.asObservable();
   setAllSpells = (arg) => { this.spellList.next(arg); };
 
+
   // private docSub: Subscription;
 
   constructor(
@@ -51,6 +56,7 @@ export class PartyCardComponent implements OnInit {
     private partyService: PartyService,
     private router: Router,
     private socketService: SocketService,
+    private expendableSvc: ExpendableService,
     private element: ElementRef<HTMLInputElement>,
   ) { }
 
@@ -81,11 +87,22 @@ export class PartyCardComponent implements OnInit {
         this.curHP = this.maxHP;
       }
     });
+    this.expendableSvc.loadExpendables(this.charID).subscribe( expendables => {
+      this.allExpendables = expendables.results;
+      this.classExpendables = expendables.results.filter(exp => exp.type === 'Class');
+      this.otherExpendables = expendables.results.filter(exp => exp.type !== 'Class');
+    });
     this.subs.push(
       this.socketService.updateHP().subscribe( (data: any): void => {
         if (data.charID === this.charID) {
           this.currentMember = data;
           this.curHP = data.curHP;
+        }
+      }),
+      this.socketService.updateExpendable().subscribe( (data: Expendable): void => {
+        if (data.charID === this.charID) {
+          const anExp = this.allExpendables.find(exp => exp.id === data.id);
+          anExp.qty = data.qty;
         }
       }),
     );
@@ -126,12 +143,20 @@ export class PartyCardComponent implements OnInit {
     const ico: HTMLElement = evt.target as HTMLElement;
     ico.classList.toggle('down');
     ico.classList.toggle('right');
-    const el: HTMLElement = ico.parentElement.nextSibling as HTMLElement;
+    const el: HTMLElement = ico.parentElement.nextSibling.nextSibling as HTMLElement;
     el.classList.toggle('collapsed');
   }
 
   setSpellAvail = (str: any) => {
     this.spellTag = str;
+  }
+
+  adjustItem = (id: number, val: number) => {
+    const anExp = this.allExpendables.find(exp => exp.id === id);
+    anExp.qty = anExp.qty + val;
+    this.expendableSvc.updateExpendables(anExp).subscribe(val => {
+      console.log(val);
+    });
   }
 }
 

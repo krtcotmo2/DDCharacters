@@ -28,9 +28,12 @@ export class SocketService {
     return this.createObserver('deleteSpell');
   }
 
-
   changeSpell() {
     return this.createObserver('changeSpell');
+  }
+
+  updateExpendable() {
+    return this.createObserver('updateExpendable');
   }
 
   private createObserver(evt: string) {

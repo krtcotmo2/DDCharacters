@@ -15,15 +15,45 @@
   <span style="width:33%; display: inline-block"><b>Will:&nbsp;</b>{{willSave}}</span>
   <span style="width:33%; display: inline-block"><b>Reflex:&nbsp;</b>{{reflexSave}}</span>
 </p>
-<p>Potion List</p>
-<p>Scroll List</p>
-<div *ngIf="isCaster">
-  <div>
-    <i class="arrow circle down icon pointer" (click)="toggelDisplay($event)" ></i><b>Spells </b>
-  </div>
-  <app-spell-list
-    [(spellList)]="spellList"
-    [charID]="charID"
-    (spellStringBuilder)='setSpellAvail($event)'
-  ></app-spell-list>
+<div *ngIf="classExpendables.length > 0">
+  <i class="arrow circle down icon pointer" (click)="toggelDisplay($event)"></i> <b>Class Abilities</b>
 </div>
+<div class='aClass'>
+  <div *ngFor="let exp of classExpendables" class='expHolder'>
+    <div>{{exp.description}}</div>
+    <div>
+      <div class='controls'>
+        <button (click)="adjustItem(exp.id, 1)">+</button>
+        <button (click)="adjustItem(exp.id, -1)">-</button>
+      </div>
+    </div>
+    <div>{{exp.qty}}</div>
+  </div>
+</div>
+<div *ngIf="otherExpendables.length > 0">
+  <i class="arrow circle down icon pointer" (click)="toggelDisplay($event)"></i> <b>Expendables</b>
+</div>
+<div class='aClass'>
+  <div *ngFor="let exp of otherExpendables" class='expHolder'>
+    <div>{{exp.description}}</div>
+    <div>
+      <div class='controls'>
+        <button (click)="adjustItem(exp.id, 1)">+</button>
+        <button (click)="adjustItem(exp.id, -1)">-</button>
+      </div>
+    </div>
+    <div>{{exp.qty}}</div>
+  </div>
+</div>
+<div *ngIf="isCaster">
+    <i class="arrow circle down icon pointer" (click)="toggelDisplay($event)" ></i><b>Spells </b>
+</div>
+<app-spell-list
+  *ngIf="isCaster"
+  [(spellList)]="spellList"
+  [charID]="charID"
+  (spellStringBuilder)='setSpellAvail($event)'
+></app-spell-list>
+<i class="fas fa-flask"></i>
+<i class="fas fa-solid fa-scroll"></i>
+<i class="fas fa-solid fa-viruses"></i>

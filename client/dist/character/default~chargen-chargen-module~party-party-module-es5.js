@@ -18229,6 +18229,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           return this.createObserver('changeSpell');
         }
       }, {
+        key: "updateExpendable",
+        value: function updateExpendable() {
+          return this.createObserver('updateExpendable');
+        }
+      }, {
         key: "createObserver",
         value: function createObserver(evt) {
           return this.socket.fromEvent(evt);

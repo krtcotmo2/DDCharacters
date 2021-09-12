@@ -13,6 +13,7 @@ const noteRoutes = require("./notes");
 const spellRoutes = require("./spells");
 const alignments = require('./alignments');
 const parties = require('./parties');
+const expendables = require('./expendables');
 
 router.use("/login", loginRoutes);
 router.use("/races", raceRoutes);
@@ -26,5 +27,6 @@ router.use("/notes", noteRoutes);
 router.use("/spells", spellRoutes);
 router.use("/alignments", alignments);
 router.use("/party", parties);
+router.use("/expendables", expendables);
 
 module.exports = router;

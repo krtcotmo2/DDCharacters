@@ -24560,6 +24560,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _char_level_char_level_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
     /*! ./char-level/char-level.component */
     "./src/app/chargen/char-level/char-level.component.ts");
+    /* harmony import */
+
+
+    var _expendables_expendables_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
+    /*! ./expendables/expendables.component */
+    "./src/app/chargen/expendables/expendables.component.ts");
 
     var routes = [{
       path: '',
@@ -24595,6 +24601,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           path: '**',
           component: _edit_spell_edit_spell_component__WEBPACK_IMPORTED_MODULE_18__["EditSpellComponent"]
         }]
+      }, {
+        path: 'expendables',
+        component: _expendables_expendables_component__WEBPACK_IMPORTED_MODULE_20__["ExpendablesComponent"]
       }, {
         path: 'notes',
         component: _char_notes_char_notes_component__WEBPACK_IMPORTED_MODULE_15__["CharNotesComponent"]
@@ -24876,6 +24885,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _char_level_char_level_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(
     /*! ./char-level/char-level.component */
     "./src/app/chargen/char-level/char-level.component.ts");
+    /* harmony import */
+
+
+    var _expendables_expendables_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(
+    /*! ./expendables/expendables.component */
+    "./src/app/chargen/expendables/expendables.component.ts");
 
     var ChargenModule = function ChargenModule() {
       _classCallCheck(this, ChargenModule);
@@ -24893,7 +24908,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     (function () {
       (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](ChargenModule, {
-        declarations: [_generate_generate_component__WEBPACK_IMPORTED_MODULE_5__["GenerateComponent"], _char_skills_char_skills_component__WEBPACK_IMPORTED_MODULE_7__["CharSkillsComponent"], _char_base_char_base_component__WEBPACK_IMPORTED_MODULE_8__["CharBaseComponent"], _char_feats_char_feats_component__WEBPACK_IMPORTED_MODULE_9__["CharFeatsComponent"], _char_equip_char_equip_component__WEBPACK_IMPORTED_MODULE_10__["CharEquipComponent"], _char_spells_char_spells_component__WEBPACK_IMPORTED_MODULE_11__["CharSpellsComponent"], _input_input_component__WEBPACK_IMPORTED_MODULE_12__["InputComponent"], _prettyprint_pipe__WEBPACK_IMPORTED_MODULE_13__["PrettyprintPipe"], _single_feat_single_feat_component__WEBPACK_IMPORTED_MODULE_15__["SingleFeatComponent"], _char_mod_char_mod_component__WEBPACK_IMPORTED_MODULE_16__["CharModComponent"], _char_saves_char_saves_component__WEBPACK_IMPORTED_MODULE_17__["CharSavesComponent"], _char_tohit_char_tohit_component__WEBPACK_IMPORTED_MODULE_18__["CharTohitComponent"], _new_tohit_new_tohit_component__WEBPACK_IMPORTED_MODULE_19__["NewTohitComponent"], _new_skill_new_skill_component__WEBPACK_IMPORTED_MODULE_20__["NewSkillComponent"], _new_feat_new_feat_component__WEBPACK_IMPORTED_MODULE_21__["NewFeatComponent"], _char_notes_char_notes_component__WEBPACK_IMPORTED_MODULE_22__["CharNotesComponent"], _single_note_single_note_component__WEBPACK_IMPORTED_MODULE_23__["SingleNoteComponent"], _edit_notes_edit_notes_component__WEBPACK_IMPORTED_MODULE_24__["EditNotesComponent"], _edit_spell_edit_spell_component__WEBPACK_IMPORTED_MODULE_25__["EditSpellComponent"], _char_level_char_level_component__WEBPACK_IMPORTED_MODULE_26__["CharLevelComponent"]],
+        declarations: [_generate_generate_component__WEBPACK_IMPORTED_MODULE_5__["GenerateComponent"], _char_skills_char_skills_component__WEBPACK_IMPORTED_MODULE_7__["CharSkillsComponent"], _char_base_char_base_component__WEBPACK_IMPORTED_MODULE_8__["CharBaseComponent"], _char_feats_char_feats_component__WEBPACK_IMPORTED_MODULE_9__["CharFeatsComponent"], _char_equip_char_equip_component__WEBPACK_IMPORTED_MODULE_10__["CharEquipComponent"], _char_spells_char_spells_component__WEBPACK_IMPORTED_MODULE_11__["CharSpellsComponent"], _input_input_component__WEBPACK_IMPORTED_MODULE_12__["InputComponent"], _prettyprint_pipe__WEBPACK_IMPORTED_MODULE_13__["PrettyprintPipe"], _single_feat_single_feat_component__WEBPACK_IMPORTED_MODULE_15__["SingleFeatComponent"], _char_mod_char_mod_component__WEBPACK_IMPORTED_MODULE_16__["CharModComponent"], _char_saves_char_saves_component__WEBPACK_IMPORTED_MODULE_17__["CharSavesComponent"], _char_tohit_char_tohit_component__WEBPACK_IMPORTED_MODULE_18__["CharTohitComponent"], _new_tohit_new_tohit_component__WEBPACK_IMPORTED_MODULE_19__["NewTohitComponent"], _new_skill_new_skill_component__WEBPACK_IMPORTED_MODULE_20__["NewSkillComponent"], _new_feat_new_feat_component__WEBPACK_IMPORTED_MODULE_21__["NewFeatComponent"], _char_notes_char_notes_component__WEBPACK_IMPORTED_MODULE_22__["CharNotesComponent"], _single_note_single_note_component__WEBPACK_IMPORTED_MODULE_23__["SingleNoteComponent"], _edit_notes_edit_notes_component__WEBPACK_IMPORTED_MODULE_24__["EditNotesComponent"], _edit_spell_edit_spell_component__WEBPACK_IMPORTED_MODULE_25__["EditSpellComponent"], _char_level_char_level_component__WEBPACK_IMPORTED_MODULE_26__["CharLevelComponent"], _expendables_expendables_component__WEBPACK_IMPORTED_MODULE_27__["ExpendablesComponent"]],
         imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _chargen_routing_module__WEBPACK_IMPORTED_MODULE_4__["ChargenRoutingModule"], _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_6__["FontAwesomeModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_14__["NgbModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"], _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_3__["DragDropModule"]]
       });
     })();
@@ -24904,7 +24919,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ChargenModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
         args: [{
-          declarations: [_generate_generate_component__WEBPACK_IMPORTED_MODULE_5__["GenerateComponent"], _char_skills_char_skills_component__WEBPACK_IMPORTED_MODULE_7__["CharSkillsComponent"], _char_base_char_base_component__WEBPACK_IMPORTED_MODULE_8__["CharBaseComponent"], _char_feats_char_feats_component__WEBPACK_IMPORTED_MODULE_9__["CharFeatsComponent"], _char_equip_char_equip_component__WEBPACK_IMPORTED_MODULE_10__["CharEquipComponent"], _char_spells_char_spells_component__WEBPACK_IMPORTED_MODULE_11__["CharSpellsComponent"], _input_input_component__WEBPACK_IMPORTED_MODULE_12__["InputComponent"], _prettyprint_pipe__WEBPACK_IMPORTED_MODULE_13__["PrettyprintPipe"], _single_feat_single_feat_component__WEBPACK_IMPORTED_MODULE_15__["SingleFeatComponent"], _char_mod_char_mod_component__WEBPACK_IMPORTED_MODULE_16__["CharModComponent"], _char_saves_char_saves_component__WEBPACK_IMPORTED_MODULE_17__["CharSavesComponent"], _char_tohit_char_tohit_component__WEBPACK_IMPORTED_MODULE_18__["CharTohitComponent"], _new_tohit_new_tohit_component__WEBPACK_IMPORTED_MODULE_19__["NewTohitComponent"], _new_skill_new_skill_component__WEBPACK_IMPORTED_MODULE_20__["NewSkillComponent"], _new_feat_new_feat_component__WEBPACK_IMPORTED_MODULE_21__["NewFeatComponent"], _char_notes_char_notes_component__WEBPACK_IMPORTED_MODULE_22__["CharNotesComponent"], _single_note_single_note_component__WEBPACK_IMPORTED_MODULE_23__["SingleNoteComponent"], _edit_notes_edit_notes_component__WEBPACK_IMPORTED_MODULE_24__["EditNotesComponent"], _edit_spell_edit_spell_component__WEBPACK_IMPORTED_MODULE_25__["EditSpellComponent"], _char_level_char_level_component__WEBPACK_IMPORTED_MODULE_26__["CharLevelComponent"]],
+          declarations: [_generate_generate_component__WEBPACK_IMPORTED_MODULE_5__["GenerateComponent"], _char_skills_char_skills_component__WEBPACK_IMPORTED_MODULE_7__["CharSkillsComponent"], _char_base_char_base_component__WEBPACK_IMPORTED_MODULE_8__["CharBaseComponent"], _char_feats_char_feats_component__WEBPACK_IMPORTED_MODULE_9__["CharFeatsComponent"], _char_equip_char_equip_component__WEBPACK_IMPORTED_MODULE_10__["CharEquipComponent"], _char_spells_char_spells_component__WEBPACK_IMPORTED_MODULE_11__["CharSpellsComponent"], _input_input_component__WEBPACK_IMPORTED_MODULE_12__["InputComponent"], _prettyprint_pipe__WEBPACK_IMPORTED_MODULE_13__["PrettyprintPipe"], _single_feat_single_feat_component__WEBPACK_IMPORTED_MODULE_15__["SingleFeatComponent"], _char_mod_char_mod_component__WEBPACK_IMPORTED_MODULE_16__["CharModComponent"], _char_saves_char_saves_component__WEBPACK_IMPORTED_MODULE_17__["CharSavesComponent"], _char_tohit_char_tohit_component__WEBPACK_IMPORTED_MODULE_18__["CharTohitComponent"], _new_tohit_new_tohit_component__WEBPACK_IMPORTED_MODULE_19__["NewTohitComponent"], _new_skill_new_skill_component__WEBPACK_IMPORTED_MODULE_20__["NewSkillComponent"], _new_feat_new_feat_component__WEBPACK_IMPORTED_MODULE_21__["NewFeatComponent"], _char_notes_char_notes_component__WEBPACK_IMPORTED_MODULE_22__["CharNotesComponent"], _single_note_single_note_component__WEBPACK_IMPORTED_MODULE_23__["SingleNoteComponent"], _edit_notes_edit_notes_component__WEBPACK_IMPORTED_MODULE_24__["EditNotesComponent"], _edit_spell_edit_spell_component__WEBPACK_IMPORTED_MODULE_25__["EditSpellComponent"], _char_level_char_level_component__WEBPACK_IMPORTED_MODULE_26__["CharLevelComponent"], _expendables_expendables_component__WEBPACK_IMPORTED_MODULE_27__["ExpendablesComponent"]],
           imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _chargen_routing_module__WEBPACK_IMPORTED_MODULE_4__["ChargenRoutingModule"], _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_6__["FontAwesomeModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_14__["NgbModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"], _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_3__["DragDropModule"]]
         }]
       }], null, null);
@@ -25477,6 +25492,77 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
         }];
+      }, null);
+    })();
+    /***/
+
+  },
+
+  /***/
+  "./src/app/chargen/expendables/expendables.component.ts": function srcAppChargenExpendablesExpendablesComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ExpendablesComponent", function () {
+      return ExpendablesComponent;
+    });
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+
+    var ExpendablesComponent =
+    /*#__PURE__*/
+    function () {
+      function ExpendablesComponent() {
+        _classCallCheck(this, ExpendablesComponent);
+      }
+
+      _createClass(ExpendablesComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {}
+      }]);
+
+      return ExpendablesComponent;
+    }();
+
+    ExpendablesComponent.ɵfac = function ExpendablesComponent_Factory(t) {
+      return new (t || ExpendablesComponent)();
+    };
+
+    ExpendablesComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
+      type: ExpendablesComponent,
+      selectors: [["app-expendables"]],
+      decls: 2,
+      vars: 0,
+      template: function ExpendablesComponent_Template(rf, ctx) {
+        if (rf & 1) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "p");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "expendables works!");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        }
+      },
+      styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NoYXJnZW4vZXhwZW5kYWJsZXMvZXhwZW5kYWJsZXMuY29tcG9uZW50LmNzcyJ9 */"]
+    });
+    /*@__PURE__*/
+
+    (function () {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ExpendablesComponent, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
+        args: [{
+          selector: 'app-expendables',
+          templateUrl: './expendables.component.html',
+          styleUrls: ['./expendables.component.css']
+        }]
+      }], function () {
+        return [];
       }, null);
     })();
     /***/

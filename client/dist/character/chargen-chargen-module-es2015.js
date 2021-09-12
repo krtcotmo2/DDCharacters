@@ -14506,6 +14506,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _edit_notes_edit_notes_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./edit-notes/edit-notes.component */ "./src/app/chargen/edit-notes/edit-notes.component.ts");
 /* harmony import */ var _edit_spell_edit_spell_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./edit-spell/edit-spell.component */ "./src/app/chargen/edit-spell/edit-spell.component.ts");
 /* harmony import */ var _char_level_char_level_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./char-level/char-level.component */ "./src/app/chargen/char-level/char-level.component.ts");
+/* harmony import */ var _expendables_expendables_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./expendables/expendables.component */ "./src/app/chargen/expendables/expendables.component.ts");
+
 
 
 
@@ -14544,6 +14546,7 @@ const routes = [
                     { path: '**', component: _edit_spell_edit_spell_component__WEBPACK_IMPORTED_MODULE_18__["EditSpellComponent"] }
                 ]
             },
+            { path: 'expendables', component: _expendables_expendables_component__WEBPACK_IMPORTED_MODULE_20__["ExpendablesComponent"] },
             { path: 'notes', component: _char_notes_char_notes_component__WEBPACK_IMPORTED_MODULE_15__["CharNotesComponent"] },
             { path: 'notes', component: _edit_notes_edit_notes_component__WEBPACK_IMPORTED_MODULE_17__["EditNotesComponent"],
                 children: [
@@ -14659,6 +14662,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _edit_notes_edit_notes_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./edit-notes/edit-notes.component */ "./src/app/chargen/edit-notes/edit-notes.component.ts");
 /* harmony import */ var _edit_spell_edit_spell_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./edit-spell/edit-spell.component */ "./src/app/chargen/edit-spell/edit-spell.component.ts");
 /* harmony import */ var _char_level_char_level_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./char-level/char-level.component */ "./src/app/chargen/char-level/char-level.component.ts");
+/* harmony import */ var _expendables_expendables_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./expendables/expendables.component */ "./src/app/chargen/expendables/expendables.component.ts");
+
 
 
 
@@ -14719,7 +14724,8 @@ ChargenModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInje
         _single_note_single_note_component__WEBPACK_IMPORTED_MODULE_23__["SingleNoteComponent"],
         _edit_notes_edit_notes_component__WEBPACK_IMPORTED_MODULE_24__["EditNotesComponent"],
         _edit_spell_edit_spell_component__WEBPACK_IMPORTED_MODULE_25__["EditSpellComponent"],
-        _char_level_char_level_component__WEBPACK_IMPORTED_MODULE_26__["CharLevelComponent"]], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+        _char_level_char_level_component__WEBPACK_IMPORTED_MODULE_26__["CharLevelComponent"],
+        _expendables_expendables_component__WEBPACK_IMPORTED_MODULE_27__["ExpendablesComponent"]], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
         _chargen_routing_module__WEBPACK_IMPORTED_MODULE_4__["ChargenRoutingModule"],
         _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_6__["FontAwesomeModule"],
         _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
@@ -14748,7 +14754,8 @@ ChargenModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInje
                     _single_note_single_note_component__WEBPACK_IMPORTED_MODULE_23__["SingleNoteComponent"],
                     _edit_notes_edit_notes_component__WEBPACK_IMPORTED_MODULE_24__["EditNotesComponent"],
                     _edit_spell_edit_spell_component__WEBPACK_IMPORTED_MODULE_25__["EditSpellComponent"],
-                    _char_level_char_level_component__WEBPACK_IMPORTED_MODULE_26__["CharLevelComponent"]],
+                    _char_level_char_level_component__WEBPACK_IMPORTED_MODULE_26__["CharLevelComponent"],
+                    _expendables_expendables_component__WEBPACK_IMPORTED_MODULE_27__["ExpendablesComponent"]],
                 imports: [
                     _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
                     _chargen_routing_module__WEBPACK_IMPORTED_MODULE_4__["ChargenRoutingModule"],
@@ -15030,6 +15037,43 @@ EditSpellComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefin
                 styleUrls: ['./edit-spell.component.css']
             }]
     }], function () { return [{ type: _services_char_data_service__WEBPACK_IMPORTED_MODULE_2__["CharDataService"] }, { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }]; }, null); })();
+
+
+/***/ }),
+
+/***/ "./src/app/chargen/expendables/expendables.component.ts":
+/*!**************************************************************!*\
+  !*** ./src/app/chargen/expendables/expendables.component.ts ***!
+  \**************************************************************/
+/*! exports provided: ExpendablesComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ExpendablesComponent", function() { return ExpendablesComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+class ExpendablesComponent {
+    constructor() {
+    }
+    ngOnInit() {
+    }
+}
+ExpendablesComponent.ɵfac = function ExpendablesComponent_Factory(t) { return new (t || ExpendablesComponent)(); };
+ExpendablesComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ExpendablesComponent, selectors: [["app-expendables"]], decls: 2, vars: 0, template: function ExpendablesComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "expendables works!");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    } }, styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NoYXJnZW4vZXhwZW5kYWJsZXMvZXhwZW5kYWJsZXMuY29tcG9uZW50LmNzcyJ9 */"] });
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ExpendablesComponent, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
+        args: [{
+                selector: 'app-expendables',
+                templateUrl: './expendables.component.html',
+                styleUrls: ['./expendables.component.css']
+            }]
+    }], function () { return []; }, null); })();
 
 
 /***/ }),
