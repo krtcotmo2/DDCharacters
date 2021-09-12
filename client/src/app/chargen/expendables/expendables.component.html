@@ -1,1 +1,101 @@
-<p>expendables works!</p>
+<h1>Expendables <span *ngIf='isMyCharacter'>
+  <button class='ui primary button labeled icon' style='vertical-align: text-bottom; margin-left:12px' *ngIf='!gatherNewInfo' (click)='toggleForm(true)'>
+    <i class="plus square outline icon"></i>
+    Add Expendable
+  </button>
+  <form style='display:inline-block; font-size:14px' #expForm='ngForm' (ngSubmit)='onSubmit($event)' *ngIf='gatherNewInfo'>
+    <input type='text' class='equipInput' placeholder="Description"  [(ngModel)]='description' name="description">
+    <div class="ui compact menu" style='margin-right: 12px;'>
+      <div class="ui simple dropdown item" style='min-width: 200px;' >
+        {{selExp}}
+        <i class="dropdown icon" style='position: absolute; right:12px'></i>
+        <div class="menu">
+          <div class="item" *ngFor='let c of expTypes | keyvalue' [attr.data-value]='c.value' (click)='categoryselected($event)'>{{c.value}}</div>
+        </div>
+      </div>
+    </div>
+    <input type='number' class='qtyInput' placeholder="Quantity"  [(ngModel)]='qty' name="qty">
+    <button class='ui primary button'>Submit</button>
+    <button class='ui yellow button' (click)='toggleForm(false)'>Cancel</button>
+  </form>
+</span>
+<div>
+  <span class='ui input' style='font-size:1rem; width:33%; margin-top:12px' ><input type='text' name='filter' [value]='filterText' placeholder="Filter - type in value" (input)='filterList($event)' /></span>
+</div>
+
+</h1>
+<div class="ui grid gridHeader">
+
+  <div class="six wide column">Expendable</div>
+  <div class="five wide column">Type</div>
+  <div class="four wide column">Quantity</div>
+</div>
+<div cdkDropList class="example-list">
+  <div *ngFor='let nt of classExpendables' class="ui grid gridRow example-box" cdkDrag>
+      <span class='stat six wide column' style="font-weight: normal;">
+        {{nt.description}}
+      </span>
+      <span class='stat five wide column' style="font-weight: normal;">
+        {{nt.expType}}
+      </span>
+      <span class='stat four wide column' style="font-weight: normal;">
+        <span style='width:20px; text-align:right; display: inline-block;'>{{nt.qty}}</span>
+        <div class='controls'>
+          <button class="mini ui primary button" (click)="adjustItem(nt.id, 1)">+</button>
+          <button class="mini ui red button" (click)="adjustItem(nt.id, -1)">-</button>
+        </div>
+      </span>
+      <div class="column one wide ui"><i *ngIf='isMyCharacter' class="trash alternate outline icon pointer"  title="Delete" (click)='deleteEquip($event, nt.id)'></i></div>
+  </div>
+
+  <div *ngFor='let nt of potionExpendables' class="ui grid gridRow example-box" cdkDrag>
+    <span class='stat six wide column' style="font-weight: normal;">
+      {{nt.description}}
+    </span>
+    <span class='stat five wide column' style="font-weight: normal;">
+      {{nt.expType}}
+    </span>
+    <span class='stat four wide column' style="font-weight: normal;">
+      <span style='width:20px; text-align:right; display: inline-block;'>{{nt.qty}}</span>
+      <div class='controls'>
+        <button class="mini ui primary button" (click)="adjustItem(nt.id, 1)">+</button>
+        <button class="mini ui red button" (click)="adjustItem(nt.id, -1)">-</button>
+      </div>
+    </span>
+    <div class="column one wide ui"><i *ngIf='isMyCharacter' class="trash alternate outline icon pointer"  title="Delete" (click)='deleteEquip($event, nt.id)'></i></div>
+  </div>
+
+  <div *ngFor='let nt of scrollExpendables' class="ui grid gridRow example-box" cdkDrag>
+    <span class='stat six wide column' style="font-weight: normal;">
+      {{nt.description}}
+    </span>
+    <span class='stat five wide column' style="font-weight: normal;">
+      {{nt.expType}}
+    </span>
+    <span class='stat four wide column' style="font-weight: normal;">
+      <span style='width:20px; text-align:right; display: inline-block;'>{{nt.qty}}</span>
+      <div class='controls'>
+        <button class="mini ui primary button" (click)="adjustItem(nt.id, 1)">+</button>
+        <button class="mini ui red button" (click)="adjustItem(nt.id, -1)">-</button>
+      </div>
+    </span>
+    <div class="column one wide ui"><i *ngIf='isMyCharacter' class="trash alternate outline icon pointer"  title="Delete" (click)='deleteEquip($event, nt.id)'></i></div>
+  </div>
+
+  <div *ngFor='let nt of chargeExpendables' class="ui grid gridRow example-box" cdkDrag>
+    <span class='stat six wide column' style="font-weight: normal;">
+      {{nt.description}}
+    </span>
+    <span class='stat five wide column' style="font-weight: normal;">
+      {{nt.expType}}
+    </span>
+    <span class='stat four wide column' style="font-weight: normal;">
+      <span style='width:20px; text-align:right; display: inline-block;'>{{nt.qty}}</span>
+      <div class='controls'>
+        <button class="mini ui primary button" (click)="adjustItem(nt.id, 1)">+</button>
+        <button class="mini ui red button" (click)="adjustItem(nt.id, -1)">-</button>
+      </div>
+    </span>
+    <div class="column one wide ui"><i *ngIf='isMyCharacter' class="trash alternate outline icon pointer"  title="Delete" (click)='deleteEquip($event, nt.id)'></i></div>
+  </div>
+</div>

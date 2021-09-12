@@ -14,7 +14,7 @@ class Expendable extends Model {
           type: DataTypes.INTEGER,
           allowNull: false
         },
-        type:{
+        expType:{
           type: DataTypes.STRING,
           allowNull: true
         },

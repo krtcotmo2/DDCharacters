@@ -4,7 +4,7 @@ module.exports = {
   getEpendables: function(req, res){
     db.Expendables.findAll({
       where:{charID:req.params.id},
-      order:[["type", "DESC"]],
+      order:[["expType", "DESC"]],
     })
       .then(function(results) {
         res.json({ results });
@@ -15,10 +15,10 @@ module.exports = {
       );
   },
   insertExpendable: async function (req, res){
-    const {description, type, charID, qty} = req.body;
+    const {description, expType, charID, qty} = req.body;
     const newExepndable = await db.Expendables.create({
         description: description,         
-        type: type,
+        expType: expType,
         qty: qty,
         charID: charID})
       .then(arg => {
@@ -32,11 +32,11 @@ module.exports = {
   },
   
   updateExpendable: async function (req, res){
-    const {id, description, type, charID, qty} = req.body;
+    const {id, description, expType, charID, qty} = req.body;
     const theExpendable = await db.Expendables.update(
       {
         description: description,
-        type: type,
+        expType: expType,
         charID: charID,
         qty: qty
       },{

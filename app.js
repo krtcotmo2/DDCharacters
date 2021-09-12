@@ -41,22 +41,28 @@ db.sequelize.sync().then(function() {
   io.on('connection', (socket) => {
     socket.on('HPUPDATE', (newChar) => {
       io.sockets.emit('hpUupdate', {...newChar, type: 'HPUPDATE'});
-    })
+    });
     socket.on('SPELLUPDATE', (spellData) => {
       io.sockets.emit('spellUpdate', {...spellData, type: 'SPELLUPDATE'});
-    }) 
+    }) ;
     socket.on('ADDSPELL', (spellData) => {
       io.sockets.emit('addSpell', {...spellData, type: 'ADDSPELL'});
-    })
+    });
     socket.on('DELETESPELL', (spellData) => {
       io.sockets.emit('deleteSpell', {...spellData, type: 'DELETESPELL'});
-    })
+    });
     socket.on('CHANGESPELL', (spellData) => {
       io.sockets.emit('changeSpell', {...spellData, type: 'CHANGESPELL'});
-    })
+    });
     socket.on('UPDATEEXPENDABLE', (expendable) => {
       io.sockets.emit('updateExpendable', {...expendable, type: 'UPDATEEXPENDABLE'});
-    })
+    });
+    socket.on('ADDEXPENDABLE', (expendable) => {
+      io.sockets.emit('addExpendable', {...expendable, type: 'ADDEXPENDABLE'});
+    });
+    socket.on('DELETEEXPENDABLE', (expendable) => {
+      io.sockets.emit('deleteExpendable', {...expendable, type: 'DELETEEXPENDABLE'});
+    });
   });
 
   server.listen(PORT, () => {

@@ -20,9 +20,11 @@
 </div>
 <div class='aClass'>
   <div *ngFor="let exp of classExpendables" class='expHolder'>
-    <div>{{exp.description}}</div>
+    <div><img src='../../../assets/icosahedron.svg' height="16" width="16"
+      style='filter:invert(37%) sepia(98%) saturate(2758%) hue-rotate(191deg) brightness(97%) contrast(88%)'>
+      {{exp.description}}</div>
     <div>
-      <div class='controls'>
+      <div *ngIf="dmTools"  class='controls'>
         <button (click)="adjustItem(exp.id, 1)">+</button>
         <button (click)="adjustItem(exp.id, -1)">-</button>
       </div>
@@ -30,14 +32,40 @@
     <div>{{exp.qty}}</div>
   </div>
 </div>
-<div *ngIf="otherExpendables.length > 0">
+<div *ngIf="otherExpendables > 0">
   <i class="arrow circle down icon pointer" (click)="toggelDisplay($event)"></i> <b>Expendables</b>
 </div>
 <div class='aClass'>
-  <div *ngFor="let exp of otherExpendables" class='expHolder'>
-    <div>{{exp.description}}</div>
+  <div *ngFor="let exp of potionExpendables" class='expHolder'>
+    <div><img src='../../../assets/testing-tube.svg' height="16" width="16"
+      style='filter:invert(31%) sepia(75%) saturate(459%) hue-rotate(108deg) brightness(97%) contrast(93%)'>
+      {{exp.description}}</div>
     <div>
-      <div class='controls'>
+      <div *ngIf="dmTools" class='controls'>
+        <button (click)="adjustItem(exp.id, 1)">+</button>
+        <button (click)="adjustItem(exp.id, -1)">-</button>
+      </div>
+    </div>
+    <div>{{exp.qty}}</div>
+  </div>
+  <div *ngFor="let exp of scrollExpendables" class='expHolder'>
+    <div><img src='../../../assets/ancient-scroll.svg' height="16" width="16"
+      style='filter:invert(40%) sepia(60%) saturate(547%) hue-rotate(16deg) brightness(100%) contrast(88%)'>
+      {{exp.description}}</div>
+    <div>
+      <div *ngIf="dmTools" class='controls'>
+        <button (click)="adjustItem(exp.id, 1)">+</button>
+        <button (click)="adjustItem(exp.id, -1)">-</button>
+      </div>
+    </div>
+    <div>{{exp.qty}}</div>
+  </div>
+  <div *ngFor="let exp of chargeExpendables" class='expHolder'>
+    <div><img src='../../../assets/clean.svg' height="16" width="16"
+      style='filter:invert(54%) sepia(85%) saturate(4623%) hue-rotate(348deg) brightness(92%) contrast(82%)'>
+      {{exp.description}}</div>
+    <div>
+      <div *ngIf="dmTools" class='controls'>
         <button (click)="adjustItem(exp.id, 1)">+</button>
         <button (click)="adjustItem(exp.id, -1)">-</button>
       </div>
@@ -54,6 +82,4 @@
   [charID]="charID"
   (spellStringBuilder)='setSpellAvail($event)'
 ></app-spell-list>
-<i class="fas fa-flask"></i>
-<i class="fas fa-solid fa-scroll"></i>
-<i class="fas fa-solid fa-viruses"></i>
+<div style='color:transparent; position:absolute; bottom:0; right:0; z-index: -1'>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>

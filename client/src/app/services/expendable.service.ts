@@ -5,17 +5,17 @@ import { Socket } from 'ngx-socket-io';
 
 
 export enum ExpendableType {
-  'Class',
-  'Charge',
-  'Potion',
-  'Scroll'
+  Class = 'Class',
+  Charge = 'Charge',
+  Potion = 'Potion',
+  Scroll = 'Scroll'
 
 }
 export interface Expendable {
   id: number;
   charID: number;
-  decription: string;
-  type: ExpendableType;
+  description: string;
+  expType: ExpendableType;
   qty: number;
 }
 
@@ -60,7 +60,7 @@ export class ExpendableService {
   }
 
   deleteExpendables = (expId: number) => {
-    const val =  this.http.post<any>('/api/expendables/delete/'+ expId.toString(), {
+    const val =  this.http.delete<any>('/api/expendables/delete/' + expId.toString(), {
       headers: new HttpHeaders({
         'Access-Control-Allow-Origin': '*'
       }),

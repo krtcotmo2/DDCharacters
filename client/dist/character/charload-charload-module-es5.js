@@ -466,27 +466,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     function LoadComponent_app_char_card_1_Template(rf, ctx) {
       if (rf & 1) {
-        var _r298 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
+        var _r349 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "app-char-card", 2);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function LoadComponent_app_char_card_1_Template_app_char_card_click_0_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r298);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r349);
 
-          var aChar_r296 = ctx.$implicit;
+          var aChar_r347 = ctx.$implicit;
 
-          var ctx_r297 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
+          var ctx_r348 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
 
-          return ctx_r297.displayChar(aChar_r296.charID, aChar_r296.charName);
+          return ctx_r348.displayChar(aChar_r347.charID, aChar_r347.charName);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
       }
 
       if (rf & 2) {
-        var aChar_r296 = ctx.$implicit;
+        var aChar_r347 = ctx.$implicit;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("char", aChar_r296);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("char", aChar_r347);
       }
     }
 

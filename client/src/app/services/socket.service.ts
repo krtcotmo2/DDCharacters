@@ -32,6 +32,14 @@ export class SocketService {
     return this.createObserver('changeSpell');
   }
 
+  addExpendable() {
+    return this.createObserver('addExpendable');
+  }
+
+  deleteExpendable() {
+    return this.createObserver('deleteExpendable');
+  }
+
   updateExpendable() {
     return this.createObserver('updateExpendable');
   }

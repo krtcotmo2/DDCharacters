@@ -32,7 +32,9 @@ export class PartyCardComponent implements OnInit {
   isCaster = false;
   allExpendables: Expendable[] = [];
   classExpendables: Expendable[] = [];
-  otherExpendables: Expendable[] = [];
+  potionExpendables: Expendable[] = [];
+  scrollExpendables: Expendable[] = [];
+  chargeExpendables: Expendable[] = [];
   fortSave: number;
   reflexSave: number;
   willSave: number;
@@ -42,6 +44,7 @@ export class PartyCardComponent implements OnInit {
   currentMember: PartyMember;
   subs: Subscription[] = [];
   spellTag: string;
+  otherExpendables = 0;
 
   spellList = new BehaviorSubject<Spell>( [] as unknown as Spell );
   getAllSpells = this.spellList.asObservable();
@@ -89,8 +92,13 @@ export class PartyCardComponent implements OnInit {
     });
     this.expendableSvc.loadExpendables(this.charID).subscribe( expendables => {
       this.allExpendables = expendables.results;
-      this.classExpendables = expendables.results.filter(exp => exp.type === 'Class');
-      this.otherExpendables = expendables.results.filter(exp => exp.type !== 'Class');
+      this.classExpendables = expendables.results.filter(exp => exp.expType === 'Class');
+      this.potionExpendables = expendables.results.filter(exp => exp.expType === 'Potion');
+      this.scrollExpendables = expendables.results.filter(exp => exp.expType === 'Scroll');
+      this.chargeExpendables = expendables.results.filter(exp => exp.expType === 'Charge');
+      this.otherExpendables = this.potionExpendables.length +
+      this.scrollExpendables.length +
+      this.chargeExpendables.length;
     });
     this.subs.push(
       this.socketService.updateHP().subscribe( (data: any): void => {
@@ -104,6 +112,35 @@ export class PartyCardComponent implements OnInit {
           const anExp = this.allExpendables.find(exp => exp.id === data.id);
           anExp.qty = data.qty;
         }
+      }),
+      this.socketService.addExpendable().subscribe( (data: Expendable): void => {
+        if (data.charID === this.charID) {
+          const anExp: Expendable = {
+            id: data.id,
+            description: data.description,
+            qty: data.qty,
+            charID: data.charID,
+            expType: data.expType
+          };
+          this.allExpendables.push(anExp);
+          this.classExpendables = this.allExpendables.filter(exp => exp.expType === 'Class');
+          this.potionExpendables = this.allExpendables.filter(exp => exp.expType === 'Potion');
+          this.scrollExpendables = this.allExpendables.filter(exp => exp.expType === 'Scroll');
+          this.chargeExpendables = this.allExpendables.filter(exp => exp.expType === 'Charge');
+          this.otherExpendables = this.potionExpendables.length +
+            this.scrollExpendables.length +
+            this.chargeExpendables.length;
+        }
+      }),
+      this.socketService.deleteExpendable().subscribe( (data: {id: number}): void => {
+          this.allExpendables = this.allExpendables.filter(exp => exp.id !== data.id);
+          this.classExpendables = this.allExpendables.filter(exp => exp.expType === 'Class');
+          this.potionExpendables = this.allExpendables.filter(exp => exp.expType === 'Potion');
+          this.scrollExpendables = this.allExpendables.filter(exp => exp.expType === 'Scroll');
+          this.chargeExpendables = this.allExpendables.filter(exp => exp.expType === 'Charge');
+          this.otherExpendables = this.potionExpendables.length +
+            this.scrollExpendables.length +
+            this.chargeExpendables.length;
       }),
     );
   }

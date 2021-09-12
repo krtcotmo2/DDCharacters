@@ -18166,6 +18166,157 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
+  "./src/app/services/expendable.service.ts": function srcAppServicesExpendableServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ExpendableType", function () {
+      return ExpendableType;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ExpendableService", function () {
+      return ExpendableService;
+    });
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! rxjs */
+    "./node_modules/rxjs/_esm2015/index.js");
+    /* harmony import */
+
+
+    var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/common/http */
+    "./node_modules/@angular/common/fesm2015/http.js");
+    /* harmony import */
+
+
+    var ngx_socket_io__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ngx-socket-io */
+    "./node_modules/ngx-socket-io/__ivy_ngcc__/fesm2015/ngx-socket-io.js");
+
+    var ExpendableType;
+
+    (function (ExpendableType) {
+      ExpendableType["Class"] = "Class";
+      ExpendableType["Charge"] = "Charge";
+      ExpendableType["Potion"] = "Potion";
+      ExpendableType["Scroll"] = "Scroll";
+    })(ExpendableType || (ExpendableType = {}));
+
+    var ExpendableService =
+    /*#__PURE__*/
+    function () {
+      function ExpendableService(http, socket) {
+        var _this2 = this;
+
+        _classCallCheck(this, ExpendableService);
+
+        this.http = http;
+        this.socket = socket; // DECLARATIONS
+
+        this.allExpendables = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]({
+          results: []
+        }); // GETTERS
+
+        this.getExpendables = this.allExpendables.asObservable();
+
+        this.loadExpendables = function (charID) {
+          var val = _this2.http.get('/api/expendables/get/' + charID.toString(), {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+              'Access-Control-Allow-Origin': '*'
+            })
+          });
+
+          return val;
+        };
+
+        this.insertExpendables = function (body) {
+          var val = _this2.http.post('/api/expendables/add', body, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+              'Access-Control-Allow-Origin': '*'
+            })
+          });
+
+          return val;
+        };
+
+        this.deleteExpendables = function (expId) {
+          var val = _this2.http["delete"]('/api/expendables/delete/' + expId.toString(), {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+              'Access-Control-Allow-Origin': '*'
+            })
+          });
+
+          return val;
+        };
+
+        this.updateExpendables = function (body) {
+          var val = _this2.http.post('/api/expendables/update', body, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+              'Access-Control-Allow-Origin': '*'
+            })
+          });
+
+          _this2.socket.emit('UPDATEEXPENDABLE', body);
+
+          return val;
+        };
+      } // SETTERS
+
+
+      _createClass(ExpendableService, [{
+        key: "setExpendables",
+        value: function setExpendables(arg) {
+          this.allExpendables.next(arg);
+        }
+      }]);
+
+      return ExpendableService;
+    }();
+
+    ExpendableService.ɵfac = function ExpendableService_Factory(t) {
+      return new (t || ExpendableService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](ngx_socket_io__WEBPACK_IMPORTED_MODULE_3__["Socket"]));
+    };
+
+    ExpendableService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({
+      token: ExpendableService,
+      factory: ExpendableService.ɵfac,
+      providedIn: 'root'
+    });
+    /*@__PURE__*/
+
+    (function () {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ExpendableService, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
+        args: [{
+          providedIn: 'root'
+        }]
+      }], function () {
+        return [{
+          type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]
+        }, {
+          type: ngx_socket_io__WEBPACK_IMPORTED_MODULE_3__["Socket"]
+        }];
+      }, null);
+    })();
+    /***/
+
+  },
+
+  /***/
   "./src/app/services/socket.service.ts": function srcAppServicesSocketServiceTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
@@ -18227,6 +18378,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "changeSpell",
         value: function changeSpell() {
           return this.createObserver('changeSpell');
+        }
+      }, {
+        key: "addExpendable",
+        value: function addExpendable() {
+          return this.createObserver('addExpendable');
+        }
+      }, {
+        key: "deleteExpendable",
+        value: function deleteExpendable() {
+          return this.createObserver('deleteExpendable');
         }
       }, {
         key: "updateExpendable",
