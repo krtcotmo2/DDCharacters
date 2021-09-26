@@ -72,7 +72,7 @@ export class PartyCardComponent implements OnInit {
     this.partyService.getHPMod.subscribe(
       val => {
         this.hpModifier = val.hpModifier;
-        this.addHP(val.isHeal).then(arg => this.hpModifier = 0);
+        this.addHP(val.isHeal).then(() => this.hpModifier = 0);
       }
     )
     this.charSvc.getAllChars.subscribe( val => {
