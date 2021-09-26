@@ -92,7 +92,7 @@ export class SpellListComponent implements OnInit {
   }
 
   filteredSpells = (lvl: number) => {
-    if(this.levelBreakDown[0].spellLevel === lvl){
+    if (this.levelBreakDown[0].spellLevel === lvl) {
       this.availableSpells = '';
     }
     const spellCount = this.spellList.filter( a => a.spellLevel === lvl);

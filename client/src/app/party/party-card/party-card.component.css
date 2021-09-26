@@ -26,11 +26,11 @@
 }
 
 .hpAdjuster input, .hpAdjuster input:focus{
-  width: 33%;
+  width: 16%;
   border-radius: 18px;
   position: absolute;
   height: 2rem;
-  left: 33%;
+  left: 42%;
   top: .16rem;
   text-align: center;
   border: none;
@@ -40,7 +40,7 @@
 .inputWrapper{
   height: 2.57142857em;
   z-index: 3;
-  width: 5%;
+  width: 2%;
   overflow: visible;
 }
 .savesHolder{

@@ -15,6 +15,11 @@ export interface PartyMember {
   partyDesc: string;
 }
 
+export interface PartyHpMod {
+  hpModifier: number;
+  isHeal: boolean;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -29,6 +34,10 @@ export class PartyService {
   private allParties = new BehaviorSubject<Party>( {results: []} as Party);
   getAllParties = this.allParties.asObservable();
   setAllParties = (arg) => { this.allParties.next(arg); };
+
+  private partyHpMod = new BehaviorSubject<PartyHpMod>({} as PartyHpMod);
+  getHPMod = this.partyHpMod.asObservable();
+  setHPMod = (arg: PartyHpMod) => { this.partyHpMod.next(arg); }
 
   getParty = (id: string) => {
     const val =  this.http.get<Party>('/api/party/' + id, {
@@ -65,4 +74,7 @@ export class PartyService {
     return val;
   }
 
+  partyHPUpdate = (arg: PartyHpMod): void => {
+    this.setHPMod(arg);
+  }
 }

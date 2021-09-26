@@ -69,6 +69,12 @@ export class PartyCardComponent implements OnInit {
         this.curHP = val.results.find( party => party.partyID.toString() === this.partyID && party.charID === this.charID).curHP;
       }
     );
+    this.partyService.getHPMod.subscribe(
+      val => {
+        this.hpModifier = val.hpModifier;
+        this.addHP(val.isHeal).then(arg => this.hpModifier = 0);
+      }
+    )
     this.charSvc.getAllChars.subscribe( val => {
       const char = val.results.find( person => person.charID === this.charID)
       this.charName = char.charName;

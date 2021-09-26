@@ -11,8 +11,10 @@ import _ from 'lodash';
 })
 export class OverviewComponent implements OnInit {
   partyID = _.last(this.router.url.split('/'));
+  hpForm;
   peeps: number[];
   dmTools = true;
+  hpModifier = 0;
 
   constructor(
     private partyService: PartyService,
@@ -31,5 +33,15 @@ export class OverviewComponent implements OnInit {
   toggleTools = () => {
     this.dmTools = !this.dmTools;
   }
+  addHP = (isHeal: boolean) => {
+    this.partyService.partyHPUpdate({
+      isHeal,
+      hpModifier: this.hpModifier
 
+    });
+    this.hpModifier = 0;
+  }
+  doNothing = (evt: Event): void => {
+    evt.preventDefault();
+  }
 }

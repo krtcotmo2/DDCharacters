@@ -74,7 +74,7 @@
   </div>
 </div>
 <div *ngIf="isCaster">
-    <i class="arrow circle down icon pointer" (click)="toggelDisplay($event)" ></i><b>Spells </b>
+    <i class="arrow circle down icon pointer" (click)="toggelDisplay($event)" ></i><b>Spells {{spellTag}}</b>
 </div>
 <app-spell-list
   *ngIf="isCaster"
