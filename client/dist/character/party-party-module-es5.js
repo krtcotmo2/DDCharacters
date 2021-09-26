@@ -252,7 +252,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.router = router;
         this.partyID = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.last(this.router.url.split('/'));
         this.dmTools = true;
-        this.hpModifier = 6;
+        this.hpModifier = 0;
 
         this.toggleTools = function () {
           _this.dmTools = !_this.dmTools;
@@ -1132,7 +1132,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.partyService.getHPMod.subscribe(function (val) {
             _this4.hpModifier = val.hpModifier;
 
-            _this4.addHP(val.isHeal).then(function (arg) {
+            _this4.addHP(val.isHeal).then(function () {
               return _this4.hpModifier = 0;
             });
           });

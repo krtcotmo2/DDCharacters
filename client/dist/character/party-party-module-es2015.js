@@ -106,7 +106,7 @@ class OverviewComponent {
         this.router = router;
         this.partyID = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.last(this.router.url.split('/'));
         this.dmTools = true;
-        this.hpModifier = 6;
+        this.hpModifier = 0;
         this.toggleTools = () => {
             this.dmTools = !this.dmTools;
         };
@@ -487,7 +487,7 @@ class PartyCardComponent {
         });
         this.partyService.getHPMod.subscribe(val => {
             this.hpModifier = val.hpModifier;
-            this.addHP(val.isHeal).then(arg => this.hpModifier = 0);
+            this.addHP(val.isHeal).then(() => this.hpModifier = 0);
         });
         this.charSvc.getAllChars.subscribe(val => {
             const char = val.results.find(person => person.charID === this.charID);
