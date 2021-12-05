@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CharDataService } from './services/char-data.service';
 import { Subscription } from 'rxjs';
-//import { SocketService } from './services/socket.service';
 import { UserService } from './services/user.service';
 import { PartyMember } from './services/party.service';
 

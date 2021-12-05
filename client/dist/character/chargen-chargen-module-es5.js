@@ -19004,13 +19004,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! @angular/platform-browser */
+    "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! @angular/router */
     "./node_modules/@angular/router/fesm2015/router.js");
     /* harmony import */
 
 
-    var _angular_common__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _angular_common__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! @angular/common */
     "./node_modules/@angular/common/fesm2015/common.js");
 
@@ -19159,7 +19165,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var CharBaseComponent =
     /*#__PURE__*/
     function () {
-      function CharBaseComponent(raceSvc, classSvc, userService, charDataSvc, router) {
+      function CharBaseComponent(raceSvc, classSvc, userService, charDataSvc, titleService, router) {
         var _this29 = this;
 
         _classCallCheck(this, CharBaseComponent);
@@ -19168,6 +19174,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.classSvc = classSvc;
         this.userService = userService;
         this.charDataSvc = charDataSvc;
+        this.titleService = titleService;
         this.router = router;
         this.races = [];
         this.classes = [];
@@ -19250,6 +19257,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             charAlign: this.charAlign,
             charHP: this.charHP
           });
+          this.titleService.setTitle(this.charName);
         }
       }, {
         key: "showBreakDown",
@@ -19264,7 +19272,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     }();
 
     CharBaseComponent.ɵfac = function CharBaseComponent_Factory(t) {
-      return new (t || CharBaseComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_services_race_service__WEBPACK_IMPORTED_MODULE_2__["RaceService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_services_classes_service__WEBPACK_IMPORTED_MODULE_3__["ClassesService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_char_data_service__WEBPACK_IMPORTED_MODULE_5__["CharDataService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]));
+      return new (t || CharBaseComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_services_race_service__WEBPACK_IMPORTED_MODULE_2__["RaceService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_services_classes_service__WEBPACK_IMPORTED_MODULE_3__["ClassesService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_char_data_service__WEBPACK_IMPORTED_MODULE_5__["CharDataService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_platform_browser__WEBPACK_IMPORTED_MODULE_6__["Title"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"]));
     };
 
     CharBaseComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
@@ -19530,7 +19538,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.isMyCharacter);
         }
       },
-      directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroupDirective"], _angular_common__WEBPACK_IMPORTED_MODULE_7__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_7__["NgForOf"]],
+      directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroupDirective"], _angular_common__WEBPACK_IMPORTED_MODULE_8__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_8__["NgForOf"]],
       styles: [".statMod[_ngcontent-%COMP%]{\r\n  position: relative;\r\n}\r\n.column.breakdown[_ngcontent-%COMP%]{\r\n  overflow: hidden;\r\n  max-height:0px;\r\n  font-weight: normal;\r\n  background-color: #ccc;\r\n  padding:0px !important;\r\n  transition: 0.5s;\r\n}\r\n.column.breakdown.expanded[_ngcontent-%COMP%]{\r\n  max-height:600px;\r\n  transition: 0.5s;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY2hhcmdlbi9jaGFyLWJhc2UvY2hhci1iYXNlLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixjQUFjO0VBQ2QsbUJBQW1CO0VBQ25CLHNCQUFzQjtFQUN0QixzQkFBc0I7RUFDdEIsZ0JBQWdCO0FBQ2xCO0FBRUE7RUFDRSxnQkFBZ0I7RUFDaEIsZ0JBQWdCO0FBQ2xCIiwiZmlsZSI6InNyYy9hcHAvY2hhcmdlbi9jaGFyLWJhc2UvY2hhci1iYXNlLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuc3RhdE1vZHtcclxuICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbn1cclxuLmNvbHVtbi5icmVha2Rvd257XHJcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuICBtYXgtaGVpZ2h0OjBweDtcclxuICBmb250LXdlaWdodDogbm9ybWFsO1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICNjY2M7XHJcbiAgcGFkZGluZzowcHggIWltcG9ydGFudDtcclxuICB0cmFuc2l0aW9uOiAwLjVzO1xyXG59XHJcblxyXG4uY29sdW1uLmJyZWFrZG93bi5leHBhbmRlZHtcclxuICBtYXgtaGVpZ2h0OjYwMHB4O1xyXG4gIHRyYW5zaXRpb246IDAuNXM7XHJcbn1cclxuIl19 */"]
     });
     /*@__PURE__*/
@@ -19553,7 +19561,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }, {
           type: _services_char_data_service__WEBPACK_IMPORTED_MODULE_5__["CharDataService"]
         }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]
+          type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_6__["Title"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"]
         }];
       }, null);
     })();
@@ -24891,6 +24901,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _expendables_expendables_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(
     /*! ./expendables/expendables.component */
     "./src/app/chargen/expendables/expendables.component.ts");
+    /* harmony import */
+
+
+    var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(
+    /*! @angular/platform-browser */
+    "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
 
     var ChargenModule = function ChargenModule() {
       _classCallCheck(this, ChargenModule);
@@ -24903,6 +24919,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       factory: function ChargenModule_Factory(t) {
         return new (t || ChargenModule)();
       },
+      providers: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_28__["Title"]],
       imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _chargen_routing_module__WEBPACK_IMPORTED_MODULE_4__["ChargenRoutingModule"], _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_6__["FontAwesomeModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_14__["NgbModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"], _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_3__["DragDropModule"]]]
     });
 
@@ -24920,7 +24937,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
         args: [{
           declarations: [_generate_generate_component__WEBPACK_IMPORTED_MODULE_5__["GenerateComponent"], _char_skills_char_skills_component__WEBPACK_IMPORTED_MODULE_7__["CharSkillsComponent"], _char_base_char_base_component__WEBPACK_IMPORTED_MODULE_8__["CharBaseComponent"], _char_feats_char_feats_component__WEBPACK_IMPORTED_MODULE_9__["CharFeatsComponent"], _char_equip_char_equip_component__WEBPACK_IMPORTED_MODULE_10__["CharEquipComponent"], _char_spells_char_spells_component__WEBPACK_IMPORTED_MODULE_11__["CharSpellsComponent"], _input_input_component__WEBPACK_IMPORTED_MODULE_12__["InputComponent"], _prettyprint_pipe__WEBPACK_IMPORTED_MODULE_13__["PrettyprintPipe"], _single_feat_single_feat_component__WEBPACK_IMPORTED_MODULE_15__["SingleFeatComponent"], _char_mod_char_mod_component__WEBPACK_IMPORTED_MODULE_16__["CharModComponent"], _char_saves_char_saves_component__WEBPACK_IMPORTED_MODULE_17__["CharSavesComponent"], _char_tohit_char_tohit_component__WEBPACK_IMPORTED_MODULE_18__["CharTohitComponent"], _new_tohit_new_tohit_component__WEBPACK_IMPORTED_MODULE_19__["NewTohitComponent"], _new_skill_new_skill_component__WEBPACK_IMPORTED_MODULE_20__["NewSkillComponent"], _new_feat_new_feat_component__WEBPACK_IMPORTED_MODULE_21__["NewFeatComponent"], _char_notes_char_notes_component__WEBPACK_IMPORTED_MODULE_22__["CharNotesComponent"], _single_note_single_note_component__WEBPACK_IMPORTED_MODULE_23__["SingleNoteComponent"], _edit_notes_edit_notes_component__WEBPACK_IMPORTED_MODULE_24__["EditNotesComponent"], _edit_spell_edit_spell_component__WEBPACK_IMPORTED_MODULE_25__["EditSpellComponent"], _char_level_char_level_component__WEBPACK_IMPORTED_MODULE_26__["CharLevelComponent"], _expendables_expendables_component__WEBPACK_IMPORTED_MODULE_27__["ExpendablesComponent"]],
-          imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _chargen_routing_module__WEBPACK_IMPORTED_MODULE_4__["ChargenRoutingModule"], _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_6__["FontAwesomeModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_14__["NgbModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"], _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_3__["DragDropModule"]]
+          imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _chargen_routing_module__WEBPACK_IMPORTED_MODULE_4__["ChargenRoutingModule"], _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_6__["FontAwesomeModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_14__["NgbModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"], _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_3__["DragDropModule"]],
+          providers: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_28__["Title"]]
         }]
       }], null, null);
     })();

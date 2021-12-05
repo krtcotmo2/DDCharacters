@@ -28,6 +28,7 @@ import { EditNotesComponent } from './edit-notes/edit-notes.component';
 import { EditSpellComponent } from './edit-spell/edit-spell.component';
 import { CharLevelComponent } from './char-level/char-level.component';
 import { ExpendablesComponent } from './expendables/expendables.component';
+import { Title } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [GenerateComponent,
@@ -59,6 +60,7 @@ import { ExpendablesComponent } from './expendables/expendables.component';
     NgbModule,
     FormsModule,
     DragDropModule
-  ]
+  ],
+  providers: [Title],
 })
 export class ChargenModule { }
