@@ -462,19 +462,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! @angular/platform-browser */
+    "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! @angular/router */
     "./node_modules/@angular/router/fesm2015/router.js");
     /* harmony import */
 
 
-    var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _angular_common__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! @angular/common */
     "./node_modules/@angular/common/fesm2015/common.js");
     /* harmony import */
 
 
-    var _char_card_char_card_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _char_card_char_card_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! ../char-card/char-card.component */
     "./src/app/charload/char-card/char-card.component.ts");
 
@@ -507,7 +513,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var LoadComponent =
     /*#__PURE__*/
     function () {
-      function LoadComponent(charSvc, charDataSvc, userService, router) {
+      function LoadComponent(charSvc, charDataSvc, userService, titleService, router) {
         var _this = this;
 
         _classCallCheck(this, LoadComponent);
@@ -515,6 +521,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.charSvc = charSvc;
         this.charDataSvc = charDataSvc;
         this.userService = userService;
+        this.titleService = titleService;
         this.router = router;
         this.characters = [];
         this.deadCharacters = [];
@@ -623,6 +630,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
             _this3.charSvc.setAllChars(results);
           });
+          this.titleService.setTitle('Load Character');
         }
       }]);
 
@@ -630,7 +638,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     }();
 
     LoadComponent.ɵfac = function LoadComponent_Factory(t) {
-      return new (t || LoadComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_char_service__WEBPACK_IMPORTED_MODULE_2__["CharService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_char_data_service__WEBPACK_IMPORTED_MODULE_3__["CharDataService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]));
+      return new (t || LoadComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_char_service__WEBPACK_IMPORTED_MODULE_2__["CharService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_char_data_service__WEBPACK_IMPORTED_MODULE_3__["CharDataService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__["Title"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]));
     };
 
     LoadComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
@@ -654,7 +662,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngForOf", ctx.characters);
         }
       },
-      directives: [_angular_common__WEBPACK_IMPORTED_MODULE_6__["NgForOf"], _char_card_char_card_component__WEBPACK_IMPORTED_MODULE_7__["CharCardComponent"]],
+      directives: [_angular_common__WEBPACK_IMPORTED_MODULE_7__["NgForOf"], _char_card_char_card_component__WEBPACK_IMPORTED_MODULE_8__["CharCardComponent"]],
       styles: [".ui.cards[_ngcontent-%COMP%]{\r\n  padding: 24px;\r\n  justify-content: space-around !important;\r\n  grid-row-gap: 18px;\r\n  -moz-column-gap: 18px;\r\n       column-gap: 18px;\r\n}\r\n.ui.cards[_ngcontent-%COMP%]:after, .ui.card[_ngcontent-%COMP%]:after{\r\n  display:none;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY2hhcmxvYWQvbG9hZC9sb2FkLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxhQUFhO0VBQ2Isd0NBQXdDO0VBQ3hDLGtCQUFrQjtFQUNsQixxQkFBZ0I7T0FBaEIsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxZQUFZO0FBQ2QiLCJmaWxlIjoic3JjL2FwcC9jaGFybG9hZC9sb2FkL2xvYWQuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi51aS5jYXJkc3tcclxuICBwYWRkaW5nOiAyNHB4O1xyXG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYXJvdW5kICFpbXBvcnRhbnQ7XHJcbiAgZ3JpZC1yb3ctZ2FwOiAxOHB4O1xyXG4gIGNvbHVtbi1nYXA6IDE4cHg7XHJcbn1cclxuLnVpLmNhcmRzOmFmdGVyLCAudWkuY2FyZDphZnRlcntcclxuICBkaXNwbGF5Om5vbmU7XHJcbn1cclxuIl19 */"]
     });
     /*@__PURE__*/
@@ -675,7 +683,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }, {
           type: src_app_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"]
         }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]
+          type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__["Title"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]
         }];
       }, null);
     })();

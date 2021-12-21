@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Party, PartyService } from 'src/app/services/party.service';
 import { UserService } from 'src/app/services/user.service';
 import _ from 'lodash';
+import { BrowserModule, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-search',
@@ -17,6 +18,7 @@ export class SearchComponent implements OnInit {
   constructor(
     private partyService: PartyService,
     private userService: UserService,
+    private titleService: Title,
     private router: Router
   ) { }
 
@@ -29,6 +31,7 @@ export class SearchComponent implements OnInit {
         this.allParties = val.results;
         this.partyService.setAllParties(val);
       });
+    this.titleService.setTitle('Load Party');
   }
 
   filterList = (evt) => {

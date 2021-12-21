@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Party, PartyService } from 'src/app/services/party.service';
 import { UserService } from 'src/app/services/user.service';
 import _ from 'lodash';
+import { BrowserModule, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-overview',
@@ -18,7 +19,8 @@ export class OverviewComponent implements OnInit {
 
   constructor(
     private partyService: PartyService,
-    private router: Router
+    private router: Router,
+    private titleService: Title,
   ) { }
 
   ngOnInit(): void {
@@ -28,6 +30,7 @@ export class OverviewComponent implements OnInit {
         this.peeps = partydata.map(arg => arg.charID);
       }
     );
+    this.titleService.setTitle('Party Overview');
   }
 
   toggleTools = () => {

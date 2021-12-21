@@ -4,6 +4,7 @@ import { CharService } from '../../services/char.service';
 import { CharDataService } from '../../services/char-data.service';
 import {CharCardComponent} from "../char-card/char-card.component"
 import { UserService } from 'src/app/services/user.service';
+import { BrowserModule, Title } from '@angular/platform-browser';
 
 interface Character {
   results: {
@@ -48,6 +49,7 @@ export class LoadComponent implements OnInit {
   constructor(private charSvc: CharService,
               private charDataSvc: CharDataService,
               private userService: UserService,
+              private titleService: Title,
               private router: Router) { }
 
   ngOnInit(): void {
@@ -64,6 +66,9 @@ export class LoadComponent implements OnInit {
       console.log(111, this.characters, myChar);
       this.charSvc.setAllChars(results);
     });
+
+    this.titleService.setTitle('Load Character');
+
   }
   displayChar = async (id: number, name: string) => {
     this.charDataSvc.reset();
