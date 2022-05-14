@@ -1,1 +1,23 @@
-<p>overview works!</p>
+
+<div style="display: flex; flex-direction: column; align-items: center;" *ngIf="dmTools" >
+  <p style="width: 20%; text-align: center; font-weight: bold;">Party Level</p>
+  <form #hpForm='ngForm'  (ngSubmit)='doNothing($event)'style="width: 20%;">
+    <div class="ui small buttons hpAdjuster">
+      <button class="ui button healBtn" (click)="addHP(true)">Heal</button>
+      <div class="inputWrapper">
+        <input type="text" [(ngModel)]="hpModifier" name="hpMod"/>
+      </div>
+      <button class="ui button damBtn" (click)="addHP(false)">Damage</button>
+    </div>
+  </form>
+</div>
+<div class="ui grid partyWrapper">
+  <app-party-card  *ngFor="let p of peeps" [charID]="p" [dmTools]= "dmTools" class="three wide column partyCard"></app-party-card>
+</div>
+
+<div class='dmToggle'>
+  <div class="ui toggle checkbox toolToggle">
+    <input type="checkbox" name="dmTools" [checked]="dmTools" (change)="toggleTools()">
+    <label>DM Tools</label>
+  </div>
+</div>

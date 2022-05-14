@@ -5,6 +5,7 @@ import { UserService } from '../../services/user.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import _ from 'lodash';
 import {Stats, Saves} from '../../helpers/enum';
+import { BrowserModule, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-new-char',
@@ -31,6 +32,7 @@ export class NewCharComponent implements OnInit {
   constructor(private charDataSvc: CharDataService,
     private userDataService: UserService,
     private router: Router,
+    private titleService: Title,
     private http: HttpClient ) { }
 
     ngOnInit(): void {
@@ -42,6 +44,7 @@ export class NewCharComponent implements OnInit {
           this.charDataSvc.setAllAlignments(val);
         });
       }
+      this.titleService.setTitle('Create Character');
     }
     onCancel = evt =>{
       console.log('evt')

@@ -4,32 +4,7 @@ import { UserService } from '../../services/user.service';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import {Router} from '@angular/router';
 import _ from 'lodash';
-
-interface CharBasics {
-  charID: string;
-  results: {
-    charID: number;
-    charName: string;
-    charHP: number;
-    init: number;
-    userID: number;
-    Alignment: {
-      alignID: number;
-      alignName: string;
-    },
-    Race: {
-      raceID: number;
-      raceDesc: string;
-    },
-    CharLevels: {
-      classLevel: number;
-      CharClass: {
-        className: string;
-        classID: number;
-      }
-    }[]
-  };
-}
+import { CharBasics } from '../../interfaces/charBasic';
 
 @Component({
   selector: 'app-char-equip',

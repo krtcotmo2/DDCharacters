@@ -16,11 +16,15 @@ export class EditSpellComponent implements OnInit {
   notesSet;
   indNotes;
   theID = _.last(this.router.url.split('/'));
+  charID: number;
 
-  constructor(private charDataSvc: CharDataService,
+  constructor(
+    private charDataSvc: CharDataService,
     private router: Router) { }
 
   ngOnInit(): void {
+
+    this.charDataSvc.getCharID.subscribe((val) => this.charID = val === null ? 0 : val);
     this.spellLevel = history.state.data.spellLevel;
     this.theSpell = history.state.data.spellName;
 
@@ -28,7 +32,7 @@ export class EditSpellComponent implements OnInit {
 
   deleteNote = (id:string) => {
     this.charDataSvc.deleteSpell(id).subscribe( (val) => {
-      let a = val;
+      this.charDataSvc.broadcastMessage('DELETESPELL', {charID: this.charID, id});
       this.router.navigate(['/charGen/spells']);
     })
 
@@ -38,9 +42,11 @@ export class EditSpellComponent implements OnInit {
     let body = {
       id: this.theID,
       spellLevel: this.spellLevel,
-      spellName: this.theSpell
+      spellName: this.theSpell,
+      charID: this.charID
     }
     this.charDataSvc.updateSpell(body).subscribe(val => {
+      this.charDataSvc.broadcastMessage('CHANGESPELL', body);
       this.router.navigate(['/charGen/spells']);
     })
   }

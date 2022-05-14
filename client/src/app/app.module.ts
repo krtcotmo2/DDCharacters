@@ -14,6 +14,18 @@ import { MatSnackBar} from '@angular/material/snack-bar';
 import { OverlayModule  } from '@angular/cdk/overlay';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
+
+console.log(document.location.hostname)
+const protocol =  document.location.hostname.includes('localhost') ? 'ws' : 'wss';
+const config: SocketIoConfig = {
+  url: `${protocol}://${document.location.host}`,
+  options: {
+    transports: ['websocket'],
+    upgrade : true,
+    path: ''
+  }
+};
 
 @NgModule({
   declarations: [
@@ -33,6 +45,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     OverlayModule,
     FormsModule,
     FontAwesomeModule,
+    SocketIoModule.forRoot(config),
+
   ],
   providers: [MatSnackBar],
   bootstrap: [AppComponent]

@@ -1,1 +1,31 @@
-<p>new-party works!</p>
+<h1>New Party</h1>
+<form #partyForm='ngForm' (ngSubmit)='onSubmit()'>
+  <div class="container">
+    <div  class="column sixteen wide ui input flexDirCol" >
+      <label for="charName">Party Name</label>
+      <input type='text' name='partyName' [(ngModel)]='partyName' >
+    </div>
+  </div>
+  <div class="container ui grid centered">
+    <div class="four wide column">
+      <h3>All Characters</h3>
+      <div class='charList'>
+        <div *ngFor="let char of allCharacters" [class.selected] = "selected == true" (click)='toggleSelect($event)' style="padding:12px; border:1px solid #ccc; cursor: pointer;">
+          {{char.charName}}
+        </div>
+      </div>
+    </div>
+    <div class="two wide column row" style='padding:0 30px; margin: 0px; flex-direction: column; gap: 12px;'>
+      <button class='ui primary button'> &lt; </button>
+      <button class='ui primary button'> &gt; </button>
+    </div>
+    <div class="four wide column">
+      <h3>Current Party</h3>
+      <div class='charList'></div>
+    </div>
+  </div>
+  <div class="container" style='text-align: center; margin-top:24px'>
+    <button class='ui primary button' type="submit">Save</button>
+    <button class='ui yellow button' type="button" style="margin-left:24px" (click)='onCancel($event)'>Cancel</button>
+  </div>
+</form>

@@ -1,0 +1,22 @@
+.categoryHeader{
+  padding: 0 0 0 6px;
+}
+.levelHolder{
+  position: relative;
+  max-height:1000px ;
+}
+.collapsed, .hidden{
+  display:none;
+}
+.noBorder, .noBorder::before{
+  border:none !important;
+}
+.indSpell{
+  margin:0;
+}
+i.icon{
+  height: 24px;
+}
+.ui.grid + .grid{
+  margin:0;
+}

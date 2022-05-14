@@ -118,7 +118,7 @@ module.exports = {
     const emailed = await new Promise((resolve, reject) => {
 
       const smtpConnectionString = {
-        service: 'gmail',
+        service: 'Gmail',
         auth: {
               user: nmEmailAcct,
               pass: nmPass
@@ -134,6 +134,7 @@ module.exports = {
       };
       transporter.sendMail(mailOptions, function(error, info) {
           if (error) {
+            console.log(error)
             resolve(false);
           } else {
             console.log("true");

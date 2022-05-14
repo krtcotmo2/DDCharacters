@@ -27,6 +27,8 @@ import { SingleNoteComponent } from './single-note/single-note.component';
 import { EditNotesComponent } from './edit-notes/edit-notes.component';
 import { EditSpellComponent } from './edit-spell/edit-spell.component';
 import { CharLevelComponent } from './char-level/char-level.component';
+import { ExpendablesComponent } from './expendables/expendables.component';
+import { Title } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [GenerateComponent,
@@ -48,7 +50,8 @@ import { CharLevelComponent } from './char-level/char-level.component';
     SingleNoteComponent,
     EditNotesComponent,
     EditSpellComponent,
-    CharLevelComponent],
+    CharLevelComponent,
+    ExpendablesComponent],
   imports: [
     CommonModule,
     ChargenRoutingModule,
@@ -57,6 +60,7 @@ import { CharLevelComponent } from './char-level/char-level.component';
     NgbModule,
     FormsModule,
     DragDropModule
-  ]
+  ],
+  providers: [Title],
 })
 export class ChargenModule { }

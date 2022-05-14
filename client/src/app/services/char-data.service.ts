@@ -1,8 +1,9 @@
 import { Injectable, ɵɵresolveBody } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Socket } from 'ngx-socket-io';
 
-interface CharBasics {
+export interface CharBasics {
   charID: string;
   results: {
     charID: number;
@@ -30,82 +31,89 @@ interface CharBasics {
   };
 }
 
+export interface Stat {
+  statID: number;
+  score: number;
+  isBase: boolean;
+  isMod: boolean;
+  modDesc: string;
+}
 interface Stats {
   charID: string;
-  results: {
-    statID: number;
-    score: number;
-    isBase: boolean;
-    isMod: boolean;
-    modDesc: string;
-  }[];
+  results: Stat[];
 }
 
+export interface Save {
+  id: number;
+  saveID: number;
+  score: number;
+  isBase: boolean;
+  isMod: boolean;
+  modDesc: string;
+  Save: {
+    saveDesc: string;
+  }
+}
 interface Saves {
   charID: string;
-  results: {
-    id: number;
-    saveID: number;
-    score: number;
-    isBase: boolean;
-    isMod: boolean;
-    modDesc: string;
-    Save: {
-      saveDesc: string;
-    }
-  }[];
+  results: Save[];
 }
 
+export interface Spell {
+  id: number;
+  spellID: number;
+  charID: number;
+  spellLevel: number;
+  spellName: string;
+  isCast: boolean;
+}
 interface Spells {
   charID: string;
-  results: {
-    id: number,
-    spellID: number,
-    charID: number,
-    spellLevel: number,
-    spellName: string,
-    isCast: boolean
-    }[];
+  results: Spell[];
 }
 
+export interface ToHit {
+  name: string,
+}
 interface CharToHits {
   charID: string;
-  results: {
-      name: string,
-    }[];
+  results: ToHit[];
 }
 
+export interface Feat {
+  benefit: string;
+  id: number;
+  name: string;
+  normal: string;
+  prerequisites: string;
+  prerequisitie_feats: string;
+  shortdescription: string;
+  special: string;
+}
 interface CharFeat {
   charID: string;
-  results: {
-      benefit: string;
-      id: number,
-      name: string,
-      normal: string,
-      prerequisites: string,
-      prerequisitie_feats: string,
-      shortdescription: string,
-      special: string
-    }[];
+  results: Feat[];
 }
 
+export interface CharSkill {
+  skillID: number;
+  score: number;
+  isRanks: boolean;
+  isMod: boolean;
+  isClassSkill: boolean;
+  modDesc: string;
+  Skill: Skill;
+}
+export interface Skill {
+  skillID: number;
+  skillName: string;
+  skillAttr: string;
+  SkillDesc: string;
+  untrained: boolean;
+}
 interface CharSkills {
   charID: string;
-  results: {
-    skillID: number;
-    score: number;
-    isRanks: boolean;
-    isMod: boolean;
-    isClassSkill: boolean;
-    modDesc: string;
-    Skill: {
-      skillID: number;
-      skillName: string;
-      skillAttr: string;
-      SkillDesc: string;
-      untrained: boolean;
-    }
-  }[];
+  results: CharSkill[];
 }
 
 interface CharClasses {
@@ -114,43 +122,46 @@ interface CharClasses {
     }[];
 }
 
+export interface Item {
+  id: number;
+  charID: number;
+  weight: number;
+  equip: string;
+  location: string;
+  equipOrder: number;
+}
 interface Equipment {
-  charID: number,
-  results: {
-      id: number,
-      charID: number,
-      weight: number,
-      equip: string,
-      location: string,
-      equipOrder: number
-    }[];
+  charID: number;
+  results: Item[];
 }
 
+export interface ACPart {
+  id: number;
+  charID: number;
+  score: number;
+  modDesc: string;
+  isBase: boolean;
+  isMod: boolean;
+}
 interface AC {
-  charID: number,
-  results: {
-      id: number,
-      charID: number,
-      score: number,
-      modDesc: string,
-      isBase: boolean,
-      isMod: boolean,
-    }[];
+  charID: number;
+  results: ACPart[];
 }
 
+export interface Note {
+  noteID: number;
+  noteOrder: number;
+  noteTitle: string;
+}
 interface Notes {
-  charID: string,
-  results: {
-    noteID: number;
-    noteOrder: number;
-    noteTitle: string;
-  }[];
+  charID: string;
+  results: Note[];
 }
 
 interface Alignments {
   results: {
-      alignID: string,
-      alignName: string,
+      alignID: string;
+      alignName: string;
     }[];
 }
 
@@ -158,7 +169,10 @@ interface Alignments {
   providedIn: 'root'
 })
 export class CharDataService {
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private socket: Socket
+  ) { }
 
   // DECLARATIONS
   private curCharID = new BehaviorSubject(0);
@@ -522,10 +536,7 @@ export class CharDataService {
 
   // HP
     updateHP = (charID: number, charHP: number) => {
-      const body = {
-        charID: charID,
-        charHP: charHP
-      }
+      const body = { charID, charHP };
       const val =  this.http.post<any>('/api/characters/updateHP/', body, {
           headers: new HttpHeaders({
           'Access-Control-Allow-Origin': '*'
@@ -674,12 +685,17 @@ export class CharDataService {
       return val;
     }
 
+    broadcastMessage = (event: string, payload: any) => {
+      this.socket.emit(event, payload);
+    }
+
     toggleSpell = (body: {}) => {
       const val =  this.http.post<any>('/api/spells/toggleSpell', body, {
         headers: new HttpHeaders({
           'Access-Control-Allow-Origin': '*'
         }),
       });
+      this.socket.emit('SPELLUPDATE', body);
       return val;
     }
 
@@ -689,6 +705,7 @@ export class CharDataService {
           'Access-Control-Allow-Origin': '*'
         }),
       });
+      this.socket.emit('CHANGESPELL', body);
       return val;
     }
 

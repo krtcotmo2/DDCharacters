@@ -6,9 +6,9 @@ import { SearchComponent } from './search/search.component';
 
 
 const routes: Routes = [
-  {path: '', component:OverviewComponent},
   {path: 'search', component: SearchComponent},
   {path: 'new', component: NewPartyComponent},
+  {path: '**', component: OverviewComponent},
 ];
 
 @NgModule({

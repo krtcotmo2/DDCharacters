@@ -6,33 +6,8 @@ import { CharDataService } from '../../services/char-data.service';
 import { UserService } from '../../services/user.service';
 import {Router} from '@angular/router';
 import { visitAll } from '@angular/compiler';
-
-interface CharBasics {
-  charID: string;
-  results: {
-    charID: number;
-    charName: string;
-    charHP: number;
-    charXP: number;
-    init: number;
-    userID: number;
-    Alignment: {
-      alignID: number;
-      alignName: string;
-    },
-    Race: {
-      raceID: number;
-      raceDesc: string;
-    },
-    CharLevels: {
-      classLevel: number;
-      CharClass: {
-        className: string;
-        classID: number;
-      }
-    }[]
-  };
-}
+import { CharBasics } from '../../interfaces/charBasic';
+import { BrowserModule, Title } from '@angular/platform-browser';
 
 interface CharAC {
   charID: string;
@@ -101,10 +76,11 @@ export class CharBaseComponent implements OnInit {
               private classSvc: ClassesService,
               private userService: UserService,
               private charDataSvc: CharDataService,
+              private titleService: Title,
               private router: Router,) { }
 
 
-              ngOnInit(): void {
+  ngOnInit(): void {
     this.userService.getUser.subscribe( (val) => this.loggedIn = val);
     this.charDataSvc.getCharID.subscribe( (val) => this.charID = val);
     this.charDataSvc.getCharBasics.subscribe( (val) => this.charBasic = val);
@@ -129,6 +105,7 @@ export class CharBaseComponent implements OnInit {
       charHP: this.charHP
       });
 
+    this.titleService.setTitle(this.charName);
   }
 
   onSubmit = () => {

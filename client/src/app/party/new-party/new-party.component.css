@@ -1,0 +1,18 @@
+.flexDirCol{
+  flex-direction: column;
+  width: 100%;
+}
+.centered{
+  justify-content: center;
+}
+.charList{
+  border: 1px solid #ccc;
+  min-height: 300px;
+  max-height: 300px;
+  overflow: auto;
+  overflow-x: hidden;
+}
+.selected{
+  background: #6a6a6a;
+  color:white;
+}
