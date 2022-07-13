@@ -1,8 +1,20 @@
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["newChar-new-char-module"], {
   /***/
-  "./src/app/newChar/new-char-routing.module.ts": function srcAppNewCharNewCharRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/app/newChar/new-char-routing.module.ts":
+  /*!****************************************************!*\
+    !*** ./src/app/newChar/new-char-routing.module.ts ***!
+    \****************************************************/
+
+  /*! exports provided: NewCharRoutingModule */
+
+  /***/
+  function srcAppNewCharNewCharRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -17,13 +29,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
     var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js");
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
     /* harmony import */
 
 
@@ -36,9 +48,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       component: _new_char_new_char_component__WEBPACK_IMPORTED_MODULE_2__["NewCharComponent"]
     }];
 
-    var NewCharRoutingModule = function NewCharRoutingModule() {
+    var NewCharRoutingModule =
+    /*#__PURE__*/
+    _createClass(function NewCharRoutingModule() {
       _classCallCheck(this, NewCharRoutingModule);
-    };
+    });
 
     NewCharRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
       type: NewCharRoutingModule
@@ -73,7 +87,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
-  "./src/app/newChar/new-char.module.ts": function srcAppNewCharNewCharModuleTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/app/newChar/new-char.module.ts":
+  /*!********************************************!*\
+    !*** ./src/app/newChar/new-char.module.ts ***!
+    \********************************************/
+
+  /*! exports provided: NewCharModule */
+
+  /***/
+  function srcAppNewCharNewCharModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -88,25 +110,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
     var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/common */
-    "./node_modules/@angular/common/fesm2015/common.js");
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
     /* harmony import */
 
 
     var _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @fortawesome/angular-fontawesome */
-    "./node_modules/@fortawesome/angular-fontawesome/fesm2015/angular-fontawesome.js");
+    "./node_modules/@fortawesome/angular-fontawesome/__ivy_ngcc__/fesm2015/angular-fontawesome.js");
     /* harmony import */
 
 
     var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/forms */
-    "./node_modules/@angular/forms/fesm2015/forms.js");
+    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
     /* harmony import */
 
 
@@ -114,9 +136,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! ./new-char-routing.module */
     "./src/app/newChar/new-char-routing.module.ts");
 
-    var NewCharModule = function NewCharModule() {
+    var NewCharModule =
+    /*#__PURE__*/
+    _createClass(function NewCharModule() {
       _classCallCheck(this, NewCharModule);
-    };
+    });
 
     NewCharModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
       type: NewCharModule

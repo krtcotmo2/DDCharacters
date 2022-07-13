@@ -526,7 +526,7 @@ module.exports = {
   //AC
     getAllACForChar: async function (req, res){
       db.CharACs.findAll(
-        {attributes: ["id",'charID', 'score', 'isBase', "isMod", "modDesc"],
+        {attributes: ["id",'charID','acID', 'score', 'isBase', "isMod", "modDesc"],
         where:{charID:req.params.id},
         })
       .then(results => {      
@@ -546,6 +546,7 @@ module.exports = {
           isBase: req.body.isBase,
           isMod: req.body.isMod,
           charID: req.body.charID,
+          acID: req.body.acID,
         }
       })
       .then(async oneItem => {
@@ -588,6 +589,37 @@ module.exports = {
       return arg
       });
       res.json({'results': retVal});
+    },
+    getAllACGrps: async function(req, res){
+      db.AC.findAll(
+        {attributes: ['charID','acID', 'acDesc', 'sortValue'],
+        where:{charID:req.params.id},
+        })
+      .then(results => {      
+        res.status(200).json({ charID: req.params.id.trim(), results:results });
+      })
+      .catch(err =>{
+        console.log(err);
+        res.status(500).json({ error:err})
+      });
+    },
+    reorderACs: async function(req, res){
+      let allUpdates = req.body.updates;
+      let numUpdated = 0;
+      allUpdates.forEach(async function(item){
+        const theAC = await db.AC.update({sortValue:item.sortValue},{
+          where:{acID:item.id}
+        }).then(nextNum => { 
+          numUpdated++;       
+          return true;
+        }).catch(err => {
+          console.log("err",err)
+        }); 
+        if(numUpdated === allUpdates.length){
+          res.status(200).json({done:true}) ;
+          return;
+        }
+      });
     },
 
   //HP

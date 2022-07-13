@@ -14,6 +14,10 @@ class CharAC extends Model{
           type: DataTypes.INTEGER,
             allowNull: false
         },
+        acID: {
+          type: DataTypes.INTEGER,
+            allowNull: false
+        },
         score: {
           type: DataTypes.INTEGER,
             allowNull: true

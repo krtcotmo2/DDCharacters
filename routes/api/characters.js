@@ -74,6 +74,13 @@ router.delete('/deleteToHit/:id', bodyParser, characterController.deleteToHit);
 //route for /api/characters/ac/#
 router.route('/ac/:id').get(characterController.getAllACForChar);
 
+//route for /api/characters/acGrps/#
+router.route('/acGrps/:id').get(characterController.getAllACGrps);
+
+//route for reordering AC /api/characters/reorderACs
+router.put('/reorderACs', bodyParser, characterController.reorderACs);
+
+
 //updateAC
 router.post('/ac', bodyParser, characterController.createUpdateAC);
 

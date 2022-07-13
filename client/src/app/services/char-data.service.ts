@@ -148,6 +148,16 @@ interface AC {
   results: ACPart[];
 }
 
+interface ACGrps {
+  charID: number;
+  results:{
+    charID: number;
+    acID: number;
+    sortValue: number;
+    acDesc: string;
+  }[]
+}
+
 export interface Note {
   noteID: number;
   noteOrder: number;
@@ -186,6 +196,7 @@ export class CharDataService {
   private allToHits = new BehaviorSubject<CharToHits>( {results: []} as CharToHits );
   private allEquipment = new BehaviorSubject<Equipment>( {results: []} as Equipment );
   private allAC = new BehaviorSubject<AC>( {results: []} as AC );
+  private allACGrps = new BehaviorSubject<ACGrps>( {results: []} as ACGrps );
   private allNotes = new BehaviorSubject<Notes>( {results: []} as Notes);
   private allSpells = new BehaviorSubject<Spells>( {results: []} as Spells);
   private allAlignments = new BehaviorSubject<Alignments>( {results: []} as Alignments);
@@ -203,6 +214,7 @@ export class CharDataService {
     getAllToHits = this.allToHits.asObservable();
     getAllEquip = this.allEquipment.asObservable();
     getAllACs = this.allAC.asObservable();
+    getAllACGrps = this.allACGrps.asObservable();
     getAllSpells = this.allSpells.asObservable();
     getAllAlignment = this.allAlignments.asObservable();
 
@@ -219,6 +231,7 @@ export class CharDataService {
     setAllToHits = (arg) => { this.allToHits.next(arg); };
     setAllEquipment = (arg) => { this.allEquipment.next(arg); };
     setAllACs = (arg) => { this.allAC.next(arg); };
+    setAllACGrps = (arg) => { this.allACGrps.next(arg); };
     setAllSpells = (arg) => { this.allSpells.next(arg); };
     setAllAlignments = (arg) => { this.allAlignments.next(arg); };
 
@@ -234,6 +247,8 @@ export class CharDataService {
       this.allToHits.next(null);
       this.allNotes.next(null);
       this.allSpells.next(null);
+      this.allAC.next(null);
+      this.allACGrps.next(null);
     }
 
   // remote loaders
@@ -528,6 +543,23 @@ export class CharDataService {
       //const val =  this.http.get<Equipment>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/ac/' + id, {
       const val =  this.http.get<Equipment>('/api/characters/ac/' + id, {
           headers: new HttpHeaders({
+          'Access-Control-Allow-Origin': '*'
+        }),
+      });
+      return val;
+    }
+    loadACGrps = (id: number) => {
+      //const val =  this.http.get<Equipment>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/ac/' + id, {
+      const val =  this.http.get<Equipment>('/api/characters/acGrps/' + id, {
+          headers: new HttpHeaders({
+          'Access-Control-Allow-Origin': '*'
+        }),
+      });
+      return val;
+    }
+    reorderACs = (body: {}) => {
+      const val =  this.http.put<any>('/api/characters/reorderACs', body, {
+        headers: new HttpHeaders({
           'Access-Control-Allow-Origin': '*'
         }),
       });

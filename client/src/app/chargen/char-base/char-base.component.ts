@@ -93,6 +93,9 @@ export class CharBaseComponent implements OnInit {
       this.charAC = this.acs['results'].reduce( (a, b) => a + b.score, 0 ).toString();
       this.charForm.patchValue( {charAC: this.charAC});
     });
+    this.charDataSvc.loadACGrps(parseInt(this.charBasic.charID)).subscribe( val => {
+      this.charDataSvc.setAllACGrps(val);
+    });
     this.charName = this.charBasic.results.charName;
     this.charRace = this.charBasic.results.Race.raceDesc;
     this.charAlign = this.charBasic.results.Alignment.alignName;

@@ -1,12 +1,20 @@
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["main"], {
   /***/
-  "./$$_lazy_route_resource lazy recursive": function $$_lazy_route_resourceLazyRecursive(module, exports) {
+  "./$$_lazy_route_resource lazy recursive":
+  /*!******************************************************!*\
+    !*** ./$$_lazy_route_resource lazy namespace object ***!
+    \******************************************************/
+
+  /*! no static exports found */
+
+  /***/
+  function $$_lazy_route_resourceLazyRecursive(module, exports) {
     function webpackEmptyAsyncContext(req) {
       // Here Promise.resolve().then() is used instead of new Promise() to prevent
       // uncaught exception popping up in devtools
@@ -28,7 +36,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
-  "./src/app/app-routing.module.ts": function srcAppAppRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/app/app-routing.module.ts":
+  /*!***************************************!*\
+    !*** ./src/app/app-routing.module.ts ***!
+    \***************************************/
+
+  /*! exports provided: AppRoutingModule */
+
+  /***/
+  function srcAppAppRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -43,13 +59,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
     var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js");
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
     /* harmony import */
 
 
@@ -106,9 +122,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       component: _home_home_component__WEBPACK_IMPORTED_MODULE_2__["HomeComponent"]
     }];
 
-    var AppRoutingModule = function AppRoutingModule() {
+    var AppRoutingModule =
+    /*#__PURE__*/
+    _createClass(function AppRoutingModule() {
       _classCallCheck(this, AppRoutingModule);
-    };
+    });
 
     AppRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
       type: AppRoutingModule
@@ -143,7 +161,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
-  "./src/app/app.component.ts": function srcAppAppComponentTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/app/app.component.ts":
+  /*!**********************************!*\
+    !*** ./src/app/app.component.ts ***!
+    \**********************************/
+
+  /*! exports provided: AppComponent */
+
+  /***/
+  function srcAppAppComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -158,7 +184,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
@@ -176,13 +202,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js");
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
     /* harmony import */
 
 
     var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! @angular/common */
-    "./node_modules/@angular/common/fesm2015/common.js");
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 
     var _c0 = function _c0() {
       return {
@@ -370,7 +396,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
-  "./src/app/app.module.ts": function srcAppAppModuleTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/app/app.module.ts":
+  /*!*******************************!*\
+    !*** ./src/app/app.module.ts ***!
+    \*******************************/
+
+  /*! exports provided: AppModule */
+
+  /***/
+  function srcAppAppModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -385,19 +419,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/platform-browser */
-    "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
+    "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
     /* harmony import */
 
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
     var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/common/http */
-    "./node_modules/@angular/common/fesm2015/http.js");
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
     /* harmony import */
 
 
@@ -433,37 +467,37 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! @ng-bootstrap/ng-bootstrap */
-    "./node_modules/@ng-bootstrap/ng-bootstrap/fesm2015/ng-bootstrap.js");
+    "./node_modules/@ng-bootstrap/ng-bootstrap/__ivy_ngcc__/fesm2015/ng-bootstrap.js");
     /* harmony import */
 
 
     var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! @angular/platform-browser/animations */
-    "./node_modules/@angular/platform-browser/fesm2015/animations.js");
+    "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/animations.js");
     /* harmony import */
 
 
     var _angular_forms__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! @angular/forms */
-    "./node_modules/@angular/forms/fesm2015/forms.js");
+    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
     /* harmony import */
 
 
     var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
     /*! @angular/material/snack-bar */
-    "./node_modules/@angular/material/fesm2015/snack-bar.js");
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/snack-bar.js");
     /* harmony import */
 
 
     var _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
     /*! @angular/cdk/overlay */
-    "./node_modules/@angular/cdk/fesm2015/overlay.js");
+    "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/overlay.js");
     /* harmony import */
 
 
     var _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
     /*! @fortawesome/angular-fontawesome */
-    "./node_modules/@fortawesome/angular-fontawesome/fesm2015/angular-fontawesome.js");
+    "./node_modules/@fortawesome/angular-fontawesome/__ivy_ngcc__/fesm2015/angular-fontawesome.js");
     /* harmony import */
 
 
@@ -482,9 +516,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
     };
 
-    var AppModule = function AppModule() {
+    var AppModule =
+    /*#__PURE__*/
+    _createClass(function AppModule() {
       _classCallCheck(this, AppModule);
-    };
+    });
 
     AppModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({
       type: AppModule,
@@ -523,7 +559,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
-  "./src/app/chargen/chargen-home/chargen-home.component.ts": function srcAppChargenChargenHomeChargenHomeComponentTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/app/chargen/chargen-home/chargen-home.component.ts":
+  /*!****************************************************************!*\
+    !*** ./src/app/chargen/chargen-home/chargen-home.component.ts ***!
+    \****************************************************************/
+
+  /*! exports provided: ChargenHomeComponent */
+
+  /***/
+  function srcAppChargenChargenHomeChargenHomeComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -538,7 +582,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
@@ -550,7 +594,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js");
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 
     var _c0 = function _c0() {
       return {
@@ -597,9 +641,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     ChargenHomeComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: ChargenHomeComponent,
       selectors: [["app-chargen-home"]],
-      decls: 25,
+      decls: 27,
       vars: 5,
-      consts: [[1, "ui", "secondary", "pointing", "menu"], ["routerLink", "./", "routerLinkActive", "active", 1, "item", 3, "routerLinkActiveOptions"], ["routerLink", "stats", "routerLinkActive", "active", 1, "item", 3, "routerLinkActiveOptions"], ["routerLink", "tohits", "routerLinkActive", "active", 1, "item"], ["routerLink", "saves", "routerLinkActive", "active", 1, "item"], ["routerLink", "skills", "routerLinkActive", "active", 1, "item"], ["routerLink", "feats", "routerLinkActive", "active", 1, "item"], ["routerLink", "equip", "routerLinkActive", "active", 1, "item"], ["routerLink", "spells", "routerLinkActive", "active", 1, "item"], ["routerLink", "expendables", "routerLinkActive", "active", 1, "item"], ["routerLink", "notes", "routerLinkActive", "active", 1, "item"], [1, "ui", "segment"]],
+      consts: [[1, "ui", "secondary", "pointing", "menu"], ["routerLink", "./", "routerLinkActive", "active", 1, "item", 3, "routerLinkActiveOptions"], ["routerLink", "stats", "routerLinkActive", "active", 1, "item", 3, "routerLinkActiveOptions"], ["routerLink", "ac", "routerLinkActive", "active", 1, "item"], ["routerLink", "tohits", "routerLinkActive", "active", 1, "item"], ["routerLink", "saves", "routerLinkActive", "active", 1, "item"], ["routerLink", "skills", "routerLinkActive", "active", 1, "item"], ["routerLink", "feats", "routerLinkActive", "active", 1, "item"], ["routerLink", "equip", "routerLinkActive", "active", 1, "item"], ["routerLink", "spells", "routerLinkActive", "active", 1, "item"], ["routerLink", "expendables", "routerLinkActive", "active", 1, "item"], ["routerLink", "notes", "routerLinkActive", "active", 1, "item"], [1, "ui", "segment"]],
       template: function ChargenHomeComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h1");
@@ -624,57 +668,63 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "a", 3);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8, "To Hits");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8, "AC");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "a", 4);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10, "Saves");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10, "To Hits");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "a", 5);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, "Skills");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, "Saves");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "a", 6);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14, "Feats");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14, "Skills");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "a", 7);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](16, "Equipment");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](16, "Feats");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "a", 8);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](18, "Spells");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](18, "Equipment");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "a", 9);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](20, "Expendables");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](20, "Spells");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](21, "a", 10);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](22, "Notes");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](22, "Expendables");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "a", 11);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](24, "Notes");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "div", 11);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](25, "div", 12);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](24, "router-outlet");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](26, "router-outlet");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
@@ -717,7 +767,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
-  "./src/app/home/home.component.ts": function srcAppHomeHomeComponentTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/app/home/home.component.ts":
+  /*!****************************************!*\
+    !*** ./src/app/home/home.component.ts ***!
+    \****************************************/
+
+  /*! exports provided: HomeComponent */
+
+  /***/
+  function srcAppHomeHomeComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -732,7 +790,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
@@ -744,31 +802,31 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js");
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
     /* harmony import */
 
 
     var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/common/http */
-    "./node_modules/@angular/common/fesm2015/http.js");
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
     /* harmony import */
 
 
     var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! @angular/material/snack-bar */
-    "./node_modules/@angular/material/fesm2015/snack-bar.js");
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/snack-bar.js");
     /* harmony import */
 
 
     var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! @angular/common */
-    "./node_modules/@angular/common/fesm2015/common.js");
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
     /* harmony import */
 
 
     var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! @angular/forms */
-    "./node_modules/@angular/forms/fesm2015/forms.js");
+    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 
     var _c0 = ["confPasswordField"];
 
@@ -1425,7 +1483,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
-  "./src/app/newChar/new-char/new-char.component.ts": function srcAppNewCharNewCharNewCharComponentTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/app/newChar/new-char/new-char.component.ts":
+  /*!********************************************************!*\
+    !*** ./src/app/newChar/new-char/new-char.component.ts ***!
+    \********************************************************/
+
+  /*! exports provided: NewCharComponent */
+
+  /***/
+  function srcAppNewCharNewCharNewCharComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -1440,7 +1506,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
@@ -1458,31 +1524,31 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js");
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
     /* harmony import */
 
 
     var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! @angular/platform-browser */
-    "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
+    "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
     /* harmony import */
 
 
     var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! @angular/common/http */
-    "./node_modules/@angular/common/fesm2015/http.js");
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
     /* harmony import */
 
 
     var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! @angular/forms */
-    "./node_modules/@angular/forms/fesm2015/forms.js");
+    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
     /* harmony import */
 
 
     var _angular_common__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! @angular/common */
-    "./node_modules/@angular/common/fesm2015/common.js");
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 
     function NewCharComponent_option_72_Template(rf, ctx) {
       if (rf & 1) {
@@ -1494,13 +1560,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
 
       if (rf & 2) {
-        var al_r352 = ctx.$implicit;
+        var al_r366 = ctx.$implicit;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("value", al_r352.alignID);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("value", al_r366.alignID);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](al_r352.alignName);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](al_r366.alignName);
       }
     }
 
@@ -1934,7 +2000,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
-  "./src/app/services/char-data.service.ts": function srcAppServicesCharDataServiceTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/app/services/char-data.service.ts":
+  /*!***********************************************!*\
+    !*** ./src/app/services/char-data.service.ts ***!
+    \***********************************************/
+
+  /*! exports provided: CharDataService */
+
+  /***/
+  function srcAppServicesCharDataServiceTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -1949,7 +2023,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
@@ -1961,7 +2035,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/common/http */
-    "./node_modules/@angular/common/fesm2015/http.js");
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
     /* harmony import */
 
 
@@ -2007,6 +2081,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.allAC = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]({
           results: []
         });
+        this.allACGrps = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]({
+          results: []
+        });
         this.allNotes = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]({
           results: []
         });
@@ -2029,6 +2106,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.getAllToHits = this.allToHits.asObservable();
         this.getAllEquip = this.allEquipment.asObservable();
         this.getAllACs = this.allAC.asObservable();
+        this.getAllACGrps = this.allACGrps.asObservable();
         this.getAllSpells = this.allSpells.asObservable();
         this.getAllAlignment = this.allAlignments.asObservable();
 
@@ -2068,6 +2146,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           _this8.allAC.next(arg);
         };
 
+        this.setAllACGrps = function (arg) {
+          _this8.allACGrps.next(arg);
+        };
+
         this.setAllSpells = function (arg) {
           _this8.allSpells.next(arg);
         };
@@ -2097,6 +2179,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           _this8.allNotes.next(null);
 
           _this8.allSpells.next(null);
+
+          _this8.allAC.next(null);
+
+          _this8.allACGrps.next(null);
         }; // remote loaders
         // tslint:disable:max-line-length
         // CHARACTER
@@ -2444,6 +2530,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
 
           return val;
+        };
+
+        this.loadACGrps = function (id) {
+          //const val =  this.http.get<Equipment>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/ac/' + id, {
+          var val = _this8.http.get('/api/characters/acGrps/' + id, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+              'Access-Control-Allow-Origin': '*'
+            })
+          });
+
+          return val;
+        };
+
+        this.reorderACs = function (body) {
+          var val = _this8.http.put('/api/characters/reorderACs', body, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+              'Access-Control-Allow-Origin': '*'
+            })
+          });
+
+          return val;
         }; // HP
 
 
@@ -2722,7 +2829,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
-  "./src/app/services/user.service.ts": function srcAppServicesUserServiceTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/app/services/user.service.ts":
+  /*!******************************************!*\
+    !*** ./src/app/services/user.service.ts ***!
+    \******************************************/
+
+  /*! exports provided: UserService */
+
+  /***/
+  function srcAppServicesUserServiceTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -2737,7 +2852,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
@@ -2749,7 +2864,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/common/http */
-    "./node_modules/@angular/common/fesm2015/http.js");
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
 
     var UserService =
     /*#__PURE__*/
@@ -2844,7 +2959,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
-  "./src/environments/environment.ts": function srcEnvironmentsEnvironmentTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/environments/environment.ts":
+  /*!*****************************************!*\
+    !*** ./src/environments/environment.ts ***!
+    \*****************************************/
+
+  /*! exports provided: environment */
+
+  /***/
+  function srcEnvironmentsEnvironmentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -2874,7 +2997,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
-  "./src/main.ts": function srcMainTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/main.ts":
+  /*!*********************!*\
+    !*** ./src/main.ts ***!
+    \*********************/
+
+  /*! no exports provided */
+
+  /***/
+  function srcMainTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -2883,7 +3014,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
@@ -2901,7 +3032,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/platform-browser */
-    "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
+    "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
 
     if (_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].production) {
       console.log('environment.production', _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"]);
@@ -2916,9 +3047,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
-  0: function _(module, exports, __webpack_require__) {
+  0:
+  /*!***************************!*\
+    !*** multi ./src/main.ts ***!
+    \***************************/
+
+  /*! no static exports found */
+
+  /***/
+  function _(module, exports, __webpack_require__) {
     module.exports = __webpack_require__(
-    /*! C:\Projects\angular\combinedChar\client\src\main.ts */
+    /*! C:\projects\angular\DDCharacters\client\src\main.ts */
     "./src/main.ts");
     /***/
   }

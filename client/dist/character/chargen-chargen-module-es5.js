@@ -24,11 +24,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["chargen-chargen-module"], {
   /***/
-  "./node_modules/@angular/cdk/fesm2015/drag-drop.js": function node_modulesAngularCdkFesm2015DragDropJs(module, __webpack_exports__, __webpack_require__) {
+  "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/drag-drop.js":
+  /*!**********************************************************************!*\
+    !*** ./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/drag-drop.js ***!
+    \**********************************************************************/
+
+  /*! exports provided: CDK_DRAG_CONFIG, CDK_DRAG_CONFIG_FACTORY, CDK_DROP_LIST, CdkDrag, CdkDragHandle, CdkDragPlaceholder, CdkDragPreview, CdkDropList, CdkDropListGroup, DragDrop, DragDropModule, DragDropRegistry, DragRef, DropListRef, copyArrayItem, moveItemInArray, transferArrayItem, ɵangular_material_src_cdk_drag_drop_drag_drop_b */
+
+  /***/
+  function node_modulesAngularCdk__ivy_ngcc__Fesm2015DragDropJs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -145,25 +153,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
     var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/common */
-    "./node_modules/@angular/common/fesm2015/common.js");
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
     /* harmony import */
 
 
     var _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/cdk/scrolling */
-    "./node_modules/@angular/cdk/fesm2015/scrolling.js");
+    "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/scrolling.js");
     /* harmony import */
 
 
     var _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/cdk/platform */
-    "./node_modules/@angular/cdk/fesm2015/platform.js");
+    "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/platform.js");
     /* harmony import */
 
 
@@ -187,7 +195,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! @angular/cdk/bidi */
-    "./node_modules/@angular/cdk/fesm2015/bidi.js");
+    "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/bidi.js");
     /**
      * @fileoverview added by tsickle
      * Generated from: src/cdk/drag-drop/drag-styling.ts
@@ -224,7 +232,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     function extendStyles(dest, source) {
       for (var key in source) {
         if (source.hasOwnProperty(key)) {
-          dest[key] = source[key];
+          dest[key] =
+          /** @type {?} */
+          source[key];
         }
       }
 
@@ -523,7 +533,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "handleScroll",
         value: function handleScroll(event) {
           /** @type {?} */
-          var target = event.target;
+          var target =
+          /** @type {?} */
+          event.target;
           /** @type {?} */
 
           var cachedPosition = this.positions.get(target);
@@ -550,13 +562,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           if (target === this._document) {
             /** @type {?} */
-            var viewportScrollPosition = this._viewportRuler.getViewportScrollPosition();
+            var viewportScrollPosition =
+            /** @type {?} */
+            this._viewportRuler.getViewportScrollPosition();
 
             newTop = viewportScrollPosition.top;
             newLeft = viewportScrollPosition.left;
           } else {
-            newTop = target.scrollTop;
-            newLeft = target.scrollLeft;
+            newTop =
+            /** @type {?} */
+            target.scrollTop;
+            newLeft =
+            /** @type {?} */
+            target.scrollLeft;
           }
           /** @type {?} */
 
@@ -836,7 +854,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             function (handle) {
               /** @type {?} */
               var target = event.target;
-              return !!target && (target === handle || handle.contains(target));
+              return !!target && (target === handle || handle.contains(
+              /** @type {?} */
+              target));
             });
 
             if (targetHandle && !_this2._disabledHandles.has(targetHandle) && !_this2.disabled) {
@@ -1049,6 +1069,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "withHandles",
         value: function withHandles(handles) {
+          /** @type {?} */
           this._handles = handles.map(
           /**
           * @param {?} handle
@@ -1058,6 +1079,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             return Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_4__["coerceElement"])(handle);
           });
 
+          /** @type {?} */
           this._handles.forEach(
           /**
           * @param {?} handle
@@ -1067,9 +1089,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             return toggleNativeDragInteractions(handle, false);
           });
 
+          /** @type {?} */
           this._toggleNativeDragInteractions();
 
-          return this;
+          return (
+            /** @type {?} */
+            this
+          );
         }
         /**
          * Registers the template that should be used for the drag preview.
@@ -1082,8 +1108,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "withPreviewTemplate",
         value: function withPreviewTemplate(template) {
+          /** @type {?} */
           this._previewTemplate = template;
-          return this;
+          return (
+            /** @type {?} */
+            this
+          );
         }
         /**
          * Registers the template that should be used for the drag placeholder.
@@ -1096,8 +1126,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "withPlaceholderTemplate",
         value: function withPlaceholderTemplate(template) {
+          /** @type {?} */
           this._placeholderTemplate = template;
-          return this;
+          return (
+            /** @type {?} */
+            this
+          );
         }
         /**
          * Sets an alternate drag root element. The root element is the element that will be moved as
@@ -1117,25 +1151,43 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           /** @type {?} */
           var element = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_4__["coerceElement"])(rootElement);
 
-          if (element !== this._rootElement) {
-            if (this._rootElement) {
-              this._removeRootElementListeners(this._rootElement);
+          if (element !==
+          /** @type {?} */
+          this._rootElement) {
+            if (
+            /** @type {?} */
+            this._rootElement) {
+              /** @type {?} */
+              this._removeRootElementListeners(
+              /** @type {?} */
+              this._rootElement);
             }
 
+            /** @type {?} */
             this._ngZone.runOutsideAngular(
             /**
             * @return {?}
             */
             function () {
-              element.addEventListener('mousedown', _this3._pointerDown, activeEventListenerOptions);
-              element.addEventListener('touchstart', _this3._pointerDown, passiveEventListenerOptions);
+              element.addEventListener('mousedown',
+              /** @type {?} */
+              _this3._pointerDown, activeEventListenerOptions);
+              element.addEventListener('touchstart',
+              /** @type {?} */
+              _this3._pointerDown, passiveEventListenerOptions);
             });
 
+            /** @type {?} */
             this._initialTransform = undefined;
+
+            /** @type {?} */
             this._rootElement = element;
           }
 
-          return this;
+          return (
+            /** @type {?} */
+            this
+          );
         }
         /**
          * Element to which the draggable's position will be constrained.
@@ -1150,21 +1202,32 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function withBoundaryElement(boundaryElement) {
           var _this4 = this;
 
+          /** @type {?} */
           this._boundaryElement = boundaryElement ? Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_4__["coerceElement"])(boundaryElement) : null;
 
+          /** @type {?} */
           this._resizeSubscription.unsubscribe();
 
           if (boundaryElement) {
-            this._resizeSubscription = this._viewportRuler.change(10).subscribe(
+            /** @type {?} */
+            this._resizeSubscription =
+            /** @type {?} */
+            this._viewportRuler.change(10).subscribe(
             /**
             * @return {?}
             */
             function () {
-              return _this4._containInsideBoundaryOnResize();
+              return (
+                /** @type {?} */
+                _this4._containInsideBoundaryOnResize()
+              );
             });
           }
 
-          return this;
+          return (
+            /** @type {?} */
+            this
+          );
         }
         /**
          * Removes the dragging functionality from the DOM element.
@@ -1214,7 +1277,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this._parentPositions.clear();
 
-          this._boundaryElement = this._rootElement = this._placeholderTemplate = this._previewTemplate = this._anchor = null;
+          this._boundaryElement = this._rootElement = this._placeholderTemplate = this._previewTemplate = this._anchor =
+          /** @type {?} */
+          null;
         }
         /**
          * Checks whether the element is currently being dragged.
@@ -1279,8 +1344,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "withDirection",
         value: function withDirection(direction) {
+          /** @type {?} */
           this._direction = direction;
-          return this;
+          return (
+            /** @type {?} */
+            this
+          );
         }
         /**
          * Sets the container that the item is part of.
@@ -1319,18 +1388,29 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "setFreeDragPosition",
         value: function setFreeDragPosition(value) {
+          /** @type {?} */
           this._activeTransform = {
             x: 0,
             y: 0
           };
+
+          /** @type {?} */
           this._passiveTransform.x = value.x;
+
+          /** @type {?} */
           this._passiveTransform.y = value.y;
 
-          if (!this._dropContainer) {
+          if (!
+          /** @type {?} */
+          this._dropContainer) {
+            /** @type {?} */
             this._applyRootElementTransform(value.x, value.y);
           }
 
-          return this;
+          return (
+            /** @type {?} */
+            this
+          );
         }
         /**
          * Updates the item's sort order based on the last-known pointer position.
@@ -1379,7 +1459,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this._previewRef.destroy();
           }
 
-          this._preview = this._previewRef = null;
+          this._preview = this._previewRef =
+          /** @type {?} */
+          null;
         }
         /**
          * Destroys the placeholder element and its ViewRef.
@@ -1398,7 +1480,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this._placeholderRef.destroy();
           }
 
-          this._placeholder = this._placeholderRef = null;
+          this._placeholder = this._placeholderRef =
+          /** @type {?} */
+          null;
         }
         /**
          * Clears subscriptions and stops the dragging sequence.
@@ -1506,7 +1590,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             var element = this._rootElement;
             /** @type {?} */
 
-            var parent = element.parentNode;
+            var parent =
+            /** @type {?} */
+            element.parentNode;
             /** @type {?} */
 
             var preview = this._preview = this._createPreviewElement();
@@ -1533,7 +1619,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this._initialContainer = dropContainer;
             this._initialIndex = dropContainer.getItemIndex(this);
           } else {
-            this._initialContainer = this._initialIndex = undefined;
+            this._initialContainer = this._initialIndex =
+            /** @type {?} */
+            undefined;
           } // Important to run after we've called `start` on the parent container
           // so that it has had time to resolve its scrollable parents.
 
@@ -1566,7 +1654,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var isTouchSequence = isTouchEvent(event);
           /** @type {?} */
 
-          var isAuxiliaryMouseButton = !isTouchSequence && event.button !== 0;
+          var isAuxiliaryMouseButton = !isTouchSequence &&
+          /** @type {?} */
+          event.button !== 0;
           /** @type {?} */
 
           var rootElement = this._rootElement;
@@ -1579,7 +1669,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           // to do this for `mousedown` since doing the same for `touchstart` will stop any `click`
           // events from firing on touch devices.
 
-          if (event.target && event.target.draggable && event.type === 'mousedown') {
+          if (event.target &&
+          /** @type {?} */
+          event.target.draggable && event.type === 'mousedown') {
             event.preventDefault();
           } // Abort if the user is already dragging or is using a mouse button other than the primary one.
 
@@ -1660,6 +1752,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           // while moving the existing elements in all other cases.
           this._rootElement.style.display = '';
 
+          /** @type {?} */
           this._anchor.parentNode.replaceChild(this._rootElement, this._anchor);
 
           this._destroyPreview();
@@ -1674,7 +1767,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           */
           function () {
             /** @type {?} */
-            var container = _this7._dropContainer;
+            var container =
+            /** @type {?} */
+            _this7._dropContainer;
             /** @type {?} */
 
             var currentIndex = container.getItemIndex(_this7);
@@ -1747,13 +1842,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               // Notify the old container that the item has left.
               _this8.exited.next({
                 item: _this8,
-                container: _this8._dropContainer
+                container:
+                /** @type {?} */
+                _this8._dropContainer
               });
 
+              /** @type {?} */
               _this8._dropContainer.exit(_this8); // Notify the new container that the item has entered.
 
 
-              _this8._dropContainer = newContainer;
+              _this8._dropContainer =
+              /** @type {?} */
+              newContainer;
 
               _this8._dropContainer.enter(_this8, x, y, newContainer === _this8._initialContainer && // If we're re-entering the initial container and sorting is disabled,
               // put item the into its starting index to begin with.
@@ -1761,14 +1861,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
               _this8.entered.next({
                 item: _this8,
-                container: newContainer,
-                currentIndex: newContainer.getItemIndex(_this8)
+                container:
+                /** @type {?} */
+                newContainer,
+                currentIndex:
+                /** @type {?} */
+                newContainer.getItemIndex(_this8)
               });
             });
           }
 
+          /** @type {?} */
           this._dropContainer._startScrollingIfNecessary(x, y);
 
+          /** @type {?} */
           this._dropContainer._sortItem(this, x, y, this._pointerDirectionDelta);
 
           this._preview.style.transform = getTransform(x - this._pickupPositionInElement.x, y - this._pickupPositionInElement.y);
@@ -1809,7 +1915,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this._previewRef = viewRef;
 
             if (previewConfig.matchSize) {
-              matchElementSize(preview, rootRect);
+              matchElementSize(preview,
+              /** @type {?} */
+              rootRect);
             } else {
               preview.style.transform = getTransform(this._pickupPositionOnPage.x, this._pickupPositionOnPage.y);
             }
@@ -1902,6 +2010,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             function (resolve) {
               /** @type {?} */
               var handler =
+              /** @type {?} */
+
               /**
               * @param {?} event
               * @return {?}
@@ -1920,7 +2030,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               /** @type {?} */
 
 
-              var timeout = setTimeout(handler, duration * 1.5);
+              var timeout = setTimeout(
+              /** @type {?} */
+              handler, duration * 1.5);
 
               _this9._preview.addEventListener('transitionend', handler);
             });
@@ -1945,7 +2057,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var placeholder;
 
           if (placeholderTemplate) {
-            this._placeholderRef = placeholderConfig.viewContainer.createEmbeddedView(placeholderTemplate, placeholderConfig.context);
+            this._placeholderRef =
+            /** @type {?} */
+            placeholderConfig.viewContainer.createEmbeddedView(placeholderTemplate,
+            /** @type {?} */
+            placeholderConfig.context);
 
             this._placeholderRef.detectChanges();
 
@@ -2049,7 +2165,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             var boundaryRect = this._boundaryRect;
             /** @type {?} */
 
-            var previewRect = this._previewRect;
+            var previewRect =
+            /** @type {?} */
+            this._previewRect;
             /** @type {?} */
 
             var minY = boundaryRect.top + pickupY;
@@ -2367,7 +2485,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     function deepCloneNode(node) {
       /** @type {?} */
-      var clone = node.cloneNode(true);
+      var clone =
+      /** @type {?} */
+      node.cloneNode(true);
       /** @type {?} */
 
       var descendantsWithId = clone.querySelectorAll('[id]');
@@ -2463,7 +2583,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       var rootNodes = viewRef.rootNodes;
 
       if (rootNodes.length === 1 && rootNodes[0].nodeType === _document.ELEMENT_NODE) {
-        return rootNodes[0];
+        return (
+          /** @type {?} */
+          rootNodes[0]
+        );
       }
       /** @type {?} */
 
@@ -2750,7 +2873,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
          */
 
         this._previousSwap = {
-          drag: null,
+          drag:
+          /** @type {?} */
+          null,
           delta: 0
         };
         /**
@@ -2874,7 +2999,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this._activeSiblings.clear();
 
-          this._scrollNode = null;
+          this._scrollNode =
+          /** @type {?} */
+          null;
 
           this._parentPositions.clear();
 
@@ -2907,7 +3034,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           // scrolling. The browser seems to round the value based on the snapping points which means
           // that we can't increment/decrement the scroll position.
 
-          this._initialScrollSnap = styles.msScrollSnapType || styles.scrollSnapType || '';
+          this._initialScrollSnap = styles.msScrollSnapType ||
+          /** @type {?} */
+          styles.scrollSnapType || '';
+
+          /** @type {?} */
           styles.scrollSnapType = styles.msScrollSnapType = 'none';
 
           this._cacheItems();
@@ -2987,6 +3118,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           if (newPositionReference && !this._dragDropRegistry.isDragging(newPositionReference)) {
             /** @type {?} */
             var element = newPositionReference.getRootElement();
+
+            /** @type {?} */
             element.parentElement.insertBefore(placeholder, element);
             activeDraggables.splice(newIndex, 0, item);
           } else {
@@ -3082,7 +3215,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this12 = this;
 
           /** @type {?} */
-          var previousItems = this._draggables;
+          var previousItems =
+          /** @type {?} */
+          this._draggables;
+
+          /** @type {?} */
           this._draggables = items;
           items.forEach(
           /**
@@ -3090,10 +3227,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           * @return {?}
           */
           function (item) {
-            return item._withDropContainer(_this12);
+            return item._withDropContainer(
+            /** @type {?} */
+            _this12);
           });
 
-          if (this.isDragging()) {
+          if (
+          /** @type {?} */
+          this.isDragging()) {
             /** @type {?} */
             var draggedItems = previousItems.filter(
             /**
@@ -3113,13 +3254,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             function (item) {
               return items.indexOf(item) === -1;
             })) {
+              /** @type {?} */
               this._reset();
             } else {
+              /** @type {?} */
               this._cacheItems();
             }
           }
 
-          return this;
+          return (
+            /** @type {?} */
+            this
+          );
         }
         /**
          * Sets the layout direction of the drop list.
@@ -3132,8 +3278,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "withDirection",
         value: function withDirection(direction) {
+          /** @type {?} */
           this._direction = direction;
-          return this;
+          return (
+            /** @type {?} */
+            this
+          );
         }
         /**
          * Sets the containers that are connected to this one. When two or more containers are
@@ -3147,8 +3297,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "connectedTo",
         value: function connectedTo(_connectedTo) {
+          /** @type {?} */
           this._siblings = _connectedTo.slice();
-          return this;
+          return (
+            /** @type {?} */
+            this
+          );
         }
         /**
          * Sets the orientation of the container.
@@ -3161,8 +3315,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "withOrientation",
         value: function withOrientation(orientation) {
+          /** @type {?} */
           this._orientation = orientation;
-          return this;
+          return (
+            /** @type {?} */
+            this
+          );
         }
         /**
          * Sets which parent elements are can be scrolled while the user is dragging.
@@ -3176,11 +3334,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "withScrollableParents",
         value: function withScrollableParents(elements) {
           /** @type {?} */
-          var element = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_4__["coerceElement"])(this.element); // We always allow the current element to be scrollable
+          var element = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_4__["coerceElement"])(
+          /** @type {?} */
+          this.element); // We always allow the current element to be scrollable
           // so we need to ensure that it's in the array.
 
+          /** @type {?} */
           this._scrollableElements = elements.indexOf(element) === -1 ? [element].concat(_toConsumableArray(elements)) : elements.slice();
-          return this;
+          return (
+            /** @type {?} */
+            this
+          );
         }
         /**
          * Gets the scrollable parents that are registered with this drop container.
@@ -3392,7 +3556,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             }
 
             if (isPointerNearClientRect(position.clientRect, DROP_PROXIMITY_THRESHOLD, pointerX, pointerY)) {
-              var _getElementScrollDire = getElementScrollDirections(element, position.clientRect, pointerX, pointerY);
+              var _getElementScrollDire = getElementScrollDirections(
+              /** @type {?} */
+              element, position.clientRect, pointerX, pointerY);
 
               var _getElementScrollDire2 = _slicedToArray(_getElementScrollDire, 2);
 
@@ -3400,7 +3566,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               horizontalScrollDirection = _getElementScrollDire2[1];
 
               if (verticalScrollDirection || horizontalScrollDirection) {
-                scrollNode = element;
+                scrollNode =
+                /** @type {?} */
+                element;
               }
             }
           }); // Otherwise check if we can start scrolling the viewport.
@@ -3464,7 +3632,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           // so we can take advantage of the cached `ClientRect`.
 
 
-          this._clientRect = this._parentPositions.positions.get(element).clientRect;
+          this._clientRect =
+          /** @type {?} */
+
+          /** @type {?} */
+          this._parentPositions.positions.get(element).clientRect;
         }
         /**
          * Refreshes the position cache of the items and sibling containers.
@@ -3515,6 +3687,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           /** @type {?} */
 
           var styles = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_4__["coerceElement"])(this.element).style;
+
+          /** @type {?} */
           styles.scrollSnapType = styles.msScrollSnapType = this._initialScrollSnap; // TODO(crisbeto): may have to wait for the animations to finish.
 
           this._activeDraggables.forEach(
@@ -3769,7 +3943,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           /** @type {?} */
 
 
-          var elementFromPoint = this._getShadowRoot().elementFromPoint(x, y); // If there's no element at the pointer position, then
+          var elementFromPoint =
+          /** @type {?} */
+          this._getShadowRoot().elementFromPoint(x, y); // If there's no element at the pointer position, then
           // the client rect is probably scrolled out of the view.
 
 
@@ -3894,7 +4070,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function _getShadowRoot() {
           if (!this._cachedShadowRoot) {
             /** @type {?} */
-            var shadowRoot = Object(_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_3__["_getShadowRoot"])(Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_4__["coerceElement"])(this.element));
+            var shadowRoot =
+            /** @type {?} */
+            Object(_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_3__["_getShadowRoot"])(Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_4__["coerceElement"])(this.element));
             this._cachedShadowRoot = shadowRoot || this._document;
           }
 
@@ -3935,9 +4113,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     function incrementVerticalScroll(node, amount) {
       if (node === window) {
+        /** @type {?} */
         node.scrollBy(0, amount);
       } else {
         // Ideally we could use `Element.scrollBy` here as well, but IE and Edge don't support it.
+
+        /** @type {?} */
         node.scrollTop += amount;
       }
     }
@@ -3951,9 +4132,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     function incrementHorizontalScroll(node, amount) {
       if (node === window) {
+        /** @type {?} */
         node.scrollBy(amount, 0);
       } else {
         // Ideally we could use `Element.scrollBy` here as well, but IE and Edge don't support it.
+
+        /** @type {?} */
         node.scrollLeft += amount;
       }
     }
@@ -4291,7 +4475,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               * @return {?}
               */
               function handler(e) {
-                return _this19.pointerMove.next(e);
+                return _this19.pointerMove.next(
+                /** @type {?} */
+                e);
               },
               options: activeCapturingEventOptions
             }).set(upEvent, {
@@ -4301,7 +4487,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               * @return {?}
               */
               function handler(e) {
-                return _this19.pointerUp.next(e);
+                return _this19.pointerUp.next(
+                /** @type {?} */
+                e);
               },
               options: true
             }).set('scroll', {
@@ -4859,6 +5047,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 
     var CdkDragPlaceholder =
+    /*#__PURE__*/
+    _createClass(
     /**
      * @param {?} templateRef
      */
@@ -4866,7 +5056,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _classCallCheck(this, CdkDragPlaceholder);
 
       this.templateRef = templateRef;
-    };
+    });
 
     CdkDragPlaceholder.ɵfac = function CdkDragPlaceholder_Factory(t) {
       return new (t || CdkDragPlaceholder)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["TemplateRef"]));
@@ -5303,14 +5493,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             * @return {?}
             */
             function (handles) {
-              return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["merge"]).apply(void 0, _toConsumableArray(handles.map(
-              /**
-              * @param {?} item
-              * @return {?}
-              */
-              function (item) {
-                return item._stateChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["startWith"])(item));
-              })));
+              return (
+                /** @type {?} */
+                Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["merge"]).apply(void 0, _toConsumableArray(handles.map(
+                /**
+                * @param {?} item
+                * @return {?}
+                */
+                function (item) {
+                  return item._stateChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["startWith"])(item));
+                })))
+              );
             }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["takeUntil"])(_this23._destroyed)).subscribe(
             /**
             * @param {?} handleInstance
@@ -5943,11 +6136,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     function getClosestMatchingAncestor(element, selector) {
       /** @type {?} */
-      var currentElement = element.parentElement;
+      var currentElement =
+      /** @type {?} */
+      element.parentElement;
 
       while (currentElement) {
         // IE doesn't support `matches` so we have to fall back to `msMatchesSelector`.
-        if (currentElement.matches ? currentElement.matches(selector) : currentElement.msMatchesSelector(selector)) {
+        if (currentElement.matches ? currentElement.matches(selector) :
+        /** @type {?} */
+        currentElement.msMatchesSelector(selector)) {
           return currentElement;
         }
 
@@ -6404,7 +6601,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             * @return {?}
             */
             function (drop) {
-              return typeof drop === 'string' ? CdkDropList._dropLists.find(
+              return typeof drop === 'string' ?
+              /** @type {?} */
+              CdkDropList._dropLists.find(
               /**
               * @param {?} list
               * @return {?}
@@ -6848,9 +7047,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
      */
 
 
-    var DragDropModule = function DragDropModule() {
+    var DragDropModule =
+    /*#__PURE__*/
+    _createClass(function DragDropModule() {
       _classCallCheck(this, DragDropModule);
-    };
+    });
 
     DragDropModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
       type: DragDropModule
@@ -6902,7 +7103,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
-  "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js": function node_modulesFortawesomeFreeSolidSvgIconsIndexEsJs(module, __webpack_exports__, __webpack_require__) {
+  "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js":
+  /*!********************************************************************!*\
+    !*** ./node_modules/@fortawesome/free-solid-svg-icons/index.es.js ***!
+    \********************************************************************/
+
+  /*! exports provided: fas, prefix, faAd, faAddressBook, faAddressCard, faAdjust, faAirFreshener, faAlignCenter, faAlignJustify, faAlignLeft, faAlignRight, faAllergies, faAmbulance, faAmericanSignLanguageInterpreting, faAnchor, faAngleDoubleDown, faAngleDoubleLeft, faAngleDoubleRight, faAngleDoubleUp, faAngleDown, faAngleLeft, faAngleRight, faAngleUp, faAngry, faAnkh, faAppleAlt, faArchive, faArchway, faArrowAltCircleDown, faArrowAltCircleLeft, faArrowAltCircleRight, faArrowAltCircleUp, faArrowCircleDown, faArrowCircleLeft, faArrowCircleRight, faArrowCircleUp, faArrowDown, faArrowLeft, faArrowRight, faArrowUp, faArrowsAlt, faArrowsAltH, faArrowsAltV, faAssistiveListeningSystems, faAsterisk, faAt, faAtlas, faAtom, faAudioDescription, faAward, faBaby, faBabyCarriage, faBackspace, faBackward, faBacon, faBacteria, faBacterium, faBahai, faBalanceScale, faBalanceScaleLeft, faBalanceScaleRight, faBan, faBandAid, faBarcode, faBars, faBaseballBall, faBasketballBall, faBath, faBatteryEmpty, faBatteryFull, faBatteryHalf, faBatteryQuarter, faBatteryThreeQuarters, faBed, faBeer, faBell, faBellSlash, faBezierCurve, faBible, faBicycle, faBiking, faBinoculars, faBiohazard, faBirthdayCake, faBlender, faBlenderPhone, faBlind, faBlog, faBold, faBolt, faBomb, faBone, faBong, faBook, faBookDead, faBookMedical, faBookOpen, faBookReader, faBookmark, faBorderAll, faBorderNone, faBorderStyle, faBowlingBall, faBox, faBoxOpen, faBoxTissue, faBoxes, faBraille, faBrain, faBreadSlice, faBriefcase, faBriefcaseMedical, faBroadcastTower, faBroom, faBrush, faBug, faBuilding, faBullhorn, faBullseye, faBurn, faBus, faBusAlt, faBusinessTime, faCalculator, faCalendar, faCalendarAlt, faCalendarCheck, faCalendarDay, faCalendarMinus, faCalendarPlus, faCalendarTimes, faCalendarWeek, faCamera, faCameraRetro, faCampground, faCandyCane, faCannabis, faCapsules, faCar, faCarAlt, faCarBattery, faCarCrash, faCarSide, faCaravan, faCaretDown, faCaretLeft, faCaretRight, faCaretSquareDown, faCaretSquareLeft, faCaretSquareRight, faCaretSquareUp, faCaretUp, faCarrot, faCartArrowDown, faCartPlus, faCashRegister, faCat, faCertificate, faChair, faChalkboard, faChalkboardTeacher, faChargingStation, faChartArea, faChartBar, faChartLine, faChartPie, faCheck, faCheckCircle, faCheckDouble, faCheckSquare, faCheese, faChess, faChessBishop, faChessBoard, faChessKing, faChessKnight, faChessPawn, faChessQueen, faChessRook, faChevronCircleDown, faChevronCircleLeft, faChevronCircleRight, faChevronCircleUp, faChevronDown, faChevronLeft, faChevronRight, faChevronUp, faChild, faChurch, faCircle, faCircleNotch, faCity, faClinicMedical, faClipboard, faClipboardCheck, faClipboardList, faClock, faClone, faClosedCaptioning, faCloud, faCloudDownloadAlt, faCloudMeatball, faCloudMoon, faCloudMoonRain, faCloudRain, faCloudShowersHeavy, faCloudSun, faCloudSunRain, faCloudUploadAlt, faCocktail, faCode, faCodeBranch, faCoffee, faCog, faCogs, faCoins, faColumns, faComment, faCommentAlt, faCommentDollar, faCommentDots, faCommentMedical, faCommentSlash, faComments, faCommentsDollar, faCompactDisc, faCompass, faCompress, faCompressAlt, faCompressArrowsAlt, faConciergeBell, faCookie, faCookieBite, faCopy, faCopyright, faCouch, faCreditCard, faCrop, faCropAlt, faCross, faCrosshairs, faCrow, faCrown, faCrutch, faCube, faCubes, faCut, faDatabase, faDeaf, faDemocrat, faDesktop, faDharmachakra, faDiagnoses, faDice, faDiceD20, faDiceD6, faDiceFive, faDiceFour, faDiceOne, faDiceSix, faDiceThree, faDiceTwo, faDigitalTachograph, faDirections, faDisease, faDivide, faDizzy, faDna, faDog, faDollarSign, faDolly, faDollyFlatbed, faDonate, faDoorClosed, faDoorOpen, faDotCircle, faDove, faDownload, faDraftingCompass, faDragon, faDrawPolygon, faDrum, faDrumSteelpan, faDrumstickBite, faDumbbell, faDumpster, faDumpsterFire, faDungeon, faEdit, faEgg, faEject, faEllipsisH, faEllipsisV, faEnvelope, faEnvelopeOpen, faEnvelopeOpenText, faEnvelopeSquare, faEquals, faEraser, faEthernet, faEuroSign, faExchangeAlt, faExclamation, faExclamationCircle, faExclamationTriangle, faExpand, faExpandAlt, faExpandArrowsAlt, faExternalLinkAlt, faExternalLinkSquareAlt, faEye, faEyeDropper, faEyeSlash, faFan, faFastBackward, faFastForward, faFaucet, faFax, faFeather, faFeatherAlt, faFemale, faFighterJet, faFile, faFileAlt, faFileArchive, faFileAudio, faFileCode, faFileContract, faFileCsv, faFileDownload, faFileExcel, faFileExport, faFileImage, faFileImport, faFileInvoice, faFileInvoiceDollar, faFileMedical, faFileMedicalAlt, faFilePdf, faFilePowerpoint, faFilePrescription, faFileSignature, faFileUpload, faFileVideo, faFileWord, faFill, faFillDrip, faFilm, faFilter, faFingerprint, faFire, faFireAlt, faFireExtinguisher, faFirstAid, faFish, faFistRaised, faFlag, faFlagCheckered, faFlagUsa, faFlask, faFlushed, faFolder, faFolderMinus, faFolderOpen, faFolderPlus, faFont, faFontAwesomeLogoFull, faFootballBall, faForward, faFrog, faFrown, faFrownOpen, faFunnelDollar, faFutbol, faGamepad, faGasPump, faGavel, faGem, faGenderless, faGhost, faGift, faGifts, faGlassCheers, faGlassMartini, faGlassMartiniAlt, faGlassWhiskey, faGlasses, faGlobe, faGlobeAfrica, faGlobeAmericas, faGlobeAsia, faGlobeEurope, faGolfBall, faGopuram, faGraduationCap, faGreaterThan, faGreaterThanEqual, faGrimace, faGrin, faGrinAlt, faGrinBeam, faGrinBeamSweat, faGrinHearts, faGrinSquint, faGrinSquintTears, faGrinStars, faGrinTears, faGrinTongue, faGrinTongueSquint, faGrinTongueWink, faGrinWink, faGripHorizontal, faGripLines, faGripLinesVertical, faGripVertical, faGuitar, faHSquare, faHamburger, faHammer, faHamsa, faHandHolding, faHandHoldingHeart, faHandHoldingMedical, faHandHoldingUsd, faHandHoldingWater, faHandLizard, faHandMiddleFinger, faHandPaper, faHandPeace, faHandPointDown, faHandPointLeft, faHandPointRight, faHandPointUp, faHandPointer, faHandRock, faHandScissors, faHandSparkles, faHandSpock, faHands, faHandsHelping, faHandsWash, faHandshake, faHandshakeAltSlash, faHandshakeSlash, faHanukiah, faHardHat, faHashtag, faHatCowboy, faHatCowboySide, faHatWizard, faHdd, faHeadSideCough, faHeadSideCoughSlash, faHeadSideMask, faHeadSideVirus, faHeading, faHeadphones, faHeadphonesAlt, faHeadset, faHeart, faHeartBroken, faHeartbeat, faHelicopter, faHighlighter, faHiking, faHippo, faHistory, faHockeyPuck, faHollyBerry, faHome, faHorse, faHorseHead, faHospital, faHospitalAlt, faHospitalSymbol, faHospitalUser, faHotTub, faHotdog, faHotel, faHourglass, faHourglassEnd, faHourglassHalf, faHourglassStart, faHouseDamage, faHouseUser, faHryvnia, faICursor, faIceCream, faIcicles, faIcons, faIdBadge, faIdCard, faIdCardAlt, faIgloo, faImage, faImages, faInbox, faIndent, faIndustry, faInfinity, faInfo, faInfoCircle, faItalic, faJedi, faJoint, faJournalWhills, faKaaba, faKey, faKeyboard, faKhanda, faKiss, faKissBeam, faKissWinkHeart, faKiwiBird, faLandmark, faLanguage, faLaptop, faLaptopCode, faLaptopHouse, faLaptopMedical, faLaugh, faLaughBeam, faLaughSquint, faLaughWink, faLayerGroup, faLeaf, faLemon, faLessThan, faLessThanEqual, faLevelDownAlt, faLevelUpAlt, faLifeRing, faLightbulb, faLink, faLiraSign, faList, faListAlt, faListOl, faListUl, faLocationArrow, faLock, faLockOpen, faLongArrowAltDown, faLongArrowAltLeft, faLongArrowAltRight, faLongArrowAltUp, faLowVision, faLuggageCart, faLungs, faLungsVirus, faMagic, faMagnet, faMailBulk, faMale, faMap, faMapMarked, faMapMarkedAlt, faMapMarker, faMapMarkerAlt, faMapPin, faMapSigns, faMarker, faMars, faMarsDouble, faMarsStroke, faMarsStrokeH, faMarsStrokeV, faMask, faMedal, faMedkit, faMeh, faMehBlank, faMehRollingEyes, faMemory, faMenorah, faMercury, faMeteor, faMicrochip, faMicrophone, faMicrophoneAlt, faMicrophoneAltSlash, faMicrophoneSlash, faMicroscope, faMinus, faMinusCircle, faMinusSquare, faMitten, faMobile, faMobileAlt, faMoneyBill, faMoneyBillAlt, faMoneyBillWave, faMoneyBillWaveAlt, faMoneyCheck, faMoneyCheckAlt, faMonument, faMoon, faMortarPestle, faMosque, faMotorcycle, faMountain, faMouse, faMousePointer, faMugHot, faMusic, faNetworkWired, faNeuter, faNewspaper, faNotEqual, faNotesMedical, faObjectGroup, faObjectUngroup, faOilCan, faOm, faOtter, faOutdent, faPager, faPaintBrush, faPaintRoller, faPalette, faPallet, faPaperPlane, faPaperclip, faParachuteBox, faParagraph, faParking, faPassport, faPastafarianism, faPaste, faPause, faPauseCircle, faPaw, faPeace, faPen, faPenAlt, faPenFancy, faPenNib, faPenSquare, faPencilAlt, faPencilRuler, faPeopleArrows, faPeopleCarry, faPepperHot, faPercent, faPercentage, faPersonBooth, faPhone, faPhoneAlt, faPhoneSlash, faPhoneSquare, faPhoneSquareAlt, faPhoneVolume, faPhotoVideo, faPiggyBank, faPills, faPizzaSlice, faPlaceOfWorship, faPlane, faPlaneArrival, faPlaneDeparture, faPlaneSlash, faPlay, faPlayCircle, faPlug, faPlus, faPlusCircle, faPlusSquare, faPodcast, faPoll, faPollH, faPoo, faPooStorm, faPoop, faPortrait, faPoundSign, faPowerOff, faPray, faPrayingHands, faPrescription, faPrescriptionBottle, faPrescriptionBottleAlt, faPrint, faProcedures, faProjectDiagram, faPumpMedical, faPumpSoap, faPuzzlePiece, faQrcode, faQuestion, faQuestionCircle, faQuidditch, faQuoteLeft, faQuoteRight, faQuran, faRadiation, faRadiationAlt, faRainbow, faRandom, faReceipt, faRecordVinyl, faRecycle, faRedo, faRedoAlt, faRegistered, faRemoveFormat, faReply, faReplyAll, faRepublican, faRestroom, faRetweet, faRibbon, faRing, faRoad, faRobot, faRocket, faRoute, faRss, faRssSquare, faRubleSign, faRuler, faRulerCombined, faRulerHorizontal, faRulerVertical, faRunning, faRupeeSign, faSadCry, faSadTear, faSatellite, faSatelliteDish, faSave, faSchool, faScrewdriver, faScroll, faSdCard, faSearch, faSearchDollar, faSearchLocation, faSearchMinus, faSearchPlus, faSeedling, faServer, faShapes, faShare, faShareAlt, faShareAltSquare, faShareSquare, faShekelSign, faShieldAlt, faShieldVirus, faShip, faShippingFast, faShoePrints, faShoppingBag, faShoppingBasket, faShoppingCart, faShower, faShuttleVan, faSign, faSignInAlt, faSignLanguage, faSignOutAlt, faSignal, faSignature, faSimCard, faSink, faSitemap, faSkating, faSkiing, faSkiingNordic, faSkull, faSkullCrossbones, faSlash, faSleigh, faSlidersH, faSmile, faSmileBeam, faSmileWink, faSmog, faSmoking, faSmokingBan, faSms, faSnowboarding, faSnowflake, faSnowman, faSnowplow, faSoap, faSocks, faSolarPanel, faSort, faSortAlphaDown, faSortAlphaDownAlt, faSortAlphaUp, faSortAlphaUpAlt, faSortAmountDown, faSortAmountDownAlt, faSortAmountUp, faSortAmountUpAlt, faSortDown, faSortNumericDown, faSortNumericDownAlt, faSortNumericUp, faSortNumericUpAlt, faSortUp, faSpa, faSpaceShuttle, faSpellCheck, faSpider, faSpinner, faSplotch, faSprayCan, faSquare, faSquareFull, faSquareRootAlt, faStamp, faStar, faStarAndCrescent, faStarHalf, faStarHalfAlt, faStarOfDavid, faStarOfLife, faStepBackward, faStepForward, faStethoscope, faStickyNote, faStop, faStopCircle, faStopwatch, faStopwatch20, faStore, faStoreAlt, faStoreAltSlash, faStoreSlash, faStream, faStreetView, faStrikethrough, faStroopwafel, faSubscript, faSubway, faSuitcase, faSuitcaseRolling, faSun, faSuperscript, faSurprise, faSwatchbook, faSwimmer, faSwimmingPool, faSynagogue, faSync, faSyncAlt, faSyringe, faTable, faTableTennis, faTablet, faTabletAlt, faTablets, faTachometerAlt, faTag, faTags, faTape, faTasks, faTaxi, faTeeth, faTeethOpen, faTemperatureHigh, faTemperatureLow, faTenge, faTerminal, faTextHeight, faTextWidth, faTh, faThLarge, faThList, faTheaterMasks, faThermometer, faThermometerEmpty, faThermometerFull, faThermometerHalf, faThermometerQuarter, faThermometerThreeQuarters, faThumbsDown, faThumbsUp, faThumbtack, faTicketAlt, faTimes, faTimesCircle, faTint, faTintSlash, faTired, faToggleOff, faToggleOn, faToilet, faToiletPaper, faToiletPaperSlash, faToolbox, faTools, faTooth, faTorah, faToriiGate, faTractor, faTrademark, faTrafficLight, faTrailer, faTrain, faTram, faTransgender, faTransgenderAlt, faTrash, faTrashAlt, faTrashRestore, faTrashRestoreAlt, faTree, faTrophy, faTruck, faTruckLoading, faTruckMonster, faTruckMoving, faTruckPickup, faTshirt, faTty, faTv, faUmbrella, faUmbrellaBeach, faUnderline, faUndo, faUndoAlt, faUniversalAccess, faUniversity, faUnlink, faUnlock, faUnlockAlt, faUpload, faUser, faUserAlt, faUserAltSlash, faUserAstronaut, faUserCheck, faUserCircle, faUserClock, faUserCog, faUserEdit, faUserFriends, faUserGraduate, faUserInjured, faUserLock, faUserMd, faUserMinus, faUserNinja, faUserNurse, faUserPlus, faUserSecret, faUserShield, faUserSlash, faUserTag, faUserTie, faUserTimes, faUsers, faUsersCog, faUsersSlash, faUtensilSpoon, faUtensils, faVectorSquare, faVenus, faVenusDouble, faVenusMars, faVest, faVestPatches, faVial, faVials, faVideo, faVideoSlash, faVihara, faVirus, faVirusSlash, faViruses, faVoicemail, faVolleyballBall, faVolumeDown, faVolumeMute, faVolumeOff, faVolumeUp, faVoteYea, faVrCardboard, faWalking, faWallet, faWarehouse, faWater, faWaveSquare, faWeight, faWeightHanging, faWheelchair, faWifi, faWind, faWindowClose, faWindowMaximize, faWindowMinimize, faWindowRestore, faWineBottle, faWineGlass, faWineGlassAlt, faWonSign, faWrench, faXRay, faYenSign, faYinYang */
+
+  /***/
+  function node_modulesFortawesomeFreeSolidSvgIconsIndexEsJs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -18955,7 +19164,485 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
-  "./src/app/chargen/char-base/char-base.component.ts": function srcAppChargenCharBaseCharBaseComponentTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/app/chargen/char-ac/char-ac.component.ts":
+  /*!******************************************************!*\
+    !*** ./src/app/chargen/char-ac/char-ac.component.ts ***!
+    \******************************************************/
+
+  /*! exports provided: CharACComponent */
+
+  /***/
+  function srcAppChargenCharAcCharAcComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "CharACComponent", function () {
+      return CharACComponent;
+    });
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/cdk/drag-drop */
+    "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/drag-drop.js");
+    /* harmony import */
+
+
+    var lodash__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! lodash */
+    "./node_modules/lodash/lodash.js");
+    /* harmony import */
+
+
+    var lodash__WEBPACK_IMPORTED_MODULE_2___default =
+    /*#__PURE__*/
+    __webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_2__);
+    /* harmony import */
+
+
+    var _services_char_data_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ../../services/char-data.service */
+    "./src/app/services/char-data.service.ts");
+    /* harmony import */
+
+
+    var _services_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ../../services/user.service */
+    "./src/app/services/user.service.ts");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! @angular/common */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+
+    function CharACComponent_span_2_Template(rf, ctx) {
+      if (rf & 1) {
+        var _r269 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "span");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "button", 8);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function CharACComponent_span_2_Template_button_click_1_listener() {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r269);
+
+          var ctx_r268 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+          return ctx_r268.editArmorClass(0);
+        });
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "i", 9);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, " Add New AC ");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+    }
+
+    function CharACComponent_div_11_i_2_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "i", 19);
+      }
+    }
+
+    function CharACComponent_div_11_i_6_Template(rf, ctx) {
+      if (rf & 1) {
+        var _r276 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "i", 20);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function CharACComponent_div_11_i_6_Template_i_click_0_listener() {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r276);
+
+          var th_r270 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+
+          var ctx_r274 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+          return ctx_r274.editAC(th_r270.id);
+        });
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+    }
+
+    function CharACComponent_div_11_div_10_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 21);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var th_r277 = ctx.$implicit;
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"]("", th_r277.score, " - ", th_r277.desc, "");
+      }
+    }
+
+    function CharACComponent_div_11_Template(rf, ctx) {
+      if (rf & 1) {
+        var _r279 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 10);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 11);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, CharACComponent_div_11_i_2_Template, 1, 0, "i", 12);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "span", 13);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "i", 14);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function CharACComponent_div_11_Template_i_click_5_listener($event) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r279);
+
+          var ctx_r278 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+          return ctx_r278.showBreakDown($event);
+        });
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](6, CharACComponent_div_11_i_6_Template, 1, 0, "i", 15);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "span", 16);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "div", 17);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](10, CharACComponent_div_11_div_10_Template, 3, 2, "div", 18);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var th_r270 = ctx.$implicit;
+
+        var ctx_r267 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r267.isMyCharacter);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](th_r270.acDesc);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r267.isMyCharacter);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](th_r270.score);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", th_r270.breakdown);
+      }
+    }
+
+    var CharACComponent =
+    /*#__PURE__*/
+    function () {
+      function CharACComponent(charDataSvc, userService, router) {
+        var _this29 = this;
+
+        _classCallCheck(this, CharACComponent);
+
+        this.charDataSvc = charDataSvc;
+        this.userService = userService;
+        this.router = router;
+        this.allACs = [];
+        this.grpACs = [];
+        this.filterText = '';
+
+        this.createACGrps = function (grps, ar) {
+          var _iterator = _createForOfIteratorHelper(grps),
+              _step;
+
+          try {
+            var _loop = function _loop() {
+              var grp = _step.value;
+              var temp = ar.filter(function (i) {
+                return i.acID === grp.acID;
+              });
+              var score = temp.reduce(function (a, b) {
+                return a + b.score;
+              }, 0);
+              var breakdown = [];
+              var tempSk = temp.find(function (d) {
+                return d.isBase;
+              });
+
+              if (tempSk) {
+                breakdown.push({
+                  score: tempSk.score,
+                  desc: 'Base'
+                });
+              }
+
+              var _iterator2 = _createForOfIteratorHelper(temp.filter(function (d) {
+                return d.isBase === false;
+              })),
+                  _step2;
+
+              try {
+                for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+                  var aSk = _step2.value;
+                  var reason = aSk.modDesc;
+                  breakdown.push({
+                    score: aSk.score,
+                    desc: reason
+                  });
+                }
+              } catch (err) {
+                _iterator2.e(err);
+              } finally {
+                _iterator2.f();
+              }
+
+              grp.id = grp.acID;
+              grp.score = score;
+              grp.breakdown = breakdown;
+              console.log(grp);
+            };
+
+            for (_iterator.s(); !(_step = _iterator.n()).done;) {
+              _loop();
+            }
+          } catch (err) {
+            _iterator.e(err);
+          } finally {
+            _iterator.f();
+          }
+
+          _this29.grpACs = lodash__WEBPACK_IMPORTED_MODULE_2___default.a.orderBy(_this29.grpACs, 'sortValue', 'asc');
+        };
+
+        this.filterList = function (evt) {// this.filterText = evt.target.value;
+          // const allRows: any = document.getElementsByClassName('ui grid gridRow');
+          // for(let r of allRows){
+          //   const aTag: any = r.getElementsByTagName('span')[0].innerText;
+          //   if (aTag.toLowerCase().includes(this.filterText.toLowerCase())) {
+          //     r.classList.remove('hidden');
+          //   } else {
+          //     r.classList.add('hidden');
+          //   }
+          // }
+        };
+      }
+
+      _createClass(CharACComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          var _this30 = this;
+
+          this.userService.getUser.subscribe(function (val) {
+            return _this30.loggedIn = val;
+          });
+          this.charDataSvc.getCharID.subscribe(function (val) {
+            return _this30.charID = val;
+          });
+          this.charDataSvc.getCharBasics.subscribe(function (val) {
+            return _this30.charBasic = val;
+          });
+          this.isMyCharacter = this.loggedIn['userID'] === this.charBasic.results.userID;
+          this.charDataSvc.getAllACs.subscribe(function (val) {
+            return _this30.allACs = val === null ? [] : val.results;
+          });
+          this.charDataSvc.getAllACGrps.subscribe(function (val) {
+            return _this30.grpACs = val === null ? [] : val.results;
+          });
+
+          if (this.grpACs.length > 0) {
+            this.createACGrps(this.grpACs, this.allACs);
+          }
+        }
+      }, {
+        key: "editArmorClass",
+        value: function editArmorClass(arg) {// this.router.navigate(['/charGen/mods/newtohit/' + arg]);
+        }
+      }, {
+        key: "showBreakDown",
+        value: function showBreakDown(evt) {
+          var gridRowsElements = document.getElementsByClassName('gridRow');
+          var gridRows = Array.prototype.slice.call(gridRowsElements);
+          var filtered = gridRows.filter(function (element) {
+            return element.contains(evt.target);
+          });
+          var myRow = filtered[0].children;
+          myRow[3].classList.toggle('expanded');
+        }
+      }, {
+        key: "editAC",
+        value: function editAC(arg) {// this.router.navigate(['/charGen/mods/newtohit/' + arg]);
+        }
+      }, {
+        key: "drop",
+        value: function drop(event) {
+          var anArray = [event.previousIndex, event.currentIndex].sort();
+          Object(_angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_1__["moveItemInArray"])(this.grpACs, event.previousIndex, event.currentIndex);
+          this.grpACs.map(function (c, i) {
+            return c.sortValue = i + 1;
+          });
+          var passVal = lodash__WEBPACK_IMPORTED_MODULE_2___default.a.slice(this.grpACs, anArray[0], anArray[1] + 1);
+          this.charDataSvc.reorderACs({
+            updates: passVal
+          }).subscribe(function (arg) {});
+        }
+      }]);
+
+      return CharACComponent;
+    }();
+
+    CharACComponent.ɵfac = function CharACComponent_Factory(t) {
+      return new (t || CharACComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_char_data_service__WEBPACK_IMPORTED_MODULE_3__["CharDataService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]));
+    };
+
+    CharACComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
+      type: CharACComponent,
+      selectors: [["app-char-ac"]],
+      decls: 12,
+      vars: 3,
+      consts: [[4, "ngIf"], [1, "ui", "input", 2, "font-size", "1rem", "margin-left", "24px", "width", "33%"], ["type", "text", "name", "filter", "placeholder", "Filter - type in value", 3, "value", "input"], [1, "ui", "grid", "gridHeader"], [1, "six", "wide", "column"], [1, "one", "wide", "column"], ["cdkDropList", "", 1, "example-list", 3, "cdkDropListDropped"], ["class", "ui grid gridRow", "cdkDrag", "", 4, "ngFor", "ngForOf"], [1, "mini", "ui", "primary", "button", "labeled", "icon", 2, "vertical-align", "text-bottom", "margin-left", "12px", 3, "click"], [1, "plus", "square", "outline", "icon"], ["cdkDrag", "", 1, "ui", "grid", "gridRow"], [1, "statVal", "one", "wide", "column"], ["class", "bars icon", "title", "Reorder", 4, "ngIf"], [1, "stat", "five", "wide", "column"], ["title", "Breakdown", 1, "info", "circle", "icon", "pointer", "mr-2", "ml-2", 3, "click"], ["class", "edit icon pointer", "title", "Edit AC Data", 3, "click", 4, "ngIf"], [1, "statVal", "column", "one", "wide", 2, "font-weight", "normal"], [1, "sixteen", "wide", "column", "breakdown", "ui", "grid", 2, "margin-left", "0px"], [4, "ngFor", "ngForOf"], ["title", "Reorder", 1, "bars", "icon"], ["title", "Edit AC Data", 1, "edit", "icon", "pointer", 3, "click"], [1, "statVal", "fifteen", "wide", "column", 2, "margin", "12px 6px"]],
+      template: function CharACComponent_Template(rf, ctx) {
+        if (rf & 1) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h1");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Armor Class");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, CharACComponent_span_2_Template, 4, 0, "span", 0);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "span", 1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "input", 2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("input", function CharACComponent_Template_input_input_4_listener($event) {
+            return ctx.filterList($event);
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "div", 3);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "div", 4);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7, "Defense");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "div", 5);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9, "Score");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "div", 6);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("cdkDropListDropped", function CharACComponent_Template_div_cdkDropListDropped_10_listener($event) {
+            return ctx.drop($event);
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](11, CharACComponent_div_11_Template, 11, 5, "div", 7);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        }
+
+        if (rf & 2) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.isMyCharacter);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("value", ctx.filterText);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](7);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.grpACs);
+        }
+      },
+      directives: [_angular_common__WEBPACK_IMPORTED_MODULE_6__["NgIf"], _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_1__["CdkDropList"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgForOf"], _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_1__["CdkDrag"]],
+      styles: ["p[_ngcontent-%COMP%]{display: flex; justify-content: flex-start; flex-direction: row;}\r\ndiv[_ngcontent-%COMP%]{\r\n  font-size: 1rem;\r\n}\r\nspan.statVal[_ngcontent-%COMP%]   i[_ngcontent-%COMP%]{margin-left:5px}\r\nbutton[_ngcontent-%COMP%]    + button[_ngcontent-%COMP%]{\r\n  margin-left:12px;\r\n}\r\n.ui.labeled.icon.button[_ngcontent-%COMP%]    > .icon[_ngcontent-%COMP%]{\r\n  background-color: rgba(0, 0, 0, 0.20);\r\n}\r\n.gridRow[_ngcontent-%COMP%]   span[_ngcontent-%COMP%]{\r\n  margin-bottom:12px;\r\n}\r\n.column.breakdown[_ngcontent-%COMP%]{\r\n  overflow: hidden;\r\n  max-height:0px;\r\n  font-weight: normal;\r\n  background-color: #ccc;\r\n  padding:0px !important;\r\n  transition: 0.5s;\r\n}\r\n.column.breakdown.expanded[_ngcontent-%COMP%]{\r\n  max-height:600px;\r\n  transition: 0.5s;\r\n}\r\n[data-position=\"right center\"][data-tooltip][_ngcontent-%COMP%]:after{\r\n  max-width:500px;\r\n  width:500px;\r\n  white-space: pre-wrap;\r\n}\r\n.ui.grid[_ngcontent-%COMP%]    + .grid[_ngcontent-%COMP%] {\r\n  margin-top: 0px;\r\n}\r\n.gridHeader[_ngcontent-%COMP%], .gridRow[_ngcontent-%COMP%]{\r\n  border-radius: 6px 6px 0em 0em;\r\n  cursor: auto;\r\n  background: #F9FAFB;\r\n  text-align: inherit;\r\n  color: rgba(0, 0, 0, 0.87);\r\n  padding: 0.0.25 0.78571429em;\r\n  vertical-align: inherit;\r\n  font-style: none;\r\n  font-size: 1rem;\r\n  font-weight: bold;\r\n  text-transform: none;\r\n  border: 1px solid rgba(34, 36, 38, 0.1);\r\n  border-bottom: 0px;\r\n  margin:0 2px;\r\n}\r\n.gridHeader[_ngcontent-%COMP%]   .three[_ngcontent-%COMP%]:first-child, .gridRow[_ngcontent-%COMP%]   .three[_ngcontent-%COMP%]:first-child{\r\n  border-right: 1px solid rgba(34, 36, 38, 0.1);\r\n}\r\n.gridRow[_ngcontent-%COMP%]{\r\n  background: #fff;\r\n  color:#000;\r\n  border-radius: 0em;\r\n}\r\n.gridRow[_ngcontent-%COMP%]   .eleven[_ngcontent-%COMP%]{\r\n  font-weight: normal;\r\n}\r\n.gridRow[_ngcontent-%COMP%]:last-child, .gridHeader[_ngcontent-%COMP%]:last-child{\r\n  border-bottom: 1px solid rgba(34, 36, 38, 0.1);\r\n}\r\n.column.preReq[_ngcontent-%COMP%]{\r\n  overflow: hidden;\r\n  max-height:0px;\r\n  font-weight: normal;\r\n  background-color: #ccc;\r\n  padding:0px !important;\r\n  transition: 0.5s;\r\n}\r\n.column.preReq.expanded[_ngcontent-%COMP%]{\r\n  max-height:300px;\r\n  transition: 0.5s;\r\n}\r\n.ui.grid[_ngcontent-%COMP%]{\r\n  margin-top:0px\r\n}\r\n.hidden[_ngcontent-%COMP%]{\r\n  display:none;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY2hhcmdlbi9jaGFyLWFjL2NoYXItYWMuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxFQUFFLGFBQWEsRUFBRSwyQkFBMkIsRUFBRSxtQkFBbUIsQ0FBQztBQUNsRTtFQUNFLGVBQWU7QUFDakI7QUFFQSxlQUFlLGVBQWU7QUFFOUI7RUFDRSxnQkFBZ0I7QUFDbEI7QUFFQTtFQUNFLHFDQUFxQztBQUN2QztBQUNBO0VBQ0Usa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSxnQkFBZ0I7RUFDaEIsY0FBYztFQUNkLG1CQUFtQjtFQUNuQixzQkFBc0I7RUFDdEIsc0JBQXNCO0VBQ3RCLGdCQUFnQjtBQUNsQjtBQUVBO0VBQ0UsZ0JBQWdCO0VBQ2hCLGdCQUFnQjtBQUNsQjtBQUdBO0VBQ0UsZUFBZTtFQUNmLFdBQVc7RUFDWCxxQkFBcUI7QUFDdkI7QUFDQTtFQUNFLGVBQWU7QUFDakI7QUFDQTtFQUNFLDhCQUE4QjtFQUM5QixZQUFZO0VBQ1osbUJBQW1CO0VBQ25CLG1CQUFtQjtFQUNuQiwwQkFBMEI7RUFDMUIsNEJBQTRCO0VBQzVCLHVCQUF1QjtFQUN2QixnQkFBZ0I7RUFDaEIsZUFBZTtFQUNmLGlCQUFpQjtFQUNqQixvQkFBb0I7RUFDcEIsdUNBQXVDO0VBQ3ZDLGtCQUFrQjtFQUNsQixZQUFZO0FBQ2Q7QUFDQTtFQUNFLDZDQUE2QztBQUMvQztBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLFVBQVU7RUFDVixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLG1CQUFtQjtBQUNyQjtBQUNBO0VBQ0UsOENBQThDO0FBQ2hEO0FBQ0E7RUFDRSxnQkFBZ0I7RUFDaEIsY0FBYztFQUNkLG1CQUFtQjtFQUNuQixzQkFBc0I7RUFDdEIsc0JBQXNCO0VBQ3RCLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0U7QUFDRjtBQUVBO0VBQ0UsWUFBWTtBQUNkIiwiZmlsZSI6InNyYy9hcHAvY2hhcmdlbi9jaGFyLWFjL2NoYXItYWMuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbInB7ZGlzcGxheTogZmxleDsganVzdGlmeS1jb250ZW50OiBmbGV4LXN0YXJ0OyBmbGV4LWRpcmVjdGlvbjogcm93O31cclxuZGl2e1xyXG4gIGZvbnQtc2l6ZTogMXJlbTtcclxufVxyXG5cclxuc3Bhbi5zdGF0VmFsIGl7bWFyZ2luLWxlZnQ6NXB4fVxyXG5cclxuYnV0dG9uICsgYnV0dG9ue1xyXG4gIG1hcmdpbi1sZWZ0OjEycHg7XHJcbn1cclxuXHJcbi51aS5sYWJlbGVkLmljb24uYnV0dG9uID4gLmljb257XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgwLCAwLCAwLCAwLjIwKTtcclxufVxyXG4uZ3JpZFJvdyBzcGFue1xyXG4gIG1hcmdpbi1ib3R0b206MTJweDtcclxufVxyXG4uY29sdW1uLmJyZWFrZG93bntcclxuICBvdmVyZmxvdzogaGlkZGVuO1xyXG4gIG1heC1oZWlnaHQ6MHB4O1xyXG4gIGZvbnQtd2VpZ2h0OiBub3JtYWw7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogI2NjYztcclxuICBwYWRkaW5nOjBweCAhaW1wb3J0YW50O1xyXG4gIHRyYW5zaXRpb246IDAuNXM7XHJcbn1cclxuXHJcbi5jb2x1bW4uYnJlYWtkb3duLmV4cGFuZGVke1xyXG4gIG1heC1oZWlnaHQ6NjAwcHg7XHJcbiAgdHJhbnNpdGlvbjogMC41cztcclxufVxyXG5cclxuXHJcbltkYXRhLXBvc2l0aW9uPVwicmlnaHQgY2VudGVyXCJdW2RhdGEtdG9vbHRpcF06YWZ0ZXJ7XHJcbiAgbWF4LXdpZHRoOjUwMHB4O1xyXG4gIHdpZHRoOjUwMHB4O1xyXG4gIHdoaXRlLXNwYWNlOiBwcmUtd3JhcDtcclxufVxyXG4udWkuZ3JpZCArIC5ncmlkIHtcclxuICBtYXJnaW4tdG9wOiAwcHg7XHJcbn1cclxuLmdyaWRIZWFkZXIsIC5ncmlkUm93e1xyXG4gIGJvcmRlci1yYWRpdXM6IDZweCA2cHggMGVtIDBlbTtcclxuICBjdXJzb3I6IGF1dG87XHJcbiAgYmFja2dyb3VuZDogI0Y5RkFGQjtcclxuICB0ZXh0LWFsaWduOiBpbmhlcml0O1xyXG4gIGNvbG9yOiByZ2JhKDAsIDAsIDAsIDAuODcpO1xyXG4gIHBhZGRpbmc6IDAuMC4yNSAwLjc4NTcxNDI5ZW07XHJcbiAgdmVydGljYWwtYWxpZ246IGluaGVyaXQ7XHJcbiAgZm9udC1zdHlsZTogbm9uZTtcclxuICBmb250LXNpemU6IDFyZW07XHJcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgdGV4dC10cmFuc2Zvcm06IG5vbmU7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgzNCwgMzYsIDM4LCAwLjEpO1xyXG4gIGJvcmRlci1ib3R0b206IDBweDtcclxuICBtYXJnaW46MCAycHg7XHJcbn1cclxuLmdyaWRIZWFkZXIgLnRocmVlOmZpcnN0LWNoaWxkLCAuZ3JpZFJvdyAudGhyZWU6Zmlyc3QtY2hpbGR7XHJcbiAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQgcmdiYSgzNCwgMzYsIDM4LCAwLjEpO1xyXG59XHJcbi5ncmlkUm93e1xyXG4gIGJhY2tncm91bmQ6ICNmZmY7XHJcbiAgY29sb3I6IzAwMDtcclxuICBib3JkZXItcmFkaXVzOiAwZW07XHJcbn1cclxuLmdyaWRSb3cgLmVsZXZlbntcclxuICBmb250LXdlaWdodDogbm9ybWFsO1xyXG59XHJcbi5ncmlkUm93Omxhc3QtY2hpbGQsIC5ncmlkSGVhZGVyOmxhc3QtY2hpbGR7XHJcbiAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHJnYmEoMzQsIDM2LCAzOCwgMC4xKTtcclxufVxyXG4uY29sdW1uLnByZVJlcXtcclxuICBvdmVyZmxvdzogaGlkZGVuO1xyXG4gIG1heC1oZWlnaHQ6MHB4O1xyXG4gIGZvbnQtd2VpZ2h0OiBub3JtYWw7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogI2NjYztcclxuICBwYWRkaW5nOjBweCAhaW1wb3J0YW50O1xyXG4gIHRyYW5zaXRpb246IDAuNXM7XHJcbn1cclxuLmNvbHVtbi5wcmVSZXEuZXhwYW5kZWR7XHJcbiAgbWF4LWhlaWdodDozMDBweDtcclxuICB0cmFuc2l0aW9uOiAwLjVzO1xyXG59XHJcbi51aS5ncmlke1xyXG4gIG1hcmdpbi10b3A6MHB4XHJcbn1cclxuXHJcbi5oaWRkZW57XHJcbiAgZGlzcGxheTpub25lO1xyXG59XHJcbiJdfQ== */"]
+    });
+    /*@__PURE__*/
+
+    (function () {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](CharACComponent, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
+        args: [{
+          selector: 'app-char-ac',
+          templateUrl: './char-ac.component.html',
+          styleUrls: ['./char-ac.component.css']
+        }]
+      }], function () {
+        return [{
+          type: _services_char_data_service__WEBPACK_IMPORTED_MODULE_3__["CharDataService"]
+        }, {
+          type: _services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]
+        }];
+      }, null);
+    })();
+    /***/
+
+  },
+
+  /***/
+  "./src/app/chargen/char-base/char-base.component.ts":
+  /*!**********************************************************!*\
+    !*** ./src/app/chargen/char-base/char-base.component.ts ***!
+    \**********************************************************/
+
+  /*! exports provided: CharBaseComponent */
+
+  /***/
+  function srcAppChargenCharBaseCharBaseComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -18970,13 +19657,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
     var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/forms */
-    "./node_modules/@angular/forms/fesm2015/forms.js");
+    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
     /* harmony import */
 
 
@@ -19006,19 +19693,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! @angular/platform-browser */
-    "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
+    "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
     /* harmony import */
 
 
     var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js");
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
     /* harmony import */
 
 
     var _angular_common__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! @angular/common */
-    "./node_modules/@angular/common/fesm2015/common.js");
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 
     function CharBaseComponent_i_20_Template(rf, ctx) {
       if (rf & 1) {
@@ -19166,7 +19853,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function CharBaseComponent(raceSvc, classSvc, userService, charDataSvc, titleService, router) {
-        var _this29 = this;
+        var _this31 = this;
 
         _classCallCheck(this, CharBaseComponent);
 
@@ -19194,56 +19881,59 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.onSubmit = function () {};
 
         this.editHP = function (charID) {
-          _this29.router.navigate(['/charGen/mods/hp/' + charID]);
+          _this31.router.navigate(['/charGen/mods/hp/' + charID]);
         };
 
         this.editAC = function (charID) {
-          _this29.router.navigate(['/charGen/mods/ac/' + charID]);
+          _this31.router.navigate(['/charGen/mods/ac/' + charID]);
         };
 
         this.editInit = function (charID) {
-          _this29.router.navigate(['/charGen/mods/init/' + charID]);
+          _this31.router.navigate(['/charGen/mods/init/' + charID]);
         };
 
         this.editXP = function (charID) {
-          _this29.router.navigate(['/charGen/mods/xp/' + charID]);
+          _this31.router.navigate(['/charGen/mods/xp/' + charID]);
         };
 
         this.editLevels = function (charID) {
-          _this29.router.navigate(['/charGen/mods/levels/']);
+          _this31.router.navigate(['/charGen/mods/levels/']);
         };
       }
 
       _createClass(CharBaseComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this30 = this;
+          var _this32 = this;
 
           this.userService.getUser.subscribe(function (val) {
-            return _this30.loggedIn = val;
+            return _this32.loggedIn = val;
           });
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this30.charID = val;
+            return _this32.charID = val;
           });
           this.charDataSvc.getCharBasics.subscribe(function (val) {
-            return _this30.charBasic = val;
+            return _this32.charBasic = val;
           });
           this.isMyCharacter = this.loggedIn['userID'] === this.charBasic.results.userID;
           this.charDataSvc.getCharBasics.subscribe(function (val) {
-            return _this30.charBasic = val;
+            return _this32.charBasic = val;
           });
           this.curChar = this.charBasic.charID;
           this.charDataSvc.loadAC(parseInt(this.charBasic.charID)).subscribe(function (val) {
-            _this30.charDataSvc.setAllACs(val);
+            _this32.charDataSvc.setAllACs(val);
 
-            _this30.acs = val;
-            _this30.charAC = _this30.acs['results'].reduce(function (a, b) {
+            _this32.acs = val;
+            _this32.charAC = _this32.acs['results'].reduce(function (a, b) {
               return a + b.score;
             }, 0).toString();
 
-            _this30.charForm.patchValue({
-              charAC: _this30.charAC
+            _this32.charForm.patchValue({
+              charAC: _this32.charAC
             });
+          });
+          this.charDataSvc.loadACGrps(parseInt(this.charBasic.charID)).subscribe(function (val) {
+            _this32.charDataSvc.setAllACGrps(val);
           });
           this.charName = this.charBasic.results.charName;
           this.charRace = this.charBasic.results.Race.raceDesc;
@@ -19572,7 +20262,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
-  "./src/app/chargen/char-equip/char-equip.component.ts": function srcAppChargenCharEquipCharEquipComponentTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/app/chargen/char-equip/char-equip.component.ts":
+  /*!************************************************************!*\
+    !*** ./src/app/chargen/char-equip/char-equip.component.ts ***!
+    \************************************************************/
+
+  /*! exports provided: CharEquipComponent */
+
+  /***/
+  function srcAppChargenCharEquipCharEquipComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -19587,13 +20285,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
     var _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/cdk/drag-drop */
-    "./node_modules/@angular/cdk/fesm2015/drag-drop.js");
+    "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/drag-drop.js");
     /* harmony import */
 
 
@@ -19623,19 +20321,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js");
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
     /* harmony import */
 
 
     var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! @angular/common */
-    "./node_modules/@angular/common/fesm2015/common.js");
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
     /* harmony import */
 
 
     var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! @angular/forms */
-    "./node_modules/@angular/forms/fesm2015/forms.js");
+    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 
     function CharEquipComponent_span_2_button_1_Template(rf, ctx) {
       if (rf & 1) {
@@ -19853,7 +20551,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function CharEquipComponent(charDataSvc, userService, router) {
-        var _this31 = this;
+        var _this33 = this;
 
         _classCallCheck(this, CharEquipComponent);
 
@@ -19865,71 +20563,71 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.totalWeight = 0;
 
         this.deleteEquip = function (evt, id) {
-          _this31.charDataSvc.deleteEquipment(id).subscribe(function (val) {
-            _this31.allEquip.results = _this31.allEquip.results.filter(function (arg) {
+          _this33.charDataSvc.deleteEquipment(id).subscribe(function (val) {
+            _this33.allEquip.results = _this33.allEquip.results.filter(function (arg) {
               return arg.id !== id;
             });
 
-            _this31.charDataSvc.setAllEquipment(_this31.allEquip);
+            _this33.charDataSvc.setAllEquipment(_this33.allEquip);
 
-            _this31.calcWeight();
+            _this33.calcWeight();
           });
         };
 
         this.toggleForm = function () {
-          _this31.gatherNewInfo = true;
+          _this33.gatherNewInfo = true;
         };
 
         this.onSubmit = function (evt) {
           evt.preventDefault();
           var body = {
-            charID: _this31.charID,
-            equip: _this31.equip,
-            weight: _this31.wt,
-            location: _this31.loc
+            charID: _this33.charID,
+            equip: _this33.equip,
+            weight: _this33.wt,
+            location: _this33.loc
           };
 
-          _this31.charDataSvc.addEquipment(body).subscribe(function (vals) {
-            _this31.allEquip.results = [].concat(_toConsumableArray(_this31.allEquip.results), [vals]);
+          _this33.charDataSvc.addEquipment(body).subscribe(function (vals) {
+            _this33.allEquip.results = [].concat(_toConsumableArray(_this33.allEquip.results), [vals]);
 
-            _this31.charDataSvc.setAllEquipment(_this31.allEquip);
+            _this33.charDataSvc.setAllEquipment(_this33.allEquip);
 
-            _this31.equip = '';
-            _this31.wt = 0;
-            _this31.loc = '';
-            _this31.gatherNewInfo = false;
+            _this33.equip = '';
+            _this33.wt = 0;
+            _this33.loc = '';
+            _this33.gatherNewInfo = false;
 
-            _this31.calcWeight();
+            _this33.calcWeight();
           });
         };
 
         this.filterList = function (evt) {
-          _this31.filterText = evt.target.value;
+          _this33.filterText = evt.target.value;
           var allRows = document.getElementsByClassName('ui grid gridRow');
 
-          var _iterator = _createForOfIteratorHelper(allRows),
-              _step;
+          var _iterator3 = _createForOfIteratorHelper(allRows),
+              _step3;
 
           try {
-            for (_iterator.s(); !(_step = _iterator.n()).done;) {
-              var r = _step.value;
+            for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+              var r = _step3.value;
               var aTag = r.getElementsByTagName('span')[0].innerText + ' ' + r.getElementsByTagName('span')[2].innerText;
 
-              if (aTag.toLowerCase().includes(_this31.filterText.toLowerCase())) {
+              if (aTag.toLowerCase().includes(_this33.filterText.toLowerCase())) {
                 r.classList.remove('hidden');
               } else {
                 r.classList.add('hidden');
               }
             }
           } catch (err) {
-            _iterator.e(err);
+            _iterator3.e(err);
           } finally {
-            _iterator.f();
+            _iterator3.f();
           }
         };
 
         this.calcWeight = function () {
-          _this31.totalWeight = _this31.allEquip['results'].reduce(function (a, b) {
+          _this33.totalWeight = _this33.allEquip['results'].reduce(function (a, b) {
             return a + b.weight;
           }, 0);
         };
@@ -19938,32 +20636,32 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(CharEquipComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this32 = this;
+          var _this34 = this;
 
           this.userService.getUser.subscribe(function (val) {
-            return _this32.loggedIn = val;
+            return _this34.loggedIn = val;
           });
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this32.charID = val;
+            return _this34.charID = val;
           });
           this.charDataSvc.getCharBasics.subscribe(function (val) {
-            return _this32.charBasic = val;
+            return _this34.charBasic = val;
           });
           this.isMyCharacter = this.loggedIn['userID'] === this.charBasic.results.userID;
           this.charDataSvc.getAllEquip.subscribe(function (val) {
-            return _this32.curChar = val.charID;
+            return _this34.curChar = val.charID;
           });
           this.charDataSvc.getAllEquip.subscribe(function (val) {
-            return _this32.allEquip = val;
+            return _this34.allEquip = val;
           });
 
           if (this.charID && this.charID !== this.curChar) {
             this.charDataSvc.loadEquipment(this.charID).subscribe(function (val) {
-              _this32.allEquip = val;
+              _this34.allEquip = val;
 
-              _this32.charDataSvc.setAllEquipment(val);
+              _this34.charDataSvc.setAllEquipment(val);
 
-              _this32.calcWeight();
+              _this34.calcWeight();
             });
           }
 
@@ -20122,7 +20820,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
-  "./src/app/chargen/char-feats/char-feats.component.ts": function srcAppChargenCharFeatsCharFeatsComponentTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/app/chargen/char-feats/char-feats.component.ts":
+  /*!************************************************************!*\
+    !*** ./src/app/chargen/char-feats/char-feats.component.ts ***!
+    \************************************************************/
+
+  /*! exports provided: CharFeatsComponent */
+
+  /***/
+  function srcAppChargenCharFeatsCharFeatsComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -20137,13 +20843,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
     var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/forms */
-    "./node_modules/@angular/forms/fesm2015/forms.js");
+    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
     /* harmony import */
 
 
@@ -20167,13 +20873,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js");
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
     /* harmony import */
 
 
     var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! @angular/common */
-    "./node_modules/@angular/common/fesm2015/common.js");
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
     /* harmony import */
 
 
@@ -20211,7 +20917,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function CharFeatsComponent(charSvc, charDataSvc, userService, router) {
-        var _this33 = this;
+        var _this35 = this;
 
         _classCallCheck(this, CharFeatsComponent);
 
@@ -20226,32 +20932,32 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.filterText = '';
 
         this.addNewFeat = function () {
-          _this33.router.navigate(['/charGen/mods/newfeat']);
+          _this35.router.navigate(['/charGen/mods/newfeat']);
         };
 
         this.filterList = function (evt) {
-          _this33.filterText = evt.target.value;
+          _this35.filterText = evt.target.value;
           var allRows = document.getElementsByClassName('ui grid gridRow');
 
-          var _iterator2 = _createForOfIteratorHelper(allRows),
-              _step2;
+          var _iterator4 = _createForOfIteratorHelper(allRows),
+              _step4;
 
           try {
-            for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-              var r = _step2.value;
+            for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+              var r = _step4.value;
               var aTag = r.getElementsByTagName('div')[0].innerText;
               var bTag = r.getElementsByTagName('div')[1].innerText;
 
-              if (aTag.toLowerCase().includes(_this33.filterText.toLowerCase()) || bTag.toLowerCase().includes(_this33.filterText.toLowerCase())) {
+              if (aTag.toLowerCase().includes(_this35.filterText.toLowerCase()) || bTag.toLowerCase().includes(_this35.filterText.toLowerCase())) {
                 r.classList.remove('hidden');
               } else {
                 r.classList.add('hidden');
               }
             }
           } catch (err) {
-            _iterator2.e(err);
+            _iterator4.e(err);
           } finally {
-            _iterator2.f();
+            _iterator4.f();
           }
         };
       }
@@ -20259,35 +20965,35 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(CharFeatsComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this34 = this;
+          var _this36 = this;
 
           this.userService.getUser.subscribe(function (val) {
-            return _this34.loggedIn = val;
+            return _this36.loggedIn = val;
           });
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this34.charID = val;
+            return _this36.charID = val;
           });
           this.charDataSvc.getCharBasics.subscribe(function (val) {
-            return _this34.charBasic = val;
+            return _this36.charBasic = val;
           });
           this.isMyCharacter = this.loggedIn['userID'] === this.charBasic.results.userID;
           this.charDataSvc.getAllFeats.subscribe(function (val) {
-            return _this34.allFeats = val === null ? [] : val.results;
+            return _this36.allFeats = val === null ? [] : val.results;
           });
           this.charDataSvc.getAllFeats.subscribe(function (val) {
-            return _this34.curChar = val === null ? "0" : val.charID;
+            return _this36.curChar = val === null ? "0" : val.charID;
           });
 
           if (this.charID && this.charID.toString() !== this.curChar) {
             this.allFeats = [];
             this.charDataSvc.loadFeats(this.charID.toString()).subscribe(function (results) {
-              _this34.allFeats = results.results;
+              _this36.allFeats = results.results;
 
-              _this34.charDataSvc.setAllFeats(results);
+              _this36.charDataSvc.setAllFeats(results);
             });
           } else {
             this.charDataSvc.getAllFeats.subscribe(function (val) {
-              return _this34.allFeats = val.results;
+              return _this36.allFeats = val.results;
             });
           }
         }
@@ -20375,7 +21081,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
-  "./src/app/chargen/char-level/char-level.component.ts": function srcAppChargenCharLevelCharLevelComponentTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/app/chargen/char-level/char-level.component.ts":
+  /*!************************************************************!*\
+    !*** ./src/app/chargen/char-level/char-level.component.ts ***!
+    \************************************************************/
+
+  /*! exports provided: CharLevelComponent */
+
+  /***/
+  function srcAppChargenCharLevelCharLevelComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -20390,7 +21104,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
@@ -20402,25 +21116,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js");
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
     /* harmony import */
 
 
     var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/common/http */
-    "./node_modules/@angular/common/fesm2015/http.js");
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
     /* harmony import */
 
 
     var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! @angular/forms */
-    "./node_modules/@angular/forms/fesm2015/forms.js");
+    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
     /* harmony import */
 
 
     var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! @angular/common */
-    "./node_modules/@angular/common/fesm2015/common.js");
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 
     function CharLevelComponent_div_14_span_2_Template(rf, ctx) {
       if (rf & 1) {
@@ -20432,15 +21146,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var cl_r269 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+        var cl_r283 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
 
-        var ctx_r270 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+        var ctx_r284 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("id", ctx_r270.setInputName("class", cl_r269.CharClass.classID));
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("id", ctx_r284.setInputName("class", cl_r283.CharClass.classID));
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](cl_r269.CharClass.className);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](cl_r283.CharClass.className);
       }
     }
 
@@ -20454,28 +21168,28 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var c_r274 = ctx.$implicit;
+        var c_r288 = ctx.$implicit;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("value", c_r274.value);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("value", c_r288.value);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](c_r274.name);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](c_r288.name);
       }
     }
 
     function CharLevelComponent_div_14_select_3_Template(rf, ctx) {
       if (rf & 1) {
-        var _r276 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r290 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "select", 19);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function CharLevelComponent_div_14_select_3_Template_select_ngModelChange_0_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r276);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r290);
 
-          var ctx_r275 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+          var ctx_r289 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
 
-          return ctx_r275.charClass = $event;
+          return ctx_r289.charClass = $event;
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, CharLevelComponent_div_14_select_3_option_1_Template, 2, 2, "option", 20);
@@ -20486,19 +21200,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var ctx_r271 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+        var ctx_r285 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx_r271.charClass);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx_r285.charClass);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r271.avaialbleClasses);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r285.avaialbleClasses);
       }
     }
 
     function CharLevelComponent_div_14_Template(rf, ctx) {
       if (rf & 1) {
-        var _r278 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r292 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 12);
 
@@ -20515,10 +21229,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "input", 17);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function CharLevelComponent_div_14_Template_input_ngModelChange_5_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r278);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r292);
 
-          var cl_r269 = ctx.$implicit;
-          return cl_r269.classLevel = $event;
+          var cl_r283 = ctx.$implicit;
+          return cl_r283.classLevel = $event;
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -20529,21 +21243,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var cl_r269 = ctx.$implicit;
+        var cl_r283 = ctx.$implicit;
 
-        var ctx_r268 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+        var ctx_r282 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", cl_r269.CharClass.classID !== 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", cl_r283.CharClass.classID !== 0);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", cl_r269.CharClass.classID === 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", cl_r283.CharClass.classID === 0);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", cl_r269.classLevel)("name", ctx_r268.setInputName("level", cl_r269.CharClass.classID))("id", ctx_r268.setInputName("level", cl_r269.CharClass.classID));
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", cl_r283.classLevel)("name", ctx_r282.setInputName("level", cl_r283.CharClass.classID))("id", ctx_r282.setInputName("level", cl_r283.CharClass.classID));
       }
     }
 
@@ -20551,7 +21265,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function CharLevelComponent(charDataSvc, router, http) {
-        var _this35 = this;
+        var _this37 = this;
 
         _classCallCheck(this, CharLevelComponent);
 
@@ -20596,40 +21310,40 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         this.onSubmit = function (evt) {
           evt.preventDefault();
-          _this35.numFinished = 0;
-          var arrLen = _this35.theLevels.length;
+          _this37.numFinished = 0;
+          var arrLen = _this37.theLevels.length;
 
-          if (_this35.theLevels[arrLen - 1].CharClass.classID === 0) {
+          if (_this37.theLevels[arrLen - 1].CharClass.classID === 0) {
             var classID = document.getElementsByName('charClass')[0]['value'];
-            _this35.theLevels[arrLen - 1].CharClass.classID = document.getElementsByName('charClass')[0]['value'];
-            _this35.theLevels[arrLen - 1].CharClass.className = _this35.avaialbleClasses.find(function (x) {
+            _this37.theLevels[arrLen - 1].CharClass.classID = document.getElementsByName('charClass')[0]['value'];
+            _this37.theLevels[arrLen - 1].CharClass.className = _this37.avaialbleClasses.find(function (x) {
               return x.value === parseInt(classID, 10);
             }).name;
           }
 
-          _this35.theLevels.map(function (cl) {
-            _this35.charDataSvc.insertClassLevels({
-              charID: _this35.charID,
+          _this37.theLevels.map(function (cl) {
+            _this37.charDataSvc.insertClassLevels({
+              charID: _this37.charID,
               classID: cl.CharClass.classID,
               classLevel: cl.classLevel
             }).subscribe(function (val) {
-              _this35.numFinished++;
+              _this37.numFinished++;
 
-              if (_this35.numFinished === _this35.theLevels.length) {
-                _this35.charBasic.results.CharLevels = _toConsumableArray(_this35.theLevels);
+              if (_this37.numFinished === _this37.theLevels.length) {
+                _this37.charBasic.results.CharLevels = _toConsumableArray(_this37.theLevels);
 
-                _this35.charDataSvc.setCharBasics(_this35.charBasic);
+                _this37.charDataSvc.setCharBasics(_this37.charBasic);
 
-                _this35.router.navigate(['/charGen']);
+                _this37.router.navigate(['/charGen']);
               }
             });
           });
         };
 
         this.onCancel = function () {
-          _this35.theLevels.pop();
+          _this37.theLevels.pop();
 
-          _this35.router.navigate(['/charGen']);
+          _this37.router.navigate(['/charGen']);
         };
 
         this.setInputName = function (prefix, id) {
@@ -20644,13 +21358,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               classID: 0
             }
           };
-          _this35.avaialbleClasses = _this35.avaialbleClasses.filter(function (cl) {
-            return !_this35.theLevels.find(function (arg) {
+          _this37.avaialbleClasses = _this37.avaialbleClasses.filter(function (cl) {
+            return !_this37.theLevels.find(function (arg) {
               return arg.CharClass.classID === cl.value;
             });
           });
 
-          _this35.theLevels.push(newClass);
+          _this37.theLevels.push(newClass);
 
           evt.target.classList.add('disabled');
         };
@@ -20659,10 +21373,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(CharLevelComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this36 = this;
+          var _this38 = this;
 
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this36.charID = val;
+            return _this38.charID = val;
           });
 
           if (this.charID === 0) {
@@ -20670,9 +21384,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
 
           this.charDataSvc.getCharBasics.subscribe(function (val) {
-            _this36.charBasic = val;
-            _this36.theLevels = _toConsumableArray(val.results.CharLevels);
-            _this36.charID = val.results.charID;
+            _this38.charBasic = val;
+            _this38.theLevels = _toConsumableArray(val.results.CharLevels);
+            _this38.charID = val.results.charID;
           });
         }
       }]);
@@ -20795,7 +21509,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
-  "./src/app/chargen/char-mod/char-mod.component.ts": function srcAppChargenCharModCharModComponentTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/app/chargen/char-mod/char-mod.component.ts":
+  /*!********************************************************!*\
+    !*** ./src/app/chargen/char-mod/char-mod.component.ts ***!
+    \********************************************************/
+
+  /*! exports provided: CharModComponent */
+
+  /***/
+  function srcAppChargenCharModCharModComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -20810,7 +21532,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
@@ -20840,25 +21562,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js");
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
     /* harmony import */
 
 
     var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! @angular/common/http */
-    "./node_modules/@angular/common/fesm2015/http.js");
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
     /* harmony import */
 
 
     var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! @angular/common */
-    "./node_modules/@angular/common/fesm2015/common.js");
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
     /* harmony import */
 
 
     var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! @angular/forms */
-    "./node_modules/@angular/forms/fesm2015/forms.js");
+    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 
     function CharModComponent_button_2_Template(rf, ctx) {
       if (rf & 1) {
@@ -21104,7 +21826,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function CharModComponent(charDataSvc, router, http) {
-        var _this37 = this;
+        var _this39 = this;
 
         _classCallCheck(this, CharModComponent);
 
@@ -21119,7 +21841,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.scoreParts = [];
 
         this.addMod = function (evt) {
-          _this37.attribute.push({
+          _this39.attribute.push({
             id: 0,
             score: '',
             modDesc: '',
@@ -21133,15 +21855,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         this.onSubmit = function (evt) {
           evt.preventDefault();
-          _this37.numChanged = 0;
-          _this37.numFinished = 0;
+          _this39.numChanged = 0;
+          _this39.numFinished = 0;
 
-          var _iterator3 = _createForOfIteratorHelper(_this37.attribute),
-              _step3;
+          var _iterator5 = _createForOfIteratorHelper(_this39.attribute),
+              _step5;
 
           try {
-            var _loop = function _loop() {
-              var a = _step3.value;
+            var _loop2 = function _loop2() {
+              var a = _step5.value;
               // tslint:disable:no-string-literal
               // tslint:disable:max-line-length
               var score = document.getElementsByName('score' + a.id);
@@ -21152,59 +21874,59 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               var descChnaged = a.modDesc === undefined && desc.length === 0 || a.modDesc !== null && a.modDesc !== desc[0]['value'].trim() || a.modDesc === null && desc[0]['value'].trim() !== '';
 
               if (statChanged || descChnaged) {
-                _this37.numChanged++;
+                _this39.numChanged++;
                 var attrObj = {
                   id: a.id,
                   score: parseInt(score[0]['value'], 10),
                   modDesc: desc.length > 0 ? desc[0]['value'].trim() : '',
-                  statID: parseInt(_this37.partID, 10),
-                  charID: _this37.charID,
+                  statID: parseInt(_this39.partID, 10),
+                  charID: _this39.charID,
                   isBase: baseChecked.length > 0 ? baseChecked[0]['checked'] : false,
                   isMod: baseChecked.length > 1 ? baseChecked[1]['checked'] : false,
                   isClassSkill: baseChecked[2] === undefined ? false : baseChecked[2]['checked']
                 };
 
-                if (_this37.modType === 'hp') {
-                  _this37.charDataSvc.updateHP(_this37.charID, attrObj.score).subscribe(function (val) {
+                if (_this39.modType === 'hp') {
+                  _this39.charDataSvc.updateHP(_this39.charID, attrObj.score).subscribe(function (val) {
                     if (val.results) {
-                      _this37.theCharBasics.results = Object.assign(Object.assign({}, _this37.theCharBasics.results), {
+                      _this39.theCharBasics.results = Object.assign(Object.assign({}, _this39.theCharBasics.results), {
                         charHP: attrObj.score
                       });
 
-                      _this37.charDataSvc.setCharBasics(_this37.theCharBasics);
+                      _this39.charDataSvc.setCharBasics(_this39.theCharBasics);
 
-                      _this37.router.navigate(['/charGen']);
+                      _this39.router.navigate(['/charGen']);
                     }
                   });
-                } else if (_this37.modType === 'init') {
-                  _this37.charDataSvc.updateInit(_this37.charID, attrObj.score).subscribe(function (val) {
+                } else if (_this39.modType === 'init') {
+                  _this39.charDataSvc.updateInit(_this39.charID, attrObj.score).subscribe(function (val) {
                     if (val.results) {
-                      _this37.theCharBasics.results = Object.assign(Object.assign({}, _this37.theCharBasics.results), {
+                      _this39.theCharBasics.results = Object.assign(Object.assign({}, _this39.theCharBasics.results), {
                         init: attrObj.score
                       });
 
-                      _this37.charDataSvc.setCharBasics(_this37.theCharBasics);
+                      _this39.charDataSvc.setCharBasics(_this39.theCharBasics);
 
-                      _this37.router.navigate(['/charGen']);
+                      _this39.router.navigate(['/charGen']);
                     }
                   });
-                } else if (_this37.modType === 'xp') {
-                  _this37.charDataSvc.updateXP(_this37.charID, attrObj.score).subscribe(function (val) {
+                } else if (_this39.modType === 'xp') {
+                  _this39.charDataSvc.updateXP(_this39.charID, attrObj.score).subscribe(function (val) {
                     if (val.results) {
-                      _this37.theCharBasics.results = Object.assign(Object.assign({}, _this37.theCharBasics.results), {
+                      _this39.theCharBasics.results = Object.assign(Object.assign({}, _this39.theCharBasics.results), {
                         charXP: attrObj.score
                       });
 
-                      _this37.charDataSvc.setCharBasics(_this37.theCharBasics);
+                      _this39.charDataSvc.setCharBasics(_this39.theCharBasics);
 
-                      _this37.router.navigate(['/charGen']);
+                      _this39.router.navigate(['/charGen']);
                     }
                   });
                 } else {
-                  _this37.charDataSvc.updateAttribute(_this37.modType, attrObj).subscribe(function (val) {
+                  _this39.charDataSvc.updateAttribute(_this39.modType, attrObj).subscribe(function (val) {
                     var list = '';
 
-                    switch (_this37.modType) {
+                    switch (_this39.modType) {
                       case 'skill':
                         list = 'theSkills';
                         break;
@@ -21233,42 +21955,42 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                     }
 
                     if (a.id === 0) {
-                      _this37[list].results.push(a);
+                      _this39[list].results.push(a);
                     }
 
-                    _this37[list].results = _this37[list].results.map(function (li) {
+                    _this39[list].results = _this39[list].results.map(function (li) {
                       if (li.id === 0 || li.id === val.results.id) {
                         li = Object.assign({}, val.results);
-                        _this37.numFinished++;
+                        _this39.numFinished++;
                       }
 
                       return li;
                     });
 
                     try {
-                      switch (_this37.modType) {
+                      switch (_this39.modType) {
                         case 'skill':
-                          _this37.charDataSvc.setAllSkills(_this37.theSkills);
+                          _this39.charDataSvc.setAllSkills(_this39.theSkills);
 
                           break;
 
                         case 'stat':
-                          _this37.charDataSvc.setStats(_this37.theStats);
+                          _this39.charDataSvc.setStats(_this39.theStats);
 
                           break;
 
                         case 'save':
-                          _this37.charDataSvc.setSaves(_this37.theSaves);
+                          _this39.charDataSvc.setSaves(_this39.theSaves);
 
                           break;
 
                         case 'ac':
-                          _this37.charDataSvc.setAllACs(_this37.theACs);
+                          _this39.charDataSvc.setAllACs(_this39.theACs);
 
                           break;
 
                         case 'tohit':
-                          _this37.charDataSvc.setAllToHits(_this37.theToHits);
+                          _this39.charDataSvc.setAllToHits(_this39.theToHits);
 
                           break;
 
@@ -21278,10 +22000,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                     } catch (err) {
                       throw new Error("did not save");
                     } finally {
-                      if (_this37.numChanged === _this37.numFinished) {
-                        var retRoute = _this37.modType.trim() === 'ac' ? '' : _this37.modType + 's';
+                      if (_this39.numChanged === _this39.numFinished) {
+                        var retRoute = _this39.modType.trim() === 'ac' ? '' : _this39.modType + 's';
 
-                        _this37.router.navigate(['/charGen/' + retRoute]);
+                        _this39.router.navigate(['/charGen/' + retRoute]);
                       }
                     }
                   });
@@ -21289,110 +22011,110 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               }
             };
 
-            for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
-              _loop();
+            for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
+              _loop2();
             }
           } catch (err) {
-            _iterator3.e(err);
+            _iterator5.e(err);
           } finally {
-            _iterator3.f();
+            _iterator5.f();
           }
         };
 
         this.onCancel = function () {
-          switch (_this37.modType) {
+          switch (_this39.modType) {
             case 'skill':
-              _this37.router.navigate(['/charGen/skills']);
+              _this39.router.navigate(['/charGen/skills']);
 
               break;
 
             case 'stat':
-              _this37.router.navigate(['/charGen/stats']);
+              _this39.router.navigate(['/charGen/stats']);
 
               break;
 
             case 'feat':
-              _this37.router.navigate(['/charGen/stats']);
+              _this39.router.navigate(['/charGen/stats']);
 
               break;
 
             case 'tohit':
-              _this37.router.navigate(['/charGen/tohits']);
+              _this39.router.navigate(['/charGen/tohits']);
 
               break;
 
             case 'save':
-              _this37.router.navigate(['/charGen/saves']);
+              _this39.router.navigate(['/charGen/saves']);
 
               break;
 
             case 'ac':
-              _this37.router.navigate(['/charGen']);
+              _this39.router.navigate(['/charGen']);
 
               break;
 
             case 'hp':
-              _this37.router.navigate(['/charGen']);
+              _this39.router.navigate(['/charGen']);
 
               break;
 
             case 'init':
-              _this37.router.navigate(['/charGen']);
+              _this39.router.navigate(['/charGen']);
 
               break;
 
             default:
-              _this37.router.navigate(['/charGen']);
+              _this39.router.navigate(['/charGen']);
 
           }
         };
 
         this.deleteAttribute = function (arg) {
-          _this37.charDataSvc.deleteAttribute(_this37.modType, parseInt(arg, 10)).subscribe(function (val) {
+          _this39.charDataSvc.deleteAttribute(_this39.modType, parseInt(arg, 10)).subscribe(function (val) {
             try {
-              switch (_this37.modType) {
+              switch (_this39.modType) {
                 case 'skill':
-                  _this37.theSkills = _this37.theSkills.results.filter(function (li) {
+                  _this39.theSkills = _this39.theSkills.results.filter(function (li) {
                     return li.id !== parseInt(arg, 10);
                   });
 
-                  _this37.charDataSvc.setAllSkills(_this37.theSkills);
+                  _this39.charDataSvc.setAllSkills(_this39.theSkills);
 
                   break;
 
                 case 'stat':
-                  _this37.theStats = _this37.theStats.results.filter(function (li) {
+                  _this39.theStats = _this39.theStats.results.filter(function (li) {
                     return li.id !== parseInt(arg, 10);
                   });
 
-                  _this37.charDataSvc.setStats(_this37.theStats);
+                  _this39.charDataSvc.setStats(_this39.theStats);
 
                   break;
 
                 case 'save':
-                  _this37.theSaves = _this37.theSaves.results.filter(function (li) {
+                  _this39.theSaves = _this39.theSaves.results.filter(function (li) {
                     return li.id !== parseInt(arg, 10);
                   });
 
-                  _this37.charDataSvc.setSaves(_this37.theSaves);
+                  _this39.charDataSvc.setSaves(_this39.theSaves);
 
                   break;
 
                 case 'ac':
-                  _this37.theACs.results = _this37.theACs.results.filter(function (li) {
+                  _this39.theACs.results = _this39.theACs.results.filter(function (li) {
                     return li.id !== parseInt(arg, 10);
                   });
 
-                  _this37.charDataSvc.setAllACs(_this37.theACs);
+                  _this39.charDataSvc.setAllACs(_this39.theACs);
 
                   break;
 
                 case 'tohit':
-                  _this37.theToHits = _this37.theToHits.results.filter(function (li) {
+                  _this39.theToHits = _this39.theToHits.results.filter(function (li) {
                     return li.id !== parseInt(arg, 10);
                   });
 
-                  _this37.charDataSvc.setAllToHits(_this37.theToHits);
+                  _this39.charDataSvc.setAllToHits(_this39.theToHits);
 
                   break;
 
@@ -21400,13 +22122,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   break;
               }
             } catch (err) {} finally {
-              if (_this37.modType === 'ac') {
-                _this37.router.navigate(['/charGen']);
+              if (_this39.modType === 'ac') {
+                _this39.router.navigate(['/charGen']);
 
                 return;
               }
 
-              _this37.router.navigate(['/charGen/' + _this37.modType + 's']);
+              _this39.router.navigate(['/charGen/' + _this39.modType + 's']);
             }
           });
         };
@@ -21419,10 +22141,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(CharModComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this38 = this;
+          var _this40 = this;
 
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this38.charID = val;
+            return _this40.charID = val;
           });
 
           if (this.charID === 0) {
@@ -21432,58 +22154,58 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           switch (this.modType) {
             case 'skill':
               this.charDataSvc.getAllSkills.subscribe(function (val) {
-                return _this38.theSkills = val;
+                return _this40.theSkills = val;
               });
               this.attribute = this.theSkills.results.filter(function (arg) {
-                return arg.skillID.toString() === _this38.partID;
+                return arg.skillID.toString() === _this40.partID;
               });
               break;
 
             case 'stat':
               this.charDataSvc.getAllStats.subscribe(function (val) {
-                return _this38.theStats = val;
+                return _this40.theStats = val;
               });
               this.attribute = this.theStats.results.filter(function (arg) {
-                return arg.statID.toString() === _this38.partID;
+                return arg.statID.toString() === _this40.partID;
               });
               break;
 
             case 'feat':
               this.charDataSvc.getAllFeats.subscribe(function (val) {
-                return _this38.theFeats = val;
+                return _this40.theFeats = val;
               });
               break;
 
             case 'tohit':
               this.charDataSvc.getAllToHits.subscribe(function (val) {
-                return _this38.theToHits = val;
+                return _this40.theToHits = val;
               });
               this.attribute = this.theToHits.results.filter(function (arg) {
-                return arg.toHitID.toString() === _this38.partID;
+                return arg.toHitID.toString() === _this40.partID;
               });
               break;
 
             case 'save':
               this.charDataSvc.getAllSaves.subscribe(function (val) {
-                return _this38.theSaves = val;
+                return _this40.theSaves = val;
               });
               this.attribute = this.theSaves.results.filter(function (arg) {
-                return arg.saveID.toString() === _this38.partID;
+                return arg.saveID.toString() === _this40.partID;
               });
               break;
 
             case 'ac':
               this.charDataSvc.getAllACs.subscribe(function (val) {
-                _this38.theACs = val;
-                _this38.attribute = _this38.theACs.results.filter(function (arg) {
-                  return arg.charID === _this38.charID;
+                _this40.theACs = val;
+                _this40.attribute = _this40.theACs.results.filter(function (arg) {
+                  return arg.charID === _this40.charID;
                 });
               });
               break;
 
             case 'hp':
               this.charDataSvc.getCharBasics.subscribe(function (val) {
-                return _this38.theCharBasics = val;
+                return _this40.theCharBasics = val;
               });
               this.attribute = [{
                 id: this.theCharBasics.charID,
@@ -21493,7 +22215,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
             case 'init':
               this.charDataSvc.getCharBasics.subscribe(function (val) {
-                return _this38.theCharBasics = val;
+                return _this40.theCharBasics = val;
               });
               this.attribute = [{
                 id: this.theCharBasics.charID,
@@ -21503,7 +22225,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
             case 'xp':
               this.charDataSvc.getCharBasics.subscribe(function (val) {
-                return _this38.theCharBasics = val;
+                return _this40.theCharBasics = val;
               });
               this.attribute = [{
                 id: this.theCharBasics.charID,
@@ -21721,7 +22443,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
-  "./src/app/chargen/char-notes/char-notes.component.ts": function srcAppChargenCharNotesCharNotesComponentTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/app/chargen/char-notes/char-notes.component.ts":
+  /*!************************************************************!*\
+    !*** ./src/app/chargen/char-notes/char-notes.component.ts ***!
+    \************************************************************/
+
+  /*! exports provided: CharNotesComponent */
+
+  /***/
+  function srcAppChargenCharNotesCharNotesComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -21736,13 +22466,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
     var _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/cdk/drag-drop */
-    "./node_modules/@angular/cdk/fesm2015/drag-drop.js");
+    "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/drag-drop.js");
     /* harmony import */
 
 
@@ -21772,19 +22502,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js");
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
     /* harmony import */
 
 
     var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! @angular/common */
-    "./node_modules/@angular/common/fesm2015/common.js");
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
     /* harmony import */
 
 
     var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! @angular/forms */
-    "./node_modules/@angular/forms/fesm2015/forms.js");
+    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 
     function CharNotesComponent_span_2_button_1_Template(rf, ctx) {
       if (rf & 1) {
@@ -21968,7 +22698,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function CharNotesComponent(charDataSvc, userService, router) {
-        var _this39 = this;
+        var _this41 = this;
 
         _classCallCheck(this, CharNotesComponent);
 
@@ -21980,32 +22710,32 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.notesSet = {};
 
         this.addNewNote = function (evt) {
-          _this39.newNote = true;
+          _this41.newNote = true;
         };
 
         this.onSubmit = function (evt) {
           evt.preventDefault();
           var body = {
-            charID: _this39.charID,
-            note: _this39.note
+            charID: _this41.charID,
+            note: _this41.note
           };
 
-          _this39.charDataSvc.addNoteHeader(body).subscribe(function (vals) {
-            _this39.notesSet['results'] = [].concat(_toConsumableArray(_this39.notesSet['results']), [vals]);
+          _this41.charDataSvc.addNoteHeader(body).subscribe(function (vals) {
+            _this41.notesSet['results'] = [].concat(_toConsumableArray(_this41.notesSet['results']), [vals]);
 
-            _this39.charDataSvc.setAllNotes(_this39.notesSet);
+            _this41.charDataSvc.setAllNotes(_this41.notesSet);
 
-            _this39.note = '';
-            _this39.newNote = false;
+            _this41.note = '';
+            _this41.newNote = false;
           });
         };
 
         this.editNote = function (id) {
-          var oneNote = _this39.notesSet['results'].find(function (a) {
+          var oneNote = _this41.notesSet['results'].find(function (a) {
             return a.noteID.toString() === id;
           });
 
-          _this39.router.navigate(['/charGen/notes/editNote/' + id], {
+          _this41.router.navigate(['/charGen/notes/editNote/' + id], {
             state: {
               data: {
                 type: 'header',
@@ -22016,27 +22746,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         };
 
         this.filterList = function (evt) {
-          _this39.filterText = evt.target.value;
+          _this41.filterText = evt.target.value;
           var allRows = document.getElementsByClassName('ui grid gridRow');
 
-          var _iterator4 = _createForOfIteratorHelper(allRows),
-              _step4;
+          var _iterator6 = _createForOfIteratorHelper(allRows),
+              _step6;
 
           try {
-            for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
-              var r = _step4.value;
+            for (_iterator6.s(); !(_step6 = _iterator6.n()).done;) {
+              var r = _step6.value;
               var aTag = r.getElementsByTagName('span')[0].innerText;
 
-              if (aTag.toLowerCase().includes(_this39.filterText.toLowerCase())) {
+              if (aTag.toLowerCase().includes(_this41.filterText.toLowerCase())) {
                 r.classList.remove('hidden');
               } else {
                 r.classList.add('hidden');
               }
             }
           } catch (err) {
-            _iterator4.e(err);
+            _iterator6.e(err);
           } finally {
-            _iterator4.f();
+            _iterator6.f();
           }
         };
       }
@@ -22044,33 +22774,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(CharNotesComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this40 = this;
+          var _this42 = this;
 
           this.userService.getUser.subscribe(function (val) {
-            return _this40.loggedIn = val;
+            return _this42.loggedIn = val;
           });
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this40.charID = val;
+            return _this42.charID = val;
           });
           this.charDataSvc.getCharBasics.subscribe(function (val) {
-            return _this40.charBasic = val;
+            return _this42.charBasic = val;
           });
           this.isMyCharacter = this.loggedIn['userID'] === this.charBasic.results.userID;
           this.charDataSvc.getAllNotes.subscribe(function (val) {
-            return _this40.notesSet = val === null ? {} : val;
+            return _this42.notesSet = val === null ? {} : val;
           });
           this.charDataSvc.getAllNotes.subscribe(function (val) {
-            return _this40.allNotes = val === null ? [] : val.results;
+            return _this42.allNotes = val === null ? [] : val.results;
           });
           this.charDataSvc.getAllNotes.subscribe(function (val) {
-            return _this40.curChar = val === null ? '0' : val.charID;
+            return _this42.curChar = val === null ? '0' : val.charID;
           });
 
           if (this.charID && this.charID.toString() !== this.curChar) {
             this.charDataSvc.loadNotes(this.charID).subscribe(function (val) {
-              _this40.allNotes = val.results;
+              _this42.allNotes = val.results;
 
-              _this40.charDataSvc.setAllNotes(val);
+              _this42.charDataSvc.setAllNotes(val);
             });
           }
         }
@@ -22183,7 +22913,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
-  "./src/app/chargen/char-saves/char-saves.component.ts": function srcAppChargenCharSavesCharSavesComponentTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/app/chargen/char-saves/char-saves.component.ts":
+  /*!************************************************************!*\
+    !*** ./src/app/chargen/char-saves/char-saves.component.ts ***!
+    \************************************************************/
+
+  /*! exports provided: CharSavesComponent */
+
+  /***/
+  function srcAppChargenCharSavesCharSavesComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -22198,7 +22936,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
@@ -22210,7 +22948,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js");
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
     /* harmony import */
 
 
@@ -22222,13 +22960,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! @angular/platform-browser */
-    "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
+    "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
     /* harmony import */
 
 
     var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! @angular/common */
-    "./node_modules/@angular/common/fesm2015/common.js");
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 
     function CharSavesComponent_i_14_Template(rf, ctx) {
       if (rf & 1) {
@@ -22384,7 +23122,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function CharSavesComponent(charDataSvc, router, userService, sanitizer) {
-        var _this41 = this;
+        var _this43 = this;
 
         _classCallCheck(this, CharSavesComponent);
 
@@ -22402,12 +23140,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             return i.saveID;
           })));
 
-          var _iterator5 = _createForOfIteratorHelper(ids),
-              _step5;
+          var _iterator7 = _createForOfIteratorHelper(ids),
+              _step7;
 
           try {
-            var _loop2 = function _loop2() {
-              var sid = _step5.value;
+            var _loop3 = function _loop3() {
+              var sid = _step7.value;
               var temp = ar.filter(function (i) {
                 return i.saveID === sid;
               });
@@ -22423,14 +23161,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 desc: 'Base'
               });
 
-              var _iterator6 = _createForOfIteratorHelper(temp.filter(function (d) {
+              var _iterator8 = _createForOfIteratorHelper(temp.filter(function (d) {
                 return d.isBase === false;
               })),
-                  _step6;
+                  _step8;
 
               try {
-                for (_iterator6.s(); !(_step6 = _iterator6.n()).done;) {
-                  var aSk = _step6.value;
+                for (_iterator8.s(); !(_step8 = _iterator8.n()).done;) {
+                  var aSk = _step8.value;
                   var reason = aSk.modDesc;
                   breakdown.push({
                     score: aSk.score,
@@ -22438,9 +23176,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   });
                 }
               } catch (err) {
-                _iterator6.e(err);
+                _iterator8.e(err);
               } finally {
-                _iterator6.f();
+                _iterator8.f();
               }
 
               var obj = {
@@ -22452,13 +23190,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               retVal.push(obj);
             };
 
-            for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
-              _loop2();
+            for (_iterator7.s(); !(_step7 = _iterator7.n()).done;) {
+              _loop3();
             }
           } catch (err) {
-            _iterator5.e(err);
+            _iterator7.e(err);
           } finally {
-            _iterator5.f();
+            _iterator7.f();
           }
 
           retVal.sort(function (a, b) {
@@ -22468,39 +23206,39 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         };
 
         this.editSave = function (arg) {
-          _this41.router.navigate(['/charGen/mods/save/' + arg]);
+          _this43.router.navigate(['/charGen/mods/save/' + arg]);
         };
       }
 
       _createClass(CharSavesComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this42 = this;
+          var _this44 = this;
 
           this.userService.getUser.subscribe(function (val) {
-            return _this42.loggedIn = val;
+            return _this44.loggedIn = val;
           });
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this42.charID = val === null ? 0 : val;
+            return _this44.charID = val === null ? 0 : val;
           });
           this.charDataSvc.getCharBasics.subscribe(function (val) {
-            return _this42.charBasic = val;
+            return _this44.charBasic = val;
           });
           this.isMyCharacter = this.loggedIn['userID'] === this.charBasic.results.userID;
           this.charDataSvc.getAllSaves.subscribe(function (val) {
-            _this42.curChar = val === null ? '0' : val.charID;
+            _this44.curChar = val === null ? '0' : val.charID;
           });
           this.charDataSvc.getAllSaves.subscribe(function (val) {
-            return _this42.allSaves = val === null ? null : val.results;
+            return _this44.allSaves = val === null ? null : val.results;
           });
 
           if (this.charID && this.charID.toString() !== this.curChar) {
             this.charDataSvc.loadSaves(this.charID.toString()).subscribe(function (val) {
-              _this42.allSaves = val.results;
+              _this44.allSaves = val.results;
 
-              _this42.charDataSvc.setSaves(val);
+              _this44.charDataSvc.setSaves(val);
 
-              _this42.grpSaves = _this42.createSaveGrps(_this42.allSaves);
+              _this44.grpSaves = _this44.createSaveGrps(_this44.allSaves);
             });
           } else {
             this.grpSaves = this.createSaveGrps(this.allSaves);
@@ -22522,20 +23260,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function processBreakDown(stat) {
           var retStr = '';
 
-          var _iterator7 = _createForOfIteratorHelper(stat),
-              _step7;
+          var _iterator9 = _createForOfIteratorHelper(stat),
+              _step9;
 
           try {
-            for (_iterator7.s(); !(_step7 = _iterator7.n()).done;) {
-              var item = _step7.value;
+            for (_iterator9.s(); !(_step9 = _iterator9.n()).done;) {
+              var item = _step9.value;
               var desc = item.desc;
               var score = item.score;
               retStr += '<div><span style="width:36px; display:inline-block; text-align:right">' + score + '</span> - ' + desc + '</div>';
             }
           } catch (err) {
-            _iterator7.e(err);
+            _iterator9.e(err);
           } finally {
-            _iterator7.f();
+            _iterator9.f();
           }
 
           return this.sanitizer.bypassSecurityTrustHtml(retStr);
@@ -22767,7 +23505,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
-  "./src/app/chargen/char-skills/char-skills.component.ts": function srcAppChargenCharSkillsCharSkillsComponentTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/app/chargen/char-skills/char-skills.component.ts":
+  /*!**************************************************************!*\
+    !*** ./src/app/chargen/char-skills/char-skills.component.ts ***!
+    \**************************************************************/
+
+  /*! exports provided: CharSkillsComponent */
+
+  /***/
+  function srcAppChargenCharSkillsCharSkillsComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -22782,7 +23528,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
@@ -22800,13 +23546,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js");
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
     /* harmony import */
 
 
     var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! @angular/common */
-    "./node_modules/@angular/common/fesm2015/common.js");
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 
     function CharSkillsComponent_span_2_Template(rf, ctx) {
       if (rf & 1) {
@@ -22958,7 +23704,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function CharSkillsComponent(charDataSvc, userService, router) {
-        var _this43 = this;
+        var _this45 = this;
 
         _classCallCheck(this, CharSkillsComponent);
 
@@ -22976,12 +23722,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             return i.skillID;
           })));
 
-          var _iterator8 = _createForOfIteratorHelper(ids),
-              _step8;
+          var _iterator10 = _createForOfIteratorHelper(ids),
+              _step10;
 
           try {
-            var _loop3 = function _loop3() {
-              var sid = _step8.value;
+            var _loop4 = function _loop4() {
+              var sid = _step10.value;
               var temp = ar.filter(function (i) {
                 return i.skillID === sid;
               });
@@ -23007,14 +23753,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 });
               }
 
-              var _iterator9 = _createForOfIteratorHelper(temp.filter(function (d) {
+              var _iterator11 = _createForOfIteratorHelper(temp.filter(function (d) {
                 return d.isRanks === false && d.isClassSkill === false;
               })),
-                  _step9;
+                  _step11;
 
               try {
-                for (_iterator9.s(); !(_step9 = _iterator9.n()).done;) {
-                  var aSk = _step9.value;
+                for (_iterator11.s(); !(_step11 = _iterator11.n()).done;) {
+                  var aSk = _step11.value;
                   var reason = aSk.isClassSkill ? 'Class Skill' : aSk.modDesc;
                   breakdown.push({
                     score: aSk.score,
@@ -23022,9 +23768,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   });
                 }
               } catch (err) {
-                _iterator9.e(err);
+                _iterator11.e(err);
               } finally {
-                _iterator9.f();
+                _iterator11.f();
               }
 
               var obj = {
@@ -23037,13 +23783,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               retVal.push(obj);
             };
 
-            for (_iterator8.s(); !(_step8 = _iterator8.n()).done;) {
-              _loop3();
+            for (_iterator10.s(); !(_step10 = _iterator10.n()).done;) {
+              _loop4();
             }
           } catch (err) {
-            _iterator8.e(err);
+            _iterator10.e(err);
           } finally {
-            _iterator8.f();
+            _iterator10.f();
           }
 
           retVal.sort(function (a, b) {
@@ -23053,35 +23799,35 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         };
 
         this.editSkill = function (arg) {
-          _this43.router.navigate(['/charGen/mods/skill/' + arg]);
+          _this45.router.navigate(['/charGen/mods/skill/' + arg]);
         };
 
         this.addNewSkill = function () {
-          _this43.router.navigate(['/charGen/mods/newskill']);
+          _this45.router.navigate(['/charGen/mods/newskill']);
         };
 
         this.filterList = function (evt) {
-          _this43.filterText = evt.target.value;
+          _this45.filterText = evt.target.value;
           var allRows = document.getElementsByClassName('ui grid gridRow');
 
-          var _iterator10 = _createForOfIteratorHelper(allRows),
-              _step10;
+          var _iterator12 = _createForOfIteratorHelper(allRows),
+              _step12;
 
           try {
-            for (_iterator10.s(); !(_step10 = _iterator10.n()).done;) {
-              var r = _step10.value;
+            for (_iterator12.s(); !(_step12 = _iterator12.n()).done;) {
+              var r = _step12.value;
               var aTag = r.getElementsByTagName('span')[0].innerText;
 
-              if (aTag.toLowerCase().includes(_this43.filterText.toLowerCase())) {
+              if (aTag.toLowerCase().includes(_this45.filterText.toLowerCase())) {
                 r.classList.remove('hidden');
               } else {
                 r.classList.add('hidden');
               }
             }
           } catch (err) {
-            _iterator10.e(err);
+            _iterator12.e(err);
           } finally {
-            _iterator10.f();
+            _iterator12.f();
           }
         };
       }
@@ -23089,33 +23835,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(CharSkillsComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this44 = this;
+          var _this46 = this;
 
           this.userService.getUser.subscribe(function (val) {
-            return _this44.loggedIn = val;
+            return _this46.loggedIn = val;
           });
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this44.charID = val;
+            return _this46.charID = val;
           });
           this.charDataSvc.getCharBasics.subscribe(function (val) {
-            return _this44.charBasic = val;
+            return _this46.charBasic = val;
           });
           this.isMyCharacter = this.loggedIn['userID'] === this.charBasic.results.userID;
           this.charDataSvc.getAllSkills.subscribe(function (val) {
-            return _this44.allSkills = val === null ? [] : val.results;
+            return _this46.allSkills = val === null ? [] : val.results;
           });
           this.charDataSvc.getAllSkills.subscribe(function (val) {
-            return _this44.curChar = val === null ? "0" : val.charID;
+            return _this46.curChar = val === null ? "0" : val.charID;
           });
 
           if (this.charID && this.charID.toString() !== this.curChar) {
             this.charDataSvc.loadSkills(this.charID.toString()).subscribe(function (val) {
-              _this44.allSkills = val.results;
+              _this46.allSkills = val.results;
 
-              _this44.charDataSvc.setAllSkills(val);
+              _this46.charDataSvc.setAllSkills(val);
 
-              if (_this44.allSkills.length > 0) {
-                _this44.grpSkils = _this44.createSkillGrps(_this44.allSkills);
+              if (_this46.allSkills.length > 0) {
+                _this46.grpSkils = _this46.createSkillGrps(_this46.allSkills);
               }
             });
           } else {
@@ -23239,7 +23985,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
-  "./src/app/chargen/char-spells/char-spells.component.ts": function srcAppChargenCharSpellsCharSpellsComponentTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/app/chargen/char-spells/char-spells.component.ts":
+  /*!**************************************************************!*\
+    !*** ./src/app/chargen/char-spells/char-spells.component.ts ***!
+    \**************************************************************/
+
+  /*! exports provided: CharSpellsComponent */
+
+  /***/
+  function srcAppChargenCharSpellsCharSpellsComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -23254,7 +24008,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
@@ -23284,7 +24038,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js");
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
     /* harmony import */
 
 
@@ -23302,13 +24056,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_common__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! @angular/common */
-    "./node_modules/@angular/common/fesm2015/common.js");
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
     /* harmony import */
 
 
     var _angular_forms__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! @angular/forms */
-    "./node_modules/@angular/forms/fesm2015/forms.js");
+    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 
     function CharSpellsComponent_span_2_form_4_Template(rf, ctx) {
       if (rf & 1) {
@@ -23587,7 +24341,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function CharSpellsComponent(charDataSvc, userService, router, socketService, socket) {
-        var _this45 = this;
+        var _this47 = this;
 
         _classCallCheck(this, CharSpellsComponent);
 
@@ -23603,72 +24357,72 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.showingForm = false;
 
         this.filterList = function (evt) {
-          _this45.filterText = evt.target.value;
+          _this47.filterText = evt.target.value;
           var allRows = document.getElementsByClassName('ui grid gridRow');
 
-          var _iterator11 = _createForOfIteratorHelper(allRows),
-              _step11;
+          var _iterator13 = _createForOfIteratorHelper(allRows),
+              _step13;
 
           try {
-            for (_iterator11.s(); !(_step11 = _iterator11.n()).done;) {
-              var r = _step11.value;
+            for (_iterator13.s(); !(_step13 = _iterator13.n()).done;) {
+              var r = _step13.value;
               var aTag = r.getElementsByTagName('span')[0].innerText;
 
-              if (aTag.toLowerCase().includes(_this45.filterText.toLowerCase())) {
+              if (aTag.toLowerCase().includes(_this47.filterText.toLowerCase())) {
                 r.classList.remove('hidden');
               } else {
                 r.classList.add('hidden');
               }
             }
           } catch (err) {
-            _iterator11.e(err);
+            _iterator13.e(err);
           } finally {
-            _iterator11.f();
+            _iterator13.f();
           }
         };
 
         this.addNewSpell = function (evt) {
-          _this45.showingForm = true;
+          _this47.showingForm = true;
         };
 
         this.cancelAdd = function (event) {
           event.preventDefault();
-          _this45.showingForm = false;
+          _this47.showingForm = false;
         };
 
         this.onSubmit = function (evt) {
           evt.preventDefault();
           var body = {
-            charID: _this45.charID,
-            name: _this45.spellName,
-            level: _this45.spellLevel
+            charID: _this47.charID,
+            name: _this47.spellName,
+            level: _this47.spellLevel
           };
 
-          _this45.charDataSvc.insertSpell(body).subscribe(function (val) {
-            _this45.allSpells = [].concat(_toConsumableArray(_this45.allSpells), [val]);
+          _this47.charDataSvc.insertSpell(body).subscribe(function (val) {
+            _this47.allSpells = [].concat(_toConsumableArray(_this47.allSpells), [val]);
 
             var nameSorter = function nameSorter(spell) {
               return spell.spellName.toLowerCase();
             };
 
-            _this45.allSpells = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.orderBy(_this45.allSpells, ['spellLevel', nameSorter], ['asc', 'asc']);
-            _this45.levelBreakDown = Array.from(Array(_this45.allSpells.slice(-1).pop().spellLevel + 1), function (_, i) {
+            _this47.allSpells = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.orderBy(_this47.allSpells, ['spellLevel', nameSorter], ['asc', 'asc']);
+            _this47.levelBreakDown = Array.from(Array(_this47.allSpells.slice(-1).pop().spellLevel + 1), function (_, i) {
               return i;
             });
-            _this45.spellLevel = null;
-            _this45.spellName = '';
-            _this45.showingForm = false;
+            _this47.spellLevel = null;
+            _this47.spellName = '';
+            _this47.showingForm = false;
 
-            _this45.charDataSvc.broadcastMessage('ADDSPELL', val);
+            _this47.charDataSvc.broadcastMessage('ADDSPELL', val);
           });
         };
 
         this.editNote = function (id) {
-          var chosenSpell = _this45.allSpells.find(function (s) {
+          var chosenSpell = _this47.allSpells.find(function (s) {
             return s.id.toString() === id;
           });
 
-          _this45.router.navigate(['/charGen/spells/' + id], {
+          _this47.router.navigate(['/charGen/spells/' + id], {
             state: {
               data: {
                 spellLevel: chosenSpell.spellLevel,
@@ -23679,7 +24433,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         };
 
         this.filteredSpells = function (l) {
-          return _this45.allSpells.filter(function (a) {
+          return _this47.allSpells.filter(function (a) {
             return a.spellLevel === l;
           });
         };
@@ -23697,7 +24451,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         };
 
         this.reportCheck = function (evt, id) {
-          var aSpell = _this45.allSpells.find(function (x) {
+          var aSpell = _this47.allSpells.find(function (x) {
             return x.id === parseInt(id, 10);
           });
 
@@ -23708,7 +24462,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             isCast: chk.checked
           };
 
-          _this45.charDataSvc.toggleSpell(body).subscribe(function (retVal) {
+          _this47.charDataSvc.toggleSpell(body).subscribe(function (retVal) {
             if (retVal === true) {
               console.log('saved');
             } else {
@@ -23721,35 +24475,35 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(CharSpellsComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this46 = this;
+          var _this48 = this;
 
           this.userService.getUser.subscribe(function (val) {
-            return _this46.loggedIn = val;
+            return _this48.loggedIn = val;
           });
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this46.charID = val === null ? 0 : val;
+            return _this48.charID = val === null ? 0 : val;
           });
           this.charDataSvc.getCharBasics.subscribe(function (val) {
-            return _this46.charBasic = val;
+            return _this48.charBasic = val;
           });
           this.isMyCharacter = this.loggedIn['userID'] === this.charBasic.results.userID;
           this.charDataSvc.loadSpells(this.charID).subscribe(function (val) {
-            _this46.allSpells = val.results;
+            _this48.allSpells = val.results;
 
-            _this46.charDataSvc.setAllSpells(val);
+            _this48.charDataSvc.setAllSpells(val);
 
-            _this46.levelBreakDown = Array.from(Array(_this46.allSpells.slice(-1).pop().spellLevel + 1), function (_, i) {
+            _this48.levelBreakDown = Array.from(Array(_this48.allSpells.slice(-1).pop().spellLevel + 1), function (_, i) {
               return i;
             });
           });
           this.subs.push(this.socketService.updateSpell().subscribe(function (data) {
-            var aSpell = _this46.allSpells.find(function (spell) {
+            var aSpell = _this48.allSpells.find(function (spell) {
               return spell.id === data.id;
             });
 
             if (aSpell) {
               aSpell.isCast = data.isCast;
-              _this46.levelBreakDown = Array.from(Array(_this46.allSpells.slice(-1).pop().spellLevel + 1), function (_, i) {
+              _this48.levelBreakDown = Array.from(Array(_this48.allSpells.slice(-1).pop().spellLevel + 1), function (_, i) {
                 return i;
               });
             }
@@ -23857,7 +24611,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
-  "./src/app/chargen/char-tohit/char-tohit.component.ts": function srcAppChargenCharTohitCharTohitComponentTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/app/chargen/char-tohit/char-tohit.component.ts":
+  /*!************************************************************!*\
+    !*** ./src/app/chargen/char-tohit/char-tohit.component.ts ***!
+    \************************************************************/
+
+  /*! exports provided: CharTohitComponent */
+
+  /***/
+  function srcAppChargenCharTohitCharTohitComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -23872,13 +24634,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
     var _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/cdk/drag-drop */
-    "./node_modules/@angular/cdk/fesm2015/drag-drop.js");
+    "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/drag-drop.js");
     /* harmony import */
 
 
@@ -23908,13 +24670,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js");
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
     /* harmony import */
 
 
     var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! @angular/common */
-    "./node_modules/@angular/common/fesm2015/common.js");
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 
     function CharTohitComponent_span_2_Template(rf, ctx) {
       if (rf & 1) {
@@ -24128,7 +24890,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function CharTohitComponent(charDataSvc, userService, router) {
-        var _this47 = this;
+        var _this49 = this;
 
         _classCallCheck(this, CharTohitComponent);
 
@@ -24148,12 +24910,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             return i.toHitID;
           })));
 
-          var _iterator12 = _createForOfIteratorHelper(ids),
-              _step12;
+          var _iterator14 = _createForOfIteratorHelper(ids),
+              _step14;
 
           try {
-            var _loop4 = function _loop4() {
-              var sid = _step12.value;
+            var _loop5 = function _loop5() {
+              var sid = _step14.value;
               var temp = ar.filter(function (i) {
                 return i.toHitID === sid;
               });
@@ -24173,14 +24935,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 });
               }
 
-              var _iterator13 = _createForOfIteratorHelper(temp.filter(function (d) {
+              var _iterator15 = _createForOfIteratorHelper(temp.filter(function (d) {
                 return d.isBase === false;
               })),
-                  _step13;
+                  _step15;
 
               try {
-                for (_iterator13.s(); !(_step13 = _iterator13.n()).done;) {
-                  var aSk = _step13.value;
+                for (_iterator15.s(); !(_step15 = _iterator15.n()).done;) {
+                  var aSk = _step15.value;
                   var reason = aSk.modDesc;
                   breakdown.push({
                     score: aSk.score,
@@ -24188,9 +24950,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   });
                 }
               } catch (err) {
-                _iterator13.e(err);
+                _iterator15.e(err);
               } finally {
-                _iterator13.f();
+                _iterator15.f();
               }
 
               var obj = {
@@ -24206,40 +24968,40 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               retVal.push(obj);
             };
 
-            for (_iterator12.s(); !(_step12 = _iterator12.n()).done;) {
-              _loop4();
+            for (_iterator14.s(); !(_step14 = _iterator14.n()).done;) {
+              _loop5();
             }
           } catch (err) {
-            _iterator12.e(err);
+            _iterator14.e(err);
           } finally {
-            _iterator12.f();
+            _iterator14.f();
           }
 
           return lodash__WEBPACK_IMPORTED_MODULE_2___default.a.orderBy(retVal, 'toHitOrder', 'asc');
         };
 
         this.filterList = function (evt) {
-          _this47.filterText = evt.target.value;
+          _this49.filterText = evt.target.value;
           var allRows = document.getElementsByClassName('ui grid gridRow');
 
-          var _iterator14 = _createForOfIteratorHelper(allRows),
-              _step14;
+          var _iterator16 = _createForOfIteratorHelper(allRows),
+              _step16;
 
           try {
-            for (_iterator14.s(); !(_step14 = _iterator14.n()).done;) {
-              var r = _step14.value;
+            for (_iterator16.s(); !(_step16 = _iterator16.n()).done;) {
+              var r = _step16.value;
               var aTag = r.getElementsByTagName('span')[0].innerText;
 
-              if (aTag.toLowerCase().includes(_this47.filterText.toLowerCase())) {
+              if (aTag.toLowerCase().includes(_this49.filterText.toLowerCase())) {
                 r.classList.remove('hidden');
               } else {
                 r.classList.add('hidden');
               }
             }
           } catch (err) {
-            _iterator14.e(err);
+            _iterator16.e(err);
           } finally {
-            _iterator14.f();
+            _iterator16.f();
           }
         };
       }
@@ -24247,33 +25009,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(CharTohitComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this48 = this;
+          var _this50 = this;
 
           this.userService.getUser.subscribe(function (val) {
-            return _this48.loggedIn = val;
+            return _this50.loggedIn = val;
           });
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this48.charID = val;
+            return _this50.charID = val;
           });
           this.charDataSvc.getCharBasics.subscribe(function (val) {
-            return _this48.charBasic = val;
+            return _this50.charBasic = val;
           });
           this.isMyCharacter = this.loggedIn['userID'] === this.charBasic.results.userID;
           this.charDataSvc.getAllToHits.subscribe(function (val) {
-            return _this48.allHits = val === null ? [] : val.results;
+            return _this50.allHits = val === null ? [] : val.results;
           });
           this.charDataSvc.getAllToHits.subscribe(function (val) {
-            return _this48.curChar = val === null ? "0" : val.charID;
+            return _this50.curChar = val === null ? "0" : val.charID;
           });
 
           if (this.charID && this.charID.toString() !== this.curChar) {
             this.charDataSvc.loadToHits(this.charID.toString()).subscribe(function (val) {
-              _this48.allHits = val.results;
+              _this50.allHits = val.results;
 
-              _this48.charDataSvc.setAllToHits(val);
+              _this50.charDataSvc.setAllToHits(val);
 
-              if (_this48.allHits.length > 0) {
-                _this48.grpHits = _this48.createToHitGrps(_this48.allHits);
+              if (_this50.allHits.length > 0) {
+                _this50.grpHits = _this50.createToHitGrps(_this50.allHits);
               }
             });
           }
@@ -24440,7 +25202,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
-  "./src/app/chargen/chargen-routing.module.ts": function srcAppChargenChargenRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/app/chargen/chargen-routing.module.ts":
+  /*!***************************************************!*\
+    !*** ./src/app/chargen/chargen-routing.module.ts ***!
+    \***************************************************/
+
+  /*! exports provided: ChargenRoutingModule */
+
+  /***/
+  function srcAppChargenChargenRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -24455,13 +25225,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
     var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js");
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
     /* harmony import */
 
 
@@ -24567,13 +25337,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _char_level_char_level_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
+    var _char_ac_char_ac_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
+    /*! ./char-ac/char-ac.component */
+    "./src/app/chargen/char-ac/char-ac.component.ts");
+    /* harmony import */
+
+
+    var _char_level_char_level_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
     /*! ./char-level/char-level.component */
     "./src/app/chargen/char-level/char-level.component.ts");
     /* harmony import */
 
 
-    var _expendables_expendables_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
+    var _expendables_expendables_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(
     /*! ./expendables/expendables.component */
     "./src/app/chargen/expendables/expendables.component.ts");
 
@@ -24586,6 +25362,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         path: 'stats',
         component: _generate_generate_component__WEBPACK_IMPORTED_MODULE_2__["GenerateComponent"]
+      }, {
+        path: 'ac',
+        component: _char_ac_char_ac_component__WEBPACK_IMPORTED_MODULE_19__["CharACComponent"]
       }, {
         path: 'tohits',
         component: _char_tohit_char_tohit_component__WEBPACK_IMPORTED_MODULE_11__["CharTohitComponent"]
@@ -24613,7 +25392,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }]
       }, {
         path: 'expendables',
-        component: _expendables_expendables_component__WEBPACK_IMPORTED_MODULE_20__["ExpendablesComponent"]
+        component: _expendables_expendables_component__WEBPACK_IMPORTED_MODULE_21__["ExpendablesComponent"]
       }, {
         path: 'notes',
         component: _char_notes_char_notes_component__WEBPACK_IMPORTED_MODULE_15__["CharNotesComponent"]
@@ -24637,13 +25416,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }]
       }, {
         path: 'mods',
-        component: _char_level_char_level_component__WEBPACK_IMPORTED_MODULE_19__["CharLevelComponent"],
+        component: _char_level_char_level_component__WEBPACK_IMPORTED_MODULE_20__["CharLevelComponent"],
         children: [{
           path: 'levels',
-          component: _char_level_char_level_component__WEBPACK_IMPORTED_MODULE_19__["CharLevelComponent"],
+          component: _char_level_char_level_component__WEBPACK_IMPORTED_MODULE_20__["CharLevelComponent"],
           children: [{
             path: '**',
-            component: _char_level_char_level_component__WEBPACK_IMPORTED_MODULE_19__["CharLevelComponent"]
+            component: _char_level_char_level_component__WEBPACK_IMPORTED_MODULE_20__["CharLevelComponent"]
           }]
         }]
       }, {
@@ -24685,9 +25464,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }]
     }];
 
-    var ChargenRoutingModule = function ChargenRoutingModule() {
+    var ChargenRoutingModule =
+    /*#__PURE__*/
+    _createClass(function ChargenRoutingModule() {
       _classCallCheck(this, ChargenRoutingModule);
-    };
+    });
 
     ChargenRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
       type: ChargenRoutingModule
@@ -24723,7 +25504,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
-  "./src/app/chargen/chargen.module.ts": function srcAppChargenChargenModuleTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/app/chargen/chargen.module.ts":
+  /*!*******************************************!*\
+    !*** ./src/app/chargen/chargen.module.ts ***!
+    \*******************************************/
+
+  /*! exports provided: ChargenModule */
+
+  /***/
+  function srcAppChargenChargenModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -24738,25 +25527,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
     var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/common */
-    "./node_modules/@angular/common/fesm2015/common.js");
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
     /* harmony import */
 
 
     var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/forms */
-    "./node_modules/@angular/forms/fesm2015/forms.js");
+    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
     /* harmony import */
 
 
     var _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/cdk/drag-drop */
-    "./node_modules/@angular/cdk/fesm2015/drag-drop.js");
+    "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/drag-drop.js");
     /* harmony import */
 
 
@@ -24774,7 +25563,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! @fortawesome/angular-fontawesome */
-    "./node_modules/@fortawesome/angular-fontawesome/fesm2015/angular-fontawesome.js");
+    "./node_modules/@fortawesome/angular-fontawesome/__ivy_ngcc__/fesm2015/angular-fontawesome.js");
     /* harmony import */
 
 
@@ -24822,7 +25611,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
     /*! @ng-bootstrap/ng-bootstrap */
-    "./node_modules/@ng-bootstrap/ng-bootstrap/fesm2015/ng-bootstrap.js");
+    "./node_modules/@ng-bootstrap/ng-bootstrap/__ivy_ngcc__/fesm2015/ng-bootstrap.js");
     /* harmony import */
 
 
@@ -24906,11 +25695,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(
     /*! @angular/platform-browser */
-    "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
+    "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
+    /* harmony import */
 
-    var ChargenModule = function ChargenModule() {
+
+    var _char_ac_char_ac_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(
+    /*! ./char-ac/char-ac.component */
+    "./src/app/chargen/char-ac/char-ac.component.ts");
+
+    var ChargenModule =
+    /*#__PURE__*/
+    _createClass(function ChargenModule() {
       _classCallCheck(this, ChargenModule);
-    };
+    });
 
     ChargenModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
       type: ChargenModule
@@ -24925,7 +25722,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     (function () {
       (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](ChargenModule, {
-        declarations: [_generate_generate_component__WEBPACK_IMPORTED_MODULE_5__["GenerateComponent"], _char_skills_char_skills_component__WEBPACK_IMPORTED_MODULE_7__["CharSkillsComponent"], _char_base_char_base_component__WEBPACK_IMPORTED_MODULE_8__["CharBaseComponent"], _char_feats_char_feats_component__WEBPACK_IMPORTED_MODULE_9__["CharFeatsComponent"], _char_equip_char_equip_component__WEBPACK_IMPORTED_MODULE_10__["CharEquipComponent"], _char_spells_char_spells_component__WEBPACK_IMPORTED_MODULE_11__["CharSpellsComponent"], _input_input_component__WEBPACK_IMPORTED_MODULE_12__["InputComponent"], _prettyprint_pipe__WEBPACK_IMPORTED_MODULE_13__["PrettyprintPipe"], _single_feat_single_feat_component__WEBPACK_IMPORTED_MODULE_15__["SingleFeatComponent"], _char_mod_char_mod_component__WEBPACK_IMPORTED_MODULE_16__["CharModComponent"], _char_saves_char_saves_component__WEBPACK_IMPORTED_MODULE_17__["CharSavesComponent"], _char_tohit_char_tohit_component__WEBPACK_IMPORTED_MODULE_18__["CharTohitComponent"], _new_tohit_new_tohit_component__WEBPACK_IMPORTED_MODULE_19__["NewTohitComponent"], _new_skill_new_skill_component__WEBPACK_IMPORTED_MODULE_20__["NewSkillComponent"], _new_feat_new_feat_component__WEBPACK_IMPORTED_MODULE_21__["NewFeatComponent"], _char_notes_char_notes_component__WEBPACK_IMPORTED_MODULE_22__["CharNotesComponent"], _single_note_single_note_component__WEBPACK_IMPORTED_MODULE_23__["SingleNoteComponent"], _edit_notes_edit_notes_component__WEBPACK_IMPORTED_MODULE_24__["EditNotesComponent"], _edit_spell_edit_spell_component__WEBPACK_IMPORTED_MODULE_25__["EditSpellComponent"], _char_level_char_level_component__WEBPACK_IMPORTED_MODULE_26__["CharLevelComponent"], _expendables_expendables_component__WEBPACK_IMPORTED_MODULE_27__["ExpendablesComponent"]],
+        declarations: [_generate_generate_component__WEBPACK_IMPORTED_MODULE_5__["GenerateComponent"], _char_skills_char_skills_component__WEBPACK_IMPORTED_MODULE_7__["CharSkillsComponent"], _char_base_char_base_component__WEBPACK_IMPORTED_MODULE_8__["CharBaseComponent"], _char_feats_char_feats_component__WEBPACK_IMPORTED_MODULE_9__["CharFeatsComponent"], _char_equip_char_equip_component__WEBPACK_IMPORTED_MODULE_10__["CharEquipComponent"], _char_spells_char_spells_component__WEBPACK_IMPORTED_MODULE_11__["CharSpellsComponent"], _input_input_component__WEBPACK_IMPORTED_MODULE_12__["InputComponent"], _prettyprint_pipe__WEBPACK_IMPORTED_MODULE_13__["PrettyprintPipe"], _single_feat_single_feat_component__WEBPACK_IMPORTED_MODULE_15__["SingleFeatComponent"], _char_mod_char_mod_component__WEBPACK_IMPORTED_MODULE_16__["CharModComponent"], _char_saves_char_saves_component__WEBPACK_IMPORTED_MODULE_17__["CharSavesComponent"], _char_tohit_char_tohit_component__WEBPACK_IMPORTED_MODULE_18__["CharTohitComponent"], _new_tohit_new_tohit_component__WEBPACK_IMPORTED_MODULE_19__["NewTohitComponent"], _new_skill_new_skill_component__WEBPACK_IMPORTED_MODULE_20__["NewSkillComponent"], _new_feat_new_feat_component__WEBPACK_IMPORTED_MODULE_21__["NewFeatComponent"], _char_notes_char_notes_component__WEBPACK_IMPORTED_MODULE_22__["CharNotesComponent"], _single_note_single_note_component__WEBPACK_IMPORTED_MODULE_23__["SingleNoteComponent"], _edit_notes_edit_notes_component__WEBPACK_IMPORTED_MODULE_24__["EditNotesComponent"], _edit_spell_edit_spell_component__WEBPACK_IMPORTED_MODULE_25__["EditSpellComponent"], _char_level_char_level_component__WEBPACK_IMPORTED_MODULE_26__["CharLevelComponent"], _expendables_expendables_component__WEBPACK_IMPORTED_MODULE_27__["ExpendablesComponent"], _char_ac_char_ac_component__WEBPACK_IMPORTED_MODULE_29__["CharACComponent"]],
         imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _chargen_routing_module__WEBPACK_IMPORTED_MODULE_4__["ChargenRoutingModule"], _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_6__["FontAwesomeModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_14__["NgbModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"], _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_3__["DragDropModule"]]
       });
     })();
@@ -24936,7 +25733,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ChargenModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
         args: [{
-          declarations: [_generate_generate_component__WEBPACK_IMPORTED_MODULE_5__["GenerateComponent"], _char_skills_char_skills_component__WEBPACK_IMPORTED_MODULE_7__["CharSkillsComponent"], _char_base_char_base_component__WEBPACK_IMPORTED_MODULE_8__["CharBaseComponent"], _char_feats_char_feats_component__WEBPACK_IMPORTED_MODULE_9__["CharFeatsComponent"], _char_equip_char_equip_component__WEBPACK_IMPORTED_MODULE_10__["CharEquipComponent"], _char_spells_char_spells_component__WEBPACK_IMPORTED_MODULE_11__["CharSpellsComponent"], _input_input_component__WEBPACK_IMPORTED_MODULE_12__["InputComponent"], _prettyprint_pipe__WEBPACK_IMPORTED_MODULE_13__["PrettyprintPipe"], _single_feat_single_feat_component__WEBPACK_IMPORTED_MODULE_15__["SingleFeatComponent"], _char_mod_char_mod_component__WEBPACK_IMPORTED_MODULE_16__["CharModComponent"], _char_saves_char_saves_component__WEBPACK_IMPORTED_MODULE_17__["CharSavesComponent"], _char_tohit_char_tohit_component__WEBPACK_IMPORTED_MODULE_18__["CharTohitComponent"], _new_tohit_new_tohit_component__WEBPACK_IMPORTED_MODULE_19__["NewTohitComponent"], _new_skill_new_skill_component__WEBPACK_IMPORTED_MODULE_20__["NewSkillComponent"], _new_feat_new_feat_component__WEBPACK_IMPORTED_MODULE_21__["NewFeatComponent"], _char_notes_char_notes_component__WEBPACK_IMPORTED_MODULE_22__["CharNotesComponent"], _single_note_single_note_component__WEBPACK_IMPORTED_MODULE_23__["SingleNoteComponent"], _edit_notes_edit_notes_component__WEBPACK_IMPORTED_MODULE_24__["EditNotesComponent"], _edit_spell_edit_spell_component__WEBPACK_IMPORTED_MODULE_25__["EditSpellComponent"], _char_level_char_level_component__WEBPACK_IMPORTED_MODULE_26__["CharLevelComponent"], _expendables_expendables_component__WEBPACK_IMPORTED_MODULE_27__["ExpendablesComponent"]],
+          declarations: [_generate_generate_component__WEBPACK_IMPORTED_MODULE_5__["GenerateComponent"], _char_skills_char_skills_component__WEBPACK_IMPORTED_MODULE_7__["CharSkillsComponent"], _char_base_char_base_component__WEBPACK_IMPORTED_MODULE_8__["CharBaseComponent"], _char_feats_char_feats_component__WEBPACK_IMPORTED_MODULE_9__["CharFeatsComponent"], _char_equip_char_equip_component__WEBPACK_IMPORTED_MODULE_10__["CharEquipComponent"], _char_spells_char_spells_component__WEBPACK_IMPORTED_MODULE_11__["CharSpellsComponent"], _input_input_component__WEBPACK_IMPORTED_MODULE_12__["InputComponent"], _prettyprint_pipe__WEBPACK_IMPORTED_MODULE_13__["PrettyprintPipe"], _single_feat_single_feat_component__WEBPACK_IMPORTED_MODULE_15__["SingleFeatComponent"], _char_mod_char_mod_component__WEBPACK_IMPORTED_MODULE_16__["CharModComponent"], _char_saves_char_saves_component__WEBPACK_IMPORTED_MODULE_17__["CharSavesComponent"], _char_tohit_char_tohit_component__WEBPACK_IMPORTED_MODULE_18__["CharTohitComponent"], _new_tohit_new_tohit_component__WEBPACK_IMPORTED_MODULE_19__["NewTohitComponent"], _new_skill_new_skill_component__WEBPACK_IMPORTED_MODULE_20__["NewSkillComponent"], _new_feat_new_feat_component__WEBPACK_IMPORTED_MODULE_21__["NewFeatComponent"], _char_notes_char_notes_component__WEBPACK_IMPORTED_MODULE_22__["CharNotesComponent"], _single_note_single_note_component__WEBPACK_IMPORTED_MODULE_23__["SingleNoteComponent"], _edit_notes_edit_notes_component__WEBPACK_IMPORTED_MODULE_24__["EditNotesComponent"], _edit_spell_edit_spell_component__WEBPACK_IMPORTED_MODULE_25__["EditSpellComponent"], _char_level_char_level_component__WEBPACK_IMPORTED_MODULE_26__["CharLevelComponent"], _expendables_expendables_component__WEBPACK_IMPORTED_MODULE_27__["ExpendablesComponent"], _char_ac_char_ac_component__WEBPACK_IMPORTED_MODULE_29__["CharACComponent"]],
           imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _chargen_routing_module__WEBPACK_IMPORTED_MODULE_4__["ChargenRoutingModule"], _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_6__["FontAwesomeModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_14__["NgbModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"], _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_3__["DragDropModule"]],
           providers: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_28__["Title"]]
         }]
@@ -24947,7 +25744,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
-  "./src/app/chargen/edit-notes/edit-notes.component.ts": function srcAppChargenEditNotesEditNotesComponentTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/app/chargen/edit-notes/edit-notes.component.ts":
+  /*!************************************************************!*\
+    !*** ./src/app/chargen/edit-notes/edit-notes.component.ts ***!
+    \************************************************************/
+
+  /*! exports provided: EditNotesComponent */
+
+  /***/
+  function srcAppChargenEditNotesEditNotesComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -24962,7 +25767,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
@@ -24986,19 +25791,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js");
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
     /* harmony import */
 
 
     var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! @angular/forms */
-    "./node_modules/@angular/forms/fesm2015/forms.js");
+    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
     /* harmony import */
 
 
     var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! @angular/common */
-    "./node_modules/@angular/common/fesm2015/common.js");
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 
     function EditNotesComponent_div_7_Template(rf, ctx) {
       if (rf & 1) {
@@ -25086,7 +25891,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function EditNotesComponent(charDataSvc, router) {
-        var _this49 = this;
+        var _this51 = this;
 
         _classCallCheck(this, EditNotesComponent);
 
@@ -25095,64 +25900,64 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.theID = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.last(this.router.url.split('/'));
 
         this.deleteNote = function (id) {
-          if (_this49.theType === 'ind') {
-            _this49.charDataSvc.deleteNoteItem(_this49.theID).subscribe(function (retVal) {});
+          if (_this51.theType === 'ind') {
+            _this51.charDataSvc.deleteNoteItem(_this51.theID).subscribe(function (retVal) {});
           } else {
-            _this49.charDataSvc.deleteNoteHeader(_this49.theID).subscribe(function (retItem) {
-              _this49.charDataSvc.getAllNotes.subscribe(function (val) {
-                return _this49.notesSet = val === null ? {} : val;
+            _this51.charDataSvc.deleteNoteHeader(_this51.theID).subscribe(function (retItem) {
+              _this51.charDataSvc.getAllNotes.subscribe(function (val) {
+                return _this51.notesSet = val === null ? {} : val;
               });
 
-              var filteredArr = _this49.notesSet['results'].filter(function (a) {
-                return a.noteID.toString() !== _this49.theID;
+              var filteredArr = _this51.notesSet['results'].filter(function (a) {
+                return a.noteID.toString() !== _this51.theID;
               });
 
-              _this49.notesSet['results'] = filteredArr;
+              _this51.notesSet['results'] = filteredArr;
 
-              _this49.charDataSvc.setAllNotes(_this49.notesSet);
+              _this51.charDataSvc.setAllNotes(_this51.notesSet);
             });
           }
 
-          _this49.router.navigate(['/charGen/notes']);
+          _this51.router.navigate(['/charGen/notes']);
         };
 
         this.onSubmit = function (evt) {
           evt.preventDefault();
           var body = {
             id: '',
-            noteID: _this49.theID,
-            note: _this49.theNote
+            noteID: _this51.theID,
+            note: _this51.theNote
           };
 
-          if (_this49.theType === 'ind') {
+          if (_this51.theType === 'ind') {
             body = {
-              id: _this49.theID,
+              id: _this51.theID,
               noteID: '',
-              note: _this49.theNote
+              note: _this51.theNote
             };
 
-            _this49.charDataSvc.updateNoteItem(body).subscribe(function (retItem) {});
+            _this51.charDataSvc.updateNoteItem(body).subscribe(function (retItem) {});
           } else {
-            _this49.charDataSvc.updateNoteHeader(body).subscribe(function (retItem) {
-              _this49.charDataSvc.getAllNotes.subscribe(function (val) {
-                return _this49.notesSet = val === null ? {} : val;
+            _this51.charDataSvc.updateNoteHeader(body).subscribe(function (retItem) {
+              _this51.charDataSvc.getAllNotes.subscribe(function (val) {
+                return _this51.notesSet = val === null ? {} : val;
               });
 
-              var filteredArr = _this49.notesSet['results'].filter(function (a) {
+              var filteredArr = _this51.notesSet['results'].filter(function (a) {
                 return a.noteID !== retItem.noteID;
               });
 
-              _this49.notesSet['results'] = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.orderBy([].concat(_toConsumableArray(filteredArr), [retItem]), ['noteOrder']);
+              _this51.notesSet['results'] = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.orderBy([].concat(_toConsumableArray(filteredArr), [retItem]), ['noteOrder']);
 
-              _this49.charDataSvc.setAllNotes(_this49.notesSet);
+              _this51.charDataSvc.setAllNotes(_this51.notesSet);
             });
           }
 
-          _this49.router.navigate(['/charGen/notes']);
+          _this51.router.navigate(['/charGen/notes']);
         };
 
         this.onCancel = function () {
-          _this49.router.navigate(['/charGen/notes']);
+          _this51.router.navigate(['/charGen/notes']);
         };
       }
 
@@ -25268,7 +26073,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
-  "./src/app/chargen/edit-spell/edit-spell.component.ts": function srcAppChargenEditSpellEditSpellComponentTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/app/chargen/edit-spell/edit-spell.component.ts":
+  /*!************************************************************!*\
+    !*** ./src/app/chargen/edit-spell/edit-spell.component.ts ***!
+    \************************************************************/
+
+  /*! exports provided: EditSpellComponent */
+
+  /***/
+  function srcAppChargenEditSpellEditSpellComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -25283,7 +26096,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
@@ -25307,19 +26120,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js");
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
     /* harmony import */
 
 
     var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! @angular/forms */
-    "./node_modules/@angular/forms/fesm2015/forms.js");
+    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 
     var EditSpellComponent =
     /*#__PURE__*/
     function () {
       function EditSpellComponent(charDataSvc, router) {
-        var _this50 = this;
+        var _this52 = this;
 
         _classCallCheck(this, EditSpellComponent);
 
@@ -25328,43 +26141,43 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.theID = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.last(this.router.url.split('/'));
 
         this.deleteNote = function (id) {
-          _this50.charDataSvc.deleteSpell(id).subscribe(function (val) {
-            _this50.charDataSvc.broadcastMessage('DELETESPELL', {
-              charID: _this50.charID,
+          _this52.charDataSvc.deleteSpell(id).subscribe(function (val) {
+            _this52.charDataSvc.broadcastMessage('DELETESPELL', {
+              charID: _this52.charID,
               id: id
             });
 
-            _this50.router.navigate(['/charGen/spells']);
+            _this52.router.navigate(['/charGen/spells']);
           });
         };
 
         this.onSubmit = function (evt) {
           var body = {
-            id: _this50.theID,
-            spellLevel: _this50.spellLevel,
-            spellName: _this50.theSpell,
-            charID: _this50.charID
+            id: _this52.theID,
+            spellLevel: _this52.spellLevel,
+            spellName: _this52.theSpell,
+            charID: _this52.charID
           };
 
-          _this50.charDataSvc.updateSpell(body).subscribe(function (val) {
-            _this50.charDataSvc.broadcastMessage('CHANGESPELL', body);
+          _this52.charDataSvc.updateSpell(body).subscribe(function (val) {
+            _this52.charDataSvc.broadcastMessage('CHANGESPELL', body);
 
-            _this50.router.navigate(['/charGen/spells']);
+            _this52.router.navigate(['/charGen/spells']);
           });
         };
 
         this.onCancel = function () {
-          _this50.router.navigate(['/charGen/spells']);
+          _this52.router.navigate(['/charGen/spells']);
         };
       }
 
       _createClass(EditSpellComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this51 = this;
+          var _this53 = this;
 
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this51.charID = val === null ? 0 : val;
+            return _this53.charID = val === null ? 0 : val;
           });
           this.spellLevel = history.state.data.spellLevel;
           this.theSpell = history.state.data.spellName;
@@ -25517,7 +26330,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
-  "./src/app/chargen/expendables/expendables.component.ts": function srcAppChargenExpendablesExpendablesComponentTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/app/chargen/expendables/expendables.component.ts":
+  /*!**************************************************************!*\
+    !*** ./src/app/chargen/expendables/expendables.component.ts ***!
+    \**************************************************************/
+
+  /*! exports provided: ExpendablesComponent */
+
+  /***/
+  function srcAppChargenExpendablesExpendablesComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -25532,7 +26353,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
@@ -25556,7 +26377,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js");
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
     /* harmony import */
 
 
@@ -25568,32 +26389,32 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! @angular/common */
-    "./node_modules/@angular/common/fesm2015/common.js");
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
     /* harmony import */
 
 
     var _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! @angular/cdk/drag-drop */
-    "./node_modules/@angular/cdk/fesm2015/drag-drop.js");
+    "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/drag-drop.js");
     /* harmony import */
 
 
     var _angular_forms__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! @angular/forms */
-    "./node_modules/@angular/forms/fesm2015/forms.js");
+    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 
     function ExpendablesComponent_span_2_button_1_Template(rf, ctx) {
       if (rf & 1) {
-        var _r287 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r301 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 11);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ExpendablesComponent_span_2_button_1_Template_button_click_0_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r287);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r301);
 
-          var ctx_r286 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+          var ctx_r300 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
 
-          return ctx_r286.toggleForm(true);
+          return ctx_r300.toggleForm(true);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "i", 12);
@@ -25606,16 +26427,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     function ExpendablesComponent_span_2_form_2_div_8_Template(rf, ctx) {
       if (rf & 1) {
-        var _r292 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r306 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 24);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ExpendablesComponent_span_2_form_2_div_8_Template_div_click_0_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r292);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r306);
 
-          var ctx_r291 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
+          var ctx_r305 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
 
-          return ctx_r291.categoryselected($event);
+          return ctx_r305.categoryselected($event);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
@@ -25624,38 +26445,38 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var c_r290 = ctx.$implicit;
+        var c_r304 = ctx.$implicit;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵattribute"]("data-value", c_r290.value);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵattribute"]("data-value", c_r304.value);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](c_r290.value);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](c_r304.value);
       }
     }
 
     function ExpendablesComponent_span_2_form_2_Template(rf, ctx) {
       if (rf & 1) {
-        var _r294 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r308 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "form", 13, 14);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngSubmit", function ExpendablesComponent_span_2_form_2_Template_form_ngSubmit_0_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r294);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r308);
 
-          var ctx_r293 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+          var ctx_r307 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
 
-          return ctx_r293.onSubmit($event);
+          return ctx_r307.onSubmit($event);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "input", 15);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function ExpendablesComponent_span_2_form_2_Template_input_ngModelChange_2_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r294);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r308);
 
-          var ctx_r295 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+          var ctx_r309 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
 
-          return ctx_r295.description = $event;
+          return ctx_r309.description = $event;
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -25683,11 +26504,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "input", 21);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function ExpendablesComponent_span_2_form_2_Template_input_ngModelChange_10_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r294);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r308);
 
-          var ctx_r296 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+          var ctx_r310 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
 
-          return ctx_r296.qty = $event;
+          return ctx_r310.qty = $event;
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -25701,11 +26522,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "button", 23);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ExpendablesComponent_span_2_form_2_Template_button_click_13_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r294);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r308);
 
-          var ctx_r297 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+          var ctx_r311 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
 
-          return ctx_r297.toggleForm(false);
+          return ctx_r311.toggleForm(false);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14, "Cancel");
@@ -25716,23 +26537,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var ctx_r285 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+        var ctx_r299 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx_r285.description);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx_r299.description);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx_r285.selExp, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx_r299.selExp, " ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](9, 4, ctx_r285.expTypes));
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](9, 4, ctx_r299.expTypes));
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx_r285.qty);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx_r299.qty);
       }
     }
 
@@ -25748,32 +26569,32 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var ctx_r279 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+        var ctx_r293 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx_r279.gatherNewInfo);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx_r293.gatherNewInfo);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r279.gatherNewInfo);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r293.gatherNewInfo);
       }
     }
 
     function ExpendablesComponent_div_14_i_14_Template(rf, ctx) {
       if (rf & 1) {
-        var _r301 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r315 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "i", 35);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ExpendablesComponent_div_14_i_14_Template_i_click_0_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r301);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r315);
 
-          var nt_r298 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+          var nt_r312 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
 
-          var ctx_r300 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r314 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r300.deleteEquip($event, nt_r298.id);
+          return ctx_r314.deleteEquip($event, nt_r312.id);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -25782,7 +26603,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     function ExpendablesComponent_div_14_Template(rf, ctx) {
       if (rf & 1) {
-        var _r304 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r318 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 25);
 
@@ -25811,13 +26632,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "button", 31);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ExpendablesComponent_div_14_Template_button_click_9_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r304);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r318);
 
-          var nt_r298 = ctx.$implicit;
+          var nt_r312 = ctx.$implicit;
 
-          var ctx_r303 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r317 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r303.adjustItem(nt_r298.id, 1);
+          return ctx_r317.adjustItem(nt_r312.id, 1);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10, "+");
@@ -25827,13 +26648,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "button", 32);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ExpendablesComponent_div_14_Template_button_click_11_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r304);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r318);
 
-          var nt_r298 = ctx.$implicit;
+          var nt_r312 = ctx.$implicit;
 
-          var ctx_r305 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r319 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r305.adjustItem(nt_r298.id, 0 - 1);
+          return ctx_r319.adjustItem(nt_r312.id, 0 - 1);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, "-");
@@ -25854,42 +26675,42 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var nt_r298 = ctx.$implicit;
+        var nt_r312 = ctx.$implicit;
 
-        var ctx_r280 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", nt_r298.description, " ");
+        var ctx_r294 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", nt_r298.expType, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", nt_r312.description, " ");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", nt_r312.expType, " ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](nt_r298.qty);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](nt_r312.qty);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](7);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r280.isMyCharacter);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r294.isMyCharacter);
       }
     }
 
     function ExpendablesComponent_div_15_i_14_Template(rf, ctx) {
       if (rf & 1) {
-        var _r309 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r323 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "i", 35);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ExpendablesComponent_div_15_i_14_Template_i_click_0_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r309);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r323);
 
-          var nt_r306 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+          var nt_r320 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
 
-          var ctx_r308 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r322 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r308.deleteEquip($event, nt_r306.id);
+          return ctx_r322.deleteEquip($event, nt_r320.id);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -25898,7 +26719,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     function ExpendablesComponent_div_15_Template(rf, ctx) {
       if (rf & 1) {
-        var _r312 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r326 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 25);
 
@@ -25927,13 +26748,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "button", 31);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ExpendablesComponent_div_15_Template_button_click_9_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r312);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r326);
 
-          var nt_r306 = ctx.$implicit;
+          var nt_r320 = ctx.$implicit;
 
-          var ctx_r311 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r325 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r311.adjustItem(nt_r306.id, 1);
+          return ctx_r325.adjustItem(nt_r320.id, 1);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10, "+");
@@ -25943,13 +26764,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "button", 32);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ExpendablesComponent_div_15_Template_button_click_11_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r312);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r326);
 
-          var nt_r306 = ctx.$implicit;
+          var nt_r320 = ctx.$implicit;
 
-          var ctx_r313 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r327 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r313.adjustItem(nt_r306.id, 0 - 1);
+          return ctx_r327.adjustItem(nt_r320.id, 0 - 1);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, "-");
@@ -25970,42 +26791,42 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var nt_r306 = ctx.$implicit;
+        var nt_r320 = ctx.$implicit;
 
-        var ctx_r281 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", nt_r306.description, " ");
+        var ctx_r295 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", nt_r306.expType, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", nt_r320.description, " ");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", nt_r320.expType, " ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](nt_r306.qty);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](nt_r320.qty);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](7);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r281.isMyCharacter);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r295.isMyCharacter);
       }
     }
 
     function ExpendablesComponent_div_16_i_14_Template(rf, ctx) {
       if (rf & 1) {
-        var _r317 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r331 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "i", 35);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ExpendablesComponent_div_16_i_14_Template_i_click_0_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r317);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r331);
 
-          var nt_r314 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+          var nt_r328 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
 
-          var ctx_r316 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r330 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r316.deleteEquip($event, nt_r314.id);
+          return ctx_r330.deleteEquip($event, nt_r328.id);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -26014,7 +26835,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     function ExpendablesComponent_div_16_Template(rf, ctx) {
       if (rf & 1) {
-        var _r320 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r334 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 25);
 
@@ -26043,13 +26864,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "button", 31);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ExpendablesComponent_div_16_Template_button_click_9_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r320);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r334);
 
-          var nt_r314 = ctx.$implicit;
+          var nt_r328 = ctx.$implicit;
 
-          var ctx_r319 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r333 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r319.adjustItem(nt_r314.id, 1);
+          return ctx_r333.adjustItem(nt_r328.id, 1);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10, "+");
@@ -26059,13 +26880,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "button", 32);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ExpendablesComponent_div_16_Template_button_click_11_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r320);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r334);
 
-          var nt_r314 = ctx.$implicit;
+          var nt_r328 = ctx.$implicit;
 
-          var ctx_r321 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r335 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r321.adjustItem(nt_r314.id, 0 - 1);
+          return ctx_r335.adjustItem(nt_r328.id, 0 - 1);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, "-");
@@ -26086,42 +26907,42 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var nt_r314 = ctx.$implicit;
+        var nt_r328 = ctx.$implicit;
 
-        var ctx_r282 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", nt_r314.description, " ");
+        var ctx_r296 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", nt_r314.expType, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", nt_r328.description, " ");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", nt_r328.expType, " ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](nt_r314.qty);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](nt_r328.qty);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](7);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r282.isMyCharacter);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r296.isMyCharacter);
       }
     }
 
     function ExpendablesComponent_div_17_i_14_Template(rf, ctx) {
       if (rf & 1) {
-        var _r325 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r339 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "i", 35);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ExpendablesComponent_div_17_i_14_Template_i_click_0_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r325);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r339);
 
-          var nt_r322 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+          var nt_r336 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
 
-          var ctx_r324 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r338 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r324.deleteEquip($event, nt_r322.id);
+          return ctx_r338.deleteEquip($event, nt_r336.id);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -26130,7 +26951,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     function ExpendablesComponent_div_17_Template(rf, ctx) {
       if (rf & 1) {
-        var _r328 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r342 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 25);
 
@@ -26159,13 +26980,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "button", 31);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ExpendablesComponent_div_17_Template_button_click_9_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r328);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r342);
 
-          var nt_r322 = ctx.$implicit;
+          var nt_r336 = ctx.$implicit;
 
-          var ctx_r327 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r341 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r327.adjustItem(nt_r322.id, 1);
+          return ctx_r341.adjustItem(nt_r336.id, 1);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10, "+");
@@ -26175,13 +26996,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "button", 32);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ExpendablesComponent_div_17_Template_button_click_11_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r328);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r342);
 
-          var nt_r322 = ctx.$implicit;
+          var nt_r336 = ctx.$implicit;
 
-          var ctx_r329 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r343 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r329.adjustItem(nt_r322.id, 0 - 1);
+          return ctx_r343.adjustItem(nt_r336.id, 0 - 1);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, "-");
@@ -26202,25 +27023,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var nt_r322 = ctx.$implicit;
+        var nt_r336 = ctx.$implicit;
 
-        var ctx_r283 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", nt_r322.description, " ");
+        var ctx_r297 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", nt_r322.expType, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", nt_r336.description, " ");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", nt_r336.expType, " ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](nt_r322.qty);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](nt_r336.qty);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](7);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r283.isMyCharacter);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r297.isMyCharacter);
       }
     }
 
@@ -26228,7 +27049,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function ExpendablesComponent(charDataSvc, userService, router, expendableService, socketService) {
-        var _this52 = this;
+        var _this54 = this;
 
         _classCallCheck(this, ExpendablesComponent);
 
@@ -26250,111 +27071,111 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.onSubmit = function (evt) {
           evt.preventDefault();
 
-          if (_this52.selExp === '') {
+          if (_this54.selExp === '') {
             return;
           }
 
-          console.log('this.selExp', _this52.selExp);
+          console.log('this.selExp', _this54.selExp);
           var body = {
-            charID: _this52.charID,
-            description: _this52.description,
-            qty: _this52.qty,
-            expType: src_app_services_expendable_service__WEBPACK_IMPORTED_MODULE_1__["ExpendableType"][_this52.selExp]
+            charID: _this54.charID,
+            description: _this54.description,
+            qty: _this54.qty,
+            expType: src_app_services_expendable_service__WEBPACK_IMPORTED_MODULE_1__["ExpendableType"][_this54.selExp]
           };
 
-          _this52.expendableService.insertExpendables(body).subscribe(function (val) {
+          _this54.expendableService.insertExpendables(body).subscribe(function (val) {
             var newExp = Object.assign({
               id: val.id
             }, body);
 
-            _this52.allExpendables.push(newExp);
+            _this54.allExpendables.push(newExp);
 
-            _this52.classExpendables = _this52.allExpendables.filter(function (exp) {
+            _this54.classExpendables = _this54.allExpendables.filter(function (exp) {
               return exp.expType === 'Class';
             });
-            _this52.potionExpendables = _this52.allExpendables.filter(function (exp) {
+            _this54.potionExpendables = _this54.allExpendables.filter(function (exp) {
               return exp.expType === 'Potion';
             });
-            _this52.scrollExpendables = _this52.allExpendables.filter(function (exp) {
+            _this54.scrollExpendables = _this54.allExpendables.filter(function (exp) {
               return exp.expType === 'Scroll';
             });
-            _this52.chargeExpendables = _this52.allExpendables.filter(function (exp) {
+            _this54.chargeExpendables = _this54.allExpendables.filter(function (exp) {
               return exp.expType === 'Charge';
             });
-            _this52.selExp = '';
-            _this52.qty = 0;
-            _this52.description = '';
+            _this54.selExp = '';
+            _this54.qty = 0;
+            _this54.description = '';
 
-            _this52.toggleForm(false);
+            _this54.toggleForm(false);
 
-            _this52.charDataSvc.broadcastMessage('ADDEXPENDABLE', val);
+            _this54.charDataSvc.broadcastMessage('ADDEXPENDABLE', val);
           });
         };
 
         this.categoryselected = function (evt) {
-          _this52.selExp = evt.target.getAttribute("data-value");
+          _this54.selExp = evt.target.getAttribute("data-value");
         };
 
         this.filterList = function (evt) {
-          _this52.filterText = evt.target.value;
+          _this54.filterText = evt.target.value;
           var allRows = document.getElementsByClassName('stat six wide column');
 
-          var _iterator15 = _createForOfIteratorHelper(allRows),
-              _step15;
+          var _iterator17 = _createForOfIteratorHelper(allRows),
+              _step17;
 
           try {
-            for (_iterator15.s(); !(_step15 = _iterator15.n()).done;) {
-              var r = _step15.value;
+            for (_iterator17.s(); !(_step17 = _iterator17.n()).done;) {
+              var r = _step17.value;
 
-              if (r.innerText.toLowerCase().includes(_this52.filterText.toLowerCase()) || r.nextSibling.innerText.toLowerCase().includes(_this52.filterText.toLowerCase())) {
+              if (r.innerText.toLowerCase().includes(_this54.filterText.toLowerCase()) || r.nextSibling.innerText.toLowerCase().includes(_this54.filterText.toLowerCase())) {
                 r.parentElement.classList.remove('hidden');
               } else {
                 r.parentElement.classList.add('hidden');
               }
             }
           } catch (err) {
-            _iterator15.e(err);
+            _iterator17.e(err);
           } finally {
-            _iterator15.f();
+            _iterator17.f();
           }
         };
 
         this.deleteEquip = function (evt, id) {
-          _this52.expendableService.deleteExpendables(id).subscribe(function (val) {
-            _this52.charDataSvc.broadcastMessage('DELETEEXPENDABLE', {
+          _this54.expendableService.deleteExpendables(id).subscribe(function (val) {
+            _this54.charDataSvc.broadcastMessage('DELETEEXPENDABLE', {
               id: id
             });
 
-            _this52.allExpendables = _this52.allExpendables.filter(function (exp) {
+            _this54.allExpendables = _this54.allExpendables.filter(function (exp) {
               return exp.id !== id;
             });
-            _this52.classExpendables = _this52.allExpendables.filter(function (exp) {
+            _this54.classExpendables = _this54.allExpendables.filter(function (exp) {
               return exp.expType === 'Class';
             });
-            _this52.potionExpendables = _this52.allExpendables.filter(function (exp) {
+            _this54.potionExpendables = _this54.allExpendables.filter(function (exp) {
               return exp.expType === 'Potion';
             });
-            _this52.scrollExpendables = _this52.allExpendables.filter(function (exp) {
+            _this54.scrollExpendables = _this54.allExpendables.filter(function (exp) {
               return exp.expType === 'Scroll';
             });
-            _this52.chargeExpendables = _this52.allExpendables.filter(function (exp) {
+            _this54.chargeExpendables = _this54.allExpendables.filter(function (exp) {
               return exp.expType === 'Charge';
             });
           });
         };
 
         this.toggleForm = function (arg) {
-          _this52.gatherNewInfo = arg;
+          _this54.gatherNewInfo = arg;
         };
 
         this.adjustItem = function (id, val) {
-          var anExp = _this52.allExpendables.find(function (exp) {
+          var anExp = _this54.allExpendables.find(function (exp) {
             return exp.id === id;
           });
 
           anExp.qty = anExp.qty + val;
 
-          _this52.expendableService.updateExpendables(anExp).subscribe(function (val) {
+          _this54.expendableService.updateExpendables(anExp).subscribe(function (val) {
             console.log(val);
           });
         };
@@ -26363,44 +27184,44 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ExpendablesComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this53 = this;
+          var _this55 = this;
 
           this.userService.getUser.subscribe(function (val) {
-            return _this53.loggedIn = val;
+            return _this55.loggedIn = val;
           });
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this53.charID = val;
+            return _this55.charID = val;
           });
           this.charDataSvc.getCharBasics.subscribe(function (val) {
-            return _this53.charBasic = val;
+            return _this55.charBasic = val;
           });
           this.isMyCharacter = this.loggedIn['userID'] === this.charBasic.results.userID;
           this.expendableService.loadExpendables(this.charID).subscribe(function (val) {
-            _this53.allExpendables = val.results;
-            _this53.classExpendables = val.results.filter(function (exp) {
+            _this55.allExpendables = val.results;
+            _this55.classExpendables = val.results.filter(function (exp) {
               return exp.expType === 'Class';
             });
-            _this53.potionExpendables = val.results.filter(function (exp) {
+            _this55.potionExpendables = val.results.filter(function (exp) {
               return exp.expType === 'Potion';
             });
-            _this53.scrollExpendables = val.results.filter(function (exp) {
+            _this55.scrollExpendables = val.results.filter(function (exp) {
               return exp.expType === 'Scroll';
             });
-            _this53.chargeExpendables = val.results.filter(function (exp) {
+            _this55.chargeExpendables = val.results.filter(function (exp) {
               return exp.expType === 'Charge';
             });
           });
           this.subs.push(this.socketService.updateExpendable().subscribe(function (data) {
-            if (data.charID === _this53.charID) {
-              var anExp = _this53.allExpendables.find(function (exp) {
+            if (data.charID === _this55.charID) {
+              var anExp = _this55.allExpendables.find(function (exp) {
                 return exp.id === data.id;
               });
 
               anExp.qty = data.qty;
             }
           }), this.socketService.updateExpendable().subscribe(function (data) {
-            if (data.charID === _this53.charID) {
-              var anExp = _this53.allExpendables.find(function (exp) {
+            if (data.charID === _this55.charID) {
+              var anExp = _this55.allExpendables.find(function (exp) {
                 return exp.id === data.id;
               });
 
@@ -26543,7 +27364,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
-  "./src/app/chargen/generate/generate.component.ts": function srcAppChargenGenerateGenerateComponentTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/app/chargen/generate/generate.component.ts":
+  /*!********************************************************!*\
+    !*** ./src/app/chargen/generate/generate.component.ts ***!
+    \********************************************************/
+
+  /*! exports provided: GenerateComponent */
+
+  /***/
+  function srcAppChargenGenerateGenerateComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -26558,7 +27387,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
@@ -26594,19 +27423,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! @angular/platform-browser */
-    "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
+    "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
     /* harmony import */
 
 
     var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js");
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
     /* harmony import */
 
 
     var _angular_common__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! @angular/common */
-    "./node_modules/@angular/common/fesm2015/common.js");
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 
     function GenerateComponent_i_18_Template(rf, ctx) {
       if (rf & 1) {
@@ -26912,7 +27741,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function GenerateComponent(dr, charDataSvc, userService, sanitizer, router) {
-        var _this54 = this;
+        var _this56 = this;
 
         _classCallCheck(this, GenerateComponent);
 
@@ -26926,33 +27755,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.stats = [];
 
         this.rollAll = function () {
-          _this54.getStat(5, 'str');
+          _this56.getStat(5, 'str');
 
-          _this54.getStat(4, 'dex');
+          _this56.getStat(4, 'dex');
 
-          _this54.getStat(5, 'con');
+          _this56.getStat(5, 'con');
 
-          _this54.getStat(4, 'int');
+          _this56.getStat(4, 'int');
 
-          _this54.getStat(4, 'wis');
+          _this56.getStat(4, 'wis');
 
-          _this54.getStat(4, 'chr');
+          _this56.getStat(4, 'chr');
         };
 
         this.getStat = function (arg, stat) {
-          var roll1 = _this54.dr.sumRoll(6, arg, 3);
+          var roll1 = _this56.dr.sumRoll(6, arg, 3);
 
-          var roll2 = _this54.dr.sumRoll(6, arg, 3);
+          var roll2 = _this56.dr.sumRoll(6, arg, 3);
 
-          _this54.stats[stat] = Math.max(roll1, roll2);
+          _this56.stats[stat] = Math.max(roll1, roll2);
         };
 
         this.reset = function () {
-          _this54.stats = [];
+          _this56.stats = [];
         };
 
         this.ediStat = function (arg) {
-          _this54.router.navigate(['/charGen/mods/stat/' + arg]);
+          _this56.router.navigate(['/charGen/mods/stat/' + arg]);
         };
 
         this.calculateFirstCol = function () {
@@ -26975,33 +27804,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(GenerateComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this55 = this;
+          var _this57 = this;
 
           this.userService.getUser.subscribe(function (val) {
-            return _this55.loggedIn = val;
+            return _this57.loggedIn = val;
           });
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this55.charID = val;
+            return _this57.charID = val;
           });
           this.charDataSvc.getCharBasics.subscribe(function (val) {
-            return _this55.charBasic = val;
+            return _this57.charBasic = val;
           });
           this.isMyCharacter = this.loggedIn['userID'] === this.charBasic.results.userID;
           this.charDataSvc.getAllStats.subscribe(function (val) {
-            return _this55.stats = val === null ? [] : val.results;
+            return _this57.stats = val === null ? [] : val.results;
           });
           this.charDataSvc.getAllStats.subscribe(function (val) {
-            return _this55.curChar = val === null ? "0" : val.charID;
+            return _this57.curChar = val === null ? "0" : val.charID;
           });
 
           if (this.charID && this.charID.toString() !== this.curChar) {
             this.stats = [];
             this.charDataSvc.loadStats(this.charID).subscribe(function (sts) {
-              _this55.stats = sts.results;
+              _this57.stats = sts.results;
 
-              _this55.charDataSvc.setStats(sts);
+              _this57.charDataSvc.setStats(sts);
 
-              _this55.charDataSvc.setCurCharID(_this55.charID);
+              _this57.charDataSvc.setCurCharID(_this57.charID);
             });
           } else {}
         }
@@ -27579,7 +28408,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
-  "./src/app/chargen/input/input.component.ts": function srcAppChargenInputInputComponentTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/app/chargen/input/input.component.ts":
+  /*!**************************************************!*\
+    !*** ./src/app/chargen/input/input.component.ts ***!
+    \**************************************************/
+
+  /*! exports provided: InputComponent */
+
+  /***/
+  function srcAppChargenInputInputComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -27594,19 +28431,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
     var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/common */
-    "./node_modules/@angular/common/fesm2015/common.js");
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
     /* harmony import */
 
 
     var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/forms */
-    "./node_modules/@angular/forms/fesm2015/forms.js");
+    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 
     function InputComponent_ng_container_4_div_1_Template(rf, ctx) {
       if (rf & 1) {
@@ -27688,31 +28525,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var ctx_r330 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+        var ctx_r344 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r330.control.errors.required);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r344.control.errors.required);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r330.control.errors.minlength);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r344.control.errors.minlength);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r330.control.errors.maxlength);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r344.control.errors.maxlength);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r330.control.errors.pattern && ctx_r330.val === "num");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r344.control.errors.pattern && ctx_r344.val === "num");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r330.control.errors.pattern && ctx_r330.val === "exp");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r344.control.errors.pattern && ctx_r344.val === "exp");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r330.control.errors.pattern && ctx_r330.val === "sec" && ctx_r330.checkNum(ctx_r330.control.value));
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r344.control.errors.pattern && ctx_r344.val === "sec" && ctx_r344.checkNum(ctx_r344.control.value));
       }
     }
 
@@ -27726,17 +28563,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function InputComponent() {
-        var _this56 = this;
+        var _this58 = this;
 
         _classCallCheck(this, InputComponent);
 
         this.placeHolder = '';
 
         this.isErrored = function () {
-          var _this56$control = _this56.control,
-              dirty = _this56$control.dirty,
-              touched = _this56$control.touched,
-              errors = _this56$control.errors;
+          var _this58$control = _this58.control,
+              dirty = _this58$control.dirty,
+              touched = _this58$control.touched,
+              errors = _this58$control.errors;
           return errors && touched && dirty;
         };
 
@@ -27837,7 +28674,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
-  "./src/app/chargen/new-feat/new-feat.component.ts": function srcAppChargenNewFeatNewFeatComponentTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/app/chargen/new-feat/new-feat.component.ts":
+  /*!********************************************************!*\
+    !*** ./src/app/chargen/new-feat/new-feat.component.ts ***!
+    \********************************************************/
+
+  /*! exports provided: NewFeatComponent */
+
+  /***/
+  function srcAppChargenNewFeatNewFeatComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -27852,7 +28697,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
@@ -27864,13 +28709,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js");
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
     /* harmony import */
 
 
     var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/common */
-    "./node_modules/@angular/common/fesm2015/common.js");
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 
     function NewFeatComponent_div_7_Template(rf, ctx) {
       if (rf & 1) {
@@ -27947,16 +28792,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(NewFeatComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this57 = this;
+          var _this59 = this;
 
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this57.charID = val;
+            return _this59.charID = val;
           });
           this.charDataSvc.getAllFeats.subscribe(function (val) {
-            return _this57.curChar = val.charID;
+            return _this59.curChar = val.charID;
           });
           this.charDataSvc.getAllFeats.subscribe(function (val) {
-            return _this57.curFeats = val;
+            return _this59.curFeats = val;
           });
 
           var ids = _toConsumableArray(new Set(this.curFeats.results.map(function (i) {
@@ -27968,19 +28813,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllFeats",
         value: function getAllFeats(arr) {
-          var _this58 = this;
+          var _this60 = this;
 
           this.charDataSvc.loadOtherFeats(arr).subscribe(function (arg) {
-            _this58.categories = _toConsumableArray(new Set(arg.results.map(function (i) {
+            _this60.categories = _toConsumableArray(new Set(arg.results.map(function (i) {
               return i['type'];
             })));
-            _this58.allFeats = arg.results;
+            _this60.allFeats = arg.results;
           });
         }
       }, {
         key: "optionSelected",
         value: function optionSelected(event) {
-          var _this59 = this;
+          var _this61 = this;
 
           var selected = event.target.getAttribute("data-value");
           var aFeat = this.allFeats.find(function (arg) {
@@ -27993,21 +28838,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             id: 0
           };
           this.charDataSvc.saveNewFeat(this.charID, aFeat).subscribe(function (val) {
-            _this59.curFeats.results.push(val);
+            _this61.curFeats.results.push(val);
 
-            _this59.charDataSvc.setAllFeats(_this59.curFeats);
+            _this61.charDataSvc.setAllFeats(_this61.curFeats);
 
-            _this59.router.navigate(['/charGen/feats']);
+            _this61.router.navigate(['/charGen/feats']);
           });
         }
       }, {
         key: "categoryselected",
         value: function categoryselected(event) {
-          var _this60 = this;
+          var _this62 = this;
 
           this.selCat = event.target.innerText;
           this.filteredFeats = this.allFeats.filter(function (item) {
-            return item['type'] === _this60.selCat;
+            return item['type'] === _this62.selCat;
           });
         }
       }]);
@@ -28110,7 +28955,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
-  "./src/app/chargen/new-skill/new-skill.component.ts": function srcAppChargenNewSkillNewSkillComponentTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/app/chargen/new-skill/new-skill.component.ts":
+  /*!**********************************************************!*\
+    !*** ./src/app/chargen/new-skill/new-skill.component.ts ***!
+    \**********************************************************/
+
+  /*! exports provided: NewSkillComponent */
+
+  /***/
+  function srcAppChargenNewSkillNewSkillComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -28125,7 +28978,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
@@ -28137,13 +28990,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js");
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
     /* harmony import */
 
 
     var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/common */
-    "./node_modules/@angular/common/fesm2015/common.js");
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 
     function NewSkillComponent_div_7_Template(rf, ctx) {
       if (rf & 1) {
@@ -28189,16 +29042,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(NewSkillComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this61 = this;
+          var _this63 = this;
 
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this61.charID = val;
+            return _this63.charID = val;
           });
           this.charDataSvc.getAllSkills.subscribe(function (val) {
-            return _this61.curChar = val.charID;
+            return _this63.curChar = val.charID;
           });
           this.charDataSvc.getAllSkills.subscribe(function (val) {
-            return _this61.curSkills = val;
+            return _this63.curSkills = val;
           });
 
           var ids = _toConsumableArray(new Set(this.curSkills.results.map(function (i) {
@@ -28210,16 +29063,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllSkills",
         value: function getAllSkills(arr) {
-          var _this62 = this;
+          var _this64 = this;
 
           this.charDataSvc.loadOtherSkills(arr).subscribe(function (arg) {
-            _this62.allSkills = arg.results;
+            _this64.allSkills = arg.results;
           });
         }
       }, {
         key: "optionSelected",
         value: function optionSelected(event) {
-          var _this63 = this;
+          var _this65 = this;
 
           var selected = event.target.getAttribute("data-value");
           var aSkill = this.allSkills.find(function (arg) {
@@ -28237,11 +29090,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             id: 0
           };
           this.charDataSvc.saveNewSkill(this.charID, aSkill).subscribe(function (val) {
-            _this63.curSkills.results.push(val);
+            _this65.curSkills.results.push(val);
 
-            _this63.charDataSvc.setAllSkills(_this63.curSkills);
+            _this65.charDataSvc.setAllSkills(_this65.curSkills);
 
-            _this63.router.navigate(['/charGen/skills']);
+            _this65.router.navigate(['/charGen/skills']);
           });
         }
       }]);
@@ -28318,7 +29171,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
-  "./src/app/chargen/new-tohit/new-tohit.component.ts": function srcAppChargenNewTohitNewTohitComponentTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/app/chargen/new-tohit/new-tohit.component.ts":
+  /*!**********************************************************!*\
+    !*** ./src/app/chargen/new-tohit/new-tohit.component.ts ***!
+    \**********************************************************/
+
+  /*! exports provided: NewTohitComponent */
+
+  /***/
+  function srcAppChargenNewTohitNewTohitComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -28333,7 +29194,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
@@ -28357,19 +29218,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js");
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
     /* harmony import */
 
 
     var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! @angular/forms */
-    "./node_modules/@angular/forms/fesm2015/forms.js");
+    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 
     var NewTohitComponent =
     /*#__PURE__*/
     function () {
       function NewTohitComponent(charDataSvc, router) {
-        var _this64 = this;
+        var _this66 = this;
 
         _classCallCheck(this, NewTohitComponent);
 
@@ -28384,68 +29245,68 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         this.onSubmit = function (evt) {
           evt.preventDefault();
-          var obj = Object.assign(Object.assign({}, _this64.attribute['ToHit']), {
-            toHitID: parseInt(_this64.partID, 10)
+          var obj = Object.assign(Object.assign({}, _this66.attribute['ToHit']), {
+            toHitID: parseInt(_this66.partID, 10)
           });
 
-          _this64.charDataSvc.newToHit(_this64.charID, obj).subscribe(function (val) {
+          _this66.charDataSvc.newToHit(_this66.charID, obj).subscribe(function (val) {
             if (val.results) {
-              _this64.allHits.results = _this64.allHits.results.filter(function (arg) {
+              _this66.allHits.results = _this66.allHits.results.filter(function (arg) {
                 return arg.id !== val.results.id;
               });
 
-              var allRelatedAttacks = _this64.allHits.results.filter(function (arg) {
+              var allRelatedAttacks = _this66.allHits.results.filter(function (arg) {
                 return arg.toHitID === val.results.toHitID;
               });
 
               var newTohit = val.results.ToHit;
 
-              var _iterator16 = _createForOfIteratorHelper(allRelatedAttacks),
-                  _step16;
+              var _iterator18 = _createForOfIteratorHelper(allRelatedAttacks),
+                  _step18;
 
               try {
-                for (_iterator16.s(); !(_step16 = _iterator16.n()).done;) {
-                  var hit = _step16.value;
+                for (_iterator18.s(); !(_step18 = _iterator18.n()).done;) {
+                  var hit = _step18.value;
                   hit.ToHit = Object.assign({}, newTohit);
                 }
               } catch (err) {
-                _iterator16.e(err);
+                _iterator18.e(err);
               } finally {
-                _iterator16.f();
+                _iterator18.f();
               }
 
-              _this64.allHits.results.push(val.results);
+              _this66.allHits.results.push(val.results);
 
-              _this64.allHits.results.sort(function (a, b) {
+              _this66.allHits.results.sort(function (a, b) {
                 return a.toHitID - b.toHitID;
               });
 
-              _this64.charDataSvc.setAllToHits(_this64.allHits);
+              _this66.charDataSvc.setAllToHits(_this66.allHits);
 
-              _this64.router.navigate(['/charGen/tohits']);
+              _this66.router.navigate(['/charGen/tohits']);
             }
           });
         };
 
         this.onCancel = function () {
-          _this64.router.navigate(['/charGen/tohits']);
+          _this66.router.navigate(['/charGen/tohits']);
         };
       }
 
       _createClass(NewTohitComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this65 = this;
+          var _this67 = this;
 
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this65.charID = val;
+            return _this67.charID = val;
           });
           this.charDataSvc.getAllToHits.subscribe(function (val) {
-            return _this65.curChar = val.charID;
+            return _this67.curChar = val.charID;
           }); //this.charDataSvc.getAllToHits.subscribe( (val) => this.allHits = val.results);
 
           this.charDataSvc.getAllToHits.subscribe(function (val) {
-            return _this65.allHits = val;
+            return _this67.allHits = val;
           });
 
           if (this.partID === '0') {
@@ -28465,7 +29326,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
           } else {
             this.attribute = this.allHits.results.find(function (arg) {
-              return arg.toHitID.toString() === _this65.partID;
+              return arg.toHitID.toString() === _this67.partID;
             });
           }
         }
@@ -28658,7 +29519,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
-  "./src/app/chargen/prettyprint.pipe.ts": function srcAppChargenPrettyprintPipeTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/app/chargen/prettyprint.pipe.ts":
+  /*!*********************************************!*\
+    !*** ./src/app/chargen/prettyprint.pipe.ts ***!
+    \*********************************************/
+
+  /*! exports provided: PrettyprintPipe */
+
+  /***/
+  function srcAppChargenPrettyprintPipeTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -28673,7 +29542,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 
     var PrettyprintPipe =
     /*#__PURE__*/
@@ -28716,7 +29585,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
-  "./src/app/chargen/single-feat/single-feat.component.ts": function srcAppChargenSingleFeatSingleFeatComponentTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/app/chargen/single-feat/single-feat.component.ts":
+  /*!**************************************************************!*\
+    !*** ./src/app/chargen/single-feat/single-feat.component.ts ***!
+    \**************************************************************/
+
+  /*! exports provided: SingleFeatComponent */
+
+  /***/
+  function srcAppChargenSingleFeatSingleFeatComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -28731,13 +29608,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
     var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js");
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
     /* harmony import */
 
 
@@ -28755,22 +29632,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! @angular/common */
-    "./node_modules/@angular/common/fesm2015/common.js");
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 
     function SingleFeatComponent_div_5_i_10_Template(rf, ctx) {
       if (rf & 1) {
-        var _r342 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r356 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "i", 13);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function SingleFeatComponent_div_5_i_10_Template_i_click_0_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r342);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r356);
 
-          var f_r338 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+          var f_r352 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
 
-          var ctx_r340 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r354 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r340.deleteFeat(f_r338.id);
+          return ctx_r354.deleteFeat(f_r352.id);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -28779,7 +29656,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     function SingleFeatComponent_div_5_Template(rf, ctx) {
       if (rf & 1) {
-        var _r344 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r358 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 4);
 
@@ -28790,11 +29667,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "i", 5);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function SingleFeatComponent_div_5_Template_i_click_3_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r344);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r358);
 
-          var ctx_r343 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r357 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r343.showPreReq($event);
+          return ctx_r357.showPreReq($event);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -28861,33 +29738,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var f_r338 = ctx.$implicit;
+        var f_r352 = ctx.$implicit;
 
-        var ctx_r337 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+        var ctx_r351 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("", f_r338.Feat.name, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("", f_r352.Feat.name, " ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](f_r338.Feat.shortdescription);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](f_r352.Feat.shortdescription);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](f_r338.Feat.benefit);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](f_r352.Feat.benefit);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r337.isMyCharacter);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r351.isMyCharacter);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](7);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", f_r338.Feat.prerequisites || "None", "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", f_r352.Feat.prerequisites || "None", "");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", f_r338.Feat.prerequisitie_feats || "None", "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", f_r352.Feat.prerequisitie_feats || "None", "");
       }
     }
 
@@ -28895,7 +29772,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function SingleFeatComponent(router, userService, charDataSvc) {
-        var _this66 = this;
+        var _this68 = this;
 
         _classCallCheck(this, SingleFeatComponent);
 
@@ -28914,17 +29791,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         };
 
         this.deleteFeat = function (arg) {
-          _this66.charDataSvc.deleteFeat(arg).subscribe(function (val) {
-            var newArray = _this66.charFeats.filter(function (ft) {
+          _this68.charDataSvc.deleteFeat(arg).subscribe(function (val) {
+            var newArray = _this68.charFeats.filter(function (ft) {
               return ft['id'] !== arg;
             });
 
-            _this66.charDataSvc.setAllFeats({
-              charID: _this66.charID,
+            _this68.charDataSvc.setAllFeats({
+              charID: _this68.charID,
               results: newArray
             });
 
-            _this66.router.navigate(['/charGen/feats']);
+            _this68.router.navigate(['/charGen/feats']);
           });
         };
       }
@@ -28932,16 +29809,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(SingleFeatComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this67 = this;
+          var _this69 = this;
 
           this.userService.getUser.subscribe(function (val) {
-            return _this67.loggedIn = val;
+            return _this69.loggedIn = val;
           });
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this67.charID = val;
+            return _this69.charID = val;
           });
           this.charDataSvc.getCharBasics.subscribe(function (val) {
-            return _this67.charBasic = val;
+            return _this69.charBasic = val;
           });
           this.isMyCharacter = this.loggedIn['userID'] === this.charBasic.results.userID;
         }
@@ -29022,7 +29899,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
-  "./src/app/chargen/single-note/single-note.component.ts": function srcAppChargenSingleNoteSingleNoteComponentTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/app/chargen/single-note/single-note.component.ts":
+  /*!**************************************************************!*\
+    !*** ./src/app/chargen/single-note/single-note.component.ts ***!
+    \**************************************************************/
+
+  /*! exports provided: SingleNoteComponent */
+
+  /***/
+  function srcAppChargenSingleNoteSingleNoteComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -29037,13 +29922,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
     var _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/cdk/drag-drop */
-    "./node_modules/@angular/cdk/fesm2015/drag-drop.js");
+    "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/drag-drop.js");
     /* harmony import */
 
 
@@ -29073,19 +29958,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js");
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
     /* harmony import */
 
 
     var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! @angular/common */
-    "./node_modules/@angular/common/fesm2015/common.js");
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
     /* harmony import */
 
 
     var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! @angular/forms */
-    "./node_modules/@angular/forms/fesm2015/forms.js");
+    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 
     function SingleNoteComponent_span_2_button_1_Template(rf, ctx) {
       if (rf & 1) {
@@ -29255,7 +30140,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function SingleNoteComponent(charDataSvc, userService, router) {
-        var _this68 = this;
+        var _this70 = this;
 
         _classCallCheck(this, SingleNoteComponent);
 
@@ -29267,54 +30152,54 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.noteTitle = '';
 
         this.addNewNote = function (evt) {
-          _this68.newNote = true;
+          _this70.newNote = true;
         };
 
         this.onSubmit = function (evt) {
           evt.preventDefault();
           var body = {
-            noteID: _this68.noteID,
-            itemDetails: _this68.note
+            noteID: _this70.noteID,
+            itemDetails: _this70.note
           };
 
-          _this68.charDataSvc.addNoteItem(body).subscribe(function (vals) {
-            _this68.allNotes = [].concat(_toConsumableArray(_this68.allNotes), [vals]);
-            _this68.note = '';
-            _this68.newNote = false;
+          _this70.charDataSvc.addNoteItem(body).subscribe(function (vals) {
+            _this70.allNotes = [].concat(_toConsumableArray(_this70.allNotes), [vals]);
+            _this70.note = '';
+            _this70.newNote = false;
           });
         };
 
         this.filterList = function (evt) {
-          _this68.filterText = evt.target.value;
+          _this70.filterText = evt.target.value;
           var allRows = document.getElementsByClassName('ui grid gridRow');
 
-          var _iterator17 = _createForOfIteratorHelper(allRows),
-              _step17;
+          var _iterator19 = _createForOfIteratorHelper(allRows),
+              _step19;
 
           try {
-            for (_iterator17.s(); !(_step17 = _iterator17.n()).done;) {
-              var r = _step17.value;
+            for (_iterator19.s(); !(_step19 = _iterator19.n()).done;) {
+              var r = _step19.value;
               var aTag = r.getElementsByTagName('span')[0].innerText;
 
-              if (aTag.toLowerCase().includes(_this68.filterText.toLowerCase())) {
+              if (aTag.toLowerCase().includes(_this70.filterText.toLowerCase())) {
                 r.classList.remove('hidden');
               } else {
                 r.classList.add('hidden');
               }
             }
           } catch (err) {
-            _iterator17.e(err);
+            _iterator19.e(err);
           } finally {
-            _iterator17.f();
+            _iterator19.f();
           }
         };
 
         this.editNote = function (id) {
-          var oneNote = _this68.allNotes.find(function (a) {
+          var oneNote = _this70.allNotes.find(function (a) {
             return a.id.toString() === id;
           });
 
-          _this68.router.navigate(['/charGen/notes/editNote/' + id], {
+          _this70.router.navigate(['/charGen/notes/editNote/' + id], {
             state: {
               data: {
                 type: 'ind',
@@ -29328,22 +30213,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(SingleNoteComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this69 = this;
+          var _this71 = this;
 
           this.userService.getUser.subscribe(function (val) {
-            return _this69.loggedIn = val;
+            return _this71.loggedIn = val;
           });
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this69.charID = val;
+            return _this71.charID = val;
           });
           this.charDataSvc.getCharBasics.subscribe(function (val) {
-            return _this69.charBasic = val;
+            return _this71.charBasic = val;
           });
           this.isMyCharacter = this.loggedIn['userID'] === this.charBasic.results.userID;
           this.noteID = this.router.url.split("/").pop();
           this.charDataSvc.loadNotesItems(this.noteID).subscribe(function (val) {
-            _this69.allNotes = val.results;
-            _this69.noteTitle = val.title;
+            _this71.allNotes = val.results;
+            _this71.noteTitle = val.title;
           });
         }
       }, {
@@ -29473,7 +30358,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
-  "./src/app/helpers/dice-roll.service.ts": function srcAppHelpersDiceRollServiceTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/app/helpers/dice-roll.service.ts":
+  /*!**********************************************!*\
+    !*** ./src/app/helpers/dice-roll.service.ts ***!
+    \**********************************************/
+
+  /*! exports provided: DiceRollService */
+
+  /***/
+  function srcAppHelpersDiceRollServiceTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -29488,9 +30381,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 
-    var DiceRollService = function DiceRollService() {
+    var DiceRollService =
+    /*#__PURE__*/
+    _createClass(function DiceRollService() {
       _classCallCheck(this, DiceRollService);
 
       this.sumRoll = function (sided, rolled) {
@@ -29541,7 +30436,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           return a - b;
         }).slice(0, numRet);
       };
-    };
+    });
 
     DiceRollService.ɵfac = function DiceRollService_Factory(t) {
       return new (t || DiceRollService)();
@@ -29569,7 +30464,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
-  "./src/app/helpers/enum.ts": function srcAppHelpersEnumTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/app/helpers/enum.ts":
+  /*!*********************************!*\
+    !*** ./src/app/helpers/enum.ts ***!
+    \*********************************/
+
+  /*! exports provided: Stats, Saves */
+
+  /***/
+  function srcAppHelpersEnumTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -29609,7 +30512,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
-  "./src/app/services/classes.service.ts": function srcAppServicesClassesServiceTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/app/services/classes.service.ts":
+  /*!*********************************************!*\
+    !*** ./src/app/services/classes.service.ts ***!
+    \*********************************************/
+
+  /*! exports provided: ClassesService */
+
+  /***/
+  function srcAppServicesClassesServiceTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -29624,29 +30535,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
     var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/common/http */
-    "./node_modules/@angular/common/fesm2015/http.js");
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
 
-    var ClassesService = function ClassesService(http) {
-      var _this70 = this;
+    var ClassesService =
+    /*#__PURE__*/
+    _createClass(function ClassesService(http) {
+      var _this72 = this;
 
       _classCallCheck(this, ClassesService);
 
       this.http = http;
 
       this.getClasses = function () {
-        return _this70.http.get('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/classes/all', {
+        return _this72.http.get('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/classes/all', {
           headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
             'Access-Control-Allow-Origin': '*'
           })
         });
       };
-    };
+    });
 
     ClassesService.ɵfac = function ClassesService_Factory(t) {
       return new (t || ClassesService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]));
@@ -29676,7 +30589,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
-  "./src/app/services/race.service.ts": function srcAppServicesRaceServiceTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/app/services/race.service.ts":
+  /*!******************************************!*\
+    !*** ./src/app/services/race.service.ts ***!
+    \******************************************/
+
+  /*! exports provided: RaceService */
+
+  /***/
+  function srcAppServicesRaceServiceTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -29691,29 +30612,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
     var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/common/http */
-    "./node_modules/@angular/common/fesm2015/http.js");
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
 
-    var RaceService = function RaceService(http) {
-      var _this71 = this;
+    var RaceService =
+    /*#__PURE__*/
+    _createClass(function RaceService(http) {
+      var _this73 = this;
 
       _classCallCheck(this, RaceService);
 
       this.http = http;
 
       this.getRaces = function () {
-        return _this71.http.get('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/races/all', {
+        return _this73.http.get('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/races/all', {
           headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
             'Access-Control-Allow-Origin': '*'
           })
         });
       };
-    };
+    });
 
     RaceService.ɵfac = function RaceService_Factory(t) {
       return new (t || RaceService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]));

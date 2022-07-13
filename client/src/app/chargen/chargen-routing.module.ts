@@ -17,6 +17,7 @@ import { CharNotesComponent } from './char-notes/char-notes.component';
 import { SingleNoteComponent } from './single-note/single-note.component';
 import { EditNotesComponent } from './edit-notes/edit-notes.component';
 import { EditSpellComponent } from './edit-spell/edit-spell.component';
+import { CharACComponent } from './char-ac/char-ac.component';
 import { CharLevelComponent } from './char-level/char-level.component';
 import { ExpendablesComponent } from './expendables/expendables.component';
 
@@ -25,6 +26,7 @@ const routes: Routes = [
     children: [
       {path: '', component: CharBaseComponent },
       {path: 'stats', component: GenerateComponent },
+      {path: 'ac', component: CharACComponent },
       {path: 'tohits', component: CharTohitComponent },
       {path: 'skills', component: CharSkillsComponent },
       {path: 'saves', component: CharSavesComponent },

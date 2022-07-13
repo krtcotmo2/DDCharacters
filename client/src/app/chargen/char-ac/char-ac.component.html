@@ -1,0 +1,20 @@
+<h1>Armor Class<span *ngIf='isMyCharacter'><button  (click)='editArmorClass(0)' class='mini ui primary button labeled icon' style='vertical-align: text-bottom; margin-left:12px'>
+    <i class="plus square outline icon"></i>
+    Add New AC
+  </button></span><span class='ui input' style='font-size:1rem; margin-left:24px; width:33%' ><input type='text' name='filter' [value]='filterText' placeholder="Filter - type in value" (input)='filterList($event)' /></span></h1>
+  <div class="ui grid gridHeader">
+    <div class="six wide column">Defense</div>
+    <div class="one wide column">Score</div>
+  </div>
+  <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+    <div *ngFor='let th of grpACs' class="ui grid gridRow" cdkDrag>
+        <div class='statVal one wide column'><i *ngIf='isMyCharacter' class="bars icon" title='Reorder'></i></div>
+        <span class='stat five wide column'>{{th.acDesc}}<i class="info circle icon pointer mr-2  ml-2" (click)='showBreakDown($event)' title='Breakdown'></i><i  *ngIf='isMyCharacter' class="edit icon pointer" title="Edit AC Data" (click)='editAC(th.id)'></i></span>
+        <span class='statVal column one wide' style='font-weight: normal'>{{th.score}}</span>
+        <div class="sixteen wide column breakdown ui grid" style="margin-left: 0px;">
+            <div *ngFor='let th of th.breakdown'>
+              <div class='statVal fifteen wide column'  style='margin:12px 6px;' >{{th.score}} - {{th.desc}}</div>
+            </div>
+          </div>
+    </div>
+  </div>
