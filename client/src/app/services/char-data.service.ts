@@ -384,7 +384,8 @@ export class CharDataService {
         toHitID: attType === 'tohit' ? obj.statID : null,
         isBase: obj.isBase,
         isMod: obj.isMod,
-        isClassSkill: obj.isClassSkill
+        isClassSkill: obj.isClassSkill,
+        acID: obj.acID,
       };
       let val;
       switch(attType){
@@ -562,6 +563,17 @@ export class CharDataService {
         headers: new HttpHeaders({
           'Access-Control-Allow-Origin': '*'
         }),
+      });
+      return val;
+    }
+    newACGrp = (cID, obj) => {
+      const body = {
+        id: obj.acID,
+        acDesc: obj.acDesc,
+        charID: cID,
+      }
+      const val = this.http.post<any>('/api/characters/new-ac/', body, {
+          headers: new HttpHeaders({'Access-Control-Allow-Origin': '*'}),
       });
       return val;
     }

@@ -1,0 +1,16 @@
+<h1>Armor Class</h1>
+<form #modForm='ngForm' (ngSubmit)='onSubmit($event)'>
+    <div #formRoot>
+        <div class="ui grid gridHeader">
+            <div class="ten wide column">Description*</div>
+        </div>
+        <div class="ui grid gridRow">
+            <div class="ten wide column ui input"><input type='text' [(ngModel)]='attribute["acDesc"]' name='desc' class='scoreInput'></div>
+            <div class="sixteen wide column footnote">*input can not begin with special characters such as +, &, %, etc.</div>
+        </div>
+        <div class="container" style='text-align: center; margin-top:24px'>
+        <button class='ui primary button' type="submit">Save</button>
+        <button class='ui yellow button' type="button" style="margin-left:24px" (click)='onCancel()' >Cancel</button>
+        </div>
+    </div>
+</form>

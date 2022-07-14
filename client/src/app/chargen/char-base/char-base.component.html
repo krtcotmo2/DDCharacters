@@ -1,9 +1,9 @@
 <form [formGroup]='charForm' (ngSubmit)='onSubmit()'>
   <div class="container">
-    <p><strong>Character Name:</strong><br/>{{charBasic.results.charName}}</p>
       <div class="ui two column grid">
         <div class="column">
           <div class="ui">
+            <p><strong>Character Name:</strong><br/>{{charBasic.results.charName}}</p>
             <p><strong>Race:</strong><br/>{{charBasic.results.Race.raceDesc}}</p>
             <p><strong>Class(es):</strong>&nbsp;<span class='statMod'><i *ngIf='isMyCharacter' class="edit icon pointer" title="Edit" (click)='editLevels(charID)'></i></span><br/>
             <ng-container *ngFor='let c of charBasic.results.CharLevels'>
@@ -18,11 +18,6 @@
         <div class="column">
           <p><strong>HP:</strong><br/> {{charBasic.results.charHP}}
             <span class='statMod'><i *ngIf='isMyCharacter' class="edit icon pointer" title="Edit" (click)='editHP(charID)'></i></span></p>
-          <p><strong>AC:</strong><br/>
-            {{this.charAC}}
-            <span class='statMod'><i class="info circle icon pointer" title="Breakdown" (click)='showBreakDown($event)'></i></span>
-            <span class='statMod'><i *ngIf='isMyCharacter' class="edit icon pointer" title="Edit" (click)='editAC(charID)'></i></span>
-          </p>
           <div class="sixteen wide column breakdown ui" style="margin-left: 0px;">
             <div *ngFor='let st of acs["results"]'>
               <div  style='margin:12px' >{{st.score}}:  {{st.modDesc === '' ? 'Base' : st.modDesc}}</div>

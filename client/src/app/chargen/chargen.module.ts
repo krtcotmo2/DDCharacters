@@ -30,6 +30,7 @@ import { CharLevelComponent } from './char-level/char-level.component';
 import { ExpendablesComponent } from './expendables/expendables.component';
 import { Title } from '@angular/platform-browser';
 import { CharACComponent } from './char-ac/char-ac.component';
+import { NewACComponent } from './new-ac/new-ac.component';
 
 @NgModule({
   declarations: [GenerateComponent,
@@ -53,7 +54,8 @@ import { CharACComponent } from './char-ac/char-ac.component';
     EditSpellComponent,
     CharLevelComponent,
     ExpendablesComponent,
-    CharACComponent],
+    CharACComponent,
+    NewACComponent],
   imports: [
     CommonModule,
     ChargenRoutingModule,

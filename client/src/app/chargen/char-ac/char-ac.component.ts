@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import { CharDataService } from '../../services/char-data.service';
 import { UserService } from '../../services/user.service';
@@ -54,27 +54,29 @@ export class CharACComponent implements OnInit {
      grp.id = grp.acID;
      grp.score = score;
      grp.breakdown =  breakdown;
-     console.log(grp)
    }
    this.grpACs = _.orderBy(this.grpACs, 'sortValue', 'asc');
  }
 
   editArmorClass(arg){
-    // this.router.navigate(['/charGen/mods/newtohit/' + arg]);
+    this.router.navigate(['/charGen/mods/new-ac/' + arg]);
+  }
+
+  editACMod(arg){
+    this.router.navigate(['/charGen/mods/ac'], { queryParams: {acID: arg}});
   }
 
   filterList = evt => {
-    // this.filterText = evt.target.value;
-    // const allRows: any = document.getElementsByClassName('ui grid gridRow');
-    // for(let r of allRows){
-    //   const aTag: any = r.getElementsByTagName('span')[0].innerText;
-    //   if (aTag.toLowerCase().includes(this.filterText.toLowerCase())) {
-    //     r.classList.remove('hidden');
-    //   } else {
-    //     r.classList.add('hidden');
-    //   }
-    // }
-
+    this.filterText = evt.target.value;
+    const allRows: any = document.getElementsByClassName('ui grid gridRow');
+    for(let r of allRows){
+      const aTag: any = r.getElementsByTagName('span')[0].innerText;
+      if (aTag.toLowerCase().includes(this.filterText.toLowerCase())) {
+        r.classList.remove('hidden');
+      } else {
+        r.classList.add('hidden');
+      }
+    }
   }
 
   showBreakDown(evt){
@@ -85,10 +87,6 @@ export class CharACComponent implements OnInit {
     });
     const myRow = filtered[0].children;
     myRow[3].classList.toggle('expanded');
-  }
-
-  editAC(arg){
-    // this.router.navigate(['/charGen/mods/newtohit/' + arg]);
   }
 
   drop(event: CdkDragDrop<string[]>) {

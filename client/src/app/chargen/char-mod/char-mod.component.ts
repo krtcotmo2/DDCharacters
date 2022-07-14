@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { CharDataService } from '../../services/char-data.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import _ from 'lodash';
 import {Stats, Saves} from '../../helpers/enum';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-char-mod',
@@ -13,6 +14,7 @@ import {Stats, Saves} from '../../helpers/enum';
 export class CharModComponent implements OnInit {
   modForm;
   charID: number;
+  acID: string;
   partID = _.last(this.router.url.split('/'));
   attribute = []
   numChanged = 0;
@@ -31,9 +33,15 @@ export class CharModComponent implements OnInit {
 
   constructor(private charDataSvc: CharDataService,
               private router: Router,
-              private http: HttpClient ) { }
+              private http: HttpClient,
+              private route: ActivatedRoute,
+            ) { }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(
+      params => {
+        this.acID = params.acID;    
+      });
     this.charDataSvc.getCharID.subscribe( (val) => this.charID = val);
     if (this.charID === 0){
       this.router.navigate(['/charGen']);
@@ -61,7 +69,7 @@ export class CharModComponent implements OnInit {
       case 'ac':
         this.charDataSvc.getAllACs.subscribe( (val) => {
           this.theACs = val;
-          this.attribute = this.theACs.results.filter(arg => arg.charID === this.charID);
+          this.attribute = this.theACs.results.filter(arg => arg.charID === this.charID && arg.acID === +this.acID);
         });
         break;
       case 'hp':
@@ -126,6 +134,7 @@ export class CharModComponent implements OnInit {
           isBase: baseChecked.length > 0 ? baseChecked[0]['checked'] : false ,
           isMod:  baseChecked.length > 1 ? baseChecked[1]['checked']: false ,
           isClassSkill: baseChecked[2] === undefined ? false :  baseChecked[2]['checked'],
+          acID: this.modType === 'ac' ? this.acID : undefined,
         }
 
         if (this.modType === 'hp'){
@@ -144,6 +153,7 @@ export class CharModComponent implements OnInit {
               this.router.navigate(['/charGen']);
             }
           });
+          
         } else if(this.modType === 'xp'){
           this.charDataSvc.updateXP(this.charID, attrObj.score).subscribe(val => {
             if(val.results){
@@ -241,7 +251,7 @@ export class CharModComponent implements OnInit {
           this.router.navigate(['/charGen/saves']);
           break;
       case 'ac':
-        this.router.navigate(['/charGen']);
+        this.router.navigate(['/charGen/ac']);
         break;
       case 'hp':
         this.router.navigate(['/charGen']);

@@ -5,14 +5,14 @@
 <form #modForm='ngForm' (ngSubmit)='onSubmit($event)'>
   <div #formRoot>
     <div class="ui grid gridHeader">
-      <div class="two wide column">{{modType === 'hp' ? 'Total' : 'Score'}}</div>
+      <div class="three wide column">{{modType === 'hp' ? 'Total' : 'Score'}}</div>
       <div *ngIf='modType !== "hp" && modType !== "init" && modType !== "xp"' class="two wide column" [innerHTML]='mainTitle'></div>
       <div *ngIf='modType !== "hp" && modType !== "init" && modType !== "xp"' class="two wide column">Modifier</div>
-      <div *ngIf='modType === "skill"' class="two wide column" >Class Skill</div>
+      <div *ngIf='modType === "skill"' class="one wide column" >Class Skill</div>
       <div *ngIf='modType !== "hp" && modType !== "init" && modType !== "xp"' class="eight wide column">Description</div>
     </div>
     <div class='ui grid gridRow' *ngFor='let st of attribute'>
-      <div class="column two wide ui input" >
+      <div class="column three wide ui input" >
         <input type='number' [value]='st.score' [name]='setInputName("score", st.id)' class='scoreInput'>
       </div>
       <div *ngIf='modType !== "hp" && modType !== "init" && modType !== "xp"' class="column two wide">
@@ -27,7 +27,7 @@
           <label></label>
         </div>
       </div>
-      <div *ngIf='modType === "skill"' class="column two wide">
+      <div *ngIf='modType === "skill"' class="column one wide">
         <div class="ui radio checkbox">
           <input type="radio" [name]='setInputName("stat", st.id.toString())' [checked]='st.isClassSkill' value='isClass'>
           <label></label>

@@ -80,6 +80,9 @@ router.route('/acGrps/:id').get(characterController.getAllACGrps);
 //route for reordering AC /api/characters/reorderACs
 router.put('/reorderACs', bodyParser, characterController.reorderACs);
 
+//route for reordering AC /api/characters/new-ac
+router.post('/new-ac', bodyParser, characterController.newAC);
+
 
 //updateAC
 router.post('/ac', bodyParser, characterController.createUpdateAC);

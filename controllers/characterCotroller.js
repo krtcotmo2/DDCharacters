@@ -621,6 +621,30 @@ module.exports = {
         }
       });
     },
+    newAC: async function(req, res){
+      const retVal = await  db.AC.findOrCreate({
+        where:{acID:req.body.id},
+        defaults: {
+          acDesc: req.body.acDesc,
+          charID: req.body.charID,
+          acID: req.body.acID,
+        }
+      })
+      .then( async (oneItem) => {
+        let updatedVal = await oneItem[0].update(
+          {
+            acDesc:req.body.acDesc, 
+          }
+        ).then( async success => {
+          return success
+        }).catch(err => err);
+        return updatedVal;
+      })
+      .catch(err => {
+        return err
+      });
+      res.json(retVal);;
+    },
 
   //HP
     updateHP: async function(req, res){

@@ -11,6 +11,7 @@ import { CharModComponent } from './char-mod/char-mod.component';
 import { CharSavesComponent } from './char-saves/char-saves.component';
 import { CharTohitComponent } from './char-tohit/char-tohit.component';
 import { NewTohitComponent} from './new-tohit/new-tohit.component';
+import { NewACComponent } from './new-ac/new-ac.component';
 import { NewSkillComponent } from './new-skill/new-skill.component';
 import { NewFeatComponent } from './new-feat/new-feat.component';
 import { CharNotesComponent } from './char-notes/char-notes.component';
@@ -81,6 +82,15 @@ const routes: Routes = [
           {path: 'newfeat', component: NewFeatComponent}
         ]
       },
+      {path: 'mods', component: NewACComponent,
+        children: [
+          {path: 'new-ac', component: NewACComponent,
+            children: [
+              {path: '**', component: NewACComponent}
+            ]
+          }
+        ]
+      },
       {path: 'mods', component: CharModComponent,
         children: [
           {path: '**', component: CharModComponent,
@@ -89,7 +99,7 @@ const routes: Routes = [
             ]
           }
         ]
-      },
+      },     
     ]
   }
 ];
