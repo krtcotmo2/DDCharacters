@@ -142,13 +142,14 @@ export interface ACPart {
   modDesc: string;
   isBase: boolean;
   isMod: boolean;
+  acID: number;
 }
-interface AC {
+export interface AC {
   charID: number;
   results: ACPart[];
 }
 
-interface ACGrps {
+export interface ACGrps {
   charID: number;
   results:{
     charID: number;
@@ -551,7 +552,7 @@ export class CharDataService {
     }
     loadACGrps = (id: number) => {
       //const val =  this.http.get<Equipment>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/ac/' + id, {
-      const val =  this.http.get<Equipment>('/api/characters/acGrps/' + id, {
+      const val =  this.http.get<AC>('/api/characters/acGrps/' + id, {
           headers: new HttpHeaders({
           'Access-Control-Allow-Origin': '*'
         }),

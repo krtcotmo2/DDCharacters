@@ -20,6 +20,11 @@ interface Character {
     },
     CharAcs: {
       score: number;
+      acID: number;
+    }[],
+    ACs: {
+      sortValue: number;
+      acID: number;
     }[],
     CharLevels: {
       classLevel: number;

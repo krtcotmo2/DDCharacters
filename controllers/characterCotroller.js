@@ -3,6 +3,7 @@ const User = require('../models/user');
 const Race = require('../models/race');
 const CharClass = require('../models/charClass');
 const CharAC = require('../models/charAC');
+const AC = require('../models/acs');
 const CharLevel = require('../models/charLevels');
 const CharFeat = require('../models/charFeats');
 const CharSkill = require('../models/charSkills');
@@ -30,7 +31,11 @@ module.exports = {
             },
             {
               model: CharAC,
-              attributes: ['score'],
+              attributes: ['score', 'acID'],
+            },
+            {
+              model: AC,
+              attributes: ['acID', 'sortValue'],
             },
             {
               model: CharLevel,

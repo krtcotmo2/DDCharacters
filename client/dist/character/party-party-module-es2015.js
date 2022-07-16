@@ -589,7 +589,15 @@ class PartyCardComponent {
         this.charSvc.getAllChars.subscribe(val => {
             const char = val.results.find(person => person.charID === this.charID);
             this.charName = char.charName;
-            this.charAC = char.CharACs.reduce((x, y) => x + y.score, 0);
+            let shortenedArray;
+            this.allACs = lodash__WEBPACK_IMPORTED_MODULE_2___default.a.orderBy(char["ACs"], 'sortValue', 'asc');
+            if (this.allACs.length > 0) {
+                shortenedArray = char.CharACs.filter(val => val.acID === this.allACs[0].acID);
+                this.charAC = shortenedArray.reduce((x, y) => x + y.score, 0);
+            }
+            else {
+                this.charAC = char.CharACs.reduce((x, y) => x + y.score, 0);
+            }
         });
         this.charDataSvc.loadSpells(this.charID).subscribe(spells => {
             this.isCaster = spells.results.length > 0;

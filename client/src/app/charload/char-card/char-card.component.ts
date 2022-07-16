@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import {Router} from '@angular/router';
 import { CharDataService } from '../../services/char-data.service';
 import { UserService } from '../../services/user.service';
-
+import _ from 'lodash';
 @Component({
   selector: 'app-char-card',
   templateUrl: './char-card.component.html',
@@ -17,7 +17,14 @@ export class CharCardComponent implements OnInit {
     private charDataSvc: CharDataService) { }
 
   ngOnInit(): void {
-    this.ac = this.calcAc(this.char["CharACs"]);
+    let shortenedArray
+    const allGrps = _.orderBy(this.char["ACs"], 'sortValue', 'asc');
+    if(allGrps.length > 0 ){
+      shortenedArray = this.char["CharACs"].filter( val => val.acID === allGrps[0].acID);
+      this.ac = this.calcAc(shortenedArray);
+    }else{
+      this.ac = this.calcAc(this.char["CharACs"]);
+    }
   }
   isDeceased = (pers: {}) => {
     return pers['isDead'];

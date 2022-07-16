@@ -1381,9 +1381,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             });
 
             _this6.charName = _char2.charName;
-            _this6.charAC = _char2.CharACs.reduce(function (x, y) {
-              return x + y.score;
-            }, 0);
+            var shortenedArray;
+            _this6.allACs = lodash__WEBPACK_IMPORTED_MODULE_2___default.a.orderBy(_char2["ACs"], 'sortValue', 'asc');
+
+            if (_this6.allACs.length > 0) {
+              shortenedArray = _char2.CharACs.filter(function (val) {
+                return val.acID === _this6.allACs[0].acID;
+              });
+              _this6.charAC = shortenedArray.reduce(function (x, y) {
+                return x + y.score;
+              }, 0);
+            } else {
+              _this6.charAC = _char2.CharACs.reduce(function (x, y) {
+                return x + y.score;
+              }, 0);
+            }
           });
           this.charDataSvc.loadSpells(this.charID).subscribe(function (spells) {
             _this6.isCaster = spells.results.length > 0;

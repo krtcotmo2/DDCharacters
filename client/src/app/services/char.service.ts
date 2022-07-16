@@ -23,6 +23,7 @@ export interface Character {
     }[],
     CharACs: {
       score: number;
+      acID: number;
     }[],
     Alignment:{
       alignID: number;

@@ -2,7 +2,7 @@ import { Component, ElementRef, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PartyMember, PartyService } from 'src/app/services/party.service';
 import _ from 'lodash';
-import { CharDataService, Spell } from 'src/app/services/char-data.service';
+import { ACPart, CharDataService, Spell } from 'src/app/services/char-data.service';
 import { CharService } from 'src/app/services/char.service';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { SocketService } from 'src/app/services/socket.service';
@@ -30,6 +30,7 @@ export class PartyCardComponent implements OnInit {
   charName: string;
   charAC: number;
   isCaster = false;
+  allACs: ACPart[];
   allExpendables: Expendable[] = [];
   classExpendables: Expendable[] = [];
   potionExpendables: Expendable[] = [];
@@ -78,7 +79,15 @@ export class PartyCardComponent implements OnInit {
     this.charSvc.getAllChars.subscribe( val => {
       const char = val.results.find( person => person.charID === this.charID)
       this.charName = char.charName;
-      this.charAC = char.CharACs.reduce( (x, y) => x + y.score, 0 );
+
+      let shortenedArray
+      this.allACs = _.orderBy(char["ACs"], 'sortValue', 'asc');
+      if(this.allACs.length > 0 ){
+        shortenedArray = char.CharACs.filter( val => val.acID === this.allACs[0].acID);
+        this.charAC = shortenedArray.reduce( (x, y) => x + y.score, 0 );
+      }else{
+        this.charAC = char.CharACs.reduce( (x, y) => x + y.score, 0 );
+      }
     });
     this.charDataSvc.loadSpells(this.charID).subscribe( spells => {
       this.isCaster = spells.results.length > 0;
@@ -105,7 +114,7 @@ export class PartyCardComponent implements OnInit {
       this.otherExpendables = this.potionExpendables.length +
       this.scrollExpendables.length +
       this.chargeExpendables.length;
-    });
+    });  
     this.subs.push(
       this.socketService.updateHP().subscribe( (data: any): void => {
         if (data.charID === this.charID) {
@@ -148,7 +157,7 @@ export class PartyCardComponent implements OnInit {
             this.scrollExpendables.length +
             this.chargeExpendables.length;
       }),
-    );
+    );  
   }
 
   addHP = async (heal: boolean): Promise<void> => {
