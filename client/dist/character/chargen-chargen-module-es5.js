@@ -21989,7 +21989,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                       throw new Error("did not save");
                     } finally {
                       if (_this39.numChanged === _this39.numFinished) {
-                        var retRoute = _this39.modType.trim() === 'ac' ? '' : _this39.modType + 's';
+                        var retRoute = _this39.modType.trim() === 'ac' ? 'ac' : _this39.modType + 's';
 
                         _this39.router.navigate(['/charGen/' + retRoute]);
                       }
@@ -22111,7 +22111,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               }
             } catch (err) {} finally {
               if (_this39.modType === 'ac') {
-                _this39.router.navigate(['/charGen']);
+                _this39.router.navigate(['/ac']);
 
                 return;
               }

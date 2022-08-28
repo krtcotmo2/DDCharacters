@@ -221,7 +221,7 @@ export class CharModComponent implements OnInit {
               throw new Error("did not save")
             } finally {
               if (this.numChanged === this.numFinished){
-                let retRoute =  this.modType.trim() === 'ac' ? '' : this.modType + 's';
+                let retRoute =  this.modType.trim() === 'ac' ? 'ac' : this.modType + 's';
                 this.router.navigate(['/charGen/' + retRoute]);
               }
             }
@@ -293,7 +293,7 @@ export class CharModComponent implements OnInit {
       } catch (err){
       } finally {
         if(this.modType === 'ac'){
-          this.router.navigate(['/charGen']);
+          this.router.navigate(['/ac']);
           return;
         }
         this.router.navigate(['/charGen/' + this.modType + 's']);

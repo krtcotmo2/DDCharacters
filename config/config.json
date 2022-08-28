@@ -8,8 +8,8 @@
   },
   "test": {
     "username": "root",
-    "password": "Password1",
-    "database": "automate",
+    "password": "135wlt@n51CMP", 
+    "database": "Characters",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
