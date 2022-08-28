@@ -21948,7 +21948,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
                     _this39[list].results = _this39[list].results.map(function (li) {
                       if (li.id === 0 || li.id === val.results.id) {
-                        li = Object.assign({}, val.results);
+                        if (_this39.modType === 'ac') {
+                          li = Object.assign(Object.assign({}, li), {
+                            score: val.results.score
+                          });
+                        } else {
+                          li = Object.assign({}, val.results);
+                        }
+
                         _this39.numFinished++;
                       }
 
