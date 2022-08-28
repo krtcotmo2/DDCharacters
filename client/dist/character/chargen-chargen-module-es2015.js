@@ -13102,7 +13102,7 @@ class CharModComponent {
                         isBase: baseChecked.length > 0 ? baseChecked[0]['checked'] : false,
                         isMod: baseChecked.length > 1 ? baseChecked[1]['checked'] : false,
                         isClassSkill: baseChecked[2] === undefined ? false : baseChecked[2]['checked'],
-                        acID: this.modType === 'ac' ? this.acID : undefined,
+                        acID: this.modType === 'ac' ? +this.acID : undefined,
                     };
                     if (this.modType === 'hp') {
                         this.charDataSvc.updateHP(this.charID, attrObj.score).subscribe(val => {

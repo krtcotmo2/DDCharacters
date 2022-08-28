@@ -21871,7 +21871,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   isBase: baseChecked.length > 0 ? baseChecked[0]['checked'] : false,
                   isMod: baseChecked.length > 1 ? baseChecked[1]['checked'] : false,
                   isClassSkill: baseChecked[2] === undefined ? false : baseChecked[2]['checked'],
-                  acID: _this39.modType === 'ac' ? _this39.acID : undefined
+                  acID: _this39.modType === 'ac' ? +_this39.acID : undefined
                 };
 
                 if (_this39.modType === 'hp') {
