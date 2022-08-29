@@ -13160,12 +13160,7 @@ class CharModComponent {
                             }
                             this[list].results = this[list].results.map(li => {
                                 if (li.id === 0 || li.id === val.results.id) {
-                                    if (this.modType === 'ac') {
-                                        li = Object.assign(Object.assign({}, li), { score: val.results.score });
-                                    }
-                                    else {
-                                        li = Object.assign({}, val.results);
-                                    }
+                                    li = Object.assign({}, val.results);
                                     this.numFinished++;
                                 }
                                 return li;

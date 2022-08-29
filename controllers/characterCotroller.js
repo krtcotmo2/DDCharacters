@@ -563,6 +563,7 @@ module.exports = {
             modDesc: oneItem[0].modDesc,
             score: oneItem[0].score,          
             charID: oneItem[0].charID,
+            acID: oneItem[0].acID,
           }
           return newVal
         }else{
@@ -579,6 +580,7 @@ module.exports = {
               modDesc: success.dataValues.modDesc,
               score: success.dataValues.score,                 
               charID: success.dataValues.charID,
+              acID: success.dataValues.acID,
             }
             return newVal
           }).catch(err => err);

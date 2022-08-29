@@ -191,13 +191,12 @@ export class CharModComponent implements OnInit {
             }
             this[list].results = this[list].results.map(li => {
               if (li.id === 0 || li.id === val.results.id){
-                if(this.modType === 'ac'){
-                  li = {...li,score:val.results.score};
-                }else{
-                  li = {...val.results};
-                }
+                
+                li = {...val.results};
+                
                 this.numFinished++;
               }
+             
               return li;
             })
 
