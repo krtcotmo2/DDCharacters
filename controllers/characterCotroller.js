@@ -44,6 +44,7 @@ module.exports = {
                 model: CharClass,
                 attributes: ['className']
               }
+              
                 // {attributes: ["id",'charID', 'score', 'isBase', "isMod", "modDesc"],
                 // where:{charID:req.params.id},
                 // })
