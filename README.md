@@ -11,7 +11,7 @@ Yes this only further proves I am a geek. Paging though numerous pages of the ha
   * Bcrypt and JWToken hash out passwords for a more secure process of logging in
   * Each character has a specific user id so while you can view any character, you can only edit a character that has your user id
   * A user can receive a temporary password in the event they forget their password
-  * Generic login without edting ability is guest Gu3st
+  * Generic login without edting ability is guest/Gu3st
 ## Accumulated stats:
   * Most values from stats and saves to skills and to hits have a Accumulated Score.
   * It can be easy to forget how a score was created so the tool allows multiple values to be stored under each score
