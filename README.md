@@ -3,7 +3,7 @@
 
 ![alt text](https://img.shields.io/badge/uses-Angular-blue.svg) ![alt text](https://img.shields.io/badge/uses-Material-blue.svg)  ![alt text](https://img.shields.io/badge/uses-Semantic-blue.svg)
 
-https://dd-characters.herokuapp.com/
+[https://dd-characters.herokuapp.com/](https://ddchars.herokuapp.com/)
 
 Yes this only further proves I am a geek. Paging though numerous pages of the hard copies for a character was annoying so I decided to do something about it. The tool lists all the characters stored in the mysql db and the user can look at/edit a character. A tabbed navigation breaks down the sections for the stats, skills, feats, saves, to hits, a list of memorized spells, and notes.
 
