@@ -135,7 +135,15 @@ class AppComponent {
             this.isLoggedIn = this.theUser['isLoggedIn'];
             this.userName = this.theUser['userName'];
         });
-        this.userService.checkLoggedInStatus({}).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(err => Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])({}))).subscribe((val) => {
+        this.userService.checkLoggedInStatus({}).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(err => Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])({
+            "userID": 0,
+            "userName": "",
+            "userEmail": "",
+            "forcedReset": false,
+            "createdAt": "",
+            "updatedAt": "2022-08-28 02:19:40",
+            "authorized": false
+        }))).subscribe((val) => {
             var _a;
             this.theUser = val;
             this.isLoggedIn = true;

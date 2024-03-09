@@ -312,7 +312,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             _this.userName = _this.theUser['userName'];
           });
           this.userService.checkLoggedInStatus({}).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(function (err) {
-            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])({});
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])({
+              "userID": 0,
+              "userName": "",
+              "userEmail": "",
+              "forcedReset": false,
+              "createdAt": "",
+              "updatedAt": "2022-08-28 02:19:40",
+              "authorized": false
+            });
           })).subscribe(function (val) {
             var _a;
 
