@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, of } from 'rxjs';
-import {map, pluck} from 'rxjs/operators';
+import {catchError, map, pluck} from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 interface User {
@@ -71,6 +71,9 @@ export class UserService {
     }).pipe(
       map(arg => {
         return {...arg, isLoggedIn: true};
+      }),
+      catchError((err:any) => {
+        return of(err)
       })
     );
     // this.setUser(val);
