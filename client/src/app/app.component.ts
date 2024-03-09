@@ -1,9 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CharDataService } from './services/char-data.service';
-import { Subscription } from 'rxjs';
+import { Subscription, of } from 'rxjs';
 import { UserService } from './services/user.service';
 import { PartyMember } from './services/party.service';
 import { Router } from '@angular/router';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -30,18 +31,19 @@ export class AppComponent implements OnInit, OnDestroy{
         this.isLoggedIn = this.theUser['isLoggedIn'];
         this.userName = this.theUser['userName'];
       });
-      
-    }
-    ngAfterContentInit(): void {
-      this.userService.checkLoggedInStatus({}).subscribe((val)=>{
+      this.userService.checkLoggedInStatus({}).pipe(
+        catchError(err => of({}))
+      ).subscribe((val)=>{
         this.theUser = val;
         this.isLoggedIn = true;
         this.userService.setUser(val);
-        console.log(val)
         if(this.theUser?.['userEmail']){
           this.router.navigateByUrl('charLoad')
         }
       });
+    }
+    ngAfterContentInit(): void {
+      
       
     }
     ngOnDestroy(): void {

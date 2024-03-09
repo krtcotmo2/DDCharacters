@@ -76,7 +76,7 @@ export class UserService {
         return of(err)
       })
     );
-    // this.setUser(val);
+    this.setUser(val);
     return val;
   }
 
