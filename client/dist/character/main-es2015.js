@@ -145,6 +145,9 @@ class AppComponent {
             "authorized": false
         }))).subscribe((val) => {
             var _a;
+            if (!val.ok) {
+                return;
+            }
             this.theUser = val;
             this.isLoggedIn = true;
             this.userService.setUser(val);

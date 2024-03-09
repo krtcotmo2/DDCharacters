@@ -42,6 +42,9 @@ export class AppComponent implements OnInit, OnDestroy{
           "authorized": false
       }))
       ).subscribe((val)=>{
+        if(!val.ok){
+          return;
+        }
         this.theUser = val;
         this.isLoggedIn = true;
         this.userService.setUser(val);

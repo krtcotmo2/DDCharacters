@@ -324,6 +324,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           })).subscribe(function (val) {
             var _a;
 
+            if (!val.ok) {
+              return;
+            }
+
             _this.theUser = val;
             _this.isLoggedIn = true;
 
