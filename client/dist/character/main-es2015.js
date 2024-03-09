@@ -131,6 +131,8 @@ class AppComponent {
             this.isLoggedIn = this.theUser['isLoggedIn'];
             this.userName = this.theUser['userName'];
         });
+    }
+    ngAfterContentInit() {
         this.userService.checkLoggedInStatus({}).subscribe((val) => {
             var _a;
             this.theUser = val;
@@ -141,8 +143,6 @@ class AppComponent {
                 this.router.navigateByUrl('charLoad');
             }
         });
-    }
-    ngAfterViewChecked() {
     }
     ngOnDestroy() {
         this.subs.forEach((s) => s.unsubscribe());
@@ -1669,7 +1669,7 @@ class UserService {
             }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(arg => {
                 return Object.assign(Object.assign({}, arg), { isLoggedIn: true });
             }));
-            this.setUser(val);
+            // this.setUser(val);
             return val;
         };
         this.logOut = () => {
