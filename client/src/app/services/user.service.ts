@@ -73,7 +73,7 @@ export class UserService {
         return {...arg, isLoggedIn: true};
       })
     );
-    this.setUser(val);
+    // this.setUser(val);
     return val;
   }
 
