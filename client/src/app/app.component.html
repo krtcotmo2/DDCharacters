@@ -5,6 +5,7 @@
     <a *ngIf='isLoggedIn' routerLink='charGen' routerLinkActive='active' class="item" >Character</a>
     <a *ngIf='isLoggedIn' routerLink='newChar' routerLinkActive='active' class="item" >New Character</a>
     <a *ngIf='isLoggedIn' routerLink='party/search' routerLinkActive='active' class="item" >Party</a>
+    <a *ngIf='isLoggedIn' (click)='logout()' class="item" >Logout</a>
     <div class="item" style='position: absolute; right:0px;'>Welcome {{theUser['userName']}}</div>
   </div>
   <div class="ui segment container">

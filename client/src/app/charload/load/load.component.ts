@@ -68,7 +68,6 @@ export class LoadComponent implements OnInit {
         (char.User.userEmail === this.loggedIn['userEmail'] && char['isDead'])
       );
       this.characters = [...myChar, ...notMyChar];
-      console.log(111, this.characters, myChar);
       this.charSvc.setAllChars(results);
     });
 

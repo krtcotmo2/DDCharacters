@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import {pluck} from 'rxjs/operators';
+import { BehaviorSubject, of } from 'rxjs';
+import {map, pluck} from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 interface User {
@@ -23,7 +23,9 @@ export class UserService {
   getUser = this.user.asObservable();
 
   // SETTERS
-  setUser(arg) { this.user.next(arg); }
+  setUser(arg) {
+    this.user.next(arg); 
+  }
 
   loginUser = (body: {} ) => {
     const val =  this.http.post<any>('/api/login', body, {
@@ -58,6 +60,37 @@ export class UserService {
         'Access-Control-Allow-Origin': '*'
       }),
     });
+    return val;
+  }
+
+  checkLoggedInStatus = (body: {}) => {
+    const val =  this.http.post<any>('/api/login/user-status', {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*'
+      }),
+    }).pipe(
+      map(arg => {
+        return {...arg, isLoggedIn: true};
+      })
+    );
+    this.setUser(val);
+    return val;
+  }
+
+  logOut = () =>{
+    const val =  this.http.post<any>('/api/login/sign-out', {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*'
+      }),
+    }).pipe(
+      map(arg => {
+        return {...arg, isLoggedIn: false};
+      }),
+      map(arg=> {
+        return of({});
+  
+      })
+    );
     return val;
   }
 }

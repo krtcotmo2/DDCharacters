@@ -64,7 +64,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"default~chargen-chargen-module~charload-charload-module~party-party-module":"default~chargen-chargen-module~charload-charload-module~party-party-module","common":"common","chargen-chargen-module":"chargen-chargen-module","default~charload-charload-module~party-party-module":"default~charload-charload-module~party-party-module","charload-charload-module":"charload-charload-module","party-party-module":"party-party-module","newChar-new-char-module":"newChar-new-char-module"}[chunkId]||chunkId) +    "-es5.js"
+/******/ 		return __webpack_require__.p + "" + ({"default~chargen-chargen-module~charload-charload-module~party-party-module":"default~chargen-chargen-module~charload-charload-module~party-party-module","charload-charload-module":"charload-charload-module","common":"common","chargen-chargen-module":"chargen-chargen-module","party-party-module":"party-party-module","newChar-new-char-module":"newChar-new-char-module"}[chunkId]||chunkId) +    "-es5.js"
 /******/ 	}
 /******/
 /******/ 	// The require function

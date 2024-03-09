@@ -13,4 +13,10 @@ router.route("/insertUser").post(userController.insertUser);
 // resets password and sends email matches with "/api/login/newPassword"
 router.route("/newPassword").post(userController.newPassword);
 
+// check status  "/api/login/user-status"
+router.route("/user-status").post(userController.isLoggedIn);
+
+// check status  "/api/login/sign-out"
+router.route("/sign-out").post(userController.logOut);
+
 module.exports = router;

@@ -149,9 +149,32 @@ module.exports = {
     if(theReset){
       res.json({pass:newPass, val: emailed, theReset: theReset});
     }
+  },
+
+  isLoggedIn: async function(req, res){
+    const token = req.cookies.token;
+    const a = jwt.verify(token, secret);
+    if(a.exp < new Date().getTime()/1000){
+      throw new Error('expired-token')
+    }
+    db.User.findOne( {
+      where:{userEmail:a.email},
+    }).then(data=>{
+      const a = jwt.verify(res.req.cookies.token, secret);
+      if(a.exp < new Date().getTime()/1000){
+        throw new Error('expired-token')
+      }
+      res.json({...data.dataValues, userPassword:undefined, authorized: true});
+    }).catch(err=>{
+      res.status(401).json({message:err.message, authorized: false});
+    })
+  },
+  logOut: async function(req,res){
+    res.token =''
+    this.isLoggedIn = false;
+    res.set('Set-Cookie', 'token=; express:sess=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT; samesite=none; secure; httponly');
+    res.json({isLoggedIn: false, authorized: false});
   }
-
-
 }
 
 function createPassword(){

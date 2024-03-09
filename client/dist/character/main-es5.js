@@ -89,7 +89,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() | charload-charload-module */
-        [__webpack_require__.e("default~chargen-chargen-module~charload-charload-module~party-party-module"), __webpack_require__.e("default~charload-charload-module~party-party-module"), __webpack_require__.e("charload-charload-module")]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e("default~chargen-chargen-module~charload-charload-module~party-party-module"), __webpack_require__.e("charload-charload-module")]).then(__webpack_require__.bind(null,
         /*! ./charload/charload.module */
         "./src/app/charload/charload.module.ts")).then(function (m) {
           return m.CharloadModule;
@@ -111,7 +111,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() | party-party-module */
-        [__webpack_require__.e("default~chargen-chargen-module~charload-charload-module~party-party-module"), __webpack_require__.e("default~charload-charload-module~party-party-module"), __webpack_require__.e("common"), __webpack_require__.e("party-party-module")]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e("default~chargen-chargen-module~charload-charload-module~party-party-module"), __webpack_require__.e("common"), __webpack_require__.e("party-party-module")]).then(__webpack_require__.bind(null,
         /*! ./party/party.module */
         "./src/app/party/party.module.ts")).then(function (m) {
           return m.PartyModule;
@@ -206,7 +206,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ngx-cookie-service */
+    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+    /* harmony import */
+
+
+    var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! @angular/common */
     "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 
@@ -218,7 +224,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     function AppComponent_a_4_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 10);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Load Character");
 
@@ -232,7 +238,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     function AppComponent_a_5_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 10);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 11);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Character");
 
@@ -242,7 +248,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     function AppComponent_a_6_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 12);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "New Character");
 
@@ -252,9 +258,29 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     function AppComponent_a_7_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 13);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Party");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+    }
+
+    function AppComponent_a_8_Template(rf, ctx) {
+      if (rf & 1) {
+        var _r457 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 14);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AppComponent_a_8_Template_a_click_0_listener() {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r457);
+
+          var ctx_r456 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+          return ctx_r456.logout();
+        });
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Logout");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
       }
@@ -263,11 +289,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var AppComponent =
     /*#__PURE__*/
     function () {
-      function AppComponent(charDataSvc, userService) {
+      function AppComponent(charDataSvc, userService, router, cookies // private socketService: SocketService
+      ) {
         _classCallCheck(this, AppComponent);
 
         this.charDataSvc = charDataSvc;
         this.userService = userService;
+        this.router = router;
+        this.cookies = cookies;
         this.title = 'character Manager';
         this.theUser = {};
         this.isLoggedIn = false;
@@ -284,12 +313,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             _this.isLoggedIn = _this.theUser['isLoggedIn'];
             _this.userName = _this.theUser['userName'];
           });
+          this.userService.checkLoggedInStatus({}).subscribe(function (val) {
+            var _a;
+
+            _this.theUser = val;
+            _this.isLoggedIn = true;
+
+            _this.userService.setUser(val);
+
+            console.log(val);
+
+            if ((_a = _this.theUser) === null || _a === void 0 ? void 0 : _a['userEmail']) {
+              _this.router.navigateByUrl('charLoad');
+            }
+          });
         }
+      }, {
+        key: "ngAfterViewChecked",
+        value: function ngAfterViewChecked() {}
       }, {
         key: "ngOnDestroy",
         value: function ngOnDestroy() {
           this.subs.forEach(function (s) {
             return s.unsubscribe();
+          });
+        }
+      }, {
+        key: "logout",
+        value: function logout() {
+          var _this2 = this;
+
+          this.userService.logOut().subscribe(function (val) {
+            _this2.userService.setUser(val);
+
+            _this2.isLoggedIn = false;
+            _this2.userName = '';
+
+            _this2.router.navigateByUrl('');
           });
         }
       }]);
@@ -298,15 +358,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }();
 
     AppComponent.ɵfac = function AppComponent_Factory(t) {
-      return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_char_data_service__WEBPACK_IMPORTED_MODULE_1__["CharDataService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"]));
+      return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_char_data_service__WEBPACK_IMPORTED_MODULE_1__["CharDataService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]));
     };
 
     AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: AppComponent,
       selectors: [["app-root"]],
-      decls: 12,
-      vars: 7,
-      consts: [["role", "main", 1, "content"], [1, "ui", "secondary", "pointing", "menu"], ["routerLink", "", "routerLinkActive", "active", 1, "item", 3, "routerLinkActiveOptions"], ["routerLink", "charLoad", "class", "item", "routerLinkActive", "active", 3, "routerLinkActiveOptions", 4, "ngIf"], ["routerLink", "charGen", "routerLinkActive", "active", "class", "item", 4, "ngIf"], ["routerLink", "newChar", "routerLinkActive", "active", "class", "item", 4, "ngIf"], ["routerLink", "party/search", "routerLinkActive", "active", "class", "item", 4, "ngIf"], [1, "item", 2, "position", "absolute", "right", "0px"], [1, "ui", "segment", "container"], ["routerLink", "charLoad", "routerLinkActive", "active", 1, "item", 3, "routerLinkActiveOptions"], ["routerLink", "charGen", "routerLinkActive", "active", 1, "item"], ["routerLink", "newChar", "routerLinkActive", "active", 1, "item"], ["routerLink", "party/search", "routerLinkActive", "active", 1, "item"]],
+      decls: 13,
+      vars: 8,
+      consts: [["role", "main", 1, "content"], [1, "ui", "secondary", "pointing", "menu"], ["routerLink", "", "routerLinkActive", "active", 1, "item", 3, "routerLinkActiveOptions"], ["routerLink", "charLoad", "class", "item", "routerLinkActive", "active", 3, "routerLinkActiveOptions", 4, "ngIf"], ["routerLink", "charGen", "routerLinkActive", "active", "class", "item", 4, "ngIf"], ["routerLink", "newChar", "routerLinkActive", "active", "class", "item", 4, "ngIf"], ["routerLink", "party/search", "routerLinkActive", "active", "class", "item", 4, "ngIf"], ["class", "item", 3, "click", 4, "ngIf"], [1, "item", 2, "position", "absolute", "right", "0px"], [1, "ui", "segment", "container"], ["routerLink", "charLoad", "routerLinkActive", "active", 1, "item", 3, "routerLinkActiveOptions"], ["routerLink", "charGen", "routerLinkActive", "active", 1, "item"], ["routerLink", "newChar", "routerLinkActive", "active", 1, "item"], ["routerLink", "party/search", "routerLinkActive", "active", 1, "item"], [1, "item", 3, "click"]],
       template: function AppComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
@@ -327,17 +387,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](7, AppComponent_a_7_Template, 2, 0, "a", 6);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "div", 7);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](8, AppComponent_a_8_Template, 2, 0, "a", 7);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "div", 8);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "div", 8);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "div", 9);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](11, "router-outlet");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](12, "router-outlet");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -347,9 +409,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         if (rf & 2) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLinkActiveOptions", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](6, _c0));
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLinkActiveOptions", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](7, _c0));
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.isLoggedIn);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.isLoggedIn);
 
@@ -370,7 +436,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("Welcome ", ctx.theUser["userName"], "");
         }
       },
-      directives: [_angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterLinkWithHref"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterLinkActive"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterOutlet"]],
+      directives: [_angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterLinkWithHref"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterLinkActive"], _angular_common__WEBPACK_IMPORTED_MODULE_5__["NgIf"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterOutlet"]],
       styles: [".ui.secondary.pointing[_ngcontent-%COMP%]   .active.item[_ngcontent-%COMP%]{\r\n  color:#336699;\r\n  border-color:#336699\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxhQUFhO0VBQ2I7QUFDRiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnVpLnNlY29uZGFyeS5wb2ludGluZyAuYWN0aXZlLml0ZW17XHJcbiAgY29sb3I6IzMzNjY5OTtcclxuICBib3JkZXItY29sb3I6IzMzNjY5OVxyXG59XHJcblxyXG4iXX0= */"]
     });
     /*@__PURE__*/
@@ -388,6 +454,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           type: _services_char_data_service__WEBPACK_IMPORTED_MODULE_1__["CharDataService"]
         }, {
           type: _services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
+        }, {
+          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
         }];
       }, null);
     })();
@@ -606,27 +676,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function ChargenHomeComponent(charDataSvc) {
-        var _this2 = this;
+        var _this3 = this;
 
         _classCallCheck(this, ChargenHomeComponent);
 
         this.charDataSvc = charDataSvc;
 
         this.titleValue = function () {
-          return _this2.charName;
+          return _this3.charName;
         };
       }
 
       _createClass(ChargenHomeComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this3 = this;
+          var _this4 = this;
 
           this.charDataSvc.getCharID.subscribe(function (val) {
-            return _this3.charID = val;
+            return _this4.charID = val;
           });
           this.charDataSvc.getCharName.subscribe(function (val) {
-            return _this3.charName = val;
+            return _this4.charName = val;
           });
         }
       }]);
@@ -1194,7 +1264,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function HomeComponent(userService, router, http, _snackBar) {
-        var _this4 = this;
+        var _this5 = this;
 
         _classCallCheck(this, HomeComponent);
 
@@ -1206,11 +1276,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.onSubmit = function (evt) {
           evt.preventDefault();
           var body = {
-            userEmail: _this4.userName,
-            password: _this4.password
+            userEmail: _this5.userName,
+            password: _this5.password
           };
 
-          if (_this4.userName === 'guest' && _this4.password === 'Gu3st') {
+          if (_this5.userName === 'guest' && _this5.password === 'Gu3st') {
             console.log('guest');
             var guest = {
               forcedReset: false,
@@ -1221,29 +1291,29 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               isLoggedIn: true
             };
 
-            _this4.userService.setUser(guest);
+            _this5.userService.setUser(guest);
 
-            _this4.router.navigate(['/charLoad']);
+            _this5.router.navigate(['/charLoad']);
 
             return;
           }
 
-          _this4.userService.loginUser(body).subscribe(function (val) {
-            _this4.theUser = val;
+          _this5.userService.loginUser(body).subscribe(function (val) {
+            _this5.theUser = val;
 
-            if (_this4.theUser.forcedReset) {
-              _this4.isLoggedIn = true;
-              _this4.isForced = true;
+            if (_this5.theUser.forcedReset) {
+              _this5.isLoggedIn = true;
+              _this5.isForced = true;
               return;
             } else {
-              _this4.theUser.isLoggedIn = true;
+              _this5.theUser.isLoggedIn = true;
 
-              _this4.userService.setUser(_this4.theUser);
+              _this5.userService.setUser(_this5.theUser);
 
-              _this4.router.navigate(['/charLoad']);
+              _this5.router.navigate(['/charLoad']);
             }
           }, function (err) {
-            _this4._snackBar.open('Invalid Login. Try Again', '', {
+            _this5._snackBar.open('Invalid Login. Try Again', '', {
               duration: 2000,
               horizontalPosition: 'center',
               verticalPosition: 'top',
@@ -1255,12 +1325,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.onReSubmit = function (evt) {
           evt.preventDefault();
 
-          if (_this4.newPassword !== _this4.confPassword) {
-            _this4.confPassword = '';
+          if (_this5.newPassword !== _this5.confPassword) {
+            _this5.confPassword = '';
 
-            _this4.confPasswordField.nativeElement.focus();
+            _this5.confPasswordField.nativeElement.focus();
 
-            _this4._snackBar.open('Passwords did not match, Try Again', '', {
+            _this5._snackBar.open('Passwords did not match, Try Again', '', {
               duration: 2000,
               horizontalPosition: 'center',
               verticalPosition: 'top',
@@ -1271,35 +1341,35 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
 
           var body = {
-            userName: _this4.emailAddress,
-            password: _this4.newPassword,
-            userID: _this4.theUser.userID
+            userName: _this5.emailAddress,
+            password: _this5.newPassword,
+            userID: _this5.theUser.userID
           };
 
-          _this4.userService.resetPassword(body).subscribe(function (val) {
+          _this5.userService.resetPassword(body).subscribe(function (val) {
             var aValue = val;
 
             if (aValue['status'] === 'done') {
-              _this4.theUser.isLoggedIn = true;
-              _this4.theUser.forcedReset = false;
+              _this5.theUser.isLoggedIn = true;
+              _this5.theUser.forcedReset = false;
 
-              _this4.userService.setUser(_this4.theUser);
+              _this5.userService.setUser(_this5.theUser);
 
-              _this4.isForced = false;
-              _this4.isLoggedIn = true;
+              _this5.isForced = false;
+              _this5.isLoggedIn = true;
 
-              _this4.router.navigate(['/charLoad']);
+              _this5.router.navigate(['/charLoad']);
             }
           });
         };
 
         this.onCreate = function (evt) {
-          if (_this4.newPassword !== _this4.confPassword) {
-            _this4.confPassword = '';
+          if (_this5.newPassword !== _this5.confPassword) {
+            _this5.confPassword = '';
 
-            _this4.confPasswordField.nativeElement.focus();
+            _this5.confPasswordField.nativeElement.focus();
 
-            _this4._snackBar.open('Passwords did not match, Try Again', '', {
+            _this5._snackBar.open('Passwords did not match, Try Again', '', {
               duration: 2000,
               horizontalPosition: 'center',
               verticalPosition: 'top',
@@ -1310,38 +1380,38 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
 
           var body = {
-            userName: _this4.userName,
-            password: _this4.newPassword,
-            userEmail: _this4.emailAddress
+            userName: _this5.userName,
+            password: _this5.newPassword,
+            userEmail: _this5.emailAddress
           };
 
-          _this4.userService.insertUser(body).subscribe(function (val) {
-            _this4.theUser = val;
-            _this4.theUser.userPassword = null;
+          _this5.userService.insertUser(body).subscribe(function (val) {
+            _this5.theUser = val;
+            _this5.theUser.userPassword = null;
 
-            _this4.userService.setUser(_this4.theUser);
+            _this5.userService.setUser(_this5.theUser);
 
-            _this4.router.navigate(['/charLoad']);
+            _this5.router.navigate(['/charLoad']);
           });
         };
 
         this.resendPassword = function () {
-          var tempEmail = _this4.userName;
-          _this4.userName = '';
+          var tempEmail = _this5.userName;
+          _this5.userName = '';
           console.log(tempEmail);
           var body = {
             userEmail: tempEmail
           };
 
-          _this4.userService.newPassword(body).subscribe(function (val) {
-            _this4._snackBar.open('Password reset. Check your email', '', {
+          _this5.userService.newPassword(body).subscribe(function (val) {
+            _this5._snackBar.open('Password reset. Check your email', '', {
               duration: 2000,
               horizontalPosition: 'center',
               verticalPosition: 'top',
               panelClass: ['red-snackbar']
             });
           }, function (err) {
-            _this4._snackBar.open('Email not found in database', '', {
+            _this5._snackBar.open('Email not found in database', '', {
               duration: 2000,
               horizontalPosition: 'center',
               verticalPosition: 'top',
@@ -1354,14 +1424,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(HomeComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this5 = this;
+          var _this6 = this;
 
           this.isNewUser = document.location.pathname === '/newUser';
           this.isForced = false;
           this.userService.getUser.subscribe(function (val) {
-            return _this5.theUser = val;
+            return _this6.theUser = val;
           });
-          this.isLoggedIn = this.theUser.userEmail !== undefined;
+          this.isLoggedIn = this.theUser.isLoggedIn;
+        }
+      }, {
+        key: "ngAfterViewInit",
+        value: function ngAfterViewInit() {// console.log('===================== app-home')
+          // this.userService.checkLoggedInStatus({}).subscribe((val)=>{
+          //   this.theUser = val;
+          //   this.theUser.isLoggedIn = true;
+          //   this.isLoggedIn = true;
+          //   console.log('===================== check', this.theUser, this.isLoggedIn);
+          // });
+          // this.userService.setUser(this.theUser);
         }
       }]);
 
@@ -1574,7 +1655,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function NewCharComponent(charDataSvc, userDataService, router, titleService, http) {
-        var _this6 = this;
+        var _this7 = this;
 
         _classCallCheck(this, NewCharComponent);
 
@@ -1587,23 +1668,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.onCancel = function (evt) {
           console.log('evt');
 
-          _this6.router.navigate(['/charLoad']);
+          _this7.router.navigate(['/charLoad']);
         };
 
         this.onSubmit = function (evt) {
           evt.preventDefault();
           var body = {
-            userID: _this6.loggedIn['userID'],
-            charName: _this6.charName,
-            charHP: _this6.charHP,
-            raceID: _this6.charRace,
-            alignID: _this6.charAlignment,
-            classID: _this6.charClass,
-            classLvl: _this6.charLevel
+            userID: _this7.loggedIn['userID'],
+            charName: _this7.charName,
+            charHP: _this7.charHP,
+            raceID: _this7.charRace,
+            alignID: _this7.charAlignment,
+            classID: _this7.charClass,
+            classLvl: _this7.charLevel
           };
 
-          _this6.charDataSvc.addCharacter(body).subscribe(function (vals) {
-            _this6.router.navigate(['/charLoad']);
+          _this7.charDataSvc.addCharacter(body).subscribe(function (vals) {
+            _this7.router.navigate(['/charLoad']);
           });
         };
       }
@@ -1611,20 +1692,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(NewCharComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this7 = this;
+          var _this8 = this;
 
           this.userDataService.getUser.subscribe(function (val) {
-            return _this7.loggedIn = val;
+            return _this8.loggedIn = val;
           });
           this.charDataSvc.getAllAlignment.subscribe(function (val) {
-            return _this7.theAlignments = val.results;
+            return _this8.theAlignments = val.results;
           });
 
           if (!this.theAlignments || this.theAlignments.length === 0) {
             this.charDataSvc.loadAlignments().subscribe(function (val) {
-              _this7.theAlignments = val.results;
+              _this8.theAlignments = val.results;
 
-              _this7.charDataSvc.setAllAlignments(val);
+              _this8.charDataSvc.setAllAlignments(val);
             });
           }
 
@@ -2065,7 +2146,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function CharDataService(http, socket) {
-        var _this8 = this;
+        var _this9 = this;
 
         _classCallCheck(this, CharDataService);
 
@@ -2129,85 +2210,85 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.getAllAlignment = this.allAlignments.asObservable();
 
         this.setCharBasics = function (arg) {
-          _this8.charBasics.next(arg);
+          _this9.charBasics.next(arg);
         };
 
         this.setAllFeats = function (arg) {
-          _this8.allFeats.next(arg);
+          _this9.allFeats.next(arg);
         };
 
         this.setStats = function (arg) {
-          _this8.allStats.next(arg);
+          _this9.allStats.next(arg);
         };
 
         this.setSaves = function (arg) {
-          _this8.allSaves.next(arg);
+          _this9.allSaves.next(arg);
         };
 
         this.setAllSkills = function (arg) {
-          _this8.allSkills.next(arg);
+          _this9.allSkills.next(arg);
         };
 
         this.setAllNotes = function (arg) {
-          _this8.allNotes.next(arg);
+          _this9.allNotes.next(arg);
         };
 
         this.setAllToHits = function (arg) {
-          _this8.allToHits.next(arg);
+          _this9.allToHits.next(arg);
         };
 
         this.setAllEquipment = function (arg) {
-          _this8.allEquipment.next(arg);
+          _this9.allEquipment.next(arg);
         };
 
         this.setAllACs = function (arg) {
-          _this8.allAC.next(arg);
+          _this9.allAC.next(arg);
         };
 
         this.setAllACGrps = function (arg) {
-          _this8.allACGrps.next(arg);
+          _this9.allACGrps.next(arg);
         };
 
         this.setAllSpells = function (arg) {
-          _this8.allSpells.next(arg);
+          _this9.allSpells.next(arg);
         };
 
         this.setAllAlignments = function (arg) {
-          _this8.allAlignments.next(arg);
+          _this9.allAlignments.next(arg);
         }; // global reset
 
 
         this.reset = function () {
-          _this8.charBasics.next(null);
+          _this9.charBasics.next(null);
 
-          _this8.charName.next('');
+          _this9.charName.next('');
 
-          _this8.charID.next(0);
+          _this9.charID.next(0);
 
-          _this8.allFeats.next(null);
+          _this9.allFeats.next(null);
 
-          _this8.allSkills.next(null);
+          _this9.allSkills.next(null);
 
-          _this8.allStats.next(null);
+          _this9.allStats.next(null);
 
-          _this8.allSaves.next(null);
+          _this9.allSaves.next(null);
 
-          _this8.allToHits.next(null);
+          _this9.allToHits.next(null);
 
-          _this8.allNotes.next(null);
+          _this9.allNotes.next(null);
 
-          _this8.allSpells.next(null);
+          _this9.allSpells.next(null);
 
-          _this8.allAC.next(null);
+          _this9.allAC.next(null);
 
-          _this8.allACGrps.next(null);
+          _this9.allACGrps.next(null);
         }; // remote loaders
         // tslint:disable:max-line-length
         // CHARACTER
 
 
         this.loadCharBase = function (id) {
-          var val = _this8.http.get('/api/characters/' + id, {
+          var val = _this9.http.get('/api/characters/' + id, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2217,7 +2298,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.addCharacter = function (obj) {
-          var val = _this8.http.post('/api/characters/new', Object.assign({}, obj), {
+          var val = _this9.http.post('/api/characters/new', Object.assign({}, obj), {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2227,7 +2308,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.insertClassLevels = function (obj) {
-          var val = _this8.http.post('/api/characters/updateClass', Object.assign({}, obj), {
+          var val = _this9.http.post('/api/characters/updateClass', Object.assign({}, obj), {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2238,7 +2319,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
         this.loadStats = function (arg) {
-          var val = _this8.http.get('/api/stats/ ' + arg, {
+          var val = _this9.http.get('/api/stats/ ' + arg, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2249,7 +2330,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
         this.loadFeats = function (id) {
-          var val = _this8.http.get('/api/characters/feats/' + id, {
+          var val = _this9.http.get('/api/characters/feats/' + id, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2263,7 +2344,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             val: arr.join(",")
           };
 
-          var val = _this8.http.post('/api/feats/all', body, {
+          var val = _this9.http.post('/api/feats/all', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2278,7 +2359,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             feat: feat
           };
 
-          var val = _this8.http.post('/api/feats/addFeat', body, {
+          var val = _this9.http.post('/api/feats/addFeat', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2288,7 +2369,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.deleteFeat = function (id) {
-          var val = _this8.http["delete"]('/api/feats/delete/' + id, {
+          var val = _this9.http["delete"]('/api/feats/delete/' + id, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2299,7 +2380,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
         this.loadSkills = function (id) {
-          var val = _this8.http.get('/api/characters/skills/' + id, {
+          var val = _this9.http.get('/api/characters/skills/' + id, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2313,7 +2394,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             val: arr.join(",")
           };
 
-          var val = _this8.http.post('/api/skills/all', body, {
+          var val = _this9.http.post('/api/skills/all', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2328,7 +2409,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             skill: skill
           };
 
-          var val = _this8.http.post('/api/skills/addSKill', body, {
+          var val = _this9.http.post('/api/skills/addSKill', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2356,7 +2437,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           switch (attType) {
             case 'skill':
-              val = _this8.http.post('/api/characters/updateSkill/', body, {
+              val = _this9.http.post('/api/characters/updateSkill/', body, {
                 headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
                   'Access-Control-Allow-Origin': '*'
                 })
@@ -2364,7 +2445,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               break;
 
             case 'stat':
-              val = _this8.http.post('/api/characters/updateStat/', body, {
+              val = _this9.http.post('/api/characters/updateStat/', body, {
                 headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
                   'Access-Control-Allow-Origin': '*'
                 })
@@ -2372,7 +2453,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               break;
 
             case 'save':
-              val = _this8.http.post('/api/characters/updateSave/', body, {
+              val = _this9.http.post('/api/characters/updateSave/', body, {
                 headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
                   'Access-Control-Allow-Origin': '*'
                 })
@@ -2380,7 +2461,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               break;
 
             case 'ac':
-              val = _this8.http.post('/api/characters/ac/', body, {
+              val = _this9.http.post('/api/characters/ac/', body, {
                 headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
                   'Access-Control-Allow-Origin': '*'
                 })
@@ -2388,7 +2469,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               break;
 
             case 'tohit':
-              val = _this8.http.post('/api/characters/updateToHit/', body, {
+              val = _this9.http.post('/api/characters/updateToHit/', body, {
                 headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
                   'Access-Control-Allow-Origin': '*'
                 })
@@ -2411,28 +2492,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           switch (attType) {
             case 'skill':
               //val =  this.http.delete<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/deleteSkill/'+attId);
-              val = _this8.http["delete"]('/api/characters/deleteSkill/' + attId);
+              val = _this9.http["delete"]('/api/characters/deleteSkill/' + attId);
               break;
 
             case 'stat':
               //val =  this.http.delete<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/deleteStat/'+attId);
-              val = _this8.http["delete"]('/api/characters/deleteStat/' + attId);
+              val = _this9.http["delete"]('/api/characters/deleteStat/' + attId);
               break;
               break;
 
             case 'save':
               //val =  this.http.delete<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/deleteSave/'+attId);
-              val = _this8.http["delete"]('/api/characters/deleteSave/' + attId);
+              val = _this9.http["delete"]('/api/characters/deleteSave/' + attId);
               break;
 
             case 'ac':
               //val =  this.http.delete<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/deleteAC/'+attId);
-              val = _this8.http["delete"]('/api/characters/deleteAC/' + attId);
+              val = _this9.http["delete"]('/api/characters/deleteAC/' + attId);
               break;
 
             case 'tohit':
               //val =  this.http.delete<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/deleteToHit/'+attId);
-              val = _this8.http["delete"]('/api/characters/deleteToHit/' + attId);
+              val = _this9.http["delete"]('/api/characters/deleteToHit/' + attId);
               break;
 
             default:
@@ -2445,7 +2526,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.loadSaves = function (id) {
           //const val =  this.http.get<Saves>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/saves/' + id, {
-          var val = _this8.http.get('/api/characters/saves/' + id, {
+          var val = _this9.http.get('/api/characters/saves/' + id, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2457,7 +2538,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.loadToHits = function (id) {
           //const val =  this.http.get<CharToHits>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/toHits/' + id, {
-          var val = _this8.http.get('/api/characters/toHits/' + id, {
+          var val = _this9.http.get('/api/characters/toHits/' + id, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2476,7 +2557,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             charID: cID
           }; //const val = this.http.post<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/newToHit/', body, {
 
-          var val = _this8.http.post('/api/newToHit/', body, {
+          var val = _this9.http.post('/api/newToHit/', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2486,7 +2567,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.reorderToHits = function (body) {
-          var val = _this8.http.put('/api/newToHit/reorderToHits', body, {
+          var val = _this9.http.put('/api/newToHit/reorderToHits', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2498,7 +2579,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.loadEquipment = function (id) {
           //const val =  this.http.get<Equipment>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/equip/' + id, {
-          var val = _this8.http.get('/api/characters/equip/' + id, {
+          var val = _this9.http.get('/api/characters/equip/' + id, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2509,7 +2590,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.addEquipment = function (body) {
           //const val =  this.http.post<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/equip/add', body, {
-          var val = _this8.http.post('/api/characters/equip/add', body, {
+          var val = _this9.http.post('/api/characters/equip/add', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2520,7 +2601,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.deleteEquipment = function (id) {
           //const val =  this.http.delete<Equipment>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/deleteequip/' + id, {
-          var val = _this8.http["delete"]('/api/characters/deleteequip/' + id, {
+          var val = _this9.http["delete"]('/api/characters/deleteequip/' + id, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2530,7 +2611,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.reorderEqiup = function (body) {
-          var val = _this8.http.put('/api/characters/equip/reorderEquip', body, {
+          var val = _this9.http.put('/api/characters/equip/reorderEquip', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2542,7 +2623,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.loadAC = function (id) {
           //const val =  this.http.get<Equipment>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/ac/' + id, {
-          var val = _this8.http.get('/api/characters/ac/' + id, {
+          var val = _this9.http.get('/api/characters/ac/' + id, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2553,7 +2634,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.loadACGrps = function (id) {
           //const val =  this.http.get<Equipment>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/ac/' + id, {
-          var val = _this8.http.get('/api/characters/acGrps/' + id, {
+          var val = _this9.http.get('/api/characters/acGrps/' + id, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2563,7 +2644,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.reorderACs = function (body) {
-          var val = _this8.http.put('/api/characters/reorderACs', body, {
+          var val = _this9.http.put('/api/characters/reorderACs', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2579,7 +2660,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             charID: cID
           };
 
-          var val = _this8.http.post('/api/characters/new-ac/', body, {
+          var val = _this9.http.post('/api/characters/new-ac/', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2595,7 +2676,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             charHP: charHP
           };
 
-          var val = _this8.http.post('/api/characters/updateHP/', body, {
+          var val = _this9.http.post('/api/characters/updateHP/', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2611,7 +2692,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             charXP: charXP
           };
 
-          var val = _this8.http.post('/api/characters/updateXP/', body, {
+          var val = _this9.http.post('/api/characters/updateXP/', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2627,7 +2708,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             init: init
           };
 
-          var val = _this8.http.post('/api/characters/updateInit/', body, {
+          var val = _this9.http.post('/api/characters/updateInit/', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2638,7 +2719,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
         this.loadNotes = function (charID) {
-          var val = _this8.http.get('/api/notes/getCharNotes/' + charID.toString(), {
+          var val = _this9.http.get('/api/notes/getCharNotes/' + charID.toString(), {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2648,7 +2729,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.loadNotesItems = function (noteID) {
-          var val = _this8.http.get('/api/notes/getNoteItems/' + noteID, {
+          var val = _this9.http.get('/api/notes/getNoteItems/' + noteID, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2659,7 +2740,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.addNoteHeader = function (body) {
           //const val =  this.http.post<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/equip/add', body, {
-          var val = _this8.http.post('/api/notes/insertNoteHeader', body, {
+          var val = _this9.http.post('/api/notes/insertNoteHeader', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2670,7 +2751,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.addNoteItem = function (body) {
           //const val =  this.http.post<any>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/equip/add', body, {
-          var val = _this8.http.post('/api/notes/insertNoteItem', body, {
+          var val = _this9.http.post('/api/notes/insertNoteItem', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2680,7 +2761,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.updateNoteHeader = function (body) {
-          var val = _this8.http.post('/api/notes/updateNote', body, {
+          var val = _this9.http.post('/api/notes/updateNote', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2690,7 +2771,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.updateNoteItem = function (body) {
-          var val = _this8.http.post('/api/notes/updateNoteItem', body, {
+          var val = _this9.http.post('/api/notes/updateNoteItem', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2700,7 +2781,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.deleteNoteHeader = function (noteID) {
-          var val = _this8.http.post('/api/notes/deleteNote/' + noteID, {
+          var val = _this9.http.post('/api/notes/deleteNote/' + noteID, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2710,7 +2791,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.deleteNoteItem = function (id) {
-          var val = _this8.http.post('/api/notes/deleteNoteItem/' + id, {
+          var val = _this9.http.post('/api/notes/deleteNoteItem/' + id, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2720,7 +2801,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.reorderNoteItems = function (body) {
-          var val = _this8.http.put('/api/notes/reorderNoteItem', body, {
+          var val = _this9.http.put('/api/notes/reorderNoteItem', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2730,7 +2811,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.reorderNoteHeader = function (body) {
-          var val = _this8.http.put('/api/notes/reorderNoteHeader', body, {
+          var val = _this9.http.put('/api/notes/reorderNoteHeader', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2744,7 +2825,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
         this.loadSpells = function (charID) {
-          var val = _this8.http.get('/api/spells/getAllSpells/' + charID.toString(), {
+          var val = _this9.http.get('/api/spells/getAllSpells/' + charID.toString(), {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2754,7 +2835,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.insertSpell = function (body) {
-          var val = _this8.http.post('/api/spells/addASpell', body, {
+          var val = _this9.http.post('/api/spells/addASpell', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2764,35 +2845,35 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.broadcastMessage = function (event, payload) {
-          _this8.socket.emit(event, payload);
+          _this9.socket.emit(event, payload);
         };
 
         this.toggleSpell = function (body) {
-          var val = _this8.http.post('/api/spells/toggleSpell', body, {
+          var val = _this9.http.post('/api/spells/toggleSpell', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
           });
 
-          _this8.socket.emit('SPELLUPDATE', body);
+          _this9.socket.emit('SPELLUPDATE', body);
 
           return val;
         };
 
         this.updateSpell = function (body) {
-          var val = _this8.http.post('/api/spells/updateASpell', body, {
+          var val = _this9.http.post('/api/spells/updateASpell', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
           });
 
-          _this8.socket.emit('CHANGESPELL', body);
+          _this9.socket.emit('CHANGESPELL', body);
 
           return val;
         };
 
         this.deleteSpell = function (id) {
-          var val = _this8.http["delete"]('/api/spells/deleteASpell/' + id, {
+          var val = _this9.http["delete"]('/api/spells/deleteASpell/' + id, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2803,7 +2884,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
         this.loadAlignments = function () {
-          var val = _this8.http.get('/api/alignments/', {
+          var val = _this9.http.get('/api/alignments/', {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2897,7 +2978,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! rxjs/operators */
+    "./node_modules/rxjs/_esm2015/operators/index.js");
+    /* harmony import */
+
+
+    var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/common/http */
     "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
 
@@ -2905,7 +2992,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function UserService(http) {
-        var _this9 = this;
+        var _this10 = this;
 
         _classCallCheck(this, UserService);
 
@@ -2915,8 +3002,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.getUser = this.user.asObservable();
 
         this.loginUser = function (body) {
-          var val = _this9.http.post('/api/login', body, {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+          var val = _this10.http.post('/api/login', body, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
           });
@@ -2925,8 +3012,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.resetPassword = function (body) {
-          var val = _this9.http.post('/api/login/resetPassword', body, {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+          var val = _this10.http.post('/api/login/resetPassword', body, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
           });
@@ -2935,8 +3022,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.insertUser = function (body) {
-          var val = _this9.http.post('/api/login/insertUser', body, {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+          var val = _this10.http.post('/api/login/insertUser', body, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
           });
@@ -2945,11 +3032,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.newPassword = function (body) {
-          var val = _this9.http.post('/api/login/newPassword', body, {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+          var val = _this10.http.post('/api/login/newPassword', body, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
           });
+
+          return val;
+        };
+
+        this.checkLoggedInStatus = function (body) {
+          var val = _this10.http.post('/api/login/user-status', {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
+              'Access-Control-Allow-Origin': '*'
+            })
+          }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (arg) {
+            return Object.assign(Object.assign({}, arg), {
+              isLoggedIn: true
+            });
+          }));
+
+          _this10.setUser(val);
+
+          return val;
+        };
+
+        this.logOut = function () {
+          var val = _this10.http.post('/api/login/sign-out', {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
+              'Access-Control-Allow-Origin': '*'
+            })
+          }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (arg) {
+            return Object.assign(Object.assign({}, arg), {
+              isLoggedIn: false
+            });
+          }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (arg) {
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])({});
+          }));
 
           return val;
         };
@@ -2967,7 +3086,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }();
 
     UserService.ɵfac = function UserService_Factory(t) {
-      return new (t || UserService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]));
+      return new (t || UserService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]));
     };
 
     UserService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({
@@ -2985,7 +3104,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }]
       }], function () {
         return [{
-          type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]
+          type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]
         }];
       }, null);
     })();

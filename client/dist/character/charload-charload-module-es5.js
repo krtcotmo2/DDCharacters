@@ -686,7 +686,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               return _char2.User.userEmail !== _this3.loggedIn['userEmail'] || _char2.User.userEmail === _this3.loggedIn['userEmail'] && _char2['isDead'];
             });
             _this3.characters = [].concat(_toConsumableArray(myChar), _toConsumableArray(notMyChar));
-            console.log(111, _this3.characters, myChar);
 
             _this3.charSvc.setAllChars(results);
           });

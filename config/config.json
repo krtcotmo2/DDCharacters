@@ -1,5 +1,12 @@
 {
   "development": {
+    "username": "kcd3t5bfabikqfyq",
+    "password": "m41btpmhkvs9kbih", 
+    "database": "cw75zb3m9cxubd2j",
+    "host": "y6aj3qju8efqj0w1.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "dialect": "mysql"
+  },
+  "developmentDUP": {
     "username": "root",
     "password": "135wlt@n51CMP", 
     "database": "Characters",
