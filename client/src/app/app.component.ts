@@ -4,7 +4,6 @@ import { Subscription } from 'rxjs';
 import { UserService } from './services/user.service';
 import { PartyMember } from './services/party.service';
 import { Router } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-root',
@@ -17,14 +16,12 @@ export class AppComponent implements OnInit, OnDestroy{
   userName: string;
   isLoggedIn = false;
   subs: Subscription[] = [];
-  currentMenber: PartyMember;
+  currentMember: PartyMember;
 
   constructor(
-    private charDataSvc: CharDataService,
+    // private charDataSvc: CharDataService,
     private userService: UserService,
     private router:Router,
-    private cookies: CookieService
-    // private socketService: SocketService
   ){}
 
     ngOnInit(): void {

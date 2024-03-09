@@ -13,8 +13,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBar} from '@angular/material/snack-bar';
 import { OverlayModule  } from '@angular/cdk/overlay';
 import { FormsModule } from '@angular/forms';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
+import { FontAwesomeModule as Fawe}  from '@fortawesome/angular-fontawesome';
 
 console.log(document.location.hostname)
 const protocol =  document.location.hostname.includes('localhost') ? 'ws' : 'wss';
@@ -44,7 +44,7 @@ const config: SocketIoConfig = {
     ReactiveFormsModule,
     OverlayModule,
     FormsModule,
-    FontAwesomeModule,
+    Fawe,
     SocketIoModule.forRoot(config),
 
   ],
