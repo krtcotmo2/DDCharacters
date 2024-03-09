@@ -133,16 +133,15 @@ class AppComponent {
         });
     }
     ngAfterContentInit() {
-        this.userService.checkLoggedInStatus({}).subscribe((val) => {
-            var _a;
-            this.theUser = val;
-            this.isLoggedIn = true;
-            this.userService.setUser(val);
-            console.log(val);
-            if ((_a = this.theUser) === null || _a === void 0 ? void 0 : _a['userEmail']) {
-                this.router.navigateByUrl('charLoad');
-            }
-        });
+        // this.userService.checkLoggedInStatus({}).subscribe((val)=>{
+        //   this.theUser = val;
+        //   this.isLoggedIn = true;
+        //   this.userService.setUser(val);
+        //   console.log(val)
+        //   if(this.theUser?.['userEmail']){
+        //     this.router.navigateByUrl('charLoad')
+        //   }
+        // });
     }
     ngOnDestroy() {
         this.subs.forEach((s) => s.unsubscribe());
@@ -1668,6 +1667,8 @@ class UserService {
                 }),
             }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(arg => {
                 return Object.assign(Object.assign({}, arg), { isLoggedIn: true });
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])((err) => {
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(err);
             }));
             // this.setUser(val);
             return val;
