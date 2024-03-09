@@ -33,15 +33,15 @@ export class AppComponent implements OnInit, OnDestroy{
       
     }
     ngAfterContentInit(): void {
-      // this.userService.checkLoggedInStatus({}).subscribe((val)=>{
-      //   this.theUser = val;
-      //   this.isLoggedIn = true;
-      //   this.userService.setUser(val);
-      //   console.log(val)
-      //   if(this.theUser?.['userEmail']){
-      //     this.router.navigateByUrl('charLoad')
-      //   }
-      // });
+      this.userService.checkLoggedInStatus({}).subscribe((val)=>{
+        this.theUser = val;
+        this.isLoggedIn = true;
+        this.userService.setUser(val);
+        console.log(val)
+        if(this.theUser?.['userEmail']){
+          this.router.navigateByUrl('charLoad')
+        }
+      });
       
     }
     ngOnDestroy(): void {
