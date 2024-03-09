@@ -312,7 +312,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             _this.userName = _this.theUser['userName'];
           });
           this.userService.checkLoggedInStatus({}).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(function (err) {
-            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(err);
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])({});
           })).subscribe(function (val) {
             var _a;
 
@@ -320,8 +320,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             _this.isLoggedIn = true;
 
             _this.userService.setUser(val);
-
-            console.log(val);
 
             if ((_a = _this.theUser) === null || _a === void 0 ? void 0 : _a['userEmail']) {
               _this.router.navigateByUrl('charLoad');

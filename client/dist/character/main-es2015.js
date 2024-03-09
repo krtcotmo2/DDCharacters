@@ -135,12 +135,11 @@ class AppComponent {
             this.isLoggedIn = this.theUser['isLoggedIn'];
             this.userName = this.theUser['userName'];
         });
-        this.userService.checkLoggedInStatus({}).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(err => Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(err))).subscribe((val) => {
+        this.userService.checkLoggedInStatus({}).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(err => Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])({}))).subscribe((val) => {
             var _a;
             this.theUser = val;
             this.isLoggedIn = true;
             this.userService.setUser(val);
-            console.log(val);
             if ((_a = this.theUser) === null || _a === void 0 ? void 0 : _a['userEmail']) {
                 this.router.navigateByUrl('charLoad');
             }
