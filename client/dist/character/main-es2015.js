@@ -254,8 +254,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 console.log(document.location.hostname);
-// const protocol =  document.location.hostname.includes('localhost') ? 'ws' : 'wss
-const protocol = document.location.hostname.includes('localhost') ? 'ws' : 'ws';
+const protocol = document.location.hostname.includes('localhost') ? 'ws' : 'wss';
 const config = {
     url: `${protocol}://${document.location.host}`,
     options: {

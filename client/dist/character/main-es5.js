@@ -573,9 +573,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! @fortawesome/angular-fontawesome */
     "./node_modules/@fortawesome/angular-fontawesome/__ivy_ngcc__/fesm2015/angular-fontawesome.js");
 
-    console.log(document.location.hostname); // const protocol =  document.location.hostname.includes('localhost') ? 'ws' : 'wss
-
-    var protocol = document.location.hostname.includes('localhost') ? 'ws' : 'ws';
+    console.log(document.location.hostname);
+    var protocol = document.location.hostname.includes('localhost') ? 'ws' : 'wss';
     var config = {
       url: "".concat(protocol, "://").concat(document.location.host),
       options: {
