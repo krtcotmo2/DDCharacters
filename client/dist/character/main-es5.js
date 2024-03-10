@@ -2820,6 +2820,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.toggleSpell = function (body) {
           var val = _this9.http.post('/api/spells/toggleSpell', body, {
+            withCredentials: true,
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2832,6 +2833,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.updateSpell = function (body) {
           var val = _this9.http.post('/api/spells/updateASpell', body, {
+            withCredentials: true,
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2844,6 +2846,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.deleteSpell = function (id) {
           var val = _this9.http["delete"]('/api/spells/deleteASpell/' + id, {
+            withCredentials: true,
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })
@@ -2855,6 +2858,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.loadAlignments = function () {
           var val = _this9.http.get('/api/alignments/', {
+            withCredentials: true,
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })

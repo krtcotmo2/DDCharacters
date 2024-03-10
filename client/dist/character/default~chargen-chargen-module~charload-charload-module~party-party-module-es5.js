@@ -18146,6 +18146,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.getChars = function () {
           //return this.http.get<Character>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/all', {
           return _this.http.get('/api/characters/all', {
+            withCredentials: true,
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
               'Access-Control-Allow-Origin': '*'
             })

@@ -52,6 +52,7 @@ export class CharService {
   public getChars = () => {
     //return this.http.get<Character>('https://cors-anywhere.herokuapp.com/https://pathfinder-krc.herokuapp.com/api/characters/all', {
     return this.http.get<Character>('/api/characters/all', {
+      withCredentials: true,
         headers: new HttpHeaders({
         'Access-Control-Allow-Origin': '*'
       }),

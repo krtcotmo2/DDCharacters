@@ -736,6 +736,7 @@ export class CharDataService {
 
     toggleSpell = (body: {}) => {
       const val =  this.http.post<any>('/api/spells/toggleSpell', body, {
+        withCredentials: true,
         headers: new HttpHeaders({
           'Access-Control-Allow-Origin': '*'
         }),
@@ -746,6 +747,7 @@ export class CharDataService {
 
     updateSpell = (body: {}) => {
       const val =  this.http.post<any>('/api/spells/updateASpell', body, {
+        withCredentials: true,
         headers: new HttpHeaders({
           'Access-Control-Allow-Origin': '*'
         }),
@@ -756,6 +758,7 @@ export class CharDataService {
 
     deleteSpell = (id: string) => {
       const val =  this.http.delete<any>('/api/spells/deleteASpell/' + id, {
+        withCredentials: true,
         headers: new HttpHeaders({
           'Access-Control-Allow-Origin': '*'
         }),
@@ -766,6 +769,7 @@ export class CharDataService {
   // ALIGNMENTS
       loadAlignments = () => {
         const val =  this.http.get<Alignments>('/api/alignments/', {
+          withCredentials: true,
           headers: new HttpHeaders({
           'Access-Control-Allow-Origin': '*'
           }),

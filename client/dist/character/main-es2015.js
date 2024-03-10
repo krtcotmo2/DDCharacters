@@ -1545,6 +1545,7 @@ class CharDataService {
         };
         this.toggleSpell = (body) => {
             const val = this.http.post('/api/spells/toggleSpell', body, {
+                withCredentials: true,
                 headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
                     'Access-Control-Allow-Origin': '*'
                 }),
@@ -1554,6 +1555,7 @@ class CharDataService {
         };
         this.updateSpell = (body) => {
             const val = this.http.post('/api/spells/updateASpell', body, {
+                withCredentials: true,
                 headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
                     'Access-Control-Allow-Origin': '*'
                 }),
@@ -1563,6 +1565,7 @@ class CharDataService {
         };
         this.deleteSpell = (id) => {
             const val = this.http.delete('/api/spells/deleteASpell/' + id, {
+                withCredentials: true,
                 headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
                     'Access-Control-Allow-Origin': '*'
                 }),
@@ -1572,6 +1575,7 @@ class CharDataService {
         // ALIGNMENTS
         this.loadAlignments = () => {
             const val = this.http.get('/api/alignments/', {
+                withCredentials: true,
                 headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
                     'Access-Control-Allow-Origin': '*'
                 }),
