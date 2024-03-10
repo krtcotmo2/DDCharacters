@@ -73,15 +73,7 @@ export class UserService {
         map(arg => {
           return {...arg, isLoggedIn: true};
         }),
-        catchError((err) => {
-          return of({"userID": 0,
-          "userName": "",
-          "userEmail": "",
-          "forcedReset": false,
-          "createdAt": "",
-          "updatedAt": "1970-1- 00:00:00",
-          "authorized": false});
-        })
+        catchError((err) => { throw new Error('sasads')})
       );
       this.setUser(val);
       return val;

@@ -3050,15 +3050,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 isLoggedIn: true
               });
             }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(function (err) {
-              return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])({
-                "userID": 0,
-                "userName": "",
-                "userEmail": "",
-                "forcedReset": false,
-                "createdAt": "",
-                "updatedAt": "1970-1- 00:00:00",
-                "authorized": false
-              });
+              throw new Error('sasads');
             }));
 
             _this10.setUser(val);
