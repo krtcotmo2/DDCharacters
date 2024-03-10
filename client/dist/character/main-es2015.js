@@ -145,7 +145,7 @@ class AppComponent {
             "authorized": false
         }))).subscribe((val) => {
             var _a;
-            if (!val.ok) {
+            if (val.ok !== undefined && !val.ok) {
                 return;
             }
             this.theUser = val;

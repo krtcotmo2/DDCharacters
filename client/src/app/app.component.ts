@@ -42,7 +42,7 @@ export class AppComponent implements OnInit, OnDestroy{
           "authorized": false
       }))
       ).subscribe((val)=>{
-        if(!val.ok){
+        if(val.ok !== undefined && !val.ok){
           return;
         }
         this.theUser = val;

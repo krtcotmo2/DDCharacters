@@ -324,7 +324,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           })).subscribe(function (val) {
             var _a;
 
-            if (!val.ok) {
+            if (val.ok !== undefined && !val.ok) {
               return;
             }
 
