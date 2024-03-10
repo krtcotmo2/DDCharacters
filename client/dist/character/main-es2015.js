@@ -135,6 +135,8 @@ class AppComponent {
             this.isLoggedIn = this.theUser['isLoggedIn'];
             this.userName = this.theUser['userName'];
         });
+    }
+    ngAfterContentInit() {
         this.userService.checkLoggedInStatus({}).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(err => Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])({}))).subscribe((val) => {
             var _a;
             if (val.ok !== undefined && !val.ok) {
@@ -147,8 +149,6 @@ class AppComponent {
                 this.router.navigateByUrl('charLoad');
             }
         });
-    }
-    ngAfterContentInit() {
     }
     ngOnDestroy() {
         this.subs.forEach((s) => s.unsubscribe());
