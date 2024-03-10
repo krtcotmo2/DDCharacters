@@ -1683,7 +1683,13 @@ class UserService {
             }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(arg => {
                 return Object.assign(Object.assign({}, arg), { isLoggedIn: true });
             }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])((err) => {
-                return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(err);
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])({ "userID": 0,
+                    "userName": "",
+                    "userEmail": "",
+                    "forcedReset": false,
+                    "createdAt": "",
+                    "updatedAt": "1970-1- 00:00:00",
+                    "authorized": false });
             }));
             this.setUser(val);
             return val;
