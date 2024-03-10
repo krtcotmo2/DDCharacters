@@ -35,19 +35,19 @@ export class HomeComponent implements OnInit {
     this.isForced = false;
     this.userService.getUser.subscribe( val => this.theUser = val);
     this.isLoggedIn = this.theUser.isLoggedIn;
-    this.userService.checkLoggedInStatus({}).pipe(
-        catchError(err => of({}))
-      ).subscribe((val)=>{
-        if(val.ok !== undefined && !val.ok){
-          return;
-        }
-        this.theUser = val;
-        this.isLoggedIn = true;
-        this.userService.setUser(val);
-        if(this.theUser?.['userEmail']){
-          this.router.navigateByUrl('charLoad')
-        }
-      });
+    // this.userService.checkLoggedInStatus({}).pipe(
+    //     catchError(err => of({}))
+    //   ).subscribe((val)=>{
+    //     if(val.ok !== undefined && !val.ok){
+    //       return;
+    //     }
+    //     this.theUser = val;
+    //     this.isLoggedIn = true;
+    //     this.userService.setUser(val);
+    //     if(this.theUser?.['userEmail']){
+    //       this.router.navigateByUrl('charLoad')
+    //     }
+    //   });
   }
   ngAfterViewInit(): void {
     // console.log('===================== app-home')
