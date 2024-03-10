@@ -4,7 +4,6 @@ const app = express();
 const PORT = process.env.PORT || 4200;
 const path = require('path');
 const server = http.createServer(app);
-
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const indexRouter = require('./routes/index');

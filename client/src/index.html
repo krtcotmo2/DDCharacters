@@ -11,18 +11,13 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script>
     var HOST = location.origin.replace(/^http/, 'ws')
-// var ws = new WebSocket(HOST);
+var ws = new WebSocket(HOST);
 var el;
-var socket = io();
-// ws.onmessage = function (event) {
-//   el = document.getElementById('server-time');
-//   el.innerHTML = 'Server time: ' + event.data;
-// };
 
-io.on('message', function (event) {
+ws.onmessage = function (event) {
   el = document.getElementById('server-time');
   el.innerHTML = 'Server time: ' + event.data;
-});
+};
 </script>
 </head>
 <body class="mat-typography">
