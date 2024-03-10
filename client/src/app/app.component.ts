@@ -31,22 +31,22 @@ export class AppComponent implements OnInit, OnDestroy{
         this.isLoggedIn = this.theUser['isLoggedIn'];
         this.userName = this.theUser['userName'];
       });
-      
+      this.userService.checkLoggedInStatus({}).pipe(
+        catchError(err => of({}))
+      ).subscribe((val)=>{
+        if(val.ok !== undefined && !val.ok){
+          return;
+        }
+        this.theUser = val;
+        this.isLoggedIn = true;
+        this.userService.setUser(val);
+        if(this.theUser?.['userEmail']){
+          this.router.navigateByUrl('charLoad')
+        }
+      });
     }
     ngAfterContentInit(): void {
-      // this.userService.checkLoggedInStatus({}).pipe(
-      //   catchError(err => of({}))
-      // ).subscribe((val)=>{
-      //   if(val.ok !== undefined && !val.ok){
-      //     return;
-      //   }
-      //   this.theUser = val;
-      //   this.isLoggedIn = true;
-      //   this.userService.setUser(val);
-      //   if(this.theUser?.['userEmail']){
-      //     this.router.navigateByUrl('charLoad')
-      //   }
-      // });
+    
       
     }
     ngOnDestroy(): void {
