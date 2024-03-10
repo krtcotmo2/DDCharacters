@@ -312,15 +312,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             _this.userName = _this.theUser['userName'];
           });
           this.userService.checkLoggedInStatus({}).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(function (err) {
-            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])({
-              "userID": 0,
-              "userName": "",
-              "userEmail": "",
-              "forcedReset": false,
-              "createdAt": "",
-              "updatedAt": "2022-08-28 02:19:40",
-              "authorized": false
-            });
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])({});
           })).subscribe(function (val) {
             var _a;
 
@@ -3048,15 +3040,31 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.checkLoggedInStatus = function (body) {
-          var val = _this10.http.post('/api/login/user-status', {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
-              'Access-Control-Allow-Origin': '*'
-            })
-          }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (arg) {
-            return Object.assign(Object.assign({}, arg), {
-              isLoggedIn: true
-            });
-          }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(function (err) {
+          try {
+            var val = _this10.http.post('/api/login/user-status', {
+              headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
+                'Access-Control-Allow-Origin': '*'
+              })
+            }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (arg) {
+              return Object.assign(Object.assign({}, arg), {
+                isLoggedIn: true
+              });
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(function (err) {
+              return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])({
+                "userID": 0,
+                "userName": "",
+                "userEmail": "",
+                "forcedReset": false,
+                "createdAt": "",
+                "updatedAt": "1970-1- 00:00:00",
+                "authorized": false
+              });
+            }));
+
+            _this10.setUser(val);
+
+            return val;
+          } catch (err) {
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])({
               "userID": 0,
               "userName": "",
@@ -3066,11 +3074,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               "updatedAt": "1970-1- 00:00:00",
               "authorized": false
             });
-          }));
-
-          _this10.setUser(val);
-
-          return val;
+          }
         };
 
         this.logOut = function () {

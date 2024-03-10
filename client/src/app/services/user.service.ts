@@ -64,26 +64,38 @@ export class UserService {
   }
 
   checkLoggedInStatus = (body: {}) => {
-    const val =  this.http.post<any>('/api/login/user-status', {
-      headers: new HttpHeaders({
-        'Access-Control-Allow-Origin': '*'
-      }),
-    }).pipe(
-      map(arg => {
-        return {...arg, isLoggedIn: true};
-      }),
-      catchError((err:any) => {
-        return of({"userID": 0,
+    try{
+      const val =  this.http.post<any>('/api/login/user-status', {
+        headers: new HttpHeaders({
+          'Access-Control-Allow-Origin': '*'
+        }),
+      }).pipe(
+        map(arg => {
+          return {...arg, isLoggedIn: true};
+        }),
+        catchError((err) => {
+          return of({"userID": 0,
+          "userName": "",
+          "userEmail": "",
+          "forcedReset": false,
+          "createdAt": "",
+          "updatedAt": "1970-1- 00:00:00",
+          "authorized": false});
+        })
+      );
+      this.setUser(val);
+      return val;
+    }catch(err){
+      return  of({
+       "userID": 0,
         "userName": "",
         "userEmail": "",
         "forcedReset": false,
         "createdAt": "",
         "updatedAt": "1970-1- 00:00:00",
-        "authorized": false})
+        "authorized": false
       })
-    );
-    this.setUser(val);
-    return val;
+    }
   }
 
   logOut = () =>{

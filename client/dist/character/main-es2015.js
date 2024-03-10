@@ -135,15 +135,7 @@ class AppComponent {
             this.isLoggedIn = this.theUser['isLoggedIn'];
             this.userName = this.theUser['userName'];
         });
-        this.userService.checkLoggedInStatus({}).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(err => Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])({
-            "userID": 0,
-            "userName": "",
-            "userEmail": "",
-            "forcedReset": false,
-            "createdAt": "",
-            "updatedAt": "2022-08-28 02:19:40",
-            "authorized": false
-        }))).subscribe((val) => {
+        this.userService.checkLoggedInStatus({}).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(err => Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])({}))).subscribe((val) => {
             var _a;
             if (val.ok !== undefined && !val.ok) {
                 return;
@@ -1676,23 +1668,36 @@ class UserService {
             return val;
         };
         this.checkLoggedInStatus = (body) => {
-            const val = this.http.post('/api/login/user-status', {
-                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
-                    'Access-Control-Allow-Origin': '*'
-                }),
-            }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(arg => {
-                return Object.assign(Object.assign({}, arg), { isLoggedIn: true });
-            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])((err) => {
-                return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])({ "userID": 0,
+            try {
+                const val = this.http.post('/api/login/user-status', {
+                    headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
+                        'Access-Control-Allow-Origin': '*'
+                    }),
+                }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(arg => {
+                    return Object.assign(Object.assign({}, arg), { isLoggedIn: true });
+                }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])((err) => {
+                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])({ "userID": 0,
+                        "userName": "",
+                        "userEmail": "",
+                        "forcedReset": false,
+                        "createdAt": "",
+                        "updatedAt": "1970-1- 00:00:00",
+                        "authorized": false });
+                }));
+                this.setUser(val);
+                return val;
+            }
+            catch (err) {
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])({
+                    "userID": 0,
                     "userName": "",
                     "userEmail": "",
                     "forcedReset": false,
                     "createdAt": "",
                     "updatedAt": "1970-1- 00:00:00",
-                    "authorized": false });
-            }));
-            this.setUser(val);
-            return val;
+                    "authorized": false
+                });
+            }
         };
         this.logOut = () => {
             const val = this.http.post('/api/login/sign-out', {
