@@ -9,18 +9,27 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="/socket.io/socket.io.js"></script>
   <script>
-    var HOST = location.origin.replace(/^https/, 'ws')
-var ws = new WebSocket(HOST);
-var el;
-
-ws.onmessage = function (event) {
-  el = document.getElementById('server-time');
-  el.innerHTML = 'Server time: ' + event.data;
-};
-</script>
+    const socket = io();
+    var HOST = location.origin.replace(/^http/, 'ws')
+    // var ws = new WebSocket(HOST);
+    var el;
+    socket.on("data", (event)=>{
+      let el = document.getElementById('server-time2');
+      el.innerHTML = 'Server time: ' + event.data;
+    });
+    // ws.onmessage = function (event) {
+    //   let el = document.getElementById('server-time');
+    //   el.innerHTML = 'Server time: ' + event.data;
+    // }; 
+  </script>
 </head>
 <body class="mat-typography">
-  <app-root></app-root>
+  <app-root>
+    <div id="server-time">1</div>
+    <div id="server-time2">2</div>
+
+  </app-root>
 <script src="runtime-es2015.js" type="module"></script><script src="runtime-es5.js" nomodule defer></script><script src="polyfills-es5.js" nomodule defer></script><script src="polyfills-es2015.js" type="module"></script><script src="styles-es2015.js" type="module"></script><script src="styles-es5.js" nomodule defer></script><script src="vendor-es2015.js" type="module"></script><script src="vendor-es5.js" nomodule defer></script><script src="main-es2015.js" type="module"></script><script src="main-es5.js" nomodule defer></script></body>
 </html>
