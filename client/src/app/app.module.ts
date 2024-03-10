@@ -17,7 +17,8 @@ import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 import { FontAwesomeModule as Fawe}  from '@fortawesome/angular-fontawesome';
 
 console.log(document.location.hostname)
-const protocol =  document.location.hostname.includes('localhost') ? 'ws' : 'wss';
+// const protocol =  document.location.hostname.includes('localhost') ? 'ws' : 'wss
+const protocol =  document.location.hostname.includes('localhost') ? 'ws' : 'ws';
 const config: SocketIoConfig = {
   url: `${protocol}://${document.location.host}`,
   options: {
