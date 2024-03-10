@@ -3,22 +3,14 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 4200;
 const path = require('path');
+const server = http.createServer(app);
 
-
-
-
-// const server = http.createServer(app);
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const indexRouter = require('./routes/index');
 const db = require("./models");
 const cors = require('cors');
 const { insertNoteItem } = require('./controllers/noteController');
-
-
-
-
-var server = require('http').createServer(app);
 
 const io = require('socket.io')(server, {
     cors: {
