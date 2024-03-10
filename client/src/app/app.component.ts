@@ -31,6 +31,9 @@ export class AppComponent implements OnInit, OnDestroy{
         this.isLoggedIn = this.theUser['isLoggedIn'];
         this.userName = this.theUser['userName'];
       });
+      
+    }
+    ngAfterContentInit(): void {
       this.userService.checkLoggedInStatus({}).pipe(
         catchError(err => of({}))
       ).subscribe((val)=>{
@@ -44,10 +47,6 @@ export class AppComponent implements OnInit, OnDestroy{
           this.router.navigateByUrl('charLoad')
         }
       });
-    }
-    ngAfterContentInit(): void {
-    
-      
     }
     ngOnDestroy(): void {
       this.subs.forEach( (s: Subscription) => s.unsubscribe());
